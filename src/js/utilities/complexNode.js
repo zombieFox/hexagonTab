@@ -1,8 +1,10 @@
-const complexNode = function({ tag = 'div', text = 'element', attr = [], node = [] } = {}) {
+const complexNode = function({ tag = 'div', text = false, attr = [], node = [] } = {}) {
 
   const element = document.createElement(tag);
 
-  element.textContent = text;
+  if (text) {
+    element.textContent = text;
+  };
 
   if (attr.length > 0) {
     attr.forEach((item, i) => {

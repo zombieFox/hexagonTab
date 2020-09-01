@@ -6,6 +6,7 @@ import { theme } from './theme.js';
 import { autoSuggest } from './autoSuggest.js';
 import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from './control.js';
 import { node } from './utilities/node.js';
+import { complexNode } from './utilities/complexNode.js';
 import { form } from './utilities/form.js';
 import { button } from './utilities/button.js';
 import { convertColor } from './utilities/convertColor.js';
@@ -284,7 +285,28 @@ bookmark.render.item = function() {
 
     const contentWrap = node('div|class:bookmark-content-wrap');
 
-    const content = node('a|href:' + item.url + ',class:bookmark-content,tabindex:1');
+    let contentOptions = {
+      tag: "a",
+      attr: [{
+        key: "class",
+        value: "bookmark-content"
+      }, {
+        key: "tabindex",
+        value: 1
+      }]
+    };
+    if (ifValidString(item.url)) {
+      contentOptions.attr.push({
+        key: "href",
+        value: trimString(item.url)
+      });
+    } else {
+      contentOptions.attr.push({
+        key: "href",
+        value: "#"
+      });
+    };
+    const content = complexNode(contentOptions);
 
     const display = node('div|class:bookmark-display');
 
