@@ -1,5 +1,5 @@
 # hexagonTab
-A hexagonal grid bookmark page accented with a chosen colour. Customise the layout, style, background and bookmarks in hexagonTab -- a custom start page.
+Hexagon bookmarks accented with a chosen colour. Customise the layout, style and background with hexagonTab - a custom start page.
 
 [![hexagonTab Demo](asset/screenshot/screenshot-001.png)](https://zombiefox.github.io/hexagonTab/)
 [![hexagonTab Demo](asset/screenshot/screenshot-002.png)](https://zombiefox.github.io/hexagonTab/)
