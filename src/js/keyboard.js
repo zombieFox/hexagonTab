@@ -10,22 +10,18 @@ import { toolbar } from './toolbar';
 const KeyPress = function({ keycode = false, ctrl = false, alt = false, action = false } = {}) {
   this.bind = () => {
     if (keycode) {
+
       window.addEventListener('keydown', function(event) {
-
         if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
-          this.func();
+          event.preventDefault();
+          if (action) {
+            action();
+          };
         };
+      });
 
-      }.bind(this));
     };
   };
-
-  this.func = () => {
-    if (action) {
-      action();
-    };
-  };
-
 };
 
 const keyboard = {};

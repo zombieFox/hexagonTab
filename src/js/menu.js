@@ -134,7 +134,7 @@ menu.mod.area = {
     name: 'Theme',
     active: false,
     overscroll: true,
-    subNav: [{ id: 'style', name: 'Style' }, { id: 'color', name: 'Color' }, { id: 'accent', name: 'Accent' }, { id: 'bookmark', name: 'Bookmark' }, { id: 'background', name: 'Background' }]
+    subNav: [{ id: 'style', name: 'Style' }, { id: 'color', name: 'Color' }, { id: 'accent', name: 'Accent' }, { id: 'bookmark', name: 'Bookmarks' }, { id: 'background', name: 'Background' }]
   }, {
     id: 'data',
     name: 'Data',
@@ -169,7 +169,7 @@ menu.bind.close = {
     const path = event.path || (event.composedPath && event.composedPath());
 
     if (!path.includes(currentMenu)) {
-      menu.render.frame.close();
+      menu.close();
     };
   },
   add: function() {
@@ -249,7 +249,7 @@ menu.render.component = {
       iconName: 'cross',
       classList: ['menu-close-tab'],
       func: function() {
-        menu.render.frame.close();
+        menu.close();
       }
     });
 
@@ -337,7 +337,7 @@ menu.toggle = function() {
   } else {
     menu.open();
   };
-}
+};
 
 menu.init = function() {
   menu.close();

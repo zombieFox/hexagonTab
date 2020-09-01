@@ -38,7 +38,7 @@ toolbar.button = {
     style: ['link'],
     classList: ['toolbar-button'],
     func: function() {
-      menu.open();
+      menu.toggle();
     }
   })
 }

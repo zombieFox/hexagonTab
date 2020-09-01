@@ -36,7 +36,7 @@ menuContentApp.splash = function() {
         tag: 'p',
         text: 'Project repository on ',
         node: [link.render({
-          text: 'GitHub',
+          text: 'GitHub.',
           href: 'https://github.com/zombieFox/' + data.saveName,
           openNew: true
         })]
@@ -46,7 +46,7 @@ menuContentApp.splash = function() {
         tag: 'p',
         text: 'For feedback and support, submit an ',
         node: [link.render({
-          text: 'Issue',
+          text: 'Issue.',
           href: 'https://github.com/zombieFox/' + data.saveName + '/issues',
           openNew: true
         })]
