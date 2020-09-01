@@ -1,0 +1,10 @@
+.toolbar {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: var(--z-index-toolbar);
+}
+
+.toolbar-button {
+  padding: 1em;
+}

@@ -1,0 +1,53 @@
+::selection {
+  background-color: rgb(var(--theme-accent));
+  color: hsl(var(--theme-accent-accessible-color));
+}
+
+:root {
+  --font-size: 14px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --font-size: 16px;
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  font-size: 1rem;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.is-theme-style-dark html,
+.is-theme-style-dark body,
+.is-theme-style-light html,
+.is-theme-style-light body {
+  background-color: rgb(var(--theme-color-01));
+  color: rgb(var(--theme-style-text));
+}
+
+@media (prefers-color-scheme: light) {
+
+  .is-theme-style-system html,
+  .is-theme-style-system body {
+    background-color: rgb(var(--theme-color-01));
+    color: rgb(var(--theme-style-text));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .is-theme-style-system html,
+  .is-theme-style-system body {
+    background-color: rgb(var(--theme-color-01));
+    color: rgb(var(--theme-style-text));
+  }
+}

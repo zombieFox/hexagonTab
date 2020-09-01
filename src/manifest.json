@@ -1,0 +1,16 @@
+{
+  "name": "hexagonTab",
+  "short_name": "hexagonTab",
+  "description": "A hexagonal grid bookmark page accented with a chosen colour. Customise the layout, style, background and bookmarks in hexagonTab -- a custom start page.",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "16": "icon/icon-16.png",
+    "48": "icon/icon-48.png",
+    "128": "icon/icon-128.png",
+    "512": "icon/icon-512.png"
+  }
+}

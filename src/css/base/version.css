@@ -1,0 +1,11 @@
+.version {
+  font-size: 1rem;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1em;
+  align-items: center;
+}
+
+.version-icon {
+  width: 3em;
+}

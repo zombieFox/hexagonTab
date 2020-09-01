@@ -1,0 +1,336 @@
+:root {
+  --theme-accent-r: 25;
+  --theme-accent-g: 25;
+  --theme-accent-b: 25;
+  --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);
+  --theme-accent-accessible-threshold: 0.5;
+  --theme-accent-accessible-r: calc(var(--theme-accent-r) * 0.50);
+  --theme-accent-accessible-g: calc(var(--theme-accent-g) * 0.60);
+  --theme-accent-accessible-b: calc(var(--theme-accent-b) * 0.20);
+  --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));
+  --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);
+  --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);
+  --theme-font-display-name: "Fjalla One", sans-serif;
+  --theme-font-display-weight: 400;
+  --theme-font-display-style: "normal";
+  --theme-font-ui-name: "Open Sans", sans-serif;
+  --theme-font-ui-weight: 400;
+  --theme-font-ui-style: "normal";
+  --theme-black: 0, 0, 0;
+  --theme-white: 255, 255, 255;
+  --theme-shade-negative-10: 25, 25, 25;
+  --theme-shade-negative-09: 25, 25, 25;
+  --theme-shade-negative-08: 25, 25, 25;
+  --theme-shade-negative-07: 25, 25, 25;
+  --theme-shade-negative-06: 25, 25, 25;
+  --theme-shade-negative-05: 25, 25, 25;
+  --theme-shade-negative-04: 25, 25, 25;
+  --theme-shade-negative-03: 25, 25, 25;
+  --theme-shade-negative-02: 25, 25, 25;
+  --theme-shade-negative-01: 25, 25, 25;
+  --theme-shade: 25, 25, 25;
+  --theme-shade-positive-01: 25, 25, 25;
+  --theme-shade-positive-02: 25, 25, 25;
+  --theme-shade-positive-03: 25, 25, 25;
+  --theme-shade-positive-04: 25, 25, 25;
+  --theme-shade-positive-05: 25, 25, 25;
+  --theme-shade-positive-06: 25, 25, 25;
+  --theme-shade-positive-07: 25, 25, 25;
+  --theme-shade-positive-08: 25, 25, 25;
+  --theme-shade-positive-09: 25, 25, 25;
+  --theme-shade-positive-10: 25, 25, 25;
+  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1rem);
+  --theme-shadow: 1;
+  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);
+  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);
+  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);
+  --theme-shadow-offset-base: 20;
+  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);
+  --theme-shadow-blur-base: 20;
+  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);
+  --theme-shadow-opacity-base: 20;
+  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);
+  --theme-shadow-bottom-small:
+    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),
+    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),
+    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),
+    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));
+  --theme-shadow-bottom-medium:
+    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),
+    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),
+    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),
+    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));
+  --theme-shadow-bottom-large:
+    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),
+    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),
+    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),
+    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));
+  --theme-shadow-top-small:
+    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),
+    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),
+    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),
+    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));
+  --theme-shadow-top-medium:
+    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),
+    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),
+    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),
+    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));
+  --theme-shadow-top-large:
+    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),
+    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),
+    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),
+    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));
+  --theme-background-theme: var(--theme-color-01);
+}
+
+.is-theme-style-dark {
+  --theme-color: var(--theme-shade);
+  --theme-color-01: var(--theme-shade-negative-10);
+  --theme-color-02: var(--theme-shade-negative-09);
+  --theme-color-03: var(--theme-shade-negative-08);
+  --theme-color-04: var(--theme-shade-negative-07);
+  --theme-color-05: var(--theme-shade-negative-06);
+  --theme-color-06: var(--theme-shade-negative-05);
+  --theme-color-07: var(--theme-shade-negative-04);
+  --theme-color-08: var(--theme-shade-negative-03);
+  --theme-color-09: var(--theme-shade-negative-02);
+  --theme-color-10: var(--theme-shade-negative-01);
+  --theme-color-11: var(--theme-shade-positive-01);
+  --theme-color-12: var(--theme-shade-positive-02);
+  --theme-color-13: var(--theme-shade-positive-03);
+  --theme-color-14: var(--theme-shade-positive-04);
+  --theme-color-15: var(--theme-shade-positive-05);
+  --theme-color-16: var(--theme-shade-positive-06);
+  --theme-color-17: var(--theme-shade-positive-07);
+  --theme-color-18: var(--theme-shade-positive-08);
+  --theme-color-19: var(--theme-shade-positive-09);
+  --theme-color-20: var(--theme-shade-positive-10);
+  --theme-style-text: var(--theme-white);
+}
+
+.is-theme-style-light {
+  --theme-color: var(--theme-shade);
+  --theme-color-01: var(--theme-shade-positive-10);
+  --theme-color-02: var(--theme-shade-positive-09);
+  --theme-color-03: var(--theme-shade-positive-08);
+  --theme-color-04: var(--theme-shade-positive-07);
+  --theme-color-05: var(--theme-shade-positive-06);
+  --theme-color-06: var(--theme-shade-positive-05);
+  --theme-color-07: var(--theme-shade-positive-04);
+  --theme-color-08: var(--theme-shade-positive-03);
+  --theme-color-09: var(--theme-shade-positive-02);
+  --theme-color-10: var(--theme-shade-positive-01);
+  --theme-color-11: var(--theme-shade-negative-01);
+  --theme-color-12: var(--theme-shade-negative-02);
+  --theme-color-13: var(--theme-shade-negative-03);
+  --theme-color-14: var(--theme-shade-negative-04);
+  --theme-color-15: var(--theme-shade-negative-05);
+  --theme-color-16: var(--theme-shade-negative-06);
+  --theme-color-17: var(--theme-shade-negative-07);
+  --theme-color-18: var(--theme-shade-negative-08);
+  --theme-color-19: var(--theme-shade-negative-09);
+  --theme-color-20: var(--theme-shade-negative-10);
+  --theme-style-text: var(--theme-black);
+}
+
+@media (prefers-color-scheme: light) {
+  .is-theme-style-system {
+    --theme-color: var(--theme-shade);
+    --theme-color-01: var(--theme-shade-positive-10);
+    --theme-color-02: var(--theme-shade-positive-09);
+    --theme-color-03: var(--theme-shade-positive-08);
+    --theme-color-04: var(--theme-shade-positive-07);
+    --theme-color-05: var(--theme-shade-positive-06);
+    --theme-color-06: var(--theme-shade-positive-05);
+    --theme-color-07: var(--theme-shade-positive-04);
+    --theme-color-08: var(--theme-shade-positive-03);
+    --theme-color-09: var(--theme-shade-positive-02);
+    --theme-color-10: var(--theme-shade-positive-01);
+    --theme-color-11: var(--theme-shade-negative-01);
+    --theme-color-12: var(--theme-shade-negative-02);
+    --theme-color-13: var(--theme-shade-negative-03);
+    --theme-color-14: var(--theme-shade-negative-04);
+    --theme-color-15: var(--theme-shade-negative-05);
+    --theme-color-16: var(--theme-shade-negative-06);
+    --theme-color-17: var(--theme-shade-negative-07);
+    --theme-color-18: var(--theme-shade-negative-08);
+    --theme-color-19: var(--theme-shade-negative-09);
+    --theme-color-20: var(--theme-shade-negative-10);
+    --theme-style-text: var(--theme-black);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .is-theme-style-system {
+    --theme-color: var(--theme-shade);
+    --theme-color-01: var(--theme-shade-negative-10);
+    --theme-color-02: var(--theme-shade-negative-09);
+    --theme-color-03: var(--theme-shade-negative-08);
+    --theme-color-04: var(--theme-shade-negative-07);
+    --theme-color-05: var(--theme-shade-negative-06);
+    --theme-color-06: var(--theme-shade-negative-05);
+    --theme-color-07: var(--theme-shade-negative-04);
+    --theme-color-08: var(--theme-shade-negative-03);
+    --theme-color-09: var(--theme-shade-negative-02);
+    --theme-color-10: var(--theme-shade-negative-01);
+    --theme-color-11: var(--theme-shade-positive-01);
+    --theme-color-12: var(--theme-shade-positive-02);
+    --theme-color-13: var(--theme-shade-positive-03);
+    --theme-color-14: var(--theme-shade-positive-04);
+    --theme-color-15: var(--theme-shade-positive-05);
+    --theme-color-16: var(--theme-shade-positive-06);
+    --theme-color-17: var(--theme-shade-positive-07);
+    --theme-color-18: var(--theme-shade-positive-08);
+    --theme-color-19: var(--theme-shade-positive-09);
+    --theme-color-20: var(--theme-shade-positive-10);
+    --theme-style-text: var(--theme-white);
+  }
+}
+
+.theme-color-box {
+  width: 100%;
+  height: 100%;
+}
+
+.theme-color-negative-10 {
+  background-color: rgb(var(--theme-color-01));
+}
+
+.theme-color-negative-09 {
+  background-color: rgb(var(--theme-color-02));
+}
+
+.theme-color-negative-08 {
+  background-color: rgb(var(--theme-color-03));
+}
+
+.theme-color-negative-07 {
+  background-color: rgb(var(--theme-color-04));
+}
+
+.theme-color-negative-06 {
+  background-color: rgb(var(--theme-color-05));
+}
+
+.theme-color-negative-05 {
+  background-color: rgb(var(--theme-color-06));
+}
+
+.theme-color-negative-04 {
+  background-color: rgb(var(--theme-color-07));
+}
+
+.theme-color-negative-03 {
+  background-color: rgb(var(--theme-color-08));
+}
+
+.theme-color-negative-02 {
+  background-color: rgb(var(--theme-color-09));
+}
+
+.theme-color-negative-01 {
+  background-color: rgb(var(--theme-color-10));
+}
+
+.theme-color {
+  background-color: rgb(var(--theme-color));
+}
+
+.theme-color-positive-01 {
+  background-color: rgb(var(--theme-color-11));
+}
+
+.theme-color-positive-02 {
+  background-color: rgb(var(--theme-color-12));
+}
+
+.theme-color-positive-03 {
+  background-color: rgb(var(--theme-color-13));
+}
+
+.theme-color-positive-04 {
+  background-color: rgb(var(--theme-color-14));
+}
+
+.theme-color-positive-05 {
+  background-color: rgb(var(--theme-color-15));
+}
+
+.theme-color-positive-06 {
+  background-color: rgb(var(--theme-color-16));
+}
+
+.theme-color-positive-07 {
+  background-color: rgb(var(--theme-color-17));
+}
+
+.theme-color-positive-08 {
+  background-color: rgb(var(--theme-color-18));
+}
+
+.theme-color-positive-09 {
+  background-color: rgb(var(--theme-color-19));
+}
+
+.theme-color-positive-10 {
+  background-color: rgb(var(--theme-color-20));
+}
+
+.theme-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: var(--z-index-background);
+}
+
+.theme-background-type {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+  opacity: 0;
+  transition: opacity var(--layout-transition-extra-fast);
+}
+
+.theme-background-type-theme {
+  background-color: rgb(var(--theme-background-theme));
+}
+
+.theme-background-type-color {
+  background-color: rgb(var(--theme-background-color));
+}
+
+.theme-background-type-gradient {
+  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));
+}
+
+.theme-background-type-image {
+  background-image: var(--theme-background-image);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  transform: scale(calc(var(--theme-background-image-scale) / 100));
+  filter: blur(calc(var(--theme-background-image-blur) * 1px));
+}
+
+.is-theme-background-type-theme .theme-background-type-theme {
+  opacity: 1;
+}
+
+.is-theme-background-type-color .theme-background-type-color {
+  opacity: 1;
+}
+
+.is-theme-background-type-gradient .theme-background-type-gradient {
+  opacity: 1;
+}
+
+.is-theme-background-type-image .theme-background-type-image {
+  opacity: calc(var(--theme-background-image-opacity) / 100);
+}

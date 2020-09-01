@@ -1,0 +1,23 @@
+:root {
+  --grid-cell-size: calc(var(--bookmark-size) - calc(var(--grid-gap) / 5));
+}
+
+.grid-area {
+  perspective: calc(var(--grid-perspective) * 1em);
+  font-size: calc(var(--grid-size) * 0.01rem);
+}
+
+.grid-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-column), calc(calc(var(--grid-cell-size) / 2) * 0.1em) calc(var(--grid-cell-size) * 0.1em)) calc(calc(var(--grid-cell-size) / 2) * 0.1em);
+  grid-gap: calc(var(--grid-gap) * 0.01em) calc(calc(var(--grid-gap) * 2) * 0.01em);
+  transform: rotateX(calc(var(--grid-transform-rotate-x) * 1deg)) rotateY(calc(var(--grid-transform-rotate-y) * 1deg)) rotateZ(calc(var(--grid-transform-rotate-z) * 1deg));
+  transition: transform var(--layout-transition-medium);
+  transform-style: preserve-3d;
+  transform-origin: center;
+}
+
+.is-bookmark-edit .grid-list {
+  transform: rotateX(0) rotateY(0) rotateZ(0);
+}
