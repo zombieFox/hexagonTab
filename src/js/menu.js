@@ -147,7 +147,7 @@ menu.mod.area = {
     active: false,
     overscroll: false
   }, {
-    id: data.saveName,
+    id: 'app',
     name: data.saveName,
     active: false,
     overscroll: false
@@ -313,7 +313,7 @@ menu.render.component = {
     coffee: function(currentContentArea) {
       currentContentArea.appendChild(menuContentCoffee.fuel());
     },
-    [data.saveName]: function(currentContentArea) {
+    app: function(currentContentArea) {
       currentContentArea.appendChild(menuContentApp.splash());
     }
   }
