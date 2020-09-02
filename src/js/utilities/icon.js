@@ -104,6 +104,7 @@ icon.render = function(name) {
   svg.setAttribute('viewBox', '0 0 24 24');
   svg.setAttribute('width', '24');
   svg.setAttribute('height', '24');
+  svg.setAttribute('fill', 'currentColor');
 
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('d', icon.all[name].path);
