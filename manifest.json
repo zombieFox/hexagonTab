@@ -2,7 +2,7 @@
   "name": "hexagonTab",
   "short_name": "hexagonTab",
   "description": "Hexagon bookmarks accented with a chosen colour. Customise the layout, style and background with hexagonTab - a custom start page.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 2,
   "chrome_url_overrides": {
     "newtab": "index.html"
