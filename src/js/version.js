@@ -1,6 +1,6 @@
 const version = {};
 
-version.number = '1.0.0';
+version.number = '1.1.0';
 
 version.name = 'Quirky Llama';
 
