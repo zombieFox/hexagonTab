@@ -639,11 +639,20 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
           ])
         }
       };
+
       radioAndLabel.radio.update = () => {
         radioAndLabel.radio.checked = (get({
           object: object,
           path: radioGroupPath,
         }) === item.value);
+      };
+
+      radioAndLabel.radio.disable = () => {
+        radioAndLabel.radio.disabled = true;
+      };
+
+      radioAndLabel.radio.enable = () => {
+        radioAndLabel.radio.disabled = false;
       };
 
       this.radioSet.push(radioAndLabel);
@@ -672,13 +681,13 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
 
   this.disable = () => {
     this.radioSet.forEach((item, i) => {
-      item.radio.disabled = true;
+      item.radio.disable();
     });
   };
 
   this.enable = () => {
     this.radioSet.forEach((item, i) => {
-      item.radio.disabled = false;
+      item.radio.enable();
     });
   };
 };
@@ -739,7 +748,7 @@ const ControlModule_checkbox = function({ object = {}, id = 'name', path = false
   };
 };
 
-const ControlModule_colorMixer = function({ object = {}, path = false, defaultValue = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
+const ControlModule_colorMixer = function({ object = {}, path = false, defaultValue = false, minMaxObject = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
 
   this.color = new ControlModule_color({
     object: object,
@@ -773,8 +782,8 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     id: id + '-hsl-h',
     labelText: 'Hue',
     value: get({ object: object, path: path + '.hsl.h' }),
-    min: get({ object: state.get.minMax(), path: path + '.hsl.h.min' }),
-    max: get({ object: state.get.minMax(), path: path + '.hsl.h.max' }),
+    min: get({ object: minMaxObject, path: path + '.hsl.h.min' }),
+    max: get({ object: minMaxObject, path: path + '.hsl.h.max' }),
     action: () => {
       set({
         object: object,
@@ -799,8 +808,8 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     id: id + '-hsl-s',
     labelText: 'Saturation',
     value: get({ object: object, path: path + '.hsl.s' }),
-    min: get({ object: state.get.minMax(), path: path + '.hsl.s.min' }),
-    max: get({ object: state.get.minMax(), path: path + '.hsl.s.max' }),
+    min: get({ object: minMaxObject, path: path + '.hsl.s.min' }),
+    max: get({ object: minMaxObject, path: path + '.hsl.s.max' }),
     action: () => {
       set({
         object: object,
@@ -825,8 +834,8 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     id: id + '-hsl-l',
     labelText: 'Lightness',
     value: get({ object: object, path: path + '.hsl.l' }),
-    min: get({ object: state.get.minMax(), path: path + '.hsl.l.min' }),
-    max: get({ object: state.get.minMax(), path: path + '.hsl.l.max' }),
+    min: get({ object: minMaxObject, path: path + '.hsl.l.min' }),
+    max: get({ object: minMaxObject, path: path + '.hsl.l.max' }),
     action: () => {
       set({
         object: object,
@@ -851,8 +860,8 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     id: id + '-rgb-r',
     labelText: 'Red',
     value: get({ object: object, path: path + '.rgb.r' }),
-    min: get({ object: state.get.minMax(), path: path + '.rgb.r.min' }),
-    max: get({ object: state.get.minMax(), path: path + '.rgb.r.max' }),
+    min: get({ object: minMaxObject, path: path + '.rgb.r.min' }),
+    max: get({ object: minMaxObject, path: path + '.rgb.r.max' }),
     action: () => {
       set({
         object: object,
@@ -877,8 +886,8 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     id: id + '-rgb-g',
     labelText: 'Green',
     value: get({ object: object, path: path + '.rgb.g' }),
-    min: get({ object: state.get.minMax(), path: path + '.rgb.g.min' }),
-    max: get({ object: state.get.minMax(), path: path + '.rgb.g.max' }),
+    min: get({ object: minMaxObject, path: path + '.rgb.g.min' }),
+    max: get({ object: minMaxObject, path: path + '.rgb.g.max' }),
     action: () => {
       set({
         object: object,
@@ -903,8 +912,8 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     id: id + '-rgb-b',
     labelText: 'Blue',
     value: get({ object: object, path: path + '.rgb.b' }),
-    min: get({ object: state.get.minMax(), path: path + '.rgb.b.min' }),
-    max: get({ object: state.get.minMax(), path: path + '.rgb.b.max' }),
+    min: get({ object: minMaxObject, path: path + '.rgb.b.min' }),
+    max: get({ object: minMaxObject, path: path + '.rgb.b.max' }),
     action: () => {
       set({
         object: object,

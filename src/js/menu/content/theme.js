@@ -56,6 +56,7 @@ menuContentTheme.color = function() {
     id: 'theme-color',
     labelText: 'Primary colour',
     defaultValue: state.get.default().theme.color.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
       theme.mod.color.generated();
       theme.render.color.shade();
@@ -170,6 +171,7 @@ menuContentTheme.accent = function() {
     id: 'theme-accent',
     labelText: 'Accent color',
     defaultValue: state.get.default().theme.accent.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.accent.color();
       data.save();
@@ -212,6 +214,7 @@ menuContentTheme.bookmark = function() {
     labelText: 'Bookmark shadow colour',
     srOnly: true,
     defaultValue: state.get.default().theme.bookmark.shadow.color.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.bookmark.style();
       data.save();
@@ -295,6 +298,7 @@ menuContentTheme.background = function() {
     id: 'theme-background-color',
     labelText: 'Background colour',
     defaultValue: state.get.default().theme.background.color.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.style();
       data.save();
@@ -322,6 +326,7 @@ menuContentTheme.background = function() {
     id: 'theme-background-gradient-start',
     labelText: 'Background gradient colour 1',
     defaultValue: state.get.default().theme.background.gradient.start.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.style();
       data.save();
@@ -334,6 +339,7 @@ menuContentTheme.background = function() {
     id: 'theme-background-gradient-end',
     labelText: 'Background gradient colour 2',
     defaultValue: state.get.default().theme.background.gradient.end.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.style();
       data.save();
