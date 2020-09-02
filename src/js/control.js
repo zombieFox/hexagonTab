@@ -100,6 +100,16 @@ const ControlModule_inputButton = function({ id = 'name', type = false, inputHid
       this.formButton
     ])
   };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.input.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.input.disabled = false;
+  };
 };
 
 const ControlModule_groupText = function({ text = false, classList = [] } = {}) {
@@ -123,6 +133,14 @@ const ControlModule_groupText = function({ text = false, classList = [] } = {}) 
     return form.render.wrap([
       this.groupText
     ])
+  };
+
+  this.disable = () => {
+    this.groupText.classList.add('disabled');
+  };
+
+  this.enable = () => {
+    this.groupText.classList.remove('disabled');
   };
 };
 
@@ -181,6 +199,16 @@ const ControlModule_text = function({ object = {}, path = false, id = 'name', va
       this.label,
       this.text
     ])
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.text.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.text.disabled = false;
   };
 };
 
@@ -294,6 +322,20 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
 
     return wrap;
   };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.range.disabled = true;
+    this.number.disabled = true;
+    this.reset.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.range.disabled = false;
+    this.number.disabled = false;
+    this.reset.disabled = false;
+  };
 };
 
 const ControlModule_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
@@ -406,6 +448,20 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     ]);
 
     return wrap;
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.range.disabled = true;
+    this.number.disabled = true;
+    this.reset.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.range.disabled = false;
+    this.number.disabled = false;
+    this.reset.disabled = false;
   };
 };
 
@@ -525,6 +581,20 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
 
     return wrap;
   };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.color.disabled = true;
+    this.text.disabled = true;
+    this.reset.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.color.disabled = false;
+    this.text.disabled = false;
+    this.reset.disabled = false;
+  };
 };
 
 const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
@@ -599,6 +669,18 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
 
     return group;
   };
+
+  this.disable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.disabled = true;
+    });
+  };
+
+  this.enable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.disabled = false;
+    });
+  };
 };
 
 const ControlModule_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = 'description', action = false } = {}) {
@@ -646,6 +728,14 @@ const ControlModule_checkbox = function({ object = {}, id = 'name', path = false
         this.label
       ])
     ])
+  };
+
+  this.disable = () => {
+    this.checkbox.disabled = true;
+  };
+
+  this.enable = () => {
+    this.checkbox.disabled = false;
   };
 };
 
@@ -849,6 +939,26 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
         ])
       ])
     ])
+  };
+
+  this.disable = () => {
+    this.color.disable();
+    this.colorSliderH.disable();
+    this.colorSliderS.disable();
+    this.colorSliderL.disable();
+    this.colorSliderR.disable();
+    this.colorSliderG.disable();
+    this.colorSliderB.disable();
+  };
+
+  this.enable = () => {
+    this.color.enable();
+    this.colorSliderH.enable();
+    this.colorSliderS.enable();
+    this.colorSliderL.enable();
+    this.colorSliderR.enable();
+    this.colorSliderG.enable();
+    this.colorSliderB.enable();
   };
 };
 
