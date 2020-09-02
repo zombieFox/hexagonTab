@@ -1,4 +1,6 @@
 import { node } from './node.js';
+import { icon } from './icon.js';
+import { form } from './form.js';
 
 const link = {};
 

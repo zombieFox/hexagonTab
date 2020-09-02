@@ -11,7 +11,7 @@ import { complexNode } from '../../utilities/complexNode.js';
 import { icon } from '../../utilities/icon.js';
 import { logo } from '../../utilities/logo.js';
 import { form } from '../../utilities/form.js';
-import { button } from '../../utilities/button.js';
+import { Button } from '../../utilities/button.js';
 import { link } from '../../utilities/link.js';
 import { ControlModule_text, ControlModule_inputButton, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../../control.js';
 
@@ -56,17 +56,17 @@ menuContentData.backup = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Backup'));
 
+  const exportButton = new Button({
+    text: 'Export data',
+    style: ['line'],
+    func: () => {
+      data.export();
+    }
+  });
+
   menuContentItem.appendChild(
     menu.render.component.item.form([
-      form.render.wrap([
-        button.render({
-          text: 'Export data',
-          style: ['line'],
-          func: () => {
-            data.export();
-          }
-        })
-      ]),
+      exportButton.wrap(),
       form.render.wrap([
         form.render.helper({ text: 'Download a backup of your ' + data.saveName + ' Bookmarks and Settings.' }),
         form.render.helper({ text: 'This file can later be imported on this or another deivce.' })
@@ -82,18 +82,18 @@ menuContentData.clear = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Clear'));
 
+  const clearButton = new Button({
+    text: 'Clear all data',
+    style: ['line'],
+    func: () => {
+      menu.close();
+      data.render.clear();
+    }
+  });
+
   menuContentItem.appendChild(
     menu.render.component.item.form([
-      form.render.wrap([
-        button.render({
-          text: 'Clear all data',
-          style: ['line'],
-          func: () => {
-            menu.close();
-            data.render.clear();
-          }
-        })
-      ]),
+      clearButton.wrap(),
       form.render.wrap([
         form.render.helper({ text: 'Wipe all data and restore ' + data.saveName + ' to the default state.' })
       ])

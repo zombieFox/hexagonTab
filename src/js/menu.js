@@ -4,7 +4,7 @@ import { bookmark } from './bookmark.js';
 import { theme } from './theme.js';
 import { grid } from './grid.js';
 import { ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from './control.js';
-import { button } from './utilities/button.js';
+import { Button } from './utilities/button.js';
 import { form } from './utilities/form.js';
 import { node } from './utilities/node.js';
 import { convertColor } from './utilities/convertColor.js';
@@ -26,7 +26,7 @@ const MenuNav = function() {
       subLevel: false
     };
 
-    const navButton = button.render({
+    const navButton = new Button({
       text: item.name,
       style: ['line'],
       block: true,
@@ -39,7 +39,7 @@ const MenuNav = function() {
       }
     });
 
-    navItem.topLevel = navButton;
+    navItem.topLevel = navButton.button;
 
     if (item.subNav) {
       const subNav = node('div|class:menu-subnav');
@@ -242,7 +242,7 @@ menu.render.component = {
   close: function() {
     const menuClose = node('div|class:menu-close');
 
-    const closeButton = button.render({
+    const closeButton = new Button({
       text: 'Close settings menu',
       srOnly: true,
       style: ['link'],
@@ -253,7 +253,7 @@ menu.render.component = {
       }
     });
 
-    menuClose.appendChild(closeButton);
+    menuClose.appendChild(closeButton.button);
 
     return menuClose;
   },

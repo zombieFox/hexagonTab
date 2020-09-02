@@ -8,7 +8,7 @@ import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, C
 import { node } from './utilities/node.js';
 import { complexNode } from './utilities/complexNode.js';
 import { form } from './utilities/form.js';
-import { button } from './utilities/button.js';
+import { Button } from './utilities/button.js';
 import { convertColor } from './utilities/convertColor.js';
 import { ifValidString } from './utilities/ifValidString.js';
 import { trimString } from './utilities/trimString.js';
@@ -414,7 +414,7 @@ bookmark.render.item = function() {
 
     const control = node('div|class:bookmark-control form-group');
 
-    const controlLeft = button.render({
+    const controlLeft = new Button({
       text: 'Move this bookmark left',
       srOnly: true,
       iconName: 'arrowKeyboardLeft',
@@ -436,7 +436,7 @@ bookmark.render.item = function() {
       }
     });
 
-    const controlRight = button.render({
+    const controlRight = new Button({
       text: 'Move this bookmark right',
       srOnly: true,
       iconName: 'arrowKeyboardRight',
@@ -458,7 +458,7 @@ bookmark.render.item = function() {
       }
     });
 
-    const controlEdit = button.render({
+    const controlEdit = new Button({
       text: 'Edit this bookmark',
       srOnly: true,
       iconName: 'edit',
@@ -485,7 +485,7 @@ bookmark.render.item = function() {
       }
     });
 
-    const controlRemove = button.render({
+    const controlRemove = new Button({
       text: 'Remove this bookmark',
       srOnly: true,
       iconName: 'cross',
@@ -518,10 +518,11 @@ bookmark.render.item = function() {
       }
     });
 
-    control.appendChild(controlLeft);
-    control.appendChild(controlRight);
-    control.appendChild(controlEdit);
-    control.appendChild(controlRemove);
+    control.appendChild(controlLeft.button);
+    control.appendChild(controlRight.button);
+    control.appendChild(controlEdit.button);
+    control.appendChild(controlRemove.button);
+
     contentWrap.appendChild(control);
 
     gridList.appendChild(bookmarkElement);
@@ -594,7 +595,7 @@ bookmark.form = function(bookmarkData) {
       displayVisualTypeLetter.enable();
       displayVisualTypeIcon.enable();
       displayVisualTypeIconDisplay.enable();
-      displayVisualTypeIconRemove.disabled = false;
+      displayVisualTypeIconRemove.enable();
       displayVisualTypeImage.enable();
       displayVisualSize.enable();
     } else {
@@ -602,7 +603,7 @@ bookmark.form = function(bookmarkData) {
       displayVisualTypeLetter.disable();
       displayVisualTypeIcon.disable();
       displayVisualTypeIconDisplay.disable();
-      displayVisualTypeIconRemove.disabled = true;
+      displayVisualTypeIconRemove.disable();
       displayVisualTypeImage.disable();
       displayVisualSize.disable();
     };
@@ -611,19 +612,19 @@ bookmark.form = function(bookmarkData) {
       displayVisualTypeLetter.enable();
       displayVisualTypeIcon.disable();
       displayVisualTypeIconDisplay.disable()
-      displayVisualTypeIconRemove.disabled = true;
+      displayVisualTypeIconRemove.disable();
       displayVisualTypeImage.disable();
     } else if (bookmarkData.link.display.visual.show && bookmarkData.link.display.visual.type === 'icon') {
       displayVisualTypeLetter.disable();
       displayVisualTypeIcon.enable();
       displayVisualTypeIconDisplay.enable();
-      displayVisualTypeIconRemove.disabled = false;
+      displayVisualTypeIconRemove.enable();
       displayVisualTypeImage.disable();
     } else if (bookmarkData.link.display.visual.show && bookmarkData.link.display.visual.type === 'image') {
       displayVisualTypeLetter.disable();
       displayVisualTypeIcon.disable();
       displayVisualTypeIconDisplay.disable()
-      displayVisualTypeIconRemove.disabled = true;
+      displayVisualTypeIconRemove.disable();
       displayVisualTypeImage.enable();
     };
 
@@ -696,7 +697,7 @@ bookmark.form = function(bookmarkData) {
     classList: ['bookmark-form-text-icon']
   });
 
-  const displayVisualTypeIconRemove = button.render({
+  const displayVisualTypeIconRemove = new Button({
     text: 'Remove icon',
     srOnly: true,
     style: ['line'],
@@ -784,7 +785,7 @@ bookmark.form = function(bookmarkData) {
               form.render.group([
                 displayVisualTypeIcon.text,
                 displayVisualTypeIconDisplay.groupText,
-                displayVisualTypeIconRemove
+                displayVisualTypeIconRemove.button
               ])
             ])
           ])

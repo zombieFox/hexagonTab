@@ -5,7 +5,7 @@ import { bookmark } from './bookmark';
 import { node } from './utilities/node.js';
 import { get } from './utilities/get.js';
 import { set } from './utilities/set.js';
-import { button } from './utilities/button.js';
+import { Button } from './utilities/button.js';
 import { form } from './utilities/form.js';
 import { convertColor } from './utilities/convertColor.js';
 import { ifValidString } from './utilities/ifValidString.js';
@@ -267,7 +267,7 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     }
   });
 
-  this.reset = button.render({
+  this.reset = new Button({
     text: false,
     iconName: 'replay',
     style: ['line'],
@@ -312,7 +312,7 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     ]);
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
-      formGroup.appendChild(this.reset);
+      formGroup.appendChild(this.reset.button);
     };
 
     const wrap = form.render.wrap([
@@ -327,14 +327,14 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     this.label.classList.add('disabled');
     this.range.disabled = true;
     this.number.disabled = true;
-    this.reset.disabled = true;
+    this.reset.disable();
   };
 
   this.enable = () => {
     this.label.classList.remove('disabled');
     this.range.disabled = false;
     this.number.disabled = false;
-    this.reset.disabled = false;
+    this.reset.enable();
   };
 };
 
@@ -394,7 +394,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     }
   });
 
-  this.reset = button.render({
+  this.reset = new Button({
     text: false,
     iconName: 'replay',
     style: ['line'],
@@ -440,7 +440,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     ]);
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
-      formGroup.appendChild(this.reset);
+      formGroup.appendChild(this.reset.button);
     };
 
     const wrap = form.render.wrap([
@@ -454,14 +454,14 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     this.label.classList.add('disabled');
     this.range.disabled = true;
     this.number.disabled = true;
-    this.reset.disabled = true;
+    this.reset.disable();
   };
 
   this.enable = () => {
     this.label.classList.remove('disabled');
     this.range.disabled = false;
     this.number.disabled = false;
-    this.reset.disabled = false;
+    this.reset.enable();
   };
 };
 
@@ -524,7 +524,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     }
   });
 
-  this.reset = button.render({
+  this.reset = new Button({
     text: false,
     iconName: 'replay',
     style: ['line'],
@@ -571,7 +571,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     ]);
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
-      formGroup.appendChild(this.reset);
+      formGroup.appendChild(this.reset.button);
     };
 
     const wrap = form.render.wrap([
@@ -586,14 +586,14 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     this.label.classList.add('disabled');
     this.color.disabled = true;
     this.text.disabled = true;
-    this.reset.disabled = true;
+    this.reset.disable();
   };
 
   this.enable = () => {
     this.label.classList.remove('disabled');
     this.color.disabled = false;
     this.text.disabled = false;
-    this.reset.disabled = false;
+    this.reset.enable();
   };
 };
 

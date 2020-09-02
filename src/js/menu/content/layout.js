@@ -8,7 +8,7 @@ import { node } from '../../utilities/node.js';
 import { complexNode } from '../../utilities/complexNode.js';
 import { icon } from '../../utilities/icon.js';
 import { form } from '../../utilities/form.js';
-import { button } from '../../utilities/button.js';
+import { Button } from '../../utilities/button.js';
 import { link } from '../../utilities/link.js';
 import { ControlModule_text, ControlModule_inputButton, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../../control.js';
 

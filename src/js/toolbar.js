@@ -2,14 +2,14 @@ import { state } from './state.js';
 import { menu } from './menu.js';
 import { data } from './data.js';
 import { bookmark } from './bookmark.js';
-import { button } from './utilities/button.js';
+import { Button } from './utilities/button.js';
 import { node } from './utilities/node.js';
 import { icon } from './utilities/icon.js';
 
 const toolbar = {};
 
 toolbar.button = {
-  add: button.render({
+  add: new Button({
     text: 'Add a bookmark',
     srOnly: true,
     iconName: 'add',
@@ -19,7 +19,7 @@ toolbar.button = {
       bookmark.add.open();
     }
   }),
-  edit: button.render({
+  edit: new Button({
     text: 'Enter edit bookmark mode',
     srOnly: true,
     iconName: 'edit',
@@ -31,7 +31,7 @@ toolbar.button = {
       data.save();
     }
   }),
-  menu: button.render({
+  menu: new Button({
     text: 'Open settings menu',
     srOnly: true,
     iconName: 'settings',
@@ -50,9 +50,9 @@ toolbar.render.bar = function() {
 
   const formGroup = node('div|class:form-group');
 
-  formGroup.appendChild(toolbar.button.add);
-  formGroup.appendChild(toolbar.button.edit);
-  formGroup.appendChild(toolbar.button.menu);
+  formGroup.appendChild(toolbar.button.add.button);
+  formGroup.appendChild(toolbar.button.edit.button);
+  formGroup.appendChild(toolbar.button.menu.button);
   toolbarElement.appendChild(formGroup);
 
   document.querySelector('body').appendChild(toolbarElement);
@@ -60,9 +60,9 @@ toolbar.render.bar = function() {
 
 toolbar.render.active = function() {
   if (state.get.current().bookmark.edit) {
-    toolbar.button.edit.classList.add('active');
+    toolbar.button.edit.active();
   } else {
-    toolbar.button.edit.classList.remove('active');
+    toolbar.button.edit.deactive();
   };
 };
 

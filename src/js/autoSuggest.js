@@ -2,7 +2,7 @@ import { state } from './state';
 import { bookmark, currentBookmarkForm } from './bookmark';
 import { fontawesome } from './fontawesome';
 import { node } from './utilities/node.js';
-import { button } from './utilities/button.js';
+import { Button } from './utilities/button.js';
 import { ifValidString } from './utilities/ifValidString.js';
 import { trimString } from './utilities/trimString.js';
 
@@ -206,7 +206,7 @@ autoSuggest.render.populateList = function(target, results) {
       results.forEach((item, i) => {
         let li = node('li|class:auto-suggest-list-item');
 
-        let buttonElement = button.render({
+        let resultItem = new Button({
           text: false,
           style: ['link', 'ring'],
           classList: ['auto-suggest-item'],
@@ -225,10 +225,10 @@ autoSuggest.render.populateList = function(target, results) {
 
         let text = node('span:' + item.label + '|class:auto-suggest-icon-text');
 
-        buttonElement.appendChild(icon);
-        buttonElement.appendChild(text);
+        resultItem.button.appendChild(icon);
+        resultItem.button.appendChild(text);
 
-        li.appendChild(buttonElement);
+        li.appendChild(resultItem.button);
         target.appendChild(li);
       });
 

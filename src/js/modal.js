@@ -1,6 +1,7 @@
 import { state } from './state.js';
 import { autoSuggest } from './autoSuggest.js';
 import { node } from './utilities/node.js';
+import { Button } from './utilities/button.js';
 import { complexNode } from './utilities/complexNode.js';
 
 const maxHeadingLength = 50;
@@ -117,13 +118,42 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
     };
   };
 
-  var modalBody = node('div|class:modal-body');
-  var modalBodySpacer = node('div|class:modal-body-spacer');
-  var modalControls = node('div|class:modal-controls form-group');
-  var actionButton = node('button:' + actionText + '|class:button button-line button-block modal-button,tabindex:1');
-  var cancelButton = node('button:' + cancelText + '|class:button button-line button-block modal-button,tabindex:1');
-  modalControls.appendChild(cancelButton);
-  modalControls.appendChild(actionButton);
+  const modalBody = node('div|class:modal-body');
+
+  const modalBodySpacer = node('div|class:modal-body-spacer');
+
+  const modalControls = node('div|class:modal-controls form-group');
+
+  const modalAction = new Button({
+    text: actionText,
+    iconName: false,
+    block: true,
+    style: ['line'],
+    classList: ['modal-button'],
+    func: () => {
+      if (successAction) {
+        successAction();
+      };
+      modal.close();
+    }
+  });
+
+  const modalCancel = new Button({
+    text: cancelText,
+    iconName: false,
+    block: true,
+    style: ['line'],
+    classList: ['modal-button'],
+    func: () => {
+      if (cancelAction) {
+        cancelAction();
+      };
+      modal.close();
+    }
+  });
+
+  modalControls.appendChild(modalCancel.button);
+  modalControls.appendChild(modalAction.button);
 
   if (heading) {
     if (heading.length > maxHeadingLength) {
@@ -167,20 +197,6 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
       this.remove();
     };
   });
-
-  actionButton.addEventListener('click', function(event) {
-    if (successAction) {
-      successAction();
-    };
-    this.close();
-  }.bind(modalElement));
-
-  cancelButton.addEventListener('click', function(event) {
-    if (cancelAction) {
-      cancelAction();
-    };
-    modal.close();
-  }.bind(modalElement));
 
   previousModal = modalElement;
 
