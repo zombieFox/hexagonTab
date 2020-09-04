@@ -1,0 +1,99 @@
+.logo-fill-solid {
+  fill: rgb(var(--theme-color-20));
+}
+
+.logo-fill-clear {
+  fill: rgb(var(--theme-color-01));
+}
+
+.logo,
+.logo-hexagon,
+.logo-circle,
+.logo-cross-x,
+.logo-cross-y {
+  transform-origin: center;
+}
+
+.logo {
+  animation-name: spin-down;
+  animation-duration: 0.3s;
+  animation-timing-function: var(--layout-timing-bounce);
+  animation-iteration-count: 1;
+  animation-delay: 1.6s;
+  animation-fill-mode: backwards;
+}
+
+.logo-hexagon {
+  animation-name: grow;
+  animation-duration: 0.3s;
+  animation-timing-function: var(--layout-timing-ease);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.logo-circle {
+  animation-name: grow;
+  animation-duration: 0.4s;
+  animation-timing-function: var(--layout-timing-bounce);
+  animation-iteration-count: 1;
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
+}
+
+.logo-cross-x {
+  animation-name: slide-in-x;
+  animation-duration: 0.3s;
+  animation-timing-function: var(--layout-timing-bounce);
+  animation-iteration-count: 1;
+  animation-delay: 0.8s;
+  animation-fill-mode: backwards;
+}
+
+.logo-cross-y {
+  animation-name: slide-in-y;
+  animation-duration: 0.3s;
+  animation-timing-function: var(--layout-timing-bounce);
+  animation-iteration-count: 1;
+  animation-delay: 1.2s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-y {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-x {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin-down {
+  0% {
+    transform: scale(1.2) rotate(-90deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
