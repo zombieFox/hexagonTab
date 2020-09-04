@@ -58,6 +58,20 @@
   animation-fill-mode: backwards;
 }
 
+.logo {
+  transform: scale(1) rotate(0deg);
+  transition: transform var(--layout-transition-extra-fast);
+}
+
+.logo:hover {
+  transform: scale(1.2) rotate(180deg);
+  z-index: 1;
+}
+
+.logo:active {
+  transform: scale(1.4) rotate(180deg);
+}
+
 @keyframes grow {
   0% {
     transform: scale(0);
