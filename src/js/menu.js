@@ -68,15 +68,15 @@ const MenuNav = function() {
 
   this.update = () => {
     menu.mod.area.all.forEach((item, i) => {
+      this.navItem[i].topLevel.classList.remove('active');
       if (item.subNav) {
-        this.navItem[i].topLevel.classList.remove('active');
         this.navItem[i].subLevel.classList.remove('active');
       };
     });
     menu.mod.area.all.forEach((item, i) => {
       if (item.active) {
+        this.navItem[i].topLevel.classList.add('active');
         if (item.subNav) {
-          this.navItem[i].topLevel.classList.add('active');
           this.navItem[i].subLevel.classList.add('active');
         };
       };

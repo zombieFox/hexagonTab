@@ -3,7 +3,7 @@ import { data } from './data.js';
 import { gridList } from './grid';
 import { modal } from './modal.js';
 import { theme } from './theme.js';
-import { autoSuggest } from './autoSuggest.js';
+import { Suggest } from './autoSuggest.js';
 import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from './control.js';
 import { node } from './utilities/node.js';
 import { complexNode } from './utilities/complexNode.js';
@@ -845,11 +845,11 @@ bookmark.form = function(bookmarkData) {
     displayVisualTypeIconDisplay.update();
   };
 
-  autoSuggest.bind.input({
+  const displayVisualTypeIconAutoSuggest = new Suggest({
     input: displayVisualTypeIcon.text,
-    anchorElement: displayVisualTypeWrap,
+    widthElement: displayVisualTypeWrap,
     type: 'fontawesomeIcon',
-    postFocus: displayVisualTypeIconDisplay
+    postFocus: displayVisualTypeIconDisplay.groupText
   });
 
   bookmarkForm.update = () => {
