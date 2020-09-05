@@ -1,9 +1,14 @@
-.logo-fill-solid {
-  fill: rgb(var(--theme-color-20));
+.logo {
+  transform: scale(1) rotate(0deg);
+  transition: transform var(--layout-transition-extra-fast);
 }
 
-.logo-fill-clear {
-  fill: rgb(var(--theme-color-01));
+.logo:hover {
+  transform: scale(1.2) rotate(180deg);
+}
+
+.logo:active {
+  transform: scale(1.4) rotate(180deg);
 }
 
 .logo,
@@ -41,35 +46,29 @@
 }
 
 .logo-cross-x {
-  animation-name: slide-in-x;
-  animation-duration: 0.3s;
-  animation-timing-function: var(--layout-timing-bounce);
-  animation-iteration-count: 1;
-  animation-delay: 0.8s;
-  animation-fill-mode: backwards;
+  animation-name: slide-in-x, spin;
+  animation-duration: 0.3s, 0.5s;
+  animation-timing-function: var(--layout-timing-bounce), var(--layout-timing-ease);
+  animation-iteration-count: 1, 1;
+  animation-delay: 0.8s, 1.8s;
+  animation-fill-mode: backwards, forwards;
 }
 
 .logo-cross-y {
-  animation-name: slide-in-y;
-  animation-duration: 0.3s;
-  animation-timing-function: var(--layout-timing-bounce);
-  animation-iteration-count: 1;
-  animation-delay: 1.2s;
-  animation-fill-mode: backwards;
+  animation-name: slide-in-y, spin;
+  animation-duration: 0.3s, 0.5s;
+  animation-timing-function: var(--layout-timing-bounce), var(--layout-timing-ease);
+  animation-iteration-count: 1, 1;
+  animation-delay: 1s, 1.8s;
+  animation-fill-mode: backwards, forwards;
 }
 
-.logo {
-  transform: scale(1) rotate(0deg);
-  transition: transform var(--layout-transition-extra-fast);
+.logo-fill-solid {
+  fill: rgb(var(--theme-color-20));
 }
 
-.logo:hover {
-  transform: scale(1.2) rotate(180deg);
-  z-index: 1;
-}
-
-.logo:active {
-  transform: scale(1.4) rotate(180deg);
+.logo-fill-clear {
+  fill: rgb(var(--theme-color-01));
 }
 
 @keyframes grow {
@@ -109,5 +108,15 @@
 
   100% {
     transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(-360deg);
+  }
+
+  100% {
+    transform: rotate(0);
   }
 }
