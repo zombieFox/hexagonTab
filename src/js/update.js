@@ -5,9 +5,6 @@ const update = {};
 update.all = {
   '1.0.0': function(dataToUpdate) {
     return dataToUpdate;
-  },
-  '2.0.0': function(dataToUpdate) {
-    return dataToUpdate;
   }
 };
 
