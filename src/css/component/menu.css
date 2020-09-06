@@ -35,6 +35,10 @@
   transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);
 }
 
+.is-presentation-mode .menu-area {
+  background-color: rgb(var(--theme-color-01), 0.4);
+}
+
 .is-edge .menu-area {
   background-color: rgba(var(--theme-color-01), var(--menu-edge-opacity));
 }
@@ -161,6 +165,10 @@
     overflow-y: auto;
     z-index: 1;
     transition: background-color var(--layout-transition-extra-fast);
+  }
+
+  .is-presentation-mode .menu-nav {
+    background-color: rgb(var(--theme-color-02), 0.4);
   }
 
   .is-edge .menu-nav {

@@ -2,6 +2,8 @@ import { data } from './data.js';
 
 let state = {};
 
+let presentationMode = false;
+
 state.current = {};
 
 state.default = {
@@ -137,4 +139,4 @@ state.set = {
   }
 };
 
-export { state };
+export { state, presentationMode };

@@ -8,3 +8,11 @@
 .toolbar-button {
   padding: 1em;
 }
+
+.is-presentation-mode .toolbar {
+  opacity: 0;
+}
+
+.is-presentation-mode .toolbar:hover {
+  opacity: 1;
+}
