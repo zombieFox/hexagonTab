@@ -51,5 +51,12 @@
   position: sticky;
   top: 50%;
   transform: translateY(-50%);
-  text-shadow: 0 calc(var(--bookmark-shadow-distance) * 0.0025em) calc(var(--bookmark-shadow-blur) * 0.01em) rgba(0, 0, 0, calc(var(--theme-bookmark-shadow-opacity) / 100));
+}
+
+.is-presentation-mode.is-theme-bookmark-shadow-color-type-theme .presentation-name {
+  text-shadow: 0 calc(var(--bookmark-shadow-distance) * 0.0025em) calc(var(--bookmark-shadow-blur) * 0.01em) rgba(var(--theme-accent), calc(var(--theme-bookmark-shadow-opacity) / 100));
+}
+
+.is-presentation-mode.is-theme-bookmark-shadow-color-type-custom .presentation-name {
+  text-shadow: 0 calc(var(--bookmark-shadow-distance) * 0.0025em) calc(var(--bookmark-shadow-blur) * 0.01em) rgba(var(--theme-bookmark-shadow-color), calc(var(--theme-bookmark-shadow-opacity) / 100));
 }
