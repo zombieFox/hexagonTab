@@ -380,27 +380,25 @@ bookmark.render.item = function() {
     };
 
     if (item.color.by == 'custom') {
-      var hsl = convertColor.rgb.hsl(item.color.rgb);
-
       var shades = theme.mod.color.shades({
         rgb: item.color.rgb,
-        contrastNegative: 7,
-        contrastPositive: 7
+        contrastNegative: 60,
+        contrastPositive: 60
       });
 
-      var rgb;
+      var nameColor;
 
-      if (hsl.l <= 50) {
-        if (hsl.l > 30 && hsl.l <= 50 && hsl.h > 40 && hsl.h < 200) {
-          rgb = shades.negative['9'];
+      if (item.color.hsl.l <= 50) {
+        if (item.color.hsl.l > 30 && item.color.hsl.l <= 50 && item.color.hsl.h > 40 && item.color.hsl.h < 200) {
+          nameColor = shades.negative['9'];
         } else {
-          rgb = shades.positive['9'];
+          nameColor = shades.positive['9'];
         };
       } else {
-        rgb = shades.negative['9'];
+        nameColor = shades.negative['9'];
       };
 
-      if (hsl.l <= 50) {
+      if (item.color.hsl.l <= 50) {
         bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-white)');
       } else {
         bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-black)');
@@ -408,7 +406,7 @@ bookmark.render.item = function() {
 
       bookmarkElement.style.setProperty('--bookmark-color', item.color.rgb.r + ', ' + item.color.rgb.g + ', ' + item.color.rgb.b);
       bookmarkElement.style.setProperty('--bookmark-color-focus-hover', item.color.rgb.r + ', ' + item.color.rgb.g + ', ' + item.color.rgb.b);
-      bookmarkElement.style.setProperty('--bookmark-display-name-color', rgb.r + ', ' + rgb.g + ', ' + rgb.b);
+      bookmarkElement.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
       bookmarkElement.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
     };
 
@@ -598,6 +596,32 @@ bookmark.form = function(bookmarkData) {
       displayVisualTypeIconRemove.enable();
       displayVisualTypeImage.enable();
       displayVisualSize.enable();
+
+      switch (bookmarkData.link.display.visual.type) {
+        case 'letter':
+          displayVisualTypeLetter.enable();
+          displayVisualTypeIcon.disable();
+          displayVisualTypeIconDisplay.disable()
+          displayVisualTypeIconRemove.disable();
+          displayVisualTypeImage.disable();
+          break;
+
+        case 'icon':
+          displayVisualTypeLetter.disable();
+          displayVisualTypeIcon.enable();
+          displayVisualTypeIconDisplay.enable();
+          displayVisualTypeIconRemove.enable();
+          displayVisualTypeImage.disable();
+          break;
+
+        case 'image':
+          displayVisualTypeLetter.disable();
+          displayVisualTypeIcon.disable();
+          displayVisualTypeIconDisplay.disable()
+          displayVisualTypeIconRemove.disable();
+          displayVisualTypeImage.enable();
+          break;
+      };
     } else {
       displayVisualType.disable();
       displayVisualTypeLetter.disable();
@@ -608,32 +632,32 @@ bookmark.form = function(bookmarkData) {
       displayVisualSize.disable();
     };
 
-    if (bookmarkData.link.display.visual.show && bookmarkData.link.display.visual.type === 'letter') {
-      displayVisualTypeLetter.enable();
-      displayVisualTypeIcon.disable();
-      displayVisualTypeIconDisplay.disable()
-      displayVisualTypeIconRemove.disable();
-      displayVisualTypeImage.disable();
-    } else if (bookmarkData.link.display.visual.show && bookmarkData.link.display.visual.type === 'icon') {
-      displayVisualTypeLetter.disable();
-      displayVisualTypeIcon.enable();
-      displayVisualTypeIconDisplay.enable();
-      displayVisualTypeIconRemove.enable();
-      displayVisualTypeImage.disable();
-    } else if (bookmarkData.link.display.visual.show && bookmarkData.link.display.visual.type === 'image') {
-      displayVisualTypeLetter.disable();
-      displayVisualTypeIcon.disable();
-      displayVisualTypeIconDisplay.disable()
-      displayVisualTypeIconRemove.disable();
-      displayVisualTypeImage.enable();
-    };
-
     if (bookmarkData.link.display.name.show) {
       displayNameText.enable();
       displayNameSize.enable();
     } else {
       displayNameText.disable();
       displayNameSize.disable();
+    };
+
+    switch (bookmarkData.link.color.by) {
+      case 'theme':
+        colorMixer.disable();
+        break;
+
+      case 'custom':
+        colorMixer.enable();
+        break;
+    };
+
+    switch (bookmarkData.link.accent.by) {
+      case 'theme':
+        accentMixer.disable();
+        break;
+
+      case 'custom':
+        accentMixer.enable();
+        break;
     };
   };
 
@@ -805,6 +829,50 @@ bookmark.form = function(bookmarkData) {
     ])
   ]);
 
+  const colorBy = new ControlModule_radio({
+    object: bookmarkData.link,
+    radioGroup: [
+      { id: 'color-by-theme', labelText: 'Theme colour', description: 'Use the Colour defined by the Theme.', value: 'theme' },
+      { id: 'color-by-custom', labelText: 'Custom colour', description: 'Override the Theme colour.', value: 'custom' }
+    ],
+    groupName: 'color-by',
+    path: 'color.by',
+    action: () => {
+      bookmarkForm.disableForm();
+    }
+  });
+
+  const colorMixer = new ControlModule_colorMixer({
+    object: bookmarkData.link,
+    path: 'color',
+    id: 'color',
+    labelText: 'Colour',
+    defaultValue: JSON.parse(JSON.stringify(defaultBookmark.color.rgb)),
+    minMaxObject: minMaxBookmark
+  });
+
+  const accentBy = new ControlModule_radio({
+    object: bookmarkData.link,
+    radioGroup: [
+      { id: 'accent-by-theme', labelText: 'Theme accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
+      { id: 'accent-by-custom', labelText: 'Custom accent', description: 'Override the Theme accent.', value: 'custom' }
+    ],
+    groupName: 'accent-by',
+    path: 'accent.by',
+    action: () => {
+      bookmarkForm.disableForm();
+    }
+  });
+
+  const accentMixer = new ControlModule_colorMixer({
+    object: bookmarkData.link,
+    path: 'accent',
+    id: 'accent',
+    labelText: 'Accent',
+    defaultValue: JSON.parse(JSON.stringify(defaultBookmark.accent.rgb)),
+    minMaxObject: minMaxBookmark
+  });
+
   bookmarkForm.appendChild(
     form.render.fieldset([
       form.render.wrap([
@@ -834,6 +902,36 @@ bookmark.form = function(bookmarkData) {
       form.render.wrap([
         form.render.indent([
           url.wrap()
+        ])
+      ]),
+      node('hr'),
+      form.render.wrap([
+        node('h2:Colour|class:mb-0'),
+      ]),
+      form.render.wrap([
+        form.render.indent([
+          colorBy.wrap(),
+          form.render.wrap([
+            form.render.indent([
+              node('hr'),
+              colorMixer.wrap()
+            ])
+          ])
+        ])
+      ]),
+      node('hr'),
+      form.render.wrap([
+        node('h2:Accent|class:mb-0'),
+      ]),
+      form.render.wrap([
+        form.render.indent([
+          accentBy.wrap(),
+          form.render.wrap([
+            form.render.indent([
+              node('hr'),
+              accentMixer.wrap()
+            ])
+          ])
         ])
       ])
     ])
