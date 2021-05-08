@@ -33,7 +33,8 @@ menuContentCoffee.fuel = function() {
         link.render({
           text: 'Buy me a coffee',
           href: 'https://www.buymeacoffee.com/zombieFox',
-          image: 'https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg',
+          iconName: 'coffee',
+          iconPosition: 'left',
           linkButton: true,
           style: ['line'],
           classList: ['button-line', 'button-large', 'px-4', 'py-3']

@@ -40,6 +40,7 @@ input[type="submit"] {
   white-space: nowrap;
   cursor: pointer;
   display: inline-flex;
+  gap: 0.5em;
   flex-direction: row;
   justify-content: center;
   align-items: center;
