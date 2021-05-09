@@ -26,9 +26,9 @@ body {
   justify-content: stretch;
 }
 
-.is-theme-style-dark html,
+html.is-theme-style-dark,
 .is-theme-style-dark body,
-.is-theme-style-light html,
+html.is-theme-style-light,
 .is-theme-style-light body {
   background-color: rgb(var(--theme-color-01));
   color: rgb(var(--theme-style-text));
@@ -36,7 +36,7 @@ body {
 
 @media (prefers-color-scheme: light) {
 
-  .is-theme-style-system html,
+  html.is-theme-style-system,
   .is-theme-style-system body {
     background-color: rgb(var(--theme-color-01));
     color: rgb(var(--theme-style-text));
@@ -45,7 +45,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
 
-  .is-theme-style-system html,
+  html.is-theme-style-system,
   .is-theme-style-system body {
     background-color: rgb(var(--theme-color-01));
     color: rgb(var(--theme-style-text));
