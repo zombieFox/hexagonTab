@@ -9,6 +9,7 @@ import { node } from './utilities/node.js';
 import { complexNode } from './utilities/complexNode.js';
 import { form } from './utilities/form.js';
 import { Button } from './utilities/button.js';
+import { Collapse } from './utilities/collapse.js';
 import { convertColor } from './utilities/convertColor.js';
 import { ifValidString } from './utilities/ifValidString.js';
 import { trimString } from './utilities/trimString.js';
@@ -473,6 +474,7 @@ bookmark.render.item = function() {
           actionText: 'Save',
           content: bookmark.form(bookmarkData),
           width: 40,
+          overscroll: true,
           successAction: () => {
             bookmark.mod.item.edit(bookmarkData);
             bookmark.render.clear();
@@ -571,6 +573,7 @@ bookmark.render.add = function() {
     actionText: 'Add',
     content: bookmark.form(newBookmarkData),
     width: 40,
+    overscroll: true,
     successAction: () => {
       bookmark.mod.item.add(newBookmarkData);
       bookmark.render.clear();
@@ -838,6 +841,7 @@ bookmark.form = function(bookmarkData) {
     groupName: 'color-by',
     path: 'color.by',
     action: () => {
+      colorMixerCollapse.update();
       bookmarkForm.disableForm();
     }
   });
@@ -860,6 +864,7 @@ bookmark.form = function(bookmarkData) {
     groupName: 'accent-by',
     path: 'accent.by',
     action: () => {
+      accentMixerCollapse.update();
       bookmarkForm.disableForm();
     }
   });
@@ -872,6 +877,38 @@ bookmark.form = function(bookmarkData) {
     defaultValue: JSON.parse(JSON.stringify(defaultBookmark.accent.rgb)),
     minMaxObject: minMaxBookmark
   });
+
+  const accentMixerArea = node('div', [
+    node('hr'),
+    accentMixer.wrap()
+  ]);
+
+  const accentMixerCollapse = new Collapse({
+    type: 'radio',
+    radioGroup: accentBy,
+    target: [{
+      id: accentBy.radioSet[1].radio.value,
+      content: accentMixerArea
+    }]
+  });
+
+  accentMixerCollapse.update();
+
+  const colorMixerArea = node('div', [
+    node('hr'),
+    colorMixer.wrap()
+  ]);
+
+  const colorMixerCollapse = new Collapse({
+    type: 'radio',
+    radioGroup: colorBy,
+    target: [{
+      id: colorBy.radioSet[1].radio.value,
+      content: colorMixerArea
+    }]
+  });
+
+  colorMixerCollapse.update();
 
   bookmarkForm.appendChild(
     form.render.fieldset([
@@ -913,8 +950,7 @@ bookmark.form = function(bookmarkData) {
           colorBy.wrap(),
           form.render.wrap([
             form.render.indent([
-              node('hr'),
-              colorMixer.wrap()
+              colorMixerCollapse.collapse()
             ])
           ])
         ])
@@ -928,8 +964,7 @@ bookmark.form = function(bookmarkData) {
           accentBy.wrap(),
           form.render.wrap([
             form.render.indent([
-              node('hr'),
-              accentMixer.wrap()
+              accentMixerCollapse.collapse()
             ])
           ])
         ])

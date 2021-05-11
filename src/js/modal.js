@@ -83,7 +83,7 @@ modal.render.close = function() {
   previousModal = null;
 };
 
-modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false } = {}) {
+modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false, overscroll = false } = {}) {
 
   if (previousModal != null) {
     modal.render.close();
@@ -93,6 +93,11 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
   modal.bind.close.add();
 
   var modalElement = node('div|class:modal');
+
+  if (overscroll) {
+    modalElement.classList.add('modal-overscroll');
+  };
+
   var modalWrapper = node('div|class:modal-wrapper');
   if (width && typeof width == 'number') {
     modalElement.setAttribute('style', '--modal-size: ' + width + 'em;');

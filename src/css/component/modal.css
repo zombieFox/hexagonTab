@@ -34,7 +34,6 @@
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
 }
 
-
 .modal-body {
   border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;
   overflow-y: auto;
@@ -45,6 +44,10 @@
 
 .modal-body-spacer {
   margin: calc(var(--form-wrap-space) * 2) calc(var(--form-wrap-space) * 2.5);
+}
+
+.modal-overscroll .modal-body-spacer {
+  padding-bottom: calc(var(--form-wrap-space) * 10);
 }
 
 .modal-heading:focus {
