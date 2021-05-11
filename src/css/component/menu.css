@@ -119,6 +119,10 @@
   transition: border-color var(--layout-transition-extra-fast);
 }
 
+.menu-content-overscroll .menu-content-item:last-child {
+  padding-bottom: calc(var(--menu-space) * 75);
+}
+
 .menu-item-header {
   margin-bottom: var(--menu-space);
 }
@@ -197,10 +201,6 @@
 
   .menu-content-item {
     padding: calc(var(--menu-space) * 2) calc(var(--menu-space) * 4);
-  }
-
-  .menu-content-overscroll .menu-content-item:last-child {
-    padding-bottom: calc(var(--menu-space) * 50);
   }
 
   .menu-item-header {

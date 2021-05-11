@@ -1,0 +1,43 @@
+.collapse {
+  margin-bottom: -1em;
+  position: relative;
+  display: grid;
+  transition: margin var(--layout-transition-fast);
+}
+
+.collapse-area {
+  margin-top: -1em;
+  margin-bottom: 0;
+  margin-right: -1em;
+  margin-left: -1em;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  transition: margin var(--layout-transition-fast);
+}
+
+.collapse-area.is-collapsed {
+  margin-bottom: -1em;
+}
+
+.collapse-spacer {
+  padding: 1em;
+  transition: margin var(--layout-transition-fast);
+}
+
+.collapse-spacer hr:first-child {
+  margin-top: calc(var(--form-wrap-space) * 1);
+}
+
+.collapse-area.is-collapsed .collapse-spacer {
+  margin-bottom: -100vh;
+  position: relative;
+}
+
+.collapse-toggle .icon {
+  transition: transform var(--layout-transition-fast);
+}
+
+.collapse-toggle.is-collapsed .icon {
+  transform: rotate(180deg);
+}

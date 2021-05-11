@@ -8,6 +8,7 @@ import '../css/base/version.css';
 import '../css/base/zIndex.css';
 import '../css/component/logo.css';
 import '../css/component/button.css';
+import '../css/component/collapse.css';
 import '../css/component/font.css';
 import '../css/component/form.css';
 import '../css/component/icon.css';

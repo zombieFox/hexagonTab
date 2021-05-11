@@ -6,6 +6,7 @@ import { node } from './utilities/node.js';
 import { get } from './utilities/get.js';
 import { set } from './utilities/set.js';
 import { Button } from './utilities/button.js';
+import { Collapse } from './utilities/collapse.js';
 import { form } from './utilities/form.js';
 import { convertColor } from './utilities/convertColor.js';
 import { ifValidString } from './utilities/ifValidString.js';
@@ -465,7 +466,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
   };
 };
 
-const ControlModule_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false } = {}) {
+const ControlModule_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
 
   this.label = form.render.label({
     forInput: id,
@@ -574,6 +575,12 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
       formGroup.appendChild(this.reset.button);
     };
 
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        formGroup.appendChild(item.button);
+      });
+    };
+
     const wrap = form.render.wrap([
       this.label,
       formGroup
@@ -587,6 +594,12 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     this.color.disabled = true;
     this.text.disabled = true;
     this.reset.disable();
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        item.disable();
+      });
+    };
   };
 
   this.enable = () => {
@@ -594,6 +607,12 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     this.color.disabled = false;
     this.text.disabled = false;
     this.reset.enable();
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        item.enable();
+      });
+    };
   };
 };
 
@@ -657,6 +676,18 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
 
       this.radioSet.push(radioAndLabel);
     });
+  };
+
+  this.value = () => {
+    let currentSelectedRadio = false;
+
+    this.radioSet.forEach((item, i) => {
+      if (item.radio.checked) {
+        currentSelectedRadio = item.radio.value;
+      };
+    });
+
+    return currentSelectedRadio;
   };
 
   this.update = () => {
@@ -750,6 +781,16 @@ const ControlModule_checkbox = function({ object = {}, id = 'name', path = false
 
 const ControlModule_colorMixer = function({ object = {}, path = false, defaultValue = false, minMaxObject = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
 
+  this.moreControlsToggle = new Button({
+    text: false,
+    iconName: 'arrowKeyboardDown',
+    style: ['line'],
+    classList: ['collapse-toggle'],
+    func: () => {
+      this.moreControlsCollapse.toggle();
+    }
+  });
+
   this.color = new ControlModule_color({
     object: object,
     path: path + '.rgb',
@@ -758,6 +799,7 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     srOnly: srOnly,
     value: get({ object: object, path: path + '.rgb' }),
     defaultValue: defaultValue,
+    extraButtons: [this.moreControlsToggle],
     action: () => {
       set({
         object: object,
@@ -932,19 +974,35 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     }
   });
 
+  this.moreControls = node('div', [
+    node('hr'),
+    this.colorSliderH.wrap(),
+    this.colorSliderS.wrap(),
+    this.colorSliderL.wrap(),
+    node('hr'),
+    this.colorSliderR.wrap(),
+    this.colorSliderG.wrap(),
+    this.colorSliderB.wrap()
+  ]);
+
+  this.moreControlsCollapse = new Collapse({
+    type: 'toggle',
+    target: [{
+      toggle: this.moreControlsToggle.button,
+      content: this.moreControls
+    }]
+  });
+
+  this.moreControlsCollapse.update();
+
   this.wrap = () => {
     return form.render.wrap([
       this.color.wrap(),
       form.render.wrap([
         form.render.indent([
-          node('hr'),
-          this.colorSliderH.wrap(),
-          this.colorSliderS.wrap(),
-          this.colorSliderL.wrap(),
-          node('hr'),
-          this.colorSliderR.wrap(),
-          this.colorSliderG.wrap(),
-          this.colorSliderB.wrap()
+          form.render.wrap([
+            this.moreControlsCollapse.collapse()
+          ])
         ])
       ])
     ])
