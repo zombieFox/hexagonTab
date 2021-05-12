@@ -48,5 +48,3 @@ menu.init();
 modal.init();
 autoSuggest.init();
 keyboard.init();
-
-menu.open();
