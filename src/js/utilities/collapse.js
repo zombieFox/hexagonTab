@@ -5,8 +5,6 @@ import { icon } from './icon.js';
 
 const Collapse = function({ type = false, radioGroup = false, target = false } = {}) {
 
-  this.collapseElement = node('div|class:collapse');
-
   target.forEach((item, i) => {
     item.state = {
       collapsed: true
@@ -16,6 +14,12 @@ const Collapse = function({ type = false, radioGroup = false, target = false } =
 
     item.spacer = node('div|class:collapse-spacer');
   });
+
+  this.target = () => {
+    return target;
+  };
+
+  this.collapseElement = node('div|class:collapse');
 
   this.collapse = () => {
     target.forEach((item, i) => {

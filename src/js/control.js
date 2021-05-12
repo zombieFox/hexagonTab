@@ -788,6 +788,7 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     classList: ['collapse-toggle'],
     func: () => {
       this.moreControlsCollapse.toggle();
+      this.moreControlsUpdate();
     }
   });
 
@@ -994,6 +995,26 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
   });
 
   this.moreControlsCollapse.update();
+
+  this.moreControlsUpdate = () => {
+    if (this.moreControlsCollapse.target()[0].state.collapsed) {
+      this.colorSliderH.disable();
+      this.colorSliderS.disable();
+      this.colorSliderL.disable();
+      this.colorSliderR.disable();
+      this.colorSliderG.disable();
+      this.colorSliderB.disable();
+    } else {
+      this.colorSliderH.enable();
+      this.colorSliderS.enable();
+      this.colorSliderL.enable();
+      this.colorSliderR.enable();
+      this.colorSliderG.enable();
+      this.colorSliderB.enable();
+    };
+  };
+
+  this.moreControlsUpdate();
 
   this.wrap = () => {
     return form.render.wrap([

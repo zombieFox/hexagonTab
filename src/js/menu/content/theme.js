@@ -290,6 +290,7 @@ menuContentTheme.background = function() {
     action: () => {
       theme.render.background.type();
       themeBackgroundCollapse.update();
+      updateDisabled();
       data.save();
     }
   });
@@ -454,6 +455,56 @@ menuContentTheme.background = function() {
       ])
     ])
   ]));
+
+  const updateDisabled = () => {
+    switch (state.get.current().theme.background.type) {
+      case 'theme':
+        themeBackgroundColorMixer.disable();
+        themeBackgroundGradientAngle.disable();
+        themeBackgroundGradientStartMixer.disable();
+        themeBackgroundGradientEndMixer.disable();
+        themeIackgroundImageUrl.disable();
+        themeIackgroundImageBlur.disable();
+        themeIackgroundImageScale.disable();
+        themeIackgroundImageOpacity.disable();
+        break;
+
+      case 'color':
+        themeBackgroundColorMixer.enable();
+        themeBackgroundGradientAngle.disable();
+        themeBackgroundGradientStartMixer.disable();
+        themeBackgroundGradientEndMixer.disable();
+        themeIackgroundImageUrl.disable();
+        themeIackgroundImageBlur.disable();
+        themeIackgroundImageScale.disable();
+        themeIackgroundImageOpacity.disable();
+        break;
+
+      case 'gradient':
+        themeBackgroundColorMixer.disable();
+        themeBackgroundGradientAngle.enable();
+        themeBackgroundGradientStartMixer.enable();
+        themeBackgroundGradientEndMixer.enable();
+        themeIackgroundImageUrl.disable();
+        themeIackgroundImageBlur.disable();
+        themeIackgroundImageScale.disable();
+        themeIackgroundImageOpacity.disable();
+        break;
+
+      case 'image':
+        themeBackgroundColorMixer.disable();
+        themeBackgroundGradientAngle.disable();
+        themeBackgroundGradientStartMixer.disable();
+        themeBackgroundGradientEndMixer.disable();
+        themeIackgroundImageUrl.enable();
+        themeIackgroundImageBlur.enable();
+        themeIackgroundImageScale.enable();
+        themeIackgroundImageOpacity.enable();
+        break;
+    };
+  };
+
+  updateDisabled();
 
   return menuContentItem;
 };
