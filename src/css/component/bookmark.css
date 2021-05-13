@@ -127,7 +127,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   align-items: center;
   pointer-events: all;
   clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
-  transition: background-color var(--layout-transition-fast);
+  transition: background-color var(--layout-transition-extra-fast);
   text-decoration: none;
 }
 
