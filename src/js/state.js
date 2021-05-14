@@ -44,7 +44,8 @@ state.default = {
         start: { hsl: { h: 180, s: 54, l: 51 }, rgb: { r: 64, g: 197, b: 198 } },
         end: { hsl: { h: 244, s: 91, l: 13 }, rgb: { r: 7, g: 3, b: 63 } }
       },
-      image: { url: '', blur: 0, scale: 100, opacity: 100 }
+      image: { url: '', blur: 0, scale: 100, opacity: 100 },
+      video: { url: '', blur: 0, scale: 100, opacity: 100 }
     },
     radius: 25,
     shadow: 75
@@ -117,7 +118,8 @@ state.minMax = {
           rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
         },
       },
-      image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } }
+      image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } },
+      video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } }
     }
   }
 };

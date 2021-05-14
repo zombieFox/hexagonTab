@@ -37,10 +37,10 @@ theme.mod.style = {
     };
   },
   light: function() {
-    state.get.current().theme.style = "light";
+    state.get.current().theme.style = 'light';
   },
   dark: function() {
-    state.get.current().theme.style = "dark";
+    state.get.current().theme.style = 'dark';
   }
 };
 
@@ -182,9 +182,9 @@ theme.style = {
     theme.render.class();
   },
   toggle: function() {
-    if (state.get.current().theme.style == "dark") {
+    if (state.get.current().theme.style == 'dark') {
       theme.style.light();
-    } else if (state.get.current().theme.style == "light") {
+    } else if (state.get.current().theme.style == 'light') {
       theme.style.dark();
     };
   }
@@ -207,6 +207,7 @@ theme.render.background.area = function() {
   backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-color'));
   backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-gradient'));
   backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-image'));
+  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-video'));
 
   document.querySelector('body').appendChild(backgroundElement);
 };
@@ -214,7 +215,7 @@ theme.render.background.area = function() {
 theme.render.background.type = function() {
   const html = document.querySelector('html');
 
-  const type = ['theme', 'color', 'gradient', 'image'];
+  const type = ['theme', 'color', 'gradient', 'image', 'video'];
 
   type.forEach((item, i) => {
     html.classList.remove('is-theme-background-type-' + item);
@@ -223,21 +224,97 @@ theme.render.background.type = function() {
   html.classList.add('is-theme-background-type-' + state.get.current().theme.background.type);
 };
 
-theme.render.background.style = function() {
+theme.render.background.color = function() {
   const html = document.querySelector('html');
+
   html.style.setProperty('--theme-background-color', state.get.current().theme.background.color.rgb.r + ', ' + state.get.current().theme.background.color.rgb.g + ', ' + state.get.current().theme.background.color.rgb.b);
-  html.style.setProperty('--theme-background-gradient-angle', state.get.current().theme.background.gradient.angle);
+};
+
+theme.render.background.gradient = function() {
+  const html = document.querySelector('html');
+
   html.style.setProperty('--theme-background-gradient-angle', state.get.current().theme.background.gradient.angle);
   html.style.setProperty('--theme-background-gradient-start', state.get.current().theme.background.gradient.start.rgb.r + ', ' + state.get.current().theme.background.gradient.start.rgb.g + ', ' + state.get.current().theme.background.gradient.start.rgb.b);
   html.style.setProperty('--theme-background-gradient-end', state.get.current().theme.background.gradient.end.rgb.r + ', ' + state.get.current().theme.background.gradient.end.rgb.g + ', ' + state.get.current().theme.background.gradient.end.rgb.b);
-  html.style.setProperty('--theme-background-image-blur', state.get.current().theme.background.image.blur);
-  html.style.setProperty('--theme-background-image-scale', state.get.current().theme.background.image.scale);
-  html.style.setProperty('--theme-background-image-opacity', state.get.current().theme.background.image.opacity);
+};
+
+theme.render.background.image = {};
+
+theme.render.background.image.set = function() {
+  const html = document.querySelector('html');
+
   if (ifValidString(state.get.current().theme.background.image.url)) {
     html.style.setProperty('--theme-background-image', 'url(' + trimString(state.get.current().theme.background.image.url) + ')');
   } else {
     html.style.removeProperty('--theme-background-image');
   };
+};
+
+theme.render.background.image.filter = function() {
+  const html = document.querySelector('html');
+
+  html.style.setProperty('--theme-background-image-blur', state.get.current().theme.background.image.blur);
+  html.style.setProperty('--theme-background-image-scale', state.get.current().theme.background.image.scale);
+  html.style.setProperty('--theme-background-image-opacity', state.get.current().theme.background.image.opacity);
+};
+
+theme.render.background.video = {};
+
+theme.render.background.video.set = function() {
+  const html = document.querySelector('html');
+
+  if (ifValidString(state.get.current().theme.background.video.url)) {
+
+    const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
+
+    if (state.get.current().theme.background.video.url.includes('mp4') || state.get.current().theme.background.video.url.endsWith('mp4')) {
+
+      const video = node('video|autoplay,loop,muted,type:video/mp4')
+      const source = node('source');
+      source.src = state.get.current().theme.background.video.url;
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.appendChild(source);
+      themeBackgroundTypeVideo.appendChild(video);
+
+    } else if (state.get.current().theme.background.video.url.includes('webm') || state.get.current().theme.background.video.url.endsWith('webm')) {
+
+      const video = node('video|autoplay,loop,muted,type:video/webm')
+      const source = node('source|src:' + state.get.current().theme.background.video.url);
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.appendChild(source);
+      themeBackgroundTypeVideo.appendChild(video);
+
+    } else {
+
+      theme.render.background.video.remove();
+
+    };
+
+  } else {
+
+    theme.render.background.video.remove();
+
+  };
+};
+
+theme.render.background.video.remove = function() {
+  const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
+
+  while (themeBackgroundTypeVideo.lastChild) {
+    themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+  };
+};
+
+theme.render.background.video.filter = function() {
+  const html = document.querySelector('html');
+
+  html.style.setProperty('--theme-background-video-blur', state.get.current().theme.background.video.blur);
+  html.style.setProperty('--theme-background-video-scale', state.get.current().theme.background.video.scale);
+  html.style.setProperty('--theme-background-video-opacity', state.get.current().theme.background.video.opacity);
 };
 
 theme.init = function() {
@@ -252,7 +329,12 @@ theme.init = function() {
   theme.render.bookmark.style();
   theme.render.background.area();
   theme.render.background.type();
-  theme.render.background.style();
+  theme.render.background.color();
+  theme.render.background.gradient();
+  theme.render.background.image.set();
+  theme.render.background.image.filter();
+  theme.render.background.video.set();
+  theme.render.background.video.filter();
 };
 
 export { theme };

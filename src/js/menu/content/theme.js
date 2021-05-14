@@ -283,7 +283,8 @@ menuContentTheme.background = function() {
       { id: 'theme-background-type-theme', labelText: 'Background by theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
       { id: 'theme-background-type-color', labelText: 'Background colour', description: false, value: 'color' },
       { id: 'theme-background-type-gradient', labelText: 'Background gradient', description: false, value: 'gradient' },
-      { id: 'theme-background-type-image', labelText: 'Background image', description: false, value: 'image' }
+      { id: 'theme-background-type-image', labelText: 'Background image', description: false, value: 'image' },
+      { id: 'theme-background-type-video', labelText: 'Background video', description: false, value: 'video' }
     ],
     groupName: 'theme-background-type',
     path: 'theme.background.type',
@@ -303,7 +304,7 @@ menuContentTheme.background = function() {
     defaultValue: state.get.default().theme.background.color.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.background.style();
+      theme.render.background.color();
       data.save();
     }
   });
@@ -318,7 +319,7 @@ menuContentTheme.background = function() {
     min: state.get.minMax().theme.background.gradient.angle.min,
     max: state.get.minMax().theme.background.gradient.angle.max,
     action: () => {
-      theme.render.background.style();
+      theme.render.background.gradient();
       data.save();
     }
   });
@@ -331,7 +332,7 @@ menuContentTheme.background = function() {
     defaultValue: state.get.default().theme.background.gradient.start.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.background.style();
+      theme.render.background.gradient();
       data.save();
     }
   });
@@ -344,12 +345,12 @@ menuContentTheme.background = function() {
     defaultValue: state.get.default().theme.background.gradient.end.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.background.style();
+      theme.render.background.gradient();
       data.save();
     }
   });
 
-  const themeIackgroundImageUrl = new ControlModule_text({
+  const themeBackgroundImageUrl = new ControlModule_text({
     object: state.get.current(),
     path: 'theme.background.image.url',
     id: 'theme-background-image-url',
@@ -357,12 +358,12 @@ menuContentTheme.background = function() {
     placeholder: 'https://www.example.com/image.jpg',
     labelText: 'Background image URL',
     action: () => {
-      theme.render.background.style();
+      theme.render.background.image.set();
       data.save();
     }
   });
 
-  const themeIackgroundImageBlur = new ControlModule_slider({
+  const themeBackgroundImageBlur = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.background.image.blur',
     id: 'theme-background-image-blur',
@@ -372,12 +373,12 @@ menuContentTheme.background = function() {
     min: state.get.minMax().theme.background.image.blur.min,
     max: state.get.minMax().theme.background.image.blur.max,
     action: () => {
-      theme.render.background.style();
+      theme.render.background.image.filter();
       data.save();
     }
   });
 
-  const themeIackgroundImageScale = new ControlModule_slider({
+  const themeBackgroundImageScale = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.background.image.scale',
     id: 'theme-background-image-scale',
@@ -387,12 +388,12 @@ menuContentTheme.background = function() {
     min: state.get.minMax().theme.background.image.scale.min,
     max: state.get.minMax().theme.background.image.scale.max,
     action: () => {
-      theme.render.background.style();
+      theme.render.background.image.filter();
       data.save();
     }
   });
 
-  const themeIackgroundImageOpacity = new ControlModule_slider({
+  const themeBackgroundImageOpacity = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.background.image.opacity',
     id: 'theme-background-image-opacity',
@@ -402,7 +403,66 @@ menuContentTheme.background = function() {
     min: state.get.minMax().theme.background.image.opacity.min,
     max: state.get.minMax().theme.background.image.opacity.max,
     action: () => {
-      theme.render.background.style();
+      theme.render.background.image.filter();
+      data.save();
+    }
+  });
+
+  const themeBackgroundVideoUrl = new ControlModule_text({
+    object: state.get.current(),
+    path: 'theme.background.video.url',
+    id: 'theme-background-video-url',
+    value: state.get.current().theme.background.video.url,
+    placeholder: 'https://www.example.com/video.jpg',
+    labelText: 'Background video URL',
+    action: () => {
+      theme.render.background.video.remove();
+      theme.render.background.video.set();
+      data.save();
+    }
+  });
+
+  const themeBackgroundVideoBlur = new ControlModule_slider({
+    object: state.get.current(),
+    path: 'theme.background.video.blur',
+    id: 'theme-background-video-blur',
+    labelText: 'Background video blur',
+    value: state.get.current().theme.background.video.blur,
+    defaultValue: state.get.default().theme.background.video.blur,
+    min: state.get.minMax().theme.background.video.blur.min,
+    max: state.get.minMax().theme.background.video.blur.max,
+    action: () => {
+      theme.render.background.video.filter();
+      data.save();
+    }
+  });
+
+  const themeBackgroundVideoScale = new ControlModule_slider({
+    object: state.get.current(),
+    path: 'theme.background.video.scale',
+    id: 'theme-background-video-scale',
+    labelText: 'Background video scale',
+    value: state.get.current().theme.background.video.scale,
+    defaultValue: state.get.default().theme.background.video.scale,
+    min: state.get.minMax().theme.background.video.scale.min,
+    max: state.get.minMax().theme.background.video.scale.max,
+    action: () => {
+      theme.render.background.video.filter();
+      data.save();
+    }
+  });
+
+  const themeBackgroundVideoOpacity = new ControlModule_slider({
+    object: state.get.current(),
+    path: 'theme.background.video.opacity',
+    id: 'theme-background-video-opacity',
+    labelText: 'Background video opacity',
+    value: state.get.current().theme.background.video.opacity,
+    defaultValue: state.get.default().theme.background.video.opacity,
+    min: state.get.minMax().theme.background.video.opacity.min,
+    max: state.get.minMax().theme.background.video.opacity.max,
+    action: () => {
+      theme.render.background.video.filter();
       data.save();
     }
   });
@@ -423,11 +483,20 @@ menuContentTheme.background = function() {
 
   const themeBackgroundImageArea = node('div', [
     node('hr'),
-    themeIackgroundImageUrl.wrap(),
+    themeBackgroundImageUrl.wrap(),
     node('hr'),
-    themeIackgroundImageBlur.wrap(),
-    themeIackgroundImageScale.wrap(),
-    themeIackgroundImageOpacity.wrap()
+    themeBackgroundImageBlur.wrap(),
+    themeBackgroundImageScale.wrap(),
+    themeBackgroundImageOpacity.wrap()
+  ]);
+
+  const themeBackgroundVideoArea = node('div', [
+    node('hr'),
+    themeBackgroundVideoUrl.wrap(),
+    node('hr'),
+    themeBackgroundVideoBlur.wrap(),
+    themeBackgroundVideoScale.wrap(),
+    themeBackgroundVideoOpacity.wrap()
   ]);
 
   const themeBackgroundCollapse = new Collapse({
@@ -442,6 +511,9 @@ menuContentTheme.background = function() {
     }, {
       id: themeBackgroundType.radioSet[3].radio.value,
       content: themeBackgroundImageArea
+    }, {
+      id: themeBackgroundType.radioSet[4].radio.value,
+      content: themeBackgroundVideoArea
     }]
   });
 
@@ -463,10 +535,14 @@ menuContentTheme.background = function() {
         themeBackgroundGradientAngle.disable();
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
-        themeIackgroundImageUrl.disable();
-        themeIackgroundImageBlur.disable();
-        themeIackgroundImageScale.disable();
-        themeIackgroundImageOpacity.disable();
+        themeBackgroundImageUrl.disable();
+        themeBackgroundImageBlur.disable();
+        themeBackgroundImageScale.disable();
+        themeBackgroundImageOpacity.disable();
+        themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoBlur.disable();
+        themeBackgroundVideoScale.disable();
+        themeBackgroundVideoOpacity.disable();
         break;
 
       case 'color':
@@ -474,10 +550,14 @@ menuContentTheme.background = function() {
         themeBackgroundGradientAngle.disable();
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
-        themeIackgroundImageUrl.disable();
-        themeIackgroundImageBlur.disable();
-        themeIackgroundImageScale.disable();
-        themeIackgroundImageOpacity.disable();
+        themeBackgroundImageUrl.disable();
+        themeBackgroundImageBlur.disable();
+        themeBackgroundImageScale.disable();
+        themeBackgroundImageOpacity.disable();
+        themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoBlur.disable();
+        themeBackgroundVideoScale.disable();
+        themeBackgroundVideoOpacity.disable();
         break;
 
       case 'gradient':
@@ -485,10 +565,14 @@ menuContentTheme.background = function() {
         themeBackgroundGradientAngle.enable();
         themeBackgroundGradientStartMixer.enable();
         themeBackgroundGradientEndMixer.enable();
-        themeIackgroundImageUrl.disable();
-        themeIackgroundImageBlur.disable();
-        themeIackgroundImageScale.disable();
-        themeIackgroundImageOpacity.disable();
+        themeBackgroundImageUrl.disable();
+        themeBackgroundImageBlur.disable();
+        themeBackgroundImageScale.disable();
+        themeBackgroundImageOpacity.disable();
+        themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoBlur.disable();
+        themeBackgroundVideoScale.disable();
+        themeBackgroundVideoOpacity.disable();
         break;
 
       case 'image':
@@ -496,10 +580,29 @@ menuContentTheme.background = function() {
         themeBackgroundGradientAngle.disable();
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
-        themeIackgroundImageUrl.enable();
-        themeIackgroundImageBlur.enable();
-        themeIackgroundImageScale.enable();
-        themeIackgroundImageOpacity.enable();
+        themeBackgroundImageUrl.enable();
+        themeBackgroundImageBlur.enable();
+        themeBackgroundImageScale.enable();
+        themeBackgroundImageOpacity.enable();
+        themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoBlur.disable();
+        themeBackgroundVideoScale.disable();
+        themeBackgroundVideoOpacity.disable();
+        break;
+
+      case 'video':
+        themeBackgroundColorMixer.disable();
+        themeBackgroundGradientAngle.disable();
+        themeBackgroundGradientStartMixer.disable();
+        themeBackgroundGradientEndMixer.disable();
+        themeBackgroundImageUrl.disable();
+        themeBackgroundImageBlur.disable();
+        themeBackgroundImageScale.disable();
+        themeBackgroundImageOpacity.disable();
+        themeBackgroundVideoUrl.enable();
+        themeBackgroundVideoBlur.enable();
+        themeBackgroundVideoScale.enable();
+        themeBackgroundVideoOpacity.enable();
         break;
     };
   };
