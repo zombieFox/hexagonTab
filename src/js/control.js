@@ -225,7 +225,6 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     value: value,
     min: min,
     max: max,
-    classList: ['mr-3'],
     func: () => {
       if (path) {
         set({
@@ -248,7 +247,7 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     value: value,
     min: min,
     max: max,
-    classList: ['form-group-item-medium', 'form-group-radius-left'],
+    classList: ['form-group-item-small'],
     func: () => {
       if (path) {
         set({
@@ -272,6 +271,7 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     text: false,
     iconName: 'replay',
     style: ['line'],
+    classList: ['form-group-item-small'],
     func: () => {
       set({
         object: object,
@@ -308,7 +308,6 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
 
   this.wrap = () => {
     const formGroup = form.render.group([
-      this.range,
       this.number
     ]);
 
@@ -316,9 +315,14 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
       formGroup.appendChild(this.reset.button);
     };
 
+    const formInline = form.render.inline([
+      this.range,
+      formGroup
+    ]);
+
     const wrap = form.render.wrap([
       this.label,
-      formGroup
+      formInline
     ]);
 
     return wrap;
@@ -344,7 +348,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
   this.label = form.render.label({
     forInput: id,
     text: labelText,
-    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-medium', 'mr-3', 'pb-0']
+    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-large', 'pb-0']
   });
 
   this.range = form.render.input.range({
@@ -352,7 +356,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     value: value,
     min: min,
     max: max,
-    classList: ['mr-3'],
+    classList: ['form-group-item-grow'],
     func: () => {
       if (path) {
         set({
@@ -375,7 +379,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     value: value,
     min: min,
     max: max,
-    classList: ['form-group-item-medium', 'form-group-radius-left'],
+    classList: ['form-group-item-small'],
     func: () => {
       if (path) {
         set({
@@ -399,6 +403,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     text: false,
     iconName: 'replay',
     style: ['line'],
+    classList: ['form-group-item-small'],
     func: () => {
       set({
         object: object,
@@ -435,8 +440,6 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
 
   this.wrap = () => {
     const formGroup = form.render.group([
-      this.label,
-      this.range,
       this.number
     ]);
 
@@ -444,8 +447,14 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
       formGroup.appendChild(this.reset.button);
     };
 
-    const wrap = form.render.wrap([
+    const formInline = form.render.inline([
+      this.label,
+      this.range,
       formGroup
+    ]);
+
+    const wrap = form.render.wrap([
+      formInline
     ]);
 
     return wrap;
@@ -529,6 +538,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     text: false,
     iconName: 'replay',
     style: ['line'],
+    classList: ['form-group-item-small'],
     func: () => {
       set({
         object: object,
@@ -566,7 +576,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
   };
 
   this.wrap = () => {
-    const formGroup = form.render.group([
+    const formGroup = form.render.groupBlock([
       this.color,
       this.text
     ]);
@@ -785,7 +795,7 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
     text: false,
     iconName: 'arrowKeyboardDown',
     style: ['line'],
-    classList: ['collapse-toggle'],
+    classList: ['collapse-toggle', 'form-group-item-small'],
     func: () => {
       this.moreControlsCollapse.toggle();
       this.moreControlsUpdate();

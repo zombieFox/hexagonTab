@@ -16,7 +16,13 @@ form.render = {
     return node('div|class:form-sticky', children);
   },
   group: function(children) {
+    return node('div|class:form-group', children);
+  },
+  groupBlock: function(children) {
     return node('div|class:form-group form-group-block', children);
+  },
+  inline: function(children) {
+    return node('div|class:form-inline', children);
   },
   indent: function(children) {
     return node('div|class:form-indent', children);

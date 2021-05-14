@@ -122,37 +122,12 @@ fieldset:not(:last-child),
 }
 
 .form-inline {
-  margin: calc(calc(var(--form-wrap-space) / 2) * -1);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
-}
-
-.form-inline>*,
-.form-inline>.form-wrap:not(:first-child),
-.form-inline>.form-wrap:not(:last-child) {
-  margin: calc(var(--form-wrap-space) / 2);
-  flex-grow: 0;
-  width: initial;
-  display: inline-block;
-}
-
-.form-inline .form-inline {
-  margin: 0;
-}
-
-.form-inline-spacer>*.form-wrap:not(:last-child) {
-  margin-right: calc(var(--form-wrap-space) * 3);
-}
-
-.form-inline-space-between {
-  justify-content: space-between;
-}
-
-.form-inline-space-around {
-  justify-content: space-around;
+  flex-wrap: nowrap;
+  gap: var(--form-wrap-space);
 }
 
 .form-sticky {
@@ -535,7 +510,7 @@ input[type="radio"]+label {
   font-style: var(--theme-font-ui-style);
   color: rgb(var(--form-label));
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1910,7 +1885,8 @@ input[type="range"]:disabled::-moz-range-progress {
 .form-group>.button.form-group-item-small,
 .form-group>select.form-group-item-small,
 .form-group>input[type].form-group-item-small {
-  width: 3em;
+  width: 4em;
+  flex-shrink: 0;
 }
 
 .form-group-item-medium,
@@ -1918,13 +1894,15 @@ input[type="range"]:disabled::-moz-range-progress {
 .form-group>select.form-group-item-medium,
 .form-group>input[type].form-group-item-medium {
   width: 6em;
+  flex-shrink: 0;
 }
 
 .form-group-item-large,
 .form-group>.button.form-group-item-large,
 .form-group>select.form-group-item-large,
 .form-group>input[type].form-group-item-large {
-  width: 9em;
+  width: 8em;
+  flex-shrink: 0;
 }
 
 .form-group-item-shrink,
