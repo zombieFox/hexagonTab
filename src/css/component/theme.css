@@ -319,6 +319,18 @@
   filter: blur(calc(var(--theme-background-image-blur) * 1px));
 }
 
+.theme-background-type-video {
+  transform: scale(calc(var(--theme-background-video-scale) / 100));
+  filter: blur(calc(var(--theme-background-video-blur) * 1px));
+}
+.theme-background-type-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+
 .is-theme-background-type-theme .theme-background-type-theme {
   opacity: 1;
 }
@@ -333,4 +345,8 @@
 
 .is-theme-background-type-image .theme-background-type-image {
   opacity: calc(var(--theme-background-image-opacity) / 100);
+}
+
+.is-theme-background-type-video .theme-background-type-video {
+  opacity: calc(var(--theme-background-video-opacity) / 100);
 }

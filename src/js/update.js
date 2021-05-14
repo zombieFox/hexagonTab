@@ -5,6 +5,11 @@ const update = {};
 update.all = {
   '1.0.0': function(dataToUpdate) {
     return dataToUpdate;
+  },
+  '2.4.0': function(dataToUpdate) {
+    dataToUpdate.state.theme.background.video = { url: '', blur: 0, scale: 100, opacity: 100 };
+
+    return dataToUpdate;
   }
 };
 
