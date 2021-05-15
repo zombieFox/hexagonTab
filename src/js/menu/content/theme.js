@@ -14,7 +14,7 @@ import { form } from '../../utilities/form.js';
 import { Button } from '../../utilities/button.js';
 import { Collapse } from '../../utilities/collapse.js';
 import { link } from '../../utilities/link.js';
-import { ControlModule_text, ControlModule_inputButton, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../../control.js';
+import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control.js';
 
 const menuContentTheme = {};
 
@@ -50,6 +50,10 @@ menuContentTheme.color = function() {
   const menuContentItem = node('div|id:menu-content-item-color,class:menu-content-item');
 
   menuContentItem.appendChild(menu.render.component.item.header('Colour'));
+
+  const shadesHelper = new ControlModul_helperText({
+    text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
+  });
 
   const themeColorMixer = new ControlModule_colorMixer({
     object: state.get.current(),
@@ -104,11 +108,7 @@ menuContentTheme.color = function() {
           menuContentTheme.shades()
         ])
       ]),
-      form.render.wrap([
-        form.render.helper({ text: 'Backgrounds, Bookmarks and Modals use shades from the left.' }),
-        form.render.helper({ text: 'Text and form elements use shades from the right.' }),
-        form.render.helper({ text: 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.' }),
-      ]),
+      shadesHelper.wrap(),
       node('hr'),
       themeColorMixer.wrap(),
       form.render.wrap([
@@ -158,7 +158,7 @@ menuContentTheme.shades = function() {
     );
   };
 
-  return formGroup
+  return formGroup;
 };
 
 menuContentTheme.accent = function() {
@@ -363,6 +363,10 @@ menuContentTheme.background = function() {
     }
   });
 
+  const themeBackgroundImageUrlHelper = new ControlModul_helperText({
+    text: ['Background image only supports a direct URL to an image file.']
+  });
+
   const themeBackgroundImageBlur = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.background.image.blur',
@@ -420,6 +424,10 @@ menuContentTheme.background = function() {
       theme.render.background.video.set();
       data.save();
     }
+  });
+
+  const themeBackgroundVideoUrlHelper = new ControlModul_helperText({
+    text: ['Background video only supports a direct URL to a video file.', 'Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
   const themeBackgroundVideoBlur = new ControlModule_slider({
@@ -484,6 +492,7 @@ menuContentTheme.background = function() {
   const themeBackgroundImageArea = node('div', [
     node('hr'),
     themeBackgroundImageUrl.wrap(),
+    themeBackgroundImageUrlHelper.wrap(),
     node('hr'),
     themeBackgroundImageBlur.wrap(),
     themeBackgroundImageScale.wrap(),
@@ -493,6 +502,7 @@ menuContentTheme.background = function() {
   const themeBackgroundVideoArea = node('div', [
     node('hr'),
     themeBackgroundVideoUrl.wrap(),
+    themeBackgroundVideoUrlHelper.wrap(),
     node('hr'),
     themeBackgroundVideoBlur.wrap(),
     themeBackgroundVideoScale.wrap(),
@@ -536,10 +546,12 @@ menuContentTheme.background = function() {
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
         themeBackgroundImageUrl.disable();
+        themeBackgroundImageUrlHelper.disable();
         themeBackgroundImageBlur.disable();
         themeBackgroundImageScale.disable();
         themeBackgroundImageOpacity.disable();
         themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoUrlHelper.disable();
         themeBackgroundVideoBlur.disable();
         themeBackgroundVideoScale.disable();
         themeBackgroundVideoOpacity.disable();
@@ -551,10 +563,12 @@ menuContentTheme.background = function() {
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
         themeBackgroundImageUrl.disable();
+        themeBackgroundImageUrlHelper.disable();
         themeBackgroundImageBlur.disable();
         themeBackgroundImageScale.disable();
         themeBackgroundImageOpacity.disable();
         themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoUrlHelper.disable();
         themeBackgroundVideoBlur.disable();
         themeBackgroundVideoScale.disable();
         themeBackgroundVideoOpacity.disable();
@@ -566,10 +580,12 @@ menuContentTheme.background = function() {
         themeBackgroundGradientStartMixer.enable();
         themeBackgroundGradientEndMixer.enable();
         themeBackgroundImageUrl.disable();
+        themeBackgroundImageUrlHelper.disable();
         themeBackgroundImageBlur.disable();
         themeBackgroundImageScale.disable();
         themeBackgroundImageOpacity.disable();
         themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoUrlHelper.disable();
         themeBackgroundVideoBlur.disable();
         themeBackgroundVideoScale.disable();
         themeBackgroundVideoOpacity.disable();
@@ -581,10 +597,12 @@ menuContentTheme.background = function() {
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
         themeBackgroundImageUrl.enable();
+        themeBackgroundImageUrlHelper.enable();
         themeBackgroundImageBlur.enable();
         themeBackgroundImageScale.enable();
         themeBackgroundImageOpacity.enable();
         themeBackgroundVideoUrl.disable();
+        themeBackgroundVideoUrlHelper.disable();
         themeBackgroundVideoBlur.disable();
         themeBackgroundVideoScale.disable();
         themeBackgroundVideoOpacity.disable();
@@ -596,10 +614,12 @@ menuContentTheme.background = function() {
         themeBackgroundGradientStartMixer.disable();
         themeBackgroundGradientEndMixer.disable();
         themeBackgroundImageUrl.disable();
+        themeBackgroundImageUrlHelper.disable();
         themeBackgroundImageBlur.disable();
         themeBackgroundImageScale.disable();
         themeBackgroundImageOpacity.disable();
         themeBackgroundVideoUrl.enable();
+        themeBackgroundVideoUrlHelper.enable();
         themeBackgroundVideoBlur.enable();
         themeBackgroundVideoScale.enable();
         themeBackgroundVideoOpacity.enable();

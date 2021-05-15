@@ -13,7 +13,7 @@ import { logo } from '../../utilities/logo.js';
 import { form } from '../../utilities/form.js';
 import { Button } from '../../utilities/button.js';
 import { link } from '../../utilities/link.js';
-import { ControlModule_text, ControlModule_inputButton, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../../control.js';
+import { ControlModul_helperText, ControlModule_text, ControlModule_inputButton, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../../control.js';
 
 const menuContentData = {};
 
@@ -36,12 +36,14 @@ menuContentData.import = function() {
     }
   });
 
+  const importHelper = new ControlModul_helperText({
+    text: ['Restore a previously exported ' + data.saveName + ' backup.']
+  });
+
   menuContentItem.appendChild(
     menu.render.component.item.form([
       importButton.wrap(),
-      form.render.wrap([
-        form.render.helper({ text: 'Restore a previously exported ' + data.saveName + ' backup.' })
-      ]),
+      importHelper.wrap(),
       form.render.wrap([
         importFeedback
       ])
@@ -64,13 +66,14 @@ menuContentData.backup = function() {
     }
   });
 
+  const exportHelper = new ControlModul_helperText({
+    text: ['Download a backup of your ' + data.saveName + ' Bookmarks and Settings.', 'This file can later be imported on this or another deivce.']
+  });
+
   menuContentItem.appendChild(
     menu.render.component.item.form([
       exportButton.wrap(),
-      form.render.wrap([
-        form.render.helper({ text: 'Download a backup of your ' + data.saveName + ' Bookmarks and Settings.' }),
-        form.render.helper({ text: 'This file can later be imported on this or another deivce.' })
-      ])
+      exportHelper.wrap()
     ])
   );
 
@@ -91,12 +94,14 @@ menuContentData.clear = function() {
     }
   });
 
+  const clearHelper = new ControlModul_helperText({
+    text: ['Wipe all data and restore ' + data.saveName + ' to the default state.']
+  });
+
   menuContentItem.appendChild(
     menu.render.component.item.form([
       clearButton.wrap(),
-      form.render.wrap([
-        form.render.helper({ text: 'Wipe all data and restore ' + data.saveName + ' to the default state.' })
-      ])
+      clearHelper.wrap()
     ])
   );
 

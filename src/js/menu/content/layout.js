@@ -10,7 +10,7 @@ import { icon } from '../../utilities/icon.js';
 import { form } from '../../utilities/form.js';
 import { Button } from '../../utilities/button.js';
 import { link } from '../../utilities/link.js';
-import { ControlModule_text, ControlModule_inputButton, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../../control.js';
+import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control.js';
 
 const menuContentLayout = {};
 
@@ -32,15 +32,16 @@ menuContentLayout.size = function() {
     }
   });
 
+  const gridSizeHelper = new ControlModul_helperText({
+    text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
+  });
+
   menuContentItem.appendChild(menu.render.component.item.header('Scaling'));
 
   menuContentItem.appendChild(
     menu.render.component.item.form([
       gridSize.wrap(),
-      form.render.wrap([
-        form.render.helper({ text: 'Resize all elements on the page.' }),
-        form.render.helper({ text: 'Take care as some elements could scale up to outside the page.' })
-      ])
+      gridSizeHelper.wrap()
     ])
   );
 

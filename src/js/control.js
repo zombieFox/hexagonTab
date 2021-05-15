@@ -60,6 +60,39 @@ const hslToRgb = function(hsl) {
   return rgb;
 };
 
+const ControlModul_helperText = function({ text = [] } = {}) {
+  this.para = [];
+
+  text.forEach((item, i) => {
+    this.para.push(form.render.helper({
+      tag: 'p',
+      text: item
+    }));
+  });
+
+  this.wrap = () => {
+    const formWrap = form.render.wrap();
+
+    this.para.forEach((item, i) => {
+      formWrap.appendChild(item);
+    });
+
+    return formWrap;
+  };
+
+  this.disable = () => {
+    this.para.forEach((item, i) => {
+      item.classList.add('disabled');
+    });
+  };
+
+  this.enable = () => {
+    this.para.forEach((item, i) => {
+      item.classList.remove('disabled');
+    });
+  };
+};
+
 const ControlModule_inputButton = function({ id = 'name', type = false, inputHide = false, labelText = 'Name', action = false } = {}) {
   this.input;
 
@@ -1060,4 +1093,4 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
   };
 };
 
-export { ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text };
+export { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text };

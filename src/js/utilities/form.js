@@ -29,13 +29,13 @@ form.render = {
   }
 };
 
-form.render.helper = function({ name = 'Name', text = 'text', classList = [] } = {}) {
+form.render.helper = function({ text = 'text', classList = [] } = {}) {
   const helper = complexNode({
     tag: 'p',
     text: text,
     attr: [{
       key: 'class',
-      value: name + ' form-helper-item'
+      value: 'form-helper-item'
     }]
   });
 
