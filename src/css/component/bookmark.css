@@ -5,6 +5,7 @@
   --bookmark-display-visual-color-focus-hover: var(--theme-style-text);
   --bookmark-display-name-color: var(--theme-color-18);
   --bookmark-display-name-color-focus-hover: var(--theme-style-text);
+  --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
 }
 
 .bookmark {
@@ -54,7 +55,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  clip-path: var(--bookmark-shape);
 }
 
 .is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {
@@ -126,7 +127,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   justify-content: center;
   align-items: center;
   pointer-events: all;
-  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  clip-path: var(--bookmark-shape);
   transition: background-color var(--layout-transition-extra-fast);
   text-decoration: none;
 }
@@ -223,7 +224,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   overflow: hidden;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
+  clip-path: var(--bookmark-shape);
   pointer-events: none;
 }
 
