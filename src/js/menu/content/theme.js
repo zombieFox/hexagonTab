@@ -417,7 +417,7 @@ menuContentTheme.background = function() {
     path: 'theme.background.video.url',
     id: 'theme-background-video-url',
     value: state.get.current().theme.background.video.url,
-    placeholder: 'https://www.example.com/video.jpg',
+    placeholder: 'https://www.example.com/video.mp4',
     labelText: 'Background video URL',
     action: () => {
       theme.render.background.video.remove();
