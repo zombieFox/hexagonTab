@@ -280,7 +280,8 @@ menuContentTheme.background = function() {
   const themeBackgroundType = new ControlModule_radio({
     object: state.get.current(),
     radioGroup: [
-      { id: 'theme-background-type-theme', labelText: 'Background by theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
+      { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
+      { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Background colour defined by the Accent.', value: 'accent' },
       { id: 'theme-background-type-color', labelText: 'Background colour', description: false, value: 'color' },
       { id: 'theme-background-type-gradient', labelText: 'Background gradient', description: false, value: 'gradient' },
       { id: 'theme-background-type-image', labelText: 'Background image', description: false, value: 'image' },
@@ -541,6 +542,7 @@ menuContentTheme.background = function() {
   const updateDisabled = () => {
     switch (state.get.current().theme.background.type) {
       case 'theme':
+      case 'accent':
         themeBackgroundColorMixer.disable();
         themeBackgroundGradientAngle.disable();
         themeBackgroundGradientStartMixer.disable();

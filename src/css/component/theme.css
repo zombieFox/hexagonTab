@@ -81,6 +81,7 @@
     0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),
     0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));
   --theme-background-theme: var(--theme-color-01);
+  --theme-background-accent: var(--theme-accent);
 }
 
 .is-theme-style-dark {
@@ -302,6 +303,10 @@
   background-color: rgb(var(--theme-background-theme));
 }
 
+.theme-background-type-accent {
+  background-color: rgb(var(--theme-background-accent));
+}
+
 .theme-background-type-color {
   background-color: rgb(var(--theme-background-color));
 }
@@ -332,6 +337,10 @@
 
 
 .is-theme-background-type-theme .theme-background-type-theme {
+  opacity: 1;
+}
+
+.is-theme-background-type-accent .theme-background-type-accent {
   opacity: 1;
 }
 
