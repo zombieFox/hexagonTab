@@ -79,21 +79,21 @@
 /* fieldset */
 fieldset:not(:only-child):not(:last-child),
 .fieldset:not(:only-child):not(:last-child) {
-  border-bottom: var(--layout-horizontal-rule-small);
+  /* border-bottom: var(--layout-horizontal-rule-small); */
   position: relative;
   width: 100%;
   display: block;
-  transition: border-color var(--layout-transition-extra-fast);
+  /* transition: border-color var(--layout-transition-extra-fast); */
 }
 
 fieldset:not(:first-child),
 .fieldset:not(:first-child) {
-  padding-top: calc(var(--form-wrap-space) * 2);
+  /* padding-top: calc(var(--form-wrap-space) * 2); */
 }
 
 fieldset:not(:last-child),
 .fieldset:not(:last-child) {
-  padding-bottom: calc(var(--form-wrap-space) * 2);
+  /* padding-bottom: calc(var(--form-wrap-space) * 2); */
 }
 
 /* form variants */
@@ -1924,6 +1924,13 @@ input[type="range"]:disabled::-moz-range-progress {
 .form-group>select.form-group-item-half,
 .form-group>input[type].form-group-item-half {
   flex-basis: 50%;
+}
+
+.form-group-item-equal,
+.form-group>.button.form-group-item-equal,
+.form-group>select.form-group-item-equal,
+.form-group>input[type].form-group-item-equal {
+  flex-basis: 0;
 }
 
 .form-group-text-borderless {

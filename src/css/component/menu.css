@@ -115,8 +115,8 @@
 }
 
 .menu-content-item:not(:last-child) {
-  border-bottom: var(--layout-horizontal-rule-large);
-  transition: border-color var(--layout-transition-extra-fast);
+  /* border-bottom: var(--layout-horizontal-rule-large); */
+  /* transition: border-color var(--layout-transition-extra-fast); */
 }
 
 .menu-content-overscroll .menu-content-item:last-child {
@@ -200,7 +200,7 @@
   }
 
   .menu-content-item {
-    padding: calc(var(--menu-space) * 2) calc(var(--menu-space) * 4);
+    padding: calc(var(--menu-space) * 4);
   }
 
   .menu-item-header {
@@ -290,7 +290,7 @@
   }
 
   .menu-content-item {
-    padding: calc(var(--menu-space) * 3) calc(var(--menu-space) * 5);
+    padding: calc(var(--menu-space) * 5);
   }
 
   .menu-close-tab {

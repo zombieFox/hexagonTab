@@ -10,6 +10,7 @@ import { complexNode } from './utilities/complexNode.js';
 import { form } from './utilities/form.js';
 import { Button } from './utilities/button.js';
 import { Collapse } from './utilities/collapse.js';
+import { Tab } from './utilities/tab.js';
 import { convertColor } from './utilities/convertColor.js';
 import { ifValidString } from './utilities/ifValidString.js';
 import { trimString } from './utilities/trimString.js';
@@ -474,7 +475,6 @@ bookmark.render.item = function() {
           actionText: 'Save',
           content: bookmark.form(bookmarkData),
           width: 40,
-          overscroll: true,
           successAction: () => {
             bookmark.mod.item.edit(bookmarkData);
             bookmark.render.clear();
@@ -573,7 +573,6 @@ bookmark.render.add = function() {
     actionText: 'Add',
     content: bookmark.form(newBookmarkData),
     width: 40,
-    overscroll: true,
     successAction: () => {
       bookmark.mod.item.add(newBookmarkData);
       bookmark.render.clear();
@@ -590,7 +589,7 @@ bookmark.render.add = function() {
 bookmark.form = function(bookmarkData) {
   const bookmarkForm = node('form|class:bookmark-form');
 
-  bookmarkForm.disableForm = () => {
+  bookmarkForm.disable = () => {
     if (bookmarkData.link.display.visual.show) {
       displayVisualType.enable();
       displayVisualTypeLetter.enable();
@@ -671,7 +670,7 @@ bookmark.form = function(bookmarkData) {
     labelText: 'Show Visual Element',
     description: 'Display Letters, Icon or an Image on this Bookmark tile.',
     action: () => {
-      bookmarkForm.disableForm();
+      bookmarkForm.disable();
     }
   });
 
@@ -685,7 +684,7 @@ bookmark.form = function(bookmarkData) {
     groupName: 'display-visual-type',
     path: 'display.visual.type',
     action: () => {
-      bookmarkForm.disableForm();
+      bookmarkForm.disable();
     }
   });
 
@@ -755,7 +754,7 @@ bookmark.form = function(bookmarkData) {
     labelText: 'Show Name',
     description: 'Display a Name on this Bookmark tile.',
     action: () => {
-      bookmarkForm.disableForm();
+      bookmarkForm.disable();
     }
   });
 
@@ -789,50 +788,6 @@ bookmark.form = function(bookmarkData) {
     labelText: 'URL'
   });
 
-  const displayVisualTypeWrap = form.render.wrap([
-    form.render.indent([
-      displayVisualShow.wrap(),
-      form.render.indent([
-        form.render.wrap([
-          displayVisualType.radioSet[0].radio,
-          displayVisualType.radioSet[0].label
-        ]),
-        form.render.wrap([
-          form.render.indent([
-            displayVisualTypeLetter.wrap()
-          ])
-        ]),
-        form.render.wrap([
-          displayVisualType.radioSet[1].radio,
-          displayVisualType.radioSet[1].label
-        ]),
-        form.render.wrap([
-          form.render.indent([
-            form.render.wrap([
-              displayVisualTypeIcon.label,
-              form.render.groupBlock([
-                displayVisualTypeIcon.text,
-                displayVisualTypeIconDisplay.groupText,
-                displayVisualTypeIconRemove.button
-              ])
-            ])
-          ])
-        ]),
-        form.render.wrap([
-          displayVisualType.radioSet[2].radio,
-          displayVisualType.radioSet[2].label
-        ]),
-        form.render.wrap([
-          form.render.indent([
-            displayVisualTypeImage.wrap()
-          ])
-        ]),
-        node('hr'),
-        displayVisualSize.wrap()
-      ])
-    ])
-  ]);
-
   const colorBy = new ControlModule_radio({
     object: bookmarkData.link,
     radioGroup: [
@@ -843,7 +798,7 @@ bookmark.form = function(bookmarkData) {
     path: 'color.by',
     action: () => {
       colorMixerCollapse.update();
-      bookmarkForm.disableForm();
+      bookmarkForm.disable();
     }
   });
 
@@ -866,7 +821,7 @@ bookmark.form = function(bookmarkData) {
     path: 'accent.by',
     action: () => {
       accentMixerCollapse.update();
-      bookmarkForm.disableForm();
+      bookmarkForm.disable();
     }
   });
 
@@ -909,69 +864,105 @@ bookmark.form = function(bookmarkData) {
     }]
   });
 
-  colorMixerCollapse.update();
 
-  bookmarkForm.appendChild(
-    form.render.fieldset([
+
+
+
+  const displayVisualArea = form.render.fieldset([
+    form.render.wrap([
+      node('h2:Visual element|class:mb-0'),
+    ]),
+    displayVisualShow.wrap(),
+    form.render.indent([
+      displayVisualType.wrap(),
+      displayVisualTypeLetter.wrap(),
       form.render.wrap([
-        node('h2:Visual Element|class:mb-0')
+        displayVisualTypeIcon.label,
+        form.render.groupBlock([
+          displayVisualTypeIcon.text,
+          displayVisualTypeIconDisplay.groupText,
+          displayVisualTypeIconRemove.button
+        ])
       ]),
-      displayVisualTypeWrap,
+      displayVisualTypeImage.wrap(),
       node('hr'),
-      form.render.wrap([
-        node('h2:Name|class:mb-0'),
-      ]),
+      displayVisualSize.wrap()
+    ])
+  ]);
+
+  const displayNameArea = form.render.fieldset([
+    form.render.wrap([
+      node('h2:Name|class:mb-0'),
+    ]),
+    form.render.wrap([
+      displayNameShow.wrap(),
       form.render.wrap([
         form.render.indent([
-          displayNameShow.wrap(),
-          form.render.wrap([
-            form.render.indent([
-              displayNameText.wrap(),
-              node('hr'),
-              displayNameSize.wrap()
-            ])
+          displayNameText.wrap(),
+          node('hr'),
+          displayNameSize.wrap()
+        ])
+      ])
+    ])
+  ]);
+
+  const displayAddressArea = form.render.fieldset([
+    url.wrap()
+  ]);
+
+  const displayThemeArea = form.render.fieldset([
+    form.render.wrap([
+      node('h2:Colour|class:mb-0'),
+    ]),
+    form.render.wrap([
+      form.render.indent([
+        colorBy.wrap(),
+        form.render.wrap([
+          form.render.indent([
+            colorMixerCollapse.collapse()
           ])
         ])
-      ]),
-      node('hr'),
-      form.render.wrap([
-        node('h2:Address|class:mb-0'),
-      ]),
-      form.render.wrap([
-        form.render.indent([
-          url.wrap()
-        ])
-      ]),
-      node('hr'),
-      form.render.wrap([
-        node('h2:Colour|class:mb-0'),
-      ]),
-      form.render.wrap([
-        form.render.indent([
-          colorBy.wrap(),
-          form.render.wrap([
-            form.render.indent([
-              colorMixerCollapse.collapse()
-            ])
-          ])
-        ])
-      ]),
-      node('hr'),
-      form.render.wrap([
-        node('h2:Accent|class:mb-0'),
-      ]),
-      form.render.wrap([
-        form.render.indent([
-          accentBy.wrap(),
-          form.render.wrap([
-            form.render.indent([
-              accentMixerCollapse.collapse()
-            ])
+      ])
+    ]),
+    node('hr'),
+    form.render.wrap([
+      node('h2:Accent|class:mb-0'),
+    ]),
+    form.render.wrap([
+      form.render.indent([
+        accentBy.wrap(),
+        form.render.wrap([
+          form.render.indent([
+            accentMixerCollapse.collapse()
           ])
         ])
       ])
     ])
-  );
+  ]);
+
+  const formTab = new Tab({
+    group: [{
+      tabText: 'Visual',
+      area: displayVisualArea,
+      active: true
+    }, {
+      tabText: 'Name',
+      area: displayNameArea,
+      active: false
+    }, {
+      tabText: 'Address',
+      area: displayAddressArea,
+      active: false
+    }, {
+      tabText: 'Theme',
+      area: displayThemeArea,
+      active: false
+    }]
+  });
+
+  colorMixerCollapse.update();
+
+  bookmarkForm.appendChild(formTab.tab());
 
   if (ifValidString(bookmarkData.link.display.visual.icon.prefix) && ifValidString(bookmarkData.link.display.visual.icon.name)) {
     displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
@@ -981,7 +972,7 @@ bookmark.form = function(bookmarkData) {
 
   const displayVisualTypeIconAutoSuggest = new Suggest({
     input: displayVisualTypeIcon.text,
-    widthElement: displayVisualTypeWrap,
+    widthElement: displayVisualArea,
     type: 'fontawesomeIcon',
     postFocus: displayVisualTypeIconDisplay.groupText
   });
@@ -1013,7 +1004,7 @@ bookmark.form = function(bookmarkData) {
     bookmarkForm.update();
   };
 
-  bookmarkForm.disableForm();
+  bookmarkForm.disable();
 
   currentBookmarkForm = bookmarkForm;
 
