@@ -13,7 +13,7 @@ state.default = {
     gap: 100,
     perspective: 90,
     transform: {
-      focus: 60,
+      focus: 15,
       refresh: 10,
       rotate: { x: 15, y: 15, z: 0 }
     }
