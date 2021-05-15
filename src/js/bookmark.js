@@ -287,24 +287,24 @@ bookmark.render.item = function() {
     const contentWrap = node('div|class:bookmark-content-wrap');
 
     let contentOptions = {
-      tag: "a",
+      tag: 'a',
       attr: [{
-        key: "class",
-        value: "bookmark-content"
+        key: 'class',
+        value: 'bookmark-content'
       }, {
-        key: "tabindex",
+        key: 'tabindex',
         value: 1
       }]
     };
     if (ifValidString(item.url)) {
       contentOptions.attr.push({
-        key: "href",
+        key: 'href',
         value: trimString(item.url)
       });
     } else {
       contentOptions.attr.push({
-        key: "href",
-        value: "#"
+        key: 'href',
+        value: '#'
       });
     };
     const content = complexNode(contentOptions);
@@ -721,7 +721,7 @@ bookmark.form = function(bookmarkData) {
   });
 
   const displayVisualTypeIconDisplay = new ControlModule_groupText({
-    classList: ['bookmark-form-text-icon']
+    classList: ['bookmark-form-text-icon', 'form-group-item-small']
   });
 
   const displayVisualTypeIconRemove = new Button({
@@ -729,6 +729,7 @@ bookmark.form = function(bookmarkData) {
     srOnly: true,
     style: ['line'],
     iconName: 'cross',
+    classList: ['form-group-item-small'],
     func: () => {
       bookmarkData.link.display.visual.icon.label = '';
       bookmarkData.link.display.visual.icon.prefix = '';
@@ -809,7 +810,7 @@ bookmark.form = function(bookmarkData) {
           form.render.indent([
             form.render.wrap([
               displayVisualTypeIcon.label,
-              form.render.group([
+              form.render.groupBlock([
                 displayVisualTypeIcon.text,
                 displayVisualTypeIconDisplay.groupText,
                 displayVisualTypeIconRemove.button
