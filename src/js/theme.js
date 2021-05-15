@@ -200,15 +200,14 @@ theme.render.bookmark.style = function() {
 
 theme.render.background = {};
 
+theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
+
 theme.render.background.area = function() {
   const backgroundElement = node('div|class:theme-background');
 
-  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-theme'));
-  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-accent'));
-  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-color'));
-  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-gradient'));
-  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-image'));
-  backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-video'));
+  theme.render.background.choices.forEach((item, i) => {
+    backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-' + item));
+  });
 
   document.querySelector('body').appendChild(backgroundElement);
 };
@@ -216,9 +215,7 @@ theme.render.background.area = function() {
 theme.render.background.type = function() {
   const html = document.querySelector('html');
 
-  const type = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
-
-  type.forEach((item, i) => {
+  theme.render.background.choices.forEach((item, i) => {
     html.classList.remove('is-theme-background-type-' + item);
   });
 

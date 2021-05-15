@@ -281,11 +281,11 @@ menuContentTheme.background = function() {
     object: state.get.current(),
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
-      { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Background colour defined by the Accent.', value: 'accent' },
-      { id: 'theme-background-type-color', labelText: 'Background colour', description: false, value: 'color' },
-      { id: 'theme-background-type-gradient', labelText: 'Background gradient', description: false, value: 'gradient' },
-      { id: 'theme-background-type-image', labelText: 'Background image', description: false, value: 'image' },
-      { id: 'theme-background-type-video', labelText: 'Background video', description: false, value: 'video' }
+      { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Accent colour for the Background.', value: 'accent' },
+      { id: 'theme-background-type-color', labelText: 'Background colour', description: 'Pick a custom colour.', value: 'color' },
+      { id: 'theme-background-type-gradient', labelText: 'Background gradient', value: 'gradient' },
+      { id: 'theme-background-type-image', labelText: 'Background image', value: 'image' },
+      { id: 'theme-background-type-video', labelText: 'Background video', value: 'video' }
     ],
     groupName: 'theme-background-type',
     path: 'theme.background.type',
@@ -514,16 +514,16 @@ menuContentTheme.background = function() {
     type: 'radio',
     radioGroup: themeBackgroundType,
     target: [{
-      id: themeBackgroundType.radioSet[1].radio.value,
+      id: themeBackgroundType.radioSet[2].radio.value,
       content: themeBackgroundColorArea
     }, {
-      id: themeBackgroundType.radioSet[2].radio.value,
+      id: themeBackgroundType.radioSet[3].radio.value,
       content: themeBackgroundGradientArea
     }, {
-      id: themeBackgroundType.radioSet[3].radio.value,
+      id: themeBackgroundType.radioSet[4].radio.value,
       content: themeBackgroundImageArea
     }, {
-      id: themeBackgroundType.radioSet[4].radio.value,
+      id: themeBackgroundType.radioSet[5].radio.value,
       content: themeBackgroundVideoArea
     }]
   });
