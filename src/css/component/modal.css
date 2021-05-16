@@ -3,58 +3,66 @@
   --modal-medium: 50em;
   --modal-large: 70em;
   --modal-size: var(--modal-medium);
+  --modal-space: 2em;
 }
 
 .modal {
+  background-color: rgb(var(--theme-color-01));
+  border-radius: var(--theme-radius-base);
+  box-shadow: var(--theme-shadow-bottom-large);
   position: fixed;
   top: 50%;
   left: 50%;
   font-size: 1em;
+  max-height: calc(100vh - 2em);
   width: var(--modal-size);
   max-width: calc(100% - 2em);
   min-width: 10em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity var(--layout-transition-extra-fast);
   z-index: var(--z-index-modal);
 }
 
-.modal-wrapper {
-  background-color: rgb(var(--theme-color-01));
-  border-radius: var(--theme-radius-base);
-  box-shadow: var(--theme-shadow-bottom-large);
+.modal.modal-max-height {
+  min-height: calc(100vh - 2em);
+}
+
+.modal-content {
+  padding: calc(var(--modal-space) * 1.75);
   position: relative;
-  max-height: calc(100vh - 2em);
   overflow-y: auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr;
   justify-items: stretch;
   align-items: stretch;
+  gap: var(--modal-space);
+  overflow-y: auto;
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
-}
-
-.modal-max-height .modal-wrapper {
-  min-height: calc(100vh - 2em);
 }
 
 .modal-body {
   border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;
-  overflow-y: auto;
-  box-sizing: border-box;
-  z-index: 1;
   position: relative;
 }
 
 .modal-body-spacer {
-  margin: calc(var(--form-wrap-space) * 2) calc(var(--form-wrap-space) * 2.5);
+  margin: var(--modal-space);
 }
 
 .modal-overscroll .modal-body-spacer {
   padding-bottom: calc(var(--form-wrap-space) * 10);
 }
 
-.modal-heading:focus {
+.modal-heading-text {
+  margin-bottom: 0;
+}
+
+.modal-heading-text:focus {
   outline: none;
 }
 
@@ -78,6 +86,7 @@
 .modal-button {
   background-color: transparent;
   margin: 0;
+  border-radius: 0;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   flex-basis: 50%;

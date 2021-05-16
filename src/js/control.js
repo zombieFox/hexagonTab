@@ -766,7 +766,7 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
   };
 };
 
-const ControlModule_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = 'description', action = false } = {}) {
+const ControlModule_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
 
   this.checkbox = form.render.input.checkbox({
     id: id,

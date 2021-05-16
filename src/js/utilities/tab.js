@@ -21,7 +21,6 @@ const Tab = function({ group = [] } = {}) {
   };
 
   group.forEach((item, i) => {
-    // item.id = item.tabText.replace(/\s/g, '').toLowerCase();
     item.toggle = new Button({
       text: item.tabText,
       style: ['line'],
@@ -59,8 +58,6 @@ const Tab = function({ group = [] } = {}) {
   this.tab = () => {
     return this.tabElement;
   };
-
-  console.log(group);
 };
 
 export { Tab };

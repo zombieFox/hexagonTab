@@ -120,7 +120,7 @@ bookmark.all = [{
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
   color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
 }, {
-  url: 'http://devdocs.io/',
+  url: 'https://devdocs.io/',
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
@@ -685,6 +685,7 @@ bookmark.form = function(bookmarkData) {
     groupName: 'display-visual-type',
     path: 'display.visual.type',
     action: () => {
+      displayVisualTypeCollapse.update();
       bookmarkForm.disable();
     }
   });
@@ -864,6 +865,43 @@ bookmark.form = function(bookmarkData) {
     }]
   });
 
+  const displayVisualTypeLetterArea = node('div', [
+    node('hr'),
+    displayVisualTypeLetter.wrap()
+  ]);
+
+  const displayVisualTypeIconArea = node('div', [
+    node('hr'),
+    form.render.wrap([
+      displayVisualTypeIcon.label,
+      form.render.groupBlock([
+        displayVisualTypeIcon.text,
+        displayVisualTypeIconDisplay.groupText,
+        displayVisualTypeIconRemove.button
+      ])
+    ])
+  ]);
+
+  const displayVisualTypeImageArea = node('div', [
+    node('hr'),
+    displayVisualTypeImage.wrap()
+  ]);
+
+  const displayVisualTypeCollapse = new Collapse({
+    type: 'radio',
+    radioGroup: displayVisualType,
+    target: [{
+      id: displayVisualType.radioSet[0].radio.value,
+      content: displayVisualTypeLetterArea
+    }, {
+      id: displayVisualType.radioSet[1].radio.value,
+      content: displayVisualTypeIconArea
+    }, {
+      id: displayVisualType.radioSet[2].radio.value,
+      content: displayVisualTypeImageArea
+    }]
+  });
+
 
 
 
@@ -871,7 +909,7 @@ bookmark.form = function(bookmarkData) {
   const displayVisualArea = form.render.fieldset([
     form.render.wrap([
       node('h2:Visual element|class:mb-2'),
-      node('p:Display Letters, Icon or an Image on this Bookmark hexagon.')
+      node('p:Display Letters, Icon or an Image on this Bookmark hexagon.|class:mb-5')
     ]),
     form.render.wrap([
       form.render.indent([
@@ -879,16 +917,11 @@ bookmark.form = function(bookmarkData) {
         form.render.wrap([
           form.render.indent([
             displayVisualType.wrap(),
-            displayVisualTypeLetter.wrap(),
             form.render.wrap([
-              displayVisualTypeIcon.label,
-              form.render.groupBlock([
-                displayVisualTypeIcon.text,
-                displayVisualTypeIconDisplay.groupText,
-                displayVisualTypeIconRemove.button
+              form.render.indent([
+                displayVisualTypeCollapse.collapse()
               ])
             ]),
-            displayVisualTypeImage.wrap(),
             node('hr'),
             displayVisualSize.wrap()
           ])
@@ -900,7 +933,7 @@ bookmark.form = function(bookmarkData) {
   const displayNameArea = form.render.fieldset([
     form.render.wrap([
       node('h2:Name|class:mb-2'),
-      node('p:Display a Name on this Bookmark tile.')
+      node('p:Display a Name on this Bookmark tile.|class:mb-5')
     ]),
     form.render.wrap([
       form.render.indent([
@@ -920,7 +953,14 @@ bookmark.form = function(bookmarkData) {
     form.render.wrap([
       node('h2:Address|class:mb-2'),
       node('p:The websites address.'),
-      complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>' })
+      complexNode({
+        tag: 'p',
+        text: 'Be sure to use the full URL and include <strong>"https://..."</strong>',
+        attr: [{
+          key: 'class',
+          value: 'mb-5'
+        }]
+      })
     ]),
     form.render.wrap([
       form.render.indent([
@@ -932,7 +972,7 @@ bookmark.form = function(bookmarkData) {
   const displayThemeArea = form.render.fieldset([
     form.render.wrap([
       node('h2:Colour|class:mb-2'),
-      node('p:Override the Theme colour.')
+      node('p:Override the Theme colour.|class:mb-5')
     ]),
     form.render.wrap([
       form.render.indent([
@@ -947,7 +987,7 @@ bookmark.form = function(bookmarkData) {
     node('hr'),
     form.render.wrap([
       node('h2:Accent|class:mb-2'),
-      node('p:Override the Accent colour.'),
+      node('p:Override the Accent colour.|class:mb-5')
     ]),
     form.render.wrap([
       form.render.indent([
@@ -982,6 +1022,8 @@ bookmark.form = function(bookmarkData) {
   });
 
   colorMixerCollapse.update();
+
+  displayVisualTypeCollapse.update();
 
   bookmarkForm.appendChild(formTab.tab());
 
