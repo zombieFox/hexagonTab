@@ -74,6 +74,7 @@ keyboard.ctrAltD = new KeyPress({
   alt: true,
   action: () => {
     theme.style.toggle();
+    data.save();
   }
 });
 
