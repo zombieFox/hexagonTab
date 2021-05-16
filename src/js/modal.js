@@ -83,7 +83,7 @@ modal.render.close = function() {
   previousModal = null;
 };
 
-modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false, overscroll = false } = {}) {
+modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false, maxHeight = false, overscroll = false } = {}) {
 
   if (previousModal != null) {
     modal.render.close();
@@ -96,6 +96,10 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   if (overscroll) {
     modalElement.classList.add('modal-overscroll');
+  };
+
+  if (maxHeight) {
+    modalElement.classList.add('modal-max-height');
   };
 
   var modalWrapper = node('div|class:modal-wrapper');

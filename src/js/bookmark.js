@@ -475,6 +475,7 @@ bookmark.render.item = function() {
           actionText: 'Save',
           content: bookmark.form(bookmarkData),
           width: 40,
+          maxHeight: true,
           successAction: () => {
             bookmark.mod.item.edit(bookmarkData);
             bookmark.render.clear();
@@ -573,6 +574,7 @@ bookmark.render.add = function() {
     actionText: 'Add',
     content: bookmark.form(newBookmarkData),
     width: 40,
+    maxHeight: true,
     successAction: () => {
       bookmark.mod.item.add(newBookmarkData);
       bookmark.render.clear();
@@ -668,7 +670,6 @@ bookmark.form = function(bookmarkData) {
     path: 'display.visual.show',
     id: 'display-visual-show',
     labelText: 'Show Visual Element',
-    description: 'Display Letters, Icon or an Image on this Bookmark tile.',
     action: () => {
       bookmarkForm.disable();
     }
@@ -752,7 +753,6 @@ bookmark.form = function(bookmarkData) {
     path: 'display.name.show',
     id: 'display-name-show',
     labelText: 'Show Name',
-    description: 'Display a Name on this Bookmark tile.',
     action: () => {
       bookmarkForm.disable();
     }
@@ -870,49 +870,69 @@ bookmark.form = function(bookmarkData) {
 
   const displayVisualArea = form.render.fieldset([
     form.render.wrap([
-      node('h2:Visual element|class:mb-0'),
+      node('h2:Visual element|class:mb-2'),
+      node('p:Display Letters, Icon or an Image on this Bookmark hexagon.')
     ]),
-    displayVisualShow.wrap(),
-    form.render.indent([
-      displayVisualType.wrap(),
-      displayVisualTypeLetter.wrap(),
-      form.render.wrap([
-        displayVisualTypeIcon.label,
-        form.render.groupBlock([
-          displayVisualTypeIcon.text,
-          displayVisualTypeIconDisplay.groupText,
-          displayVisualTypeIconRemove.button
+    form.render.wrap([
+      form.render.indent([
+        displayVisualShow.wrap(),
+        form.render.wrap([
+          form.render.indent([
+            displayVisualType.wrap(),
+            displayVisualTypeLetter.wrap(),
+            form.render.wrap([
+              displayVisualTypeIcon.label,
+              form.render.groupBlock([
+                displayVisualTypeIcon.text,
+                displayVisualTypeIconDisplay.groupText,
+                displayVisualTypeIconRemove.button
+              ])
+            ]),
+            displayVisualTypeImage.wrap(),
+            node('hr'),
+            displayVisualSize.wrap()
+          ])
         ])
-      ]),
-      displayVisualTypeImage.wrap(),
-      node('hr'),
-      displayVisualSize.wrap()
+      ])
     ])
   ]);
 
   const displayNameArea = form.render.fieldset([
     form.render.wrap([
-      node('h2:Name|class:mb-0'),
+      node('h2:Name|class:mb-2'),
+      node('p:Display a Name on this Bookmark tile.')
     ]),
     form.render.wrap([
-      displayNameShow.wrap(),
-      form.render.wrap([
-        form.render.indent([
-          displayNameText.wrap(),
-          node('hr'),
-          displayNameSize.wrap()
+      form.render.indent([
+        displayNameShow.wrap(),
+        form.render.wrap([
+          form.render.indent([
+            displayNameText.wrap(),
+            node('hr'),
+            displayNameSize.wrap()
+          ])
         ])
       ])
     ])
   ]);
 
   const displayAddressArea = form.render.fieldset([
-    url.wrap()
+    form.render.wrap([
+      node('h2:Address|class:mb-2'),
+      node('p:The websites address.'),
+      complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>' })
+    ]),
+    form.render.wrap([
+      form.render.indent([
+        url.wrap()
+      ])
+    ])
   ]);
 
   const displayThemeArea = form.render.fieldset([
     form.render.wrap([
-      node('h2:Colour|class:mb-0'),
+      node('h2:Colour|class:mb-2'),
+      node('p:Override the Theme colour.')
     ]),
     form.render.wrap([
       form.render.indent([
@@ -926,7 +946,8 @@ bookmark.form = function(bookmarkData) {
     ]),
     node('hr'),
     form.render.wrap([
-      node('h2:Accent|class:mb-0'),
+      node('h2:Accent|class:mb-2'),
+      node('p:Override the Accent colour.'),
     ]),
     form.render.wrap([
       form.render.indent([

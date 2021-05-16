@@ -34,6 +34,10 @@
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
 }
 
+.modal-max-height .modal-wrapper {
+  min-height: calc(100vh - 2em);
+}
+
 .modal-body {
   border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;
   overflow-y: auto;
