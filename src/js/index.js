@@ -50,5 +50,3 @@ menu.init();
 modal.init();
 autoSuggest.init();
 keyboard.init();
-
-bookmark.add.open();

@@ -867,45 +867,48 @@ bookmark.form = function(bookmarkData) {
     }]
   });
 
-
-
+  colorMixerCollapse.update();
 
   const displayVisualArea = form.render.fieldset([
     form.render.wrap([
       node('h2:Visual element|class:mb-2'),
       node('p:Display Letters, Icon or an Image on this Bookmark tile.|class:mb-5')
     ]),
-    displayVisualShow.wrap(),
     form.render.wrap([
       form.render.indent([
-        displayVisualType.radioSet[0].wrap(),
+        displayVisualShow.wrap(),
         form.render.wrap([
           form.render.indent([
-            displayVisualTypeLetter.wrap()
-
-          ])
-        ]),
-        displayVisualType.radioSet[1].wrap(),
-        form.render.wrap([
-          form.render.indent([
+            displayVisualType.radioSet[0].wrap(),
             form.render.wrap([
-              displayVisualTypeIcon.label,
-              form.render.groupBlock([
-                displayVisualTypeIcon.text,
-                displayVisualTypeIconDisplay.groupText,
-                displayVisualTypeIconRemove.button
+              form.render.indent([
+                displayVisualTypeLetter.wrap()
+
               ])
-            ])
+            ]),
+            displayVisualType.radioSet[1].wrap(),
+            form.render.wrap([
+              form.render.indent([
+                form.render.wrap([
+                  displayVisualTypeIcon.label,
+                  form.render.groupBlock([
+                    displayVisualTypeIcon.text,
+                    displayVisualTypeIconDisplay.groupText,
+                    displayVisualTypeIconRemove.button
+                  ])
+                ])
+              ])
+            ]),
+            displayVisualType.radioSet[2].wrap(),
+            form.render.wrap([
+              form.render.indent([
+                displayVisualTypeImage.wrap()
+              ])
+            ]),
+            node('hr'),
+            displayVisualSize.wrap()
           ])
-        ]),
-        displayVisualType.radioSet[2].wrap(),
-        form.render.wrap([
-          form.render.indent([
-            displayVisualTypeImage.wrap()
-          ])
-        ]),
-        node('hr'),
-        displayVisualSize.wrap()
+        ])
       ])
     ])
   ]);
@@ -1000,8 +1003,6 @@ bookmark.form = function(bookmarkData) {
       active: false
     }]
   });
-
-  colorMixerCollapse.update();
 
   bookmarkForm.appendChild(formTab.tab());
 
