@@ -659,7 +659,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
   };
 };
 
-const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
+const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false, inline = false } = {}) {
   this.radioSet = [];
 
   const radioGroupName = groupName;
@@ -741,6 +741,7 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
 
   this.wrap = () => {
     const group = form.render.wrap();
+
     this.radioSet.forEach((item, i) => {
       group.appendChild(
         form.render.wrap([
@@ -749,6 +750,25 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
         ])
       );
     });
+
+    return group;
+  };
+
+  this.inline = () => {
+    const group = form.render.wrap();
+
+    const inline = form.render.inlineWide();
+
+    this.radioSet.forEach((item, i) => {
+      inline.appendChild(
+        form.render.wrap([
+          item.radio,
+          item.label
+        ])
+      );
+    });
+
+    group.appendChild(inline);
 
     return group;
   };

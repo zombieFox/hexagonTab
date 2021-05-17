@@ -24,6 +24,9 @@ form.render = {
   inline: function(children) {
     return node('div|class:form-inline', children);
   },
+  inlineWide: function(children) {
+    return node('div|class:form-inline form-inline-wide-gap', children);
+  },
   indent: function(children) {
     return node('div|class:form-indent', children);
   }

@@ -670,6 +670,7 @@ bookmark.form = function(bookmarkData) {
     path: 'display.visual.show',
     id: 'display-visual-show',
     labelText: 'Show Visual Element',
+    description: 'Display Letters, Icon or an Image on this Bookmark hexagon.',
     action: () => {
       bookmarkForm.disable();
     }
@@ -684,6 +685,7 @@ bookmark.form = function(bookmarkData) {
     ],
     groupName: 'display-visual-type',
     path: 'display.visual.type',
+    inline: true,
     action: () => {
       displayVisualTypeCollapse.update();
       bookmarkForm.disable();
@@ -907,16 +909,10 @@ bookmark.form = function(bookmarkData) {
 
 
   const displayVisualArea = form.render.fieldset([
-    form.render.wrap([
-      node('h2:Visual element|class:mb-2'),
-      node('p:Display Letters, Icon or an Image on this Bookmark hexagon.|class:mb-5')
-    ]),
-    form.render.wrap([
-      form.render.indent([
         displayVisualShow.wrap(),
         form.render.wrap([
           form.render.indent([
-            displayVisualType.wrap(),
+            displayVisualType.inline(),
             form.render.wrap([
               form.render.indent([
                 displayVisualTypeCollapse.collapse()
@@ -925,8 +921,6 @@ bookmark.form = function(bookmarkData) {
             node('hr'),
             displayVisualSize.wrap()
           ])
-        ])
-      ])
     ])
   ]);
 

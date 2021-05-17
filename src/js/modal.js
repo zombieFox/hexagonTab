@@ -42,18 +42,27 @@ modal.bind.close = {
 modal.bind.focus = {
   loop: function(event) {
     const allElements = document.querySelector('.modal').querySelectorAll('[tabindex]');
+
     const firstElement = allElements[0];
+
     const lastElement = allElements[allElements.length - 1];
+
     if (event.keyCode == 9 && event.shiftKey) {
+
       if (document.activeElement === firstElement) {
         lastElement.focus();
+
         event.preventDefault();
       }
+
     } else if (event.keyCode == 9) {
+
       if (document.activeElement === lastElement) {
         firstElement.focus();
+
         event.preventDefault();
       }
+
     };
   },
   add: function() {
@@ -103,6 +112,8 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
   if (maxHeight) {
     modalElement.classList.add('modal-max-height');
   };
+
+  var modalContentWrapper = node('div|class:modal-content-wrapper');
 
   var modalContent = node('div|class:modal-content');
 
@@ -225,7 +236,9 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   modalContent.appendChild(modalBody);
 
-  modalElement.appendChild(modalContent);
+  modalContentWrapper.appendChild(modalContent);
+
+  modalElement.appendChild(modalContentWrapper);
 
   modalElement.appendChild(modalControls);
 
