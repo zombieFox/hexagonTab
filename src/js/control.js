@@ -659,7 +659,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
   };
 };
 
-const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false, inline = false } = {}) {
+const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false} = {}) {
   this.radioSet = [];
 
   const radioGroupName = groupName;
@@ -755,12 +755,12 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
   };
 
   this.inline = () => {
-    const group = form.render.wrap();
+    const formGroup = form.render.wrap();
 
-    const inline = form.render.inlineWide();
+    const formInline = form.render.inlineWide();
 
     this.radioSet.forEach((item, i) => {
-      inline.appendChild(
+      formInline.appendChild(
         form.render.wrap([
           item.radio,
           item.label
@@ -768,9 +768,9 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
       );
     });
 
-    group.appendChild(inline);
+    formGroup.appendChild(formInline);
 
-    return group;
+    return formGroup;
   };
 
   this.disable = () => {

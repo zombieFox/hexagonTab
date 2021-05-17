@@ -114,13 +114,17 @@ fieldset:not(:only-child):not(:last-child),
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: calc(var(--form-wrap-space) * 1);
 }
 
 .form-inline-wide-gap {
   column-gap: calc(var(--form-wrap-space) * 3);
   row-gap: calc(var(--form-wrap-space)*1.5);
+}
+
+.form-inline-wrap {
+  flex-wrap: wrap;
 }
 
 .form-inline .form-wrap:not(:first-child),

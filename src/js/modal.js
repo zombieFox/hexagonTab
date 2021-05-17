@@ -105,6 +105,8 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   var modalElement = node('div|class:modal');
 
+  var modalShade = node('div|class:modal-shade');
+
   if (overscroll) {
     modalElement.classList.add('modal-overscroll');
   };
@@ -140,14 +142,24 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
   };
 
   modalElement.close = () => {
+    if (modalShade.classList.contains('is-opaque')) {
+      modalShade.classList.remove('is-opaque');
+      modalShade.classList.add('is-transparent');
+    } else {
+      modalShade.remove();
+    };
+
     if (modalElement.classList.contains('is-opaque')) {
       modalElement.classList.remove('is-opaque');
       modalElement.classList.add('is-transparent');
     } else {
       modalElement.remove();
     };
+
     modal.bind.focus.remove();
+
     modal.bind.close.remove();
+
     if (dismissAction) {
       dismissAction();
     };
@@ -161,7 +173,6 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
     text: actionText,
     iconName: false,
     block: true,
-    style: ['line'],
     classList: ['modal-button'],
     func: () => {
       if (successAction) {
@@ -175,7 +186,6 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
     text: cancelText,
     iconName: false,
     block: true,
-    style: ['line'],
     classList: ['modal-button'],
     func: () => {
       if (cancelAction) {
@@ -248,9 +258,27 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
     };
   });
 
+  modalShade.addEventListener('transitionend', function(event) {
+    if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
+      this.remove();
+    };
+  });
+
   previousModal = modalElement;
 
-  document.querySelector('body').appendChild(modalElement);
+  const body = document.querySelector('body');
+
+
+  body.appendChild(modalShade);
+
+  getComputedStyle(modalShade).opacity;
+
+  modalShade.classList.remove('is-transparent');
+
+  modalShade.classList.add('is-opaque');
+
+
+  body.appendChild(modalElement);
 
   getComputedStyle(modalElement).opacity;
 
