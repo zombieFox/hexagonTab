@@ -47,7 +47,7 @@ state.default = {
       image: { url: '', blur: 0, scale: 100, opacity: 100 },
       video: { url: '', blur: 0, scale: 100, opacity: 100 }
     },
-    radius: 40,
+    radius: 25,
     shadow: 75
   },
   modal: false,

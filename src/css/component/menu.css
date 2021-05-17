@@ -114,11 +114,6 @@
   z-index: 1;
 }
 
-.menu-content-item:not(:last-child) {
-  /* border-bottom: var(--layout-horizontal-rule-large); */
-  /* transition: border-color var(--layout-transition-extra-fast); */
-}
-
 .menu-content-overscroll .menu-content-item:last-child {
   padding-bottom: calc(var(--menu-space) * 75);
 }
