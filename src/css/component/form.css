@@ -120,7 +120,7 @@ fieldset:not(:only-child):not(:last-child),
 
 .form-inline-wide-gap {
   column-gap: calc(var(--form-wrap-space) * 3);
-  row-gap: calc(var(--form-wrap-space)*1.5);
+  row-gap: calc(var(--form-wrap-space) * 1.5);
 }
 
 .form-inline-wrap {

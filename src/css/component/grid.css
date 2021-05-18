@@ -5,6 +5,9 @@
 .grid-area {
   perspective: calc(var(--grid-perspective) * 1em);
   font-size: calc(var(--grid-size) * 0.01rem);
+  position: relative;
+  right: 0;
+  transition: right var(--layout-transition-extra-fast);
 }
 
 .grid-list {
@@ -20,4 +23,11 @@
 
 .is-bookmark-edit .grid-list {
   transform: rotateX(0) rotateY(0) rotateZ(0);
+}
+
+@media (min-width: 1200px) {
+  .is-menu-open .grid-area {
+    right: 20vw;
+    transition: right var(--layout-transition-extra-fast) var(--layout-duration-02);
+  }
 }

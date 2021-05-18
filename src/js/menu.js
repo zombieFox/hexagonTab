@@ -183,10 +183,21 @@ menu.bind.close = {
 
 menu.render = {};
 
+menu.render.class = () => {
+  const html = document.querySelector('html');
+
+  if (state.get.current().menu) {
+    html.classList.add('is-menu-open');
+  } else {
+    html.classList.remove('is-menu-open');
+  };
+};
+
 menu.render.frame = {
   open: function() {
     // menu containers
     const menuElement = node('section|class:menu');
+
     const menuArea = node('section|class:menu-area');
 
     menuElement.addEventListener('transitionend', function(event, elapsed) {
@@ -323,6 +334,7 @@ menu.render.component = {
 menu.open = function() {
   menu.mod.open();
   menu.render.frame.open();
+  menu.render.class();
   menu.bind.close.add();
   pageLock.render();
 };
@@ -330,6 +342,7 @@ menu.open = function() {
 menu.close = function() {
   menu.mod.close();
   menu.render.frame.close();
+  menu.render.class();
   menu.bind.close.remove();
   pageLock.render();
 };
