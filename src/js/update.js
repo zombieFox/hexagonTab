@@ -9,6 +9,12 @@ update.all = {
   '2.4.0': function(dataToUpdate) {
     dataToUpdate.state.theme.background.video = { url: '', blur: 0, scale: 100, opacity: 100 };
 
+    if (dataToUpdate.state.theme.bookmark.shadow.type === 'theme' || dataToUpdate.state.theme.bookmark.shadow.type === 'custom') {
+      dataToUpdate.state.theme.bookmark.shadow.color.type = dataToUpdate.state.theme.bookmark.shadow.type;
+
+      delete dataToUpdate.state.theme.bookmark.shadow.type;
+    };
+
     return dataToUpdate;
   }
 };
