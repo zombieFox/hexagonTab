@@ -840,8 +840,8 @@ bookmark.form = function(bookmarkData) {
   const accentBy = new ControlModule_radio({
     object: bookmarkData.link,
     radioGroup: [
-      { id: 'accent-by-theme', labelText: 'Theme accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
-      { id: 'accent-by-custom', labelText: 'Custom accent', description: 'Override the Theme Accent.', value: 'custom' }
+      { id: 'accent-by-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
+      { id: 'accent-by-custom', labelText: 'Custom Accent', description: 'Override the Theme Accent.', value: 'custom' }
     ],
     groupName: 'accent-by',
     path: 'accent.by',
