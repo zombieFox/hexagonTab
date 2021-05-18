@@ -1,5 +1,6 @@
 import { state } from './state.js';
 import { autoSuggest } from './autoSuggest.js';
+import { pageLock } from './pageLock.js';
 import { node } from './utilities/node.js';
 import { Button } from './utilities/button.js';
 import { complexNode } from './utilities/complexNode.js';
@@ -268,7 +269,6 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   const body = document.querySelector('body');
 
-
   body.appendChild(modalShade);
 
   getComputedStyle(modalShade).opacity;
@@ -276,7 +276,6 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
   modalShade.classList.remove('is-transparent');
 
   modalShade.classList.add('is-opaque');
-
 
   body.appendChild(modalElement);
 
@@ -296,11 +295,13 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 modal.open = function(options) {
   modal.mod.open();
   modal.render.open(options);
+  pageLock.render();
 };
 
 modal.close = function() {
   modal.mod.close();
   modal.render.close();
+  pageLock.render();
 };
 
 modal.init = function() {

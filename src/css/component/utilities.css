@@ -31,30 +31,6 @@
   color: rgb(var(--utilities-muted));
 }
 
-.scroll-disabled {
-  overflow: hidden;
-}
-
-.scroll-x-disabled {
-  overflow-x: hidden;
-}
-
-.scroll-y-disabled {
-  overflow-y: hidden;
-}
-
-.is-shake {
-  animation: shake var(--layout-transition-slow) 1;
-}
-
-.is-pop {
-  animation: pop var(--layout-transition-medium) 1;
-}
-
-.is-jello {
-  animation: jello var(--layout-transition-slow) 1;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;

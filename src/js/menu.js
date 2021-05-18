@@ -3,6 +3,7 @@ import { data } from './data.js';
 import { bookmark } from './bookmark.js';
 import { theme } from './theme.js';
 import { grid } from './grid.js';
+import { pageLock } from './pageLock.js';
 import { ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from './control.js';
 import { Button } from './utilities/button.js';
 import { form } from './utilities/form.js';
@@ -323,12 +324,14 @@ menu.open = function() {
   menu.mod.open();
   menu.render.frame.open();
   menu.bind.close.add();
+  pageLock.render();
 };
 
 menu.close = function() {
   menu.mod.close();
   menu.render.frame.close();
   menu.bind.close.remove();
+  pageLock.render();
 };
 
 menu.toggle = function() {
