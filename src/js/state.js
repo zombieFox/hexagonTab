@@ -27,7 +27,7 @@ state.default = {
   },
   theme: {
     color: { hsl: { h: 211, s: 10, l: 50 }, rgb: { r: 115, g: 127, b: 140 }, contrast: { light: 40, dark: 40 }, generated: {} },
-    accent: { hsl: { h: 210, s: 50, l: 50 }, rgb: { r: 64, g: 127, b: 191 } },
+    accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
     font: {
       display: { name: '', weight: 400, style: 'normal' },
       ui: { name: '', weight: 400, style: 'normal' }
@@ -38,11 +38,11 @@ state.default = {
     },
     background: {
       type: 'gradient',
-      color: { hsl: { h: 200, s: 29, l: 70 }, rgb: { r: 156, g: 186, b: 201 } },
+      color: { hsl: { h: 213, s: 40, l: 65 }, rgb: { r: 130, g: 162, b: 201 } },
       gradient: {
         angle: 160,
-        start: { hsl: { h: 180, s: 54, l: 51 }, rgb: { r: 64, g: 197, b: 198 } },
-        end: { hsl: { h: 244, s: 91, l: 13 }, rgb: { r: 7, g: 3, b: 63 } }
+        start: { hsl: { h: 191, s: 66, l: 62 }, rgb: { r: 94, g: 199, b: 222 } },
+        end: { hsl: { h: 243, s: 59, l: 22 }, rgb: { r: 26, g: 23, b: 89 } }
       },
       image: { url: '', blur: 0, scale: 100, opacity: 100 },
       video: { url: '', blur: 0, scale: 100, opacity: 100 }
