@@ -7,7 +7,7 @@ import { Button } from './utilities/button.js';
 import { ifValidString } from './utilities/ifValidString.js';
 import { trimString } from './utilities/trimString.js';
 
-const Suggest = function({ input = false, widthElement = false, type = false, postFocus = false } = {}) {
+const Suggest = function({ input = false, widthElement = false, type = false, postFocus = false, action = false } = {}) {
   this.suggestPanel = false;
 
   this.input = input;
@@ -211,6 +211,9 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
           if (postFocus) {
             postFocus.focus();
           };
+          if (action) {
+            action();
+          }
         };
 
         results.forEach((item, i) => {

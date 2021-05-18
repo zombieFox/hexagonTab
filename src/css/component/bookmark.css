@@ -282,6 +282,39 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   pointer-events: all;
 }
 
+.bookmark-form {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .bookmark-form {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap: var(--modal-space);
+    align-items: stretch;
+  }
+}
+
+.bookmark-form-main {
+  padding-bottom: calc(var(--form-wrap-space) * 20);
+}
+
+.bookmark-form-preview {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bookmark-form-aside {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .bookmark-form-aside {
+    display: block;
+  }
+}
+
 .bookmark-form-text-icon {
   position: relative;
 }
@@ -315,4 +348,20 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-form-icon {
   font-size: 1.5em;
+}
+
+.bookmark.bookmark-preview {
+  pointer-events: none;
+}
+
+.bookmark.bookmark-preview .bookmark-control {
+  display: none;
+}
+
+.bookmark.bookmark-preview .bookmark-display {
+  font-size: 1em;
+}
+
+.bookmark.bookmark-preview .bookmark-shadow-wrap {
+  display: none;
 }

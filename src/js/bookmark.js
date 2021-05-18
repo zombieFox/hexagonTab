@@ -219,6 +219,7 @@ bookmark.render.item = function() {
     if (index > 0) {
       columnStart = columnStart + 2;
     };
+
     // if end of grid reset column start
     if (index % (state.get.current().grid.column) === 0) {
       columnStart = 1;
@@ -277,258 +278,253 @@ bookmark.render.item = function() {
       };
     };
 
-    const bookmarkElement = node('div|class:bookmark');
-    bookmarkElement.style.setProperty('--bookmark-row-start', rowStart);
-    bookmarkElement.style.setProperty('--bookmark-column-start', columnStart);
-
-    const shadowWrap = node('div|class:bookmark-shadow-wrap');
-    const shadow = node('div|class:bookmark-shadow');
-    shadowWrap.appendChild(shadow);
-
-    const contentWrap = node('div|class:bookmark-content-wrap');
-
-    let contentOptions = {
-      tag: 'a',
-      attr: [{
-        key: 'class',
-        value: 'bookmark-content'
-      }, {
-        key: 'tabindex',
-        value: 1
-      }]
-    };
-    if (ifValidString(item.url)) {
-      contentOptions.attr.push({
-        key: 'href',
-        value: trimString(item.url)
-      });
-    } else {
-      contentOptions.attr.push({
-        key: 'href',
-        value: '#'
-      });
-    };
-    const content = complexNode(contentOptions);
-
-    const display = node('div|class:bookmark-display');
-
-    const visual = node('div|class:bookmark-display-visual');
-    const visualLetter = node('div:' + item.display.visual.letter.text + '|class:bookmark-display-visual-letter');
-    const visualIcon = node('div|class:bookmark-display-visual-icon');
-    const icon = node('div|class:' + item.display.visual.icon.prefix + ' fa-' + item.display.visual.icon.name);
-    visualIcon.appendChild(icon);
-    const visualImage = node('div|class:bookmark-display-visual-image');
-
-    switch (item.display.visual.type) {
-      case 'letter':
-        visual.appendChild(visualLetter);
-        break;
-
-      case 'icon':
-        visual.appendChild(visualIcon);
-        break;
-
-      case 'image':
-        visual.appendChild(visualImage);
-        break;
-    };
-
-    if (item.display.visual.show) {
-      display.appendChild(visual);
-    };
-
-    const name = node('div|class:bookmark-display-name');
-    const nameText = node('div:' + item.display.name.text + '|class:bookmark-display-name-text');
-    name.appendChild(nameText);
-
-    if (item.display.name.show) {
-      display.appendChild(name);
-    };
-
-    if (item.display.visual.show || item.display.name.show) {
-      content.appendChild(display);
-    };
-
-    contentWrap.appendChild(content);
-    bookmarkElement.appendChild(shadowWrap);
-    bookmarkElement.appendChild(contentWrap);
-
-    bookmarkElement.style.setProperty('--bookmark-transition-delay', index);
-
-    bookmarkElement.style.setProperty('--bookmark-color-opacity', item.color.opacity);
-
-    bookmarkElement.style.setProperty('--bookmark-display-translate-x', item.display.translate.x);
-    bookmarkElement.style.setProperty('--bookmark-display-translate-y', item.display.translate.y);
-    bookmarkElement.style.setProperty('--bookmark-display-rotate', item.display.rotate);
-
-    bookmarkElement.style.setProperty('--bookmark-display-visual-size', item.display.visual.size);
-    bookmarkElement.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(item.display.visual.image.url) + ')');
-    bookmarkElement.style.setProperty('--bookmark-display-name-size', item.display.name.size);
-
-    if (item.accent.by == 'custom') {
-      bookmarkElement.style.setProperty('--theme-accent-r', item.accent.rgb.r);
-      bookmarkElement.style.setProperty('--theme-accent-g', item.accent.rgb.g);
-      bookmarkElement.style.setProperty('--theme-accent-b', item.accent.rgb.b);
-      bookmarkElement.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-threshold', '0.5');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-r', 'calc(var(--theme-accent-r) * 0.50)');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-g', 'calc(var(--theme-accent-g) * 0.60)');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-b', 'calc(var(--theme-accent-b) * 0.20)');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-sum', 'calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b))');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-perceived-lightness', 'calc(var(--theme-accent-accessible-sum) / 255)');
-      bookmarkElement.style.setProperty('--theme-accent-accessible-color', '0, 0%, calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%)');
-      bookmarkElement.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
-      bookmarkElement.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-style-text)');
-    };
-
-    if (item.color.by == 'custom') {
-      var shades = theme.mod.color.shades({
-        rgb: item.color.rgb,
-        contrastNegative: 60,
-        contrastPositive: 60
-      });
-
-      var nameColor;
-
-      if (item.color.hsl.l <= 50) {
-        if (item.color.hsl.l > 30 && item.color.hsl.l <= 50 && item.color.hsl.h > 40 && item.color.hsl.h < 200) {
-          nameColor = shades.negative['9'];
-        } else {
-          nameColor = shades.positive['9'];
-        };
-      } else {
-        nameColor = shades.negative['9'];
-      };
-
-      if (item.color.hsl.l <= 50) {
-        bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-white)');
-      } else {
-        bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-black)');
-      };
-
-      bookmarkElement.style.setProperty('--bookmark-color', item.color.rgb.r + ', ' + item.color.rgb.g + ', ' + item.color.rgb.b);
-      bookmarkElement.style.setProperty('--bookmark-color-focus-hover', item.color.rgb.r + ', ' + item.color.rgb.g + ', ' + item.color.rgb.b);
-      bookmarkElement.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
-      bookmarkElement.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
-    };
-
-    const control = node('div|class:bookmark-control form-group');
-
-    const controlLeft = new Button({
-      text: 'Move this bookmark left',
-      srOnly: true,
-      iconName: 'arrowKeyboardLeft',
-      style: ['link'],
-      title: 'Edit this bookmark',
-      classList: ['bookmark-control-button', 'bookmark-control-left'],
-      func: () => {
-        let bookmarkData = new StagedLink();
-        bookmarkData.link = JSON.parse(JSON.stringify(item));
-        bookmarkData.position.origin = index;
-        bookmarkData.position.destination = index - 1;
-        if (bookmarkData.position.destination < 0) {
-          bookmarkData.position.destination = 0;
-        };
-        bookmark.mod.item.move(bookmarkData);
-        bookmark.render.clear();
-        bookmark.render.item();
-        data.save();
-      }
-    });
-
-    const controlRight = new Button({
-      text: 'Move this bookmark right',
-      srOnly: true,
-      iconName: 'arrowKeyboardRight',
-      style: ['link'],
-      title: 'Move this bookmark left',
-      classList: ['bookmark-control-button', 'bookmark-control-right'],
-      func: () => {
-        let bookmarkData = new StagedLink();
-        bookmarkData.link = JSON.parse(JSON.stringify(item));
-        bookmarkData.position.origin = index;
-        bookmarkData.position.destination = index + 1;
-        if (bookmarkData.position.destination > bookmark.all.length - 1) {
-          bookmarkData.position.destination = bookmark.all.length - 1;
-        };
-        bookmark.mod.item.move(bookmarkData);
-        bookmark.render.clear();
-        bookmark.render.item();
-        data.save();
-      }
-    });
-
-    const controlEdit = new Button({
-      text: 'Edit this bookmark',
-      srOnly: true,
-      iconName: 'edit',
-      style: ['link'],
-      title: 'Move this bookmark right',
-      classList: ['bookmark-control-button', 'bookmark-control-edit'],
-      func: () => {
-        let bookmarkData = new StagedLink();
-        bookmarkData.link = JSON.parse(JSON.stringify(item));
-        bookmarkData.position.origin = index;
-        bookmarkData.position.destination = index;
-        modal.open({
-          heading: 'Edit ' + item.display.name.text,
-          actionText: 'Save',
-          content: bookmark.form(bookmarkData),
-          width: 40,
-          maxHeight: true,
-          overscroll: true,
-          successAction: () => {
-            bookmark.mod.item.edit(bookmarkData);
-            bookmark.render.clear();
-            bookmark.render.item();
-            data.save();
-          }
-        });
-      }
-    });
-
-    const controlRemove = new Button({
-      text: 'Remove this bookmark',
-      srOnly: true,
-      iconName: 'cross',
-      style: ['link'],
-      title: 'Remove this bookmark',
-      classList: ['bookmark-control-button', 'bookmark-control-remove'],
-      func: () => {
-        let heading;
-        if (ifValidString(item.display.name.text)) {
-          heading = 'Remove ' + item.display.name.text;
-        } else {
-          heading = 'Remove unnamed bookmark';
-        };
-        modal.open({
-          heading: heading,
-          size: 'small',
-          actionText: 'Remove',
-          content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
-          successAction: () => {
-            let bookmarkData = new StagedLink();
-            bookmarkData.link = JSON.parse(JSON.stringify(item));
-            bookmarkData.position.origin = index;
-            bookmarkData.position.destination = index;
-            bookmark.mod.item.remove(bookmarkData);
-            bookmark.render.clear();
-            bookmark.render.item();
-            data.save();
-          }
-        });
-      }
-    });
-
-    control.appendChild(controlLeft.button);
-    control.appendChild(controlRight.button);
-    control.appendChild(controlEdit.button);
-    control.appendChild(controlRemove.button);
-
-    contentWrap.appendChild(control);
-
-    gridList.appendChild(bookmarkElement);
+    gridList.appendChild(bookmark.render.tile(item, index, rowStart, columnStart));
   });
+};
+
+bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview) {
+  const bookmarkElement = node('div|class:bookmark');
+
+  if (preview) {
+    bookmarkElement.classList.add('bookmark-preview');
+  };
+
+  bookmarkElement.style.setProperty('--bookmark-row-start', rowStart);
+  bookmarkElement.style.setProperty('--bookmark-column-start', columnStart);
+
+  const shadowWrap = node('div|class:bookmark-shadow-wrap');
+  const shadow = node('div|class:bookmark-shadow');
+  shadowWrap.appendChild(shadow);
+
+  const contentWrap = node('div|class:bookmark-content-wrap');
+
+  let contentOptions = { tag: 'a', attr: [{ key: 'class', value: 'bookmark-content' }, { key: 'tabindex', value: 1 }] };
+
+  if (ifValidString(tileData.url) && !preview) {
+    contentOptions.attr.push({ key: 'href', value: trimString(tileData.url) });
+  } else {
+    contentOptions.attr.push({ key: 'href', value: '#' });
+  };
+
+  const content = complexNode(contentOptions);
+
+  const display = node('div|class:bookmark-display');
+
+  const visual = node('div|class:bookmark-display-visual');
+  const visualLetter = node('div:' + tileData.display.visual.letter.text + '|class:bookmark-display-visual-letter');
+  const visualIcon = node('div|class:bookmark-display-visual-icon');
+  const icon = node('div|class:' + tileData.display.visual.icon.prefix + ' fa-' + tileData.display.visual.icon.name);
+  visualIcon.appendChild(icon);
+  const visualImage = node('div|class:bookmark-display-visual-image');
+
+  switch (tileData.display.visual.type) {
+    case 'letter':
+      visual.appendChild(visualLetter);
+      break;
+
+    case 'icon':
+      visual.appendChild(visualIcon);
+      break;
+
+    case 'image':
+      visual.appendChild(visualImage);
+      break;
+  };
+
+  if (tileData.display.visual.show) {
+    display.appendChild(visual);
+  };
+
+  const name = node('div|class:bookmark-display-name');
+  const nameText = node('div:' + tileData.display.name.text + '|class:bookmark-display-name-text');
+  name.appendChild(nameText);
+
+  if (tileData.display.name.show) {
+    display.appendChild(name);
+  };
+
+  if (tileData.display.visual.show || tileData.display.name.show) {
+    content.appendChild(display);
+  };
+
+  contentWrap.appendChild(content);
+  bookmarkElement.appendChild(shadowWrap);
+  bookmarkElement.appendChild(contentWrap);
+
+  bookmarkElement.style.setProperty('--bookmark-transition-delay', index);
+
+  bookmarkElement.style.setProperty('--bookmark-color-opacity', tileData.color.opacity);
+
+  bookmarkElement.style.setProperty('--bookmark-display-translate-x', tileData.display.translate.x);
+  bookmarkElement.style.setProperty('--bookmark-display-translate-y', tileData.display.translate.y);
+  bookmarkElement.style.setProperty('--bookmark-display-rotate', tileData.display.rotate);
+
+  bookmarkElement.style.setProperty('--bookmark-display-visual-size', tileData.display.visual.size);
+  bookmarkElement.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(tileData.display.visual.image.url) + ')');
+  bookmarkElement.style.setProperty('--bookmark-display-name-size', tileData.display.name.size);
+
+  if (tileData.accent.by == 'custom') {
+    bookmarkElement.style.setProperty('--theme-accent-r', tileData.accent.rgb.r);
+    bookmarkElement.style.setProperty('--theme-accent-g', tileData.accent.rgb.g);
+    bookmarkElement.style.setProperty('--theme-accent-b', tileData.accent.rgb.b);
+    bookmarkElement.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-threshold', '0.5');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-r', 'calc(var(--theme-accent-r) * 0.50)');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-g', 'calc(var(--theme-accent-g) * 0.60)');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-b', 'calc(var(--theme-accent-b) * 0.20)');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-sum', 'calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b))');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-perceived-lightness', 'calc(var(--theme-accent-accessible-sum) / 255)');
+    bookmarkElement.style.setProperty('--theme-accent-accessible-color', '0, 0%, calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%)');
+    bookmarkElement.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
+    bookmarkElement.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-style-text)');
+  };
+
+  if (tileData.color.by == 'custom') {
+    var shades = theme.mod.color.shades({
+      rgb: tileData.color.rgb,
+      contrastNegative: 60,
+      contrastPositive: 60
+    });
+
+    var nameColor;
+
+    if (tileData.color.hsl.l <= 50) {
+      if (tileData.color.hsl.l > 30 && tileData.color.hsl.l <= 50 && tileData.color.hsl.h > 40 && tileData.color.hsl.h < 200) {
+        nameColor = shades.negative['9'];
+      } else {
+        nameColor = shades.positive['9'];
+      };
+    } else {
+      nameColor = shades.negative['9'];
+    };
+
+    if (tileData.color.hsl.l <= 50) {
+      bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-white)');
+    } else {
+      bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-black)');
+    };
+
+    bookmarkElement.style.setProperty('--bookmark-color', tileData.color.rgb.r + ', ' + tileData.color.rgb.g + ', ' + tileData.color.rgb.b);
+    bookmarkElement.style.setProperty('--bookmark-color-focus-hover', tileData.color.rgb.r + ', ' + tileData.color.rgb.g + ', ' + tileData.color.rgb.b);
+    bookmarkElement.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
+    bookmarkElement.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
+  };
+
+  const control = node('div|class:bookmark-control form-group');
+
+  const controlLeft = new Button({
+    text: 'Move this bookmark left',
+    srOnly: true,
+    iconName: 'arrowKeyboardLeft',
+    style: ['link'],
+    title: 'Edit this bookmark',
+    classList: ['bookmark-control-button', 'bookmark-control-left'],
+    func: () => {
+      let bookmarkData = new StagedLink();
+      bookmarkData.link = JSON.parse(JSON.stringify(tileData));
+      bookmarkData.position.origin = index;
+      bookmarkData.position.destination = index - 1;
+      if (bookmarkData.position.destination < 0) {
+        bookmarkData.position.destination = 0;
+      };
+      bookmark.mod.item.move(bookmarkData);
+      bookmark.render.clear();
+      bookmark.render.item();
+      data.save();
+    }
+  });
+
+  const controlRight = new Button({
+    text: 'Move this bookmark right',
+    srOnly: true,
+    iconName: 'arrowKeyboardRight',
+    style: ['link'],
+    title: 'Move this bookmark left',
+    classList: ['bookmark-control-button', 'bookmark-control-right'],
+    func: () => {
+      let bookmarkData = new StagedLink();
+      bookmarkData.link = JSON.parse(JSON.stringify(tileData));
+      bookmarkData.position.origin = index;
+      bookmarkData.position.destination = index + 1;
+      if (bookmarkData.position.destination > bookmark.all.length - 1) {
+        bookmarkData.position.destination = bookmark.all.length - 1;
+      };
+      bookmark.mod.item.move(bookmarkData);
+      bookmark.render.clear();
+      bookmark.render.item();
+      data.save();
+    }
+  });
+
+  const controlEdit = new Button({
+    text: 'Edit this bookmark',
+    srOnly: true,
+    iconName: 'edit',
+    style: ['link'],
+    title: 'Move this bookmark right',
+    classList: ['bookmark-control-button', 'bookmark-control-edit'],
+    func: () => {
+      let bookmarkData = new StagedLink();
+      bookmarkData.link = JSON.parse(JSON.stringify(tileData));
+      bookmarkData.position.origin = index;
+      bookmarkData.position.destination = index;
+      modal.open({
+        heading: 'Edit ' + tileData.display.name.text,
+        actionText: 'Save',
+        content: bookmark.form(bookmarkData),
+        width: 60,
+        maxHeight: true,
+        successAction: () => {
+          bookmark.mod.item.edit(bookmarkData);
+          bookmark.render.clear();
+          bookmark.render.item();
+          data.save();
+        }
+      });
+    }
+  });
+
+  const controlRemove = new Button({
+    text: 'Remove this bookmark',
+    srOnly: true,
+    iconName: 'cross',
+    style: ['link'],
+    title: 'Remove this bookmark',
+    classList: ['bookmark-control-button', 'bookmark-control-remove'],
+    func: () => {
+      let heading;
+      if (ifValidString(tileData.display.name.text)) {
+        heading = 'Remove ' + tileData.display.name.text;
+      } else {
+        heading = 'Remove unnamed bookmark';
+      };
+      modal.open({
+        heading: heading,
+        size: 'small',
+        actionText: 'Remove',
+        content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
+        successAction: () => {
+          let bookmarkData = new StagedLink();
+          bookmarkData.link = JSON.parse(JSON.stringify(tileData));
+          bookmarkData.position.origin = index;
+          bookmarkData.position.destination = index;
+          bookmark.mod.item.remove(bookmarkData);
+          bookmark.render.clear();
+          bookmark.render.item();
+          data.save();
+        }
+      });
+    }
+  });
+
+  control.appendChild(controlLeft.button);
+  control.appendChild(controlRight.button);
+  control.appendChild(controlEdit.button);
+  control.appendChild(controlRemove.button);
+
+  contentWrap.appendChild(control);
+
+  return bookmarkElement;
 };
 
 bookmark.render.controlTabIndex = function() {
@@ -574,9 +570,8 @@ bookmark.render.add = function() {
     size: 'small',
     actionText: 'Add',
     content: bookmark.form(newBookmarkData),
-    width: 40,
+    width: 60,
     maxHeight: true,
-    overscroll: true,
     successAction: () => {
       bookmark.mod.item.add(newBookmarkData);
       bookmark.render.clear();
@@ -592,6 +587,8 @@ bookmark.render.add = function() {
 
 bookmark.form = function(bookmarkData) {
   const bookmarkForm = node('form|class:bookmark-form');
+
+  const bookmarkFormMain = node('form|class:bookmark-form-main');
 
   bookmarkForm.disable = () => {
     if (bookmarkData.link.display.visual.show) {
@@ -675,6 +672,7 @@ bookmark.form = function(bookmarkData) {
     description: 'Display Letters, Icon or an Image on this Bookmark hexagon.',
     action: () => {
       bookmarkForm.disable();
+      bookmarkPreview.update();
     }
   });
 
@@ -689,6 +687,7 @@ bookmark.form = function(bookmarkData) {
     path: 'display.visual.type',
     action: () => {
       bookmarkForm.disable();
+      bookmarkPreview.update();
     }
   });
 
@@ -699,18 +698,10 @@ bookmark.form = function(bookmarkData) {
     value: bookmarkData.link.display.visual.letter.text,
     placeholder: 'E',
     labelText: 'Bookmark letter',
-    srOnly: true
-  });
-
-  const displayVisualSize = new ControlModule_slider({
-    object: bookmarkData.link,
-    path: 'display.visual.size',
-    id: 'display-visual-size',
-    labelText: 'Visual Element size',
-    value: bookmarkData.link.display.visual.size,
-    defaultValue: defaultBookmark.display.visual.size,
-    min: minMaxBookmark.display.visual.size.min,
-    max: minMaxBookmark.display.visual.size.max
+    srOnly: true,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const displayVisualTypeIcon = new ControlModule_text({
@@ -720,7 +711,10 @@ bookmark.form = function(bookmarkData) {
     value: bookmarkData.link.display.visual.icon.label,
     placeholder: 'FontAwesome Brands or Icons',
     labelText: 'Bookmark icon',
-    srOnly: true
+    srOnly: true,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const displayVisualTypeIconDisplay = new ControlModule_groupText({
@@ -738,6 +732,7 @@ bookmark.form = function(bookmarkData) {
       bookmarkData.link.display.visual.icon.prefix = '';
       bookmarkData.link.display.visual.icon.name = '';
       bookmarkForm.update();
+      bookmarkPreview.update();
     }
   });
 
@@ -748,7 +743,24 @@ bookmark.form = function(bookmarkData) {
     value: bookmarkData.link.display.visual.image.url,
     placeholder: 'https://www.example.com/image.jpg',
     labelText: 'Bookmark image',
-    srOnly: true
+    srOnly: true,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
+  const displayVisualSize = new ControlModule_slider({
+    object: bookmarkData.link,
+    path: 'display.visual.size',
+    id: 'display-visual-size',
+    labelText: 'Visual Element size',
+    value: bookmarkData.link.display.visual.size,
+    defaultValue: defaultBookmark.display.visual.size,
+    min: minMaxBookmark.display.visual.size.min,
+    max: minMaxBookmark.display.visual.size.max,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const displayNameShow = new ControlModule_checkbox({
@@ -758,6 +770,7 @@ bookmark.form = function(bookmarkData) {
     labelText: 'Show Name',
     action: () => {
       bookmarkForm.disable();
+      bookmarkPreview.update();
     }
   });
 
@@ -768,7 +781,10 @@ bookmark.form = function(bookmarkData) {
     value: bookmarkData.link.display.name.text,
     placeholder: 'Example',
     labelText: 'Bookmark name',
-    srOnly: true
+    srOnly: true,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const displayNameSize = new ControlModule_slider({
@@ -779,7 +795,10 @@ bookmark.form = function(bookmarkData) {
     value: bookmarkData.link.display.name.size,
     defaultValue: defaultBookmark.display.name.size,
     min: minMaxBookmark.display.name.min,
-    max: minMaxBookmark.display.name.max
+    max: minMaxBookmark.display.name.max,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const url = new ControlModule_text({
@@ -802,6 +821,7 @@ bookmark.form = function(bookmarkData) {
     action: () => {
       colorMixerCollapse.update();
       bookmarkForm.disable();
+      bookmarkPreview.update();
     }
   });
 
@@ -811,7 +831,10 @@ bookmark.form = function(bookmarkData) {
     id: 'color',
     labelText: 'Colour',
     defaultValue: JSON.parse(JSON.stringify(defaultBookmark.color.rgb)),
-    minMaxObject: minMaxBookmark
+    minMaxObject: minMaxBookmark,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const accentBy = new ControlModule_radio({
@@ -825,6 +848,7 @@ bookmark.form = function(bookmarkData) {
     action: () => {
       accentMixerCollapse.update();
       bookmarkForm.disable();
+      bookmarkPreview.update();
     }
   });
 
@@ -834,7 +858,10 @@ bookmark.form = function(bookmarkData) {
     id: 'accent',
     labelText: 'Accent',
     defaultValue: JSON.parse(JSON.stringify(defaultBookmark.accent.rgb)),
-    minMaxObject: minMaxBookmark
+    minMaxObject: minMaxBookmark,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   const accentMixerArea = node('div', [
@@ -883,7 +910,6 @@ bookmark.form = function(bookmarkData) {
             form.render.wrap([
               form.render.indent([
                 displayVisualTypeLetter.wrap()
-
               ])
             ]),
             displayVisualType.radioSet[1].wrap(),
@@ -1004,7 +1030,32 @@ bookmark.form = function(bookmarkData) {
     }]
   });
 
-  bookmarkForm.appendChild(formTab.tab());
+  bookmarkFormMain.appendChild(formTab.tab());
+
+  const bookmarkFormAside = node('div|class:bookmark-form-aside');
+
+  const bookmarkFormPreview = node('div|class:bookmark-form-preview');
+
+  const bookmarkPreview = {
+    preview: bookmark.render.tile(bookmarkData.link, 1, 1, 1, true),
+    update: () => {
+      bookmarkPreview.preview = bookmark.render.tile(bookmarkData.link, 1, 1, 1, true);
+
+      while (bookmarkFormPreview.lastChild) {
+        bookmarkFormPreview.removeChild(bookmarkFormPreview.lastChild);
+      };
+
+      bookmarkFormPreview.appendChild(bookmarkPreview.preview);
+    }
+  };
+
+  bookmarkPreview.update();
+
+  bookmarkFormAside.appendChild(bookmarkFormPreview);
+
+  bookmarkForm.appendChild(bookmarkFormMain);
+
+  bookmarkForm.appendChild(bookmarkFormAside);
 
   if (ifValidString(bookmarkData.link.display.visual.icon.prefix) && ifValidString(bookmarkData.link.display.visual.icon.name)) {
     displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
@@ -1016,7 +1067,10 @@ bookmark.form = function(bookmarkData) {
     input: displayVisualTypeIcon.text,
     widthElement: displayVisualArea,
     type: 'fontawesomeIcon',
-    postFocus: displayVisualTypeIconDisplay.groupText
+    postFocus: displayVisualTypeIconDisplay.groupText,
+    action: () => {
+      bookmarkPreview.update();
+    }
   });
 
   bookmarkForm.update = () => {
