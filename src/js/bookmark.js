@@ -841,7 +841,7 @@ bookmark.form = function(bookmarkData) {
     object: bookmarkData.link,
     radioGroup: [
       { id: 'accent-by-theme', labelText: 'Theme accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
-      { id: 'accent-by-custom', labelText: 'Custom accent', description: 'Override the Theme accent.', value: 'custom' }
+      { id: 'accent-by-custom', labelText: 'Custom accent', description: 'Override the Theme Accent.', value: 'custom' }
     ],
     groupName: 'accent-by',
     path: 'accent.by',

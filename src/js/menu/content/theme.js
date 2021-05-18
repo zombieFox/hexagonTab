@@ -196,8 +196,8 @@ menuContentTheme.bookmark = function() {
   const themeBookmarkShadowColorBy = new ControlModule_radio({
     object: state.get.current(),
     radioGroup: [
-      { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme colour', description: 'Use the Accent colour defined by the Theme.', value: 'theme' },
-      { id: 'theme-bookmark-shadow-color-type-custom', labelText: 'Custom colour', description: 'Override the Theme accent colour.', value: 'custom' }
+      { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
+      { id: 'theme-bookmark-shadow-color-type-custom', labelText: 'Custom accent', description: 'Override the Theme Accent.', value: 'custom' }
     ],
     groupName: 'theme-bookmark-shadow-color-type',
     path: 'theme.bookmark.shadow.color.type',
