@@ -1,8 +1,10 @@
 import { state } from './state.js';
 import { autoSuggest } from './autoSuggest.js';
+import { pageLock } from './pageLock.js';
 import { node } from './utilities/node.js';
 import { Button } from './utilities/button.js';
 import { complexNode } from './utilities/complexNode.js';
+import { ifValidString } from './utilities/ifValidString.js';
 
 const maxHeadingLength = 50;
 
@@ -41,18 +43,27 @@ modal.bind.close = {
 modal.bind.focus = {
   loop: function(event) {
     const allElements = document.querySelector('.modal').querySelectorAll('[tabindex]');
+
     const firstElement = allElements[0];
+
     const lastElement = allElements[allElements.length - 1];
+
     if (event.keyCode == 9 && event.shiftKey) {
+
       if (document.activeElement === firstElement) {
         lastElement.focus();
+
         event.preventDefault();
       }
+
     } else if (event.keyCode == 9) {
+
       if (document.activeElement === lastElement) {
         firstElement.focus();
+
         event.preventDefault();
       }
+
     };
   },
   add: function() {
@@ -83,41 +94,73 @@ modal.render.close = function() {
   previousModal = null;
 };
 
-modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false, overscroll = false } = {}) {
+modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false, maxHeight = false, overscroll = false } = {}) {
 
   if (previousModal != null) {
     modal.render.close();
   };
 
   modal.bind.focus.add();
+
   modal.bind.close.add();
 
   var modalElement = node('div|class:modal');
+
+  var modalShade = node('div|class:modal-shade');
 
   if (overscroll) {
     modalElement.classList.add('modal-overscroll');
   };
 
-  var modalWrapper = node('div|class:modal-wrapper');
+  if (maxHeight) {
+    modalElement.classList.add('modal-max-height');
+  };
+
+  var modalContentWrapper = node('div|class:modal-content-wrapper');
+
+  var modalContent = node('div|class:modal-content');
+
   if (width && typeof width == 'number') {
+
     modalElement.setAttribute('style', '--modal-size: ' + width + 'em;');
-  } else if (size == 'small') {
-    modalElement.setAttribute('style', '--modal-size: var(--modal-small);');
-  } else if (size == 'medium') {
-    modalElement.setAttribute('style', '--modal-size: var(--modal-medium);');
-  } else if (size == 'large') {
-    modalElement.setAttribute('style', '--modal-size: var(--modal-large);');
+
+  } else {
+
+    switch (size) {
+      case 'small':
+        modalElement.setAttribute('style', '--modal-size: var(--modal-small);');
+        break;
+
+      case 'medium':
+        modalElement.setAttribute('style', '--modal-size: var(--modal-medium);');
+        break;
+
+      case 'large':
+        modalElement.setAttribute('style', '--modal-size: var(--modal-large);');
+        break;
+    };
+
   };
 
   modalElement.close = () => {
+    if (modalShade.classList.contains('is-opaque')) {
+      modalShade.classList.remove('is-opaque');
+      modalShade.classList.add('is-transparent');
+    } else {
+      modalShade.remove();
+    };
+
     if (modalElement.classList.contains('is-opaque')) {
       modalElement.classList.remove('is-opaque');
       modalElement.classList.add('is-transparent');
     } else {
       modalElement.remove();
     };
+
     modal.bind.focus.remove();
+
     modal.bind.close.remove();
+
     if (dismissAction) {
       dismissAction();
     };
@@ -125,15 +168,12 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   const modalBody = node('div|class:modal-body');
 
-  const modalBodySpacer = node('div|class:modal-body-spacer');
-
   const modalControls = node('div|class:modal-controls form-group');
 
   const modalAction = new Button({
     text: actionText,
     iconName: false,
     block: true,
-    style: ['line'],
     classList: ['modal-button'],
     func: () => {
       if (successAction) {
@@ -147,7 +187,6 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
     text: cancelText,
     iconName: false,
     block: true,
-    style: ['line'],
     classList: ['modal-button'],
     func: () => {
       if (cancelAction) {
@@ -158,44 +197,61 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
   });
 
   modalControls.appendChild(modalCancel.button);
+
   modalControls.appendChild(modalAction.button);
 
-  if (heading) {
+  let modalHeading = null;
+
+  let headingText = null;
+
+  if (heading && ifValidString(heading)) {
     if (heading.length > maxHeadingLength) {
       heading = heading.substring(0, maxHeadingLength).replace(/\s+$/, '') + '...';
     };
-    var modalHeading = complexNode({
+
+    modalHeading = node('div|class:modal-heading');
+
+    headingText = complexNode({
       tag: 'h1',
       text: heading,
       attr: [{
-        key: 'class',
-        value: 'modal-heading'
-      }, {
         key: 'tabindex',
         value: 1
+      }, {
+        key: 'class',
+        value: 'modal-heading-text'
       }]
     });
-    modalBodySpacer.appendChild(modalHeading);
+
+    modalHeading.appendChild(headingText);
+
+    modalContent.appendChild(modalHeading);
   };
 
   if (content) {
     if (typeof content == 'string') {
-      var container = node('div|class:modal-container,tabindex:1');
-      var para = complexNode({
+      const container = node('div|class:modal-container,tabindex:1');
+
+      const para = complexNode({
         tag: 'p',
         text: content
       });
+
       container.appendChild(para);
-      modalBodySpacer.appendChild(container);
+
+      modalBody.appendChild(container);
     } else {
-      modalBodySpacer.appendChild(content);
+      modalBody.appendChild(content);
     };
   };
 
-  modalBody.appendChild(modalBodySpacer);
-  modalWrapper.appendChild(modalBody);
-  modalWrapper.appendChild(modalControls);
-  modalElement.appendChild(modalWrapper);
+  modalContent.appendChild(modalBody);
+
+  modalContentWrapper.appendChild(modalContent);
+
+  modalElement.appendChild(modalContentWrapper);
+
+  modalElement.appendChild(modalControls);
 
   modalElement.addEventListener('transitionend', function(event) {
     if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
@@ -203,17 +259,34 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
     };
   });
 
+  modalShade.addEventListener('transitionend', function(event) {
+    if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
+      this.remove();
+    };
+  });
+
   previousModal = modalElement;
 
-  document.querySelector('body').appendChild(modalElement);
+  const body = document.querySelector('body');
+
+  body.appendChild(modalShade);
+
+  getComputedStyle(modalShade).opacity;
+
+  modalShade.classList.remove('is-transparent');
+
+  modalShade.classList.add('is-opaque');
+
+  body.appendChild(modalElement);
 
   getComputedStyle(modalElement).opacity;
 
   modalElement.classList.remove('is-transparent');
+
   modalElement.classList.add('is-opaque');
 
   if (heading) {
-    modalHeading.focus(this);
+    headingText.focus(this);
   } else if (content) {
     container.focus(this);
   };
@@ -222,11 +295,13 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 modal.open = function(options) {
   modal.mod.open();
   modal.render.open(options);
+  pageLock.render();
 };
 
 modal.close = function() {
   modal.mod.close();
   modal.render.close();
+  pageLock.render();
 };
 
 modal.init = function() {

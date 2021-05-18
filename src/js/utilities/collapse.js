@@ -90,16 +90,6 @@ const Collapse = function({ type = false, radioGroup = false, target = false } =
         break;
     };
   };
-
-  this.tabIndex = (area) => {
-    area.querySelectorAll('[tabindex]').forEach((item, i) => {
-      if (this.state.collapsed) {
-        item.tabIndex = -1;
-      } else {
-        item.tabIndex = 1;
-      };
-    });
-  };
 };
 
 export { Collapse };

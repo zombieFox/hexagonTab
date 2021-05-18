@@ -3,7 +3,7 @@ const complexNode = function({ tag = 'div', text = false, attr = [], node = [] }
   const element = document.createElement(tag);
 
   if (text) {
-    element.textContent = text;
+    element.innerHTML = text;
   };
 
   if (attr.length > 0) {

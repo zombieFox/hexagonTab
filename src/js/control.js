@@ -659,7 +659,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
   };
 };
 
-const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
+const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false} = {}) {
   this.radioSet = [];
 
   const radioGroupName = groupName;
@@ -741,6 +741,7 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
 
   this.wrap = () => {
     const group = form.render.wrap();
+
     this.radioSet.forEach((item, i) => {
       group.appendChild(
         form.render.wrap([
@@ -751,6 +752,25 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
     });
 
     return group;
+  };
+
+  this.inline = () => {
+    const formGroup = form.render.wrap();
+
+    const formInline = form.render.inlineWide();
+
+    this.radioSet.forEach((item, i) => {
+      formInline.appendChild(
+        form.render.wrap([
+          item.radio,
+          item.label
+        ])
+      );
+    });
+
+    formGroup.appendChild(formInline);
+
+    return formGroup;
   };
 
   this.disable = () => {
@@ -766,7 +786,7 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
   };
 };
 
-const ControlModule_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = 'description', action = false } = {}) {
+const ControlModule_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
 
   this.checkbox = form.render.input.checkbox({
     id: id,

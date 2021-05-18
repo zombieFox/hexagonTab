@@ -37,3 +37,27 @@
 .is-large {
   transform: scale(1.5) !important;
 }
+
+.is-scroll-disabled {
+  overflow: hidden;
+}
+
+.is-scroll-x-disabled {
+  overflow-x: hidden;
+}
+
+.is-scroll-y-disabled {
+  overflow-y: hidden;
+}
+
+.is-shake {
+  animation: shake var(--layout-transition-slow) 1;
+}
+
+.is-pop {
+  animation: pop var(--layout-transition-medium) 1;
+}
+
+.is-jello {
+  animation: jello var(--layout-transition-slow) 1;
+}

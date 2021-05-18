@@ -9,6 +9,7 @@ import '../css/base/zIndex.css';
 import '../css/component/logo.css';
 import '../css/component/button.css';
 import '../css/component/collapse.css';
+import '../css/component/tab.css';
 import '../css/component/font.css';
 import '../css/component/form.css';
 import '../css/component/icon.css';
@@ -38,6 +39,7 @@ import { version } from './version';
 import { keyboard } from './keyboard';
 
 console.log(data.saveName + ' version:', version.number, version.name);
+
 data.init();
 layout.init();
 grid.init();
