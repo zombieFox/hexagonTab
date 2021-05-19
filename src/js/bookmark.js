@@ -20,6 +20,7 @@ const defaultBookmark = {
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: '', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
   },
@@ -29,8 +30,9 @@ const defaultBookmark = {
 
 const minMaxBookmark = {
   display: {
-    rotate: { min: 0, max: 360 },
-    translate: { x: { min: 0, max: 1000 }, y: { min: 0, max: 1000 } },
+    rotate: { min: -180, max: 180 },
+    translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
+    gutter: { min: 0, max: 500 },
     name: { size: { min: 10, max: 200 } },
     visual: { size: { min: 10, max: 200 } }
   },
@@ -64,6 +66,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'awesomeSheet', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
   },
@@ -74,6 +77,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Amazon', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
   },
@@ -84,6 +88,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Gmail', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
   },
@@ -94,6 +99,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Reddit', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
   },
@@ -104,6 +110,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Netflix', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
   },
@@ -114,6 +121,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Drive', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
   },
@@ -124,6 +132,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Devdocs', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
   },
@@ -134,6 +143,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
+    gutter: 50,
     name: { show: true, text: 'Github', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
   },
@@ -358,9 +368,11 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   bookmarkElement.style.setProperty('--bookmark-display-translate-x', tileData.display.translate.x);
   bookmarkElement.style.setProperty('--bookmark-display-translate-y', tileData.display.translate.y);
   bookmarkElement.style.setProperty('--bookmark-display-rotate', tileData.display.rotate);
+  bookmarkElement.style.setProperty('--bookmark-display-gutter', tileData.display.gutter);
 
   bookmarkElement.style.setProperty('--bookmark-display-visual-size', tileData.display.visual.size);
   bookmarkElement.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(tileData.display.visual.image.url) + ')');
+
   bookmarkElement.style.setProperty('--bookmark-display-name-size', tileData.display.name.size);
 
   if (tileData.accent.by == 'custom') {
@@ -864,6 +876,62 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
+  const displayTranslateX = new ControlModule_slider({
+    object: bookmarkData.link,
+    path: 'display.translate.x',
+    id: 'display-translate-x',
+    labelText: 'Translate X',
+    value: bookmarkData.link.display.translate.x,
+    defaultValue: defaultBookmark.display.translate.x,
+    min: minMaxBookmark.display.translate.x.min,
+    max: minMaxBookmark.display.translate.x.max,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
+  const displayTranslateY = new ControlModule_slider({
+    object: bookmarkData.link,
+    path: 'display.translate.y',
+    id: 'display-translate-y',
+    labelText: 'Translate Y',
+    value: bookmarkData.link.display.translate.y,
+    defaultValue: defaultBookmark.display.translate.y,
+    min: minMaxBookmark.display.translate.y.min,
+    max: minMaxBookmark.display.translate.y.max,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
+  const displayRotate = new ControlModule_slider({
+    object: bookmarkData.link,
+    path: 'display.rotate',
+    id: 'display-rotate',
+    labelText: 'Rotate',
+    value: bookmarkData.link.display.rotate,
+    defaultValue: defaultBookmark.display.rotate,
+    min: minMaxBookmark.display.rotate.min,
+    max: minMaxBookmark.display.rotate.max,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
+  const displayGutter = new ControlModule_slider({
+    object: bookmarkData.link,
+    path: 'display.gutter',
+    id: 'display-gutter',
+    labelText: 'Gutter',
+    value: bookmarkData.link.display.gutter,
+    defaultValue: defaultBookmark.display.gutter,
+    min: minMaxBookmark.display.gutter.min,
+    max: minMaxBookmark.display.gutter.max,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
   const accentMixerArea = node('div', [
     node('hr'),
     accentMixer.wrap()
@@ -978,6 +1046,21 @@ bookmark.form = function(bookmarkData) {
     ])
   ]);
 
+  const displayLayoutArea = form.render.fieldset([
+    form.render.wrap([
+      node('h2:Layout|class:mb-2'),
+      node('p:Change the Visual element and Name position.|class:mb-5')
+    ]),
+    form.render.wrap([
+      form.render.indent([
+        displayTranslateX.wrap(),
+        displayTranslateY.wrap(),
+        displayRotate.wrap(),
+        displayGutter.wrap()
+      ])
+    ])
+  ]);
+
   const displayThemeArea = form.render.fieldset([
     form.render.wrap([
       node('h2:Colour|class:mb-2'),
@@ -1022,6 +1105,10 @@ bookmark.form = function(bookmarkData) {
     }, {
       tabText: 'Address',
       area: displayAddressArea,
+      active: false
+    }, {
+      tabText: 'Layout',
+      area: displayLayoutArea,
       active: false
     }, {
       tabText: 'Theme',

@@ -151,6 +151,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));
   display: flex;
   flex-direction: column;
+  gap: calc(var(--bookmark-display-gutter) * 0.01em);
   font-size: 1em;
   transition: font-size var(--layout-transition-extra-fast);
   transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);
@@ -172,10 +173,6 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 .bookmark:hover .bookmark-display-visual,
 .bookmark:focus-within .bookmark-display-visual {
   color: rgb(var(--bookmark-display-visual-color-focus-hover));
-}
-
-.bookmark-display-visual:not(:only-child) {
-  margin-bottom: 0.5em;
 }
 
 .bookmark-display-visual-letter {

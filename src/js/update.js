@@ -15,6 +15,17 @@ update.all = {
       delete dataToUpdate.state.theme.bookmark.shadow.type;
     };
 
+    dataToUpdate.bookmark.forEach((item, i) => {
+      item.display.gutter = 50;
+    });
+
+    return dataToUpdate;
+  },
+  '2.5.0': function(dataToUpdate) {
+    dataToUpdate.bookmark.forEach((item, i) => {
+      item.display.gutter = 50;
+    });
+
     return dataToUpdate;
   }
 };
