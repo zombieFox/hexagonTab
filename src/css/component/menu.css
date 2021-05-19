@@ -101,9 +101,6 @@
 .menu-content {
   grid-column-start: 1;
   grid-column-end: 3;
-  /* display: grid; */
-  /* gap: var(--menu-content-gap); */
-  /* padding: var(--menu-content-gap); */
 }
 
 .menu-content-item {
