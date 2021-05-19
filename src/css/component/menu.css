@@ -1,5 +1,7 @@
 :root {
   --menu-space: 0.75em;
+  --menu-content-multiplier: 4;
+  --menu-content-gap: calc(var(--menu-space) * var(--menu-content-multiplier));
 }
 
 .menu {
@@ -26,7 +28,7 @@
   max-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr calc(var(--menu-space) * 5);
+  grid-template-columns: 1fr auto;
   justify-items: stretch;
   align-items: stretch;
   overflow-y: auto;
@@ -70,7 +72,7 @@
   border-radius: 0;
 }
 
-.menu-close-tab {
+.menu-close-button {
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -92,13 +94,6 @@
   flex-grow: 1;
 }
 
-.menu-nav-area-close {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
 .menu-list {
   display: none;
 }
@@ -106,16 +101,18 @@
 .menu-content {
   grid-column-start: 1;
   grid-column-end: 3;
+  display: grid;
+  gap: var(--menu-content-gap);
+  padding: var(--menu-content-gap);
 }
 
 .menu-content-item {
-  padding: calc(var(--menu-space) * 3);
   position: relative;
   z-index: 1;
 }
 
 .menu-content-overscroll .menu-content-item:last-child {
-  padding-bottom: calc(var(--menu-space) * 75);
+  padding-bottom: calc(var(--menu-content-gap) * 4);
 }
 
 .menu-item-header {
@@ -138,6 +135,10 @@
 }
 
 @media (min-width: 700px) {
+  :root {
+    --menu-content-multiplier: 5;
+  }
+
   .menu {
     width: 100%;
     height: 100%;
@@ -147,7 +148,7 @@
   .menu-area {
     max-height: 100%;
     grid-template-rows: 1fr;
-    grid-template-columns: calc(var(--menu-space) * 20) 1fr calc(var(--menu-space) * 4);
+    grid-template-columns: 4fr 10fr auto;
     overflow: hidden;
     position: relative;
   }
@@ -190,12 +191,7 @@
     grid-row-start: 1;
     grid-row-end: 2;
     align-self: start;
-    position: absolute;
     z-index: 3;
-  }
-
-  .menu-content-item {
-    padding: calc(var(--menu-space) * 4);
   }
 
   .menu-item-header {
@@ -261,7 +257,7 @@
     border-radius: 0;
   }
 
-  .menu-close-tab {
+  .menu-close-button {
     border-radius: var(--theme-radius-base);
     height: calc(var(--menu-space) * 4);
     width: calc(var(--menu-space) * 4);
@@ -276,19 +272,15 @@
 }
 
 @media (min-width: 900px) {
+  :root {
+    --menu-content-multiplier: 6;
+  }
+
   .menu {
     width: 90vw;
   }
 
-  .menu-area {
-    grid-template-columns: calc(var(--menu-space) * 20) 1fr calc(var(--menu-space) * 5);
-  }
-
-  .menu-content-item {
-    padding: calc(var(--menu-space) * 5);
-  }
-
-  .menu-close-tab {
+  .menu-close-button {
     height: calc(var(--menu-space) * 5);
     width: calc(var(--menu-space) * 5);
   }

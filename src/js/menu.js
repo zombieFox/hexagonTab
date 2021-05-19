@@ -259,7 +259,7 @@ menu.render.component = {
       srOnly: true,
       style: ['link'],
       iconName: 'cross',
-      classList: ['menu-close-tab'],
+      classList: ['menu-close-button'],
       func: function() {
         menu.close();
       }
