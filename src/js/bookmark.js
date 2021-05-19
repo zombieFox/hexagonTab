@@ -20,7 +20,7 @@ const defaultBookmark = {
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: '', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
   },
@@ -33,8 +33,8 @@ const minMaxBookmark = {
     rotate: { min: -180, max: 180 },
     translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
     gutter: { min: 0, max: 500 },
-    name: { size: { min: 10, max: 200 } },
-    visual: { size: { min: 10, max: 200 } }
+    visual: { size: { min: 5, max: 200 } },
+    name: { size: { min: 5, max: 200 } }
   },
   accent: {
     hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
@@ -66,7 +66,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'awesomeSheet', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
   },
@@ -77,7 +77,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Amazon', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
   },
@@ -88,7 +88,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Gmail', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
   },
@@ -99,7 +99,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Reddit', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
   },
@@ -110,7 +110,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Netflix', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
   },
@@ -121,7 +121,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Drive', size: 7 },
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
   },
@@ -132,7 +132,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Devdocs', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
   },
@@ -143,7 +143,7 @@ bookmark.all = [{
   display: {
     rotate: 0,
     translate: { x: 0, y: 0 },
-    gutter: 50,
+    gutter: 75,
     name: { show: true, text: 'Github', size: 7 },
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
   },
@@ -204,6 +204,54 @@ bookmark.mod.item.move = function(bookmarkData) {
   var bookmarkCopy = JSON.parse(JSON.stringify(bookmark.all[bookmarkData.position.origin]));
   bookmark.all.splice(bookmarkData.position.origin, 1);
   bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkCopy);
+};
+
+bookmark.mod.propagate = {};
+
+bookmark.mod.propagate.state = {
+  current: {
+    visual: false,
+    name: false,
+    layout: false,
+    theme: false
+  },
+  reset: function() {
+    for (var key in bookmark.mod.propagate.state.current) {
+      bookmark.mod.propagate.state.current[key] = false;
+    }
+  },
+  apply: function(bookmarkData) {
+    if (bookmark.mod.propagate.state.current.layout) {
+      bookmark.all.forEach((item, i) => {
+        item.display.visual.size = bookmarkData.link.display.visual.size;
+        item.display.name.size = bookmarkData.link.display.name.size;
+        item.display.gutter = bookmarkData.link.display.gutter;
+        item.display.rotate = bookmarkData.link.display.rotate;
+        item.display.translate = bookmarkData.link.display.translate;
+      });
+    };
+
+    if (bookmark.mod.propagate.state.current.visual) {
+      bookmark.all.forEach((item, i) => {
+        item.display.visual.show = bookmarkData.link.display.visual.show;
+      });
+    };
+
+    if (bookmark.mod.propagate.state.current.name) {
+      bookmark.all.forEach((item, i) => {
+        item.display.name.show = bookmarkData.link.display.name.show;
+      });
+    };
+
+    if (bookmark.mod.propagate.state.current.theme) {
+      bookmark.all.forEach((item, i) => {
+        item.accent = bookmarkData.link.accent;
+        item.color = bookmarkData.link.color;
+      });
+    };
+
+    bookmark.mod.propagate.state.reset();
+  }
 };
 
 bookmark.render = {};
@@ -488,6 +536,7 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
         maxHeight: true,
         successAction: () => {
           bookmark.mod.item.edit(bookmarkData);
+          bookmark.mod.propagate.state.apply(bookmarkData);
           bookmark.render.clear();
           bookmark.render.item();
           data.save();
@@ -586,6 +635,7 @@ bookmark.render.add = function() {
     maxHeight: true,
     successAction: () => {
       bookmark.mod.item.add(newBookmarkData);
+      bookmark.mod.propagate.state.apply(newBookmarkData);
       bookmark.render.clear();
       bookmark.render.item();
       data.save();
@@ -598,6 +648,8 @@ bookmark.render.add = function() {
 };
 
 bookmark.form = function(bookmarkData) {
+  bookmark.mod.propagate.state.reset();
+
   const bookmarkForm = node('form|class:bookmark-form');
 
   const bookmarkFormMain = node('form|class:bookmark-form-main');
@@ -653,6 +705,12 @@ bookmark.form = function(bookmarkData) {
     } else {
       displayNameText.disable();
       displayNameSize.disable();
+    };
+
+    if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
+      displayGutter.enable();
+    } else {
+      displayGutter.disable();
     };
 
     switch (bookmarkData.link.color.by) {
@@ -761,11 +819,11 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualSize = new ControlModule_slider({
+  const displayVisualSize = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.visual.size',
     id: 'display-visual-size',
-    labelText: 'Visual Element size',
+    labelText: 'Visual size',
     value: bookmarkData.link.display.visual.size,
     defaultValue: defaultBookmark.display.visual.size,
     min: minMaxBookmark.display.visual.size.min,
@@ -773,6 +831,14 @@ bookmark.form = function(bookmarkData) {
     action: () => {
       bookmarkPreview.update();
     }
+  });
+
+  const displayVisualShowPropagate = new ControlModule_checkbox({
+    object: bookmark.mod.propagate.state.current,
+    path: 'visual',
+    id: 'apply-to-all-visual',
+    labelText: 'Apply Show Visual Element to other Bookmarks',
+    description: 'When saved, apply the above Visual Element visibility to all other Bookmarks.'
   });
 
   const displayNameShow = new ControlModule_checkbox({
@@ -799,18 +865,26 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameSize = new ControlModule_slider({
+  const displayNameSize = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.name.size',
     id: 'display-name-size',
     labelText: 'Name size',
     value: bookmarkData.link.display.name.size,
     defaultValue: defaultBookmark.display.name.size,
-    min: minMaxBookmark.display.name.min,
-    max: minMaxBookmark.display.name.max,
+    min: minMaxBookmark.display.name.size.min,
+    max: minMaxBookmark.display.name.size.max,
     action: () => {
       bookmarkPreview.update();
     }
+  });
+
+  const displayNameShowPropagate = new ControlModule_checkbox({
+    object: bookmark.mod.propagate.state.current,
+    path: 'name',
+    id: 'apply-to-all-name',
+    labelText: 'Apply Show Name to other Bookmarks',
+    description: 'When saved, apply the above Name visibility to all other Bookmarks.'
   });
 
   const url = new ControlModule_text({
@@ -876,7 +950,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayTranslateX = new ControlModule_slider({
+  const displayTranslateX = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.translate.x',
     id: 'display-translate-x',
@@ -890,7 +964,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayTranslateY = new ControlModule_slider({
+  const displayTranslateY = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.translate.y',
     id: 'display-translate-y',
@@ -904,7 +978,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayRotate = new ControlModule_slider({
+  const displayRotate = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.rotate',
     id: 'display-rotate',
@@ -918,7 +992,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayGutter = new ControlModule_slider({
+  const displayGutter = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.gutter',
     id: 'display-gutter',
@@ -930,6 +1004,14 @@ bookmark.form = function(bookmarkData) {
     action: () => {
       bookmarkPreview.update();
     }
+  });
+
+  const displayLayoutPropagate = new ControlModule_checkbox({
+    object: bookmark.mod.propagate.state.current,
+    path: 'layout',
+    id: 'apply-to-all-layout',
+    labelText: 'Apply Layout to other Bookmarks',
+    description: 'When saved, apply the above Layout to all other Bookmarks.'
   });
 
   const accentMixerArea = node('div', [
@@ -963,6 +1045,14 @@ bookmark.form = function(bookmarkData) {
   });
 
   colorMixerCollapse.update();
+
+  const displayThemePropagate = new ControlModule_checkbox({
+    object: bookmark.mod.propagate.state.current,
+    path: 'theme',
+    id: 'apply-to-all-theme',
+    labelText: 'Apply Theme to other Bookmarks',
+    description: 'When saved, apply the above Theme to all other Bookmarks.'
+  });
 
   const displayVisualArea = form.render.fieldset([
     form.render.wrap([
@@ -998,11 +1088,11 @@ bookmark.form = function(bookmarkData) {
               form.render.indent([
                 displayVisualTypeImage.wrap()
               ])
-            ]),
-            node('hr'),
-            displayVisualSize.wrap()
+            ])
           ])
-        ])
+        ]),
+        node('hr'),
+        displayVisualShowPropagate.wrap(),
       ])
     ])
   ]);
@@ -1017,11 +1107,11 @@ bookmark.form = function(bookmarkData) {
         displayNameShow.wrap(),
         form.render.wrap([
           form.render.indent([
-            displayNameText.wrap(),
-            node('hr'),
-            displayNameSize.wrap()
-          ])
-        ])
+            displayNameText.wrap()
+          ]),
+        ]),
+        node('hr'),
+        displayNameShowPropagate.wrap()
       ])
     ])
   ]);
@@ -1030,14 +1120,7 @@ bookmark.form = function(bookmarkData) {
     form.render.wrap([
       node('h2:Address|class:mb-2'),
       node('p:The websites address.'),
-      complexNode({
-        tag: 'p',
-        text: 'Be sure to use the full URL and include <strong>"https://..."</strong>',
-        attr: [{
-          key: 'class',
-          value: 'mb-5'
-        }]
-      })
+      complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>', attr: [{ key: 'class', value: 'mb-5' }] })
     ]),
     form.render.wrap([
       form.render.indent([
@@ -1053,18 +1136,23 @@ bookmark.form = function(bookmarkData) {
     ]),
     form.render.wrap([
       form.render.indent([
+        displayVisualSize.wrap(),
+        displayNameSize.wrap(),
+        node('hr'),
         displayTranslateX.wrap(),
         displayTranslateY.wrap(),
         displayRotate.wrap(),
-        displayGutter.wrap()
+        displayGutter.wrap(),
+        node('hr'),
+        displayLayoutPropagate.wrap()
       ])
     ])
   ]);
 
   const displayThemeArea = form.render.fieldset([
     form.render.wrap([
-      node('h2:Colour|class:mb-2'),
-      node('p:Override the Theme colour.|class:mb-5')
+      node('h2:Theme|class:mb-2'),
+      node('p:Override the Theme and Accent colour.|class:mb-5')
     ]),
     form.render.wrap([
       form.render.indent([
@@ -1073,22 +1161,16 @@ bookmark.form = function(bookmarkData) {
           form.render.indent([
             colorMixerCollapse.collapse()
           ])
-        ])
-      ])
-    ]),
-    node('hr'),
-    form.render.wrap([
-      node('h2:Accent|class:mb-2'),
-      node('p:Override the Accent colour.|class:mb-5')
-    ]),
-    form.render.wrap([
-      form.render.indent([
+        ]),
+        node('hr'),
         accentBy.wrap(),
         form.render.wrap([
           form.render.indent([
             accentMixerCollapse.collapse()
           ])
-        ])
+        ]),
+        node('hr'),
+        displayThemePropagate.wrap()
       ])
     ])
   ]);

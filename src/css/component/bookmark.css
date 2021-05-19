@@ -197,8 +197,9 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 }
 
 .bookmark-display-name {
-  font-size: calc(var(--bookmark-display-name-size) * 0.1em);
   color: rgb(var(--bookmark-display-name-color));
+  line-height: 1;
+  font-size: calc(var(--bookmark-display-name-size) * 0.1em);
   display: flex;
   justify-content: center;
   transition: color var(--layout-transition-extra-fast);
