@@ -707,6 +707,16 @@ bookmark.form = function(bookmarkData) {
       displayNameSize.disable();
     };
 
+    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
+      displayTranslateX.enable();
+      displayTranslateY.enable();
+      displayRotate.enable();
+    } else {
+      displayTranslateX.disable();
+      displayTranslateY.disable();
+      displayRotate.disable();
+    };
+
     if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
       displayGutter.enable();
     } else {
