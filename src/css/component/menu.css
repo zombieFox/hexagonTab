@@ -101,18 +101,25 @@
 .menu-content {
   grid-column-start: 1;
   grid-column-end: 3;
-  display: grid;
-  gap: var(--menu-content-gap);
-  padding: var(--menu-content-gap);
+  /* display: grid; */
+  /* gap: var(--menu-content-gap); */
+  /* padding: var(--menu-content-gap); */
 }
 
 .menu-content-item {
+  padding-top: var(--menu-content-gap);
+  padding-right: var(--menu-content-gap);
+  padding-left: var(--menu-content-gap);
   position: relative;
   z-index: 1;
 }
 
+.menu-content-item:last-child {
+  padding-bottom: var(--menu-content-gap);
+}
+
 .menu-content-overscroll .menu-content-item:last-child {
-  padding-bottom: calc(var(--menu-content-gap) * 4);
+  padding-bottom: calc(var(--menu-content-gap) * 10);
 }
 
 .menu-item-header {
