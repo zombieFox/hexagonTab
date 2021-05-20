@@ -5,9 +5,9 @@ import { data } from '../data';
 import { gridList } from '../grid';
 import { modal } from '../modal';
 import { theme } from '../theme';
-import { Button } from '../button';
+import { form } from '../form';
 
-// import { form } from '../form';
+import { Button } from '../button';
 import { Suggest } from '../autoSuggest';
 import { Collapse } from '../collapse';
 import { Tab } from '../tab';
