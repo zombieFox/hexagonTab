@@ -20,6 +20,8 @@ update.all = {
   '2.5.0': function(dataToUpdate) {
     dataToUpdate.bookmark.forEach((item, i) => {
       item.display.gutter = 75;
+      item.display.direction = "vertical";
+      item.display.order = "visual-name";
     });
 
     return dataToUpdate;

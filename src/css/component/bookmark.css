@@ -150,7 +150,9 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 .bookmark-display {
   transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--bookmark-display-direction);
+  align-items: center;
+  justify-content: center;
   gap: calc(var(--bookmark-display-gutter) * 0.01em);
   font-size: 1em;
   transition: font-size var(--layout-transition-extra-fast);
@@ -198,7 +200,6 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-display-name {
   color: rgb(var(--bookmark-display-name-color));
-  line-height: 1;
   font-size: calc(var(--bookmark-display-name-size) * 0.1em);
   display: flex;
   justify-content: center;

@@ -18,6 +18,8 @@ import { trimString } from './utilities/trimString.js';
 const defaultBookmark = {
   url: '',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -64,6 +66,8 @@ const bookmark = {};
 bookmark.all = [{
   url: 'https://zombiefox.github.io/awesomeSheet/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -75,6 +79,8 @@ bookmark.all = [{
 }, {
   url: 'https://www.amazon.co.uk/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -86,6 +92,8 @@ bookmark.all = [{
 }, {
   url: 'https://mail.google.com/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -97,6 +105,8 @@ bookmark.all = [{
 }, {
   url: 'https://www.reddit.com/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -108,6 +118,8 @@ bookmark.all = [{
 }, {
   url: 'https://www.netflix.com/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -119,6 +131,8 @@ bookmark.all = [{
 }, {
   url: 'https://drive.google.com/drive/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -130,6 +144,8 @@ bookmark.all = [{
 }, {
   url: 'https://devdocs.io/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -141,6 +157,8 @@ bookmark.all = [{
 }, {
   url: 'https://github.com/',
   display: {
+    direction: "vertical",
+    order: "visual-name",
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -228,6 +246,8 @@ bookmark.mod.propagate.state = {
         item.display.gutter = bookmarkData.link.display.gutter;
         item.display.rotate = bookmarkData.link.display.rotate;
         item.display.translate = bookmarkData.link.display.translate;
+        item.display.direction = bookmarkData.link.display.direction;
+        item.display.order = bookmarkData.link.display.order;
       });
     };
 
@@ -348,9 +368,11 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   };
 
   bookmarkElement.style.setProperty('--bookmark-row-start', rowStart);
+
   bookmarkElement.style.setProperty('--bookmark-column-start', columnStart);
 
   const shadowWrap = node('div|class:bookmark-shadow-wrap');
+
   const shadow = node('div|class:bookmark-shadow');
   shadowWrap.appendChild(shadow);
 
@@ -369,10 +391,15 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   const display = node('div|class:bookmark-display');
 
   const visual = node('div|class:bookmark-display-visual');
+
   const visualLetter = node('div:' + tileData.display.visual.letter.text + '|class:bookmark-display-visual-letter');
+
   const visualIcon = node('div|class:bookmark-display-visual-icon');
+
   const icon = node('div|class:' + tileData.display.visual.icon.prefix + ' fa-' + tileData.display.visual.icon.name);
+
   visualIcon.appendChild(icon);
+
   const visualImage = node('div|class:bookmark-display-visual-image');
 
   switch (tileData.display.visual.type) {
@@ -406,12 +433,40 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   };
 
   contentWrap.appendChild(content);
+
   bookmarkElement.appendChild(shadowWrap);
+
   bookmarkElement.appendChild(contentWrap);
 
   bookmarkElement.style.setProperty('--bookmark-transition-delay', index);
 
   bookmarkElement.style.setProperty('--bookmark-color-opacity', tileData.color.opacity);
+
+  switch (tileData.display.direction) {
+    case 'vertical':
+      switch (tileData.display.order) {
+        case 'visual-name':
+          bookmarkElement.style.setProperty('--bookmark-display-direction', 'column');
+          break;
+
+        case 'name-visual':
+          bookmarkElement.style.setProperty('--bookmark-display-direction', 'column-reverse');
+          break;
+      };
+      break;
+
+    case 'horizontal':
+      switch (tileData.display.order) {
+        case 'visual-name':
+          bookmarkElement.style.setProperty('--bookmark-display-direction', 'row');
+          break;
+
+        case 'name-visual':
+          bookmarkElement.style.setProperty('--bookmark-display-direction', 'row-reverse');
+          break;
+      };
+      break;
+  };
 
   bookmarkElement.style.setProperty('--bookmark-display-translate-x', tileData.display.translate.x);
   bookmarkElement.style.setProperty('--bookmark-display-translate-y', tileData.display.translate.y);
@@ -579,8 +634,11 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   });
 
   control.appendChild(controlLeft.button);
+
   control.appendChild(controlRight.button);
+
   control.appendChild(controlEdit.button);
+
   control.appendChild(controlRemove.button);
 
   contentWrap.appendChild(control);
@@ -718,8 +776,12 @@ bookmark.form = function(bookmarkData) {
     };
 
     if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
+      displayVisualDirection.enable();
+      displayVisualOrder.enable();
       displayGutter.enable();
     } else {
+      displayVisualDirection.disable();
+      displayVisualOrder.disable();
       displayGutter.disable();
     };
 
@@ -759,9 +821,9 @@ bookmark.form = function(bookmarkData) {
   const displayVisualType = new ControlModule_radio({
     object: bookmarkData.link,
     radioGroup: [
-      { id: 'display-visual-type-letter', labelText: 'Letter', description: false, value: 'letter' },
-      { id: 'display-visual-type-icon', labelText: 'Icon', description: false, value: 'icon' },
-      { id: 'display-visual-type-image', labelText: 'Image', description: false, value: 'image' }
+      { id: 'display-visual-type-letter', labelText: 'Letter', value: 'letter' },
+      { id: 'display-visual-type-icon', labelText: 'Icon', value: 'icon' },
+      { id: 'display-visual-type-image', labelText: 'Image', value: 'image' }
     ],
     groupName: 'display-visual-type',
     path: 'display.visual.type',
@@ -1002,6 +1064,34 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
+  const displayVisualDirection = new ControlModule_radio({
+    object: bookmarkData.link,
+    radioGroup: [
+      { id: 'display-direction-vertical', labelText: 'Vertical', description: 'Stack the Visual Element and Name one above the other.', value: 'vertical' },
+      { id: 'display-direction-horizontal', labelText: 'Horizontal', description: 'Arrange the Visual Element and Name side by side.', value: 'horizontal' }
+    ],
+    groupName: 'display-direction',
+    path: 'display.direction',
+    action: () => {
+      bookmarkForm.disable();
+      bookmarkPreview.update();
+    }
+  });
+
+  const displayVisualOrder = new ControlModule_radio({
+    object: bookmarkData.link,
+    radioGroup: [
+      { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name', value: 'visual-name' },
+      { id: 'display-order-name-visual', labelText: 'Name then visual element', description: 'Place the Name before the Visual Element', value: 'name-visual' }
+    ],
+    groupName: 'display-order',
+    path: 'display.order',
+    action: () => {
+      bookmarkForm.disable();
+      bookmarkPreview.update();
+    }
+  });
+
   const displayGutter = new ControlModule_slimSlider({
     object: bookmarkData.link,
     path: 'display.gutter',
@@ -1020,7 +1110,7 @@ bookmark.form = function(bookmarkData) {
     object: bookmark.mod.propagate.state.current,
     path: 'layout',
     id: 'apply-to-all-layout',
-    labelText: 'Apply Layout to other Bookmarks',
+    labelText: 'Apply this Layout to other Bookmarks',
     description: 'When saved, apply the above Layout to all other Bookmarks.'
   });
 
@@ -1152,6 +1242,9 @@ bookmark.form = function(bookmarkData) {
         displayTranslateX.wrap(),
         displayTranslateY.wrap(),
         displayRotate.wrap(),
+        node('hr'),
+        displayVisualDirection.wrap(),
+        displayVisualOrder.wrap(),
         displayGutter.wrap(),
         node('hr'),
         displayLayoutPropagate.wrap()
