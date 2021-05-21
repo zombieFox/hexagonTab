@@ -24,7 +24,8 @@ module.exports = {
   module: {
     rules: [{
       test: /\.css$/i,
-      use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      use: ['style-loader', 'css-loader']
+      // use: [MiniCssExtractPlugin.loader, 'css-loader']
     }, {
       test: /\.(ttf|woff|woff2)$/,
       use: {
@@ -50,9 +51,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: '[name].[contenthash].css'
+    // }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
