@@ -1,5 +1,3 @@
-import './index.css';
-
 import { state } from '../state';
 import { menu } from '../menu';
 import { data } from '../data';
@@ -9,6 +7,8 @@ import { icon } from '../icon';
 import { Button } from '../button';
 
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const toolbar = {};
 

@@ -1,11 +1,11 @@
-import './index.css';
-
 import { form } from '../form';
 
 import { Button } from '../button';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
+
+import './index.css';
 
 const Tab = function({ group = [] } = {}) {
   this.tabElement = node('div|class:tab');

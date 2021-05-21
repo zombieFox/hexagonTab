@@ -1,9 +1,9 @@
-import './index.css';
-
 import { layoutArea } from '../layout';
 import { state } from '../state';
 
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const grid = {};
 

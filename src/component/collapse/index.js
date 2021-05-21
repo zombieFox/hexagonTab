@@ -1,10 +1,10 @@
-import './index.css';
-
 import { form } from '../form';
 import { icon } from '../icon';
 
 import { complexNode } from '../../utility/complexNode';
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const Collapse = function({ type = false, radioGroup = false, target = false } = {}) {
 

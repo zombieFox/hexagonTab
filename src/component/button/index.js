@@ -1,9 +1,9 @@
-import './index.css';
-
 import { icon } from '../icon';
 import { form } from '../form';
 
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const Button = function({ text = 'Button', srOnly = false, iconName = false, block = false, size = false, style = [], title = false, classList = [], func = false } = {}) {
   this.button = node('button|class:button,tabindex:1,type:button');

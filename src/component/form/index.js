@@ -1,10 +1,10 @@
-import './index.css';
-
 import { icon } from '../icon';
 
 import { complexNode } from '../../utility/complexNode';
 import { convertColor } from '../../utility/convertColor';
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const form = {};
 

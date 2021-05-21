@@ -1,8 +1,8 @@
-import './index.css';
-
 import { state } from '../state';
 
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const logo = {};
 

@@ -1,5 +1,3 @@
-import './index.css';
-
 import { state } from '../state';
 import { autoSuggest } from '../autoSuggest';
 import { pageLock } from '../pageLock';
@@ -9,6 +7,8 @@ import { Button } from '../button';
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
 import { ifValidString } from '../../utility/ifValidString';
+
+import './index.css';
 
 const maxHeadingLength = 50;
 

@@ -19,6 +19,12 @@ import { toolbar } from './toolbar';
 import { update } from './update';
 import { bookmark } from './bookmark';
 
+import { Button } from './button';
+import { Suggest } from './autoSuggest';
+import { Collapse } from './collapse';
+import { Tab } from './tab';
+import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from './control';
+
 export const component = {
   base,
   state,
@@ -38,6 +44,18 @@ export const component = {
   pageLock,
   theme,
   toolbar,
+  update,
   bookmark,
-  update
+  Button,
+  Suggest,
+  Collapse,
+  Tab,
+  ControlModule_groupText,
+  ControlModule_radio,
+  ControlModule_checkbox,
+  ControlModule_slider,
+  ControlModule_slimSlider,
+  ControlModule_colorMixer,
+  ControlModule_color,
+  ControlModule_text
 };

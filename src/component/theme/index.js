@@ -1,5 +1,3 @@
-import './index.css';
-
 import { state } from '../state';
 import { data } from '../data';
 
@@ -7,6 +5,8 @@ import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
 import { ifValidString } from '../../utility/ifValidString';
+
+import './index.css';
 
 const theme = {};
 

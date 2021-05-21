@@ -1,8 +1,8 @@
-import './index.css';
-
 import { state, presentationMode } from '../state';
 import { data } from '../data';
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const layoutWrap = node('div|class:layout-wrap');
 

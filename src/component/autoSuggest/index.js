@@ -1,5 +1,3 @@
-import './index.css';
-
 import { state } from '../state';
 import { bookmark, currentBookmarkForm } from '../bookmark';
 import { fontawesome } from '../fontawesome';
@@ -10,6 +8,8 @@ import { ControlModule_text } from '../control';
 import { ifValidString } from '../../utility/ifValidString';
 import { trimString } from '../../utility/trimString';
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const Suggest = function({ input = false, widthElement = false, type = false, postFocus = false, action = false } = {}) {
   this.suggestPanel = false;

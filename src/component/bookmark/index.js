@@ -1,4 +1,3 @@
-import './index.css';
 
 import { state } from '../state';
 import { data } from '../data';
@@ -18,6 +17,8 @@ import { complexNode } from '../../utility/complexNode';
 import { convertColor } from '../../utility/convertColor';
 import { ifValidString } from '../../utility/ifValidString';
 import { trimString } from '../../utility/trimString';
+
+import './index.css';
 
 const defaultBookmark = {
   url: '',

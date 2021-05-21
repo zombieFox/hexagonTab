@@ -1,5 +1,3 @@
-import './index.css';
-
 import { state } from '../state';
 import { data } from '../data';
 import { form } from '../form';
@@ -20,6 +18,8 @@ import { menuContentBookmark } from './content/bookmark';
 import { menuContentData } from './content/data';
 import { menuContentCoffee } from './content/coffee';
 import { menuContentApp } from './content/app';
+
+import './index.css';
 
 const MenuNav = function() {
   this.nav = node('div|class:menu-nav');

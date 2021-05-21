@@ -1,6 +1,6 @@
-import './index.css';
-
 import { node } from '../../utility/node';
+
+import './index.css';
 
 const icon = {};
 
