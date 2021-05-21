@@ -1249,7 +1249,9 @@ bookmark.form = function(bookmarkData) {
         displayRotate.wrap(),
         node('hr'),
         displayVisualDirection.wrap(),
+        node('hr'),
         displayVisualOrder.wrap(),
+        node('hr'),
         displayGutter.wrap(),
         node('hr'),
         displayLayoutPropagate.wrap()
