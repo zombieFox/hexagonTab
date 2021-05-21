@@ -1086,8 +1086,8 @@ bookmark.form = function(bookmarkData) {
   const displayVisualOrder = new ControlModule_radio({
     object: bookmarkData.link,
     radioGroup: [
-      { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name', value: 'visual-name' },
-      { id: 'display-order-name-visual', labelText: 'Name then visual element', description: 'Place the Name before the Visual Element', value: 'name-visual' }
+      { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name.', value: 'visual-name' },
+      { id: 'display-order-name-visual', labelText: 'Name then visual element', description: 'Place the Name before the Visual Element.', value: 'name-visual' }
     ],
     groupName: 'display-order',
     path: 'display.order',
