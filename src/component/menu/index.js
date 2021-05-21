@@ -65,9 +65,9 @@ const MenuNav = function() {
   this.init = () => {
     this.navItem.forEach((item, i) => {
       if (item.subLevel) {
-        item.subLevel.classList.add("active");
-        item.subLevel.setAttribute("style", "--menu-subnav-height: " + item.subLevel.getBoundingClientRect().height + "px;");
-        item.subLevel.classList.remove("active");
+        item.subLevel.classList.add('active');
+        item.subLevel.setAttribute('style', '--menu-subnav-height: ' + item.subLevel.getBoundingClientRect().height + 'px;');
+        item.subLevel.classList.remove('active');
       };
     });
   };

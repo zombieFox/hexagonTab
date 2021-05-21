@@ -22,7 +22,7 @@ __These screenshot samples can be downloaded and used freely here: [/asset/scree
 When developing use:
 - `npm start`
 
-A development server will run on `http://localhost:8080/`
+A development server will run on `http://localhost:5000/`
 
 
 To build the project use:

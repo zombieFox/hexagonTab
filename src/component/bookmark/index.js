@@ -23,8 +23,8 @@ import './index.css';
 const defaultBookmark = {
   url: '',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -71,8 +71,8 @@ const bookmark = {};
 bookmark.all = [{
   url: 'https://zombiefox.github.io/awesomeSheet/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -84,8 +84,8 @@ bookmark.all = [{
 }, {
   url: 'https://www.amazon.co.uk/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -97,8 +97,8 @@ bookmark.all = [{
 }, {
   url: 'https://mail.google.com/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -110,8 +110,8 @@ bookmark.all = [{
 }, {
   url: 'https://www.reddit.com/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -123,8 +123,8 @@ bookmark.all = [{
 }, {
   url: 'https://www.netflix.com/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -136,8 +136,8 @@ bookmark.all = [{
 }, {
   url: 'https://drive.google.com/drive/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -149,8 +149,8 @@ bookmark.all = [{
 }, {
   url: 'https://devdocs.io/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
@@ -162,8 +162,8 @@ bookmark.all = [{
 }, {
   url: 'https://github.com/',
   display: {
-    direction: "vertical",
-    order: "visual-name",
+    direction: 'vertical',
+    order: 'visual-name',
     rotate: 0,
     translate: { x: 0, y: 0 },
     gutter: 75,
