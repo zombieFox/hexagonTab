@@ -1,4 +1,3 @@
-
 import { state } from '../state';
 import { data } from '../data';
 import { gridList } from '../grid';
@@ -10,7 +9,7 @@ import { Button } from '../button';
 import { Suggest } from '../autoSuggest';
 import { Collapse } from '../collapse';
 import { Tab } from '../tab';
-import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../control';
+import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text, ControlModul_helperText } from '../control';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -32,7 +31,8 @@ const defaultBookmark = {
     visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 };
 
 const minMaxBookmark = {
@@ -50,6 +50,9 @@ const minMaxBookmark = {
   color: {
     hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
     rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
+    opacity: { min: 0, max: 100 }
+  },
+  background: {
     opacity: { min: 0, max: 100 }
   }
 };
@@ -80,7 +83,8 @@ bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://www.amazon.co.uk/',
   display: {
@@ -93,7 +97,8 @@ bookmark.all = [{
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://mail.google.com/',
   display: {
@@ -106,7 +111,8 @@ bookmark.all = [{
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://www.reddit.com/',
   display: {
@@ -119,7 +125,8 @@ bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://www.netflix.com/',
   display: {
@@ -132,7 +139,8 @@ bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://drive.google.com/drive/',
   display: {
@@ -145,7 +153,8 @@ bookmark.all = [{
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://devdocs.io/',
   display: {
@@ -158,7 +167,8 @@ bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://github.com/',
   display: {
@@ -171,7 +181,8 @@ bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }];
 
 bookmark.mod = {};
@@ -809,6 +820,34 @@ bookmark.form = function(bookmarkData) {
         accentMixer.enable();
         break;
     };
+
+    if (bookmarkData.link.background.show) {
+      backgroundType.enable();
+      backgroundOpacity.enable();
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          backgroundImageUrl.enable();
+          backgroundImageUrlHelper.enable();
+          backgroundVideoUrl.disable();
+          backgroundVideoUrlHelper.disable();
+          break;
+
+        case 'video':
+          backgroundImageUrl.disable();
+          backgroundImageUrlHelper.disable();
+          backgroundVideoUrl.enable();
+          backgroundVideoUrlHelper.enable();
+          break;
+      };
+    } else {
+      backgroundType.disable();
+      backgroundImageUrl.disable();
+      backgroundImageUrlHelper.disable();
+      backgroundVideoUrl.disable();
+      backgroundVideoUrlHelper.disable();
+      backgroundOpacity.disable();
+    };
   };
 
   const displayVisualShow = new ControlModule_checkbox({
@@ -1159,6 +1198,81 @@ bookmark.form = function(bookmarkData) {
     description: 'When saved, apply the above Theme to all other Bookmarks.'
   });
 
+  const backgroundShow = new ControlModule_checkbox({
+    object: bookmarkData.link,
+    path: 'background.show',
+    id: 'background-show',
+    labelText: 'Show background',
+    description: 'Display an Image or video Background on this Bookmark tile.',
+    action: () => {
+      bookmarkForm.disable();
+      bookmarkPreview.update();
+    }
+  });
+
+  const backgroundType = new ControlModule_radio({
+    object: bookmarkData.link,
+    radioGroup: [
+      { id: 'background-type-image', labelText: 'Image', value: 'image' },
+      { id: 'background-type-video', labelText: 'Video', value: 'video' }
+    ],
+    groupName: 'background-type',
+    path: 'background.type',
+    action: () => {
+      bookmarkForm.disable();
+      bookmarkPreview.update();
+    }
+  });
+
+  const backgroundImageUrl = new ControlModule_text({
+    object: bookmarkData.link,
+    path: 'background.image.url',
+    id: 'background-image-url',
+    value: bookmarkData.link.background.image.url,
+    placeholder: 'https://www.example.com/image.jpg',
+    labelText: 'Background image URL',
+    srOnly: true,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
+  const backgroundImageUrlHelper = new ControlModul_helperText({
+    text: ['Background image only supports a direct URL to an image file.']
+  });
+
+  const backgroundVideoUrl = new ControlModule_text({
+    object: bookmarkData.link,
+    path: 'background.video.url',
+    id: 'background-video-url',
+    value: bookmarkData.link.background.video.url,
+    placeholder: 'https://www.example.com/video.mp4',
+    labelText: 'Background video URL',
+    srOnly: true,
+    action: () => {
+      bookmarkPreview.update();
+    }
+  });
+
+  const backgroundVideoUrlHelper = new ControlModul_helperText({
+    text: ['Background video only supports a direct URL to a video file.', 'Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
+  });
+
+  const backgroundOpacity = new ControlModule_slimSlider({
+    object: bookmarkData.link,
+    path: 'background.opacity',
+    id: 'background-opacity',
+    labelText: 'Opacity',
+    value: bookmarkData.link.background.opacity,
+    defaultValue: defaultBookmark.background.opacity,
+    min: minMaxBookmark.background.opacity.min,
+    max: minMaxBookmark.background.opacity.max,
+    action: () => {
+      console.log(bookmarkData.link.background);
+      bookmarkPreview.update();
+    }
+  });
+
   const displayVisualArea = form.render.fieldset([
     form.render.wrap([
       node('h2:Visual element|class:mb-2'),
@@ -1280,7 +1394,29 @@ bookmark.form = function(bookmarkData) {
           ])
         ]),
         node('hr'),
-        displayThemePropagate.wrap()
+        displayThemePropagate.wrap(),
+        node('hr'),
+        backgroundShow.wrap(),
+        form.render.wrap([
+          form.render.indent([
+            backgroundType.radioSet[0].wrap(),
+            form.render.wrap([
+              form.render.indent([
+                backgroundImageUrl.wrap(),
+                backgroundImageUrlHelper.wrap()
+              ])
+            ]),
+            backgroundType.radioSet[1].wrap(),
+            form.render.wrap([
+              form.render.indent([
+                backgroundVideoUrl.wrap(),
+                backgroundVideoUrlHelper.wrap()
+              ])
+            ]),
+            node('hr'),
+            backgroundOpacity.wrap()
+          ])
+        ])
       ])
     ])
   ]);

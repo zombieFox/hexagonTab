@@ -212,6 +212,43 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   color: rgb(var(--bookmark-display-name-color-focus-hover));
 }
 
+.bookmark-background-image {
+  background-image: var(--bookmark-background-image-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: var(--bookmark-background-opacity);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bookmark-background-video {
+  opacity: var(--bookmark-background-opacity);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bookmark-background-video video {
+  /* opacity: var(--bookmark-background-opacity); */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
 .bookmark-control {
   position: absolute;
   left: 0;
