@@ -264,30 +264,33 @@ theme.render.background.video = {};
 theme.render.background.video.set = function() {
   const html = document.querySelector('html');
 
+  const video = node('video|autoplay,loop,muted');
+
+  const source = node('source');
+
+  video.appendChild(source);
+
   if (ifValidString(state.get.current().theme.background.video.url)) {
 
     const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
+    themeBackgroundTypeVideo.appendChild(video);
+
+    source.src = state.get.current().theme.background.video.url;
+
+    video.muted = true;
+
+    video.loop = true;
+
+    video.autoplay = true;
+
     if (state.get.current().theme.background.video.url.includes('mp4') || state.get.current().theme.background.video.url.endsWith('mp4')) {
 
-      const video = node('video|autoplay,loop,muted,type:video/mp4')
-      const source = node('source');
-      source.src = state.get.current().theme.background.video.url;
-      video.muted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.appendChild(source);
-      themeBackgroundTypeVideo.appendChild(video);
+      source.type = 'video/mp4';
 
     } else if (state.get.current().theme.background.video.url.includes('webm') || state.get.current().theme.background.video.url.endsWith('webm')) {
 
-      const video = node('video|autoplay,loop,muted,type:video/webm')
-      const source = node('source|src:' + state.get.current().theme.background.video.url);
-      video.muted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.appendChild(source);
-      themeBackgroundTypeVideo.appendChild(video);
+      source.type = 'video/webm';
 
     } else {
 
@@ -305,8 +308,10 @@ theme.render.background.video.set = function() {
 theme.render.background.video.remove = function() {
   const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
-  while (themeBackgroundTypeVideo.lastChild) {
-    themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+  if (themeBackgroundTypeVideo.lastChild) {
+    while (themeBackgroundTypeVideo.lastChild) {
+      themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+    };
   };
 };
 

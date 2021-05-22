@@ -584,8 +584,6 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
         break;
 
       case 'video':
-        backgroundWrap.appendChild(bugackgroundVideo);
-
         const video = node('video|autoplay,loop,muted');
 
         const source = node('source');
@@ -593,14 +591,15 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
         video.appendChild(source);
 
         if (ifValidString(tileData.background.video.url)) {
+          bugackgroundVideo.appendChild(video);
 
           source.src = tileData.background.video.url;
 
           video.muted = true;
-          video.loop = true;
-          video.autoplay = true;
 
-          bugackgroundVideo.appendChild(video);
+          video.loop = true;
+
+          video.autoplay = true;
 
           if (tileData.background.video.url.includes('mp4') || tileData.background.video.url.endsWith('mp4')) {
 
@@ -610,22 +609,12 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
 
             source.type = 'video/webm';
 
-          } else {
-
-            bugackgroundVideo.removeChild(video);
-
           };
 
-        } else {
-
-          bugackgroundVideo.removeChild(video);
-
         };
-
         break;
     };
   };
-
 
   const control = node('div|class:bookmark-control form-group');
 
@@ -1354,7 +1343,6 @@ bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.background.opacity.min,
     max: minMaxBookmark.background.opacity.max,
     action: () => {
-      console.log(bookmarkData.link.background);
       bookmarkPreview.update();
     }
   });
