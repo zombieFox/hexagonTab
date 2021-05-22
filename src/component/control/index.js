@@ -1061,6 +1061,49 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
 
   this.moreControlsCollapse.update();
 
+  this.wrap = () => {
+    return form.render.wrap([
+      this.color.wrap(),
+      form.render.wrap([
+        form.render.indent([
+          form.render.wrap([
+            this.moreControlsCollapse.collapse()
+          ])
+        ])
+      ])
+    ])
+  };
+
+  this.disable = () => {
+    this.color.disable();
+
+    if (!this.moreControlsCollapse.target()[0].state.collapsed) {
+      this.colorSliderH.disable();
+      this.colorSliderS.disable();
+      this.colorSliderL.disable();
+      this.colorSliderR.disable();
+      this.colorSliderG.disable();
+      this.colorSliderB.disable();
+    } else {
+      this.moreControlsUpdate();
+    };
+  };
+
+  this.enable = () => {
+    this.color.enable();
+
+    if (!this.moreControlsCollapse.target()[0].state.collapsed) {
+      this.colorSliderH.enable();
+      this.colorSliderS.enable();
+      this.colorSliderL.enable();
+      this.colorSliderR.enable();
+      this.colorSliderG.enable();
+      this.colorSliderB.enable();
+    } else {
+      this.moreControlsUpdate();
+    };
+  };
+
   this.moreControlsUpdate = () => {
     if (this.moreControlsCollapse.target()[0].state.collapsed) {
       this.colorSliderH.disable();
@@ -1080,39 +1123,6 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
   };
 
   this.moreControlsUpdate();
-
-  this.wrap = () => {
-    return form.render.wrap([
-      this.color.wrap(),
-      form.render.wrap([
-        form.render.indent([
-          form.render.wrap([
-            this.moreControlsCollapse.collapse()
-          ])
-        ])
-      ])
-    ])
-  };
-
-  this.disable = () => {
-    this.color.disable();
-    this.colorSliderH.disable();
-    this.colorSliderS.disable();
-    this.colorSliderL.disable();
-    this.colorSliderR.disable();
-    this.colorSliderG.disable();
-    this.colorSliderB.disable();
-  };
-
-  this.enable = () => {
-    this.color.enable();
-    this.colorSliderH.enable();
-    this.colorSliderS.enable();
-    this.colorSliderL.enable();
-    this.colorSliderR.enable();
-    this.colorSliderG.enable();
-    this.colorSliderB.enable();
-  };
 };
 
 export { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text };
