@@ -295,6 +295,7 @@ menuContentTheme.background = function() {
       theme.render.background.type();
       themeBackgroundCollapse.update();
       updateDisabled();
+      updateVideoPlayState();
       data.save();
     }
   });
@@ -425,6 +426,7 @@ menuContentTheme.background = function() {
     action: () => {
       theme.render.background.video.remove();
       theme.render.background.video.set();
+      theme.render.background.video.add();
       data.save();
     }
   });
@@ -540,6 +542,14 @@ menuContentTheme.background = function() {
       ])
     ])
   ]));
+
+  const updateVideoPlayState = () => {
+    if (themeBackgroundType.value() === 'video') {
+      theme.render.background.video.element.play();
+    } else {
+      theme.render.background.video.element.pause();
+    };
+  };
 
   const updateDisabled = () => {
     switch (state.get.current().theme.background.type) {

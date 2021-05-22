@@ -10,6 +10,7 @@ import { Suggest } from '../autoSuggest';
 import { Collapse } from '../collapse';
 import { Tab } from '../tab';
 import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text, ControlModul_helperText } from '../control';
+import { Video } from '../video';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -458,7 +459,7 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
 
   const bugackgroundImage = node('div|class:bookmark-background-image');
 
-  const bugackgroundVideo = node('div|class:bookmark-background-video');
+  const backgroundVideo = node('div|class:bookmark-background-video');
 
   if (tileData.background.show) {
     switch (tileData.background.type) {
@@ -467,7 +468,7 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
         break;
 
       case 'video':
-        backgroundWrap.appendChild(bugackgroundVideo);
+        backgroundWrap.appendChild(backgroundVideo);
         break;
     };
 
@@ -584,33 +585,12 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
         break;
 
       case 'video':
-        const video = node('video|autoplay,loop,muted');
-
-        const source = node('source');
-
-        video.appendChild(source);
+        const backgroundVideoElement = new Video({
+          url: tileData.background.video.url
+        });
 
         if (ifValidString(tileData.background.video.url)) {
-          bugackgroundVideo.appendChild(video);
-
-          source.src = tileData.background.video.url;
-
-          video.muted = true;
-
-          video.loop = true;
-
-          video.autoplay = true;
-
-          if (tileData.background.video.url.includes('mp4') || tileData.background.video.url.endsWith('mp4')) {
-
-            source.type = 'video/mp4';
-
-          } else if (tileData.background.video.url.includes('webm') || tileData.background.video.url.endsWith('webm')) {
-
-            source.type = 'video/webm';
-
-          };
-
+          backgroundVideo.appendChild(backgroundVideoElement.video);
         };
         break;
     };
