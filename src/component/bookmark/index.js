@@ -394,17 +394,19 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
 
   const contentWrap = node('div|class:bookmark-content-wrap');
 
-  let contentOptions = { tag: 'a', attr: [{ key: 'class', value: 'bookmark-content' }, { key: 'tabindex', value: 1 }] };
+  let bookmarkLinkOptions = { tag: 'a', attr: [{ key: 'class', value: 'bookmark-link' }, { key: 'tabindex', value: 1 }] };
 
   if (ifValidString(tileData.url) && !preview) {
-    contentOptions.attr.push({ key: 'href', value: trimString(tileData.url) });
+    bookmarkLinkOptions.attr.push({ key: 'href', value: trimString(tileData.url) });
   } else {
-    contentOptions.attr.push({ key: 'href', value: '#' });
+    bookmarkLinkOptions.attr.push({ key: 'href', value: '#' });
   };
 
-  const content = complexNode(contentOptions);
+  const bookmarkLink = complexNode(bookmarkLinkOptions);
 
   const display = node('div|class:bookmark-display');
+
+  const displayWrap = node('div|class:bookmark-display-wrap');
 
   const visual = node('div|class:bookmark-display-visual');
 
@@ -437,7 +439,9 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   };
 
   const name = node('div|class:bookmark-display-name');
+
   const nameText = node('div:' + tileData.display.name.text + '|class:bookmark-display-name-text');
+
   name.appendChild(nameText);
 
   if (tileData.display.name.show) {
@@ -445,10 +449,32 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   };
 
   if (tileData.display.visual.show || tileData.display.name.show) {
-    content.appendChild(display);
+    displayWrap.appendChild(display);
+
+    bookmarkLink.appendChild(displayWrap);
   };
 
-  contentWrap.appendChild(content);
+  const backgroundWrap = node('div|class:bookmark-background-wrap');
+
+  const bugackgroundImage = node('div|class:bookmark-background-image');
+
+  const bugackgroundVideo = node('div|class:bookmark-background-video');
+
+  if (tileData.background.show) {
+    switch (tileData.background.type) {
+      case 'image':
+        backgroundWrap.appendChild(bugackgroundImage);
+        break;
+
+      case 'video':
+        backgroundWrap.appendChild(bugackgroundVideo);
+        break;
+    };
+
+    bookmarkLink.appendChild(backgroundWrap);
+  };
+
+  contentWrap.appendChild(bookmarkLink);
 
   bookmarkElement.appendChild(shadowWrap);
 
@@ -485,11 +511,15 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
   };
 
   bookmarkElement.style.setProperty('--bookmark-display-translate-x', tileData.display.translate.x);
+
   bookmarkElement.style.setProperty('--bookmark-display-translate-y', tileData.display.translate.y);
+
   bookmarkElement.style.setProperty('--bookmark-display-rotate', tileData.display.rotate);
+
   bookmarkElement.style.setProperty('--bookmark-display-gutter', tileData.display.gutter);
 
   bookmarkElement.style.setProperty('--bookmark-display-visual-size', tileData.display.visual.size);
+
   bookmarkElement.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(tileData.display.visual.image.url) + ')');
 
   bookmarkElement.style.setProperty('--bookmark-display-name-size', tileData.display.name.size);
@@ -540,6 +570,62 @@ bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview)
     bookmarkElement.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
     bookmarkElement.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
   };
+
+  if (tileData.background.show) {
+    bookmarkElement.style.setProperty('--bookmark-background-opacity', tileData.background.opacity);
+  };
+
+  if (tileData.background.show) {
+    switch (tileData.background.type) {
+      case 'image':
+        if (ifValidString(tileData.background.image.url)) {
+          bookmarkElement.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(tileData.background.image.url) + ')');
+        };
+        break;
+
+      case 'video':
+        backgroundWrap.appendChild(bugackgroundVideo);
+
+        const video = node('video|autoplay,loop,muted');
+
+        const source = node('source');
+
+        video.appendChild(source);
+
+        if (ifValidString(tileData.background.video.url)) {
+
+          source.src = tileData.background.video.url;
+
+          video.muted = true;
+          video.loop = true;
+          video.autoplay = true;
+
+          bugackgroundVideo.appendChild(video);
+
+          if (tileData.background.video.url.includes('mp4') || tileData.background.video.url.endsWith('mp4')) {
+
+            source.type = 'video/mp4';
+
+          } else if (tileData.background.video.url.includes('webm') || tileData.background.video.url.endsWith('webm')) {
+
+            source.type = 'video/webm';
+
+          } else {
+
+            bugackgroundVideo.removeChild(video);
+
+          };
+
+        } else {
+
+          bugackgroundVideo.removeChild(video);
+
+        };
+
+        break;
+    };
+  };
+
 
   const control = node('div|class:bookmark-control form-group');
 
