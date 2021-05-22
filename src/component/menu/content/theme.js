@@ -284,10 +284,10 @@ menuContentTheme.background = function() {
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
       { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Accent colour for the Background.', value: 'accent' },
-      { id: 'theme-background-type-color', labelText: 'Background custom colour', value: 'color' },
-      { id: 'theme-background-type-gradient', labelText: 'Background gradient', value: 'gradient' },
-      { id: 'theme-background-type-image', labelText: 'Background image', value: 'image' },
-      { id: 'theme-background-type-video', labelText: 'Background video', value: 'video' }
+      { id: 'theme-background-type-color', labelText: 'Custom colour', value: 'color' },
+      { id: 'theme-background-type-gradient', labelText: 'Gradient', value: 'gradient' },
+      { id: 'theme-background-type-image', labelText: 'Image', value: 'image' },
+      { id: 'theme-background-type-video', labelText: 'Video', value: 'video' }
     ],
     groupName: 'theme-background-type',
     path: 'theme.background.type',
