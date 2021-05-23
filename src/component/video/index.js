@@ -37,13 +37,17 @@ const Video = function({ url = false } = {}) {
   };
 
   this.play = () => {
-    console.log('play');
     this.video.play();
   };
 
   this.pause = () => {
-    console.log('pause');
-    this.video.pause();
+    var playPromise = this.video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        this.video.pause();
+      });
+    };
   };
 };
 
