@@ -22,6 +22,12 @@ update.all = {
       item.display.gutter = 75;
       item.display.direction = 'vertical';
       item.display.order = 'visual-name';
+    });
+
+    return dataToUpdate;
+  },
+  '2.6.0': function(dataToUpdate) {
+    dataToUpdate.bookmark.forEach((item, i) => {
       item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
     });
 
