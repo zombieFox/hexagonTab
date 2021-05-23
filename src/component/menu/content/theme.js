@@ -332,7 +332,7 @@ menuContentTheme.background = function() {
     object: state.get.current(),
     path: 'theme.background.gradient.start',
     id: 'theme-background-gradient-start',
-    labelText: 'Background gradient colour 1',
+    labelText: 'Background gradient start',
     defaultValue: state.get.default().theme.background.gradient.start.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
@@ -345,7 +345,7 @@ menuContentTheme.background = function() {
     object: state.get.current(),
     path: 'theme.background.gradient.end',
     id: 'theme-background-gradient-end',
-    labelText: 'Background gradient colour 2',
+    labelText: 'Background gradient end',
     defaultValue: state.get.default().theme.background.gradient.end.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
