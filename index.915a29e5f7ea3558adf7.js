@@ -14432,7 +14432,7 @@ bookmark_bookmark.init = function() {
 ;// CONCATENATED MODULE: ./src/component/version/index.js
 const version_version = {};
 
-version_version.number = '2.5.0';
+version_version.number = '2.6.0';
 
 version_version.name = 'Quirky Llama';
 
@@ -14483,6 +14483,12 @@ update_update.all = {
       item.display.gutter = 75;
       item.display.direction = 'vertical';
       item.display.order = 'visual-name';
+    });
+
+    return dataToUpdate;
+  },
+  '2.6.0': function(dataToUpdate) {
+    dataToUpdate.bookmark.forEach((item, i) => {
       item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
     });
 
