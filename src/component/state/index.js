@@ -18,8 +18,8 @@ state.default = {
   },
   bookmark: {
     size: 70,
-    hover: { size: 0, distance: 30 },
-    shadow: { blur: 0, distance: 30 },
+    hover: { size: 0, distance: 15 },
+    shadow: { blur: 15, distance: 30 },
     edit: false,
     add: false
   },
