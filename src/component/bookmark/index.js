@@ -300,30 +300,46 @@ bookmark.render.clear = function() {
   };
 };
 
-bookmark.tiles = {};
+bookmark.render.mask = function() {
+  const html = document.querySelector('html');
 
-bookmark.tiles.edit = {
+  html.appendChild(node('div', [
+    '<svg width="0" height="0" viewBox="0 0 120 100" class="bookmark-mask">' +
+    '<g id="Assets" fill="none">' +
+    '<defs>' +
+    '<clipPath id="bookmark-mask" clipPathUnits="objectBoundingBox" transform="scale(0.01, 0.009615384615384616)">' +
+    '<path d="M1.25156 54.6013C0.46058 52.9573 0.460582 51.0427 1.25157 49.3987L23.3648 3.43714C24.3644 1.35955 26.466 0.038475 28.7716 0.038475H71.2284C73.534 0.038475 75.6356 1.35955 76.6352 3.43714L98.7484 49.3987C99.5394 51.0427 99.5394 52.9573 98.7484 54.6013L76.6352 100.563C75.6356 102.64 73.534 103.962 71.2284 103.962H28.7716C26.466 103.962 24.3644 102.64 23.3648 100.563L1.25156 54.6013Z"></path>' +
+    '</clipPath>' +
+    '</defs>' +
+    '</g>' +
+    '</svg>'
+  ]));
+};
+
+bookmark.render.tile = {};
+
+bookmark.render.tile.edit = {
   open: function() {
-    if (bookmark.tiles.current.length > 0) {
-      bookmark.tiles.current.forEach((item, i) => {
+    if (bookmark.render.tile.current.length > 0) {
+      bookmark.render.tile.current.forEach((item, i) => {
         item.control.enable();
       });
     };
   },
   close: function() {
-    if (bookmark.tiles.current.length > 0) {
-      bookmark.tiles.current.forEach((item, i) => {
+    if (bookmark.render.tile.current.length > 0) {
+      bookmark.render.tile.current.forEach((item, i) => {
         item.control.disable();
       });
     };
   }
 };
 
-bookmark.tiles.current = [];
+bookmark.render.tile.current = [];
 
 bookmark.render.item = function() {
 
-  bookmark.tiles.current = [];
+  bookmark.render.tile.current = [];
 
   var evenRowFlag = true; // if true the row is even
 
@@ -410,7 +426,7 @@ bookmark.render.item = function() {
 
     gridList.appendChild(hex.tile());
 
-    bookmark.tiles.current.push(hex);
+    bookmark.render.tile.current.push(hex);
 
   });
 
@@ -1285,12 +1301,12 @@ bookmark.edit = {
   open: function() {
     bookmark.mod.edit.open();
     bookmark.render.class();
-    bookmark.tiles.edit.open();
+    bookmark.render.tile.edit.open();
   },
   close: function() {
     bookmark.mod.edit.close();
     bookmark.render.class();
-    bookmark.tiles.edit.close();
+    bookmark.render.tile.edit.close();
   },
   toggle: function() {
     if (state.get.current().bookmark.edit) {
@@ -1302,6 +1318,7 @@ bookmark.edit = {
 };
 
 bookmark.init = function() {
+  bookmark.render.mask();
   bookmark.add.close();
   bookmark.render.style();
   bookmark.render.class();
