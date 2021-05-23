@@ -296,7 +296,7 @@
   pointer-events: none;
   display: block;
   opacity: 0;
-  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
+  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-medium);
 }
 
 .theme-background-type-theme {
@@ -320,7 +320,7 @@
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  transform: scale(calc(var(--theme-background-image-scale) / 100));
+  transform: scale(calc(calc(var(--theme-background-image-scale) / 100) + calc(var(--theme-background-image-blur) / 400)));
   filter: blur(calc(var(--theme-background-image-blur) * 1px));
 }
 

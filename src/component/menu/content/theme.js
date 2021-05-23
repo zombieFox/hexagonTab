@@ -284,10 +284,10 @@ menuContentTheme.background = function() {
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
       { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Accent colour for the Background.', value: 'accent' },
-      { id: 'theme-background-type-color', labelText: 'Background custom colour', value: 'color' },
-      { id: 'theme-background-type-gradient', labelText: 'Background gradient', value: 'gradient' },
-      { id: 'theme-background-type-image', labelText: 'Background image', value: 'image' },
-      { id: 'theme-background-type-video', labelText: 'Background video', value: 'video' }
+      { id: 'theme-background-type-color', labelText: 'Custom colour', value: 'color' },
+      { id: 'theme-background-type-gradient', labelText: 'Gradient', value: 'gradient' },
+      { id: 'theme-background-type-image', labelText: 'Image', value: 'image' },
+      { id: 'theme-background-type-video', labelText: 'Video', value: 'video' }
     ],
     groupName: 'theme-background-type',
     path: 'theme.background.type',
@@ -295,6 +295,7 @@ menuContentTheme.background = function() {
       theme.render.background.type();
       themeBackgroundCollapse.update();
       updateDisabled();
+      updateVideoPlayState();
       data.save();
     }
   });
@@ -331,7 +332,7 @@ menuContentTheme.background = function() {
     object: state.get.current(),
     path: 'theme.background.gradient.start',
     id: 'theme-background-gradient-start',
-    labelText: 'Background gradient colour 1',
+    labelText: 'Background gradient start',
     defaultValue: state.get.default().theme.background.gradient.start.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
@@ -344,7 +345,7 @@ menuContentTheme.background = function() {
     object: state.get.current(),
     path: 'theme.background.gradient.end',
     id: 'theme-background-gradient-end',
-    labelText: 'Background gradient colour 2',
+    labelText: 'Background gradient end',
     defaultValue: state.get.default().theme.background.gradient.end.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
@@ -425,6 +426,7 @@ menuContentTheme.background = function() {
     action: () => {
       theme.render.background.video.remove();
       theme.render.background.video.set();
+      theme.render.background.video.add();
       data.save();
     }
   });
@@ -540,6 +542,14 @@ menuContentTheme.background = function() {
       ])
     ])
   ]));
+
+  const updateVideoPlayState = () => {
+    if (themeBackgroundType.value() === 'video') {
+      theme.render.background.video.element.play();
+    } else {
+      theme.render.background.video.element.pause();
+    };
+  };
 
   const updateDisabled = () => {
     switch (state.get.current().theme.background.type) {

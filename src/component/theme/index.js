@@ -1,6 +1,8 @@
 import { state } from '../state';
 import { data } from '../data';
 
+import { Video } from '../video';
+
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
@@ -261,39 +263,20 @@ theme.render.background.image.filter = function() {
 
 theme.render.background.video = {};
 
-theme.render.background.video.set = function() {
-  const html = document.querySelector('html');
+theme.render.background.video.element = false;
 
+theme.render.background.video.set = function() {
+  theme.render.background.video.element = new Video({
+    url: state.get.current().theme.background.video.url
+  });
+};
+
+theme.render.background.video.add = function() {
   if (ifValidString(state.get.current().theme.background.video.url)) {
 
     const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
-    if (state.get.current().theme.background.video.url.includes('mp4') || state.get.current().theme.background.video.url.endsWith('mp4')) {
-
-      const video = node('video|autoplay,loop,muted,type:video/mp4')
-      const source = node('source');
-      source.src = state.get.current().theme.background.video.url;
-      video.muted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.appendChild(source);
-      themeBackgroundTypeVideo.appendChild(video);
-
-    } else if (state.get.current().theme.background.video.url.includes('webm') || state.get.current().theme.background.video.url.endsWith('webm')) {
-
-      const video = node('video|autoplay,loop,muted,type:video/webm')
-      const source = node('source|src:' + state.get.current().theme.background.video.url);
-      video.muted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.appendChild(source);
-      themeBackgroundTypeVideo.appendChild(video);
-
-    } else {
-
-      theme.render.background.video.remove();
-
-    };
+    themeBackgroundTypeVideo.appendChild(theme.render.background.video.element.video);
 
   } else {
 
@@ -305,8 +288,10 @@ theme.render.background.video.set = function() {
 theme.render.background.video.remove = function() {
   const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
-  while (themeBackgroundTypeVideo.lastChild) {
-    themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+  if (themeBackgroundTypeVideo.lastChild) {
+    while (themeBackgroundTypeVideo.lastChild) {
+      themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+    };
   };
 };
 
@@ -335,6 +320,7 @@ theme.init = function() {
   theme.render.background.image.set();
   theme.render.background.image.filter();
   theme.render.background.video.set();
+  theme.render.background.video.add();
   theme.render.background.video.filter();
 };
 

@@ -118,33 +118,44 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   width: calc(var(--bookmark-hover-distance) * 0.1em);
 }
 
-.bookmark-content {
+.bookmark-link {
   background-color: rgba(var(--bookmark-color), var(--bookmark-color-opacity));
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   pointer-events: all;
   clip-path: var(--bookmark-shape);
   transition: background-color var(--layout-transition-extra-fast);
   text-decoration: none;
 }
 
-.bookmark-content:focus,
-.bookmark-content:hover,
-.bookmark-content:active {
+.bookmark-link:focus,
+.bookmark-link:hover,
+.bookmark-link:active {
   text-decoration: none;
 }
 
-.bookmark-content:focus,
-.bookmark-content:hover {
+.bookmark-link:focus,
+.bookmark-link:hover {
   background-color: rgba(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));
 }
 
-.is-bookmark-edit .bookmark-content {
+.is-bookmark-edit .bookmark-link {
   pointer-events: none;
+}
+
+.bookmark-display-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+  z-index: 2;
 }
 
 .bookmark-display {
@@ -212,6 +223,58 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   color: rgb(var(--bookmark-display-name-color-focus-hover));
 }
 
+.bookmark-background-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: calc(var(--bookmark-background-opacity) / 100);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bookmark-background-image {
+  background-image: var(--bookmark-background-image-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bookmark-background-video {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bookmark-background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
 .bookmark-control {
   position: absolute;
   left: 0;
@@ -229,6 +292,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-control .bookmark-control-button {
   padding: 0;
+  border-radius: 0;
   position: relative;
   transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);
 }

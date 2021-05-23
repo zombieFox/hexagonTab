@@ -22,6 +22,7 @@ update.all = {
       item.display.gutter = 75;
       item.display.direction = 'vertical';
       item.display.order = 'visual-name';
+      item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
     });
 
     return dataToUpdate;
