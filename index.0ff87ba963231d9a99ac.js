@@ -325,7 +325,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-color-02);\n  --bookmark-color-focus-hover: var(--theme-color-03);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-style-text);\n  --bookmark-display-name-color: var(--theme-color-18);\n  --bookmark-display-name-color-focus-hover: var(--theme-style-text);\n  --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-content {\n  background-color: rgba(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-content:focus,\n.bookmark-content:hover,\n.bookmark-content:active {\n  text-decoration: none;\n}\n\n.bookmark-content:focus,\n.bookmark-content:hover {\n  background-color: rgba(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-content {\n  pointer-events: none;\n}\n\n.bookmark-display {\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  overflow: hidden;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 5fr 2fr;\n    grid-gap: var(--modal-space);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-wrap-space) * 20);\n}\n\n.bookmark-form-preview {\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: rgb(var(--theme-color-04));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-color-02);\n  --bookmark-color-focus-hover: var(--theme-color-03);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-style-text);\n  --bookmark-display-name-color: var(--theme-color-18);\n  --bookmark-display-name-color-focus-hover: var(--theme-style-text);\n  --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: rgba(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: rgba(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  overflow: hidden;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 5fr 2fr;\n    grid-gap: var(--modal-space);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-wrap-space) * 20);\n}\n\n.bookmark-form-preview {\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: rgb(var(--theme-color-04));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -583,7 +583,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --tab-space: 2em;\n}\n\n.ta
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --theme-accent-r: 25;\n  --theme-accent-g: 25;\n  --theme-accent-b: 25;\n  --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);\n  --theme-accent-accessible-threshold: 0.5;\n  --theme-accent-accessible-r: calc(var(--theme-accent-r) * 0.50);\n  --theme-accent-accessible-g: calc(var(--theme-accent-g) * 0.60);\n  --theme-accent-accessible-b: calc(var(--theme-accent-b) * 0.20);\n  --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));\n  --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);\n  --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);\n  --theme-font-display-name: \"Fjalla One\", sans-serif;\n  --theme-font-display-weight: 400;\n  --theme-font-display-style: \"normal\";\n  --theme-font-ui-name: \"Open Sans\", sans-serif;\n  --theme-font-ui-weight: 400;\n  --theme-font-ui-style: \"normal\";\n  --theme-black: 0, 0, 0;\n  --theme-white: 255, 255, 255;\n  --theme-shade-negative-10: 25, 25, 25;\n  --theme-shade-negative-09: 25, 25, 25;\n  --theme-shade-negative-08: 25, 25, 25;\n  --theme-shade-negative-07: 25, 25, 25;\n  --theme-shade-negative-06: 25, 25, 25;\n  --theme-shade-negative-05: 25, 25, 25;\n  --theme-shade-negative-04: 25, 25, 25;\n  --theme-shade-negative-03: 25, 25, 25;\n  --theme-shade-negative-02: 25, 25, 25;\n  --theme-shade-negative-01: 25, 25, 25;\n  --theme-shade: 25, 25, 25;\n  --theme-shade-positive-01: 25, 25, 25;\n  --theme-shade-positive-02: 25, 25, 25;\n  --theme-shade-positive-03: 25, 25, 25;\n  --theme-shade-positive-04: 25, 25, 25;\n  --theme-shade-positive-05: 25, 25, 25;\n  --theme-shade-positive-06: 25, 25, 25;\n  --theme-shade-positive-07: 25, 25, 25;\n  --theme-shade-positive-08: 25, 25, 25;\n  --theme-shade-positive-09: 25, 25, 25;\n  --theme-shade-positive-10: 25, 25, 25;\n  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1rem);\n  --theme-shadow: 1;\n  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);\n  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);\n  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);\n  --theme-shadow-offset-base: 20;\n  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);\n  --theme-shadow-blur-base: 20;\n  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);\n  --theme-shadow-opacity-base: 20;\n  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);\n  --theme-shadow-bottom-small:\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-large:\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-small:\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-large:\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-background-theme: var(--theme-color-01);\n  --theme-background-accent: var(--theme-accent);\n}\n\n.is-theme-style-dark {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-negative-10);\n  --theme-color-02: var(--theme-shade-negative-09);\n  --theme-color-03: var(--theme-shade-negative-08);\n  --theme-color-04: var(--theme-shade-negative-07);\n  --theme-color-05: var(--theme-shade-negative-06);\n  --theme-color-06: var(--theme-shade-negative-05);\n  --theme-color-07: var(--theme-shade-negative-04);\n  --theme-color-08: var(--theme-shade-negative-03);\n  --theme-color-09: var(--theme-shade-negative-02);\n  --theme-color-10: var(--theme-shade-negative-01);\n  --theme-color-11: var(--theme-shade-positive-01);\n  --theme-color-12: var(--theme-shade-positive-02);\n  --theme-color-13: var(--theme-shade-positive-03);\n  --theme-color-14: var(--theme-shade-positive-04);\n  --theme-color-15: var(--theme-shade-positive-05);\n  --theme-color-16: var(--theme-shade-positive-06);\n  --theme-color-17: var(--theme-shade-positive-07);\n  --theme-color-18: var(--theme-shade-positive-08);\n  --theme-color-19: var(--theme-shade-positive-09);\n  --theme-color-20: var(--theme-shade-positive-10);\n  --theme-style-text: var(--theme-white);\n}\n\n.is-theme-style-light {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-positive-10);\n  --theme-color-02: var(--theme-shade-positive-09);\n  --theme-color-03: var(--theme-shade-positive-08);\n  --theme-color-04: var(--theme-shade-positive-07);\n  --theme-color-05: var(--theme-shade-positive-06);\n  --theme-color-06: var(--theme-shade-positive-05);\n  --theme-color-07: var(--theme-shade-positive-04);\n  --theme-color-08: var(--theme-shade-positive-03);\n  --theme-color-09: var(--theme-shade-positive-02);\n  --theme-color-10: var(--theme-shade-positive-01);\n  --theme-color-11: var(--theme-shade-negative-01);\n  --theme-color-12: var(--theme-shade-negative-02);\n  --theme-color-13: var(--theme-shade-negative-03);\n  --theme-color-14: var(--theme-shade-negative-04);\n  --theme-color-15: var(--theme-shade-negative-05);\n  --theme-color-16: var(--theme-shade-negative-06);\n  --theme-color-17: var(--theme-shade-negative-07);\n  --theme-color-18: var(--theme-shade-negative-08);\n  --theme-color-19: var(--theme-shade-negative-09);\n  --theme-color-20: var(--theme-shade-negative-10);\n  --theme-style-text: var(--theme-black);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-positive-10);\n    --theme-color-02: var(--theme-shade-positive-09);\n    --theme-color-03: var(--theme-shade-positive-08);\n    --theme-color-04: var(--theme-shade-positive-07);\n    --theme-color-05: var(--theme-shade-positive-06);\n    --theme-color-06: var(--theme-shade-positive-05);\n    --theme-color-07: var(--theme-shade-positive-04);\n    --theme-color-08: var(--theme-shade-positive-03);\n    --theme-color-09: var(--theme-shade-positive-02);\n    --theme-color-10: var(--theme-shade-positive-01);\n    --theme-color-11: var(--theme-shade-negative-01);\n    --theme-color-12: var(--theme-shade-negative-02);\n    --theme-color-13: var(--theme-shade-negative-03);\n    --theme-color-14: var(--theme-shade-negative-04);\n    --theme-color-15: var(--theme-shade-negative-05);\n    --theme-color-16: var(--theme-shade-negative-06);\n    --theme-color-17: var(--theme-shade-negative-07);\n    --theme-color-18: var(--theme-shade-negative-08);\n    --theme-color-19: var(--theme-shade-negative-09);\n    --theme-color-20: var(--theme-shade-negative-10);\n    --theme-style-text: var(--theme-black);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-negative-10);\n    --theme-color-02: var(--theme-shade-negative-09);\n    --theme-color-03: var(--theme-shade-negative-08);\n    --theme-color-04: var(--theme-shade-negative-07);\n    --theme-color-05: var(--theme-shade-negative-06);\n    --theme-color-06: var(--theme-shade-negative-05);\n    --theme-color-07: var(--theme-shade-negative-04);\n    --theme-color-08: var(--theme-shade-negative-03);\n    --theme-color-09: var(--theme-shade-negative-02);\n    --theme-color-10: var(--theme-shade-negative-01);\n    --theme-color-11: var(--theme-shade-positive-01);\n    --theme-color-12: var(--theme-shade-positive-02);\n    --theme-color-13: var(--theme-shade-positive-03);\n    --theme-color-14: var(--theme-shade-positive-04);\n    --theme-color-15: var(--theme-shade-positive-05);\n    --theme-color-16: var(--theme-shade-positive-06);\n    --theme-color-17: var(--theme-shade-positive-07);\n    --theme-color-18: var(--theme-shade-positive-08);\n    --theme-color-19: var(--theme-shade-positive-09);\n    --theme-color-20: var(--theme-shade-positive-10);\n    --theme-style-text: var(--theme-white);\n  }\n}\n\n.theme-color-box {\n  width: 100%;\n  height: 100%;\n}\n\n.theme-color-negative-10 {\n  background-color: rgb(var(--theme-color-01));\n}\n\n.theme-color-negative-09 {\n  background-color: rgb(var(--theme-color-02));\n}\n\n.theme-color-negative-08 {\n  background-color: rgb(var(--theme-color-03));\n}\n\n.theme-color-negative-07 {\n  background-color: rgb(var(--theme-color-04));\n}\n\n.theme-color-negative-06 {\n  background-color: rgb(var(--theme-color-05));\n}\n\n.theme-color-negative-05 {\n  background-color: rgb(var(--theme-color-06));\n}\n\n.theme-color-negative-04 {\n  background-color: rgb(var(--theme-color-07));\n}\n\n.theme-color-negative-03 {\n  background-color: rgb(var(--theme-color-08));\n}\n\n.theme-color-negative-02 {\n  background-color: rgb(var(--theme-color-09));\n}\n\n.theme-color-negative-01 {\n  background-color: rgb(var(--theme-color-10));\n}\n\n.theme-color {\n  background-color: rgb(var(--theme-color));\n}\n\n.theme-color-positive-01 {\n  background-color: rgb(var(--theme-color-11));\n}\n\n.theme-color-positive-02 {\n  background-color: rgb(var(--theme-color-12));\n}\n\n.theme-color-positive-03 {\n  background-color: rgb(var(--theme-color-13));\n}\n\n.theme-color-positive-04 {\n  background-color: rgb(var(--theme-color-14));\n}\n\n.theme-color-positive-05 {\n  background-color: rgb(var(--theme-color-15));\n}\n\n.theme-color-positive-06 {\n  background-color: rgb(var(--theme-color-16));\n}\n\n.theme-color-positive-07 {\n  background-color: rgb(var(--theme-color-17));\n}\n\n.theme-color-positive-08 {\n  background-color: rgb(var(--theme-color-18));\n}\n\n.theme-color-positive-09 {\n  background-color: rgb(var(--theme-color-19));\n}\n\n.theme-color-positive-10 {\n  background-color: rgb(var(--theme-color-20));\n}\n\n.theme-background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  pointer-events: none;\n  z-index: var(--z-index-background);\n}\n\n.theme-background-type {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  display: block;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n}\n\n.theme-background-type-theme {\n  background-color: rgb(var(--theme-background-theme));\n}\n\n.theme-background-type-accent {\n  background-color: rgb(var(--theme-background-accent));\n}\n\n.theme-background-type-color {\n  background-color: rgb(var(--theme-background-color));\n}\n\n.theme-background-type-gradient {\n  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));\n}\n\n.theme-background-type-image {\n  background-image: var(--theme-background-image);\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: center;\n  transform: scale(calc(var(--theme-background-image-scale) / 100));\n  filter: blur(calc(var(--theme-background-image-blur) * 1px));\n}\n\n.theme-background-type-video {\n  transform: scale(calc(var(--theme-background-video-scale) / 100));\n  filter: blur(calc(var(--theme-background-video-blur) * 1px));\n}\n.theme-background-type-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n\n.is-theme-background-type-theme .theme-background-type-theme {\n  opacity: 1;\n}\n\n.is-theme-background-type-accent .theme-background-type-accent {\n  opacity: 1;\n}\n\n.is-theme-background-type-color .theme-background-type-color {\n  opacity: 1;\n}\n\n.is-theme-background-type-gradient .theme-background-type-gradient {\n  opacity: 1;\n}\n\n.is-theme-background-type-image .theme-background-type-image {\n  opacity: calc(var(--theme-background-image-opacity) / 100);\n}\n\n.is-theme-background-type-video .theme-background-type-video {\n  opacity: calc(var(--theme-background-video-opacity) / 100);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --theme-accent-r: 25;\n  --theme-accent-g: 25;\n  --theme-accent-b: 25;\n  --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);\n  --theme-accent-accessible-threshold: 0.5;\n  --theme-accent-accessible-r: calc(var(--theme-accent-r) * 0.50);\n  --theme-accent-accessible-g: calc(var(--theme-accent-g) * 0.60);\n  --theme-accent-accessible-b: calc(var(--theme-accent-b) * 0.20);\n  --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));\n  --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);\n  --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);\n  --theme-font-display-name: \"Fjalla One\", sans-serif;\n  --theme-font-display-weight: 400;\n  --theme-font-display-style: \"normal\";\n  --theme-font-ui-name: \"Open Sans\", sans-serif;\n  --theme-font-ui-weight: 400;\n  --theme-font-ui-style: \"normal\";\n  --theme-black: 0, 0, 0;\n  --theme-white: 255, 255, 255;\n  --theme-shade-negative-10: 25, 25, 25;\n  --theme-shade-negative-09: 25, 25, 25;\n  --theme-shade-negative-08: 25, 25, 25;\n  --theme-shade-negative-07: 25, 25, 25;\n  --theme-shade-negative-06: 25, 25, 25;\n  --theme-shade-negative-05: 25, 25, 25;\n  --theme-shade-negative-04: 25, 25, 25;\n  --theme-shade-negative-03: 25, 25, 25;\n  --theme-shade-negative-02: 25, 25, 25;\n  --theme-shade-negative-01: 25, 25, 25;\n  --theme-shade: 25, 25, 25;\n  --theme-shade-positive-01: 25, 25, 25;\n  --theme-shade-positive-02: 25, 25, 25;\n  --theme-shade-positive-03: 25, 25, 25;\n  --theme-shade-positive-04: 25, 25, 25;\n  --theme-shade-positive-05: 25, 25, 25;\n  --theme-shade-positive-06: 25, 25, 25;\n  --theme-shade-positive-07: 25, 25, 25;\n  --theme-shade-positive-08: 25, 25, 25;\n  --theme-shade-positive-09: 25, 25, 25;\n  --theme-shade-positive-10: 25, 25, 25;\n  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1rem);\n  --theme-shadow: 1;\n  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);\n  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);\n  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);\n  --theme-shadow-offset-base: 20;\n  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);\n  --theme-shadow-blur-base: 20;\n  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);\n  --theme-shadow-opacity-base: 20;\n  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);\n  --theme-shadow-bottom-small:\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-large:\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-small:\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-large:\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-background-theme: var(--theme-color-01);\n  --theme-background-accent: var(--theme-accent);\n}\n\n.is-theme-style-dark {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-negative-10);\n  --theme-color-02: var(--theme-shade-negative-09);\n  --theme-color-03: var(--theme-shade-negative-08);\n  --theme-color-04: var(--theme-shade-negative-07);\n  --theme-color-05: var(--theme-shade-negative-06);\n  --theme-color-06: var(--theme-shade-negative-05);\n  --theme-color-07: var(--theme-shade-negative-04);\n  --theme-color-08: var(--theme-shade-negative-03);\n  --theme-color-09: var(--theme-shade-negative-02);\n  --theme-color-10: var(--theme-shade-negative-01);\n  --theme-color-11: var(--theme-shade-positive-01);\n  --theme-color-12: var(--theme-shade-positive-02);\n  --theme-color-13: var(--theme-shade-positive-03);\n  --theme-color-14: var(--theme-shade-positive-04);\n  --theme-color-15: var(--theme-shade-positive-05);\n  --theme-color-16: var(--theme-shade-positive-06);\n  --theme-color-17: var(--theme-shade-positive-07);\n  --theme-color-18: var(--theme-shade-positive-08);\n  --theme-color-19: var(--theme-shade-positive-09);\n  --theme-color-20: var(--theme-shade-positive-10);\n  --theme-style-text: var(--theme-white);\n}\n\n.is-theme-style-light {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-positive-10);\n  --theme-color-02: var(--theme-shade-positive-09);\n  --theme-color-03: var(--theme-shade-positive-08);\n  --theme-color-04: var(--theme-shade-positive-07);\n  --theme-color-05: var(--theme-shade-positive-06);\n  --theme-color-06: var(--theme-shade-positive-05);\n  --theme-color-07: var(--theme-shade-positive-04);\n  --theme-color-08: var(--theme-shade-positive-03);\n  --theme-color-09: var(--theme-shade-positive-02);\n  --theme-color-10: var(--theme-shade-positive-01);\n  --theme-color-11: var(--theme-shade-negative-01);\n  --theme-color-12: var(--theme-shade-negative-02);\n  --theme-color-13: var(--theme-shade-negative-03);\n  --theme-color-14: var(--theme-shade-negative-04);\n  --theme-color-15: var(--theme-shade-negative-05);\n  --theme-color-16: var(--theme-shade-negative-06);\n  --theme-color-17: var(--theme-shade-negative-07);\n  --theme-color-18: var(--theme-shade-negative-08);\n  --theme-color-19: var(--theme-shade-negative-09);\n  --theme-color-20: var(--theme-shade-negative-10);\n  --theme-style-text: var(--theme-black);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-positive-10);\n    --theme-color-02: var(--theme-shade-positive-09);\n    --theme-color-03: var(--theme-shade-positive-08);\n    --theme-color-04: var(--theme-shade-positive-07);\n    --theme-color-05: var(--theme-shade-positive-06);\n    --theme-color-06: var(--theme-shade-positive-05);\n    --theme-color-07: var(--theme-shade-positive-04);\n    --theme-color-08: var(--theme-shade-positive-03);\n    --theme-color-09: var(--theme-shade-positive-02);\n    --theme-color-10: var(--theme-shade-positive-01);\n    --theme-color-11: var(--theme-shade-negative-01);\n    --theme-color-12: var(--theme-shade-negative-02);\n    --theme-color-13: var(--theme-shade-negative-03);\n    --theme-color-14: var(--theme-shade-negative-04);\n    --theme-color-15: var(--theme-shade-negative-05);\n    --theme-color-16: var(--theme-shade-negative-06);\n    --theme-color-17: var(--theme-shade-negative-07);\n    --theme-color-18: var(--theme-shade-negative-08);\n    --theme-color-19: var(--theme-shade-negative-09);\n    --theme-color-20: var(--theme-shade-negative-10);\n    --theme-style-text: var(--theme-black);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-negative-10);\n    --theme-color-02: var(--theme-shade-negative-09);\n    --theme-color-03: var(--theme-shade-negative-08);\n    --theme-color-04: var(--theme-shade-negative-07);\n    --theme-color-05: var(--theme-shade-negative-06);\n    --theme-color-06: var(--theme-shade-negative-05);\n    --theme-color-07: var(--theme-shade-negative-04);\n    --theme-color-08: var(--theme-shade-negative-03);\n    --theme-color-09: var(--theme-shade-negative-02);\n    --theme-color-10: var(--theme-shade-negative-01);\n    --theme-color-11: var(--theme-shade-positive-01);\n    --theme-color-12: var(--theme-shade-positive-02);\n    --theme-color-13: var(--theme-shade-positive-03);\n    --theme-color-14: var(--theme-shade-positive-04);\n    --theme-color-15: var(--theme-shade-positive-05);\n    --theme-color-16: var(--theme-shade-positive-06);\n    --theme-color-17: var(--theme-shade-positive-07);\n    --theme-color-18: var(--theme-shade-positive-08);\n    --theme-color-19: var(--theme-shade-positive-09);\n    --theme-color-20: var(--theme-shade-positive-10);\n    --theme-style-text: var(--theme-white);\n  }\n}\n\n.theme-color-box {\n  width: 100%;\n  height: 100%;\n}\n\n.theme-color-negative-10 {\n  background-color: rgb(var(--theme-color-01));\n}\n\n.theme-color-negative-09 {\n  background-color: rgb(var(--theme-color-02));\n}\n\n.theme-color-negative-08 {\n  background-color: rgb(var(--theme-color-03));\n}\n\n.theme-color-negative-07 {\n  background-color: rgb(var(--theme-color-04));\n}\n\n.theme-color-negative-06 {\n  background-color: rgb(var(--theme-color-05));\n}\n\n.theme-color-negative-05 {\n  background-color: rgb(var(--theme-color-06));\n}\n\n.theme-color-negative-04 {\n  background-color: rgb(var(--theme-color-07));\n}\n\n.theme-color-negative-03 {\n  background-color: rgb(var(--theme-color-08));\n}\n\n.theme-color-negative-02 {\n  background-color: rgb(var(--theme-color-09));\n}\n\n.theme-color-negative-01 {\n  background-color: rgb(var(--theme-color-10));\n}\n\n.theme-color {\n  background-color: rgb(var(--theme-color));\n}\n\n.theme-color-positive-01 {\n  background-color: rgb(var(--theme-color-11));\n}\n\n.theme-color-positive-02 {\n  background-color: rgb(var(--theme-color-12));\n}\n\n.theme-color-positive-03 {\n  background-color: rgb(var(--theme-color-13));\n}\n\n.theme-color-positive-04 {\n  background-color: rgb(var(--theme-color-14));\n}\n\n.theme-color-positive-05 {\n  background-color: rgb(var(--theme-color-15));\n}\n\n.theme-color-positive-06 {\n  background-color: rgb(var(--theme-color-16));\n}\n\n.theme-color-positive-07 {\n  background-color: rgb(var(--theme-color-17));\n}\n\n.theme-color-positive-08 {\n  background-color: rgb(var(--theme-color-18));\n}\n\n.theme-color-positive-09 {\n  background-color: rgb(var(--theme-color-19));\n}\n\n.theme-color-positive-10 {\n  background-color: rgb(var(--theme-color-20));\n}\n\n.theme-background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  pointer-events: none;\n  z-index: var(--z-index-background);\n}\n\n.theme-background-type {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  display: block;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-medium);\n}\n\n.theme-background-type-theme {\n  background-color: rgb(var(--theme-background-theme));\n}\n\n.theme-background-type-accent {\n  background-color: rgb(var(--theme-background-accent));\n}\n\n.theme-background-type-color {\n  background-color: rgb(var(--theme-background-color));\n}\n\n.theme-background-type-gradient {\n  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));\n}\n\n.theme-background-type-image {\n  background-image: var(--theme-background-image);\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: center;\n  transform: scale(calc(calc(var(--theme-background-image-scale) / 100) + calc(var(--theme-background-image-blur) / 400)));\n  filter: blur(calc(var(--theme-background-image-blur) * 1px));\n}\n\n.theme-background-type-video {\n  transform: scale(calc(var(--theme-background-video-scale) / 100));\n  filter: blur(calc(var(--theme-background-video-blur) * 1px));\n}\n.theme-background-type-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n\n.is-theme-background-type-theme .theme-background-type-theme {\n  opacity: 1;\n}\n\n.is-theme-background-type-accent .theme-background-type-accent {\n  opacity: 1;\n}\n\n.is-theme-background-type-color .theme-background-type-color {\n  opacity: 1;\n}\n\n.is-theme-background-type-gradient .theme-background-type-gradient {\n  opacity: 1;\n}\n\n.is-theme-background-type-image .theme-background-type-image {\n  opacity: calc(var(--theme-background-image-opacity) / 100);\n}\n\n.is-theme-background-type-video .theme-background-type-video {\n  opacity: calc(var(--theme-background-video-opacity) / 100);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1737,6 +1737,7 @@ state_state.default = {
     radius: 25,
     shadow: 75
   },
+  edit: false,
   modal: false,
   menu: false,
   autoSuggest: false
@@ -12221,6 +12222,62 @@ modal_modal.init = function() {
 };
 
 
+;// CONCATENATED MODULE: ./src/component/video/index.js
+
+
+
+
+
+
+
+
+const Video = function({ url = false } = {}) {
+
+  this.video = node('video|autoplay,loop,muted');
+
+  this.source = node('source');
+
+  this.video.appendChild(this.source);
+
+  if (ifValidString(url)) {
+
+    this.source.src = url;
+
+    this.video.muted = true;
+
+    this.video.loop = true;
+
+    this.video.autoplay = true;
+
+  };
+
+  if (url.includes('mp4') || url.endsWith('mp4')) {
+
+    this.source.type = 'video/mp4';
+
+  } else if (url.includes('webm') || url.endsWith('webm')) {
+
+    this.source.type = 'video/webm';
+
+  };
+
+  this.play = () => {
+    this.video.play();
+  };
+
+  this.pause = () => {
+    var playPromise = this.video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        this.video.pause();
+      });
+    };
+  };
+};
+
+
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/theme/index.css
 var theme = __webpack_require__(8776);
 ;// CONCATENATED MODULE: ./src/component/theme/index.css
@@ -12238,6 +12295,8 @@ var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, them
 
 /* harmony default export */ const component_theme = (theme/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/theme/index.js
+
+
 
 
 
@@ -12501,39 +12560,20 @@ theme_theme.render.background.image.filter = function() {
 
 theme_theme.render.background.video = {};
 
-theme_theme.render.background.video.set = function() {
-  const html = document.querySelector('html');
+theme_theme.render.background.video.element = false;
 
+theme_theme.render.background.video.set = function() {
+  theme_theme.render.background.video.element = new Video({
+    url: state_state.get.current().theme.background.video.url
+  });
+};
+
+theme_theme.render.background.video.add = function() {
   if (ifValidString(state_state.get.current().theme.background.video.url)) {
 
     const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
-    if (state_state.get.current().theme.background.video.url.includes('mp4') || state_state.get.current().theme.background.video.url.endsWith('mp4')) {
-
-      const video = node('video|autoplay,loop,muted,type:video/mp4')
-      const source = node('source');
-      source.src = state_state.get.current().theme.background.video.url;
-      video.muted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.appendChild(source);
-      themeBackgroundTypeVideo.appendChild(video);
-
-    } else if (state_state.get.current().theme.background.video.url.includes('webm') || state_state.get.current().theme.background.video.url.endsWith('webm')) {
-
-      const video = node('video|autoplay,loop,muted,type:video/webm')
-      const source = node('source|src:' + state_state.get.current().theme.background.video.url);
-      video.muted = true;
-      video.loop = true;
-      video.autoplay = true;
-      video.appendChild(source);
-      themeBackgroundTypeVideo.appendChild(video);
-
-    } else {
-
-      theme_theme.render.background.video.remove();
-
-    };
+    themeBackgroundTypeVideo.appendChild(theme_theme.render.background.video.element.video);
 
   } else {
 
@@ -12545,8 +12585,10 @@ theme_theme.render.background.video.set = function() {
 theme_theme.render.background.video.remove = function() {
   const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
-  while (themeBackgroundTypeVideo.lastChild) {
-    themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+  if (themeBackgroundTypeVideo.lastChild) {
+    while (themeBackgroundTypeVideo.lastChild) {
+      themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
+    };
   };
 };
 
@@ -12575,8 +12617,10 @@ theme_theme.init = function() {
   theme_theme.render.background.image.set();
   theme_theme.render.background.image.filter();
   theme_theme.render.background.video.set();
+  theme_theme.render.background.video.add();
   theme_theme.render.background.video.filter();
 };
+
 
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/tab/index.css
@@ -12663,6 +12707,399 @@ const Tab = function({ group = [] } = {}) {
 };
 
 
+;// CONCATENATED MODULE: ./src/component/hexTile/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, preview = false } = {}) {
+
+  this.element = {
+    bookmark: node('div|class:bookmark'),
+    shadow: {
+      wrap: node('div|class:bookmark-shadow-wrap'),
+      shadow: node('div|class:bookmark-shadow')
+    },
+    content: {
+      link: node('a|class:bookmark-link,tabindex:1'),
+      wrap: node('div|class:bookmark-content-wrap'),
+      display: {
+        wrap: node('div|class:bookmark-display-wrap'),
+        display: node('div|class:bookmark-display'),
+        visual: {
+          visual: node('div|class:bookmark-display-visual'),
+          letter: node('div:' + bookmarkData.display.visual.letter.text + '|class:bookmark-display-visual-letter'),
+          icon: node('div|class:bookmark-display-visual-icon'),
+          faIcon: node('div|class:' + bookmarkData.display.visual.icon.prefix + ' fa-' + bookmarkData.display.visual.icon.name),
+          image: node('div|class:bookmark-display-visual-image')
+        },
+        name: {
+          name: node('div|class:bookmark-display-name'),
+          text: node('div:' + bookmarkData.display.name.text + '|class:bookmark-display-name-text')
+        }
+      },
+      background: {
+        wrap: node('div|class:bookmark-background-wrap'),
+        image: node('div|class:bookmark-background-image'),
+        video: node('div|class:bookmark-background-video')
+      }
+    },
+    control: node('div|class:bookmark-control')
+  };
+
+  if (preview) { this.element.bookmark.classList.add('bookmark-preview'); };
+
+  this.makeStyle = (newBookmarkData) => {
+
+    if (newBookmarkData) {
+      bookmarkData = newBookmarkData;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
+
+    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
+
+    if (ifValidString(bookmarkData.url) && !preview) {
+      this.element.content.link.setAttribute('href', trimString(bookmarkData.url));
+    } else {
+      this.element.content.link.setAttribute('href', '#');
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
+
+    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.color.opacity);
+
+    switch (bookmarkData.display.direction) {
+      case 'vertical':
+        switch (bookmarkData.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
+            break;
+        };
+        break;
+
+      case 'horizontal':
+        switch (bookmarkData.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
+            break;
+        };
+        break;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.display.translate.x);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.display.translate.y);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.display.rotate);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.display.gutter);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.display.visual.size);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(bookmarkData.display.visual.image.url) + ')');
+
+    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.display.name.size);
+
+    if (bookmarkData.accent.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.accent.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.accent.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.accent.rgb.b);
+      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-threshold', '0.5');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-r', 'calc(var(--theme-accent-r) * 0.50)');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-g', 'calc(var(--theme-accent-g) * 0.60)');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-b', 'calc(var(--theme-accent-b) * 0.20)');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-sum', 'calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b))');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-perceived-lightness', 'calc(var(--theme-accent-accessible-sum) / 255)');
+      this.element.bookmark.style.setProperty('--theme-accent-accessible-color', '0, 0%, calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%)');
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-style-text)');
+    };
+
+    if (bookmarkData.color.by == 'custom') {
+
+      var shades = theme_theme.mod.color.shades({
+        rgb: bookmarkData.color.rgb,
+        contrastNegative: 60,
+        contrastPositive: 60
+      });
+
+      var nameColor;
+
+      if (bookmarkData.color.hsl.l <= 50) {
+        if (bookmarkData.color.hsl.l > 30 && bookmarkData.color.hsl.l <= 50 && bookmarkData.color.hsl.h > 40 && bookmarkData.color.hsl.h < 200) {
+          nameColor = shades.negative['9'];
+        } else {
+          nameColor = shades.positive['9'];
+        };
+      } else {
+        nameColor = shades.negative['9'];
+      };
+
+      if (bookmarkData.color.hsl.l <= 50) {
+        this.element.bookmark.style.setProperty('--theme-style-text', 'var(--theme-white)');
+      } else {
+        this.element.bookmark.style.setProperty('--theme-style-text', 'var(--theme-black)');
+      };
+
+      this.element.bookmark.style.setProperty('--bookmark-color', bookmarkData.color.rgb.r + ', ' + bookmarkData.color.rgb.g + ', ' + bookmarkData.color.rgb.b);
+      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', bookmarkData.color.rgb.r + ', ' + bookmarkData.color.rgb.g + ', ' + bookmarkData.color.rgb.b);
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
+    };
+
+    if (bookmarkData.background.show) {
+      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.background.opacity);
+
+      switch (bookmarkData.background.type) {
+        case 'image':
+          if (ifValidString(bookmarkData.background.image.url)) {
+            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.background.image.url) + ')');
+          };
+          break;
+      };
+    };
+
+  };
+
+  this.control = {};
+
+  this.control.button = {
+    left: new Button({
+      text: 'Move this bookmark left',
+      srOnly: true,
+      iconName: 'arrowKeyboardLeft',
+      style: ['link'],
+      title: 'Edit this bookmark',
+      classList: ['bookmark-control-button', 'bookmark-control-left'],
+      func: () => {
+        let newBookmarkData = new StagedLink();
+        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
+        newBookmarkData.position.origin = index;
+        newBookmarkData.position.destination = index - 1;
+        if (newBookmarkData.position.destination < 0) {
+          newBookmarkData.position.destination = 0;
+        };
+        bookmark_bookmark.mod.item.move(newBookmarkData);
+        bookmark_bookmark.render.clear();
+        bookmark_bookmark.render.item();
+        data.save();
+      }
+    }),
+    right: new Button({
+      text: 'Move this bookmark right',
+      srOnly: true,
+      iconName: 'arrowKeyboardRight',
+      style: ['link'],
+      title: 'Move this bookmark left',
+      classList: ['bookmark-control-button', 'bookmark-control-right'],
+      func: () => {
+        let newBookmarkData = new StagedLink();
+        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
+        newBookmarkData.position.origin = index;
+        newBookmarkData.position.destination = index + 1;
+        if (newBookmarkData.position.destination > bookmark_bookmark.all.length - 1) {
+          newBookmarkData.position.destination = bookmark_bookmark.all.length - 1;
+        };
+        bookmark_bookmark.mod.item.move(newBookmarkData);
+        bookmark_bookmark.render.clear();
+        bookmark_bookmark.render.item();
+        data.save();
+      }
+    }),
+    edit: new Button({
+      text: 'Edit this bookmark',
+      srOnly: true,
+      iconName: 'edit',
+      style: ['link'],
+      title: 'Move this bookmark right',
+      classList: ['bookmark-control-button', 'bookmark-control-edit'],
+      func: () => {
+        let newBookmarkData = new StagedLink();
+        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
+        newBookmarkData.position.origin = index;
+        newBookmarkData.position.destination = index;
+        modal_modal.open({
+          heading: 'Edit ' + bookmarkData.display.name.text,
+          actionText: 'Save',
+          content: bookmark_bookmark.form(newBookmarkData),
+          width: 60,
+          maxHeight: true,
+          successAction: () => {
+            bookmark_bookmark.mod.item.edit(newBookmarkData);
+            bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
+            bookmark_bookmark.render.clear();
+            bookmark_bookmark.render.item();
+            data.save();
+          }
+        });
+      }
+    }),
+    remove: new Button({
+      text: 'Remove this bookmark',
+      srOnly: true,
+      iconName: 'cross',
+      style: ['link'],
+      title: 'Remove this bookmark',
+      classList: ['bookmark-control-button', 'bookmark-control-remove'],
+      func: () => {
+        let heading;
+        if (ifValidString(bookmarkData.display.name.text)) {
+          heading = 'Remove ' + bookmarkData.display.name.text;
+        } else {
+          heading = 'Remove unnamed bookmark';
+        };
+        modal_modal.open({
+          heading: heading,
+          size: 'small',
+          actionText: 'Remove',
+          content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
+          successAction: () => {
+            let newBookmarkData = new StagedLink();
+            newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
+            newBookmarkData.position.origin = index;
+            newBookmarkData.position.destination = index;
+            bookmark_bookmark.mod.item.remove(newBookmarkData);
+            bookmark_bookmark.render.clear();
+            bookmark_bookmark.render.item();
+            data.save();
+          }
+        });
+      }
+    })
+  };
+
+  this.control.disable = () => {
+    for (var key in this.control.button) {
+      this.control.button[key].disable();
+    };
+  };
+
+  this.control.enable = () => {
+    for (var key in this.control.button) {
+      this.control.button[key].enable();
+    };
+  };
+
+  this.assembleElements = () => {
+
+    if (bookmarkData.display.visual.show || bookmarkData.display.name.show) {
+      if (bookmarkData.display.visual.show) {
+        switch (bookmarkData.display.visual.type) {
+          case 'letter':
+            this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
+            break;
+
+          case 'icon':
+            this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
+            this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
+            break;
+
+          case 'image':
+            this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
+            break;
+        };
+        this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+      };
+
+      if (bookmarkData.display.name.show) {
+        this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
+        this.element.content.display.display.appendChild(this.element.content.display.name.name);
+      };
+
+      this.element.content.display.wrap.appendChild(this.element.content.display.display);
+
+      this.element.content.link.appendChild(this.element.content.display.wrap);
+    };
+
+    if (bookmarkData.background.show) {
+
+      switch (bookmarkData.background.type) {
+        case 'image':
+          this.element.content.background.wrap.appendChild(this.element.content.background.image);
+          break;
+
+        case 'video':
+          this.element.content.background.wrap.appendChild(this.element.content.background.video);
+
+          if (ifValidString(bookmarkData.background.video.url)) {
+            const backgroundVideoElement = new Video({
+              url: bookmarkData.background.video.url
+            });
+
+            this.element.content.background.video.appendChild(backgroundVideoElement.video);
+          };
+
+          break;
+      };
+
+      this.element.content.link.appendChild(this.element.content.background.wrap);
+    };
+
+    this.element.content.wrap.appendChild(this.element.content.link);
+
+    this.element.shadow.wrap.appendChild(this.element.shadow.shadow);
+
+    this.element.bookmark.appendChild(this.element.shadow.wrap);
+
+    this.element.bookmark.appendChild(this.element.content.wrap);
+
+    this.element.control.appendChild(this.control.button.left.button);
+
+    this.element.control.appendChild(this.control.button.right.button);
+
+    this.element.control.appendChild(this.control.button.edit.button);
+
+    this.element.control.appendChild(this.control.button.remove.button);
+
+    this.element.content.wrap.appendChild(this.element.control);
+
+  };
+
+  this.tile = () => {
+
+    this.assembleElements();
+
+    this.makeStyle();
+
+    if (state_state.get.current().bookmark.edit) {
+      this.control.enable();
+    } else {
+      this.control.disable();
+    };
+
+    return this.element.bookmark;
+
+  };
+
+  this.update = (newBookmarkData) => {
+
+    this.makeStyle(newBookmarkData);
+
+  };
+};
+
+
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmark/index.css
 var bookmark = __webpack_require__(5125);
 ;// CONCATENATED MODULE: ./src/component/bookmark/index.css
@@ -12702,6 +13139,7 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 
 
+
 const defaultBookmark = {
   url: '',
   display: {
@@ -12714,7 +13152,8 @@ const defaultBookmark = {
     visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 };
 
 const minMaxBookmark = {
@@ -12732,6 +13171,9 @@ const minMaxBookmark = {
   color: {
     hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
     rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
+    opacity: { min: 0, max: 100 }
+  },
+  background: {
     opacity: { min: 0, max: 100 }
   }
 };
@@ -12762,7 +13204,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://www.amazon.co.uk/',
   display: {
@@ -12775,7 +13218,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://mail.google.com/',
   display: {
@@ -12788,7 +13232,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://www.reddit.com/',
   display: {
@@ -12801,7 +13246,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://www.netflix.com/',
   display: {
@@ -12814,7 +13260,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://drive.google.com/drive/',
   display: {
@@ -12827,7 +13274,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://devdocs.io/',
   display: {
@@ -12840,7 +13288,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }, {
   url: 'https://github.com/',
   display: {
@@ -12853,7 +13302,8 @@ bookmark_bookmark.all = [{
     visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
   },
   accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 }
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 }];
 
 bookmark_bookmark.mod = {};
@@ -12969,14 +13419,41 @@ bookmark_bookmark.render.clear = function() {
   };
 };
 
+bookmark_bookmark.tiles = {};
+
+bookmark_bookmark.tiles.edit = {
+  open: function() {
+    if (bookmark_bookmark.tiles.current.length > 0) {
+      bookmark_bookmark.tiles.current.forEach((item, i) => {
+        item.control.enable();
+      });
+    };
+  },
+  close: function() {
+    if (bookmark_bookmark.tiles.current.length > 0) {
+      bookmark_bookmark.tiles.current.forEach((item, i) => {
+        item.control.disable();
+      });
+    };
+  }
+};
+
+bookmark_bookmark.tiles.current = [];
+
 bookmark_bookmark.render.item = function() {
+
+  bookmark_bookmark.tiles.current = [];
+
   var evenRowFlag = true; // if true the row is even
+
   var rowCount = 1; // used to asign and calculate the overall row start value
 
   var columnStart = 1; // starting grid column
+
   var rowStart = 1; // starting grid row
 
   bookmark_bookmark.all.forEach(function(item, index) {
+
     //
     // column start
     //
@@ -13043,308 +13520,19 @@ bookmark_bookmark.render.item = function() {
       };
     };
 
-    gridList.appendChild(bookmark_bookmark.render.tile(item, index, rowStart, columnStart));
-  });
-};
-
-bookmark_bookmark.render.tile = function(tileData, index, rowStart, columnStart, preview) {
-  const bookmarkElement = node('div|class:bookmark');
-
-  if (preview) {
-    bookmarkElement.classList.add('bookmark-preview');
-  };
-
-  bookmarkElement.style.setProperty('--bookmark-row-start', rowStart);
-
-  bookmarkElement.style.setProperty('--bookmark-column-start', columnStart);
-
-  const shadowWrap = node('div|class:bookmark-shadow-wrap');
-
-  const shadow = node('div|class:bookmark-shadow');
-  shadowWrap.appendChild(shadow);
-
-  const contentWrap = node('div|class:bookmark-content-wrap');
-
-  let contentOptions = { tag: 'a', attr: [{ key: 'class', value: 'bookmark-content' }, { key: 'tabindex', value: 1 }] };
-
-  if (ifValidString(tileData.url) && !preview) {
-    contentOptions.attr.push({ key: 'href', value: trimString(tileData.url) });
-  } else {
-    contentOptions.attr.push({ key: 'href', value: '#' });
-  };
-
-  const content = complexNode(contentOptions);
-
-  const display = node('div|class:bookmark-display');
-
-  const visual = node('div|class:bookmark-display-visual');
-
-  const visualLetter = node('div:' + tileData.display.visual.letter.text + '|class:bookmark-display-visual-letter');
-
-  const visualIcon = node('div|class:bookmark-display-visual-icon');
-
-  const icon = node('div|class:' + tileData.display.visual.icon.prefix + ' fa-' + tileData.display.visual.icon.name);
-
-  visualIcon.appendChild(icon);
-
-  const visualImage = node('div|class:bookmark-display-visual-image');
-
-  switch (tileData.display.visual.type) {
-    case 'letter':
-      visual.appendChild(visualLetter);
-      break;
-
-    case 'icon':
-      visual.appendChild(visualIcon);
-      break;
-
-    case 'image':
-      visual.appendChild(visualImage);
-      break;
-  };
-
-  if (tileData.display.visual.show) {
-    display.appendChild(visual);
-  };
-
-  const name = node('div|class:bookmark-display-name');
-  const nameText = node('div:' + tileData.display.name.text + '|class:bookmark-display-name-text');
-  name.appendChild(nameText);
-
-  if (tileData.display.name.show) {
-    display.appendChild(name);
-  };
-
-  if (tileData.display.visual.show || tileData.display.name.show) {
-    content.appendChild(display);
-  };
-
-  contentWrap.appendChild(content);
-
-  bookmarkElement.appendChild(shadowWrap);
-
-  bookmarkElement.appendChild(contentWrap);
-
-  bookmarkElement.style.setProperty('--bookmark-transition-delay', index);
-
-  bookmarkElement.style.setProperty('--bookmark-color-opacity', tileData.color.opacity);
-
-  switch (tileData.display.direction) {
-    case 'vertical':
-      switch (tileData.display.order) {
-        case 'visual-name':
-          bookmarkElement.style.setProperty('--bookmark-display-direction', 'column');
-          break;
-
-        case 'name-visual':
-          bookmarkElement.style.setProperty('--bookmark-display-direction', 'column-reverse');
-          break;
-      };
-      break;
-
-    case 'horizontal':
-      switch (tileData.display.order) {
-        case 'visual-name':
-          bookmarkElement.style.setProperty('--bookmark-display-direction', 'row');
-          break;
-
-        case 'name-visual':
-          bookmarkElement.style.setProperty('--bookmark-display-direction', 'row-reverse');
-          break;
-      };
-      break;
-  };
-
-  bookmarkElement.style.setProperty('--bookmark-display-translate-x', tileData.display.translate.x);
-  bookmarkElement.style.setProperty('--bookmark-display-translate-y', tileData.display.translate.y);
-  bookmarkElement.style.setProperty('--bookmark-display-rotate', tileData.display.rotate);
-  bookmarkElement.style.setProperty('--bookmark-display-gutter', tileData.display.gutter);
-
-  bookmarkElement.style.setProperty('--bookmark-display-visual-size', tileData.display.visual.size);
-  bookmarkElement.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(tileData.display.visual.image.url) + ')');
-
-  bookmarkElement.style.setProperty('--bookmark-display-name-size', tileData.display.name.size);
-
-  if (tileData.accent.by == 'custom') {
-    bookmarkElement.style.setProperty('--theme-accent-r', tileData.accent.rgb.r);
-    bookmarkElement.style.setProperty('--theme-accent-g', tileData.accent.rgb.g);
-    bookmarkElement.style.setProperty('--theme-accent-b', tileData.accent.rgb.b);
-    bookmarkElement.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-threshold', '0.5');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-r', 'calc(var(--theme-accent-r) * 0.50)');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-g', 'calc(var(--theme-accent-g) * 0.60)');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-b', 'calc(var(--theme-accent-b) * 0.20)');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-sum', 'calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b))');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-perceived-lightness', 'calc(var(--theme-accent-accessible-sum) / 255)');
-    bookmarkElement.style.setProperty('--theme-accent-accessible-color', '0, 0%, calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%)');
-    bookmarkElement.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
-    bookmarkElement.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-style-text)');
-  };
-
-  if (tileData.color.by == 'custom') {
-    var shades = theme_theme.mod.color.shades({
-      rgb: tileData.color.rgb,
-      contrastNegative: 60,
-      contrastPositive: 60
+    const hex = new HexTile({
+      bookmarkData: item,
+      index: index,
+      row: rowStart,
+      column: columnStart
     });
 
-    var nameColor;
+    gridList.appendChild(hex.tile());
 
-    if (tileData.color.hsl.l <= 50) {
-      if (tileData.color.hsl.l > 30 && tileData.color.hsl.l <= 50 && tileData.color.hsl.h > 40 && tileData.color.hsl.h < 200) {
-        nameColor = shades.negative['9'];
-      } else {
-        nameColor = shades.positive['9'];
-      };
-    } else {
-      nameColor = shades.negative['9'];
-    };
+    bookmark_bookmark.tiles.current.push(hex);
 
-    if (tileData.color.hsl.l <= 50) {
-      bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-white)');
-    } else {
-      bookmarkElement.style.setProperty('--theme-style-text', 'var(--theme-black)');
-    };
-
-    bookmarkElement.style.setProperty('--bookmark-color', tileData.color.rgb.r + ', ' + tileData.color.rgb.g + ', ' + tileData.color.rgb.b);
-    bookmarkElement.style.setProperty('--bookmark-color-focus-hover', tileData.color.rgb.r + ', ' + tileData.color.rgb.g + ', ' + tileData.color.rgb.b);
-    bookmarkElement.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
-    bookmarkElement.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
-  };
-
-  const control = node('div|class:bookmark-control form-group');
-
-  const controlLeft = new Button({
-    text: 'Move this bookmark left',
-    srOnly: true,
-    iconName: 'arrowKeyboardLeft',
-    style: ['link'],
-    title: 'Edit this bookmark',
-    classList: ['bookmark-control-button', 'bookmark-control-left'],
-    func: () => {
-      let bookmarkData = new StagedLink();
-      bookmarkData.link = JSON.parse(JSON.stringify(tileData));
-      bookmarkData.position.origin = index;
-      bookmarkData.position.destination = index - 1;
-      if (bookmarkData.position.destination < 0) {
-        bookmarkData.position.destination = 0;
-      };
-      bookmark_bookmark.mod.item.move(bookmarkData);
-      bookmark_bookmark.render.clear();
-      bookmark_bookmark.render.item();
-      data.save();
-    }
   });
 
-  const controlRight = new Button({
-    text: 'Move this bookmark right',
-    srOnly: true,
-    iconName: 'arrowKeyboardRight',
-    style: ['link'],
-    title: 'Move this bookmark left',
-    classList: ['bookmark-control-button', 'bookmark-control-right'],
-    func: () => {
-      let bookmarkData = new StagedLink();
-      bookmarkData.link = JSON.parse(JSON.stringify(tileData));
-      bookmarkData.position.origin = index;
-      bookmarkData.position.destination = index + 1;
-      if (bookmarkData.position.destination > bookmark_bookmark.all.length - 1) {
-        bookmarkData.position.destination = bookmark_bookmark.all.length - 1;
-      };
-      bookmark_bookmark.mod.item.move(bookmarkData);
-      bookmark_bookmark.render.clear();
-      bookmark_bookmark.render.item();
-      data.save();
-    }
-  });
-
-  const controlEdit = new Button({
-    text: 'Edit this bookmark',
-    srOnly: true,
-    iconName: 'edit',
-    style: ['link'],
-    title: 'Move this bookmark right',
-    classList: ['bookmark-control-button', 'bookmark-control-edit'],
-    func: () => {
-      let bookmarkData = new StagedLink();
-      bookmarkData.link = JSON.parse(JSON.stringify(tileData));
-      bookmarkData.position.origin = index;
-      bookmarkData.position.destination = index;
-      modal_modal.open({
-        heading: 'Edit ' + tileData.display.name.text,
-        actionText: 'Save',
-        content: bookmark_bookmark.form(bookmarkData),
-        width: 60,
-        maxHeight: true,
-        successAction: () => {
-          bookmark_bookmark.mod.item.edit(bookmarkData);
-          bookmark_bookmark.mod.propagate.state.apply(bookmarkData);
-          bookmark_bookmark.render.clear();
-          bookmark_bookmark.render.item();
-          data.save();
-        }
-      });
-    }
-  });
-
-  const controlRemove = new Button({
-    text: 'Remove this bookmark',
-    srOnly: true,
-    iconName: 'cross',
-    style: ['link'],
-    title: 'Remove this bookmark',
-    classList: ['bookmark-control-button', 'bookmark-control-remove'],
-    func: () => {
-      let heading;
-      if (ifValidString(tileData.display.name.text)) {
-        heading = 'Remove ' + tileData.display.name.text;
-      } else {
-        heading = 'Remove unnamed bookmark';
-      };
-      modal_modal.open({
-        heading: heading,
-        size: 'small',
-        actionText: 'Remove',
-        content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
-        successAction: () => {
-          let bookmarkData = new StagedLink();
-          bookmarkData.link = JSON.parse(JSON.stringify(tileData));
-          bookmarkData.position.origin = index;
-          bookmarkData.position.destination = index;
-          bookmark_bookmark.mod.item.remove(bookmarkData);
-          bookmark_bookmark.render.clear();
-          bookmark_bookmark.render.item();
-          data.save();
-        }
-      });
-    }
-  });
-
-  control.appendChild(controlLeft.button);
-
-  control.appendChild(controlRight.button);
-
-  control.appendChild(controlEdit.button);
-
-  control.appendChild(controlRemove.button);
-
-  contentWrap.appendChild(control);
-
-  return bookmarkElement;
-};
-
-bookmark_bookmark.render.controlTabIndex = function() {
-  const allControlButton = document.querySelectorAll('.bookmark-control-button');
-
-  allControlButton.forEach((item, i) => {
-    if (true) {
-      if (state_state.get.current().bookmark.edit) {
-        item.setAttribute('tabindex', 1);
-      } else {
-        item.setAttribute('tabindex', -1);
-      };
-    }
-  });
 };
 
 bookmark_bookmark.render.style = function() {
@@ -13393,105 +13581,10 @@ bookmark_bookmark.render.add = function() {
 };
 
 bookmark_bookmark.form = function(bookmarkData) {
-  bookmark_bookmark.mod.propagate.state.reset();
 
   const bookmarkForm = node('form|class:bookmark-form');
 
   const bookmarkFormMain = node('form|class:bookmark-form-main');
-
-  bookmarkForm.disable = () => {
-    if (bookmarkData.link.display.visual.show) {
-      displayVisualType.enable();
-      displayVisualTypeLetter.enable();
-      displayVisualTypeIcon.enable();
-      displayVisualTypeIconDisplay.enable();
-      displayVisualTypeIconRemove.enable();
-      displayVisualTypeImage.enable();
-      displayVisualSize.enable();
-
-      switch (bookmarkData.link.display.visual.type) {
-        case 'letter':
-          displayVisualTypeLetter.enable();
-          displayVisualTypeIcon.disable();
-          displayVisualTypeIconDisplay.disable()
-          displayVisualTypeIconRemove.disable();
-          displayVisualTypeImage.disable();
-          break;
-
-        case 'icon':
-          displayVisualTypeLetter.disable();
-          displayVisualTypeIcon.enable();
-          displayVisualTypeIconDisplay.enable();
-          displayVisualTypeIconRemove.enable();
-          displayVisualTypeImage.disable();
-          break;
-
-        case 'image':
-          displayVisualTypeLetter.disable();
-          displayVisualTypeIcon.disable();
-          displayVisualTypeIconDisplay.disable()
-          displayVisualTypeIconRemove.disable();
-          displayVisualTypeImage.enable();
-          break;
-      };
-    } else {
-      displayVisualType.disable();
-      displayVisualTypeLetter.disable();
-      displayVisualTypeIcon.disable();
-      displayVisualTypeIconDisplay.disable();
-      displayVisualTypeIconRemove.disable();
-      displayVisualTypeImage.disable();
-      displayVisualSize.disable();
-    };
-
-    if (bookmarkData.link.display.name.show) {
-      displayNameText.enable();
-      displayNameSize.enable();
-    } else {
-      displayNameText.disable();
-      displayNameSize.disable();
-    };
-
-    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
-      displayTranslateX.enable();
-      displayTranslateY.enable();
-      displayRotate.enable();
-    } else {
-      displayTranslateX.disable();
-      displayTranslateY.disable();
-      displayRotate.disable();
-    };
-
-    if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
-      displayVisualDirection.enable();
-      displayVisualOrder.enable();
-      displayGutter.enable();
-    } else {
-      displayVisualDirection.disable();
-      displayVisualOrder.disable();
-      displayGutter.disable();
-    };
-
-    switch (bookmarkData.link.color.by) {
-      case 'theme':
-        colorMixer.disable();
-        break;
-
-      case 'custom':
-        colorMixer.enable();
-        break;
-    };
-
-    switch (bookmarkData.link.accent.by) {
-      case 'theme':
-        accentMixer.disable();
-        break;
-
-      case 'custom':
-        accentMixer.enable();
-        break;
-    };
-  };
 
   const displayVisualShow = new ControlModule_checkbox({
     object: bookmarkData.link,
@@ -13501,7 +13594,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     description: 'Display Letters, Icon or an Image on this Bookmark hexagon.',
     action: () => {
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13516,7 +13609,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'display.visual.type',
     action: () => {
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13529,7 +13622,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark letter',
     srOnly: true,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13542,7 +13635,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark icon',
     srOnly: true,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13561,7 +13654,7 @@ bookmark_bookmark.form = function(bookmarkData) {
       bookmarkData.link.display.visual.icon.prefix = '';
       bookmarkData.link.display.visual.icon.name = '';
       bookmarkForm.update();
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13574,7 +13667,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark image',
     srOnly: true,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13588,7 +13681,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.visual.size.min,
     max: minMaxBookmark.display.visual.size.max,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13607,7 +13700,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Show Name',
     action: () => {
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13620,7 +13713,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark name',
     srOnly: true,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13634,7 +13727,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.name.size.min,
     max: minMaxBookmark.display.name.size.max,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13666,7 +13759,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     action: () => {
       colorMixerCollapse.update();
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13678,7 +13771,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     defaultValue: JSON.parse(JSON.stringify(defaultBookmark.color.rgb)),
     minMaxObject: minMaxBookmark,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13693,7 +13786,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     action: () => {
       accentMixerCollapse.update();
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
 
@@ -13705,7 +13798,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     defaultValue: JSON.parse(JSON.stringify(defaultBookmark.accent.rgb)),
     minMaxObject: minMaxBookmark,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13719,7 +13812,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.translate.x.min,
     max: minMaxBookmark.display.translate.x.max,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13733,7 +13826,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.translate.y.min,
     max: minMaxBookmark.display.translate.y.max,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13747,7 +13840,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.rotate.min,
     max: minMaxBookmark.display.rotate.max,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13761,7 +13854,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'display.direction',
     action: () => {
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13775,7 +13868,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'display.order',
     action: () => {
       bookmarkForm.disable();
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13789,7 +13882,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.gutter.min,
     max: minMaxBookmark.display.gutter.max,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13833,12 +13926,78 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   colorMixerCollapse.update();
 
-  const displayThemePropagate = new ControlModule_checkbox({
-    object: bookmark_bookmark.mod.propagate.state.current,
-    path: 'theme',
-    id: 'apply-to-all-theme',
-    labelText: 'Apply Theme to other Bookmarks',
-    description: 'When saved, apply the above Theme to all other Bookmarks.'
+  const backgroundShow = new ControlModule_checkbox({
+    object: bookmarkData.link,
+    path: 'background.show',
+    id: 'background-show',
+    labelText: 'Show background',
+    description: 'Display an Image or video Background on this Bookmark tile.',
+    action: () => {
+      bookmarkForm.disable();
+      bookmarkForm.preview.render();
+    }
+  });
+
+  const backgroundType = new ControlModule_radio({
+    object: bookmarkData.link,
+    radioGroup: [
+      { id: 'background-type-image', labelText: 'Image', value: 'image' },
+      { id: 'background-type-video', labelText: 'Video', value: 'video' }
+    ],
+    groupName: 'background-type',
+    path: 'background.type',
+    action: () => {
+      bookmarkForm.disable();
+      bookmarkForm.preview.render();
+    }
+  });
+
+  const backgroundImageUrl = new ControlModule_text({
+    object: bookmarkData.link,
+    path: 'background.image.url',
+    id: 'background-image-url',
+    value: bookmarkData.link.background.image.url,
+    placeholder: 'https://www.example.com/image.jpg',
+    labelText: 'Background image URL',
+    srOnly: true,
+    action: () => {
+      bookmarkForm.preview.render();
+    }
+  });
+
+  const backgroundImageUrlHelper = new ControlModul_helperText({
+    text: ['Background image only supports a direct URL to an image file.']
+  });
+
+  const backgroundVideoUrl = new ControlModule_text({
+    object: bookmarkData.link,
+    path: 'background.video.url',
+    id: 'background-video-url',
+    value: bookmarkData.link.background.video.url,
+    placeholder: 'https://www.example.com/video.mp4',
+    labelText: 'Background video URL',
+    srOnly: true,
+    action: () => {
+      bookmarkForm.preview.render();
+    }
+  });
+
+  const backgroundVideoUrlHelper = new ControlModul_helperText({
+    text: ['Background video only supports a direct URL to a video file.', 'Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
+  });
+
+  const backgroundOpacity = new ControlModule_slimSlider({
+    object: bookmarkData.link,
+    path: 'background.opacity',
+    id: 'background-opacity',
+    labelText: 'Opacity',
+    value: bookmarkData.link.background.opacity,
+    defaultValue: defaultBookmark.background.opacity,
+    min: minMaxBookmark.background.opacity.min,
+    max: minMaxBookmark.background.opacity.max,
+    action: () => {
+      bookmarkForm.preview.current.update(bookmarkData.link);
+    }
   });
 
   const displayVisualArea = form_form.render.fieldset([
@@ -13962,7 +14121,27 @@ bookmark_bookmark.form = function(bookmarkData) {
           ])
         ]),
         node('hr'),
-        displayThemePropagate.wrap()
+        backgroundShow.wrap(),
+        form_form.render.wrap([
+          form_form.render.indent([
+            backgroundType.radioSet[0].wrap(),
+            form_form.render.wrap([
+              form_form.render.indent([
+                backgroundImageUrl.wrap(),
+                backgroundImageUrlHelper.wrap()
+              ])
+            ]),
+            backgroundType.radioSet[1].wrap(),
+            form_form.render.wrap([
+              form_form.render.indent([
+                backgroundVideoUrl.wrap(),
+                backgroundVideoUrlHelper.wrap()
+              ])
+            ]),
+            node('hr'),
+            backgroundOpacity.wrap()
+          ])
+        ])
       ])
     ])
   ]);
@@ -13997,21 +14176,6 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   const bookmarkFormPreview = node('div|class:bookmark-form-preview');
 
-  const bookmarkPreview = {
-    preview: bookmark_bookmark.render.tile(bookmarkData.link, 1, 1, 1, true),
-    update: () => {
-      bookmarkPreview.preview = bookmark_bookmark.render.tile(bookmarkData.link, 1, 1, 1, true);
-
-      while (bookmarkFormPreview.lastChild) {
-        bookmarkFormPreview.removeChild(bookmarkFormPreview.lastChild);
-      };
-
-      bookmarkFormPreview.appendChild(bookmarkPreview.preview);
-    }
-  };
-
-  bookmarkPreview.update();
-
   bookmarkFormAside.appendChild(bookmarkFormPreview);
 
   bookmarkForm.appendChild(bookmarkFormMain);
@@ -14030,9 +14194,133 @@ bookmark_bookmark.form = function(bookmarkData) {
     type: 'fontawesomeIcon',
     postFocus: displayVisualTypeIconDisplay.groupText,
     action: () => {
-      bookmarkPreview.update();
+      bookmarkForm.preview.render();
     }
   });
+
+  bookmark_bookmark.mod.propagate.state.reset();
+
+  bookmarkForm.disable = () => {
+    if (bookmarkData.link.display.visual.show) {
+      displayVisualType.enable();
+      displayVisualTypeLetter.enable();
+      displayVisualTypeIcon.enable();
+      displayVisualTypeIconDisplay.enable();
+      displayVisualTypeIconRemove.enable();
+      displayVisualTypeImage.enable();
+      displayVisualSize.enable();
+
+      switch (bookmarkData.link.display.visual.type) {
+        case 'letter':
+          displayVisualTypeLetter.enable();
+          displayVisualTypeIcon.disable();
+          displayVisualTypeIconDisplay.disable()
+          displayVisualTypeIconRemove.disable();
+          displayVisualTypeImage.disable();
+          break;
+
+        case 'icon':
+          displayVisualTypeLetter.disable();
+          displayVisualTypeIcon.enable();
+          displayVisualTypeIconDisplay.enable();
+          displayVisualTypeIconRemove.enable();
+          displayVisualTypeImage.disable();
+          break;
+
+        case 'image':
+          displayVisualTypeLetter.disable();
+          displayVisualTypeIcon.disable();
+          displayVisualTypeIconDisplay.disable()
+          displayVisualTypeIconRemove.disable();
+          displayVisualTypeImage.enable();
+          break;
+      };
+    } else {
+      displayVisualType.disable();
+      displayVisualTypeLetter.disable();
+      displayVisualTypeIcon.disable();
+      displayVisualTypeIconDisplay.disable();
+      displayVisualTypeIconRemove.disable();
+      displayVisualTypeImage.disable();
+      displayVisualSize.disable();
+    };
+
+    if (bookmarkData.link.display.name.show) {
+      displayNameText.enable();
+      displayNameSize.enable();
+    } else {
+      displayNameText.disable();
+      displayNameSize.disable();
+    };
+
+    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
+      displayTranslateX.enable();
+      displayTranslateY.enable();
+      displayRotate.enable();
+    } else {
+      displayTranslateX.disable();
+      displayTranslateY.disable();
+      displayRotate.disable();
+    };
+
+    if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
+      displayVisualDirection.enable();
+      displayVisualOrder.enable();
+      displayGutter.enable();
+    } else {
+      displayVisualDirection.disable();
+      displayVisualOrder.disable();
+      displayGutter.disable();
+    };
+
+    switch (bookmarkData.link.color.by) {
+      case 'theme':
+        colorMixer.disable();
+        break;
+
+      case 'custom':
+        colorMixer.enable();
+        break;
+    };
+
+    switch (bookmarkData.link.accent.by) {
+      case 'theme':
+        accentMixer.disable();
+        break;
+
+      case 'custom':
+        accentMixer.enable();
+        break;
+    };
+
+    if (bookmarkData.link.background.show) {
+      backgroundType.enable();
+      backgroundOpacity.enable();
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          backgroundImageUrl.enable();
+          backgroundImageUrlHelper.enable();
+          backgroundVideoUrl.disable();
+          backgroundVideoUrlHelper.disable();
+          break;
+
+        case 'video':
+          backgroundImageUrl.disable();
+          backgroundImageUrlHelper.disable();
+          backgroundVideoUrl.enable();
+          backgroundVideoUrlHelper.enable();
+          break;
+      };
+    } else {
+      backgroundType.disable();
+      backgroundImageUrl.disable();
+      backgroundImageUrlHelper.disable();
+      backgroundVideoUrl.disable();
+      backgroundVideoUrlHelper.disable();
+      backgroundOpacity.disable();
+    };
+  };
 
   bookmarkForm.update = () => {
     displayVisualShow.update();
@@ -14061,7 +14349,28 @@ bookmark_bookmark.form = function(bookmarkData) {
     bookmarkForm.update();
   };
 
+  bookmarkForm.preview = {};
+
+  bookmarkForm.preview.current = false;
+
+  bookmarkForm.preview.render = () => {
+    if (bookmarkFormPreview.lastChild) {
+      while (bookmarkFormPreview.lastChild) {
+        bookmarkFormPreview.removeChild(bookmarkFormPreview.lastChild);
+      };
+    };
+
+    bookmarkForm.preview.current = new HexTile({
+      bookmarkData: bookmarkData.link,
+      preview: true
+    });
+
+    bookmarkFormPreview.appendChild(bookmarkForm.preview.current.tile());
+  };
+
   bookmarkForm.disable();
+
+  bookmarkForm.preview.render();
 
   currentBookmarkForm = bookmarkForm;
 
@@ -14073,6 +14382,7 @@ bookmark_bookmark.form = function(bookmarkData) {
   });
 
   return bookmarkForm;
+
 };
 
 bookmark_bookmark.restore = function(dataToRestore) {
@@ -14094,12 +14404,12 @@ bookmark_bookmark.edit = {
   open: function() {
     bookmark_bookmark.mod.edit.open();
     bookmark_bookmark.render.class();
-    bookmark_bookmark.render.controlTabIndex();
+    bookmark_bookmark.tiles.edit.open();
   },
   close: function() {
     bookmark_bookmark.mod.edit.close();
     bookmark_bookmark.render.class();
-    bookmark_bookmark.render.controlTabIndex();
+    bookmark_bookmark.tiles.edit.close();
   },
   toggle: function() {
     if (state_state.get.current().bookmark.edit) {
@@ -14115,7 +14425,6 @@ bookmark_bookmark.init = function() {
   bookmark_bookmark.render.style();
   bookmark_bookmark.render.class();
   bookmark_bookmark.render.item();
-  bookmark_bookmark.render.controlTabIndex();
 };
 
 
@@ -14174,6 +14483,7 @@ update_update.all = {
       item.display.gutter = 75;
       item.display.direction = 'vertical';
       item.display.order = 'visual-name';
+      item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
     });
 
     return dataToUpdate;
@@ -14908,10 +15218,10 @@ menuContentTheme.background = function() {
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
       { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Accent colour for the Background.', value: 'accent' },
-      { id: 'theme-background-type-color', labelText: 'Background custom colour', value: 'color' },
-      { id: 'theme-background-type-gradient', labelText: 'Background gradient', value: 'gradient' },
-      { id: 'theme-background-type-image', labelText: 'Background image', value: 'image' },
-      { id: 'theme-background-type-video', labelText: 'Background video', value: 'video' }
+      { id: 'theme-background-type-color', labelText: 'Custom colour', value: 'color' },
+      { id: 'theme-background-type-gradient', labelText: 'Gradient', value: 'gradient' },
+      { id: 'theme-background-type-image', labelText: 'Image', value: 'image' },
+      { id: 'theme-background-type-video', labelText: 'Video', value: 'video' }
     ],
     groupName: 'theme-background-type',
     path: 'theme.background.type',
@@ -14919,6 +15229,7 @@ menuContentTheme.background = function() {
       theme_theme.render.background.type();
       themeBackgroundCollapse.update();
       updateDisabled();
+      updateVideoPlayState();
       data.save();
     }
   });
@@ -14955,7 +15266,7 @@ menuContentTheme.background = function() {
     object: state_state.get.current(),
     path: 'theme.background.gradient.start',
     id: 'theme-background-gradient-start',
-    labelText: 'Background gradient colour 1',
+    labelText: 'Background gradient start',
     defaultValue: state_state.get.default().theme.background.gradient.start.rgb,
     minMaxObject: state_state.get.minMax(),
     action: () => {
@@ -14968,7 +15279,7 @@ menuContentTheme.background = function() {
     object: state_state.get.current(),
     path: 'theme.background.gradient.end',
     id: 'theme-background-gradient-end',
-    labelText: 'Background gradient colour 2',
+    labelText: 'Background gradient end',
     defaultValue: state_state.get.default().theme.background.gradient.end.rgb,
     minMaxObject: state_state.get.minMax(),
     action: () => {
@@ -15049,6 +15360,7 @@ menuContentTheme.background = function() {
     action: () => {
       theme_theme.render.background.video.remove();
       theme_theme.render.background.video.set();
+      theme_theme.render.background.video.add();
       data.save();
     }
   });
@@ -15164,6 +15476,14 @@ menuContentTheme.background = function() {
       ])
     ])
   ]));
+
+  const updateVideoPlayState = () => {
+    if (themeBackgroundType.value() === 'video') {
+      theme_theme.render.background.video.element.play();
+    } else {
+      theme_theme.render.background.video.element.pause();
+    };
+  };
 
   const updateDisabled = () => {
     switch (state_state.get.current().theme.background.type) {
