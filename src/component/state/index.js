@@ -48,6 +48,7 @@ state.default = {
     radius: 25,
     shadow: 75
   },
+  edit: false,
   modal: false,
   menu: false,
   autoSuggest: false

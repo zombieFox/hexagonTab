@@ -300,14 +300,41 @@ bookmark.render.clear = function() {
   };
 };
 
+bookmark.tiles = {};
+
+bookmark.tiles.edit = {
+  open: function() {
+    if (bookmark.tiles.current.length > 0) {
+      bookmark.tiles.current.forEach((item, i) => {
+        item.control.enable();
+      });
+    };
+  },
+  close: function() {
+    if (bookmark.tiles.current.length > 0) {
+      bookmark.tiles.current.forEach((item, i) => {
+        item.control.disable();
+      });
+    };
+  }
+};
+
+bookmark.tiles.current = [];
+
 bookmark.render.item = function() {
+
+  bookmark.tiles.current = [];
+
   var evenRowFlag = true; // if true the row is even
+
   var rowCount = 1; // used to asign and calculate the overall row start value
 
   var columnStart = 1; // starting grid column
+
   var rowStart = 1; // starting grid row
 
   bookmark.all.forEach(function(item, index) {
+
     //
     // column start
     //
@@ -382,21 +409,11 @@ bookmark.render.item = function() {
     });
 
     gridList.appendChild(hex.tile());
-  });
-};
 
-bookmark.render.controlTabIndex = function() {
-  const allControlButton = document.querySelectorAll('.bookmark-control-button');
+    bookmark.tiles.current.push(hex);
 
-  allControlButton.forEach((item, i) => {
-    if (true) {
-      if (state.get.current().bookmark.edit) {
-        item.setAttribute('tabindex', 1);
-      } else {
-        item.setAttribute('tabindex', -1);
-      };
-    }
   });
+
 };
 
 bookmark.render.style = function() {
@@ -445,133 +462,10 @@ bookmark.render.add = function() {
 };
 
 bookmark.form = function(bookmarkData) {
-  bookmark.mod.propagate.state.reset();
 
   const bookmarkForm = node('form|class:bookmark-form');
 
   const bookmarkFormMain = node('form|class:bookmark-form-main');
-
-  bookmarkForm.disable = () => {
-    if (bookmarkData.link.display.visual.show) {
-      displayVisualType.enable();
-      displayVisualTypeLetter.enable();
-      displayVisualTypeIcon.enable();
-      displayVisualTypeIconDisplay.enable();
-      displayVisualTypeIconRemove.enable();
-      displayVisualTypeImage.enable();
-      displayVisualSize.enable();
-
-      switch (bookmarkData.link.display.visual.type) {
-        case 'letter':
-          displayVisualTypeLetter.enable();
-          displayVisualTypeIcon.disable();
-          displayVisualTypeIconDisplay.disable()
-          displayVisualTypeIconRemove.disable();
-          displayVisualTypeImage.disable();
-          break;
-
-        case 'icon':
-          displayVisualTypeLetter.disable();
-          displayVisualTypeIcon.enable();
-          displayVisualTypeIconDisplay.enable();
-          displayVisualTypeIconRemove.enable();
-          displayVisualTypeImage.disable();
-          break;
-
-        case 'image':
-          displayVisualTypeLetter.disable();
-          displayVisualTypeIcon.disable();
-          displayVisualTypeIconDisplay.disable()
-          displayVisualTypeIconRemove.disable();
-          displayVisualTypeImage.enable();
-          break;
-      };
-    } else {
-      displayVisualType.disable();
-      displayVisualTypeLetter.disable();
-      displayVisualTypeIcon.disable();
-      displayVisualTypeIconDisplay.disable();
-      displayVisualTypeIconRemove.disable();
-      displayVisualTypeImage.disable();
-      displayVisualSize.disable();
-    };
-
-    if (bookmarkData.link.display.name.show) {
-      displayNameText.enable();
-      displayNameSize.enable();
-    } else {
-      displayNameText.disable();
-      displayNameSize.disable();
-    };
-
-    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
-      displayTranslateX.enable();
-      displayTranslateY.enable();
-      displayRotate.enable();
-    } else {
-      displayTranslateX.disable();
-      displayTranslateY.disable();
-      displayRotate.disable();
-    };
-
-    if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
-      displayVisualDirection.enable();
-      displayVisualOrder.enable();
-      displayGutter.enable();
-    } else {
-      displayVisualDirection.disable();
-      displayVisualOrder.disable();
-      displayGutter.disable();
-    };
-
-    switch (bookmarkData.link.color.by) {
-      case 'theme':
-        colorMixer.disable();
-        break;
-
-      case 'custom':
-        colorMixer.enable();
-        break;
-    };
-
-    switch (bookmarkData.link.accent.by) {
-      case 'theme':
-        accentMixer.disable();
-        break;
-
-      case 'custom':
-        accentMixer.enable();
-        break;
-    };
-
-    if (bookmarkData.link.background.show) {
-      backgroundType.enable();
-      backgroundOpacity.enable();
-
-      switch (bookmarkData.link.background.type) {
-        case 'image':
-          backgroundImageUrl.enable();
-          backgroundImageUrlHelper.enable();
-          backgroundVideoUrl.disable();
-          backgroundVideoUrlHelper.disable();
-          break;
-
-        case 'video':
-          backgroundImageUrl.disable();
-          backgroundImageUrlHelper.disable();
-          backgroundVideoUrl.enable();
-          backgroundVideoUrlHelper.enable();
-          break;
-      };
-    } else {
-      backgroundType.disable();
-      backgroundImageUrl.disable();
-      backgroundImageUrlHelper.disable();
-      backgroundVideoUrl.disable();
-      backgroundVideoUrlHelper.disable();
-      backgroundOpacity.disable();
-    };
-  };
 
   const displayVisualShow = new ControlModule_checkbox({
     object: bookmarkData.link,
@@ -913,14 +807,6 @@ bookmark.form = function(bookmarkData) {
 
   colorMixerCollapse.update();
 
-  const displayThemePropagate = new ControlModule_checkbox({
-    object: bookmark.mod.propagate.state.current,
-    path: 'theme',
-    id: 'apply-to-all-theme',
-    labelText: 'Apply Theme to other Bookmarks',
-    description: 'When saved, apply the above Theme to all other Bookmarks.'
-  });
-
   const backgroundShow = new ControlModule_checkbox({
     object: bookmarkData.link,
     path: 'background.show',
@@ -1116,8 +1002,6 @@ bookmark.form = function(bookmarkData) {
           ])
         ]),
         node('hr'),
-        displayThemePropagate.wrap(),
-        node('hr'),
         backgroundShow.wrap(),
         form.render.wrap([
           form.render.indent([
@@ -1195,6 +1079,130 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
+  bookmark.mod.propagate.state.reset();
+
+  bookmarkForm.disable = () => {
+    if (bookmarkData.link.display.visual.show) {
+      displayVisualType.enable();
+      displayVisualTypeLetter.enable();
+      displayVisualTypeIcon.enable();
+      displayVisualTypeIconDisplay.enable();
+      displayVisualTypeIconRemove.enable();
+      displayVisualTypeImage.enable();
+      displayVisualSize.enable();
+
+      switch (bookmarkData.link.display.visual.type) {
+        case 'letter':
+          displayVisualTypeLetter.enable();
+          displayVisualTypeIcon.disable();
+          displayVisualTypeIconDisplay.disable()
+          displayVisualTypeIconRemove.disable();
+          displayVisualTypeImage.disable();
+          break;
+
+        case 'icon':
+          displayVisualTypeLetter.disable();
+          displayVisualTypeIcon.enable();
+          displayVisualTypeIconDisplay.enable();
+          displayVisualTypeIconRemove.enable();
+          displayVisualTypeImage.disable();
+          break;
+
+        case 'image':
+          displayVisualTypeLetter.disable();
+          displayVisualTypeIcon.disable();
+          displayVisualTypeIconDisplay.disable()
+          displayVisualTypeIconRemove.disable();
+          displayVisualTypeImage.enable();
+          break;
+      };
+    } else {
+      displayVisualType.disable();
+      displayVisualTypeLetter.disable();
+      displayVisualTypeIcon.disable();
+      displayVisualTypeIconDisplay.disable();
+      displayVisualTypeIconRemove.disable();
+      displayVisualTypeImage.disable();
+      displayVisualSize.disable();
+    };
+
+    if (bookmarkData.link.display.name.show) {
+      displayNameText.enable();
+      displayNameSize.enable();
+    } else {
+      displayNameText.disable();
+      displayNameSize.disable();
+    };
+
+    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
+      displayTranslateX.enable();
+      displayTranslateY.enable();
+      displayRotate.enable();
+    } else {
+      displayTranslateX.disable();
+      displayTranslateY.disable();
+      displayRotate.disable();
+    };
+
+    if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
+      displayVisualDirection.enable();
+      displayVisualOrder.enable();
+      displayGutter.enable();
+    } else {
+      displayVisualDirection.disable();
+      displayVisualOrder.disable();
+      displayGutter.disable();
+    };
+
+    switch (bookmarkData.link.color.by) {
+      case 'theme':
+        colorMixer.disable();
+        break;
+
+      case 'custom':
+        colorMixer.enable();
+        break;
+    };
+
+    switch (bookmarkData.link.accent.by) {
+      case 'theme':
+        accentMixer.disable();
+        break;
+
+      case 'custom':
+        accentMixer.enable();
+        break;
+    };
+
+    if (bookmarkData.link.background.show) {
+      backgroundType.enable();
+      backgroundOpacity.enable();
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          backgroundImageUrl.enable();
+          backgroundImageUrlHelper.enable();
+          backgroundVideoUrl.disable();
+          backgroundVideoUrlHelper.disable();
+          break;
+
+        case 'video':
+          backgroundImageUrl.disable();
+          backgroundImageUrlHelper.disable();
+          backgroundVideoUrl.enable();
+          backgroundVideoUrlHelper.enable();
+          break;
+      };
+    } else {
+      backgroundType.disable();
+      backgroundImageUrl.disable();
+      backgroundImageUrlHelper.disable();
+      backgroundVideoUrl.disable();
+      backgroundVideoUrlHelper.disable();
+      backgroundOpacity.disable();
+    };
+  };
+
   bookmarkForm.update = () => {
     displayVisualShow.update();
     displayVisualType.update();
@@ -1255,6 +1263,7 @@ bookmark.form = function(bookmarkData) {
   });
 
   return bookmarkForm;
+
 };
 
 bookmark.restore = function(dataToRestore) {
@@ -1276,12 +1285,12 @@ bookmark.edit = {
   open: function() {
     bookmark.mod.edit.open();
     bookmark.render.class();
-    bookmark.render.controlTabIndex();
+    bookmark.tiles.edit.open();
   },
   close: function() {
     bookmark.mod.edit.close();
     bookmark.render.class();
-    bookmark.render.controlTabIndex();
+    bookmark.tiles.edit.close();
   },
   toggle: function() {
     if (state.get.current().bookmark.edit) {
@@ -1297,7 +1306,6 @@ bookmark.init = function() {
   bookmark.render.style();
   bookmark.render.class();
   bookmark.render.item();
-  bookmark.render.controlTabIndex();
 };
 
 export { bookmark, currentBookmarkForm, StagedLink };

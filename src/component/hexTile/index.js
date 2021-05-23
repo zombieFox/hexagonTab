@@ -171,7 +171,9 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
   };
 
-  this.controlButtons = {
+  this.control = {};
+
+  this.control.button = {
     left: new Button({
       text: 'Move this bookmark left',
       srOnly: true,
@@ -276,6 +278,18 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
     })
   };
 
+  this.control.disable = () => {
+    for (var key in this.control.button) {
+      this.control.button[key].disable();
+    };
+  };
+
+  this.control.enable = () => {
+    for (var key in this.control.button) {
+      this.control.button[key].enable();
+    };
+  };
+
   this.assembleElements = () => {
 
     if (bookmarkData.display.visual.show || bookmarkData.display.name.show) {
@@ -339,13 +353,13 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
     this.element.bookmark.appendChild(this.element.content.wrap);
 
-    this.element.control.appendChild(this.controlButtons.left.button);
+    this.element.control.appendChild(this.control.button.left.button);
 
-    this.element.control.appendChild(this.controlButtons.right.button);
+    this.element.control.appendChild(this.control.button.right.button);
 
-    this.element.control.appendChild(this.controlButtons.edit.button);
+    this.element.control.appendChild(this.control.button.edit.button);
 
-    this.element.control.appendChild(this.controlButtons.remove.button);
+    this.element.control.appendChild(this.control.button.remove.button);
 
     this.element.content.wrap.appendChild(this.element.control);
 
@@ -356,6 +370,12 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
     this.assembleElements();
 
     this.makeStyle();
+
+    if (state.get.current().bookmark.edit) {
+      this.control.enable();
+    } else {
+      this.control.disable();
+    };
 
     return this.element.bookmark;
 
