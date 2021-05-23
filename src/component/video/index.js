@@ -6,8 +6,6 @@ import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
 import { ifValidString } from '../../utility/ifValidString';
 
-const video = {};
-
 const Video = function({ url = false } = {}) {
 
   this.video = node('video|autoplay,loop,muted');

@@ -288,13 +288,9 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-control .bookmark-control-button {
   padding: 0;
+  border-radius: 0;
   position: relative;
   transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);
-}
-
-.bookmark-control .bookmark-control-button:first-child,
-.bookmark-control .bookmark-control-button:last-child {
-  border-radius: 0;
 }
 
 .bookmark-control-edit {
