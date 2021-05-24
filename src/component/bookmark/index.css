@@ -2,7 +2,7 @@
   --bookmark-color: var(--theme-color-02);
   --bookmark-color-focus-hover: var(--theme-color-03);
   --bookmark-display-visual-color: var(--theme-accent);
-  --bookmark-display-visual-color-focus-hover: var(--theme-style-text);
+  --bookmark-display-visual-color-focus-hover: var(--theme-accent);
   --bookmark-display-name-color: var(--theme-color-18);
   --bookmark-display-name-color-focus-hover: var(--theme-style-text);
   --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
