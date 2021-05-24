@@ -7,7 +7,7 @@ Save bookmarks to your start page on a unique hexagonal grid. hexagonTab keeps t
 |:-------------:|:-------------:|:-------------:|:-------------:|
 | [![hexagonTab](./src/icon/icon-48.png)](https://zombiefox.github.io/hexagonTab/) | [![Chrome](asset/logo/chrome-48x48.png)](https://chrome.google.com/webstore/detail/hexagontab/hjapnkiokjkamfjenbdagacmpkobjlgi) | [![Firefox](asset/logo/firefox-48x48.png)](https://addons.mozilla.org/en-GB/firefox/addon/hexagontab/) | [![coffee](asset/logo/bymeacoffee-48x48.png)](https://www.buymeacoffee.com/zombieFox/) |
 
-__These screenshot samples can be downloaded and used freely here: [/asset/screenshot/](https://github.com/zombieFox/hexagonTab/tree/master/asset/screenshot)__
+__These screenshot samples can be downloaded here: [/asset/screenshot/](https://github.com/zombieFox/hexagonTab/tree/master/asset/screenshot)__
 
 [![hexagonTab Demo](asset/screenshot/screenshot-001.png)](https://zombiefox.github.io/hexagonTab/)
 [![hexagonTab Demo](asset/screenshot/screenshot-002.png)](https://zombiefox.github.io/hexagonTab/)
