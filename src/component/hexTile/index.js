@@ -154,7 +154,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       this.element.bookmark.style.setProperty('--bookmark-color', bookmarkData.color.rgb.r + ', ' + bookmarkData.color.rgb.g + ', ' + bookmarkData.color.rgb.b);
       this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', bookmarkData.color.rgb.r + ', ' + bookmarkData.color.rgb.g + ', ' + bookmarkData.color.rgb.b);
       this.element.bookmark.style.setProperty('--bookmark-display-name-color', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-style-text)');
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', nameColor.r + ', ' + nameColor.g + ', ' + nameColor.b);
     };
 
     if (bookmarkData.background.show) {
