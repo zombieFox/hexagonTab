@@ -14,6 +14,7 @@ __These screenshot samples can be downloaded here: [/asset/screenshot/](https://
 [![hexagonTab Demo](asset/screenshot/screenshot-003.png)](https://zombiefox.github.io/hexagonTab/)
 [![hexagonTab Demo](asset/screenshot/screenshot-004.png)](https://zombiefox.github.io/hexagonTab/)
 [![hexagonTab Demo](asset/screenshot/screenshot-005.gif)](https://zombiefox.github.io/hexagonTab/)
+[![hexagonTab Demo](asset/screenshot/screenshot-006.gif)](https://zombiefox.github.io/hexagonTab/)
 
 ---
 
