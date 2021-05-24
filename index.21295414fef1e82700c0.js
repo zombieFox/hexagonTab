@@ -13697,7 +13697,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.visual.size.min,
     max: minMaxBookmark.display.visual.size.max,
     action: () => {
-      bookmarkForm.preview.render();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
@@ -13743,7 +13743,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     min: minMaxBookmark.display.name.size.min,
     max: minMaxBookmark.display.name.size.max,
     action: () => {
-      bookmarkForm.preview.render();
+      bookmarkForm.preview.current.update(bookmarkData.link);
     }
   });
 
