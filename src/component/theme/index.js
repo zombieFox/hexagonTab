@@ -2,11 +2,14 @@ import { state } from '../state';
 import { data } from '../data';
 
 import { Video } from '../video';
+import { rgbToHsl } from '../control';
 
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
 import { ifValidString } from '../../utility/ifValidString';
+
+import { prominent } from 'color.js'
 
 import './index.css';
 
@@ -248,6 +251,20 @@ theme.render.background.image.set = function() {
 
   if (ifValidString(state.get.current().theme.background.image.url)) {
     html.style.setProperty('--theme-background-image', 'url(' + trimString(state.get.current().theme.background.image.url) + ')');
+
+    prominent(trimString(state.get.current().theme.background.image.url), { amount: 1 }).then(color => {
+      const rgb = {
+        r: color[0],
+        g: color[1],
+        b: color[2]
+      };
+
+      state.get.current().theme.accent.rgb = rgb;
+      state.get.current().theme.accent.hsl = rgbToHsl(rgb);
+
+      theme.render.accent.color();
+    });
+
   } else {
     html.style.removeProperty('--theme-background-image');
   };
