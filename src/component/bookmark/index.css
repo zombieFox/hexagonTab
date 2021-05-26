@@ -226,6 +226,10 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   color: rgb(var(--bookmark-display-name-color-focus-hover));
 }
 
+.bookmark-display-name-text {
+  text-align: center;
+}
+
 .bookmark-background-wrap {
   position: absolute;
   top: 0;
