@@ -73,6 +73,9 @@ menuContentToolbar.position = function() {
     gridSize: '2x2',
     action: () => {
       toolbar.render.class();
+      toolbar.bar.clear();
+      toolbar.bar.render();
+      toolbar.bar.active();
       data.save();
     }
   });

@@ -32,6 +32,11 @@ update.all = {
     });
 
     return dataToUpdate;
+  },
+  '2.7.0': function(dataToUpdate) {
+    dataToUpdate.state.toolbar = { style: 'transparent', position: 'bottom-right' };
+
+    return dataToUpdate;
   }
 };
 

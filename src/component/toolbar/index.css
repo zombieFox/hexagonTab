@@ -30,7 +30,6 @@
 
 .toolbar-control {
   display: flex;
-  opacity: 1;
   transition: opacity var(--layout-transition-extra-fast);
 }
 

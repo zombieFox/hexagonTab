@@ -4,6 +4,7 @@ import { data } from '../data';
 import { bookmark } from '../bookmark';
 import { icon } from '../icon';
 import { theme } from '../theme';
+import { form } from '../form';
 
 import { Button } from '../button';
 import { ControlModule_inputButton, ControlModule_color } from '../control';
@@ -112,7 +113,21 @@ toolbar.bar.render = function() {
 
   const toolbarControl = node('div|class:toolbar-control');
 
-  const formGroup = node('div|class:form-group');
+  let formGroup;
+
+  switch (state.get.current().toolbar.position) {
+    case 'top-right':
+    case 'bottom-right':
+      formGroup = form.render.group();
+
+      break;
+
+    case 'top-left':
+    case 'bottom-left':
+      formGroup = form.render.groupReverse();
+
+      break;
+  };
 
   formGroup.appendChild(accent.button);
 

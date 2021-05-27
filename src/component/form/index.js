@@ -21,6 +21,9 @@ form.render = {
   group: function(children) {
     return node('div|class:form-group', children);
   },
+  groupReverse: function(children) {
+    return node('div|class:form-group form-group-reverse', children);
+  },
   groupBlock: function(children) {
     return node('div|class:form-group form-group-block', children);
   },

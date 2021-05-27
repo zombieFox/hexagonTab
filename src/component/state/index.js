@@ -48,7 +48,7 @@ state.default = {
     radius: 25,
     shadow: 75
   },
-  toolbar: { style: 'Bar', position: 'bottom-right' },
+  toolbar: { style: 'transparent', position: 'bottom-right' },
   edit: false,
   modal: false,
   menu: false,
