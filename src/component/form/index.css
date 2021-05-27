@@ -12,6 +12,9 @@
   --form-input-background-hover: var(--theme-color-02);
   --form-input-background-focus-active: var(--theme-color-01);
   --form-input-background-disabled: var(--theme-color-01);
+}
+
+:root {
   --form-group-text-background: var(--theme-color-02);
   --form-group-text-background-focus-hover: var(--theme-color-02);
   --form-group-text-background-active: var(--theme-color-02);
@@ -20,7 +23,13 @@
   --form-group-text-border-focus-hover: var(--theme-color-02);
   --form-group-text-border-active: var(--theme-color-02);
   --form-group-text-border-disabled: var(--theme-color-01);
+}
+
+:root {
   --form-border-disabled: var(--theme-color-02);
+}
+
+:root {
   --form-icon: var(--theme-color-08);
   --form-icon-hover: var(--theme-color-16);
   --form-icon-focus: var(--theme-color-18);
@@ -30,12 +39,21 @@
   --form-icon-symbol: var(--theme-color-01);
   --form-icon-symbol-active: var(--theme-color-01);
   --form-icon-symbol-disabled: var(--theme-color-01);
+}
+
+:root {
   --form-placeholder: var(--theme-color-06);
   --form-placeholder-focus-hover: var(--theme-color-10);
   --form-placeholder-disabled: var(--theme-color-03);
+}
+
+:root {
   --form-checkbox-radio-label: var(--theme-color-12);
   --form-checkbox-radio-checked-label: var(--theme-color-16);
   --form-checkbox-radio-disabled-label: var(--theme-color-04);
+}
+
+:root {
   --form-feedback-text: var(--theme-color-16);
   --form-feedback-text-muted: var(--theme-color-12);
   --form-feedback-text-disabled: var(--theme-color-04);
@@ -43,9 +61,18 @@
   --form-feedback-background-disabled: var(--theme-color-01);
   --form-feedback-border: var(--theme-color-04);
   --form-feedback-border-disabled: var(--theme-color-02);
+}
+
+:root {
   --form-helper: var(--theme-color-12);
   --form-helper-disabled: var(--theme-color-04);
+}
+
+:root {
   --form-thumb-size: 1.25em;
+}
+
+:root {
   --form-range-thumb-background: var(--theme-color-16);
   --form-range-thumb-background-hover: var(--theme-color-18);
   --form-range-thumb-background-focus: var(--theme-style-text);
@@ -58,6 +85,9 @@
   --form-range-progress-background: var(--theme-color-08);
   --form-range-progress-background-active: var(--theme-accent);
   --form-range-progress-background-disabled: var(--theme-color-02);
+}
+
+:root {
   --form-grid-background: var(--theme-color-02);
   --form-grid-background-hover: var(--theme-color-02);
   --form-grid-background-focus: var(--theme-color-02);
@@ -67,12 +97,21 @@
   --form-grid-border-active: var(--theme-accent);
   --form-grid-border-checked: var(--theme-accent);
   --form-grid-border-disabled: var(--theme-color-04);
+}
+
+:root {
   --form-dropdown-background: var(--theme-color-02);
+}
+
+:root {
   --form-ring-hover: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-06));
   --form-ring-focus: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-10)),
     0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-color-10), 0.25);
   --form-ring-accent: 0 0 0 var(--layout-line-width) rgb(var(--theme-accent)),
     0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-accent), 0.25);
+}
+
+:root {
   --form-wrap-space: 1em;
 }
 
@@ -717,6 +756,7 @@ input[type="checkbox"]:checked:disabled:active+label .label-icon:after {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  gap: calc(var(--form-wrap-space) / 4);
 }
 
 input[type="checkbox"]+label .label-block-item,
@@ -785,10 +825,6 @@ input[type="radio"]:disabled:focus+label .label-block-item.muted {
   cursor: default;
 }
 
-.label-block-item:not(:last-child):not(:only-child) {
-  margin-bottom: calc(var(--form-wrap-space) / 4);
-}
-
 input:disabled+label .label-block-item,
 input:disabled:hover+label .label-block-item,
 input:disabled:focus+label .label-block-item,
@@ -808,7 +844,7 @@ input[type="color"] {
   padding: 0;
   margin: 0;
   width: 100%;
-  min-width: 3em;
+  min-width: 4em;
   height: 2.5em;
   display: block;
   border: 0;
@@ -1459,15 +1495,45 @@ input[type="range"]:disabled::-moz-range-progress {
   background-color: rgb(var(--form-grid-background-disabled));
 }
 
+.form-grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1 cell-2"
+    "cell-3 cell-4";
+}
+
 .form-grid-3x3 {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1 cell-2 cell-3"
+    "cell-4 cell-5 cell-6"
+    "cell-7 cell-8 cell-9";
 }
 
 .form-grid-3x1 {
   grid-template-columns: repeat(3, 1fr);
   border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1 cell-2 cell-3";
+}
+
+.form-grid-1x3 {
+  grid-template-rows: repeat(3, 1fr);
+  border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1"
+    "cell-2"
+    "cell-3";
+}
+
+.form-grid-3x3>*,
+.form-grid-3x1>*,
+.form-grid-1x3>* {
+  grid-area: var(--form-grid-cell);
 }
 
 .form-grid .form-wrap {

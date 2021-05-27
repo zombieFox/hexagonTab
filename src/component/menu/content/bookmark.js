@@ -3,6 +3,7 @@ import { data } from '../../data';
 import { form } from '../../form';
 import { bookmark } from '../../bookmark';
 import { theme } from '../../theme';
+import { toolbar } from '../../toolbar';
 import { grid } from '../../grid';
 import { modal } from '../../modal';
 import { version } from '../../version';

@@ -64,7 +64,7 @@ keyboard.ctrAltE = new KeyPress({
   alt: true,
   action: () => {
     bookmark.edit.toggle();
-    toolbar.render.active();
+    toolbar.bar.active();
     data.save();
   }
 });

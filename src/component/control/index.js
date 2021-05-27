@@ -510,7 +510,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
   };
 };
 
-const ControlModule_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
+const ControlModule_color = function({ object = {}, path = false, id = 'name', classList = [], labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, inputButton = [], extraButtons = [] } = {}) {
 
   this.label = form.render.label({
     forInput: id,
@@ -518,8 +518,10 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
   });
 
   if (srOnly) {
-    this.label.classList.add('sr-only')
+    this.label.classList.add('sr-only');
   };
+
+  classList.push('form-group-item-half');
 
   this.color = form.render.input.color({
     id: id,
@@ -527,7 +529,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
       object: object,
       path: path
     })),
-    classList: ['form-group-item-half'],
+    classList: classList,
     func: () => {
       if (path) {
         set({
@@ -634,6 +636,46 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
     return wrap;
   };
 
+  this.button = () => {
+    const formInputButton = node('div|class:form-input-button');
+
+    if (inputButton.length > 0) {
+      inputButton.forEach((item, i) => {
+        switch (item) {
+          case 'link':
+            formInputButton.classList.add('form-input-button-link');
+            break;
+
+          case 'line':
+            formInputButton.classList.add('form-input-button-line');
+            break;
+
+          case 'ring':
+            formInputButton.classList.add('form-input-button-ring');
+            break;
+
+          case 'dot':
+            formInputButton.classList.add('input-color-dot');
+            break;
+
+          case 'accent':
+            formInputButton.classList.add('input-color-dot-accent');
+            break;
+        };
+      });
+    };
+
+    formInputButton.appendChild(this.color);
+
+    formInputButton.appendChild(this.label);
+
+    const wrap = form.render.wrap([
+      formInputButton
+    ]);
+
+    return formInputButton;
+  };
+
   this.disable = () => {
     this.label.classList.add('disabled');
     this.color.disabled = true;
@@ -700,7 +742,7 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
           return form.render.wrap([
             radioAndLabel.radio,
             radioAndLabel.label
-          ])
+          ]);
         }
       };
 
@@ -785,6 +827,167 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
     this.radioSet.forEach((item, i) => {
       item.radio.enable();
     });
+  };
+};
+
+const ControlModule_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
+  this.radioSet = [];
+
+  const radioGroupName = groupName;
+
+  const radioGroupPath = path;
+
+  const gridElement = form.render.grid();
+
+  let gridLabel = false;
+
+  if (label) {
+    gridLabel = form.render.label({
+      text: label
+    });
+  };
+
+  if (radioGroup.length > 0) {
+    radioGroup.forEach((item, i) => {
+      const radioAndLabel = {};
+
+      radioAndLabel.position = item.position;
+
+      radioAndLabel.radio = form.render.input.radio({
+        id: item.id,
+        radioGroup: radioGroupName,
+        value: item.value,
+        checked: (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value),
+        func: () => {
+          set({
+            object: object,
+            path: radioGroupPath,
+            value: item.value
+          });
+          if (action) {
+            action();
+          };
+        }
+      });
+
+      radioAndLabel.label = form.render.label({
+        forInput: item.id,
+        text: item.labelText,
+        description: item.description,
+        srOnly: true,
+        icon: true
+      });
+
+      radioAndLabel.wrap = () => {
+        return form.render.wrap([
+          radioAndLabel.radio,
+          radioAndLabel.label
+        ]);
+      };
+
+      radioAndLabel.radio.update = () => {
+        radioAndLabel.radio.checked = (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value);
+      };
+
+      radioAndLabel.radio.disable = () => {
+        radioAndLabel.radio.disabled = true;
+      };
+
+      radioAndLabel.radio.enable = () => {
+        radioAndLabel.radio.disabled = false;
+      };
+
+      this.radioSet.push(radioAndLabel);
+    });
+  };
+
+  this.value = () => {
+    let currentSelectedRadio = false;
+
+    this.radioSet.forEach((item, i) => {
+      if (item.radio.checked) {
+        currentSelectedRadio = item.radio.value;
+      };
+    });
+
+    return currentSelectedRadio;
+  };
+
+  this.update = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.update();
+    });
+  };
+
+  this.grid = () => {
+    const wrap = form.render.wrap();
+
+    switch (gridSize) {
+      case '3x3':
+        gridElement.classList.add('form-grid-3x3');
+        break;
+
+      case '3x1':
+        gridElement.classList.add('form-grid-3x1');
+        break;
+
+      case '1x3':
+        gridElement.classList.add('form-grid-1x3');
+        break;
+
+      case '2x2':
+        gridElement.classList.add('form-grid-2x2');
+        break;
+    };
+
+    this.radioSet.forEach((item, i) => {
+      const wrap = form.render.wrap([
+        item.radio,
+        item.label
+      ]);
+
+      wrap.style.setProperty('--form-grid-cell', 'cell-' + item.position);
+
+      gridElement.appendChild(wrap);
+    });
+
+    if (label) {
+      wrap.appendChild(gridLabel);
+    };
+
+    wrap.appendChild(gridElement);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.disable();
+    });
+
+    gridElement.classList.add('disabled');
+
+    if (label) {
+      gridLabel.classList.add('disabled');
+    };
+  };
+
+  this.enable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.enable();
+    });
+
+    gridElement.classList.remove('disabled');
+
+    if (label) {
+      gridLabel.classList.remove('disabled');
+    };
   };
 };
 
@@ -1125,4 +1328,4 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
   this.moreControlsUpdate();
 };
 
-export { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text };
+export { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_radioGrid, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text };

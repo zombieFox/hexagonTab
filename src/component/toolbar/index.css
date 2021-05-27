@@ -1,12 +1,47 @@
+:root {
+  --toolbar-position-offset: 1.25em;
+}
+
 .toolbar {
+  display: flex;
   position: fixed;
-  bottom: 1em;
-  right: 1em;
   z-index: var(--z-index-toolbar);
 }
 
-.toolbar-button {
-  padding: 1em;
+.is-toolbar-position-top-left .toolbar {
+  top: var(--toolbar-position-offset);
+  left: var(--toolbar-position-offset);
+}
+
+.is-toolbar-position-top-right .toolbar {
+  top: var(--toolbar-position-offset);
+  right: var(--toolbar-position-offset);
+}
+
+.is-toolbar-position-bottom-left .toolbar {
+  bottom: var(--toolbar-position-offset);
+  left: var(--toolbar-position-offset);
+}
+
+.is-toolbar-position-bottom-right .toolbar {
+  bottom: var(--toolbar-position-offset);
+  right: var(--toolbar-position-offset);
+}
+
+.toolbar-control {
+  display: flex;
+  opacity: 1;
+  transition: opacity var(--layout-transition-extra-fast);
+}
+
+.form-input-button.toolbar-item,
+.form-group-item-half.toolbar-item,
+.form-group>input[type].form-group-item-half.toolbar-item,
+.toolbar-item {
+  padding: 0;
+  min-width: initial;
+  width: 3.5em;
+  flex-basis: auto;
 }
 
 .is-presentation-mode .toolbar {

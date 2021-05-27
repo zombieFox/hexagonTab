@@ -12,9 +12,10 @@ import { Button } from '../button';
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 
-import { menuContentTheme } from './content/theme';
 import { menuContentLayout } from './content/layout';
 import { menuContentBookmark } from './content/bookmark';
+import { menuContentToolbar } from './content/toolbar';
+import { menuContentTheme } from './content/theme';
 import { menuContentData } from './content/data';
 import { menuContentCoffee } from './content/coffee';
 import { menuContentApp } from './content/app';
@@ -126,7 +127,7 @@ menu.mod.area = {
   all: [{
     id: 'layout',
     name: 'Layout',
-    active: true,
+    active: false,
     overscroll: true,
     subNav: [{ id: 'size', name: 'Scaling' }, { id: 'grid', name: 'Hex grid' }]
   }, {
@@ -135,6 +136,12 @@ menu.mod.area = {
     active: false,
     overscroll: true,
     subNav: [{ id: 'hover', name: 'Hover' }, { id: 'shadow', name: 'Shadow' }]
+  }, {
+    id: 'toolbar',
+    name: 'Toolbar',
+    active: true,
+    overscroll: true,
+    subNav: [{ id: 'style', name: 'Style' }, { id: 'position', name: 'Position' }]
   }, {
     id: 'theme',
     name: 'Theme',
@@ -314,6 +321,10 @@ menu.render.component = {
     bookmark: function(currentContentArea) {
       currentContentArea.appendChild(menuContentBookmark.hover());
       currentContentArea.appendChild(menuContentBookmark.shadow());
+    },
+    toolbar: function(currentContentArea) {
+      currentContentArea.appendChild(menuContentToolbar.style());
+      currentContentArea.appendChild(menuContentToolbar.position());
     },
     theme: function(currentContentArea) {
       currentContentArea.appendChild(menuContentTheme.style());

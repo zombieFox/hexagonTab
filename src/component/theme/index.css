@@ -10,14 +10,23 @@
   --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));
   --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);
   --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);
+}
+
+:root {
   --theme-font-display-name: "Fjalla One", sans-serif;
   --theme-font-display-weight: 400;
   --theme-font-display-style: "normal";
   --theme-font-ui-name: "Open Sans", sans-serif;
   --theme-font-ui-weight: 400;
   --theme-font-ui-style: "normal";
+}
+
+:root {
   --theme-black: 0, 0, 0;
   --theme-white: 255, 255, 255;
+}
+
+:root {
   --theme-shade-negative-10: 25, 25, 25;
   --theme-shade-negative-09: 25, 25, 25;
   --theme-shade-negative-08: 25, 25, 25;
@@ -39,7 +48,13 @@
   --theme-shade-positive-08: 25, 25, 25;
   --theme-shade-positive-09: 25, 25, 25;
   --theme-shade-positive-10: 25, 25, 25;
-  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1rem);
+}
+
+:root {
+  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1em);
+}
+
+:root {
   --theme-shadow: 1;
   --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);
   --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);
@@ -80,6 +95,9 @@
     0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),
     0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),
     0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));
+}
+
+:root {
   --theme-background-theme: var(--theme-color-01);
   --theme-background-accent: var(--theme-accent);
 }
@@ -328,13 +346,13 @@
   transform: scale(calc(var(--theme-background-video-scale) / 100));
   filter: blur(calc(var(--theme-background-video-blur) * 1px));
 }
+
 .theme-background-type-video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   pointer-events: none;
 }
-
 
 .is-theme-background-type-theme .theme-background-type-theme {
   opacity: 1;
