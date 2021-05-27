@@ -6,7 +6,7 @@ import { icon } from '../icon';
 import { theme } from '../theme';
 
 import { Button } from '../button';
-import { ControlModule_color } from '../control';
+import { ControlModule_inputButton, ControlModule_color } from '../control';
 
 import { node } from '../../utility/node';
 
@@ -40,8 +40,9 @@ toolbar.bar.render = function() {
     object: state.get.current(),
     path: 'theme.accent.rgb',
     id: 'theme-accent-quick',
+    type: 'color',
     labelText: 'Accent colour',
-    classList: ['toolbar-item'],
+    srOnly: true,
     inputButton: ['dot', 'accent'],
     action: () => {
       theme.render.accent.color();
@@ -97,7 +98,7 @@ toolbar.bar.render = function() {
       break;
   };
 
-  const accent = new ControlModule_color(accentOptions);
+  const accent = new ControlModule_inputButton(accentOptions);
 
   const add = new Button(addOptions);
 
@@ -113,7 +114,7 @@ toolbar.bar.render = function() {
 
   const formGroup = node('div|class:form-group');
 
-  formGroup.appendChild(accent.button());
+  formGroup.appendChild(accent.button);
 
   formGroup.appendChild(add.button);
 

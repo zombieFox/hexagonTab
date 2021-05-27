@@ -95,7 +95,8 @@ const ControlModul_helperText = function({ text = [] } = {}) {
   };
 };
 
-const ControlModule_inputButton = function({ id = 'name', type = false, inputHide = false, labelText = 'Name', action = false } = {}) {
+const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+
   this.input;
 
   switch (type) {
@@ -108,12 +109,31 @@ const ControlModule_inputButton = function({ id = 'name', type = false, inputHid
           };
         }
       });
+
       break;
 
     case 'color':
       this.input = form.render.input.color({
-        id: id
+        id: id,
+        value: convertColor.rgb.hex(get({
+          object: object,
+          path: path
+        })),
+        classList: classList,
+        func: () => {
+          if (path) {
+            set({
+              object: object,
+              path: path,
+              value: convertColor.hex.rgb(this.input.value)
+            });
+          };
+          if (action) {
+            action();
+          };
+        }
       });
+
       break;
   };
 
@@ -122,18 +142,49 @@ const ControlModule_inputButton = function({ id = 'name', type = false, inputHid
     forInput: id
   });
 
-  this.formButton = node('div|class:form-input-button form-input-button-line');
+  this.button = node('div|class:form-input-button');
 
-  if (inputHide) {
-    this.formButton.classList.add('form-input-hide');
+  if (inputButton.length > 0) {
+    inputButton.forEach((item, i) => {
+      switch (item) {
+        case 'link':
+          this.button.classList.add('form-input-button-link');
+          break;
+
+        case 'line':
+          this.button.classList.add('form-input-button-line');
+          break;
+
+        case 'ring':
+          this.button.classList.add('form-input-button-ring');
+          break;
+
+        case 'dot':
+          this.button.classList.add('input-color-dot');
+          break;
+
+        case 'accent':
+          this.button.classList.add('input-color-dot-accent');
+          break;
+      };
+    });
   };
 
-  this.formButton.appendChild(this.input);
-  this.formButton.appendChild(this.label);
+  if (inputHide) {
+    this.button.classList.add('form-input-hide');
+  };
+
+  if (srOnly) {
+    this.button.classList.add('form-input-button-sr-only');
+  };
+
+  this.button.appendChild(this.input);
+
+  this.button.appendChild(this.label);
 
   this.wrap = () => {
     return form.render.wrap([
-      this.formButton
+      this.button
     ])
   };
 
@@ -510,18 +561,13 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
   };
 };
 
-const ControlModule_color = function({ object = {}, path = false, id = 'name', classList = [], labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, inputButton = [], extraButtons = [] } = {}) {
+const ControlModule_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
 
   this.label = form.render.label({
     forInput: id,
-    text: labelText
+    text: labelText,
+    srOnly: srOnly
   });
-
-  if (srOnly) {
-    this.label.classList.add('sr-only');
-  };
-
-  classList.push('form-group-item-half');
 
   this.color = form.render.input.color({
     id: id,
@@ -529,7 +575,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', c
       object: object,
       path: path
     })),
-    classList: classList,
+    classList: ['form-group-item-half'],
     func: () => {
       if (path) {
         set({
@@ -634,46 +680,6 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', c
     ]);
 
     return wrap;
-  };
-
-  this.button = () => {
-    const formInputButton = node('div|class:form-input-button');
-
-    if (inputButton.length > 0) {
-      inputButton.forEach((item, i) => {
-        switch (item) {
-          case 'link':
-            formInputButton.classList.add('form-input-button-link');
-            break;
-
-          case 'line':
-            formInputButton.classList.add('form-input-button-line');
-            break;
-
-          case 'ring':
-            formInputButton.classList.add('form-input-button-ring');
-            break;
-
-          case 'dot':
-            formInputButton.classList.add('input-color-dot');
-            break;
-
-          case 'accent':
-            formInputButton.classList.add('input-color-dot-accent');
-            break;
-        };
-      });
-    };
-
-    formInputButton.appendChild(this.color);
-
-    formInputButton.appendChild(this.label);
-
-    const wrap = form.render.wrap([
-      formInputButton
-    ]);
-
-    return formInputButton;
   };
 
   this.disable = () => {

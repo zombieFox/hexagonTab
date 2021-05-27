@@ -1147,7 +1147,7 @@ input[type="range"]:disabled::-moz-range-progress {
 /* form input button */
 .form-input-button {
   position: relative;
-  display: inline-block;
+  display: flex;
 }
 
 .form-input-button input[type="checkbox"]+label,
@@ -1467,6 +1467,38 @@ input[type="range"]:disabled::-moz-range-progress {
   bottom: 0;
   left: 0;
   -webkit-appearance: none;
+}
+
+.form-input-button-sr-only input[type="checkbox"]+label,
+.form-input-button-sr-only input[type="radio"]+label,
+.form-input-button-sr-only input[type="color"]+label,
+.form-input-button-sr-only input[type="file"]+label {
+  display: block;
+}
+
+.form-input-button-sr-only input[type="checkbox"]+label .label-block,
+.form-input-button-sr-only input[type="radio"]+label .label-block,
+.form-input-button-sr-only input[type="color"]+label .label-block,
+.form-input-button-sr-only input[type="file"]+label .label-block {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-input-button-sr-only.input-color-dot input[type="color"]+label {
+  padding: 0.25em 1.75em;
+}
+
+.form-input-button-sr-only.input-color-dot input[type="color"] {
+  top: 50%;
+  left: 50%;
+  right: initial;
+  transform: translate(-50%, -50%);
 }
 
 /* form grid */

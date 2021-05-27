@@ -104,7 +104,11 @@ form.render.label = function({ forInput = false, text = 'label', description = f
   const labelBlock = node('span|class:label-block');
 
   if (srOnly) {
-    labelBlock.classList.add('sr-only');
+    if (icon) {
+      labelBlock.classList.add('sr-only');
+    } else {
+      label.classList.add('sr-only');
+    };
   };
 
   if (text && description) {
