@@ -325,7 +325,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-color-02);\n  --bookmark-color-focus-hover: var(--theme-color-03);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-color-18);\n  --bookmark-display-name-color-focus-hover: var(--theme-color-18);\n  --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: rgba(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: rgba(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 5fr 2fr;\n    grid-gap: var(--modal-space);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-wrap-space) * 20);\n}\n\n.bookmark-form-preview {\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: rgb(var(--theme-color-04));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-color-02);\n  --bookmark-color-focus-hover: var(--theme-color-03);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-color-18);\n  --bookmark-display-name-color-focus-hover: var(--theme-color-18);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: rgba(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: rgba(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: rgb(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 5fr 2fr;\n    grid-gap: var(--modal-space);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-wrap-space) * 20);\n}\n\n.bookmark-form-preview {\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: rgb(var(--theme-color-04));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -431,7 +431,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*!\n * Font Awesome Free 5.14.0 by @f
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-label: var(--theme-color-16);\n  --form-label-hover: var(--theme-color-20);\n  --form-label-focus-active: var(--theme-style-text);\n  --form-label-checked: var(--theme-style-text);\n  --form-label-disabled: var(--theme-color-04);\n  --form-input-text: var(--theme-color-16);\n  --form-input-text-hover: var(--theme-color-18);\n  --form-input-text-focus-active: var(--theme-style-text);\n  --form-input-text-disabled: var(--theme-color-04);\n  --form-input-background: var(--theme-color-02);\n  --form-input-background-hover: var(--theme-color-02);\n  --form-input-background-focus-active: var(--theme-color-01);\n  --form-input-background-disabled: var(--theme-color-01);\n  --form-group-text-background: var(--theme-color-02);\n  --form-group-text-background-focus-hover: var(--theme-color-02);\n  --form-group-text-background-active: var(--theme-color-02);\n  --form-group-text-background-disabled: var(--theme-color-01);\n  --form-group-text-border: var(--theme-color-02);\n  --form-group-text-border-focus-hover: var(--theme-color-02);\n  --form-group-text-border-active: var(--theme-color-02);\n  --form-group-text-border-disabled: var(--theme-color-01);\n  --form-border-disabled: var(--theme-color-02);\n  --form-icon: var(--theme-color-08);\n  --form-icon-hover: var(--theme-color-16);\n  --form-icon-focus: var(--theme-color-18);\n  --form-icon-active: var(--theme-style-text);\n  --form-icon-checked: var(--theme-style-text);\n  --form-icon-disabled: var(--theme-color-04);\n  --form-icon-symbol: var(--theme-color-01);\n  --form-icon-symbol-active: var(--theme-color-01);\n  --form-icon-symbol-disabled: var(--theme-color-01);\n  --form-placeholder: var(--theme-color-06);\n  --form-placeholder-focus-hover: var(--theme-color-10);\n  --form-placeholder-disabled: var(--theme-color-03);\n  --form-checkbox-radio-label: var(--theme-color-12);\n  --form-checkbox-radio-checked-label: var(--theme-color-16);\n  --form-checkbox-radio-disabled-label: var(--theme-color-04);\n  --form-feedback-text: var(--theme-color-16);\n  --form-feedback-text-muted: var(--theme-color-12);\n  --form-feedback-text-disabled: var(--theme-color-04);\n  --form-feedback-background: var(--theme-color-02);\n  --form-feedback-background-disabled: var(--theme-color-01);\n  --form-feedback-border: var(--theme-color-04);\n  --form-feedback-border-disabled: var(--theme-color-02);\n  --form-helper: var(--theme-color-12);\n  --form-helper-disabled: var(--theme-color-04);\n  --form-thumb-size: 1.25em;\n  --form-range-thumb-background: var(--theme-color-16);\n  --form-range-thumb-background-hover: var(--theme-color-18);\n  --form-range-thumb-background-focus: var(--theme-style-text);\n  --form-range-thumb-background-active: var(--theme-style-text);\n  --form-range-thumb-background-disabled: var(--theme-color-03);\n  --form-range-track-background: var(--theme-color-06);\n  --form-range-track-background-focus-hover: var(--theme-color-04);\n  --form-range-track-background-active: var(--theme-color-03);\n  --form-range-track-background-disabled: var(--theme-color-02);\n  --form-range-progress-background: var(--theme-color-08);\n  --form-range-progress-background-active: var(--theme-accent);\n  --form-range-progress-background-disabled: var(--theme-color-02);\n  --form-grid-background: var(--theme-color-02);\n  --form-grid-background-hover: var(--theme-color-02);\n  --form-grid-background-focus: var(--theme-color-02);\n  --form-grid-background-disabled: var(--theme-color-01);\n  --form-grid-border: var(--theme-color-08);\n  --form-grid-border-hover-focus: var(--theme-color-20);\n  --form-grid-border-active: var(--theme-accent);\n  --form-grid-border-checked: var(--theme-accent);\n  --form-grid-border-disabled: var(--theme-color-04);\n  --form-dropdown-background: var(--theme-color-02);\n  --form-ring-hover: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-06));\n  --form-ring-focus: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-10)),\n    0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-color-10), 0.25);\n  --form-ring-accent: 0 0 0 var(--layout-line-width) rgb(var(--theme-accent)),\n    0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-accent), 0.25);\n  --form-wrap-space: 1em;\n}\n\n/* fieldset */\nfieldset:not(:only-child):not(:last-child),\n.fieldset:not(:only-child):not(:last-child) {\n  position: relative;\n  width: 100%;\n  display: block;\n}\n\n/* form variants */\n.form-wrap {\n  position: relative;\n  width: 100%;\n  display: block;\n}\n\n.form-wrap:not(:first-child) {\n  margin-top: var(--form-wrap-space);\n}\n\n.form-wrap:not(:last-child) {\n  margin-bottom: var(--form-wrap-space);\n}\n\n.form-wrap-hide-space:not(:first-child),\n.form-wrap-hide-space:not(:last-child) {\n  margin-top: calc(var(--form-wrap-space) * -1);\n  margin-bottom: 0;\n}\n\n.form-indent {\n  margin-left: calc(var(--form-wrap-space) * 2.25);\n}\n\n.form-inline {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: nowrap;\n  gap: calc(var(--form-wrap-space) * 1);\n}\n\n.form-inline-wide-gap {\n  column-gap: calc(var(--form-wrap-space) * 3);\n  row-gap: calc(var(--form-wrap-space) * 1.5);\n}\n\n.form-inline-wrap {\n  flex-wrap: wrap;\n}\n\n.form-inline .form-wrap:not(:first-child),\n.form-inline .form-wrap:not(:last-child) {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.form-inline .form-wrap {\n  flex-basis: 0;\n}\n\n.form-sticky {\n  background-color: rgb(var(--theme-color-01));\n  margin: -1.5em -1em 0 -1em;\n  padding: 1.5em 1em 1em 1em;\n  position: sticky;\n  top: 0;\n  z-index: 4;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n/* label */\nlabel {\n  padding: 0;\n  color: rgb(var(--form-label));\n  margin-bottom: 0;\n  font-size: 1em;\n  display: block;\n  transition: color var(--layout-transition-extra-fast);\n}\n\nlabel:not(:only-child):not(:last-child) {\n  padding-bottom: var(--form-wrap-space);\n}\n\nlabel.disabled {\n  color: rgb(var(--form-label-disabled));\n}\n\n/* select */\nselect {\n  background-color: rgb(var(--form-input-background));\n  background-image:\n    linear-gradient(45deg, transparent 60%, rgb(var(--form-label)) 60%),\n    linear-gradient(135deg, rgb(var(--form-label)) 40%, transparent 40%);\n  background-position:\n    calc(100% - 1.5em) 55%,\n    calc(100% - 1em) 55%;\n  background-size:\n    0.5em 0.375em,\n    0.5em 0.375em;\n  background-repeat: no-repeat;\n  padding: 0 3em 0 1.25em;\n  margin: 0;\n  color: rgb(var(--form-label));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  line-height: 2.5;\n  min-height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: pointer;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  appearance: none;\n}\n\nselect:hover {\n  background-image:\n    linear-gradient(45deg, transparent 60%, rgb(var(--form-label-hover)) 60%),\n    linear-gradient(135deg, rgb(var(--form-label-hover)) 40%, transparent 40%);\n  background-color: rgb(var(--form-input-background-hover));\n  color: rgb(var(--form-label-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\nselect:focus,\nselect:active {\n  background-image:\n    linear-gradient(45deg, transparent 60%, rgb(var(--form-label-focus-active)) 60%),\n    linear-gradient(135deg, rgb(var(--form-label-focus-active)) 40%, transparent 40%);\n  background-color: rgb(var(--form-input-background-border-focus-active));\n  color: rgb(var(--form-label-focus-active));\n  outline: none;\n  z-index: 2;\n  box-shadow: var(--form-ring-accent);\n}\n\nselect:disabled,\nselect:disabled:hover,\nselect:disabled:focus,\nselect:disabled:active {\n  background-color: rgb(var(--form-input-background-disabled));\n  background-image:\n    linear-gradient(45deg, transparent 50%, rgb(var(--form-input-text-disabled)) 50%),\n    linear-gradient(135deg, rgb(var(--form-input-text-disabled)) 50%, transparent 50%);\n  color: rgb(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n}\n\n/* textarea */\ntextarea {\n  background-color: rgb(var(--form-input-background));\n  padding: 0.5em 1.25em;\n  margin: 0;\n  color: rgb(var(--form-input-text));\n  font-size: 1em;\n  line-height: 1.6;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  height: 10em;\n  min-height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: text;\n  resize: vertical;\n  display: block;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: textfield;\n}\n\ntextarea:hover {\n  background-color: rgb(var(--form-input-background-hover));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\ntextarea:focus,\ntextarea:active {\n  background-color: rgb(var(--form-input-background-focus-active));\n  color: rgb(var(--form-input-text-focus-active));\n  outline: none;\n  box-shadow: var(--form-ring-accent);\n}\n\ntextarea:disabled {\n  background-color: rgb(var(--form-input-background-disabled));\n  color: rgb(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n  resize: none;\n}\n\ntextarea:disabled:hover,\ntextarea:disabled:focus {\n  color: rgb(var(--form-input-text-disabled));\n}\n\ntextarea::placeholder {\n  color: rgb(var(--form-placeholder));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ntextarea:hover::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ntextarea:focus::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ntextarea:disabled::placeholder,\ntextarea:disabled:hover::placeholder,\ntextarea:disabled:focus::placeholder {\n  color: rgb(var(--form-placeholder-disabled));\n}\n\n/* email, number, password, search, tel, text */\ninput[type=\"email\"],\ninput[type=\"number\"],\ninput[type=\"password\"],\ninput[type=\"search\"],\ninput[type=\"tel\"],\ninput[type=\"text\"] {\n  background-color: rgb(var(--form-input-background));\n  padding: 0 1.25em;\n  margin: 0;\n  color: rgb(var(--form-input-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  line-height: 1.6;\n  height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: text;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: textfield;\n}\n\ninput[type=\"search\"]::-webkit-search-decoration,\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-results-button,\ninput[type=\"search\"]::-webkit-search-results-decoration {\n  -webkit-appearance: none;\n}\n\ninput[type=\"number\"] {\n  text-align: center;\n}\n\ninput[type=number]::-webkit-inner-spin-button,\ninput[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\ninput[type=\"email\"]:hover,\ninput[type=\"number\"]:hover,\ninput[type=\"password\"]:hover,\ninput[type=\"search\"]:hover,\ninput[type=\"tel\"]:hover,\ninput[type=\"text\"]:hover {\n  background-color: rgb(var(--form-input-background-hover));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\ninput[type=\"email\"]:focus,\ninput[type=\"email\"]:active,\ninput[type=\"number\"]:focus,\ninput[type=\"number\"]:active,\ninput[type=\"password\"]:focus,\ninput[type=\"password\"]:active,\ninput[type=\"search\"]:focus,\ninput[type=\"search\"]:active,\ninput[type=\"tel\"]:focus,\ninput[type=\"tel\"]:active,\ninput[type=\"text\"]:focus,\ninput[type=\"text\"]:active {\n  background-color: rgb(var(--form-input-background-focus-active));\n  color: rgb(var(--form-input-text-focus-active));\n  outline: none;\n  z-index: 2;\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"email\"]:disabled,\ninput[type=\"number\"]:disabled,\ninput[type=\"password\"]:disabled,\ninput[type=\"search\"]:disabled,\ninput[type=\"tel\"]:disabled,\ninput[type=\"text\"]:disabled {\n  background-color: rgb(var(--form-input-background-disabled));\n  color: rgb(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n}\n\ninput[type=\"email\"]:disabled:hover,\ninput[type=\"email\"]:disabled:focus,\ninput[type=\"number\"]:disabled:hover,\ninput[type=\"number\"]:disabled:focus,\ninput[type=\"password\"]:disabled:hover,\ninput[type=\"password\"]:disabled:focus,\ninput[type=\"search\"]:disabled:hover,\ninput[type=\"search\"]:disabled:focus,\ninput[type=\"tel\"]:disabled:hover,\ninput[type=\"tel\"]:disabled:focus,\ninput[type=\"text\"]:disabled:hover,\ninput[type=\"text\"]:disabled:focus {\n  color: rgb(var(--form-input-text-disabled));\n}\n\ninput[type=\"email\"]::placeholder,\ninput[type=\"number\"]::placeholder,\ninput[type=\"password\"]::placeholder,\ninput[type=\"search\"]::placeholder,\ninput[type=\"tel\"]::placeholder,\ninput[type=\"text\"]::placeholder {\n  color: rgb(var(--form-placeholder));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"email\"]:hover::placeholder,\ninput[type=\"number\"]:hover::placeholder,\ninput[type=\"password\"]:hover::placeholder,\ninput[type=\"search\"]:hover::placeholder,\ninput[type=\"tel\"]:hover::placeholder,\ninput[type=\"text\"]:hover::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ninput[type=\"email\"]:focus::placeholder,\ninput[type=\"number\"]:focus::placeholder,\ninput[type=\"password\"]:focus::placeholder,\ninput[type=\"search\"]:focus::placeholder,\ninput[type=\"tel\"]:focus::placeholder,\ninput[type=\"text\"]:focus::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ninput[type=\"email\"]:disabled::placeholder,\ninput[type=\"email\"]:disabled:hover::placeholder,\ninput[type=\"email\"]:disabled:focus::placeholder,\ninput[type=\"number\"]:disabled::placeholder,\ninput[type=\"number\"]:disabled:hover::placeholder,\ninput[type=\"number\"]:disabled:focus::placeholder,\ninput[type=\"password\"]:disabled::placeholder,\ninput[type=\"password\"]:disabled:hover::placeholder,\ninput[type=\"password\"]:disabled:focus::placeholder,\ninput[type=\"search\"]:disabled::placeholder,\ninput[type=\"search\"]:disabled:hover::placeholder,\ninput[type=\"search\"]:disabled:focus::placeholder,\ninput[type=\"tel\"]:disabled::placeholder,\ninput[type=\"tel\"]:disabled:hover::placeholder,\ninput[type=\"tel\"]:disabled:focus::placeholder,\ninput[type=\"text\"]:disabled::placeholder,\ninput[type=\"text\"]:disabled:hover::placeholder,\ninput[type=\"text\"]:disabled:focus::placeholder {\n  color: rgb(var(--form-placeholder-disabled));\n}\n\n.input-clear[type=\"email\"],\n.input-clear[type=\"number\"],\n.input-clear[type=\"password\"],\n.input-clear[type=\"search\"],\n.input-clear[type=\"tel\"],\n.input-clear[type=\"text\"] {\n  background-color: transparent;\n}\n\n.input-clear[type=\"email\"]:hover,\n.input-clear[type=\"number\"]:hover,\n.input-clear[type=\"password\"]:hover,\n.input-clear[type=\"search\"]:hover,\n.input-clear[type=\"tel\"]:hover,\n.input-clear[type=\"text\"]:hover {\n  background-color: transparent;\n  box-shadow: none;\n}\n\n.input-clear[type=\"email\"]:focus,\n.input-clear[type=\"email\"]:active,\n.input-clear[type=\"number\"]:focus,\n.input-clear[type=\"number\"]:active,\n.input-clear[type=\"password\"]:focus,\n.input-clear[type=\"password\"]:active,\n.input-clear[type=\"search\"]:focus,\n.input-clear[type=\"search\"]:active,\n.input-clear[type=\"tel\"]:focus,\n.input-clear[type=\"tel\"]:active,\n.input-clear[type=\"text\"]:focus,\n.input-clear[type=\"text\"]:active {\n  background-color: transparent;\n  box-shadow: var(--form-ring-accent);\n}\n\n/* checkbox and radio */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  margin-bottom: 0;\n  position: absolute;\n  top: 0;\n  left: 0;\n  opacity: 0;\n  display: block;\n  font-size: 1em;\n  line-height: 1;\n  cursor: pointer;\n  pointer-events: none;\n  box-sizing: border-box;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]+label,\ninput[type=\"radio\"]+label {\n  padding: 0;\n  margin: 0;\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  color: rgb(var(--form-label));\n  cursor: pointer;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: flex-start;\n  transition: transform var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]:hover+label,\ninput[type=\"checkbox\"]:focus+label,\ninput[type=\"radio\"]:hover+label,\ninput[type=\"radio\"]:focus+label {\n  color: rgb(var(--form-label-hover));\n}\n\ninput[type=\"checkbox\"]:active+label,\ninput[type=\"radio\"]:active+label {\n  color: rgb(var(--form-label-focus-active));\n}\n\ninput[type=\"checkbox\"]:checked+label,\ninput[type=\"radio\"]:checked+label {\n  color: rgb(var(--form-label-checked));\n}\n\ninput[type=\"checkbox\"]:disabled+label,\ninput[type=\"checkbox\"]:disabled:hover+label,\ninput[type=\"checkbox\"]:disabled:focus+label,\ninput[type=\"radio\"]:disabled+label,\ninput[type=\"radio\"]:disabled:hover+label,\ninput[type=\"radio\"]:disabled:focus+label {\n  color: rgb(var(--form-label-disabled));\n  cursor: default;\n}\n\ninput[type=\"checkbox\"]+label .label-icon,\ninput[type=\"radio\"]+label .label-icon {\n  background-color: rgb(var(--form-icon));\n  margin-right: 1em;\n  width: var(--form-thumb-size);\n  height: var(--form-thumb-size);\n  position: relative;\n  top: 0.125em;\n  display: block;\n  flex-grow: 0;\n  flex-shrink: 0;\n  z-index: 1;\n  box-shadow: none;\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]+label .label-icon {\n  border-radius: 0.25em;\n}\n\ninput[type=\"radio\"]+label .label-icon {\n  border-radius: 50%;\n}\n\ninput[type=\"checkbox\"]:hover+label .label-icon,\ninput[type=\"checkbox\"]:focus+label .label-icon,\ninput[type=\"radio\"]:hover+label .label-icon,\ninput[type=\"radio\"]:focus+label .label-icon {\n  background-color: rgb(var(--form-icon-hover));\n  box-shadow: var(--form-ring-hover);\n}\n\ninput[type=\"checkbox\"]:active+label .label-icon,\ninput[type=\"radio\"]:active+label .label-icon {\n  background-color: rgb(var(--form-icon-active));\n  box-shadow: var(--form-ring-accent);\n  transition: none;\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon,\ninput[type=\"radio\"]:checked+label .label-icon {\n  background-color: rgb(var(--form-icon-checked));\n}\n\ninput[type=\"checkbox\"]:checked:focus+label .label-icon,\ninput[type=\"checkbox\"]:checked:active+label .label-icon,\ninput[type=\"radio\"]:checked:focus+label .label-icon,\ninput[type=\"radio\"]:checked:active+label .label-icon {\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-icon,\ninput[type=\"checkbox\"]:disabled:hover+label .label-icon,\ninput[type=\"checkbox\"]:disabled:focus+label .label-icon,\ninput[type=\"checkbox\"]:checked:disabled+label .label-icon,\ninput[type=\"checkbox\"]:checked:disabled:hover+label .label-icon,\ninput[type=\"checkbox\"]:checked:disabled:focus+label .label-icon,\ninput[type=\"radio\"]:disabled+label .label-icon,\ninput[type=\"radio\"]:disabled:hover+label .label-icon,\ninput[type=\"radio\"]:disabled:focus+label .label-icon,\ninput[type=\"radio\"]:checked:disabled+label .label-icon,\ninput[type=\"radio\"]:checked:disabled:hover+label .label-icon,\ninput[type=\"radio\"]:checked:disabled:focus+label .label-icon {\n  background-color: rgb(var(--form-icon-disabled));\n  box-shadow: none;\n}\n\ninput[type=\"checkbox\"]+label .label-icon:before,\ninput[type=\"radio\"]+label .label-icon:before {\n  content: \"\";\n  background-color: rgb(var(--form-icon-symbol));\n  width: 100%;\n  height: 100%;\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  transform: scale(0.7);\n  transform-origin: center;\n  z-index: 2;\n  transition: background-color var(--layout-transition-extra-fast), border-radius var(--layout-transition-extra-fast), transform var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]+label .label-icon:before {\n  border-radius: 0.1em;\n}\n\ninput[type=\"radio\"]+label .label-icon:before {\n  border-radius: 50%;\n}\n\ninput[type=\"checkbox\"]:active+label .label-icon:before,\ninput[type=\"radio\"]:active+label .label-icon:before {\n  background-color: rgb(var(--form-icon-symbol-active));\n  transition: none;\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon:before,\ninput[type=\"radio\"]:checked+label .label-icon:before {\n  background-color: rgb(var(--form-icon-symbol-active));\n  border-radius: 50%;\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon:before {\n  transform: scale(0);\n}\n\ninput[type=\"radio\"]:checked+label .label-icon:before {\n  transform: scale(0.2);\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-icon:before,\ninput[type=\"checkbox\"]:disabled:hover+label .label-icon:before,\ninput[type=\"checkbox\"]:disabled:focus+label .label-icon:before,\ninput[type=\"checkbox\"]:disabled:active+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled:hover+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled:focus+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled:active+label .label-icon:before,\ninput[type=\"radio\"]:disabled+label .label-icon:before,\ninput[type=\"radio\"]:disabled:hover+label .label-icon:before,\ninput[type=\"radio\"]:disabled:focus+label .label-icon:before,\ninput[type=\"radio\"]:disabled:active+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled:hover+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled:focus+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled:active+label .label-icon:before {\n  background-color: rgb(var(--form-icon-symbol-disabled));\n}\n\ninput[type=\"checkbox\"]+label .label-icon:after {\n  content: \"\";\n  background-color: rgb(var(--form-icon-symbol));\n  width: 100%;\n  height: 100%;\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  transform: scale(0);\n  transform-origin: center;\n  z-index: 2;\n  transition: transform var(--layout-transition-extra-fast);\n  clip-path: polygon(7% 56%, 37% 86%, 95% 27%, 84% 16%, 37% 64%, 18% 45%);\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon:after {\n  background-color: rgb(var(--form-icon-symbol-active));\n  transform: scale(0.8);\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-icon:after,\ninput[type=\"checkbox\"]:disabled:hover+label .label-icon:after,\ninput[type=\"checkbox\"]:disabled:focus+label .label-icon:after,\ninput[type=\"checkbox\"]:disabled:active+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled:hover+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled:focus+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled:active+label .label-icon:after {\n  background-color: rgb(var(--form-icon-symbol-disabled));\n}\n\n.label-block {\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap;\n}\n\ninput[type=\"checkbox\"]+label .label-block-item,\ninput[type=\"radio\"]+label .label-block-item {\n  color: rgb(var(--form-label));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]:hover+label .label-block-item,\ninput[type=\"checkbox\"]:focus+label .label-block-item,\ninput[type=\"radio\"]:hover+label .label-block-item,\ninput[type=\"radio\"]:focus+label .label-block-item {\n  color: rgb(var(--form-label-hover));\n}\n\ninput[type=\"checkbox\"]:active+label .label-block-item,\ninput[type=\"radio\"]:active+label .label-block-item {\n  color: rgb(var(--form-label-focus-active));\n}\n\ninput[type=\"checkbox\"]:checked+label .label-block-item,\ninput[type=\"radio\"]:checked+label .label-block-item {\n  color: rgb(var(--form-label-checked));\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:hover+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:focus+label .label-block-item,\ninput[type=\"radio\"]:disabled+label .label-block-item,\ninput[type=\"radio\"]:disabled:hover+label .label-block-item,\ninput[type=\"radio\"]:disabled:focus+label .label-block-item {\n  color: rgb(var(--form-label-disabled));\n  cursor: default;\n}\n\ninput[type=\"checkbox\"]+label .label-block-item.muted,\ninput[type=\"radio\"]+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]:hover+label .label-block-item.muted,\ninput[type=\"checkbox\"]:focus+label .label-block-item.muted,\ninput[type=\"radio\"]:hover+label .label-block-item.muted,\ninput[type=\"radio\"]:focus+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-hover));\n}\n\ninput[type=\"checkbox\"]:active+label .label-block-item.muted,\ninput[type=\"radio\"]:active+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-focus-active));\n}\n\ninput[type=\"checkbox\"]:checked+label .label-block-item.muted,\ninput[type=\"radio\"]:checked+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-checked));\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-block-item.muted,\ninput[type=\"checkbox\"]:disabled:hover+label .label-block-item.muted,\ninput[type=\"checkbox\"]:disabled:focus+label .label-block-item.muted,\ninput[type=\"radio\"]:disabled+label .label-block-item.muted,\ninput[type=\"radio\"]:disabled:hover+label .label-block-item.muted,\ninput[type=\"radio\"]:disabled:focus+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-disabled));\n  cursor: default;\n}\n\n.label-block-item:not(:last-child):not(:only-child) {\n  margin-bottom: calc(var(--form-wrap-space) / 4);\n}\n\ninput:disabled+label .label-block-item,\ninput:disabled:hover+label .label-block-item,\ninput:disabled:focus+label .label-block-item,\ninput[type=\"checkbox\"]:disabled+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:hover+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:focus+label .label-block-item,\ninput[type=\"radio\"]:disabled+label .label-block-item,\ninput[type=\"radio\"]:disabled:hover+label .label-block-item,\ninput[type=\"radio\"]:disabled:focus+label .label-block-item {\n  color: rgb(var(--form-label-disabled));\n  cursor: default;\n}\n\n/* color */\ninput[type=\"color\"] {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  width: 100%;\n  min-width: 3em;\n  height: 2.5em;\n  display: block;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  overflow: hidden;\n  cursor: pointer;\n  opacity: 1;\n  transition: box-shadow var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n}\n\ninput[type=\"color\"]:hover {\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\ninput[type=\"color\"]:focus {\n  outline: none;\n  box-shadow: var(--form-ring-focus);\n}\n\ninput[type=\"color\"]:disabled {\n  opacity: 0.25;\n  cursor: default;\n}\n\ninput[type=\"color\"]:disabled:hover,\ninput[type=\"color\"]:disabled:focus {\n  box-shadow: none;\n}\n\ninput[type=\"color\"]::-webkit-color-swatch-wrapper {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-webkit-color-swatch {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-moz-color-swatch-wrapper {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-moz-color-swatch {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\n/* range */\ninput[type=\"range\"] {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  color: rgb(var(--theme-style-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  display: block;\n  height: 2.5em;\n  width: 100%;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: pointer;\n  position: relative;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]:focus {\n  outline: none;\n}\n\ninput[type=\"range\"]:disabled {\n  cursor: default;\n}\n\ninput[type=\"range\"]:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  background-color: rgb(var(--form-range-track-background));\n  height: var(--layout-line-width);\n  width: 100%;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  transform: translate(0, -50%);\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:focus:before,\ninput[type=\"range\"]:hover:before {\n  background-color: rgb(var(--form-range-track-background-focus-hover));\n}\n\ninput[type=\"range\"]:active:before {\n  background-color: rgb(var(--form-range-track-background-active));\n}\n\ninput[type=\"range\"]:disabled:before {\n  background-color: rgb(var(--form-range-track-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]::-webkit-slider-runnable-track {\n  background-color: transparent;\n  margin: 0 -0.5em;\n  padding: 0;\n  border: 0;\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background));\n  margin: 0;\n  padding: 0;\n  border-width: 0;\n  border-radius: 50%;\n  position: relative;\n  height: var(--form-thumb-size);\n  width: var(--form-thumb-size);\n  cursor: pointer;\n  box-sizing: border-box;\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]::-webkit-slider-thumb,\ninput[type=\"range\"]:focus::-webkit-slider-thumb,\ninput[type=\"range\"]:hover::-webkit-slider-thumb,\ninput[type=\"range\"]:active::-webkit-slider-thumb {\n  box-shadow: none;\n  text-decoration: none;\n  outline: none;\n}\n\ninput[type=\"range\"]:hover::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-hover));\n  box-shadow: var(--form-ring-hover);\n  outline: none;\n}\n\ninput[type=\"range\"]:focus::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-focus));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:active::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-active));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:disabled::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]:disabled:hover::-webkit-slider-thumb,\ninput[type=\"range\"]:disabled:focus::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  transform: scale(1);\n  outline: none;\n}\n\ninput[type=\"range\"]:disabled:active::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  outline: none;\n}\n\ninput[type=\"range\"]::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background));\n  margin: 0 -0.5em;\n  padding: 0;\n  height: var(--layout-line-width);\n  width: 100%;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  transition: all var(--layout-transition-extra-fast);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]:focus::-moz-range-track,\ninput[type=\"range\"]:hover::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background-focus-hover));\n}\n\ninput[type=\"range\"]:active::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background-active));\n}\n\ninput[type=\"range\"]:disabled::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]::-moz-focus-outer {\n  border: 0;\n}\n\ninput[type=\"range\"]::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background));\n  margin: 0;\n  padding: 0;\n  border-width: 0;\n  border-radius: 50%;\n  position: relative;\n  height: var(--form-thumb-size);\n  width: var(--form-thumb-size);\n  cursor: pointer;\n  box-sizing: border-box;\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: none;\n}\n\ninput[type=\"range\"]::-moz-range-thumb,\ninput[type=\"range\"]:focus::-moz-range-thumb,\ninput[type=\"range\"]:hover::-moz-range-thumb,\ninput[type=\"range\"]:active::-moz-range-thumb {\n  box-shadow: none;\n  text-decoration: none;\n  outline: none;\n}\n\ninput[type=\"range\"]:hover::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-hover));\n  box-shadow: var(--form-ring-hover);\n  outline: none;\n}\n\ninput[type=\"range\"]:focus::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-focus));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:active::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-active));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:disabled::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]:disabled:hover::-moz-range-thumb,\ninput[type=\"range\"]:disabled:focus::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  transform: scale(1);\n  outline: none;\n}\n\ninput[type=\"range\"]:disabled:active::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  outline: none;\n}\n\ninput[type=\"range\"]::-moz-range-progress {\n  background-color: rgb(var(--form-range-progress-background));\n  height: calc(var(--layout-line-width) * 2);\n  border-radius: var(--theme-radius-base);\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:active::-moz-range-progress {\n  background-color: rgb(var(--form-range-progress-background-active));\n}\n\ninput[type=\"range\"]:disabled::-moz-range-progress {\n  background-color: rgb(var(--form-range-progress-background-disabled));\n}\n\n/* form helper */\n.form-helper-item {\n  font-size: 0.8em;\n  color: rgb(var(--form-helper));\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.form-helper-item.disabled {\n  color: rgb(var(--form-helper-disabled));\n}\n\n/* form input button */\n.form-input-button {\n  position: relative;\n  display: inline-block;\n}\n\n.form-input-button input[type=\"checkbox\"]+label,\n.form-input-button input[type=\"radio\"]+label,\n.form-input-button input[type=\"color\"]+label,\n.form-input-button input[type=\"file\"]+label {\n  background-color: rgb(var(--button-background));\n  padding: 0.25em 1.25em;\n  margin: 0;\n  color: rgb(var(--button-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  min-height: 2.5em;\n  line-height: 1;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  box-shadow: none;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-input-button input[type=\"checkbox\"]:focus+label,\n.form-input-button input[type=\"checkbox\"]:hover+label,\n.form-input-button input[type=\"radio\"]:focus+label,\n.form-input-button input[type=\"radio\"]:hover+label,\n.form-input-button input[type=\"color\"]:focus+label,\n.form-input-button input[type=\"color\"]:hover+label,\n.form-input-button input[type=\"file\"]:focus+label,\n.form-input-button input[type=\"file\"]:hover+label {\n  background-color: rgb(var(--button-background-focus-hover));\n  color: rgb(var(--button-text-focus-hover));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:active+label,\n.form-input-button input[type=\"radio\"]:active+label,\n.form-input-button input[type=\"color\"]:active+label,\n.form-input-button input[type=\"file\"]:active+label {\n  background-color: rgb(var(--button-background-active));\n  color: rgb(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n  transition: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:checked+label,\n.form-input-button input[type=\"radio\"]:checked+label,\n.form-input-button input[type=\"color\"]:checked+label,\n.form-input-button input[type=\"file\"]:checked+label {\n  background-color: rgb(var(--button-background-active));\n  color: rgb(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:disabled+label,\n.form-input-button input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button input[type=\"radio\"]:disabled+label,\n.form-input-button input[type=\"radio\"]:disabled:hover+label,\n.form-input-button input[type=\"radio\"]:disabled:focus+label,\n.form-input-button input[type=\"radio\"]:disabled:active+label,\n.form-input-button input[type=\"color\"]:disabled+label,\n.form-input-button input[type=\"color\"]:disabled:hover+label,\n.form-input-button input[type=\"color\"]:disabled:focus+label,\n.form-input-button input[type=\"color\"]:disabled:active+label,\n.form-input-button input[type=\"file\"]:disabled+label,\n.form-input-button input[type=\"file\"]:disabled:hover+label,\n.form-input-button input[type=\"file\"]:disabled:focus+label,\n.form-input-button input[type=\"file\"]:disabled:active+label {\n  background-color: rgb(var(--button-background-disabled));\n  color: rgb(var(--button-text-disabled));\n  cursor: default;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]+label .label-icon,\n.form-input-button input[type=\"radio\"]+label .label-icon {\n  top: inherit;\n}\n\n.form-input-button-ring input[type=\"checkbox\"]+label,\n.form-input-button-ring input[type=\"radio\"]+label,\n.form-input-button-ring input[type=\"color\"]+label,\n.form-input-button-ring input[type=\"file\"]+label {\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:hover+label,\n.form-input-button-ring input[type=\"radio\"]:focus+label,\n.form-input-button-ring input[type=\"radio\"]:hover+label,\n.form-input-button-ring input[type=\"color\"]:focus+label,\n.form-input-button-ring input[type=\"color\"]:hover+label,\n.form-input-button-ring input[type=\"file\"]:focus+label,\n.form-input-button-ring input[type=\"file\"]:hover+label {\n  box-shadow: var(--form-ring-hover);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:active+label,\n.form-input-button-ring input[type=\"radio\"]:active+label,\n.form-input-button-ring input[type=\"color\"]:active+label,\n.form-input-button-ring input[type=\"file\"]:active+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:checked+label,\n.form-input-button-ring input[type=\"radio\"]:checked+label,\n.form-input-button-ring input[type=\"color\"]:checked+label,\n.form-input-button-ring input[type=\"file\"]:checked+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:disabled+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button-ring input[type=\"radio\"]:disabled+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:active+label,\n.form-input-button-ring input[type=\"color\"]:disabled+label,\n.form-input-button-ring input[type=\"color\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"color\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"color\"]:disabled:active+label,\n.form-input-button-ring input[type=\"file\"]:disabled+label,\n.form-input-button-ring input[type=\"file\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"file\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"file\"]:disabled:active+label {\n  box-shadow: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]+label:after,\n.form-input-button-line input[type=\"radio\"]+label:after,\n.form-input-button-line input[type=\"color\"]+label:after,\n.form-input-button-line input[type=\"file\"]+label:after {\n  content: \"\";\n  background: transparent;\n  border-radius: var(--theme-radius-base);\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  clip-path: polygon(0 calc(100% - var(--layout-line-width)), 100% calc(100% - var(--layout-line-width)), 100% 100%, 0% 100%);\n  transition: background-color var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:hover+label:after,\n.form-input-button-line input[type=\"color\"]:focus+label:after,\n.form-input-button-line input[type=\"color\"]:hover+label:after,\n.form-input-button-line input[type=\"file\"]:focus+label:after,\n.form-input-button-line input[type=\"file\"]:hover+label:after {\n  background-color: rgb(var(--button-border-focus-hover));\n}\n\n.form-input-button-line input[type=\"checkbox\"]:active+label:after,\n.form-input-button-line input[type=\"radio\"]:active+label:after,\n.form-input-button-line input[type=\"color\"]:active+label:after,\n.form-input-button-line input[type=\"file\"]:active+label:after {\n  background-color: rgb(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:checked+label:after,\n.form-input-button-line input[type=\"radio\"]:checked+label:after,\n.form-input-button-line input[type=\"color\"]:checked+label:after,\n.form-input-button-line input[type=\"file\"]:checked+label:after {\n  background-color: rgb(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:disabled+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"color\"]:disabled+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"file\"]:disabled+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:active+label:after {\n  background-color: rgb(var(--button-border-disabled));\n}\n\n/* form input button link */\n.form-input-button-link input[type=\"checkbox\"]+label,\n.form-input-button-link input[type=\"radio\"]+label,\n.form-input-button-link input[type=\"color\"]+label,\n.form-input-button-link input[type=\"file\"]+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:hover+label,\n.form-input-button-link input[type=\"checkbox\"]:focus+label,\n.form-input-button-link input[type=\"checkbox\"]:checked+label,\n.form-input-button-link input[type=\"radio\"]:hover+label,\n.form-input-button-link input[type=\"radio\"]:focus+label,\n.form-input-button-link input[type=\"radio\"]:checked+label,\n.form-input-button-link input[type=\"color\"]:hover+label,\n.form-input-button-link input[type=\"color\"]:focus+label,\n.form-input-button-link input[type=\"color\"]:checked+label,\n.form-input-button-link input[type=\"file\"]:hover+label,\n.form-input-button-link input[type=\"file\"]:focus+label,\n.form-input-button-link input[type=\"file\"]:checked+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:active+label,\n.form-input-button-link input[type=\"radio\"]:active+label,\n.form-input-button-link input[type=\"color\"]:active+label,\n.form-input-button-link input[type=\"file\"]:active+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]+label,\n.form-input-button-link input:disabled[type=\"radio\"]+label,\n.form-input-button-link input:disabled[type=\"color\"]+label,\n.form-input-button-link input:disabled[type=\"file\"]+label {\n  background-color: transparent;\n  pointer-events: none;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]:hover+label,\n.form-input-button-link input:disabled[type=\"checkbox\"]:focus+label,\n.form-input-button-link input:disabled[type=\"radio\"]:hover+label,\n.form-input-button-link input:disabled[type=\"radio\"]:focus+label,\n.form-input-button-link input:disabled[type=\"color\"]:hover+label,\n.form-input-button-link input:disabled[type=\"color\"]:focus+label,\n.form-input-button-link input:disabled[type=\"file\"]:hover+label,\n.form-input-button-link input:disabled[type=\"file\"]:focus+label {\n  background-color: transparent;\n}\n\n.input-color-dot input[type=\"color\"] {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  right: 1em;\n  width: calc(var(--form-thumb-size) * 0.8);\n  height: calc(var(--form-thumb-size) * 0.8);\n  min-width: inherit;\n  z-index: 4;\n  border-radius: 50%;\n  transform: translateY(-50%);\n  transition: none;\n}\n\n.input-color-dot input[type=\"color\"]:hover {\n  outline: none;\n  box-shadow: none;\n}\n\n.input-color-dot input[type=\"color\"]:focus {\n  outline: none;\n  box-shadow: none;\n}\n\n.input-color-dot-accent input[type=\"color\"],\n.input-color-dot-accent input[type=\"color\"]:hover,\n.input-color-dot-accent input[type=\"color\"]:focus {\n  box-shadow: 0 0 0.25em 0 rgba(var(--theme-accent), 0.6), 0 0 0.5em 0 rgba(var(--theme-accent), 0.4);\n}\n\n.input-color-dot-shade input[type=\"color\"],\n.input-color-dot-shade input[type=\"color\"]:hover,\n.input-color-dot-shade input[type=\"color\"]:focus {\n  box-shadow: 0 0 0.25em 0 rgba(var(--theme-shade), 0.6), 0 0 0.5em 0 rgba(var(--theme-shade), 0.4);\n}\n\n.input-color-dot input[type=\"color\"]+label {\n  padding-right: calc(calc(var(--form-thumb-size) * 0.8) + 2em);\n  position: relative;\n}\n\n.form-input-hide input[type=\"checkbox\"]+label .label-icon,\n.form-input-hide input[type=\"checkbox\"]:checked+label .label-icon,\n.form-input-hide input[type=\"radio\"]+label .label-icon,\n.form-input-hide input[type=\"radio\"]:checked+label .label-icon,\n.form-input-hide input[type=\"file\"]+label .label-icon,\n.form-input-hide input[type=\"file\"]:checked+label .label-icon {\n  display: none;\n}\n\n.form-input-hide input[type=\"color\"],\n.form-input-hide input[type=\"file\"] {\n  margin: 0;\n  opacity: 0;\n  width: 1px;\n  height: 1px;\n  min-width: 1px;\n  min-height: 1px;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  -webkit-appearance: none;\n}\n\n/* form grid */\n.form-grid {\n  background-color: rgb(var(--form-grid-background));\n  padding: calc(var(--form-thumb-size) / 2);\n  display: inline-grid;\n  overflow: hidden;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.form-grid:hover {\n  outline: none;\n  background-color: rgb(var(--form-grid-background-hover));\n}\n\n.form-grid:focus,\n.form-grid:focus-within {\n  outline: none;\n  background-color: rgb(var(--form-grid-background-focus));\n}\n\n.form-grid.disabled,\n.form-grid.disabled:focus,\n.form-grid.disabled:focus-within {\n  background-color: rgb(var(--form-grid-background-disabled));\n}\n\n.form-grid-3x3 {\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  border-radius: var(--theme-radius-base);\n}\n\n.form-grid-3x1 {\n  grid-template-columns: repeat(3, 1fr);\n  border-radius: var(--theme-radius-base);\n}\n\n.form-grid .form-wrap {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.form-grid input[type=\"checkbox\"]+label,\n.form-grid input[type=\"radio\"]+label {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  display: block;\n  width: calc(var(--form-thumb-size) * 1.75);\n  height: calc(var(--form-thumb-size) * 1.75);\n  position: relative;\n  transition: none;\n  z-index: 1;\n}\n\n.form-grid input[type=\"checkbox\"]:hover+label,\n.form-grid input[type=\"checkbox\"]:focus+label,\n.form-grid input[type=\"radio\"]:hover+label,\n.form-grid input[type=\"radio\"]:focus+label {\n  box-shadow: none;\n}\n\n.form-grid input[type=\"checkbox\"]+label .label-icon,\n.form-grid input[type=\"radio\"]+label .label-icon {\n  margin-right: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.form-grid-3x3 {\n  --radiusPart: calc(var(--theme-radius-base) / 20);\n  --responsivePos: calc(var(--radiusPart) + -50%);\n  --responsiveNeg: calc(calc(var(--radiusPart) * -1) + -50%);\n}\n\n.form-grid-3x3 .form-wrap:nth-child(1) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(1) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsivePos), var(--responsivePos));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(2) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(2) input[type=\"radio\"]+label .label-icon {\n  transform: translate(-50%, var(--responsivePos));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(3) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(3) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsiveNeg), var(--responsivePos));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(4) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(4) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsivePos), -50%);\n}\n\n.form-grid-3x3 .form-wrap:nth-child(6) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(6) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsiveNeg), -50%);\n}\n\n.form-grid-3x3 .form-wrap:nth-child(7) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(7) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsivePos), var(--responsiveNeg));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(8) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(8) input[type=\"radio\"]+label .label-icon {\n  transform: translate(-50%, var(--responsiveNeg));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(9) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(9) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsiveNeg), var(--responsiveNeg));\n}\n\n/* form group */\n.form-group {\n  position: relative;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: stretch;\n}\n\n.form-group .form-wrap {\n  margin-top: 0;\n  margin-bottom: 0;\n  margin-right: var(--form-wrap-space);\n  display: flex;\n  align-items: center;\n}\n\n.form-group .form-group-text,\n.form-group .button,\n.form-group .form-input-button input[type=\"checkbox\"]+label,\n.form-group .form-input-button input[type=\"radio\"]+label,\n.form-group .form-input-button input[type=\"color\"]+label,\n.form-group .form-input-button input[type=\"file\"]+label,\n.form-group>select,\n.form-group>input[type=\"email\"],\n.form-group>input[type=\"number\"],\n.form-group>input[type=\"password\"],\n.form-group>input[type=\"search\"],\n.form-group>input[type=\"tel\"],\n.form-group>input[type=\"text\"],\n.form-group>input[type=\"color\"],\n.form-group>input[type=\"range\"] {\n  margin: 0;\n  border-radius: 0;\n  height: inherit;\n  min-height: 2.5em;\n  flex-grow: 1;\n  flex-shrink: 1;\n  flex-basis: auto;\n  z-index: 1;\n}\n\n.form-group .button-line:after,\n.form-group .form-input-button-line input[type=\"checkbox\"]+label:after,\n.form-group .form-input-button-line input[type=\"radio\"]+label:after,\n.form-group .form-input-button-line input[type=\"color\"]+label:after,\n.form-group .form-input-button-line input[type=\"file\"]+label:after {\n  border-radius: 0;\n}\n\n.form-group .form-group-text {\n  flex-shrink: 0;\n}\n\n.form-group .form-group-text:focus,\n.form-group .button:focus,\n.form-group .form-input-button input[type=\"checkbox\"]:focus+label,\n.form-group .form-input-button input[type=\"radio\"]:focus+label,\n.form-group .form-input-button input[type=\"color\"]:focus+label,\n.form-group .form-input-button input[type=\"file\"]:focus+label,\n.form-group>select:focus,\n.form-group>input[type=\"email\"]:focus,\n.form-group>input[type=\"number\"]:focus,\n.form-group>input[type=\"password\"]:focus,\n.form-group>input[type=\"search\"]:focus,\n.form-group>input[type=\"tel\"]:focus,\n.form-group>input[type=\"text\"]:focus,\n.form-group>input[type=\"color\"]:focus,\n.form-group>input[type=\"range\"]:focus {\n  z-index: 2;\n}\n\n.form-group .form-group-text:hover,\n.form-group .form-group-text:active,\n.form-group .button:hover,\n.form-group .button:active,\n.form-group .form-input-button input[type=\"checkbox\"]:hover+label,\n.form-group .form-input-button input[type=\"checkbox\"]:active+label,\n.form-group .form-input-button input[type=\"radio\"]:hover+label,\n.form-group .form-input-button input[type=\"radio\"]:active+label,\n.form-group .form-input-button input[type=\"color\"]:hover+label,\n.form-group .form-input-button input[type=\"color\"]:active+label,\n.form-group .form-input-button input[type=\"file\"]:hover+label,\n.form-group .form-input-button input[type=\"file\"]:active+label,\n.form-group>select:hover,\n.form-group>select:active,\n.form-group>input[type=\"email\"]:hover,\n.form-group>input[type=\"email\"]:active,\n.form-group>input[type=\"number\"]:hover,\n.form-group>input[type=\"number\"]:active,\n.form-group>input[type=\"password\"]:hover,\n.form-group>input[type=\"password\"]:active,\n.form-group>input[type=\"search\"]:hover,\n.form-group>input[type=\"search\"]:active,\n.form-group>input[type=\"tel\"]:hover,\n.form-group>input[type=\"tel\"]:active,\n.form-group>input[type=\"text\"]:hover,\n.form-group>input[type=\"text\"]:active,\n.form-group>input[type=\"color\"]:hover,\n.form-group>input[type=\"color\"]:active,\n.form-group>input[type=\"range\"]:hover,\n.form-group>input[type=\"range\"]:active {\n  z-index: 3;\n}\n\n.form-group .form-input-button input[type=\"checkbox\"]:checked+label,\n.form-group .form-input-button input[type=\"radio\"]:checked+label,\n.form-group .form-input-button input[type=\"color\"]:checked+label,\n.form-group .form-input-button input[type=\"file\"]:checked+label {\n  z-index: 3;\n}\n\n.form-group .form-group-text:first-child,\n.form-group .button:first-child,\n.form-group .button-line:first-child:after,\n.form-group .form-input-button:first-child input[type=\"checkbox\"]+label,\n.form-group .form-input-button:first-child input[type=\"radio\"]+label,\n.form-group .form-input-button:first-child input[type=\"color\"]+label,\n.form-group .form-input-button:first-child input[type=\"file\"]+label,\n.form-group .form-input-button-line:first-child input[type=\"checkbox\"]+label:after,\n.form-group .form-input-button-line:first-child input[type=\"radio\"]+label:after,\n.form-group .form-input-button-line:first-child input[type=\"color\"]+label:after,\n.form-group .form-input-button-line:first-child input[type=\"file\"]+label:after,\n.form-group>select:first-child,\n.form-group>input[type=\"email\"]:first-child,\n.form-group>input[type=\"number\"]:first-child,\n.form-group>input[type=\"password\"]:first-child,\n.form-group>input[type=\"search\"]:first-child,\n.form-group>input[type=\"tel\"]:first-child,\n.form-group>input[type=\"text\"]:first-child,\n.form-group>input[type=\"color\"]:first-child,\n.form-group>input[type=\"range\"]:first-child {\n  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);\n}\n\n.form-group .form-group-text:last-child,\n.form-group .button:last-child,\n.form-group .button-line:last-child:after,\n.form-group .form-input-button:last-child input[type=\"checkbox\"]+label,\n.form-group .form-input-button:last-child input[type=\"radio\"]+label,\n.form-group .form-input-button:last-child input[type=\"color\"]+label,\n.form-group .form-input-button:last-child input[type=\"file\"]+label,\n.form-group .form-input-button-line:last-child input[type=\"checkbox\"]+label:after,\n.form-group .form-input-button-line:last-child input[type=\"radio\"]+label:after,\n.form-group .form-input-button-line:last-child input[type=\"color\"]+label:after,\n.form-group .form-input-button-line:last-child input[type=\"file\"]+label:after,\n.form-group>select:last-child,\n.form-group>input[type=\"email\"]:last-child,\n.form-group>input[type=\"number\"]:last-child,\n.form-group>input[type=\"password\"]:last-child,\n.form-group>input[type=\"search\"]:last-child,\n.form-group>input[type=\"tel\"]:last-child,\n.form-group>input[type=\"text\"]:last-child,\n.form-group>input[type=\"color\"]:last-child,\n.form-group>input[type=\"range\"]:last-child {\n  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;\n}\n\n.form-group .form-group-text:only-child,\n.form-group .button:only-child,\n.form-group .button-line:only-child:after,\n.form-group>select:only-child,\n.form-group>input[type=\"email\"]:only-child,\n.form-group>input[type=\"number\"]:only-child,\n.form-group>input[type=\"password\"]:only-child,\n.form-group>input[type=\"search\"]:only-child,\n.form-group>input[type=\"tel\"]:only-child,\n.form-group>input[type=\"text\"]:only-child,\n.form-group>input[type=\"color\"]:only-child,\n.form-group>input[type=\"range\"]:only-child {\n  border-radius: var(--theme-radius-base);\n}\n\n.form-group.form-group-nested-button * .button,\n.form-group.form-group-nested-button * .button-line:after,\n.form-group.form-group-nested-button * input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button * input[type=\"radio\"]+label,\n.form-group.form-group-nested-button * input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n.form-group.form-group-nested-button *:first-child .button,\n.form-group.form-group-nested-button *:first-child .button-line:after,\n.form-group.form-group-nested-button *:first-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button *:first-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button *:first-child input[type=\"color\"]+label {\n  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);\n}\n\n.form-group.form-group-nested-button *:last-child .button,\n.form-group.form-group-nested-button *:last-child .button-line:after,\n.form-group.form-group-nested-button *:last-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button *:last-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button *:last-child input[type=\"color\"]+label {\n  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;\n}\n\n.form-group .form-group-radius-left.form-group-text,\n.form-group .form-group-radius-left.button,\n.form-group .form-group-radius-left.button-line:after,\n.form-group>select.form-group-radius-left,\n.form-group>input.form-group-radius-left[type=\"email\"],\n.form-group>input.form-group-radius-left[type=\"number\"],\n.form-group>input.form-group-radius-left[type=\"password\"],\n.form-group>input.form-group-radius-left[type=\"search\"],\n.form-group>input.form-group-radius-left[type=\"tel\"],\n.form-group>input.form-group-radius-left[type=\"text\"],\n.form-group>input.form-group-radius-left[type=\"color\"],\n.form-group>input.form-group-radius-left[type=\"range\"] {\n  border-top-left-radius: var(--theme-radius-base);\n  border-bottom-left-radius: var(--theme-radius-base);\n}\n\n.form-group .form-group-radius-right.form-group-text,\n.form-group .form-group-radius-right.button,\n.form-group .form-group-radius-right.butbutton-lineton:after,\n.form-group>select.form-group-radius-right,\n.form-group>input.form-group-radius-right[type=\"email\"],\n.form-group>input.form-group-radius-right[type=\"number\"],\n.form-group>input.form-group-radius-right[type=\"password\"],\n.form-group>input.form-group-radius-right[type=\"search\"],\n.form-group>input.form-group-radius-right[type=\"tel\"],\n.form-group>input.form-group-radius-right[type=\"text\"],\n.form-group>input.form-group-radius-right[type=\"color\"],\n.form-group>input.form-group-radius-right[type=\"range\"] {\n  border-top-right-radius: var(--theme-radius-base);\n  border-bottom-right-radius: var(--theme-radius-base);\n}\n\n.form-group-block {\n  display: flex;\n  width: 100%;\n}\n\n.form-group-border {\n  border-radius: var(--theme-radius-base);\n  border-width: var(--layout-line-width);\n  border-color: rgb(var(--form-group-text-border));\n  border-style: solid;\n  overflow: hidden;\n}\n\n.form-group-border-theme-color {\n  border-color: rgb(var(--theme-color));\n}\n\n.form-group.form-group-border .form-group-text,\n.form-group.form-group-border .button,\n.form-group.form-group-border .button-line:after,\n.form-group.form-group-border>select,\n.form-group.form-group-border>input[type=\"email\"],\n.form-group.form-group-border>input[type=\"number\"],\n.form-group.form-group-border>input[type=\"password\"],\n.form-group.form-group-border>input[type=\"search\"],\n.form-group.form-group-border>input[type=\"tel\"],\n.form-group.form-group-border>input[type=\"text\"],\n.form-group.form-group-border>input[type=\"color\"],\n.form-group.form-group-border>input[type=\"range\"],\n.form-group.form-group-border.form-group-nested-button * .button,\n.form-group.form-group-border.form-group-nested-button * .button-line:after,\n.form-group.form-group-border.form-group-nested-button * input[type=\"checkbox\"]+label,\n.form-group.form-group-border.form-group-nested-button * input[type=\"radio\"]+label,\n.form-group.form-group-border.form-group-nested-button * input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n.form-group-text {\n  background-color: rgb(var(--form-group-text-background));\n  padding: 0 1.25em;\n  margin: 0;\n  color: rgb(var(--form-input-text));\n  min-width: 4em;\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 0;\n  border-width: var(--layout-line-width);\n  border-color: rgb(var(--form-group-text-border));\n  border-style: solid;\n  border-radius: var(--theme-radius-base);\n  white-space: nowrap;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-group-text:hover,\n.form-group-text:focus {\n  background-color: rgb(var(--form-group-text-background-focus-hover));\n  border-color: rgb(var(--form-group-text-border-focus-hover));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text:active {\n  background-color: rgb(var(--form-group-text-background-active));\n  border-color: rgb(var(--form-group-text-border-active));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text.disabled,\n.form-group-text.disabled:hover,\n.form-group-text.disabled:focus,\n.form-group-text.disable:active {\n  background-color: rgb(var(--form-group-text-background-disabled));\n  border-color: rgb(var(--form-group-text-border-disabled));\n  color: rgb(var(--form-input-text-disabled));\n  box-shadow: none;\n  cursor: default;\n}\n\n.form-group-text-left {\n  justify-content: flex-start;\n}\n\n.form-group-text-right {\n  justify-content: flex-end;\n}\n\n.form-group-item-small,\n.form-group-item-medium,\n.form-group-item-large,\n.form-group>.button.form-group-item-small,\n.form-group>.button.form-group-item-medium,\n.form-group>.button.form-group-item-large,\n.form-group>select.form-group-item-small,\n.form-group>select.form-group-item-medium,\n.form-group>select.form-group-item-large,\n.form-group>input[type].form-group-item-small,\n.form-group>input[type].form-group-item-medium,\n.form-group>input[type].form-group-item-large {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n\n.form-group-item-small,\n.form-group>.button.form-group-item-small,\n.form-group>select.form-group-item-small,\n.form-group>input[type].form-group-item-small {\n  width: 4em;\n  flex-shrink: 0;\n}\n\n.form-group-item-medium,\n.form-group>.button.form-group-item-medium,\n.form-group>select.form-group-item-medium,\n.form-group>input[type].form-group-item-medium {\n  width: 6em;\n  flex-shrink: 0;\n}\n\n.form-group-item-large,\n.form-group>.button.form-group-item-large,\n.form-group>select.form-group-item-large,\n.form-group>input[type].form-group-item-large {\n  width: 8em;\n  flex-shrink: 0;\n}\n\n.form-group-item-shrink,\n.form-group>.button.form-group-item-shrink,\n.form-group>select.form-group-item-shrink,\n.form-group>input[type].form-group-item-shrink {\n  flex-grow: 0;\n}\n\n.form-group-item-grow,\n.form-group>.button.form-group-item-grow,\n.form-group>select.form-group-item-grow,\n.form-group>input[type].form-group-item-grow {\n  flex-grow: 1;\n}\n\n.form-group-item-half,\n.form-group>.button.form-group-item-half,\n.form-group>select.form-group-item-half,\n.form-group>input[type].form-group-item-half {\n  flex-basis: 50%;\n}\n\n.form-group-item-equal,\n.form-group>.button.form-group-item-equal,\n.form-group>select.form-group-item-equal,\n.form-group>input[type].form-group-item-equal {\n  flex-basis: 0;\n}\n\n.form-group-text-borderless {\n  padding: 0;\n  border-width: 0;\n  min-width: inherit;\n}\n\n.form-group-text-transparent,\n.form-group-text-transparent:hover,\n.form-group-text-transparent:focus,\n.form-group-text-transparent:active,\n.form-group-text-transparent.disabled,\n.form-group-text-transparent.disabled:hover,\n.form-group-text-transparent.disabled:focus,\n.form-group-text-transparent.disable:active {\n  background-color: transparent;\n}\n\n/* form dropdown */\n.form-dropdown {\n  position: relative;\n}\n\n.form-dropdown.form-dropdown-inline {\n  display: inline-block;\n}\n\n.form-dropdown-menu {\n  background-color: rgb(var(--form-dropdown-background));\n  border-radius: var(--theme-radius-base);\n  padding: 0.75em 0;\n  position: absolute;\n  width: 100%;\n  min-width: 12em;\n  box-shadow: var(--theme-shadow-bottom-large);\n  z-index: var(--z-index-dropdown);\n  overflow: hidden;\n  display: none;\n}\n\n.form-dropdown-menu-left {\n  right: 0;\n}\n\n.form-dropdown-menu-right {\n  left: 0;\n}\n\n.form-dropdown-menu-top {\n  bottom: calc(100% + calc(var(--layout-line-width) * 2));\n}\n\n.form-dropdown-menu-bottom {\n  top: calc(100% + calc(var(--layout-line-width) * 2));\n}\n\n.form-dropdown-open .form-dropdown-menu {\n  display: flex;\n  flex-direction: column;\n}\n\n.form-dropdown-menu button,\n.form-dropdown-menu .button {\n  border-radius: 0;\n  justify-content: flex-start;\n  position: relative;\n}\n\n.form-dropdown-menu .button-line:after {\n  border-radius: 0;\n}\n\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child .button,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child .button,\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child input[type=\"color\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n/* form feedback */\n.form-feedback {\n  padding: 0.75em 1.25em;\n  background-color: rgb(var(--form-feedback-background));\n  border: 0;\n  border-left-width: calc(var(--layout-line-width) * 2);\n  border-left-style: solid;\n  border-left-color: rgb(var(--form-feedback-border));\n  border-top-right-radius: var(--theme-radius-base);\n  border-bottom-right-radius: var(--theme-radius-base);\n  width: 100%;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);\n}\n\n.form-feedback p {\n  color: rgb(var(--form-feedback-text));\n}\n\n.form-feedback p.muted {\n  color: rgb(var(--form-feedback-text-muted));\n}\n\n.form-feedback.disabled {\n  background-color: rgb(var(--form-feedback-background-disabled));\n  border-color: rgb(var(--form-feedback-border-disabled));\n}\n\n.form-feedback.disabled p {\n  color: rgb(var(--form-feedback-text-disabled));\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-label: var(--theme-color-16);\n  --form-label-hover: var(--theme-color-20);\n  --form-label-focus-active: var(--theme-style-text);\n  --form-label-checked: var(--theme-style-text);\n  --form-label-disabled: var(--theme-color-04);\n  --form-input-text: var(--theme-color-16);\n  --form-input-text-hover: var(--theme-color-18);\n  --form-input-text-focus-active: var(--theme-style-text);\n  --form-input-text-disabled: var(--theme-color-04);\n  --form-input-background: var(--theme-color-02);\n  --form-input-background-hover: var(--theme-color-02);\n  --form-input-background-focus-active: var(--theme-color-01);\n  --form-input-background-disabled: var(--theme-color-01);\n}\n\n:root {\n  --form-group-text-background: var(--theme-color-02);\n  --form-group-text-background-focus-hover: var(--theme-color-02);\n  --form-group-text-background-active: var(--theme-color-02);\n  --form-group-text-background-disabled: var(--theme-color-01);\n  --form-group-text-border: var(--theme-color-02);\n  --form-group-text-border-focus-hover: var(--theme-color-02);\n  --form-group-text-border-active: var(--theme-color-02);\n  --form-group-text-border-disabled: var(--theme-color-01);\n}\n\n:root {\n  --form-border-disabled: var(--theme-color-02);\n}\n\n:root {\n  --form-icon: var(--theme-color-08);\n  --form-icon-hover: var(--theme-color-16);\n  --form-icon-focus: var(--theme-color-18);\n  --form-icon-active: var(--theme-style-text);\n  --form-icon-checked: var(--theme-style-text);\n  --form-icon-disabled: var(--theme-color-04);\n  --form-icon-symbol: var(--theme-color-01);\n  --form-icon-symbol-active: var(--theme-color-01);\n  --form-icon-symbol-disabled: var(--theme-color-01);\n}\n\n:root {\n  --form-placeholder: var(--theme-color-06);\n  --form-placeholder-focus-hover: var(--theme-color-10);\n  --form-placeholder-disabled: var(--theme-color-03);\n}\n\n:root {\n  --form-checkbox-radio-label: var(--theme-color-12);\n  --form-checkbox-radio-checked-label: var(--theme-color-16);\n  --form-checkbox-radio-disabled-label: var(--theme-color-04);\n}\n\n:root {\n  --form-feedback-text: var(--theme-color-16);\n  --form-feedback-text-muted: var(--theme-color-12);\n  --form-feedback-text-disabled: var(--theme-color-04);\n  --form-feedback-background: var(--theme-color-02);\n  --form-feedback-background-disabled: var(--theme-color-01);\n  --form-feedback-border: var(--theme-color-04);\n  --form-feedback-border-disabled: var(--theme-color-02);\n}\n\n:root {\n  --form-helper: var(--theme-color-12);\n  --form-helper-disabled: var(--theme-color-04);\n}\n\n:root {\n  --form-thumb-size: 1.25em;\n}\n\n:root {\n  --form-range-thumb-background: var(--theme-color-16);\n  --form-range-thumb-background-hover: var(--theme-color-18);\n  --form-range-thumb-background-focus: var(--theme-style-text);\n  --form-range-thumb-background-active: var(--theme-style-text);\n  --form-range-thumb-background-disabled: var(--theme-color-03);\n  --form-range-track-background: var(--theme-color-06);\n  --form-range-track-background-focus-hover: var(--theme-color-04);\n  --form-range-track-background-active: var(--theme-color-03);\n  --form-range-track-background-disabled: var(--theme-color-02);\n  --form-range-progress-background: var(--theme-color-08);\n  --form-range-progress-background-active: var(--theme-accent);\n  --form-range-progress-background-disabled: var(--theme-color-02);\n}\n\n:root {\n  --form-grid-background: var(--theme-color-02);\n  --form-grid-background-hover: var(--theme-color-02);\n  --form-grid-background-focus: var(--theme-color-02);\n  --form-grid-background-disabled: var(--theme-color-01);\n  --form-grid-border: var(--theme-color-08);\n  --form-grid-border-hover-focus: var(--theme-color-20);\n  --form-grid-border-active: var(--theme-accent);\n  --form-grid-border-checked: var(--theme-accent);\n  --form-grid-border-disabled: var(--theme-color-04);\n}\n\n:root {\n  --form-dropdown-background: var(--theme-color-02);\n}\n\n:root {\n  --form-ring-hover: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-06));\n  --form-ring-focus: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-10)),\n    0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-color-10), 0.25);\n  --form-ring-accent: 0 0 0 var(--layout-line-width) rgb(var(--theme-accent)),\n    0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-accent), 0.25);\n}\n\n:root {\n  --form-wrap-space: 1em;\n}\n\n/* fieldset */\nfieldset:not(:only-child):not(:last-child),\n.fieldset:not(:only-child):not(:last-child) {\n  position: relative;\n  width: 100%;\n  display: block;\n}\n\n/* form variants */\n.form-wrap {\n  position: relative;\n  width: 100%;\n  display: block;\n}\n\n.form-wrap:not(:first-child) {\n  margin-top: var(--form-wrap-space);\n}\n\n.form-wrap:not(:last-child) {\n  margin-bottom: var(--form-wrap-space);\n}\n\n.form-wrap-hide-space:not(:first-child),\n.form-wrap-hide-space:not(:last-child) {\n  margin-top: calc(var(--form-wrap-space) * -1);\n  margin-bottom: 0;\n}\n\n.form-indent {\n  margin-left: calc(var(--form-wrap-space) * 2.25);\n}\n\n.form-inline {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: nowrap;\n  gap: calc(var(--form-wrap-space) * 1);\n}\n\n.form-inline-wide-gap {\n  column-gap: calc(var(--form-wrap-space) * 3);\n  row-gap: calc(var(--form-wrap-space) * 1.5);\n}\n\n.form-inline-wrap {\n  flex-wrap: wrap;\n}\n\n.form-inline .form-wrap:not(:first-child),\n.form-inline .form-wrap:not(:last-child) {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.form-inline .form-wrap {\n  flex-basis: 0;\n}\n\n.form-sticky {\n  background-color: rgb(var(--theme-color-01));\n  margin: -1.5em -1em 0 -1em;\n  padding: 1.5em 1em 1em 1em;\n  position: sticky;\n  top: 0;\n  z-index: 4;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n/* label */\nlabel {\n  padding: 0;\n  color: rgb(var(--form-label));\n  margin-bottom: 0;\n  font-size: 1em;\n  display: block;\n  transition: color var(--layout-transition-extra-fast);\n}\n\nlabel:not(:only-child):not(:last-child) {\n  padding-bottom: var(--form-wrap-space);\n}\n\nlabel.disabled {\n  color: rgb(var(--form-label-disabled));\n}\n\n/* select */\nselect {\n  background-color: rgb(var(--form-input-background));\n  background-image:\n    linear-gradient(45deg, transparent 60%, rgb(var(--form-label)) 60%),\n    linear-gradient(135deg, rgb(var(--form-label)) 40%, transparent 40%);\n  background-position:\n    calc(100% - 1.5em) 55%,\n    calc(100% - 1em) 55%;\n  background-size:\n    0.5em 0.375em,\n    0.5em 0.375em;\n  background-repeat: no-repeat;\n  padding: 0 3em 0 1.25em;\n  margin: 0;\n  color: rgb(var(--form-label));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  line-height: 2.5;\n  min-height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: pointer;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  appearance: none;\n}\n\nselect:hover {\n  background-image:\n    linear-gradient(45deg, transparent 60%, rgb(var(--form-label-hover)) 60%),\n    linear-gradient(135deg, rgb(var(--form-label-hover)) 40%, transparent 40%);\n  background-color: rgb(var(--form-input-background-hover));\n  color: rgb(var(--form-label-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\nselect:focus,\nselect:active {\n  background-image:\n    linear-gradient(45deg, transparent 60%, rgb(var(--form-label-focus-active)) 60%),\n    linear-gradient(135deg, rgb(var(--form-label-focus-active)) 40%, transparent 40%);\n  background-color: rgb(var(--form-input-background-border-focus-active));\n  color: rgb(var(--form-label-focus-active));\n  outline: none;\n  z-index: 2;\n  box-shadow: var(--form-ring-accent);\n}\n\nselect:disabled,\nselect:disabled:hover,\nselect:disabled:focus,\nselect:disabled:active {\n  background-color: rgb(var(--form-input-background-disabled));\n  background-image:\n    linear-gradient(45deg, transparent 50%, rgb(var(--form-input-text-disabled)) 50%),\n    linear-gradient(135deg, rgb(var(--form-input-text-disabled)) 50%, transparent 50%);\n  color: rgb(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n}\n\n/* textarea */\ntextarea {\n  background-color: rgb(var(--form-input-background));\n  padding: 0.5em 1.25em;\n  margin: 0;\n  color: rgb(var(--form-input-text));\n  font-size: 1em;\n  line-height: 1.6;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  height: 10em;\n  min-height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: text;\n  resize: vertical;\n  display: block;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: textfield;\n}\n\ntextarea:hover {\n  background-color: rgb(var(--form-input-background-hover));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\ntextarea:focus,\ntextarea:active {\n  background-color: rgb(var(--form-input-background-focus-active));\n  color: rgb(var(--form-input-text-focus-active));\n  outline: none;\n  box-shadow: var(--form-ring-accent);\n}\n\ntextarea:disabled {\n  background-color: rgb(var(--form-input-background-disabled));\n  color: rgb(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n  resize: none;\n}\n\ntextarea:disabled:hover,\ntextarea:disabled:focus {\n  color: rgb(var(--form-input-text-disabled));\n}\n\ntextarea::placeholder {\n  color: rgb(var(--form-placeholder));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ntextarea:hover::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ntextarea:focus::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ntextarea:disabled::placeholder,\ntextarea:disabled:hover::placeholder,\ntextarea:disabled:focus::placeholder {\n  color: rgb(var(--form-placeholder-disabled));\n}\n\n/* email, number, password, search, tel, text */\ninput[type=\"email\"],\ninput[type=\"number\"],\ninput[type=\"password\"],\ninput[type=\"search\"],\ninput[type=\"tel\"],\ninput[type=\"text\"] {\n  background-color: rgb(var(--form-input-background));\n  padding: 0 1.25em;\n  margin: 0;\n  color: rgb(var(--form-input-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  line-height: 1.6;\n  height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: text;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: textfield;\n}\n\ninput[type=\"search\"]::-webkit-search-decoration,\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-results-button,\ninput[type=\"search\"]::-webkit-search-results-decoration {\n  -webkit-appearance: none;\n}\n\ninput[type=\"number\"] {\n  text-align: center;\n}\n\ninput[type=number]::-webkit-inner-spin-button,\ninput[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\ninput[type=\"email\"]:hover,\ninput[type=\"number\"]:hover,\ninput[type=\"password\"]:hover,\ninput[type=\"search\"]:hover,\ninput[type=\"tel\"]:hover,\ninput[type=\"text\"]:hover {\n  background-color: rgb(var(--form-input-background-hover));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\ninput[type=\"email\"]:focus,\ninput[type=\"email\"]:active,\ninput[type=\"number\"]:focus,\ninput[type=\"number\"]:active,\ninput[type=\"password\"]:focus,\ninput[type=\"password\"]:active,\ninput[type=\"search\"]:focus,\ninput[type=\"search\"]:active,\ninput[type=\"tel\"]:focus,\ninput[type=\"tel\"]:active,\ninput[type=\"text\"]:focus,\ninput[type=\"text\"]:active {\n  background-color: rgb(var(--form-input-background-focus-active));\n  color: rgb(var(--form-input-text-focus-active));\n  outline: none;\n  z-index: 2;\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"email\"]:disabled,\ninput[type=\"number\"]:disabled,\ninput[type=\"password\"]:disabled,\ninput[type=\"search\"]:disabled,\ninput[type=\"tel\"]:disabled,\ninput[type=\"text\"]:disabled {\n  background-color: rgb(var(--form-input-background-disabled));\n  color: rgb(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n}\n\ninput[type=\"email\"]:disabled:hover,\ninput[type=\"email\"]:disabled:focus,\ninput[type=\"number\"]:disabled:hover,\ninput[type=\"number\"]:disabled:focus,\ninput[type=\"password\"]:disabled:hover,\ninput[type=\"password\"]:disabled:focus,\ninput[type=\"search\"]:disabled:hover,\ninput[type=\"search\"]:disabled:focus,\ninput[type=\"tel\"]:disabled:hover,\ninput[type=\"tel\"]:disabled:focus,\ninput[type=\"text\"]:disabled:hover,\ninput[type=\"text\"]:disabled:focus {\n  color: rgb(var(--form-input-text-disabled));\n}\n\ninput[type=\"email\"]::placeholder,\ninput[type=\"number\"]::placeholder,\ninput[type=\"password\"]::placeholder,\ninput[type=\"search\"]::placeholder,\ninput[type=\"tel\"]::placeholder,\ninput[type=\"text\"]::placeholder {\n  color: rgb(var(--form-placeholder));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"email\"]:hover::placeholder,\ninput[type=\"number\"]:hover::placeholder,\ninput[type=\"password\"]:hover::placeholder,\ninput[type=\"search\"]:hover::placeholder,\ninput[type=\"tel\"]:hover::placeholder,\ninput[type=\"text\"]:hover::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ninput[type=\"email\"]:focus::placeholder,\ninput[type=\"number\"]:focus::placeholder,\ninput[type=\"password\"]:focus::placeholder,\ninput[type=\"search\"]:focus::placeholder,\ninput[type=\"tel\"]:focus::placeholder,\ninput[type=\"text\"]:focus::placeholder {\n  color: rgb(var(--form-placeholder-focus-hover));\n}\n\ninput[type=\"email\"]:disabled::placeholder,\ninput[type=\"email\"]:disabled:hover::placeholder,\ninput[type=\"email\"]:disabled:focus::placeholder,\ninput[type=\"number\"]:disabled::placeholder,\ninput[type=\"number\"]:disabled:hover::placeholder,\ninput[type=\"number\"]:disabled:focus::placeholder,\ninput[type=\"password\"]:disabled::placeholder,\ninput[type=\"password\"]:disabled:hover::placeholder,\ninput[type=\"password\"]:disabled:focus::placeholder,\ninput[type=\"search\"]:disabled::placeholder,\ninput[type=\"search\"]:disabled:hover::placeholder,\ninput[type=\"search\"]:disabled:focus::placeholder,\ninput[type=\"tel\"]:disabled::placeholder,\ninput[type=\"tel\"]:disabled:hover::placeholder,\ninput[type=\"tel\"]:disabled:focus::placeholder,\ninput[type=\"text\"]:disabled::placeholder,\ninput[type=\"text\"]:disabled:hover::placeholder,\ninput[type=\"text\"]:disabled:focus::placeholder {\n  color: rgb(var(--form-placeholder-disabled));\n}\n\n.input-clear[type=\"email\"],\n.input-clear[type=\"number\"],\n.input-clear[type=\"password\"],\n.input-clear[type=\"search\"],\n.input-clear[type=\"tel\"],\n.input-clear[type=\"text\"] {\n  background-color: transparent;\n}\n\n.input-clear[type=\"email\"]:hover,\n.input-clear[type=\"number\"]:hover,\n.input-clear[type=\"password\"]:hover,\n.input-clear[type=\"search\"]:hover,\n.input-clear[type=\"tel\"]:hover,\n.input-clear[type=\"text\"]:hover {\n  background-color: transparent;\n  box-shadow: none;\n}\n\n.input-clear[type=\"email\"]:focus,\n.input-clear[type=\"email\"]:active,\n.input-clear[type=\"number\"]:focus,\n.input-clear[type=\"number\"]:active,\n.input-clear[type=\"password\"]:focus,\n.input-clear[type=\"password\"]:active,\n.input-clear[type=\"search\"]:focus,\n.input-clear[type=\"search\"]:active,\n.input-clear[type=\"tel\"]:focus,\n.input-clear[type=\"tel\"]:active,\n.input-clear[type=\"text\"]:focus,\n.input-clear[type=\"text\"]:active {\n  background-color: transparent;\n  box-shadow: var(--form-ring-accent);\n}\n\n/* checkbox and radio */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  margin-bottom: 0;\n  position: absolute;\n  top: 0;\n  left: 0;\n  opacity: 0;\n  display: block;\n  font-size: 1em;\n  line-height: 1;\n  cursor: pointer;\n  pointer-events: none;\n  box-sizing: border-box;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]+label,\ninput[type=\"radio\"]+label {\n  padding: 0;\n  margin: 0;\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  color: rgb(var(--form-label));\n  cursor: pointer;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: flex-start;\n  transition: transform var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]:hover+label,\ninput[type=\"checkbox\"]:focus+label,\ninput[type=\"radio\"]:hover+label,\ninput[type=\"radio\"]:focus+label {\n  color: rgb(var(--form-label-hover));\n}\n\ninput[type=\"checkbox\"]:active+label,\ninput[type=\"radio\"]:active+label {\n  color: rgb(var(--form-label-focus-active));\n}\n\ninput[type=\"checkbox\"]:checked+label,\ninput[type=\"radio\"]:checked+label {\n  color: rgb(var(--form-label-checked));\n}\n\ninput[type=\"checkbox\"]:disabled+label,\ninput[type=\"checkbox\"]:disabled:hover+label,\ninput[type=\"checkbox\"]:disabled:focus+label,\ninput[type=\"radio\"]:disabled+label,\ninput[type=\"radio\"]:disabled:hover+label,\ninput[type=\"radio\"]:disabled:focus+label {\n  color: rgb(var(--form-label-disabled));\n  cursor: default;\n}\n\ninput[type=\"checkbox\"]+label .label-icon,\ninput[type=\"radio\"]+label .label-icon {\n  background-color: rgb(var(--form-icon));\n  margin-right: 1em;\n  width: var(--form-thumb-size);\n  height: var(--form-thumb-size);\n  position: relative;\n  top: 0.125em;\n  display: block;\n  flex-grow: 0;\n  flex-shrink: 0;\n  z-index: 1;\n  box-shadow: none;\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]+label .label-icon {\n  border-radius: 0.25em;\n}\n\ninput[type=\"radio\"]+label .label-icon {\n  border-radius: 50%;\n}\n\ninput[type=\"checkbox\"]:hover+label .label-icon,\ninput[type=\"checkbox\"]:focus+label .label-icon,\ninput[type=\"radio\"]:hover+label .label-icon,\ninput[type=\"radio\"]:focus+label .label-icon {\n  background-color: rgb(var(--form-icon-hover));\n  box-shadow: var(--form-ring-hover);\n}\n\ninput[type=\"checkbox\"]:active+label .label-icon,\ninput[type=\"radio\"]:active+label .label-icon {\n  background-color: rgb(var(--form-icon-active));\n  box-shadow: var(--form-ring-accent);\n  transition: none;\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon,\ninput[type=\"radio\"]:checked+label .label-icon {\n  background-color: rgb(var(--form-icon-checked));\n}\n\ninput[type=\"checkbox\"]:checked:focus+label .label-icon,\ninput[type=\"checkbox\"]:checked:active+label .label-icon,\ninput[type=\"radio\"]:checked:focus+label .label-icon,\ninput[type=\"radio\"]:checked:active+label .label-icon {\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-icon,\ninput[type=\"checkbox\"]:disabled:hover+label .label-icon,\ninput[type=\"checkbox\"]:disabled:focus+label .label-icon,\ninput[type=\"checkbox\"]:checked:disabled+label .label-icon,\ninput[type=\"checkbox\"]:checked:disabled:hover+label .label-icon,\ninput[type=\"checkbox\"]:checked:disabled:focus+label .label-icon,\ninput[type=\"radio\"]:disabled+label .label-icon,\ninput[type=\"radio\"]:disabled:hover+label .label-icon,\ninput[type=\"radio\"]:disabled:focus+label .label-icon,\ninput[type=\"radio\"]:checked:disabled+label .label-icon,\ninput[type=\"radio\"]:checked:disabled:hover+label .label-icon,\ninput[type=\"radio\"]:checked:disabled:focus+label .label-icon {\n  background-color: rgb(var(--form-icon-disabled));\n  box-shadow: none;\n}\n\ninput[type=\"checkbox\"]+label .label-icon:before,\ninput[type=\"radio\"]+label .label-icon:before {\n  content: \"\";\n  background-color: rgb(var(--form-icon-symbol));\n  width: 100%;\n  height: 100%;\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  transform: scale(0.7);\n  transform-origin: center;\n  z-index: 2;\n  transition: background-color var(--layout-transition-extra-fast), border-radius var(--layout-transition-extra-fast), transform var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]+label .label-icon:before {\n  border-radius: 0.1em;\n}\n\ninput[type=\"radio\"]+label .label-icon:before {\n  border-radius: 50%;\n}\n\ninput[type=\"checkbox\"]:active+label .label-icon:before,\ninput[type=\"radio\"]:active+label .label-icon:before {\n  background-color: rgb(var(--form-icon-symbol-active));\n  transition: none;\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon:before,\ninput[type=\"radio\"]:checked+label .label-icon:before {\n  background-color: rgb(var(--form-icon-symbol-active));\n  border-radius: 50%;\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon:before {\n  transform: scale(0);\n}\n\ninput[type=\"radio\"]:checked+label .label-icon:before {\n  transform: scale(0.2);\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-icon:before,\ninput[type=\"checkbox\"]:disabled:hover+label .label-icon:before,\ninput[type=\"checkbox\"]:disabled:focus+label .label-icon:before,\ninput[type=\"checkbox\"]:disabled:active+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled:hover+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled:focus+label .label-icon:before,\ninput[type=\"checkbox\"]:checked:disabled:active+label .label-icon:before,\ninput[type=\"radio\"]:disabled+label .label-icon:before,\ninput[type=\"radio\"]:disabled:hover+label .label-icon:before,\ninput[type=\"radio\"]:disabled:focus+label .label-icon:before,\ninput[type=\"radio\"]:disabled:active+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled:hover+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled:focus+label .label-icon:before,\ninput[type=\"radio\"]:checked:disabled:active+label .label-icon:before {\n  background-color: rgb(var(--form-icon-symbol-disabled));\n}\n\ninput[type=\"checkbox\"]+label .label-icon:after {\n  content: \"\";\n  background-color: rgb(var(--form-icon-symbol));\n  width: 100%;\n  height: 100%;\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  transform: scale(0);\n  transform-origin: center;\n  z-index: 2;\n  transition: transform var(--layout-transition-extra-fast);\n  clip-path: polygon(7% 56%, 37% 86%, 95% 27%, 84% 16%, 37% 64%, 18% 45%);\n}\n\ninput[type=\"checkbox\"]:checked+label .label-icon:after {\n  background-color: rgb(var(--form-icon-symbol-active));\n  transform: scale(0.8);\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-icon:after,\ninput[type=\"checkbox\"]:disabled:hover+label .label-icon:after,\ninput[type=\"checkbox\"]:disabled:focus+label .label-icon:after,\ninput[type=\"checkbox\"]:disabled:active+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled:hover+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled:focus+label .label-icon:after,\ninput[type=\"checkbox\"]:checked:disabled:active+label .label-icon:after {\n  background-color: rgb(var(--form-icon-symbol-disabled));\n}\n\n.label-block {\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap;\n  gap: calc(var(--form-wrap-space) / 4);\n}\n\ninput[type=\"checkbox\"]+label .label-block-item,\ninput[type=\"radio\"]+label .label-block-item {\n  color: rgb(var(--form-label));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]:hover+label .label-block-item,\ninput[type=\"checkbox\"]:focus+label .label-block-item,\ninput[type=\"radio\"]:hover+label .label-block-item,\ninput[type=\"radio\"]:focus+label .label-block-item {\n  color: rgb(var(--form-label-hover));\n}\n\ninput[type=\"checkbox\"]:active+label .label-block-item,\ninput[type=\"radio\"]:active+label .label-block-item {\n  color: rgb(var(--form-label-focus-active));\n}\n\ninput[type=\"checkbox\"]:checked+label .label-block-item,\ninput[type=\"radio\"]:checked+label .label-block-item {\n  color: rgb(var(--form-label-checked));\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:hover+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:focus+label .label-block-item,\ninput[type=\"radio\"]:disabled+label .label-block-item,\ninput[type=\"radio\"]:disabled:hover+label .label-block-item,\ninput[type=\"radio\"]:disabled:focus+label .label-block-item {\n  color: rgb(var(--form-label-disabled));\n  cursor: default;\n}\n\ninput[type=\"checkbox\"]+label .label-block-item.muted,\ninput[type=\"radio\"]+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted));\n  transition: color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"checkbox\"]:hover+label .label-block-item.muted,\ninput[type=\"checkbox\"]:focus+label .label-block-item.muted,\ninput[type=\"radio\"]:hover+label .label-block-item.muted,\ninput[type=\"radio\"]:focus+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-hover));\n}\n\ninput[type=\"checkbox\"]:active+label .label-block-item.muted,\ninput[type=\"radio\"]:active+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-focus-active));\n}\n\ninput[type=\"checkbox\"]:checked+label .label-block-item.muted,\ninput[type=\"radio\"]:checked+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-checked));\n}\n\ninput[type=\"checkbox\"]:disabled+label .label-block-item.muted,\ninput[type=\"checkbox\"]:disabled:hover+label .label-block-item.muted,\ninput[type=\"checkbox\"]:disabled:focus+label .label-block-item.muted,\ninput[type=\"radio\"]:disabled+label .label-block-item.muted,\ninput[type=\"radio\"]:disabled:hover+label .label-block-item.muted,\ninput[type=\"radio\"]:disabled:focus+label .label-block-item.muted {\n  color: rgb(var(--utilities-muted-disabled));\n  cursor: default;\n}\n\ninput:disabled+label .label-block-item,\ninput:disabled:hover+label .label-block-item,\ninput:disabled:focus+label .label-block-item,\ninput[type=\"checkbox\"]:disabled+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:hover+label .label-block-item,\ninput[type=\"checkbox\"]:disabled:focus+label .label-block-item,\ninput[type=\"radio\"]:disabled+label .label-block-item,\ninput[type=\"radio\"]:disabled:hover+label .label-block-item,\ninput[type=\"radio\"]:disabled:focus+label .label-block-item {\n  color: rgb(var(--form-label-disabled));\n  cursor: default;\n}\n\n/* color */\ninput[type=\"color\"] {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  width: 100%;\n  min-width: 4em;\n  height: 2.5em;\n  display: block;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  overflow: hidden;\n  cursor: pointer;\n  opacity: 1;\n  transition: box-shadow var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n}\n\ninput[type=\"color\"]:hover {\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\ninput[type=\"color\"]:focus {\n  outline: none;\n  box-shadow: var(--form-ring-focus);\n}\n\ninput[type=\"color\"]:disabled {\n  opacity: 0.25;\n  cursor: default;\n}\n\ninput[type=\"color\"]:disabled:hover,\ninput[type=\"color\"]:disabled:focus {\n  box-shadow: none;\n}\n\ninput[type=\"color\"]::-webkit-color-swatch-wrapper {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-webkit-color-swatch {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-moz-color-swatch-wrapper {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-moz-color-swatch {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\ninput[type=\"color\"]::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n  outline: none;\n}\n\n/* range */\ninput[type=\"range\"] {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  color: rgb(var(--theme-style-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  display: block;\n  height: 2.5em;\n  width: 100%;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: pointer;\n  position: relative;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]:focus {\n  outline: none;\n}\n\ninput[type=\"range\"]:disabled {\n  cursor: default;\n}\n\ninput[type=\"range\"]:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  background-color: rgb(var(--form-range-track-background));\n  height: var(--layout-line-width);\n  width: 100%;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  transform: translate(0, -50%);\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:focus:before,\ninput[type=\"range\"]:hover:before {\n  background-color: rgb(var(--form-range-track-background-focus-hover));\n}\n\ninput[type=\"range\"]:active:before {\n  background-color: rgb(var(--form-range-track-background-active));\n}\n\ninput[type=\"range\"]:disabled:before {\n  background-color: rgb(var(--form-range-track-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]::-webkit-slider-runnable-track {\n  background-color: transparent;\n  margin: 0 -0.5em;\n  padding: 0;\n  border: 0;\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background));\n  margin: 0;\n  padding: 0;\n  border-width: 0;\n  border-radius: 50%;\n  position: relative;\n  height: var(--form-thumb-size);\n  width: var(--form-thumb-size);\n  cursor: pointer;\n  box-sizing: border-box;\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]::-webkit-slider-thumb,\ninput[type=\"range\"]:focus::-webkit-slider-thumb,\ninput[type=\"range\"]:hover::-webkit-slider-thumb,\ninput[type=\"range\"]:active::-webkit-slider-thumb {\n  box-shadow: none;\n  text-decoration: none;\n  outline: none;\n}\n\ninput[type=\"range\"]:hover::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-hover));\n  box-shadow: var(--form-ring-hover);\n  outline: none;\n}\n\ninput[type=\"range\"]:focus::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-focus));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:active::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-active));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:disabled::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]:disabled:hover::-webkit-slider-thumb,\ninput[type=\"range\"]:disabled:focus::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  transform: scale(1);\n  outline: none;\n}\n\ninput[type=\"range\"]:disabled:active::-webkit-slider-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  outline: none;\n}\n\ninput[type=\"range\"]::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background));\n  margin: 0 -0.5em;\n  padding: 0;\n  height: var(--layout-line-width);\n  width: 100%;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  transition: all var(--layout-transition-extra-fast);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"]:focus::-moz-range-track,\ninput[type=\"range\"]:hover::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background-focus-hover));\n}\n\ninput[type=\"range\"]:active::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background-active));\n}\n\ninput[type=\"range\"]:disabled::-moz-range-track {\n  background-color: rgb(var(--form-range-track-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]::-moz-focus-outer {\n  border: 0;\n}\n\ninput[type=\"range\"]::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background));\n  margin: 0;\n  padding: 0;\n  border-width: 0;\n  border-radius: 50%;\n  position: relative;\n  height: var(--form-thumb-size);\n  width: var(--form-thumb-size);\n  cursor: pointer;\n  box-sizing: border-box;\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: none;\n}\n\ninput[type=\"range\"]::-moz-range-thumb,\ninput[type=\"range\"]:focus::-moz-range-thumb,\ninput[type=\"range\"]:hover::-moz-range-thumb,\ninput[type=\"range\"]:active::-moz-range-thumb {\n  box-shadow: none;\n  text-decoration: none;\n  outline: none;\n}\n\ninput[type=\"range\"]:hover::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-hover));\n  box-shadow: var(--form-ring-hover);\n  outline: none;\n}\n\ninput[type=\"range\"]:focus::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-focus));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:active::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-active));\n  box-shadow: var(--form-ring-accent);\n}\n\ninput[type=\"range\"]:disabled::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  cursor: default;\n}\n\ninput[type=\"range\"]:disabled:hover::-moz-range-thumb,\ninput[type=\"range\"]:disabled:focus::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  transform: scale(1);\n  outline: none;\n}\n\ninput[type=\"range\"]:disabled:active::-moz-range-thumb {\n  background-color: rgb(var(--form-range-thumb-background-disabled));\n  box-shadow: none;\n  outline: none;\n}\n\ninput[type=\"range\"]::-moz-range-progress {\n  background-color: rgb(var(--form-range-progress-background));\n  height: calc(var(--layout-line-width) * 2);\n  border-radius: var(--theme-radius-base);\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:active::-moz-range-progress {\n  background-color: rgb(var(--form-range-progress-background-active));\n}\n\ninput[type=\"range\"]:disabled::-moz-range-progress {\n  background-color: rgb(var(--form-range-progress-background-disabled));\n}\n\n/* form helper */\n.form-helper-item {\n  font-size: 0.8em;\n  color: rgb(var(--form-helper));\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.form-helper-item.disabled {\n  color: rgb(var(--form-helper-disabled));\n}\n\n/* form input button */\n.form-input-button {\n  position: relative;\n  display: flex;\n}\n\n.form-input-button input[type=\"checkbox\"]+label,\n.form-input-button input[type=\"radio\"]+label,\n.form-input-button input[type=\"color\"]+label,\n.form-input-button input[type=\"file\"]+label {\n  background-color: rgb(var(--button-background));\n  padding: 0.25em 1.25em;\n  margin: 0;\n  color: rgb(var(--button-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  min-height: 2.5em;\n  line-height: 1;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  box-shadow: none;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-input-button input[type=\"checkbox\"]:focus+label,\n.form-input-button input[type=\"checkbox\"]:hover+label,\n.form-input-button input[type=\"radio\"]:focus+label,\n.form-input-button input[type=\"radio\"]:hover+label,\n.form-input-button input[type=\"color\"]:focus+label,\n.form-input-button input[type=\"color\"]:hover+label,\n.form-input-button input[type=\"file\"]:focus+label,\n.form-input-button input[type=\"file\"]:hover+label {\n  background-color: rgb(var(--button-background-focus-hover));\n  color: rgb(var(--button-text-focus-hover));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:active+label,\n.form-input-button input[type=\"radio\"]:active+label,\n.form-input-button input[type=\"color\"]:active+label,\n.form-input-button input[type=\"file\"]:active+label {\n  background-color: rgb(var(--button-background-active));\n  color: rgb(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n  transition: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:checked+label,\n.form-input-button input[type=\"radio\"]:checked+label,\n.form-input-button input[type=\"color\"]:checked+label,\n.form-input-button input[type=\"file\"]:checked+label {\n  background-color: rgb(var(--button-background-active));\n  color: rgb(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:disabled+label,\n.form-input-button input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button input[type=\"radio\"]:disabled+label,\n.form-input-button input[type=\"radio\"]:disabled:hover+label,\n.form-input-button input[type=\"radio\"]:disabled:focus+label,\n.form-input-button input[type=\"radio\"]:disabled:active+label,\n.form-input-button input[type=\"color\"]:disabled+label,\n.form-input-button input[type=\"color\"]:disabled:hover+label,\n.form-input-button input[type=\"color\"]:disabled:focus+label,\n.form-input-button input[type=\"color\"]:disabled:active+label,\n.form-input-button input[type=\"file\"]:disabled+label,\n.form-input-button input[type=\"file\"]:disabled:hover+label,\n.form-input-button input[type=\"file\"]:disabled:focus+label,\n.form-input-button input[type=\"file\"]:disabled:active+label {\n  background-color: rgb(var(--button-background-disabled));\n  color: rgb(var(--button-text-disabled));\n  cursor: default;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]+label .label-icon,\n.form-input-button input[type=\"radio\"]+label .label-icon {\n  top: inherit;\n}\n\n.form-input-button-ring input[type=\"checkbox\"]+label,\n.form-input-button-ring input[type=\"radio\"]+label,\n.form-input-button-ring input[type=\"color\"]+label,\n.form-input-button-ring input[type=\"file\"]+label {\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:hover+label,\n.form-input-button-ring input[type=\"radio\"]:focus+label,\n.form-input-button-ring input[type=\"radio\"]:hover+label,\n.form-input-button-ring input[type=\"color\"]:focus+label,\n.form-input-button-ring input[type=\"color\"]:hover+label,\n.form-input-button-ring input[type=\"file\"]:focus+label,\n.form-input-button-ring input[type=\"file\"]:hover+label {\n  box-shadow: var(--form-ring-hover);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:active+label,\n.form-input-button-ring input[type=\"radio\"]:active+label,\n.form-input-button-ring input[type=\"color\"]:active+label,\n.form-input-button-ring input[type=\"file\"]:active+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:checked+label,\n.form-input-button-ring input[type=\"radio\"]:checked+label,\n.form-input-button-ring input[type=\"color\"]:checked+label,\n.form-input-button-ring input[type=\"file\"]:checked+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:disabled+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button-ring input[type=\"radio\"]:disabled+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:active+label,\n.form-input-button-ring input[type=\"color\"]:disabled+label,\n.form-input-button-ring input[type=\"color\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"color\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"color\"]:disabled:active+label,\n.form-input-button-ring input[type=\"file\"]:disabled+label,\n.form-input-button-ring input[type=\"file\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"file\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"file\"]:disabled:active+label {\n  box-shadow: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]+label:after,\n.form-input-button-line input[type=\"radio\"]+label:after,\n.form-input-button-line input[type=\"color\"]+label:after,\n.form-input-button-line input[type=\"file\"]+label:after {\n  content: \"\";\n  background: transparent;\n  border-radius: var(--theme-radius-base);\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  clip-path: polygon(0 calc(100% - var(--layout-line-width)), 100% calc(100% - var(--layout-line-width)), 100% 100%, 0% 100%);\n  transition: background-color var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:hover+label:after,\n.form-input-button-line input[type=\"color\"]:focus+label:after,\n.form-input-button-line input[type=\"color\"]:hover+label:after,\n.form-input-button-line input[type=\"file\"]:focus+label:after,\n.form-input-button-line input[type=\"file\"]:hover+label:after {\n  background-color: rgb(var(--button-border-focus-hover));\n}\n\n.form-input-button-line input[type=\"checkbox\"]:active+label:after,\n.form-input-button-line input[type=\"radio\"]:active+label:after,\n.form-input-button-line input[type=\"color\"]:active+label:after,\n.form-input-button-line input[type=\"file\"]:active+label:after {\n  background-color: rgb(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:checked+label:after,\n.form-input-button-line input[type=\"radio\"]:checked+label:after,\n.form-input-button-line input[type=\"color\"]:checked+label:after,\n.form-input-button-line input[type=\"file\"]:checked+label:after {\n  background-color: rgb(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:disabled+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"color\"]:disabled+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"file\"]:disabled+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:active+label:after {\n  background-color: rgb(var(--button-border-disabled));\n}\n\n/* form input button link */\n.form-input-button-link input[type=\"checkbox\"]+label,\n.form-input-button-link input[type=\"radio\"]+label,\n.form-input-button-link input[type=\"color\"]+label,\n.form-input-button-link input[type=\"file\"]+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:hover+label,\n.form-input-button-link input[type=\"checkbox\"]:focus+label,\n.form-input-button-link input[type=\"checkbox\"]:checked+label,\n.form-input-button-link input[type=\"radio\"]:hover+label,\n.form-input-button-link input[type=\"radio\"]:focus+label,\n.form-input-button-link input[type=\"radio\"]:checked+label,\n.form-input-button-link input[type=\"color\"]:hover+label,\n.form-input-button-link input[type=\"color\"]:focus+label,\n.form-input-button-link input[type=\"color\"]:checked+label,\n.form-input-button-link input[type=\"file\"]:hover+label,\n.form-input-button-link input[type=\"file\"]:focus+label,\n.form-input-button-link input[type=\"file\"]:checked+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:active+label,\n.form-input-button-link input[type=\"radio\"]:active+label,\n.form-input-button-link input[type=\"color\"]:active+label,\n.form-input-button-link input[type=\"file\"]:active+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]+label,\n.form-input-button-link input:disabled[type=\"radio\"]+label,\n.form-input-button-link input:disabled[type=\"color\"]+label,\n.form-input-button-link input:disabled[type=\"file\"]+label {\n  background-color: transparent;\n  pointer-events: none;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]:hover+label,\n.form-input-button-link input:disabled[type=\"checkbox\"]:focus+label,\n.form-input-button-link input:disabled[type=\"radio\"]:hover+label,\n.form-input-button-link input:disabled[type=\"radio\"]:focus+label,\n.form-input-button-link input:disabled[type=\"color\"]:hover+label,\n.form-input-button-link input:disabled[type=\"color\"]:focus+label,\n.form-input-button-link input:disabled[type=\"file\"]:hover+label,\n.form-input-button-link input:disabled[type=\"file\"]:focus+label {\n  background-color: transparent;\n}\n\n.input-color-dot input[type=\"color\"] {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  right: 1em;\n  width: calc(var(--form-thumb-size) * 0.8);\n  height: calc(var(--form-thumb-size) * 0.8);\n  min-width: inherit;\n  z-index: 4;\n  border-radius: 50%;\n  transform: translateY(-50%);\n  transition: none;\n}\n\n.input-color-dot input[type=\"color\"]:hover {\n  outline: none;\n  box-shadow: none;\n}\n\n.input-color-dot input[type=\"color\"]:focus {\n  outline: none;\n  box-shadow: none;\n}\n\n.input-color-dot-accent input[type=\"color\"],\n.input-color-dot-accent input[type=\"color\"]:hover,\n.input-color-dot-accent input[type=\"color\"]:focus {\n  box-shadow: 0 0 0.25em 0 rgba(var(--theme-accent), 0.6), 0 0 0.5em 0 rgba(var(--theme-accent), 0.4);\n}\n\n.input-color-dot-shade input[type=\"color\"],\n.input-color-dot-shade input[type=\"color\"]:hover,\n.input-color-dot-shade input[type=\"color\"]:focus {\n  box-shadow: 0 0 0.25em 0 rgba(var(--theme-shade), 0.6), 0 0 0.5em 0 rgba(var(--theme-shade), 0.4);\n}\n\n.input-color-dot input[type=\"color\"]+label {\n  padding-right: calc(calc(var(--form-thumb-size) * 0.8) + 2em);\n  position: relative;\n}\n\n.form-input-hide input[type=\"checkbox\"]+label .label-icon,\n.form-input-hide input[type=\"checkbox\"]:checked+label .label-icon,\n.form-input-hide input[type=\"radio\"]+label .label-icon,\n.form-input-hide input[type=\"radio\"]:checked+label .label-icon,\n.form-input-hide input[type=\"file\"]+label .label-icon,\n.form-input-hide input[type=\"file\"]:checked+label .label-icon {\n  display: none;\n}\n\n.form-input-hide input[type=\"color\"],\n.form-input-hide input[type=\"file\"] {\n  margin: 0;\n  opacity: 0;\n  width: 1px;\n  height: 1px;\n  min-width: 1px;\n  min-height: 1px;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  -webkit-appearance: none;\n}\n\n.form-input-button-sr-only input[type=\"checkbox\"]+label,\n.form-input-button-sr-only input[type=\"radio\"]+label,\n.form-input-button-sr-only input[type=\"color\"]+label,\n.form-input-button-sr-only input[type=\"file\"]+label {\n  display: block;\n}\n\n.form-input-button-sr-only input[type=\"checkbox\"]+label .label-block,\n.form-input-button-sr-only input[type=\"radio\"]+label .label-block,\n.form-input-button-sr-only input[type=\"color\"]+label .label-block,\n.form-input-button-sr-only input[type=\"file\"]+label .label-block {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border: 0;\n}\n\n.form-input-button-sr-only.input-color-dot input[type=\"color\"]+label {\n  padding: 0.25em 1.75em;\n}\n\n.form-input-button-sr-only.input-color-dot input[type=\"color\"] {\n  top: 50%;\n  left: 50%;\n  right: initial;\n  transform: translate(-50%, -50%);\n}\n\n/* form grid */\n.form-grid {\n  background-color: rgb(var(--form-grid-background));\n  padding: calc(var(--form-thumb-size) / 2);\n  display: inline-grid;\n  overflow: hidden;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.form-grid:hover {\n  outline: none;\n  background-color: rgb(var(--form-grid-background-hover));\n}\n\n.form-grid:focus,\n.form-grid:focus-within {\n  outline: none;\n  background-color: rgb(var(--form-grid-background-focus));\n}\n\n.form-grid.disabled,\n.form-grid.disabled:focus,\n.form-grid.disabled:focus-within {\n  background-color: rgb(var(--form-grid-background-disabled));\n}\n\n.form-grid-2x2 {\n  grid-template-columns: repeat(2, 1fr);\n  grid-template-rows: repeat(2, 1fr);\n  border-radius: var(--theme-radius-base);\n  grid-template-areas:\n    \"cell-1 cell-2\"\n    \"cell-3 cell-4\";\n}\n\n.form-grid-3x3 {\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  border-radius: var(--theme-radius-base);\n  grid-template-areas:\n    \"cell-1 cell-2 cell-3\"\n    \"cell-4 cell-5 cell-6\"\n    \"cell-7 cell-8 cell-9\";\n}\n\n.form-grid-3x1 {\n  grid-template-columns: repeat(3, 1fr);\n  border-radius: var(--theme-radius-base);\n  grid-template-areas:\n    \"cell-1 cell-2 cell-3\";\n}\n\n.form-grid-1x3 {\n  grid-template-rows: repeat(3, 1fr);\n  border-radius: var(--theme-radius-base);\n  grid-template-areas:\n    \"cell-1\"\n    \"cell-2\"\n    \"cell-3\";\n}\n\n.form-grid-3x3>*,\n.form-grid-3x1>*,\n.form-grid-1x3>* {\n  grid-area: var(--form-grid-cell);\n}\n\n.form-grid .form-wrap {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.form-grid input[type=\"checkbox\"]+label,\n.form-grid input[type=\"radio\"]+label {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  display: block;\n  width: calc(var(--form-thumb-size) * 1.75);\n  height: calc(var(--form-thumb-size) * 1.75);\n  position: relative;\n  transition: none;\n  z-index: 1;\n}\n\n.form-grid input[type=\"checkbox\"]:hover+label,\n.form-grid input[type=\"checkbox\"]:focus+label,\n.form-grid input[type=\"radio\"]:hover+label,\n.form-grid input[type=\"radio\"]:focus+label {\n  box-shadow: none;\n}\n\n.form-grid input[type=\"checkbox\"]+label .label-icon,\n.form-grid input[type=\"radio\"]+label .label-icon {\n  margin-right: 0;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.form-grid-3x3 {\n  --radiusPart: calc(var(--theme-radius-base) / 20);\n  --responsivePos: calc(var(--radiusPart) + -50%);\n  --responsiveNeg: calc(calc(var(--radiusPart) * -1) + -50%);\n}\n\n.form-grid-3x3 .form-wrap:nth-child(1) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(1) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsivePos), var(--responsivePos));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(2) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(2) input[type=\"radio\"]+label .label-icon {\n  transform: translate(-50%, var(--responsivePos));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(3) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(3) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsiveNeg), var(--responsivePos));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(4) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(4) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsivePos), -50%);\n}\n\n.form-grid-3x3 .form-wrap:nth-child(6) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(6) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsiveNeg), -50%);\n}\n\n.form-grid-3x3 .form-wrap:nth-child(7) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(7) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsivePos), var(--responsiveNeg));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(8) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(8) input[type=\"radio\"]+label .label-icon {\n  transform: translate(-50%, var(--responsiveNeg));\n}\n\n.form-grid-3x3 .form-wrap:nth-child(9) input[type=\"checkbox\"]+label .label-icon,\n.form-grid-3x3 .form-wrap:nth-child(9) input[type=\"radio\"]+label .label-icon {\n  transform: translate(var(--responsiveNeg), var(--responsiveNeg));\n}\n\n/* form group */\n.form-group {\n  position: relative;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: stretch;\n}\n\n.form-group-reverse {\n  flex-direction: row-reverse;\n}\n\n.form-group .form-wrap {\n  margin-top: 0;\n  margin-bottom: 0;\n  margin-right: var(--form-wrap-space);\n  display: flex;\n  align-items: center;\n}\n\n.form-group .form-group-text,\n.form-group .button,\n.form-group .form-input-button input[type=\"checkbox\"]+label,\n.form-group .form-input-button input[type=\"radio\"]+label,\n.form-group .form-input-button input[type=\"color\"]+label,\n.form-group .form-input-button input[type=\"file\"]+label,\n.form-group>select,\n.form-group>input[type=\"email\"],\n.form-group>input[type=\"number\"],\n.form-group>input[type=\"password\"],\n.form-group>input[type=\"search\"],\n.form-group>input[type=\"tel\"],\n.form-group>input[type=\"text\"],\n.form-group>input[type=\"color\"],\n.form-group>input[type=\"range\"] {\n  margin: 0;\n  border-radius: 0;\n  height: inherit;\n  min-height: 2.5em;\n  flex-grow: 1;\n  flex-shrink: 1;\n  flex-basis: auto;\n  z-index: 1;\n}\n\n.form-group .button-line:after,\n.form-group .form-input-button-line input[type=\"checkbox\"]+label:after,\n.form-group .form-input-button-line input[type=\"radio\"]+label:after,\n.form-group .form-input-button-line input[type=\"color\"]+label:after,\n.form-group .form-input-button-line input[type=\"file\"]+label:after {\n  border-radius: 0;\n}\n\n.form-group .form-group-text {\n  flex-shrink: 0;\n}\n\n.form-group .form-group-text:focus,\n.form-group .button:focus,\n.form-group .form-input-button input[type=\"checkbox\"]:focus+label,\n.form-group .form-input-button input[type=\"radio\"]:focus+label,\n.form-group .form-input-button input[type=\"color\"]:focus+label,\n.form-group .form-input-button input[type=\"file\"]:focus+label,\n.form-group>select:focus,\n.form-group>input[type=\"email\"]:focus,\n.form-group>input[type=\"number\"]:focus,\n.form-group>input[type=\"password\"]:focus,\n.form-group>input[type=\"search\"]:focus,\n.form-group>input[type=\"tel\"]:focus,\n.form-group>input[type=\"text\"]:focus,\n.form-group>input[type=\"color\"]:focus,\n.form-group>input[type=\"range\"]:focus {\n  z-index: 2;\n}\n\n.form-group .form-group-text:hover,\n.form-group .form-group-text:active,\n.form-group .button:hover,\n.form-group .button:active,\n.form-group .form-input-button input[type=\"checkbox\"]:hover+label,\n.form-group .form-input-button input[type=\"checkbox\"]:active+label,\n.form-group .form-input-button input[type=\"radio\"]:hover+label,\n.form-group .form-input-button input[type=\"radio\"]:active+label,\n.form-group .form-input-button input[type=\"color\"]:hover+label,\n.form-group .form-input-button input[type=\"color\"]:active+label,\n.form-group .form-input-button input[type=\"file\"]:hover+label,\n.form-group .form-input-button input[type=\"file\"]:active+label,\n.form-group>select:hover,\n.form-group>select:active,\n.form-group>input[type=\"email\"]:hover,\n.form-group>input[type=\"email\"]:active,\n.form-group>input[type=\"number\"]:hover,\n.form-group>input[type=\"number\"]:active,\n.form-group>input[type=\"password\"]:hover,\n.form-group>input[type=\"password\"]:active,\n.form-group>input[type=\"search\"]:hover,\n.form-group>input[type=\"search\"]:active,\n.form-group>input[type=\"tel\"]:hover,\n.form-group>input[type=\"tel\"]:active,\n.form-group>input[type=\"text\"]:hover,\n.form-group>input[type=\"text\"]:active,\n.form-group>input[type=\"color\"]:hover,\n.form-group>input[type=\"color\"]:active,\n.form-group>input[type=\"range\"]:hover,\n.form-group>input[type=\"range\"]:active {\n  z-index: 3;\n}\n\n.form-group .form-input-button input[type=\"checkbox\"]:checked+label,\n.form-group .form-input-button input[type=\"radio\"]:checked+label,\n.form-group .form-input-button input[type=\"color\"]:checked+label,\n.form-group .form-input-button input[type=\"file\"]:checked+label {\n  z-index: 3;\n}\n\n.form-group .form-group-text:first-child,\n.form-group .button:first-child,\n.form-group .button-line:first-child:after,\n.form-group .form-input-button:first-child input[type=\"checkbox\"]+label,\n.form-group .form-input-button:first-child input[type=\"radio\"]+label,\n.form-group .form-input-button:first-child input[type=\"color\"]+label,\n.form-group .form-input-button:first-child input[type=\"file\"]+label,\n.form-group .form-input-button-line:first-child input[type=\"checkbox\"]+label:after,\n.form-group .form-input-button-line:first-child input[type=\"radio\"]+label:after,\n.form-group .form-input-button-line:first-child input[type=\"color\"]+label:after,\n.form-group .form-input-button-line:first-child input[type=\"file\"]+label:after,\n.form-group>select:first-child,\n.form-group>input[type=\"email\"]:first-child,\n.form-group>input[type=\"number\"]:first-child,\n.form-group>input[type=\"password\"]:first-child,\n.form-group>input[type=\"search\"]:first-child,\n.form-group>input[type=\"tel\"]:first-child,\n.form-group>input[type=\"text\"]:first-child,\n.form-group>input[type=\"color\"]:first-child,\n.form-group>input[type=\"range\"]:first-child {\n  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);\n}\n\n.form-group .form-group-text:last-child,\n.form-group .button:last-child,\n.form-group .button-line:last-child:after,\n.form-group .form-input-button:last-child input[type=\"checkbox\"]+label,\n.form-group .form-input-button:last-child input[type=\"radio\"]+label,\n.form-group .form-input-button:last-child input[type=\"color\"]+label,\n.form-group .form-input-button:last-child input[type=\"file\"]+label,\n.form-group .form-input-button-line:last-child input[type=\"checkbox\"]+label:after,\n.form-group .form-input-button-line:last-child input[type=\"radio\"]+label:after,\n.form-group .form-input-button-line:last-child input[type=\"color\"]+label:after,\n.form-group .form-input-button-line:last-child input[type=\"file\"]+label:after,\n.form-group>select:last-child,\n.form-group>input[type=\"email\"]:last-child,\n.form-group>input[type=\"number\"]:last-child,\n.form-group>input[type=\"password\"]:last-child,\n.form-group>input[type=\"search\"]:last-child,\n.form-group>input[type=\"tel\"]:last-child,\n.form-group>input[type=\"text\"]:last-child,\n.form-group>input[type=\"color\"]:last-child,\n.form-group>input[type=\"range\"]:last-child {\n  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;\n}\n\n.form-group .form-group-text:only-child,\n.form-group .button:only-child,\n.form-group .button-line:only-child:after,\n.form-group>select:only-child,\n.form-group>input[type=\"email\"]:only-child,\n.form-group>input[type=\"number\"]:only-child,\n.form-group>input[type=\"password\"]:only-child,\n.form-group>input[type=\"search\"]:only-child,\n.form-group>input[type=\"tel\"]:only-child,\n.form-group>input[type=\"text\"]:only-child,\n.form-group>input[type=\"color\"]:only-child,\n.form-group>input[type=\"range\"]:only-child {\n  border-radius: var(--theme-radius-base);\n}\n\n.form-group.form-group-nested-button * .button,\n.form-group.form-group-nested-button * .button-line:after,\n.form-group.form-group-nested-button * input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button * input[type=\"radio\"]+label,\n.form-group.form-group-nested-button * input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n.form-group.form-group-nested-button *:first-child .button,\n.form-group.form-group-nested-button *:first-child .button-line:after,\n.form-group.form-group-nested-button *:first-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button *:first-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button *:first-child input[type=\"color\"]+label {\n  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);\n}\n\n.form-group.form-group-nested-button *:last-child .button,\n.form-group.form-group-nested-button *:last-child .button-line:after,\n.form-group.form-group-nested-button *:last-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button *:last-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button *:last-child input[type=\"color\"]+label {\n  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;\n}\n\n.form-group .form-group-radius-left.form-group-text,\n.form-group .form-group-radius-left.button,\n.form-group .form-group-radius-left.button-line:after,\n.form-group>select.form-group-radius-left,\n.form-group>input.form-group-radius-left[type=\"email\"],\n.form-group>input.form-group-radius-left[type=\"number\"],\n.form-group>input.form-group-radius-left[type=\"password\"],\n.form-group>input.form-group-radius-left[type=\"search\"],\n.form-group>input.form-group-radius-left[type=\"tel\"],\n.form-group>input.form-group-radius-left[type=\"text\"],\n.form-group>input.form-group-radius-left[type=\"color\"],\n.form-group>input.form-group-radius-left[type=\"range\"] {\n  border-top-left-radius: var(--theme-radius-base);\n  border-bottom-left-radius: var(--theme-radius-base);\n}\n\n.form-group .form-group-radius-right.form-group-text,\n.form-group .form-group-radius-right.button,\n.form-group .form-group-radius-right.butbutton-lineton:after,\n.form-group>select.form-group-radius-right,\n.form-group>input.form-group-radius-right[type=\"email\"],\n.form-group>input.form-group-radius-right[type=\"number\"],\n.form-group>input.form-group-radius-right[type=\"password\"],\n.form-group>input.form-group-radius-right[type=\"search\"],\n.form-group>input.form-group-radius-right[type=\"tel\"],\n.form-group>input.form-group-radius-right[type=\"text\"],\n.form-group>input.form-group-radius-right[type=\"color\"],\n.form-group>input.form-group-radius-right[type=\"range\"] {\n  border-top-right-radius: var(--theme-radius-base);\n  border-bottom-right-radius: var(--theme-radius-base);\n}\n\n.form-group.form-group-reverse .form-group-text:first-child,\n.form-group.form-group-reverse .button:first-child,\n.form-group.form-group-reverse .button-line:first-child:after,\n.form-group.form-group-reverse .form-input-button:first-child input[type=\"checkbox\"]+label,\n.form-group.form-group-reverse .form-input-button:first-child input[type=\"radio\"]+label,\n.form-group.form-group-reverse .form-input-button:first-child input[type=\"color\"]+label,\n.form-group.form-group-reverse .form-input-button:first-child input[type=\"file\"]+label,\n.form-group.form-group-reverse .form-input-button-line:first-child input[type=\"checkbox\"]+label:after,\n.form-group.form-group-reverse .form-input-button-line:first-child input[type=\"radio\"]+label:after,\n.form-group.form-group-reverse .form-input-button-line:first-child input[type=\"color\"]+label:after,\n.form-group.form-group-reverse .form-input-button-line:first-child input[type=\"file\"]+label:after,\n.form-group.form-group-reverse>select:first-child,\n.form-group.form-group-reverse>input[type=\"email\"]:first-child,\n.form-group.form-group-reverse>input[type=\"number\"]:first-child,\n.form-group.form-group-reverse>input[type=\"password\"]:first-child,\n.form-group.form-group-reverse>input[type=\"search\"]:first-child,\n.form-group.form-group-reverse>input[type=\"tel\"]:first-child,\n.form-group.form-group-reverse>input[type=\"text\"]:first-child,\n.form-group.form-group-reverse>input[type=\"color\"]:first-child,\n.form-group.form-group-reverse>input[type=\"range\"]:first-child {\n  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;\n}\n\n.form-group.form-group-reverse .form-group-text:last-child,\n.form-group.form-group-reverse .button:last-child,\n.form-group.form-group-reverse .button-line:last-child:after,\n.form-group.form-group-reverse .form-input-button:last-child input[type=\"checkbox\"]+label,\n.form-group.form-group-reverse .form-input-button:last-child input[type=\"radio\"]+label,\n.form-group.form-group-reverse .form-input-button:last-child input[type=\"color\"]+label,\n.form-group.form-group-reverse .form-input-button:last-child input[type=\"file\"]+label,\n.form-group.form-group-reverse .form-input-button-line:last-child input[type=\"checkbox\"]+label:after,\n.form-group.form-group-reverse .form-input-button-line:last-child input[type=\"radio\"]+label:after,\n.form-group.form-group-reverse .form-input-button-line:last-child input[type=\"color\"]+label:after,\n.form-group.form-group-reverse .form-input-button-line:last-child input[type=\"file\"]+label:after,\n.form-group.form-group-reverse>select:last-child,\n.form-group.form-group-reverse>input[type=\"email\"]:last-child,\n.form-group.form-group-reverse>input[type=\"number\"]:last-child,\n.form-group.form-group-reverse>input[type=\"password\"]:last-child,\n.form-group.form-group-reverse>input[type=\"search\"]:last-child,\n.form-group.form-group-reverse>input[type=\"tel\"]:last-child,\n.form-group.form-group-reverse>input[type=\"text\"]:last-child,\n.form-group.form-group-reverse>input[type=\"color\"]:last-child,\n.form-group.form-group-reverse>input[type=\"range\"]:last-child {\n  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);\n}\n\n.form-group.form-group-reverse .form-group-text:only-child,\n.form-group.form-group-reverse .button:only-child,\n.form-group.form-group-reverse .button-line:only-child:after,\n.form-group.form-group-reverse>select:only-child,\n.form-group.form-group-reverse>input[type=\"email\"]:only-child,\n.form-group.form-group-reverse>input[type=\"number\"]:only-child,\n.form-group.form-group-reverse>input[type=\"password\"]:only-child,\n.form-group.form-group-reverse>input[type=\"search\"]:only-child,\n.form-group.form-group-reverse>input[type=\"tel\"]:only-child,\n.form-group.form-group-reverse>input[type=\"text\"]:only-child,\n.form-group.form-group-reverse>input[type=\"color\"]:only-child,\n.form-group.form-group-reverse>input[type=\"range\"]:only-child {\n  border-radius: var(--theme-radius-base);\n}\n\n.form-group.form-group-reverse.form-group-nested-button * .button,\n.form-group.form-group-reverse.form-group-nested-button * .button-line:after,\n.form-group.form-group-reverse.form-group-nested-button * input[type=\"checkbox\"]+label,\n.form-group.form-group-reverse.form-group-nested-button * input[type=\"radio\"]+label,\n.form-group.form-group-reverse.form-group-nested-button * input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n.form-group.form-group-reverse.form-group-nested-button *:first-child .button,\n.form-group.form-group-reverse.form-group-nested-button *:first-child .button-line:after,\n.form-group.form-group-reverse.form-group-nested-button *:first-child input[type=\"checkbox\"]+label,\n.form-group.form-group-reverse.form-group-nested-button *:first-child input[type=\"radio\"]+label,\n.form-group.form-group-reverse.form-group-nested-button *:first-child input[type=\"color\"]+label {\n  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;\n}\n\n.form-group.form-group-reverse.form-group-nested-button *:last-child .button,\n.form-group.form-group-reverse.form-group-nested-button *:last-child .button-line:after,\n.form-group.form-group-reverse.form-group-nested-button *:last-child input[type=\"checkbox\"]+label,\n.form-group.form-group-reverse.form-group-nested-button *:last-child input[type=\"radio\"]+label,\n.form-group.form-group-reverse.form-group-nested-button *:last-child input[type=\"color\"]+label {\n  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);\n}\n\n.form-group-block {\n  display: flex;\n  width: 100%;\n}\n\n.form-group-border {\n  border-radius: var(--theme-radius-base);\n  border-width: var(--layout-line-width);\n  border-color: rgb(var(--form-group-text-border));\n  border-style: solid;\n  overflow: hidden;\n}\n\n.form-group-border-theme-color {\n  border-color: rgb(var(--theme-color));\n}\n\n.form-group.form-group-border .form-group-text,\n.form-group.form-group-border .button,\n.form-group.form-group-border .button-line:after,\n.form-group.form-group-border>select,\n.form-group.form-group-border>input[type=\"email\"],\n.form-group.form-group-border>input[type=\"number\"],\n.form-group.form-group-border>input[type=\"password\"],\n.form-group.form-group-border>input[type=\"search\"],\n.form-group.form-group-border>input[type=\"tel\"],\n.form-group.form-group-border>input[type=\"text\"],\n.form-group.form-group-border>input[type=\"color\"],\n.form-group.form-group-border>input[type=\"range\"],\n.form-group.form-group-border.form-group-nested-button * .button,\n.form-group.form-group-border.form-group-nested-button * .button-line:after,\n.form-group.form-group-border.form-group-nested-button * input[type=\"checkbox\"]+label,\n.form-group.form-group-border.form-group-nested-button * input[type=\"radio\"]+label,\n.form-group.form-group-border.form-group-nested-button * input[type=\"file\"]+label,\n.form-group.form-group-border.form-group-nested-button * input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n.form-group-text {\n  background-color: rgb(var(--form-group-text-background));\n  padding: 0 1.25em;\n  margin: 0;\n  color: rgb(var(--form-input-text));\n  min-width: 4em;\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 0;\n  border-width: var(--layout-line-width);\n  border-color: rgb(var(--form-group-text-border));\n  border-style: solid;\n  border-radius: var(--theme-radius-base);\n  white-space: nowrap;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-group-text:hover,\n.form-group-text:focus {\n  background-color: rgb(var(--form-group-text-background-focus-hover));\n  border-color: rgb(var(--form-group-text-border-focus-hover));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text:active {\n  background-color: rgb(var(--form-group-text-background-active));\n  border-color: rgb(var(--form-group-text-border-active));\n  color: rgb(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text.disabled,\n.form-group-text.disabled:hover,\n.form-group-text.disabled:focus,\n.form-group-text.disable:active {\n  background-color: rgb(var(--form-group-text-background-disabled));\n  border-color: rgb(var(--form-group-text-border-disabled));\n  color: rgb(var(--form-input-text-disabled));\n  box-shadow: none;\n  cursor: default;\n}\n\n.form-group-text-left {\n  justify-content: flex-start;\n}\n\n.form-group-text-right {\n  justify-content: flex-end;\n}\n\n.form-group-item-small,\n.form-group-item-medium,\n.form-group-item-large,\n.form-group>.button.form-group-item-small,\n.form-group>.button.form-group-item-medium,\n.form-group>.button.form-group-item-large,\n.form-group>select.form-group-item-small,\n.form-group>select.form-group-item-medium,\n.form-group>select.form-group-item-large,\n.form-group>input[type].form-group-item-small,\n.form-group>input[type].form-group-item-medium,\n.form-group>input[type].form-group-item-large {\n  padding-left: 0.5em;\n  padding-right: 0.5em;\n}\n\n.form-group-item-small,\n.form-group>.button.form-group-item-small,\n.form-group>select.form-group-item-small,\n.form-group>input[type].form-group-item-small {\n  width: 4em;\n  flex-shrink: 0;\n}\n\n.form-group-item-medium,\n.form-group>.button.form-group-item-medium,\n.form-group>select.form-group-item-medium,\n.form-group>input[type].form-group-item-medium {\n  width: 6em;\n  flex-shrink: 0;\n}\n\n.form-group-item-large,\n.form-group>.button.form-group-item-large,\n.form-group>select.form-group-item-large,\n.form-group>input[type].form-group-item-large {\n  width: 8em;\n  flex-shrink: 0;\n}\n\n.form-group-item-shrink,\n.form-group>.button.form-group-item-shrink,\n.form-group>select.form-group-item-shrink,\n.form-group>input[type].form-group-item-shrink {\n  flex-grow: 0;\n}\n\n.form-group-item-grow,\n.form-group>.button.form-group-item-grow,\n.form-group>select.form-group-item-grow,\n.form-group>input[type].form-group-item-grow {\n  flex-grow: 1;\n}\n\n.form-group-item-half,\n.form-group>.button.form-group-item-half,\n.form-group>select.form-group-item-half,\n.form-group>input[type].form-group-item-half {\n  flex-basis: 50%;\n}\n\n.form-group-item-equal,\n.form-group>.button.form-group-item-equal,\n.form-group>select.form-group-item-equal,\n.form-group>input[type].form-group-item-equal {\n  flex-basis: 0;\n}\n\n.form-group-text-borderless {\n  padding: 0;\n  border-width: 0;\n  min-width: inherit;\n}\n\n.form-group-text-transparent,\n.form-group-text-transparent:hover,\n.form-group-text-transparent:focus,\n.form-group-text-transparent:active,\n.form-group-text-transparent.disabled,\n.form-group-text-transparent.disabled:hover,\n.form-group-text-transparent.disabled:focus,\n.form-group-text-transparent.disable:active {\n  background-color: transparent;\n}\n\n/* form dropdown */\n.form-dropdown {\n  position: relative;\n}\n\n.form-dropdown.form-dropdown-inline {\n  display: inline-block;\n}\n\n.form-dropdown-menu {\n  background-color: rgb(var(--form-dropdown-background));\n  border-radius: var(--theme-radius-base);\n  padding: 0.75em 0;\n  position: absolute;\n  width: 100%;\n  min-width: 12em;\n  box-shadow: var(--theme-shadow-bottom-large);\n  z-index: var(--z-index-dropdown);\n  overflow: hidden;\n  display: none;\n}\n\n.form-dropdown-menu-left {\n  right: 0;\n}\n\n.form-dropdown-menu-right {\n  left: 0;\n}\n\n.form-dropdown-menu-top {\n  bottom: calc(100% + calc(var(--layout-line-width) * 2));\n}\n\n.form-dropdown-menu-bottom {\n  top: calc(100% + calc(var(--layout-line-width) * 2));\n}\n\n.form-dropdown-open .form-dropdown-menu {\n  display: flex;\n  flex-direction: column;\n}\n\n.form-dropdown-menu button,\n.form-dropdown-menu .button {\n  border-radius: 0;\n  justify-content: flex-start;\n  position: relative;\n}\n\n.form-dropdown-menu .button-line:after {\n  border-radius: 0;\n}\n\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child .button,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child .button,\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child input[type=\"checkbox\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child input[type=\"radio\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:first-child input[type=\"color\"]+label,\n.form-group.form-group-nested-button .form-dropdown-menu *:last-child input[type=\"color\"]+label {\n  border-radius: 0;\n}\n\n/* form feedback */\n.form-feedback {\n  padding: 0.75em 1.25em;\n  background-color: rgb(var(--form-feedback-background));\n  border: 0;\n  border-left-width: calc(var(--layout-line-width) * 2);\n  border-left-style: solid;\n  border-left-color: rgb(var(--form-feedback-border));\n  border-top-right-radius: var(--theme-radius-base);\n  border-bottom-right-radius: var(--theme-radius-base);\n  width: 100%;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);\n}\n\n.form-feedback p {\n  color: rgb(var(--form-feedback-text));\n}\n\n.form-feedback p.muted {\n  color: rgb(var(--form-feedback-text-muted));\n}\n\n.form-feedback.disabled {\n  background-color: rgb(var(--form-feedback-background-disabled));\n  border-color: rgb(var(--form-feedback-border-disabled));\n}\n\n.form-feedback.disabled p {\n  color: rgb(var(--form-feedback-text-disabled));\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -583,7 +583,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --tab-space: 2em;\n}\n\n.ta
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --theme-accent-r: 25;\n  --theme-accent-g: 25;\n  --theme-accent-b: 25;\n  --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);\n  --theme-accent-accessible-threshold: 0.5;\n  --theme-accent-accessible-r: calc(var(--theme-accent-r) * 0.50);\n  --theme-accent-accessible-g: calc(var(--theme-accent-g) * 0.60);\n  --theme-accent-accessible-b: calc(var(--theme-accent-b) * 0.20);\n  --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));\n  --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);\n  --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);\n  --theme-font-display-name: \"Fjalla One\", sans-serif;\n  --theme-font-display-weight: 400;\n  --theme-font-display-style: \"normal\";\n  --theme-font-ui-name: \"Open Sans\", sans-serif;\n  --theme-font-ui-weight: 400;\n  --theme-font-ui-style: \"normal\";\n  --theme-black: 0, 0, 0;\n  --theme-white: 255, 255, 255;\n  --theme-shade-negative-10: 25, 25, 25;\n  --theme-shade-negative-09: 25, 25, 25;\n  --theme-shade-negative-08: 25, 25, 25;\n  --theme-shade-negative-07: 25, 25, 25;\n  --theme-shade-negative-06: 25, 25, 25;\n  --theme-shade-negative-05: 25, 25, 25;\n  --theme-shade-negative-04: 25, 25, 25;\n  --theme-shade-negative-03: 25, 25, 25;\n  --theme-shade-negative-02: 25, 25, 25;\n  --theme-shade-negative-01: 25, 25, 25;\n  --theme-shade: 25, 25, 25;\n  --theme-shade-positive-01: 25, 25, 25;\n  --theme-shade-positive-02: 25, 25, 25;\n  --theme-shade-positive-03: 25, 25, 25;\n  --theme-shade-positive-04: 25, 25, 25;\n  --theme-shade-positive-05: 25, 25, 25;\n  --theme-shade-positive-06: 25, 25, 25;\n  --theme-shade-positive-07: 25, 25, 25;\n  --theme-shade-positive-08: 25, 25, 25;\n  --theme-shade-positive-09: 25, 25, 25;\n  --theme-shade-positive-10: 25, 25, 25;\n  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1rem);\n  --theme-shadow: 1;\n  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);\n  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);\n  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);\n  --theme-shadow-offset-base: 20;\n  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);\n  --theme-shadow-blur-base: 20;\n  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);\n  --theme-shadow-opacity-base: 20;\n  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);\n  --theme-shadow-bottom-small:\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-large:\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-small:\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-large:\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-background-theme: var(--theme-color-01);\n  --theme-background-accent: var(--theme-accent);\n}\n\n.is-theme-style-dark {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-negative-10);\n  --theme-color-02: var(--theme-shade-negative-09);\n  --theme-color-03: var(--theme-shade-negative-08);\n  --theme-color-04: var(--theme-shade-negative-07);\n  --theme-color-05: var(--theme-shade-negative-06);\n  --theme-color-06: var(--theme-shade-negative-05);\n  --theme-color-07: var(--theme-shade-negative-04);\n  --theme-color-08: var(--theme-shade-negative-03);\n  --theme-color-09: var(--theme-shade-negative-02);\n  --theme-color-10: var(--theme-shade-negative-01);\n  --theme-color-11: var(--theme-shade-positive-01);\n  --theme-color-12: var(--theme-shade-positive-02);\n  --theme-color-13: var(--theme-shade-positive-03);\n  --theme-color-14: var(--theme-shade-positive-04);\n  --theme-color-15: var(--theme-shade-positive-05);\n  --theme-color-16: var(--theme-shade-positive-06);\n  --theme-color-17: var(--theme-shade-positive-07);\n  --theme-color-18: var(--theme-shade-positive-08);\n  --theme-color-19: var(--theme-shade-positive-09);\n  --theme-color-20: var(--theme-shade-positive-10);\n  --theme-style-text: var(--theme-white);\n}\n\n.is-theme-style-light {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-positive-10);\n  --theme-color-02: var(--theme-shade-positive-09);\n  --theme-color-03: var(--theme-shade-positive-08);\n  --theme-color-04: var(--theme-shade-positive-07);\n  --theme-color-05: var(--theme-shade-positive-06);\n  --theme-color-06: var(--theme-shade-positive-05);\n  --theme-color-07: var(--theme-shade-positive-04);\n  --theme-color-08: var(--theme-shade-positive-03);\n  --theme-color-09: var(--theme-shade-positive-02);\n  --theme-color-10: var(--theme-shade-positive-01);\n  --theme-color-11: var(--theme-shade-negative-01);\n  --theme-color-12: var(--theme-shade-negative-02);\n  --theme-color-13: var(--theme-shade-negative-03);\n  --theme-color-14: var(--theme-shade-negative-04);\n  --theme-color-15: var(--theme-shade-negative-05);\n  --theme-color-16: var(--theme-shade-negative-06);\n  --theme-color-17: var(--theme-shade-negative-07);\n  --theme-color-18: var(--theme-shade-negative-08);\n  --theme-color-19: var(--theme-shade-negative-09);\n  --theme-color-20: var(--theme-shade-negative-10);\n  --theme-style-text: var(--theme-black);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-positive-10);\n    --theme-color-02: var(--theme-shade-positive-09);\n    --theme-color-03: var(--theme-shade-positive-08);\n    --theme-color-04: var(--theme-shade-positive-07);\n    --theme-color-05: var(--theme-shade-positive-06);\n    --theme-color-06: var(--theme-shade-positive-05);\n    --theme-color-07: var(--theme-shade-positive-04);\n    --theme-color-08: var(--theme-shade-positive-03);\n    --theme-color-09: var(--theme-shade-positive-02);\n    --theme-color-10: var(--theme-shade-positive-01);\n    --theme-color-11: var(--theme-shade-negative-01);\n    --theme-color-12: var(--theme-shade-negative-02);\n    --theme-color-13: var(--theme-shade-negative-03);\n    --theme-color-14: var(--theme-shade-negative-04);\n    --theme-color-15: var(--theme-shade-negative-05);\n    --theme-color-16: var(--theme-shade-negative-06);\n    --theme-color-17: var(--theme-shade-negative-07);\n    --theme-color-18: var(--theme-shade-negative-08);\n    --theme-color-19: var(--theme-shade-negative-09);\n    --theme-color-20: var(--theme-shade-negative-10);\n    --theme-style-text: var(--theme-black);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-negative-10);\n    --theme-color-02: var(--theme-shade-negative-09);\n    --theme-color-03: var(--theme-shade-negative-08);\n    --theme-color-04: var(--theme-shade-negative-07);\n    --theme-color-05: var(--theme-shade-negative-06);\n    --theme-color-06: var(--theme-shade-negative-05);\n    --theme-color-07: var(--theme-shade-negative-04);\n    --theme-color-08: var(--theme-shade-negative-03);\n    --theme-color-09: var(--theme-shade-negative-02);\n    --theme-color-10: var(--theme-shade-negative-01);\n    --theme-color-11: var(--theme-shade-positive-01);\n    --theme-color-12: var(--theme-shade-positive-02);\n    --theme-color-13: var(--theme-shade-positive-03);\n    --theme-color-14: var(--theme-shade-positive-04);\n    --theme-color-15: var(--theme-shade-positive-05);\n    --theme-color-16: var(--theme-shade-positive-06);\n    --theme-color-17: var(--theme-shade-positive-07);\n    --theme-color-18: var(--theme-shade-positive-08);\n    --theme-color-19: var(--theme-shade-positive-09);\n    --theme-color-20: var(--theme-shade-positive-10);\n    --theme-style-text: var(--theme-white);\n  }\n}\n\n.theme-color-box {\n  width: 100%;\n  height: 100%;\n}\n\n.theme-color-negative-10 {\n  background-color: rgb(var(--theme-color-01));\n}\n\n.theme-color-negative-09 {\n  background-color: rgb(var(--theme-color-02));\n}\n\n.theme-color-negative-08 {\n  background-color: rgb(var(--theme-color-03));\n}\n\n.theme-color-negative-07 {\n  background-color: rgb(var(--theme-color-04));\n}\n\n.theme-color-negative-06 {\n  background-color: rgb(var(--theme-color-05));\n}\n\n.theme-color-negative-05 {\n  background-color: rgb(var(--theme-color-06));\n}\n\n.theme-color-negative-04 {\n  background-color: rgb(var(--theme-color-07));\n}\n\n.theme-color-negative-03 {\n  background-color: rgb(var(--theme-color-08));\n}\n\n.theme-color-negative-02 {\n  background-color: rgb(var(--theme-color-09));\n}\n\n.theme-color-negative-01 {\n  background-color: rgb(var(--theme-color-10));\n}\n\n.theme-color {\n  background-color: rgb(var(--theme-color));\n}\n\n.theme-color-positive-01 {\n  background-color: rgb(var(--theme-color-11));\n}\n\n.theme-color-positive-02 {\n  background-color: rgb(var(--theme-color-12));\n}\n\n.theme-color-positive-03 {\n  background-color: rgb(var(--theme-color-13));\n}\n\n.theme-color-positive-04 {\n  background-color: rgb(var(--theme-color-14));\n}\n\n.theme-color-positive-05 {\n  background-color: rgb(var(--theme-color-15));\n}\n\n.theme-color-positive-06 {\n  background-color: rgb(var(--theme-color-16));\n}\n\n.theme-color-positive-07 {\n  background-color: rgb(var(--theme-color-17));\n}\n\n.theme-color-positive-08 {\n  background-color: rgb(var(--theme-color-18));\n}\n\n.theme-color-positive-09 {\n  background-color: rgb(var(--theme-color-19));\n}\n\n.theme-color-positive-10 {\n  background-color: rgb(var(--theme-color-20));\n}\n\n.theme-background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  pointer-events: none;\n  z-index: var(--z-index-background);\n}\n\n.theme-background-type {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  display: block;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-medium);\n}\n\n.theme-background-type-theme {\n  background-color: rgb(var(--theme-background-theme));\n}\n\n.theme-background-type-accent {\n  background-color: rgb(var(--theme-background-accent));\n}\n\n.theme-background-type-color {\n  background-color: rgb(var(--theme-background-color));\n}\n\n.theme-background-type-gradient {\n  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));\n}\n\n.theme-background-type-image {\n  background-image: var(--theme-background-image);\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: center;\n  transform: scale(calc(calc(var(--theme-background-image-scale) / 100) + calc(var(--theme-background-image-blur) / 400)));\n  filter: blur(calc(var(--theme-background-image-blur) * 1px));\n}\n\n.theme-background-type-video {\n  transform: scale(calc(var(--theme-background-video-scale) / 100));\n  filter: blur(calc(var(--theme-background-video-blur) * 1px));\n}\n.theme-background-type-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n\n.is-theme-background-type-theme .theme-background-type-theme {\n  opacity: 1;\n}\n\n.is-theme-background-type-accent .theme-background-type-accent {\n  opacity: 1;\n}\n\n.is-theme-background-type-color .theme-background-type-color {\n  opacity: 1;\n}\n\n.is-theme-background-type-gradient .theme-background-type-gradient {\n  opacity: 1;\n}\n\n.is-theme-background-type-image .theme-background-type-image {\n  opacity: calc(var(--theme-background-image-opacity) / 100);\n}\n\n.is-theme-background-type-video .theme-background-type-video {\n  opacity: calc(var(--theme-background-video-opacity) / 100);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --theme-accent-r: 25;\n  --theme-accent-g: 25;\n  --theme-accent-b: 25;\n  --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);\n  --theme-accent-accessible-threshold: 0.5;\n  --theme-accent-accessible-r: calc(var(--theme-accent-r) * 0.50);\n  --theme-accent-accessible-g: calc(var(--theme-accent-g) * 0.60);\n  --theme-accent-accessible-b: calc(var(--theme-accent-b) * 0.20);\n  --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));\n  --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);\n  --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);\n}\n\n:root {\n  --theme-font-display-name: \"Fjalla One\", sans-serif;\n  --theme-font-display-weight: 400;\n  --theme-font-display-style: \"normal\";\n  --theme-font-ui-name: \"Open Sans\", sans-serif;\n  --theme-font-ui-weight: 400;\n  --theme-font-ui-style: \"normal\";\n}\n\n:root {\n  --theme-black: 0, 0, 0;\n  --theme-white: 255, 255, 255;\n}\n\n:root {\n  --theme-shade-negative-10: 25, 25, 25;\n  --theme-shade-negative-09: 25, 25, 25;\n  --theme-shade-negative-08: 25, 25, 25;\n  --theme-shade-negative-07: 25, 25, 25;\n  --theme-shade-negative-06: 25, 25, 25;\n  --theme-shade-negative-05: 25, 25, 25;\n  --theme-shade-negative-04: 25, 25, 25;\n  --theme-shade-negative-03: 25, 25, 25;\n  --theme-shade-negative-02: 25, 25, 25;\n  --theme-shade-negative-01: 25, 25, 25;\n  --theme-shade: 25, 25, 25;\n  --theme-shade-positive-01: 25, 25, 25;\n  --theme-shade-positive-02: 25, 25, 25;\n  --theme-shade-positive-03: 25, 25, 25;\n  --theme-shade-positive-04: 25, 25, 25;\n  --theme-shade-positive-05: 25, 25, 25;\n  --theme-shade-positive-06: 25, 25, 25;\n  --theme-shade-positive-07: 25, 25, 25;\n  --theme-shade-positive-08: 25, 25, 25;\n  --theme-shade-positive-09: 25, 25, 25;\n  --theme-shade-positive-10: 25, 25, 25;\n}\n\n:root {\n  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1em);\n}\n\n:root {\n  --theme-shadow: 1;\n  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);\n  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);\n  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);\n  --theme-shadow-offset-base: 20;\n  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);\n  --theme-shadow-blur-base: 20;\n  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);\n  --theme-shadow-opacity-base: 20;\n  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);\n  --theme-shadow-bottom-small:\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-large:\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-small:\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-large:\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n}\n\n:root {\n  --theme-background-theme: var(--theme-color-01);\n  --theme-background-accent: var(--theme-accent);\n}\n\n.is-theme-style-dark {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-negative-10);\n  --theme-color-02: var(--theme-shade-negative-09);\n  --theme-color-03: var(--theme-shade-negative-08);\n  --theme-color-04: var(--theme-shade-negative-07);\n  --theme-color-05: var(--theme-shade-negative-06);\n  --theme-color-06: var(--theme-shade-negative-05);\n  --theme-color-07: var(--theme-shade-negative-04);\n  --theme-color-08: var(--theme-shade-negative-03);\n  --theme-color-09: var(--theme-shade-negative-02);\n  --theme-color-10: var(--theme-shade-negative-01);\n  --theme-color-11: var(--theme-shade-positive-01);\n  --theme-color-12: var(--theme-shade-positive-02);\n  --theme-color-13: var(--theme-shade-positive-03);\n  --theme-color-14: var(--theme-shade-positive-04);\n  --theme-color-15: var(--theme-shade-positive-05);\n  --theme-color-16: var(--theme-shade-positive-06);\n  --theme-color-17: var(--theme-shade-positive-07);\n  --theme-color-18: var(--theme-shade-positive-08);\n  --theme-color-19: var(--theme-shade-positive-09);\n  --theme-color-20: var(--theme-shade-positive-10);\n  --theme-style-text: var(--theme-white);\n}\n\n.is-theme-style-light {\n  --theme-color: var(--theme-shade);\n  --theme-color-01: var(--theme-shade-positive-10);\n  --theme-color-02: var(--theme-shade-positive-09);\n  --theme-color-03: var(--theme-shade-positive-08);\n  --theme-color-04: var(--theme-shade-positive-07);\n  --theme-color-05: var(--theme-shade-positive-06);\n  --theme-color-06: var(--theme-shade-positive-05);\n  --theme-color-07: var(--theme-shade-positive-04);\n  --theme-color-08: var(--theme-shade-positive-03);\n  --theme-color-09: var(--theme-shade-positive-02);\n  --theme-color-10: var(--theme-shade-positive-01);\n  --theme-color-11: var(--theme-shade-negative-01);\n  --theme-color-12: var(--theme-shade-negative-02);\n  --theme-color-13: var(--theme-shade-negative-03);\n  --theme-color-14: var(--theme-shade-negative-04);\n  --theme-color-15: var(--theme-shade-negative-05);\n  --theme-color-16: var(--theme-shade-negative-06);\n  --theme-color-17: var(--theme-shade-negative-07);\n  --theme-color-18: var(--theme-shade-negative-08);\n  --theme-color-19: var(--theme-shade-negative-09);\n  --theme-color-20: var(--theme-shade-negative-10);\n  --theme-style-text: var(--theme-black);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-positive-10);\n    --theme-color-02: var(--theme-shade-positive-09);\n    --theme-color-03: var(--theme-shade-positive-08);\n    --theme-color-04: var(--theme-shade-positive-07);\n    --theme-color-05: var(--theme-shade-positive-06);\n    --theme-color-06: var(--theme-shade-positive-05);\n    --theme-color-07: var(--theme-shade-positive-04);\n    --theme-color-08: var(--theme-shade-positive-03);\n    --theme-color-09: var(--theme-shade-positive-02);\n    --theme-color-10: var(--theme-shade-positive-01);\n    --theme-color-11: var(--theme-shade-negative-01);\n    --theme-color-12: var(--theme-shade-negative-02);\n    --theme-color-13: var(--theme-shade-negative-03);\n    --theme-color-14: var(--theme-shade-negative-04);\n    --theme-color-15: var(--theme-shade-negative-05);\n    --theme-color-16: var(--theme-shade-negative-06);\n    --theme-color-17: var(--theme-shade-negative-07);\n    --theme-color-18: var(--theme-shade-negative-08);\n    --theme-color-19: var(--theme-shade-negative-09);\n    --theme-color-20: var(--theme-shade-negative-10);\n    --theme-style-text: var(--theme-black);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --theme-color: var(--theme-shade);\n    --theme-color-01: var(--theme-shade-negative-10);\n    --theme-color-02: var(--theme-shade-negative-09);\n    --theme-color-03: var(--theme-shade-negative-08);\n    --theme-color-04: var(--theme-shade-negative-07);\n    --theme-color-05: var(--theme-shade-negative-06);\n    --theme-color-06: var(--theme-shade-negative-05);\n    --theme-color-07: var(--theme-shade-negative-04);\n    --theme-color-08: var(--theme-shade-negative-03);\n    --theme-color-09: var(--theme-shade-negative-02);\n    --theme-color-10: var(--theme-shade-negative-01);\n    --theme-color-11: var(--theme-shade-positive-01);\n    --theme-color-12: var(--theme-shade-positive-02);\n    --theme-color-13: var(--theme-shade-positive-03);\n    --theme-color-14: var(--theme-shade-positive-04);\n    --theme-color-15: var(--theme-shade-positive-05);\n    --theme-color-16: var(--theme-shade-positive-06);\n    --theme-color-17: var(--theme-shade-positive-07);\n    --theme-color-18: var(--theme-shade-positive-08);\n    --theme-color-19: var(--theme-shade-positive-09);\n    --theme-color-20: var(--theme-shade-positive-10);\n    --theme-style-text: var(--theme-white);\n  }\n}\n\n.theme-color-box {\n  width: 100%;\n  height: 100%;\n}\n\n.theme-color-negative-10 {\n  background-color: rgb(var(--theme-color-01));\n}\n\n.theme-color-negative-09 {\n  background-color: rgb(var(--theme-color-02));\n}\n\n.theme-color-negative-08 {\n  background-color: rgb(var(--theme-color-03));\n}\n\n.theme-color-negative-07 {\n  background-color: rgb(var(--theme-color-04));\n}\n\n.theme-color-negative-06 {\n  background-color: rgb(var(--theme-color-05));\n}\n\n.theme-color-negative-05 {\n  background-color: rgb(var(--theme-color-06));\n}\n\n.theme-color-negative-04 {\n  background-color: rgb(var(--theme-color-07));\n}\n\n.theme-color-negative-03 {\n  background-color: rgb(var(--theme-color-08));\n}\n\n.theme-color-negative-02 {\n  background-color: rgb(var(--theme-color-09));\n}\n\n.theme-color-negative-01 {\n  background-color: rgb(var(--theme-color-10));\n}\n\n.theme-color {\n  background-color: rgb(var(--theme-color));\n}\n\n.theme-color-positive-01 {\n  background-color: rgb(var(--theme-color-11));\n}\n\n.theme-color-positive-02 {\n  background-color: rgb(var(--theme-color-12));\n}\n\n.theme-color-positive-03 {\n  background-color: rgb(var(--theme-color-13));\n}\n\n.theme-color-positive-04 {\n  background-color: rgb(var(--theme-color-14));\n}\n\n.theme-color-positive-05 {\n  background-color: rgb(var(--theme-color-15));\n}\n\n.theme-color-positive-06 {\n  background-color: rgb(var(--theme-color-16));\n}\n\n.theme-color-positive-07 {\n  background-color: rgb(var(--theme-color-17));\n}\n\n.theme-color-positive-08 {\n  background-color: rgb(var(--theme-color-18));\n}\n\n.theme-color-positive-09 {\n  background-color: rgb(var(--theme-color-19));\n}\n\n.theme-color-positive-10 {\n  background-color: rgb(var(--theme-color-20));\n}\n\n.theme-background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  pointer-events: none;\n  z-index: var(--z-index-background);\n}\n\n.theme-background-type {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  display: block;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-medium);\n}\n\n.theme-background-type-theme {\n  background-color: rgb(var(--theme-background-theme));\n}\n\n.theme-background-type-accent {\n  background-color: rgb(var(--theme-background-accent));\n}\n\n.theme-background-type-color {\n  background-color: rgb(var(--theme-background-color));\n}\n\n.theme-background-type-gradient {\n  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));\n}\n\n.theme-background-type-image {\n  background-image: var(--theme-background-image);\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: center;\n  transform: scale(calc(calc(var(--theme-background-image-scale) / 100) + calc(var(--theme-background-image-blur) / 400)));\n  filter: blur(calc(var(--theme-background-image-blur) * 1px));\n}\n\n.theme-background-type-video {\n  transform: scale(calc(var(--theme-background-video-scale) / 100));\n  filter: blur(calc(var(--theme-background-video-blur) * 1px));\n}\n\n.theme-background-type-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.is-theme-background-type-theme .theme-background-type-theme {\n  opacity: 1;\n}\n\n.is-theme-background-type-accent .theme-background-type-accent {\n  opacity: 1;\n}\n\n.is-theme-background-type-color .theme-background-type-color {\n  opacity: 1;\n}\n\n.is-theme-background-type-gradient .theme-background-type-gradient {\n  opacity: 1;\n}\n\n.is-theme-background-type-image .theme-background-type-image {\n  opacity: calc(var(--theme-background-image-opacity) / 100);\n}\n\n.is-theme-background-type-video .theme-background-type-video {\n  opacity: calc(var(--theme-background-video-opacity) / 100);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -602,7 +602,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --theme-accent-r: 25;\n  --
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".toolbar {\n  position: fixed;\n  bottom: 1em;\n  right: 1em;\n  z-index: var(--z-index-toolbar);\n}\n\n.toolbar-button {\n  padding: 1em;\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1.25em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  z-index: var(--z-index-toolbar);\n}\n\n.is-toolbar-position-top-left .toolbar {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-top-right .toolbar {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-left .toolbar {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-right .toolbar {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.form-input-button.toolbar-item,\n.form-group-item-half.toolbar-item,\n.form-group>input[type].form-group-item-half.toolbar-item,\n.toolbar-item {\n  padding: 0;\n  min-width: initial;\n  width: 3.5em;\n  flex-basis: auto;\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1737,6 +1737,7 @@ state_state.default = {
     radius: 25,
     shadow: 75
   },
+  toolbar: { style: 'transparent', position: 'bottom-right' },
   edit: false,
   modal: false,
   menu: false,
@@ -9668,6 +9669,9 @@ form_form.render = {
   group: function(children) {
     return node('div|class:form-group', children);
   },
+  groupReverse: function(children) {
+    return node('div|class:form-group form-group-reverse', children);
+  },
   groupBlock: function(children) {
     return node('div|class:form-group form-group-block', children);
   },
@@ -9679,6 +9683,9 @@ form_form.render = {
   },
   indent: function(children) {
     return node('div|class:form-indent', children);
+  },
+  grid: function(children) {
+    return node('div|class:form-grid', children);
   }
 };
 
@@ -9736,7 +9743,7 @@ form_form.render.groupText = function({ text = false, classList = [] } = {}) {
   return textElement;
 };
 
-form_form.render.label = function({ forInput = false, text = 'label', description = false, icon = false, classList = [] } = {}) {
+form_form.render.label = function({ forInput = false, text = 'label', description = false, srOnly = false, icon = false, classList = [] } = {}) {
   let label;
 
   if (forInput) {
@@ -9745,13 +9752,23 @@ form_form.render.label = function({ forInput = false, text = 'label', descriptio
     label = node('label');
   };
 
+  const labelBlock = node('span|class:label-block');
+
+  if (srOnly) {
+    if (icon) {
+      labelBlock.classList.add('sr-only');
+    } else {
+      label.classList.add('sr-only');
+    };
+  };
+
   if (text && description) {
-    label.appendChild(node('span|class:label-block', [
-      node('span:' + text + '|class:label-block-item'),
-      node('span:' + description + '|class:label-block-item small muted')
-    ]));
+    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+    labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
+    label.appendChild(labelBlock);
   } else if (text) {
-    label.appendChild(node('span:' + text));
+    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+    label.appendChild(labelBlock);
   };
 
   if (icon) {
@@ -10002,6 +10019,7 @@ form_form.render.input.number = function({ id = false, min = 0, max = 100, step 
 
   return input;
 };
+
 
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/button/index.css
@@ -10438,7 +10456,8 @@ const ControlModul_helperText = function({ text = [] } = {}) {
   };
 };
 
-const ControlModule_inputButton = function({ id = 'name', type = false, inputHide = false, labelText = 'Name', action = false } = {}) {
+const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+
   this.input;
 
   switch (type) {
@@ -10451,12 +10470,31 @@ const ControlModule_inputButton = function({ id = 'name', type = false, inputHid
           };
         }
       });
+
       break;
 
     case 'color':
       this.input = form_form.render.input.color({
-        id: id
+        id: id,
+        value: convertColor.rgb.hex(get({
+          object: object,
+          path: path
+        })),
+        classList: classList,
+        func: () => {
+          if (path) {
+            set({
+              object: object,
+              path: path,
+              value: convertColor.hex.rgb(this.input.value)
+            });
+          };
+          if (action) {
+            action();
+          };
+        }
       });
+
       break;
   };
 
@@ -10465,18 +10503,49 @@ const ControlModule_inputButton = function({ id = 'name', type = false, inputHid
     forInput: id
   });
 
-  this.formButton = node('div|class:form-input-button form-input-button-line');
+  this.button = node('div|class:form-input-button');
 
-  if (inputHide) {
-    this.formButton.classList.add('form-input-hide');
+  if (inputButton.length > 0) {
+    inputButton.forEach((item, i) => {
+      switch (item) {
+        case 'link':
+          this.button.classList.add('form-input-button-link');
+          break;
+
+        case 'line':
+          this.button.classList.add('form-input-button-line');
+          break;
+
+        case 'ring':
+          this.button.classList.add('form-input-button-ring');
+          break;
+
+        case 'dot':
+          this.button.classList.add('input-color-dot');
+          break;
+
+        case 'accent':
+          this.button.classList.add('input-color-dot-accent');
+          break;
+      };
+    });
   };
 
-  this.formButton.appendChild(this.input);
-  this.formButton.appendChild(this.label);
+  if (inputHide) {
+    this.button.classList.add('form-input-hide');
+  };
+
+  if (srOnly) {
+    this.button.classList.add('form-input-button-sr-only');
+  };
+
+  this.button.appendChild(this.input);
+
+  this.button.appendChild(this.label);
 
   this.wrap = () => {
     return form_form.render.wrap([
-      this.formButton
+      this.button
     ])
   };
 
@@ -10857,12 +10926,9 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
 
   this.label = form_form.render.label({
     forInput: id,
-    text: labelText
+    text: labelText,
+    srOnly: srOnly
   });
-
-  if (srOnly) {
-    this.label.classList.add('sr-only')
-  };
 
   this.color = form_form.render.input.color({
     id: id,
@@ -11043,7 +11109,7 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
           return form_form.render.wrap([
             radioAndLabel.radio,
             radioAndLabel.label
-          ])
+          ]);
         }
       };
 
@@ -11128,6 +11194,167 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
     this.radioSet.forEach((item, i) => {
       item.radio.enable();
     });
+  };
+};
+
+const ControlModule_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
+  this.radioSet = [];
+
+  const radioGroupName = groupName;
+
+  const radioGroupPath = path;
+
+  const gridElement = form_form.render.grid();
+
+  let gridLabel = false;
+
+  if (label) {
+    gridLabel = form_form.render.label({
+      text: label
+    });
+  };
+
+  if (radioGroup.length > 0) {
+    radioGroup.forEach((item, i) => {
+      const radioAndLabel = {};
+
+      radioAndLabel.position = item.position;
+
+      radioAndLabel.radio = form_form.render.input.radio({
+        id: item.id,
+        radioGroup: radioGroupName,
+        value: item.value,
+        checked: (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value),
+        func: () => {
+          set({
+            object: object,
+            path: radioGroupPath,
+            value: item.value
+          });
+          if (action) {
+            action();
+          };
+        }
+      });
+
+      radioAndLabel.label = form_form.render.label({
+        forInput: item.id,
+        text: item.labelText,
+        description: item.description,
+        srOnly: true,
+        icon: true
+      });
+
+      radioAndLabel.wrap = () => {
+        return form_form.render.wrap([
+          radioAndLabel.radio,
+          radioAndLabel.label
+        ]);
+      };
+
+      radioAndLabel.radio.update = () => {
+        radioAndLabel.radio.checked = (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value);
+      };
+
+      radioAndLabel.radio.disable = () => {
+        radioAndLabel.radio.disabled = true;
+      };
+
+      radioAndLabel.radio.enable = () => {
+        radioAndLabel.radio.disabled = false;
+      };
+
+      this.radioSet.push(radioAndLabel);
+    });
+  };
+
+  this.value = () => {
+    let currentSelectedRadio = false;
+
+    this.radioSet.forEach((item, i) => {
+      if (item.radio.checked) {
+        currentSelectedRadio = item.radio.value;
+      };
+    });
+
+    return currentSelectedRadio;
+  };
+
+  this.update = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.update();
+    });
+  };
+
+  this.grid = () => {
+    const wrap = form_form.render.wrap();
+
+    switch (gridSize) {
+      case '3x3':
+        gridElement.classList.add('form-grid-3x3');
+        break;
+
+      case '3x1':
+        gridElement.classList.add('form-grid-3x1');
+        break;
+
+      case '1x3':
+        gridElement.classList.add('form-grid-1x3');
+        break;
+
+      case '2x2':
+        gridElement.classList.add('form-grid-2x2');
+        break;
+    };
+
+    this.radioSet.forEach((item, i) => {
+      const wrap = form_form.render.wrap([
+        item.radio,
+        item.label
+      ]);
+
+      wrap.style.setProperty('--form-grid-cell', 'cell-' + item.position);
+
+      gridElement.appendChild(wrap);
+    });
+
+    if (label) {
+      wrap.appendChild(gridLabel);
+    };
+
+    wrap.appendChild(gridElement);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.disable();
+    });
+
+    gridElement.classList.add('disabled');
+
+    if (label) {
+      gridLabel.classList.add('disabled');
+    };
+  };
+
+  this.enable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.enable();
+    });
+
+    gridElement.classList.remove('disabled');
+
+    if (label) {
+      gridLabel.classList.remove('disabled');
+    };
   };
 };
 
@@ -14449,7 +14676,7 @@ bookmark_bookmark.init = function() {
 ;// CONCATENATED MODULE: ./src/component/version/index.js
 const version_version = {};
 
-version_version.number = '2.6.0';
+version_version.number = '2.7.0';
 
 version_version.name = 'Quirky Llama';
 
@@ -14508,6 +14735,11 @@ update_update.all = {
     dataToUpdate.bookmark.forEach((item, i) => {
       item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
     });
+
+    return dataToUpdate;
+  },
+  '2.7.0': function(dataToUpdate) {
+    dataToUpdate.state.toolbar = { style: 'transparent', position: 'bottom-right' };
 
     return dataToUpdate;
   }
@@ -14823,6 +15055,192 @@ data.init = function() {
 
 
 
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbar/index.css
+var toolbar = __webpack_require__(4879);
+;// CONCATENATED MODULE: ./src/component/toolbar/index.css
+
+            
+
+var toolbar_options = {};
+
+toolbar_options.insert = "head";
+toolbar_options.singleton = false;
+
+var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, toolbar_options);
+
+
+
+/* harmony default export */ const component_toolbar = (toolbar/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/toolbar/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const toolbar_toolbar = {};
+
+toolbar_toolbar.bar = node('div|class:toolbar');
+
+toolbar_toolbar.edit = false;
+
+toolbar_toolbar.accent = false;
+
+toolbar_toolbar.render = {};
+
+toolbar_toolbar.render.class = function() {
+  const html = document.querySelector('html');
+
+  const position = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+
+  position.forEach((item, i) => {
+    html.classList.remove('is-toolbar-position-' + item);
+  });
+
+  html.classList.add('is-toolbar-position-' + state_state.get.current().toolbar.position);
+};
+
+toolbar_toolbar.bar.render = function() {
+
+  const accentOptions = {
+    object: state_state.get.current(),
+    path: 'theme.accent.rgb',
+    id: 'theme-accent-quick',
+    type: 'color',
+    labelText: 'Accent colour',
+    srOnly: true,
+    inputButton: ['dot', 'accent'],
+    action: () => {
+      theme_theme.render.accent.color();
+      data.save();
+    }
+  };
+
+  const addOptions = {
+    text: 'Add a bookmark',
+    srOnly: true,
+    iconName: 'add',
+    classList: ['toolbar-item'],
+    func: function() {
+      bookmark_bookmark.add.open();
+    }
+  };
+
+  const editOptions = {
+    text: 'Enter edit bookmark mode',
+    srOnly: true,
+    iconName: 'edit',
+    classList: ['toolbar-item'],
+    func: function() {
+      bookmark_bookmark.edit.toggle();
+      toolbar_toolbar.bar.active();
+      data.save();
+    }
+  };
+
+  const settingsMenuOptions = {
+    text: 'Open settings menu',
+    srOnly: true,
+    iconName: 'settings',
+    classList: ['toolbar-item'],
+    func: function() {
+      menu_menu.toggle();
+    }
+  };
+
+  switch (state_state.get.current().toolbar.style) {
+    case 'bar':
+      addOptions.style = ['line'];
+      editOptions.style = ['line'];
+      settingsMenuOptions.style = ['line'];
+      accentOptions.inputButton.push('line');
+      break;
+
+    case 'transparent':
+      addOptions.style = ['link'];
+      editOptions.style = ['link'];
+      settingsMenuOptions.style = ['link'];
+      accentOptions.inputButton.push('link');
+      break;
+  };
+
+  const accent = new ControlModule_inputButton(accentOptions);
+
+  const add = new Button(addOptions);
+
+  const edit = new Button(editOptions);
+
+  const settingsMenu = new Button(settingsMenuOptions);
+
+  toolbar_toolbar.edit = edit;
+
+  toolbar_toolbar.accent = accent;
+
+  const toolbarControl = node('div|class:toolbar-control');
+
+  let formGroup;
+
+  switch (state_state.get.current().toolbar.position) {
+    case 'top-right':
+    case 'bottom-right':
+      formGroup = form_form.render.group();
+
+      break;
+
+    case 'top-left':
+    case 'bottom-left':
+      formGroup = form_form.render.groupReverse();
+
+      break;
+  };
+
+  formGroup.appendChild(accent.button);
+
+  formGroup.appendChild(add.button);
+
+  formGroup.appendChild(edit.button);
+
+  formGroup.appendChild(settingsMenu.button);
+
+  toolbarControl.appendChild(formGroup);
+
+  toolbar_toolbar.bar.appendChild(toolbarControl);
+
+  document.querySelector('body').appendChild(toolbar_toolbar.bar);
+
+};
+
+toolbar_toolbar.bar.clear = function() {
+  while (toolbar_toolbar.bar.lastChild) {
+    toolbar_toolbar.bar.removeChild(toolbar_toolbar.bar.lastChild);
+  };
+};
+
+toolbar_toolbar.bar.active = function() {
+  if (state_state.get.current().bookmark.edit) {
+    toolbar_toolbar.edit.active();
+  } else {
+    toolbar_toolbar.edit.deactive();
+  };
+};
+
+toolbar_toolbar.init = function() {
+  toolbar_toolbar.render.class();
+  toolbar_toolbar.bar.render();
+  toolbar_toolbar.bar.active();
+};
+
+
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/logo/index.css
 var logo = __webpack_require__(448);
 ;// CONCATENATED MODULE: ./src/component/logo/index.css
@@ -14954,7 +15372,411 @@ link_link.render = function({ text = 'Link', href = '#', iconName = false, iconP
 
 
 
+;// CONCATENATED MODULE: ./src/component/menu/content/layout.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const menuContentLayout = {};
+
+menuContentLayout.size = function() {
+  const menuContentItem = node('div|id:menu-content-item-size,class:menu-content-item');
+
+  const gridSize = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.size',
+    id: 'grid-size',
+    labelText: 'Global size',
+    value: state_state.get.current().grid.size,
+    defaultValue: state_state.get.default().grid.size,
+    min: state_state.get.minMax().grid.size.min,
+    max: state_state.get.minMax().grid.size.max,
+    action: () => {
+      grid_grid.render.style();
+      data.save();
+    }
+  });
+
+  const gridSizeHelper = new ControlModul_helperText({
+    text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Scaling'));
+
+  menuContentItem.appendChild(
+    menu_menu.render.component.item.form([
+      gridSize.wrap(),
+      gridSizeHelper.wrap()
+    ])
+  );
+
+  return menuContentItem;
+};
+
+menuContentLayout.grid = function() {
+  const menuContentItem = node('div|id:menu-content-item-grid,class:menu-content-item');
+
+  const gridColumn = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.column',
+    id: 'grid-column',
+    labelText: 'Grid column',
+    value: state_state.get.current().grid.column,
+    defaultValue: state_state.get.default().grid.column,
+    min: state_state.get.minMax().grid.column.min,
+    max: state_state.get.minMax().grid.column.max,
+    action: () => {
+      grid_grid.render.style();
+      bookmark_bookmark.render.clear();
+      bookmark_bookmark.render.item();
+      data.save();
+    }
+  });
+
+  const gridGap = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.gap',
+    id: 'grid-gap',
+    labelText: 'Grid gap',
+    value: state_state.get.current().grid.gap,
+    defaultValue: state_state.get.default().grid.gap,
+    min: state_state.get.minMax().grid.gap.min,
+    max: state_state.get.minMax().grid.gap.max,
+    action: () => {
+      grid_grid.render.style();
+      data.save();
+    }
+  });
+
+  const gridPerspective = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.perspective',
+    id: 'grid-perspective',
+    labelText: 'Grid perspective',
+    value: state_state.get.current().grid.perspective,
+    defaultValue: state_state.get.default().grid.perspective,
+    min: state_state.get.minMax().grid.perspective.min,
+    max: state_state.get.minMax().grid.perspective.max,
+    action: () => {
+      grid_grid.render.style();
+      data.save();
+    }
+  });
+
+  const gridFocus = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.transform.focus',
+    id: 'grid-transform-focus',
+    labelText: 'Grid tilt on hover',
+    value: state_state.get.current().grid.transform.focus,
+    defaultValue: state_state.get.default().grid.transform.focus,
+    min: state_state.get.minMax().grid.transform.focus.min,
+    max: state_state.get.minMax().grid.transform.focus.max,
+    action: () => {
+      data.save();
+    }
+  });
+
+  const gridTransformRotateX = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.transform.rotate.x',
+    id: 'grid-transform-rotate-x',
+    labelText: 'Rotate grid around X axis',
+    value: state_state.get.current().grid.transform.rotate.x,
+    defaultValue: state_state.get.default().grid.transform.rotate.x,
+    min: state_state.get.minMax().grid.transform.rotate.x.min,
+    max: state_state.get.minMax().grid.transform.rotate.x.max,
+    action: () => {
+      grid_grid.render.style();
+      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
+      data.save();
+    }
+  });
+
+  const gridTransformRotateY = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.transform.rotate.y',
+    id: 'grid-transform-rotate-y',
+    labelText: 'Rotate grid around Y axis',
+    value: state_state.get.current().grid.transform.rotate.y,
+    defaultValue: state_state.get.default().grid.transform.rotate.y,
+    min: state_state.get.minMax().grid.transform.rotate.y.min,
+    max: state_state.get.minMax().grid.transform.rotate.y.max,
+    action: () => {
+      grid_grid.render.style();
+      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
+      data.save();
+    }
+  });
+
+  const gridTransformRotateZ = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'grid.transform.rotate.z',
+    id: 'grid-transform-rotate-z',
+    labelText: 'Rotate grid around Z axis',
+    value: state_state.get.current().grid.transform.rotate.z,
+    defaultValue: state_state.get.default().grid.transform.rotate.z,
+    min: state_state.get.minMax().grid.transform.rotate.z.min,
+    max: state_state.get.minMax().grid.transform.rotate.z.max,
+    action: () => {
+      grid_grid.render.style();
+      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
+      data.save();
+    }
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Hex grid'));
+
+  menuContentItem.appendChild(
+    menu_menu.render.component.item.form([
+      gridColumn.wrap(),
+      gridGap.wrap(),
+      gridPerspective.wrap(),
+      gridFocus.wrap(),
+      node('hr'),
+      gridTransformRotateX.wrap(),
+      gridTransformRotateY.wrap(),
+      gridTransformRotateZ.wrap()
+    ])
+  );
+
+  return menuContentItem;
+};
+
+
+
+;// CONCATENATED MODULE: ./src/component/menu/content/bookmark.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const menuContentBookmark = {};
+
+menuContentBookmark.hover = function() {
+  const menuContentItem = node('div|id:menu-content-item-hover,class:menu-content-item');
+
+  const bookmarkHoverSize = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'bookmark.hover.size',
+    id: 'bookmark-hover-size',
+    labelText: 'Bookmark grow on hover',
+    value: state_state.get.current().bookmark.hover.size,
+    defaultValue: state_state.get.default().bookmark.hover.size,
+    min: state_state.get.minMax().bookmark.hover.size.min,
+    max: state_state.get.minMax().bookmark.hover.size.max,
+    action: () => {
+      bookmark_bookmark.render.style();
+      data.save();
+    }
+  });
+
+  const bookmarkHoverDistance = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'bookmark.hover.distance',
+    id: 'bookmark-hover-distance',
+    labelText: 'Bookmark raise distance on hover',
+    value: state_state.get.current().bookmark.hover.distance,
+    defaultValue: state_state.get.default().bookmark.hover.distance,
+    min: state_state.get.minMax().bookmark.hover.distance.min,
+    max: state_state.get.minMax().bookmark.hover.distance.max,
+    action: () => {
+      bookmark_bookmark.render.style();
+      data.save();
+    }
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Hover'));
+
+  menuContentItem.appendChild(
+    menu_menu.render.component.item.form([
+      bookmarkHoverSize.wrap(),
+      bookmarkHoverDistance.wrap(),
+    ])
+  );
+
+  return menuContentItem;
+};
+
+menuContentBookmark.shadow = function() {
+  const menuContentItem = node('div|id:menu-content-item-shadow,class:menu-content-item');
+
+  const bookmarkShadowDistance = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'bookmark.shadow.distance',
+    id: 'bookmark-shadow-distance',
+    labelText: 'Bookmark shadow distance',
+    value: state_state.get.current().bookmark.shadow.distance,
+    defaultValue: state_state.get.default().bookmark.shadow.distance,
+    min: state_state.get.minMax().bookmark.shadow.distance.min,
+    max: state_state.get.minMax().bookmark.shadow.distance.max,
+    action: () => {
+      bookmark_bookmark.render.style();
+      data.save();
+    }
+  });
+
+  const bookmarkShadowBlur = new ControlModule_slider({
+    object: state_state.get.current(),
+    path: 'bookmark.shadow.blur',
+    id: 'bookmark-shadow-blur',
+    labelText: 'Bookmark shadow blur',
+    value: state_state.get.current().bookmark.shadow.blur,
+    defaultValue: state_state.get.default().bookmark.shadow.blur,
+    min: state_state.get.minMax().bookmark.shadow.blur.min,
+    max: state_state.get.minMax().bookmark.shadow.blur.max,
+    action: () => {
+      bookmark_bookmark.render.style();
+      data.save();
+    }
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Shadow'));
+
+  menuContentItem.appendChild(
+    menu_menu.render.component.item.form([
+      bookmarkShadowDistance.wrap(),
+      bookmarkShadowBlur.wrap()
+    ])
+  );
+
+  return menuContentItem;
+};
+
+
+
+;// CONCATENATED MODULE: ./src/component/menu/content/toolbar.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const menuContentToolbar = {};
+
+menuContentToolbar.style = function() {
+  const menuContentItem = node('div|id:menu-content-item-style,class:menu-content-item');
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
+
+  const toolbarStyle = new ControlModule_radio({
+    object: state_state.get.current(),
+    radioGroup: [
+      { id: 'toolbar-style-Bar', labelText: 'Bar', value: 'bar' },
+      { id: 'toolbar-style-transparent', labelText: 'Transparent', value: 'transparent' }
+    ],
+    groupName: 'toolbar-style',
+    path: 'toolbar.style',
+    action: () => {
+      toolbar_toolbar.bar.clear();
+      toolbar_toolbar.bar.render();
+      toolbar_toolbar.bar.active();
+      data.save();
+    }
+  });
+
+  const toolbarStyleHelper = new ControlModul_helperText({
+    text: ['Use the Bar style if the Toolbar is not visible with your Background.']
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.form([
+    toolbarStyle.wrap(),
+    toolbarStyleHelper.wrap()
+  ]));
+
+  return menuContentItem;
+};
+
+menuContentToolbar.position = function() {
+  const menuContentItem = node('div|id:menu-content-item-position,class:menu-content-item');
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Position'));
+
+  const toolbarPosition = new ControlModule_radioGrid({
+    object: state_state.get.current(),
+    radioGroup: [
+      { id: 'toolbar-position-top-left', labelText: 'Top left', value: 'top-left', position: 1 },
+      { id: 'toolbar-position-top-right', labelText: 'Top right', value: 'top-right', position: 2 },
+      { id: 'toolbar-position-bottom-left', labelText: 'Bottom left', value: 'bottom-left', position: 3 },
+      { id: 'toolbar-position-bottom-right', labelText: 'Bottom right', value: 'bottom-right', position: 4 }
+    ],
+    label: 'Toolbar position',
+    groupName: 'toolbar-position',
+    path: 'toolbar.position',
+    gridSize: '2x2',
+    action: () => {
+      toolbar_toolbar.render.class();
+      toolbar_toolbar.bar.clear();
+      toolbar_toolbar.bar.render();
+      toolbar_toolbar.bar.active();
+      data.save();
+    }
+  });
+
+  const toolbarPositionHelper = new ControlModul_helperText({
+    text: ['Position the Toolbar in one of the four corners of the window.']
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.form([
+    toolbarPosition.grid(),
+    toolbarPositionHelper.wrap()
+  ]));
+
+  return menuContentItem;
+};
+
+
+
 ;// CONCATENATED MODULE: ./src/component/menu/content/theme.js
+
 
 
 
@@ -15129,7 +15951,7 @@ menuContentTheme.accent = function() {
     object: state_state.get.current(),
     path: 'theme.accent',
     id: 'theme-accent',
-    labelText: 'Accent color',
+    labelText: 'Accent colour',
     defaultValue: state_state.get.default().theme.accent.rgb,
     minMaxObject: state_state.get.minMax(),
     action: () => {
@@ -15605,311 +16427,8 @@ menuContentTheme.background = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/layout.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const menuContentLayout = {};
-
-menuContentLayout.size = function() {
-  const menuContentItem = node('div|id:menu-content-item-size,class:menu-content-item');
-
-  const gridSize = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.size',
-    id: 'grid-size',
-    labelText: 'Global size',
-    value: state_state.get.current().grid.size,
-    defaultValue: state_state.get.default().grid.size,
-    min: state_state.get.minMax().grid.size.min,
-    max: state_state.get.minMax().grid.size.max,
-    action: () => {
-      grid_grid.render.style();
-      data.save();
-    }
-  });
-
-  const gridSizeHelper = new ControlModul_helperText({
-    text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
-  });
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Scaling'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
-      gridSize.wrap(),
-      gridSizeHelper.wrap()
-    ])
-  );
-
-  return menuContentItem;
-};
-
-menuContentLayout.grid = function() {
-  const menuContentItem = node('div|id:menu-content-item-grid,class:menu-content-item');
-
-  const gridColumn = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.column',
-    id: 'grid-column',
-    labelText: 'Grid column',
-    value: state_state.get.current().grid.column,
-    defaultValue: state_state.get.default().grid.column,
-    min: state_state.get.minMax().grid.column.min,
-    max: state_state.get.minMax().grid.column.max,
-    action: () => {
-      grid_grid.render.style();
-      bookmark_bookmark.render.clear();
-      bookmark_bookmark.render.item();
-      data.save();
-    }
-  });
-
-  const gridGap = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.gap',
-    id: 'grid-gap',
-    labelText: 'Grid gap',
-    value: state_state.get.current().grid.gap,
-    defaultValue: state_state.get.default().grid.gap,
-    min: state_state.get.minMax().grid.gap.min,
-    max: state_state.get.minMax().grid.gap.max,
-    action: () => {
-      grid_grid.render.style();
-      data.save();
-    }
-  });
-
-  const gridPerspective = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.perspective',
-    id: 'grid-perspective',
-    labelText: 'Grid perspective',
-    value: state_state.get.current().grid.perspective,
-    defaultValue: state_state.get.default().grid.perspective,
-    min: state_state.get.minMax().grid.perspective.min,
-    max: state_state.get.minMax().grid.perspective.max,
-    action: () => {
-      grid_grid.render.style();
-      data.save();
-    }
-  });
-
-  const gridFocus = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.transform.focus',
-    id: 'grid-transform-focus',
-    labelText: 'Grid tilt on hover',
-    value: state_state.get.current().grid.transform.focus,
-    defaultValue: state_state.get.default().grid.transform.focus,
-    min: state_state.get.minMax().grid.transform.focus.min,
-    max: state_state.get.minMax().grid.transform.focus.max,
-    action: () => {
-      data.save();
-    }
-  });
-
-  const gridTransformRotateX = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.transform.rotate.x',
-    id: 'grid-transform-rotate-x',
-    labelText: 'Rotate grid around X axis',
-    value: state_state.get.current().grid.transform.rotate.x,
-    defaultValue: state_state.get.default().grid.transform.rotate.x,
-    min: state_state.get.minMax().grid.transform.rotate.x.min,
-    max: state_state.get.minMax().grid.transform.rotate.x.max,
-    action: () => {
-      grid_grid.render.style();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
-      data.save();
-    }
-  });
-
-  const gridTransformRotateY = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.transform.rotate.y',
-    id: 'grid-transform-rotate-y',
-    labelText: 'Rotate grid around Y axis',
-    value: state_state.get.current().grid.transform.rotate.y,
-    defaultValue: state_state.get.default().grid.transform.rotate.y,
-    min: state_state.get.minMax().grid.transform.rotate.y.min,
-    max: state_state.get.minMax().grid.transform.rotate.y.max,
-    action: () => {
-      grid_grid.render.style();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
-      data.save();
-    }
-  });
-
-  const gridTransformRotateZ = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'grid.transform.rotate.z',
-    id: 'grid-transform-rotate-z',
-    labelText: 'Rotate grid around Z axis',
-    value: state_state.get.current().grid.transform.rotate.z,
-    defaultValue: state_state.get.default().grid.transform.rotate.z,
-    min: state_state.get.minMax().grid.transform.rotate.z.min,
-    max: state_state.get.minMax().grid.transform.rotate.z.max,
-    action: () => {
-      grid_grid.render.style();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
-      data.save();
-    }
-  });
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Hex grid'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
-      gridColumn.wrap(),
-      gridGap.wrap(),
-      gridPerspective.wrap(),
-      gridFocus.wrap(),
-      node('hr'),
-      gridTransformRotateX.wrap(),
-      gridTransformRotateY.wrap(),
-      gridTransformRotateZ.wrap()
-    ])
-  );
-
-  return menuContentItem;
-};
-
-
-
-;// CONCATENATED MODULE: ./src/component/menu/content/bookmark.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const menuContentBookmark = {};
-
-menuContentBookmark.hover = function() {
-  const menuContentItem = node('div|id:menu-content-item-hover,class:menu-content-item');
-
-  const bookmarkHoverSize = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'bookmark.hover.size',
-    id: 'bookmark-hover-size',
-    labelText: 'Bookmark grow on hover',
-    value: state_state.get.current().bookmark.hover.size,
-    defaultValue: state_state.get.default().bookmark.hover.size,
-    min: state_state.get.minMax().bookmark.hover.size.min,
-    max: state_state.get.minMax().bookmark.hover.size.max,
-    action: () => {
-      bookmark_bookmark.render.style();
-      data.save();
-    }
-  });
-
-  const bookmarkHoverDistance = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'bookmark.hover.distance',
-    id: 'bookmark-hover-distance',
-    labelText: 'Bookmark raise distance on hover',
-    value: state_state.get.current().bookmark.hover.distance,
-    defaultValue: state_state.get.default().bookmark.hover.distance,
-    min: state_state.get.minMax().bookmark.hover.distance.min,
-    max: state_state.get.minMax().bookmark.hover.distance.max,
-    action: () => {
-      bookmark_bookmark.render.style();
-      data.save();
-    }
-  });
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Hover'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
-      bookmarkHoverSize.wrap(),
-      bookmarkHoverDistance.wrap(),
-    ])
-  );
-
-  return menuContentItem;
-};
-
-menuContentBookmark.shadow = function() {
-  const menuContentItem = node('div|id:menu-content-item-shadow,class:menu-content-item');
-
-  const bookmarkShadowDistance = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'bookmark.shadow.distance',
-    id: 'bookmark-shadow-distance',
-    labelText: 'Bookmark shadow distance',
-    value: state_state.get.current().bookmark.shadow.distance,
-    defaultValue: state_state.get.default().bookmark.shadow.distance,
-    min: state_state.get.minMax().bookmark.shadow.distance.min,
-    max: state_state.get.minMax().bookmark.shadow.distance.max,
-    action: () => {
-      bookmark_bookmark.render.style();
-      data.save();
-    }
-  });
-
-  const bookmarkShadowBlur = new ControlModule_slider({
-    object: state_state.get.current(),
-    path: 'bookmark.shadow.blur',
-    id: 'bookmark-shadow-blur',
-    labelText: 'Bookmark shadow blur',
-    value: state_state.get.current().bookmark.shadow.blur,
-    defaultValue: state_state.get.default().bookmark.shadow.blur,
-    min: state_state.get.minMax().bookmark.shadow.blur.min,
-    max: state_state.get.minMax().bookmark.shadow.blur.max,
-    action: () => {
-      bookmark_bookmark.render.style();
-      data.save();
-    }
-  });
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Shadow'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
-      bookmarkShadowDistance.wrap(),
-      bookmarkShadowBlur.wrap()
-    ])
-  );
-
-  return menuContentItem;
-};
-
-
-
 ;// CONCATENATED MODULE: ./src/component/menu/content/data.js
+
 
 
 
@@ -16046,6 +16565,7 @@ menuContentData.clear = function() {
 
 
 
+
 const menuContentCoffee = {};
 
 menuContentCoffee.fuel = function() {
@@ -16080,6 +16600,7 @@ menuContentCoffee.fuel = function() {
 
 
 ;// CONCATENATED MODULE: ./src/component/menu/content/app.js
+
 
 
 
@@ -16161,6 +16682,7 @@ var menu_update = injectStylesIntoStyleTag_default()(menu/* default */.Z, menu_o
 
 /* harmony default export */ const component_menu = (menu/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/menu/index.js
+
 
 
 
@@ -16298,6 +16820,12 @@ menu_menu.mod.area = {
     active: false,
     overscroll: true,
     subNav: [{ id: 'hover', name: 'Hover' }, { id: 'shadow', name: 'Shadow' }]
+  }, {
+    id: 'toolbar',
+    name: 'Toolbar',
+    active: false,
+    overscroll: true,
+    subNav: [{ id: 'style', name: 'Style' }, { id: 'position', name: 'Position' }]
   }, {
     id: 'theme',
     name: 'Theme',
@@ -16478,6 +17006,10 @@ menu_menu.render.component = {
       currentContentArea.appendChild(menuContentBookmark.hover());
       currentContentArea.appendChild(menuContentBookmark.shadow());
     },
+    toolbar: function(currentContentArea) {
+      currentContentArea.appendChild(menuContentToolbar.style());
+      currentContentArea.appendChild(menuContentToolbar.position());
+    },
     theme: function(currentContentArea) {
       currentContentArea.appendChild(menuContentTheme.style());
       currentContentArea.appendChild(menuContentTheme.color());
@@ -16527,101 +17059,6 @@ menu_menu.init = function() {
   menu_menu.close();
 };
 
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbar/index.css
-var toolbar = __webpack_require__(4879);
-;// CONCATENATED MODULE: ./src/component/toolbar/index.css
-
-            
-
-var toolbar_options = {};
-
-toolbar_options.insert = "head";
-toolbar_options.singleton = false;
-
-var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, toolbar_options);
-
-
-
-/* harmony default export */ const component_toolbar = (toolbar/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/toolbar/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-const toolbar_toolbar = {};
-
-toolbar_toolbar.button = {
-  add: new Button({
-    text: 'Add a bookmark',
-    srOnly: true,
-    iconName: 'add',
-    style: ['link'],
-    classList: ['toolbar-button'],
-    func: function() {
-      bookmark_bookmark.add.open();
-    }
-  }),
-  edit: new Button({
-    text: 'Enter edit bookmark mode',
-    srOnly: true,
-    iconName: 'edit',
-    style: ['link'],
-    classList: ['toolbar-button'],
-    func: function() {
-      bookmark_bookmark.edit.toggle();
-      toolbar_toolbar.render.active();
-      data.save();
-    }
-  }),
-  menu: new Button({
-    text: 'Open settings menu',
-    srOnly: true,
-    iconName: 'settings',
-    style: ['link'],
-    classList: ['toolbar-button'],
-    func: function() {
-      menu_menu.toggle();
-    }
-  })
-}
-
-toolbar_toolbar.render = {};
-
-toolbar_toolbar.render.bar = function() {
-  const toolbarElement = node('div|class:toolbar');
-
-  const formGroup = node('div|class:form-group');
-
-  formGroup.appendChild(toolbar_toolbar.button.add.button);
-  formGroup.appendChild(toolbar_toolbar.button.edit.button);
-  formGroup.appendChild(toolbar_toolbar.button.menu.button);
-  toolbarElement.appendChild(formGroup);
-
-  document.querySelector('body').appendChild(toolbarElement);
-};
-
-toolbar_toolbar.render.active = function() {
-  if (state_state.get.current().bookmark.edit) {
-    toolbar_toolbar.button.edit.active();
-  } else {
-    toolbar_toolbar.button.edit.deactive();
-  };
-};
-
-toolbar_toolbar.init = function() {
-  toolbar_toolbar.render.bar();
-  toolbar_toolbar.render.active();
-};
 
 
 ;// CONCATENATED MODULE: ./src/component/keyboard/index.js
@@ -16691,7 +17128,7 @@ keyboard.ctrAltE = new KeyPress({
   alt: true,
   action: () => {
     bookmark_bookmark.edit.toggle();
-    toolbar_toolbar.render.active();
+    toolbar_toolbar.bar.active();
     data.save();
   }
 });
