@@ -3,6 +3,7 @@ import { data } from '../../data';
 import { form } from '../../form';
 import { bookmark } from '../../bookmark';
 import { theme } from '../../theme';
+import { toolbar } from '../../toolbar';
 import { grid } from '../../grid';
 import { modal } from '../../modal';
 import { version } from '../../version';
@@ -172,7 +173,7 @@ menuContentTheme.accent = function() {
     object: state.get.current(),
     path: 'theme.accent',
     id: 'theme-accent',
-    labelText: 'Accent color',
+    labelText: 'Accent colour',
     defaultValue: state.get.default().theme.accent.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {

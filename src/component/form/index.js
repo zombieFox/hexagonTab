@@ -21,6 +21,9 @@ form.render = {
   group: function(children) {
     return node('div|class:form-group', children);
   },
+  groupReverse: function(children) {
+    return node('div|class:form-group form-group-reverse', children);
+  },
   groupBlock: function(children) {
     return node('div|class:form-group form-group-block', children);
   },
@@ -32,6 +35,9 @@ form.render = {
   },
   indent: function(children) {
     return node('div|class:form-indent', children);
+  },
+  grid: function(children) {
+    return node('div|class:form-grid', children);
   }
 };
 
@@ -89,7 +95,7 @@ form.render.groupText = function({ text = false, classList = [] } = {}) {
   return textElement;
 };
 
-form.render.label = function({ forInput = false, text = 'label', description = false, icon = false, classList = [] } = {}) {
+form.render.label = function({ forInput = false, text = 'label', description = false, srOnly = false, icon = false, classList = [] } = {}) {
   let label;
 
   if (forInput) {
@@ -98,13 +104,23 @@ form.render.label = function({ forInput = false, text = 'label', description = f
     label = node('label');
   };
 
+  const labelBlock = node('span|class:label-block');
+
+  if (srOnly) {
+    if (icon) {
+      labelBlock.classList.add('sr-only');
+    } else {
+      label.classList.add('sr-only');
+    };
+  };
+
   if (text && description) {
-    label.appendChild(node('span|class:label-block', [
-      node('span:' + text + '|class:label-block-item'),
-      node('span:' + description + '|class:label-block-item small muted')
-    ]));
+    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+    labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
+    label.appendChild(labelBlock);
   } else if (text) {
-    label.appendChild(node('span:' + text));
+    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+    label.appendChild(labelBlock);
   };
 
   if (icon) {

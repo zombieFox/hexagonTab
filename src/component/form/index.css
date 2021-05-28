@@ -12,6 +12,9 @@
   --form-input-background-hover: var(--theme-color-02);
   --form-input-background-focus-active: var(--theme-color-01);
   --form-input-background-disabled: var(--theme-color-01);
+}
+
+:root {
   --form-group-text-background: var(--theme-color-02);
   --form-group-text-background-focus-hover: var(--theme-color-02);
   --form-group-text-background-active: var(--theme-color-02);
@@ -20,7 +23,13 @@
   --form-group-text-border-focus-hover: var(--theme-color-02);
   --form-group-text-border-active: var(--theme-color-02);
   --form-group-text-border-disabled: var(--theme-color-01);
+}
+
+:root {
   --form-border-disabled: var(--theme-color-02);
+}
+
+:root {
   --form-icon: var(--theme-color-08);
   --form-icon-hover: var(--theme-color-16);
   --form-icon-focus: var(--theme-color-18);
@@ -30,12 +39,21 @@
   --form-icon-symbol: var(--theme-color-01);
   --form-icon-symbol-active: var(--theme-color-01);
   --form-icon-symbol-disabled: var(--theme-color-01);
+}
+
+:root {
   --form-placeholder: var(--theme-color-06);
   --form-placeholder-focus-hover: var(--theme-color-10);
   --form-placeholder-disabled: var(--theme-color-03);
+}
+
+:root {
   --form-checkbox-radio-label: var(--theme-color-12);
   --form-checkbox-radio-checked-label: var(--theme-color-16);
   --form-checkbox-radio-disabled-label: var(--theme-color-04);
+}
+
+:root {
   --form-feedback-text: var(--theme-color-16);
   --form-feedback-text-muted: var(--theme-color-12);
   --form-feedback-text-disabled: var(--theme-color-04);
@@ -43,9 +61,18 @@
   --form-feedback-background-disabled: var(--theme-color-01);
   --form-feedback-border: var(--theme-color-04);
   --form-feedback-border-disabled: var(--theme-color-02);
+}
+
+:root {
   --form-helper: var(--theme-color-12);
   --form-helper-disabled: var(--theme-color-04);
+}
+
+:root {
   --form-thumb-size: 1.25em;
+}
+
+:root {
   --form-range-thumb-background: var(--theme-color-16);
   --form-range-thumb-background-hover: var(--theme-color-18);
   --form-range-thumb-background-focus: var(--theme-style-text);
@@ -58,6 +85,9 @@
   --form-range-progress-background: var(--theme-color-08);
   --form-range-progress-background-active: var(--theme-accent);
   --form-range-progress-background-disabled: var(--theme-color-02);
+}
+
+:root {
   --form-grid-background: var(--theme-color-02);
   --form-grid-background-hover: var(--theme-color-02);
   --form-grid-background-focus: var(--theme-color-02);
@@ -67,12 +97,21 @@
   --form-grid-border-active: var(--theme-accent);
   --form-grid-border-checked: var(--theme-accent);
   --form-grid-border-disabled: var(--theme-color-04);
+}
+
+:root {
   --form-dropdown-background: var(--theme-color-02);
+}
+
+:root {
   --form-ring-hover: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-06));
   --form-ring-focus: 0 0 0 var(--layout-line-width) rgb(var(--theme-color-10)),
     0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-color-10), 0.25);
   --form-ring-accent: 0 0 0 var(--layout-line-width) rgb(var(--theme-accent)),
     0 0 0 calc(var(--layout-line-width) * 2) rgba(var(--theme-accent), 0.25);
+}
+
+:root {
   --form-wrap-space: 1em;
 }
 
@@ -717,6 +756,7 @@ input[type="checkbox"]:checked:disabled:active+label .label-icon:after {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  gap: calc(var(--form-wrap-space) / 4);
 }
 
 input[type="checkbox"]+label .label-block-item,
@@ -785,10 +825,6 @@ input[type="radio"]:disabled:focus+label .label-block-item.muted {
   cursor: default;
 }
 
-.label-block-item:not(:last-child):not(:only-child) {
-  margin-bottom: calc(var(--form-wrap-space) / 4);
-}
-
 input:disabled+label .label-block-item,
 input:disabled:hover+label .label-block-item,
 input:disabled:focus+label .label-block-item,
@@ -808,7 +844,7 @@ input[type="color"] {
   padding: 0;
   margin: 0;
   width: 100%;
-  min-width: 3em;
+  min-width: 4em;
   height: 2.5em;
   display: block;
   border: 0;
@@ -1111,7 +1147,7 @@ input[type="range"]:disabled::-moz-range-progress {
 /* form input button */
 .form-input-button {
   position: relative;
-  display: inline-block;
+  display: flex;
 }
 
 .form-input-button input[type="checkbox"]+label,
@@ -1433,6 +1469,38 @@ input[type="range"]:disabled::-moz-range-progress {
   -webkit-appearance: none;
 }
 
+.form-input-button-sr-only input[type="checkbox"]+label,
+.form-input-button-sr-only input[type="radio"]+label,
+.form-input-button-sr-only input[type="color"]+label,
+.form-input-button-sr-only input[type="file"]+label {
+  display: block;
+}
+
+.form-input-button-sr-only input[type="checkbox"]+label .label-block,
+.form-input-button-sr-only input[type="radio"]+label .label-block,
+.form-input-button-sr-only input[type="color"]+label .label-block,
+.form-input-button-sr-only input[type="file"]+label .label-block {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-input-button-sr-only.input-color-dot input[type="color"]+label {
+  padding: 0.25em 1.75em;
+}
+
+.form-input-button-sr-only.input-color-dot input[type="color"] {
+  top: 50%;
+  left: 50%;
+  right: initial;
+  transform: translate(-50%, -50%);
+}
+
 /* form grid */
 .form-grid {
   background-color: rgb(var(--form-grid-background));
@@ -1459,15 +1527,45 @@ input[type="range"]:disabled::-moz-range-progress {
   background-color: rgb(var(--form-grid-background-disabled));
 }
 
+.form-grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1 cell-2"
+    "cell-3 cell-4";
+}
+
 .form-grid-3x3 {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1 cell-2 cell-3"
+    "cell-4 cell-5 cell-6"
+    "cell-7 cell-8 cell-9";
 }
 
 .form-grid-3x1 {
   grid-template-columns: repeat(3, 1fr);
   border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1 cell-2 cell-3";
+}
+
+.form-grid-1x3 {
+  grid-template-rows: repeat(3, 1fr);
+  border-radius: var(--theme-radius-base);
+  grid-template-areas:
+    "cell-1"
+    "cell-2"
+    "cell-3";
+}
+
+.form-grid-3x3>*,
+.form-grid-3x1>*,
+.form-grid-1x3>* {
+  grid-area: var(--form-grid-cell);
 }
 
 .form-grid .form-wrap {
@@ -1557,6 +1655,10 @@ input[type="range"]:disabled::-moz-range-progress {
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
+}
+
+.form-group-reverse {
+  flex-direction: row-reverse;
 }
 
 .form-group .form-wrap {
@@ -1779,6 +1881,91 @@ input[type="range"]:disabled::-moz-range-progress {
   border-bottom-right-radius: var(--theme-radius-base);
 }
 
+.form-group.form-group-reverse .form-group-text:first-child,
+.form-group.form-group-reverse .button:first-child,
+.form-group.form-group-reverse .button-line:first-child:after,
+.form-group.form-group-reverse .form-input-button:first-child input[type="checkbox"]+label,
+.form-group.form-group-reverse .form-input-button:first-child input[type="radio"]+label,
+.form-group.form-group-reverse .form-input-button:first-child input[type="color"]+label,
+.form-group.form-group-reverse .form-input-button:first-child input[type="file"]+label,
+.form-group.form-group-reverse .form-input-button-line:first-child input[type="checkbox"]+label:after,
+.form-group.form-group-reverse .form-input-button-line:first-child input[type="radio"]+label:after,
+.form-group.form-group-reverse .form-input-button-line:first-child input[type="color"]+label:after,
+.form-group.form-group-reverse .form-input-button-line:first-child input[type="file"]+label:after,
+.form-group.form-group-reverse>select:first-child,
+.form-group.form-group-reverse>input[type="email"]:first-child,
+.form-group.form-group-reverse>input[type="number"]:first-child,
+.form-group.form-group-reverse>input[type="password"]:first-child,
+.form-group.form-group-reverse>input[type="search"]:first-child,
+.form-group.form-group-reverse>input[type="tel"]:first-child,
+.form-group.form-group-reverse>input[type="text"]:first-child,
+.form-group.form-group-reverse>input[type="color"]:first-child,
+.form-group.form-group-reverse>input[type="range"]:first-child {
+  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;
+}
+
+.form-group.form-group-reverse .form-group-text:last-child,
+.form-group.form-group-reverse .button:last-child,
+.form-group.form-group-reverse .button-line:last-child:after,
+.form-group.form-group-reverse .form-input-button:last-child input[type="checkbox"]+label,
+.form-group.form-group-reverse .form-input-button:last-child input[type="radio"]+label,
+.form-group.form-group-reverse .form-input-button:last-child input[type="color"]+label,
+.form-group.form-group-reverse .form-input-button:last-child input[type="file"]+label,
+.form-group.form-group-reverse .form-input-button-line:last-child input[type="checkbox"]+label:after,
+.form-group.form-group-reverse .form-input-button-line:last-child input[type="radio"]+label:after,
+.form-group.form-group-reverse .form-input-button-line:last-child input[type="color"]+label:after,
+.form-group.form-group-reverse .form-input-button-line:last-child input[type="file"]+label:after,
+.form-group.form-group-reverse>select:last-child,
+.form-group.form-group-reverse>input[type="email"]:last-child,
+.form-group.form-group-reverse>input[type="number"]:last-child,
+.form-group.form-group-reverse>input[type="password"]:last-child,
+.form-group.form-group-reverse>input[type="search"]:last-child,
+.form-group.form-group-reverse>input[type="tel"]:last-child,
+.form-group.form-group-reverse>input[type="text"]:last-child,
+.form-group.form-group-reverse>input[type="color"]:last-child,
+.form-group.form-group-reverse>input[type="range"]:last-child {
+  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);
+}
+
+.form-group.form-group-reverse .form-group-text:only-child,
+.form-group.form-group-reverse .button:only-child,
+.form-group.form-group-reverse .button-line:only-child:after,
+.form-group.form-group-reverse>select:only-child,
+.form-group.form-group-reverse>input[type="email"]:only-child,
+.form-group.form-group-reverse>input[type="number"]:only-child,
+.form-group.form-group-reverse>input[type="password"]:only-child,
+.form-group.form-group-reverse>input[type="search"]:only-child,
+.form-group.form-group-reverse>input[type="tel"]:only-child,
+.form-group.form-group-reverse>input[type="text"]:only-child,
+.form-group.form-group-reverse>input[type="color"]:only-child,
+.form-group.form-group-reverse>input[type="range"]:only-child {
+  border-radius: var(--theme-radius-base);
+}
+
+.form-group.form-group-reverse.form-group-nested-button * .button,
+.form-group.form-group-reverse.form-group-nested-button * .button-line:after,
+.form-group.form-group-reverse.form-group-nested-button * input[type="checkbox"]+label,
+.form-group.form-group-reverse.form-group-nested-button * input[type="radio"]+label,
+.form-group.form-group-reverse.form-group-nested-button * input[type="color"]+label {
+  border-radius: 0;
+}
+
+.form-group.form-group-reverse.form-group-nested-button *:first-child .button,
+.form-group.form-group-reverse.form-group-nested-button *:first-child .button-line:after,
+.form-group.form-group-reverse.form-group-nested-button *:first-child input[type="checkbox"]+label,
+.form-group.form-group-reverse.form-group-nested-button *:first-child input[type="radio"]+label,
+.form-group.form-group-reverse.form-group-nested-button *:first-child input[type="color"]+label {
+  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;
+}
+
+.form-group.form-group-reverse.form-group-nested-button *:last-child .button,
+.form-group.form-group-reverse.form-group-nested-button *:last-child .button-line:after,
+.form-group.form-group-reverse.form-group-nested-button *:last-child input[type="checkbox"]+label,
+.form-group.form-group-reverse.form-group-nested-button *:last-child input[type="radio"]+label,
+.form-group.form-group-reverse.form-group-nested-button *:last-child input[type="color"]+label {
+  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);
+}
+
 .form-group-block {
   display: flex;
   width: 100%;
@@ -1812,6 +1999,7 @@ input[type="range"]:disabled::-moz-range-progress {
 .form-group.form-group-border.form-group-nested-button * .button-line:after,
 .form-group.form-group-border.form-group-nested-button * input[type="checkbox"]+label,
 .form-group.form-group-border.form-group-nested-button * input[type="radio"]+label,
+.form-group.form-group-border.form-group-nested-button * input[type="file"]+label,
 .form-group.form-group-border.form-group-nested-button * input[type="color"]+label {
   border-radius: 0;
 }
