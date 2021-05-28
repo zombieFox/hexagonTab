@@ -296,22 +296,30 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       if (bookmarkData.display.visual.show) {
         switch (bookmarkData.display.visual.type) {
           case 'letter':
-            this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
+            if (ifValidString(bookmarkData.display.visual.letter.text)) {
+              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
+              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+            };
             break;
 
           case 'icon':
-            this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
-            this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
+            if (ifValidString(bookmarkData.display.visual.icon.name)) {
+              this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
+              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
+              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+            };
             break;
 
           case 'image':
-            this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
+            if (ifValidString(bookmarkData.display.visual.image.url)) {
+              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
+              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+            };
             break;
         };
-        this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
       };
 
-      if (bookmarkData.display.name.show) {
+      if (bookmarkData.display.name.show && ifValidString(bookmarkData.display.name.text)) {
         this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
         this.element.content.display.display.appendChild(this.element.content.display.name.name);
       };
