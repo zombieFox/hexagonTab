@@ -33,6 +33,14 @@ toolbar.render.class = function() {
   });
 
   html.classList.add('is-toolbar-position-' + state.get.current().toolbar.position);
+
+  const style = ['bar', 'transparent'];
+
+  style.forEach((item, i) => {
+    html.classList.remove('is-toolbar-style-' + item);
+  });
+
+  html.classList.add('is-toolbar-style-' + state.get.current().toolbar.style);
 };
 
 toolbar.bar.render = function() {
@@ -45,6 +53,7 @@ toolbar.bar.render = function() {
     labelText: 'Accent colour',
     srOnly: true,
     inputButton: ['dot', 'accent'],
+    inputButtonClassList: ['toolbar-item'],
     action: () => {
       theme.render.accent.color();
       data.save();

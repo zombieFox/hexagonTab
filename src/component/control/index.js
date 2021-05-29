@@ -95,7 +95,7 @@ const ControlModul_helperText = function({ text = [] } = {}) {
   };
 };
 
-const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
 
   this.input;
 
@@ -143,6 +143,12 @@ const ControlModule_inputButton = function({ object = {}, path = false, id = 'na
   });
 
   this.button = node('div|class:form-input-button');
+
+  if (inputButtonClassList.length > 0) {
+    inputButtonClassList.forEach((item, i) => {
+      this.button.classList.add(item);
+    });
+  };
 
   if (inputButton.length > 0) {
     inputButton.forEach((item, i) => {

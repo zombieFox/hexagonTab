@@ -35,6 +35,7 @@ menuContentToolbar.style = function() {
     groupName: 'toolbar-style',
     path: 'toolbar.style',
     action: () => {
+      toolbar.render.class();
       toolbar.bar.clear();
       toolbar.bar.render();
       toolbar.bar.active();

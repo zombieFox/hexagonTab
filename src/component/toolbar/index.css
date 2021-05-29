@@ -33,14 +33,17 @@
   transition: opacity var(--layout-transition-extra-fast);
 }
 
-.form-input-button.toolbar-item,
-.form-group-item-half.toolbar-item,
-.form-group>input[type].form-group-item-half.toolbar-item,
 .toolbar-item {
   padding: 0;
-  min-width: initial;
   width: 3.5em;
-  flex-basis: auto;
+  min-width: initial;
+}
+
+.is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"] {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(var(--button-link-text));
+  transition: border var(--layout-transition-extra-fast);
 }
 
 .is-presentation-mode .toolbar {
