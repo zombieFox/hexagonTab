@@ -10543,6 +10543,18 @@ const ControlModule_inputButton = function({ object = {}, path = false, id = 'na
 
   this.button.appendChild(this.label);
 
+  this.update = () => {
+    switch (type) {
+      case 'color':
+        this.input.value = convertColor.rgb.hex(get({
+          object: object,
+          path: path,
+        }));
+
+        break;
+    };
+  };
+
   this.wrap = () => {
     return form_form.render.wrap([
       this.button
@@ -15964,6 +15976,7 @@ menuContentTheme.accent = function() {
     minMaxObject: state_state.get.minMax(),
     action: () => {
       theme_theme.render.accent.color();
+      toolbar_toolbar.accent.update();
       data.save();
     }
   });
