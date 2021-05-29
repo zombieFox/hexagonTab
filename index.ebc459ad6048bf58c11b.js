@@ -602,7 +602,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --theme-accent-r: 25;\n  --
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1.25em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  z-index: var(--z-index-toolbar);\n}\n\n.is-toolbar-position-top-left .toolbar {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-top-right .toolbar {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-left .toolbar {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-right .toolbar {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.form-input-button.toolbar-item,\n.form-group-item-half.toolbar-item,\n.form-group>input[type].form-group-item-half.toolbar-item,\n.toolbar-item {\n  padding: 0;\n  min-width: initial;\n  width: 3.5em;\n  flex-basis: auto;\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1.25em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  z-index: var(--z-index-toolbar);\n}\n\n.is-toolbar-position-top-left .toolbar {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-top-right .toolbar {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-left .toolbar {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-right .toolbar {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.toolbar-item {\n  padding: 0;\n  width: 3.5em;\n  min-width: initial;\n}\n\n.is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type=\"color\"] {\n  border-width: 2px;\n  border-style: solid;\n  border-color: rgb(var(--button-link-text));\n  transition: border var(--layout-transition-extra-fast);\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10456,7 +10456,7 @@ const ControlModul_helperText = function({ text = [] } = {}) {
   };
 };
 
-const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
 
   this.input;
 
@@ -10504,6 +10504,12 @@ const ControlModule_inputButton = function({ object = {}, path = false, id = 'na
   });
 
   this.button = node('div|class:form-input-button');
+
+  if (inputButtonClassList.length > 0) {
+    inputButtonClassList.forEach((item, i) => {
+      this.button.classList.add(item);
+    });
+  };
 
   if (inputButton.length > 0) {
     inputButton.forEach((item, i) => {
@@ -15127,6 +15133,14 @@ toolbar_toolbar.render.class = function() {
   });
 
   html.classList.add('is-toolbar-position-' + state_state.get.current().toolbar.position);
+
+  const style = ['bar', 'transparent'];
+
+  style.forEach((item, i) => {
+    html.classList.remove('is-toolbar-style-' + item);
+  });
+
+  html.classList.add('is-toolbar-style-' + state_state.get.current().toolbar.style);
 };
 
 toolbar_toolbar.bar.render = function() {
@@ -15139,6 +15153,7 @@ toolbar_toolbar.bar.render = function() {
     labelText: 'Accent colour',
     srOnly: true,
     inputButton: ['dot', 'accent'],
+    inputButtonClassList: ['toolbar-item'],
     action: () => {
       theme_theme.render.accent.color();
       data.save();
@@ -15736,6 +15751,7 @@ menuContentToolbar.style = function() {
     groupName: 'toolbar-style',
     path: 'toolbar.style',
     action: () => {
+      toolbar_toolbar.render.class();
       toolbar_toolbar.bar.clear();
       toolbar_toolbar.bar.render();
       toolbar_toolbar.bar.active();
