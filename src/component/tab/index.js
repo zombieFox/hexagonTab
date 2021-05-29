@@ -10,7 +10,7 @@ import './index.css';
 const Tab = function({ group = [] } = {}) {
   this.tabElement = node('div|class:tab');
 
-  this.tabNav = node('div|class:tab-nav form-group form-group-block');
+  this.tabNav = node('div|class:tab-nav form-group form-group-horizontal form-group-block');
 
   this.tabContent = node('div|class:tab-content');
 
