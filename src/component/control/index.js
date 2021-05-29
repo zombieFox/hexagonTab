@@ -411,18 +411,23 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
   };
 
   this.wrap = () => {
-    const formGroup = form.render.group([
-      this.number
-    ]);
+    const formGroup = form.render.group({
+      children: [
+        this.number
+      ]
+    });
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
       formGroup.appendChild(this.reset.button);
     };
 
-    const formInline = form.render.inline([
-      this.range,
-      formGroup
-    ]);
+    const formInline = form.render.inline({
+      block: true,
+      children: [
+        this.range,
+        formGroup
+      ]
+    });
 
     const wrap = form.render.wrap([
       this.label,
@@ -543,19 +548,24 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
   };
 
   this.wrap = () => {
-    const formGroup = form.render.group([
-      this.number
-    ]);
+    const formGroup = form.render.group({
+      children: [
+        this.number
+      ]
+    });
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
       formGroup.appendChild(this.reset.button);
     };
 
-    const formInline = form.render.inline([
-      this.label,
-      this.range,
-      formGroup
-    ]);
+    const formInline = form.render.inline({
+      block: true,
+      children: [
+        this.label,
+        this.range,
+        formGroup
+      ]
+    });
 
     const wrap = form.render.wrap([
       formInline
@@ -677,10 +687,13 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
   };
 
   this.wrap = () => {
-    const formGroup = form.render.groupBlock([
-      this.color,
-      this.text
-    ]);
+    const formGroup = form.render.group({
+      block: true,
+      children: [
+        this.color,
+        this.text
+      ]
+    });
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
       formGroup.appendChild(this.reset.button);
@@ -825,7 +838,10 @@ const ControlModule_radio = function({ radioGroup = [], object = {}, groupName =
   this.inline = () => {
     const formGroup = form.render.wrap();
 
-    const formInline = form.render.inlineWide();
+    const formInline = form.render.inline({
+      gap: 'large',
+      wrap: true
+    });
 
     this.radioSet.forEach((item, i) => {
       formInline.appendChild(
@@ -1055,10 +1071,12 @@ const ControlModule_checkbox = function({ object = {}, id = 'name', path = false
 
   this.wrap = () => {
     return form.render.wrap([
-      form.render.group([
-        this.checkbox,
-        this.label
-      ])
+      form.render.group({
+        children: [
+          this.checkbox,
+          this.label
+        ]
+      })
     ])
   };
 

@@ -133,7 +133,9 @@ toolbar.bar.render = function() {
 
     case 'top-left':
     case 'bottom-left':
-      formGroup = form.render.groupReverse();
+      formGroup = form.render.group({
+        reverse: true
+      });
 
       break;
   };

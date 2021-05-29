@@ -48,7 +48,7 @@ menuContentToolbar.style = function() {
   });
 
   menuContentItem.appendChild(menu.render.component.item.form([
-    toolbarStyle.wrap(),
+    toolbarStyle.inline(),
     toolbarStyleHelper.wrap()
   ]));
 

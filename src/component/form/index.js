@@ -18,27 +18,78 @@ form.render = {
   sticky: function(children) {
     return node('div|class:form-sticky', children);
   },
-  group: function(children) {
-    return node('div|class:form-group', children);
-  },
-  groupReverse: function(children) {
-    return node('div|class:form-group form-group-reverse', children);
-  },
-  groupBlock: function(children) {
-    return node('div|class:form-group form-group-block', children);
-  },
-  inline: function(children) {
-    return node('div|class:form-inline', children);
-  },
-  inlineWide: function(children) {
-    return node('div|class:form-inline form-inline-wide-gap', children);
-  },
   indent: function(children) {
     return node('div|class:form-indent', children);
   },
   grid: function(children) {
     return node('div|class:form-grid', children);
   }
+};
+
+form.render.group = function({ direction = 'horizontal', reverse = false, block = false, children = false } = {}) {
+  const group = node('div|class:form-group', children);
+
+  switch (direction) {
+    case 'horizontal':
+      group.classList.add('form-group-horizontal');
+      break;
+
+    case 'vertical':
+      group.classList.add('form-group-vertical');
+      break;
+  };
+
+  if (reverse) {
+    group.classList.add('form-group-reverse');
+  };
+
+  if (block) {
+    group.classList.add('form-group-block');
+  };
+
+  return group;
+};
+
+form.render.inline = function({ direction = 'horizontal', reverse = false, block = false, wrap = false, gap = 'medium', children = false } = {}) {
+  const inline = node('div|class:form-inline', children);
+
+  switch (direction) {
+    case 'horizontal':
+      inline.classList.add('form-inline-horizontal');
+      break;
+
+    case 'vertical':
+      inline.classList.add('form-inline-vertical');
+      break;
+  };
+
+  switch (gap) {
+    case 'small':
+      inline.classList.add('form-inline-gap-small');
+      break;
+
+    case 'medium':
+      inline.classList.add('form-inline-gap-medium');
+      break;
+
+    case 'large':
+      inline.classList.add('form-inline-gap-large');
+      break;
+  };
+
+  if (reverse) {
+    inline.classList.add('form-inline-reverse');
+  };
+
+  if (block) {
+    inline.classList.add('form-inline-block');
+  };
+
+  if (wrap) {
+    inline.classList.add('form-inline-wrap');
+  };
+
+  return inline;
 };
 
 form.render.helper = function({ text = 'text', classList = [] } = {}) {

@@ -918,11 +918,14 @@ bookmark.form = function(bookmarkData) {
               form.render.indent([
                 form.render.wrap([
                   displayVisualTypeIcon.label,
-                  form.render.groupBlock([
-                    displayVisualTypeIcon.text,
-                    displayVisualTypeIconDisplay.groupText,
-                    displayVisualTypeIconRemove.button
-                  ])
+                  form.render.group({
+                    block: true,
+                    children: [
+                      displayVisualTypeIcon.text,
+                      displayVisualTypeIconDisplay.groupText,
+                      displayVisualTypeIconRemove.button
+                    ]
+                  })
                 ])
               ])
             ]),
