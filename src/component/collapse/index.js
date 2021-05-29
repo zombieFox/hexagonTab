@@ -6,7 +6,7 @@ import { node } from '../../utility/node';
 
 import './index.css';
 
-const Collapse = function({ type = false, radioGroup = false, target = false } = {}) {
+const Collapse = function({ type = false, radioGroup = false, checkbox = false, target = false } = {}) {
 
   target.forEach((item, i) => {
     item.state = {
@@ -73,9 +73,20 @@ const Collapse = function({ type = false, radioGroup = false, target = false } =
     switch (type) {
       case 'radio':
         const selectedRadioValue = radioGroup.value();
+
         target.forEach((item, i) => {
 
           this.renderTarget(!(item.id === selectedRadioValue), item.area);
+
+        });
+        break;
+
+      case 'checkbox':
+        const state = checkbox.checked();
+
+        target.forEach((item, i) => {
+
+          this.renderTarget(!state, item.area);
 
         });
         break;

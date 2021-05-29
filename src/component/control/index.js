@@ -1058,15 +1058,18 @@ const ControlModule_checkbox = function({ object = {}, id = 'name', path = false
     icon: true
   });
 
-  this.checkbox.update = () => {
+  this.update = () => {
     this.checkbox.checked = (get({
       object: object,
       path: path,
     }) === true);
   };
 
-  this.update = () => {
-    this.checkbox.update();
+  this.checked = () => {
+    return get({
+      object: object,
+      path: path,
+    });
   };
 
   this.wrap = () => {
