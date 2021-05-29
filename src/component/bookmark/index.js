@@ -880,7 +880,7 @@ bookmark.form = function(bookmarkData) {
   });
 
   const backgroundVideoUrlHelper = new ControlModul_helperText({
-    text: ['Background video only supports a direct URL to a video file.', 'Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
+    text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
   const backgroundOpacity = new ControlModule_slimSlider({

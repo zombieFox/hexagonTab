@@ -434,7 +434,7 @@ menuContentTheme.background = function() {
   });
 
   const themeBackgroundVideoUrlHelper = new ControlModul_helperText({
-    text: ['Background video only supports a direct URL to a video file.', 'Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
+    text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
   const themeBackgroundVideoBlur = new ControlModule_slider({
