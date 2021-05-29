@@ -178,6 +178,7 @@ menuContentTheme.accent = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.accent.color();
+      toolbar.accent.update();
       data.save();
     }
   });
