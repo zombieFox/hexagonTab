@@ -301,12 +301,13 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   pointer-events: none;
   z-index: var(--z-index-background);
 }
 
 .theme-background-type {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;

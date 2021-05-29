@@ -26,6 +26,11 @@ body {
   justify-content: stretch;
 }
 
+html,
+body {
+  transition: background-color var(--layout-transition-extra-fast);
+}
+
 html.is-theme-style-dark,
 .is-theme-style-dark body,
 html.is-theme-style-light,
