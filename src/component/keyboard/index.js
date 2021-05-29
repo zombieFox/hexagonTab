@@ -8,6 +8,8 @@ import { theme } from '../theme';
 import { autoSuggest } from '../autoSuggest';
 import { toolbar } from '../toolbar';
 
+import { menuContentTheme } from '../menu/content/theme';
+
 const KeyPress = function({ keycode = false, ctrl = false, alt = false, action = false } = {}) {
   this.bind = () => {
     if (keycode) {
@@ -75,6 +77,7 @@ keyboard.ctrAltD = new KeyPress({
   alt: true,
   action: () => {
     theme.style.toggle();
+    menuContentTheme.exposeControl.style.update();
     data.save();
   }
 });

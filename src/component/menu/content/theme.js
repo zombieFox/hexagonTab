@@ -21,6 +21,10 @@ import { complexNode } from '../../../utility/complexNode';
 
 const menuContentTheme = {};
 
+menuContentTheme.exposeControl = {
+  style: false
+};
+
 menuContentTheme.style = function() {
   const menuContentItem = node('div|id:menu-content-item-style,class:menu-content-item');
 
@@ -41,6 +45,8 @@ menuContentTheme.style = function() {
       data.save();
     }
   });
+
+  menuContentTheme.exposeControl.style = themeStyle;
 
   menuContentItem.appendChild(menu.render.component.item.form([
     themeStyle.wrap()
