@@ -48,7 +48,7 @@
 .is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"],
 .is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"]:hover,
 .is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"]:focus {
-  box-shadow: 0 0 0 2px rgb(var(--button-link-text));
+  box-shadow: 0 0 0 2px hsl(var(--button-link-text));
 }
 
 .is-presentation-mode .toolbar {

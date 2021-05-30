@@ -457,7 +457,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
   this.label = form.render.label({
     forInput: id,
     text: labelText,
-    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-large', 'pb-0']
+    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-large', ]
   });
 
   this.range = form.render.input.range({

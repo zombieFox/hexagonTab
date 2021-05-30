@@ -108,30 +108,27 @@ theme.mod.color = {
 
 theme.render = {};
 
-theme.render.color = {};
-
-theme.render.color.shade = function() {
+theme.render.color = function() {
   const html = document.querySelector('html');
-  // negative
-  for (var i = 10; i >= 1; i--) {
-    var rgb = state.get.current().theme.color.generated.negative[i];
-    var number = i;
-    if (i < 10) {
-      number = '0' + number;
+
+  let shades = (state.get.current().theme.xxx.color.lightness.end - state.get.current().theme.xxx.color.lightness.start) / (state.get.current().theme.xxx.color.shades - 1);
+
+  for (var type in state.get.current().theme.xxx.color.range) {
+    for (var i = 0; i < state.get.current().theme.xxx.color.shades; i++) {
+      let hsl = JSON.parse(JSON.stringify(state.get.current().theme.xxx.color.range[type]));
+
+      hsl.l = (shades * i) + state.get.current().theme.xxx.color.lightness.start;
+
+      let rgb = convertColor.hsl.rgb(hsl);
+
+      for (var key in rgb) {
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, Math.round(rgb[key]));
+      };
+
+      for (var key in hsl) {
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, Math.round(hsl[key]));
+      };
     };
-    html.style.setProperty('--theme-shade-negative-' + number, rgb.r + ', ' + rgb.g + ', ' + rgb.b);
-  };
-  // neutral
-  var rgb = state.get.current().theme.color.rgb;
-  html.style.setProperty('--theme-shade', rgb.r + ', ' + rgb.g + ', ' + rgb.b);
-  // positive
-  for (var i = 1; i <= 10; i++) {
-    var rgb = state.get.current().theme.color.generated.positive[i];
-    var number = i;
-    if (i < 10) {
-      number = '0' + number;
-    };
-    html.style.setProperty('--theme-shade-positive-' + number, rgb.r + ', ' + rgb.g + ', ' + rgb.b);
   };
 };
 
@@ -155,9 +152,7 @@ theme.render.class = function() {
   html.classList.add('is-theme-bookmark-shadow-color-type-' + state.get.current().theme.bookmark.shadow.color.type);
 };
 
-theme.render.accent = {};
-
-theme.render.accent.color = function() {
+theme.render.accent = function() {
   const html = document.querySelector('html');
   const rgb = state.get.current().theme.accent.rgb;
   html.style.setProperty('--theme-accent-r', rgb.r);
@@ -307,8 +302,8 @@ theme.init = function() {
   theme.mod.style.initial();
   theme.bind.style.initial();
   theme.mod.color.generated();
-  theme.render.color.shade();
-  theme.render.accent.color();
+  theme.render.color();
+  theme.render.accent();
   theme.render.class();
   theme.render.radius();
   theme.render.shadow();

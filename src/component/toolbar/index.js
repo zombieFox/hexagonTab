@@ -55,7 +55,7 @@ toolbar.bar.render = function() {
     inputButton: ['dot', 'accent'],
     inputButtonClassList: ['toolbar-item'],
     action: () => {
-      theme.render.accent.color();
+      theme.render.accent();
       data.save();
     }
   };

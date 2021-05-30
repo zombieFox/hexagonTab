@@ -64,11 +64,11 @@
 }
 
 .logo-fill-solid {
-  fill: rgb(var(--theme-color-20));
+  fill: hsl(var(--theme-primary-900));
 }
 
 .logo-fill-clear {
-  fill: rgb(var(--theme-color-01));
+  fill: hsl(var(--theme-primary-100));
 }
 
 @keyframes grow {

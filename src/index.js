@@ -13,3 +13,5 @@ component.menu.init();
 component.modal.init();
 component.autoSuggest.init();
 component.keyboard.init();
+
+component.menu.open();

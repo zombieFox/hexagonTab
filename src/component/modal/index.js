@@ -176,6 +176,7 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   const modalAction = new Button({
     text: actionText,
+    style: ['line'],
     iconName: false,
     block: true,
     classList: ['modal-button'],
@@ -189,6 +190,7 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   const modalCancel = new Button({
     text: cancelText,
+    style: ['line'],
     iconName: false,
     block: true,
     classList: ['modal-button'],

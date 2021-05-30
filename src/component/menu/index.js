@@ -53,7 +53,7 @@ const MenuNav = function() {
 
       item.subNav.forEach((item, i) => {
 
-        const subNavBarItem = node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-small,tabindex:1');
+        const subNavBarItem = node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-line button-small,tabindex:1');
         subNav.appendChild(subNavBarItem);
       });
 
@@ -127,7 +127,7 @@ menu.mod.area = {
   all: [{
     id: 'layout',
     name: 'Layout',
-    active: true,
+    active: false,
     overscroll: true,
     subNav: [{ id: 'size', name: 'Scaling' }, { id: 'grid', name: 'Hex grid' }]
   }, {
@@ -145,7 +145,7 @@ menu.mod.area = {
   }, {
     id: 'theme',
     name: 'Theme',
-    active: false,
+    active: true,
     overscroll: true,
     subNav: [{ id: 'style', name: 'Style' }, { id: 'color', name: 'Color' }, { id: 'accent', name: 'Accent' }, { id: 'bookmark', name: 'Bookmarks' }, { id: 'background', name: 'Background' }]
   }, {

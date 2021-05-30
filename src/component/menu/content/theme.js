@@ -64,48 +64,49 @@ menuContentTheme.color = function() {
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
 
-  const themeColorMixer = new ControlModule_colorMixer({
+  const themeColorRangePrimaryH = new ControlModule_slimSlider({
     object: state.get.current(),
-    path: 'theme.color',
-    id: 'theme-color',
-    labelText: 'Primary colour',
-    defaultValue: state.get.default().theme.color.rgb,
-    minMaxObject: state.get.minMax(),
+    path: 'theme.xxx.color.range.primary.h',
+    id: 'theme-xxx-color-range-primary-h',
+    labelText: 'Colour',
+    value: state.get.current().theme.xxx.color.range.primary.h,
+    defaultValue: state.get.default().theme.xxx.color.range.primary.h,
+    min: state.get.minMax().theme.xxx.color.range.primary.h.min,
+    max: state.get.minMax().theme.xxx.color.range.primary.h.max,
     action: () => {
-      theme.mod.color.generated();
-      theme.render.color.shade();
+      theme.render.color();
       data.save();
     }
   });
 
-  const themeColorContrastLight = new ControlModule_slider({
+  const themeColorRangePrimaryS = new ControlModule_slimSlider({
     object: state.get.current(),
-    path: 'theme.color.contrast.light',
-    id: 'theme-color-contrast-light',
-    labelText: 'Light shade contrast',
-    value: state.get.current().theme.color.contrast.light,
-    defaultValue: state.get.default().theme.color.contrast.light,
-    min: state.get.minMax().theme.color.contrast.light.min,
-    max: state.get.minMax().theme.color.contrast.light.max,
+    path: 'theme.xxx.color.range.primary.s',
+    id: 'theme-xxx-color-range-primary-s',
+    labelText: 'Saturation',
+    value: state.get.current().theme.xxx.color.range.primary.s,
+    defaultValue: state.get.default().theme.xxx.color.range.primary.s,
+    min: state.get.minMax().theme.xxx.color.range.primary.s.min,
+    max: state.get.minMax().theme.xxx.color.range.primary.s.max,
     action: () => {
-      theme.mod.color.generated();
-      theme.render.color.shade();
+      theme.render.color();
       data.save();
     }
   });
 
-  const themeColorContrastDark = new ControlModule_slider({
+  const themeColorRangeContrast = new ControlModule_slimSlider({
     object: state.get.current(),
-    path: 'theme.color.contrast.dark',
-    id: 'theme-color-contrast-dark',
-    labelText: 'Dark shade contrast',
-    value: state.get.current().theme.color.contrast.dark,
-    defaultValue: state.get.default().theme.color.contrast.dark,
-    min: state.get.minMax().theme.color.contrast.dark.min,
-    max: state.get.minMax().theme.color.contrast.dark.max,
+    path: 'theme.xxx.color.lightness.contrast',
+    id: 'theme-xxx-color-range-contrast',
+    labelText: 'Contrast',
+    value: state.get.current().theme.xxx.color.lightness.contrast,
+    defaultValue: state.get.default().theme.xxx.color.lightness.contrast,
+    min: state.get.minMax().theme.xxx.color.lightness.contrast.min,
+    max: state.get.minMax().theme.xxx.color.lightness.contrast.max,
     action: () => {
-      theme.mod.color.generated();
-      theme.render.color.shade();
+      state.get.current().theme.xxx.color.lightness.start = state.get.current().theme.xxx.color.lightness.contrast;
+      state.get.current().theme.xxx.color.lightness.end = 100 - state.get.current().theme.xxx.color.lightness.contrast;
+      theme.render.color();
       data.save();
     }
   });
@@ -119,14 +120,9 @@ menuContentTheme.color = function() {
       ]),
       shadesHelper.wrap(),
       node('hr'),
-      themeColorMixer.wrap(),
-      form.render.wrap([
-        form.render.indent([
-          node('hr'),
-          themeColorContrastLight.wrap(),
-          themeColorContrastDark.wrap()
-        ])
-      ])
+      themeColorRangePrimaryH.wrap(),
+      themeColorRangePrimaryS.wrap(),
+      themeColorRangeContrast.wrap()
     ])
   );
 
@@ -183,7 +179,7 @@ menuContentTheme.accent = function() {
     defaultValue: state.get.default().theme.accent.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.accent.color();
+      theme.render.accent();
       toolbar.accent.update();
       data.save();
     }

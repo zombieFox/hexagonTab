@@ -1,4 +1,6 @@
 :root {
+  --menu-background: var(--theme-primary-100);
+  --menu-text: var(--theme-primary-text-100);
   --menu-space: 0.75em;
   --menu-content-multiplier: 4;
   --menu-content-gap: calc(var(--menu-space) * var(--menu-content-multiplier));
@@ -22,7 +24,7 @@
 }
 
 .menu-area {
-  background-color: rgb(var(--theme-color-01));
+  background-color: hsl(var(--menu-background));
   border-radius: var(--theme-radius-base);
   width: 100%;
   max-height: 100%;
@@ -35,14 +37,6 @@
   pointer-events: all;
   box-shadow: var(--theme-shadow-bottom-large);
   transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);
-}
-
-.is-presentation-mode .menu-area {
-  background-color: rgb(var(--theme-color-01), 0.4);
-}
-
-.is-edge .menu-area {
-  background-color: rgba(var(--theme-color-01), var(--menu-edge-opacity));
 }
 
 .menu-nav {
@@ -67,8 +61,12 @@
   line-height: 1;
 }
 
+.menu-nav-tab.active {
+  background-color: hsl(var(--menu-background));
+  color: hsl(var(--menu-text));
+}
+
 .menu-nav-tab:after {
-  background-color: transparent;
   border-radius: 0;
 }
 
@@ -158,7 +156,7 @@
   }
 
   .menu-nav {
-    background-color: rgb(var(--theme-color-02));
+    background-color: hsla(var(--theme-primary-200), 0.6);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -169,14 +167,6 @@
     overflow-y: auto;
     z-index: 1;
     transition: background-color var(--layout-transition-extra-fast);
-  }
-
-  .is-presentation-mode .menu-nav {
-    background-color: rgb(var(--theme-color-02), 0.4);
-  }
-
-  .is-edge .menu-nav {
-    background-color: transparent;
   }
 
   .menu-content {
@@ -214,8 +204,10 @@
     justify-content: flex-start;
   }
 
+  .menu-nav-tab:after {}
+
   .menu-subnav {
-    background-color: rgb(var(--theme-color-03));
+    background-color: hsl(var(--theme-primary-100));
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -226,10 +218,6 @@
 
   .menu-subnav.active {
     height: var(--menu-subnav-height);
-  }
-
-  .is-edge .menu-subnav {
-    background-color: transparent;
   }
 
   .menu-nav-sub {
@@ -248,16 +236,15 @@
 
   .menu-nav-sub:focus,
   .menu-nav-sub:hover {
-    background-color: rgb(var(--theme-color-04));
+    background-color: hsl(var(--theme-primary-400));
   }
 
   .menu-nav-sub:active {
-    background-color: rgb(var(--theme-color-05));
+    background-color: hsl(var(--theme-primary-500));
   }
 
   .menu-nav-sub:after,
   .menu-nav-sub:after {
-    background-color: transparent;
     border-radius: 0;
   }
 
