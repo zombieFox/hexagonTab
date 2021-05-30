@@ -64,11 +64,12 @@ menuContentTheme.color = function() {
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
 
-  const themeColorRangePrimaryH = new ControlModule_slimSlider({
+  const themeColorRangePrimaryH = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.xxx.color.range.primary.h',
     id: 'theme-xxx-color-range-primary-h',
     labelText: 'Colour',
+    hue: true,
     value: state.get.current().theme.xxx.color.range.primary.h,
     defaultValue: state.get.default().theme.xxx.color.range.primary.h,
     min: state.get.minMax().theme.xxx.color.range.primary.h.min,
@@ -79,7 +80,7 @@ menuContentTheme.color = function() {
     }
   });
 
-  const themeColorRangePrimaryS = new ControlModule_slimSlider({
+  const themeColorRangePrimaryS = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.xxx.color.range.primary.s',
     id: 'theme-xxx-color-range-primary-s',
@@ -94,7 +95,7 @@ menuContentTheme.color = function() {
     }
   });
 
-  const themeColorRangeContrast = new ControlModule_slimSlider({
+  const themeColorRangeContrast = new ControlModule_slider({
     object: state.get.current(),
     path: 'theme.xxx.color.lightness.contrast',
     id: 'theme-xxx-color-range-contrast',
