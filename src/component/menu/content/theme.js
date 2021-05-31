@@ -137,13 +137,15 @@ menuContentTheme.shades = function() {
 
   for (var i = 1; i <= shadeCount; i++) {
     let count = i;
+
     if (count < 10) {
       count = '0' + count;
     };
+
     formGroup.appendChild(
-      node('div|class:form-group-text form-group-text-borderless',
+      node('div|class:form-group-text form-group-text-borderless', [
         node('div|class:theme-color-box theme-color-shade-' + count + '')
-      )
+      ])
     );
   };
 
