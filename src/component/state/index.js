@@ -25,10 +25,8 @@ state.default = {
   },
   theme: {
     color: {
-      range: {
-        primary: { h: 210, s: 10 }
-      },
-      lightness: { contrast: 12, start: null, end: null },
+      range: { primary: { h: 210, s: 10 } },
+      lightness: { contrast: 30, offset: 10, start: null, end: null },
       shades: 9
     },
     accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
@@ -61,9 +59,9 @@ state.default = {
   autoSuggest: false
 };
 
-state.default.theme.color.lightness.start = state.default.theme.color.lightness.contrast;
+state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
 
-state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.contrast;
+state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
 
 state.minMax = {
   grid: {
@@ -92,12 +90,8 @@ state.minMax = {
   },
   theme: {
     color: {
-      range: {
-        primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } }
-      },
-      lightness: {
-        contrast: { min: 0, max: 40 }
-      }
+      range: { primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } } },
+      lightness: { contrast: { min: 0, max: 40 } }
     },
     accent: {
       hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },

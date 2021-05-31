@@ -102,10 +102,6 @@ theme.render = {};
 theme.render.color = function() {
   const html = document.querySelector('html');
 
-  const contrast = state.get.minMax().theme.color.lightness.contrast.max - state.get.current().theme.color.lightness.contrast;
-
-  console.log(state.get.current().theme.color.lightness);
-
   let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
 
   for (var type in state.get.current().theme.color.range) {

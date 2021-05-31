@@ -105,8 +105,9 @@ menuContentTheme.color = function() {
     min: state.get.minMax().theme.color.lightness.contrast.min,
     max: state.get.minMax().theme.color.lightness.contrast.max,
     action: () => {
-      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.contrast;
-      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.contrast;
+      state.get.current().theme.color.lightness.offset = 40 - state.get.current().theme.color.lightness.contrast;
+      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
+      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
       theme.render.color();
       data.save();
     }
