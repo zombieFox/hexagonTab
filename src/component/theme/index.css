@@ -3,13 +3,8 @@
   --theme-accent-g: 25;
   --theme-accent-b: 25;
   --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);
-  --theme-accent-accessible-threshold: 0.5;
-  --theme-accent-accessible-r: calc(var(--theme-accent-r) * 0.50);
-  --theme-accent-accessible-g: calc(var(--theme-accent-g) * 0.60);
-  --theme-accent-accessible-b: calc(var(--theme-accent-b) * 0.20);
-  --theme-accent-accessible-sum: calc(var(--theme-accent-accessible-r) + var(--theme-accent-accessible-g) + var(--theme-accent-accessible-b));
-  --theme-accent-accessible-perceived-lightness: calc(var(--theme-accent-accessible-sum) / 255);
-  --theme-accent-accessible-color: 0, calc(0 * 1%), calc((var(--theme-accent-accessible-perceived-lightness) - var(--theme-accent-accessible-threshold)) * -10000000%);
+  --theme-accent-text: 0, 0%,
+    calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);
 }
 
 :root {
@@ -74,6 +69,14 @@
   --theme-primary-900: var(--theme-primary-9);
 }
 
+:root {
+  --theme-t: 0.5;
+  /* calculates perceived lightness using the sRGB Luma method */
+  --theme-t-r: 0.2721;
+  --theme-t-g: 0.7152;
+  --theme-t-b: 0.1255;
+}
+
 @media (prefers-color-scheme: light) {
   .is-theme-style-system {
     --theme-primary-100: var(--theme-primary-9);
@@ -124,14 +127,6 @@
     --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);
     --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);
   }
-}
-
-:root {
-  --theme-t: 0.5;
-  /* calculates perceived lightness using the sRGB Luma method */
-  --theme-t-r: 0.2721;
-  --theme-t-g: 0.7152;
-  --theme-t-b: 0.1255;
 }
 
 .is-theme-style-light {
