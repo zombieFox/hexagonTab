@@ -1677,21 +1677,6 @@ input[type="range"]:disabled.input-range-hue-spectrum::-webkit-slider-runnable-t
   border-radius: 0;
 }
 
-.form-group .form-group-text:only-child,
-.form-group .button:only-child,
-.form-group .button-line:only-child:after,
-.form-group>select:only-child,
-.form-group>input[type="email"]:only-child,
-.form-group>input[type="number"]:only-child,
-.form-group>input[type="password"]:only-child,
-.form-group>input[type="search"]:only-child,
-.form-group>input[type="tel"]:only-child,
-.form-group>input[type="text"]:only-child,
-.form-group>input[type="color"]:only-child,
-.form-group>input[type="range"]:only-child {
-  border-radius: var(--theme-radius-base);
-}
-
 .form-group.form-group-horizontal .form-group-text:first-child,
 .form-group.form-group-horizontal .button:first-child,
 .form-group.form-group-horizontal .button-line:first-child:after,
@@ -1782,6 +1767,33 @@ input[type="range"]:disabled.input-range-hue-spectrum::-webkit-slider-runnable-t
 .form-group.form-group-vertical>input[type="color"]:last-child,
 .form-group.form-group-vertical>input[type="range"]:last-child {
   border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);
+}
+
+.form-group.form-group-horizontal .form-group-text:only-child,
+.form-group.form-group-horizontal .button:only-child,
+.form-group.form-group-horizontal .button-line:only-child:after,
+.form-group.form-group-horizontal>select:only-child,
+.form-group.form-group-horizontal>input[type="email"]:only-child,
+.form-group.form-group-horizontal>input[type="number"]:only-child,
+.form-group.form-group-horizontal>input[type="password"]:only-child,
+.form-group.form-group-horizontal>input[type="search"]:only-child,
+.form-group.form-group-horizontal>input[type="tel"]:only-child,
+.form-group.form-group-horizontal>input[type="text"]:only-child,
+.form-group.form-group-horizontal>input[type="color"]:only-child,
+.form-group.form-group-horizontal>input[type="range"]:only-child,
+.form-group.form-group-vertical .form-group-text:only-child,
+.form-group.form-group-vertical .button:only-child,
+.form-group.form-group-vertical .button-line:only-child:after,
+.form-group.form-group-vertical>select:only-child,
+.form-group.form-group-vertical>input[type="email"]:only-child,
+.form-group.form-group-vertical>input[type="number"]:only-child,
+.form-group.form-group-vertical>input[type="password"]:only-child,
+.form-group.form-group-vertical>input[type="search"]:only-child,
+.form-group.form-group-vertical>input[type="tel"]:only-child,
+.form-group.form-group-vertical>input[type="text"]:only-child,
+.form-group.form-group-vertical>input[type="color"]:only-child,
+.form-group.form-group-vertical>input[type="range"]:only-child {
+  border-radius: var(--theme-radius-base);
 }
 
 .form-group.form-group-nested-button * .button,

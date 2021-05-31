@@ -206,6 +206,42 @@
   height: 100%;
 }
 
+.theme-color-shade-01 {
+  background-color: hsl(var(--theme-primary-100));
+}
+
+.theme-color-shade-02 {
+  background-color: hsl(var(--theme-primary-200));
+}
+
+.theme-color-shade-03 {
+  background-color: hsl(var(--theme-primary-300));
+}
+
+.theme-color-shade-04 {
+  background-color: hsl(var(--theme-primary-400));
+}
+
+.theme-color-shade-05 {
+  background-color: hsl(var(--theme-primary-500));
+}
+
+.theme-color-shade-06 {
+  background-color: hsl(var(--theme-primary-600));
+}
+
+.theme-color-shade-07 {
+  background-color: hsl(var(--theme-primary-700));
+}
+
+.theme-color-shade-08 {
+  background-color: hsl(var(--theme-primary-800));
+}
+
+.theme-color-shade-09 {
+  background-color: hsl(var(--theme-primary-900));
+}
+
 .theme-background {
   position: fixed;
   top: 0;

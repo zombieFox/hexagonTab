@@ -66,14 +66,14 @@ menuContentTheme.color = function() {
 
   const themeColorRangePrimaryH = new ControlModule_slider({
     object: state.get.current(),
-    path: 'theme.xxx.color.range.primary.h',
-    id: 'theme-xxx-color-range-primary-h',
-    labelText: 'Colour',
+    path: 'theme.color.range.primary.h',
+    id: 'theme-color-range-primary-h',
+    labelText: 'Primary Colour',
     hue: true,
-    value: state.get.current().theme.xxx.color.range.primary.h,
-    defaultValue: state.get.default().theme.xxx.color.range.primary.h,
-    min: state.get.minMax().theme.xxx.color.range.primary.h.min,
-    max: state.get.minMax().theme.xxx.color.range.primary.h.max,
+    value: state.get.current().theme.color.range.primary.h,
+    defaultValue: state.get.default().theme.color.range.primary.h,
+    min: state.get.minMax().theme.color.range.primary.h.min,
+    max: state.get.minMax().theme.color.range.primary.h.max,
     action: () => {
       theme.render.color();
       data.save();
@@ -82,13 +82,13 @@ menuContentTheme.color = function() {
 
   const themeColorRangePrimaryS = new ControlModule_slider({
     object: state.get.current(),
-    path: 'theme.xxx.color.range.primary.s',
-    id: 'theme-xxx-color-range-primary-s',
+    path: 'theme.color.range.primary.s',
+    id: 'theme-color-range-primary-s',
     labelText: 'Saturation',
-    value: state.get.current().theme.xxx.color.range.primary.s,
-    defaultValue: state.get.default().theme.xxx.color.range.primary.s,
-    min: state.get.minMax().theme.xxx.color.range.primary.s.min,
-    max: state.get.minMax().theme.xxx.color.range.primary.s.max,
+    value: state.get.current().theme.color.range.primary.s,
+    defaultValue: state.get.default().theme.color.range.primary.s,
+    min: state.get.minMax().theme.color.range.primary.s.min,
+    max: state.get.minMax().theme.color.range.primary.s.max,
     action: () => {
       theme.render.color();
       data.save();
@@ -97,16 +97,16 @@ menuContentTheme.color = function() {
 
   const themeColorRangeContrast = new ControlModule_slider({
     object: state.get.current(),
-    path: 'theme.xxx.color.lightness.contrast',
-    id: 'theme-xxx-color-range-contrast',
+    path: 'theme.color.lightness.contrast',
+    id: 'theme-color-range-contrast',
     labelText: 'Contrast',
-    value: state.get.current().theme.xxx.color.lightness.contrast,
-    defaultValue: state.get.default().theme.xxx.color.lightness.contrast,
-    min: state.get.minMax().theme.xxx.color.lightness.contrast.min,
-    max: state.get.minMax().theme.xxx.color.lightness.contrast.max,
+    value: state.get.current().theme.color.lightness.contrast,
+    defaultValue: state.get.default().theme.color.lightness.contrast,
+    min: state.get.minMax().theme.color.lightness.contrast.min,
+    max: state.get.minMax().theme.color.lightness.contrast.max,
     action: () => {
-      state.get.current().theme.xxx.color.lightness.start = state.get.current().theme.xxx.color.lightness.contrast;
-      state.get.current().theme.xxx.color.lightness.end = 100 - state.get.current().theme.xxx.color.lightness.contrast;
+      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.contrast;
+      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.contrast;
       theme.render.color();
       data.save();
     }
@@ -133,33 +133,16 @@ menuContentTheme.color = function() {
 menuContentTheme.shades = function() {
   const formGroup = node('div|class:form-group form-group-block form-group-border form-group-border-theme-color');
 
-  for (var i = 10; i >= 1; i--) {
+  const shadeCount = state.get.current().theme.color.shades;
+
+  for (var i = 1; i <= shadeCount; i++) {
     let count = i;
     if (count < 10) {
       count = '0' + count;
     };
     formGroup.appendChild(
       node('div|class:form-group-text form-group-text-borderless',
-        node('div|class:theme-color-box theme-color-negative-' + count + '')
-      )
-    );
-  };
-
-
-  formGroup.appendChild(
-    node('div|class:form-group-text form-group-text-borderless form-group-item-small',
-      node('div|class:theme-color-box theme-color')
-    )
-  );
-
-  for (var i = 1; i <= 10; i++) {
-    let count = i;
-    if (count < 10) {
-      count = '0' + count;
-    };
-    formGroup.appendChild(
-      node('div|class:form-group-text form-group-text-borderless',
-        node('div|class:theme-color-box theme-color-positive-' + count + '')
+        node('div|class:theme-color-box theme-color-shade-' + count + '')
       )
     );
   };

@@ -24,16 +24,13 @@ state.default = {
     add: false
   },
   theme: {
-    xxx: {
-      color: {
-        range: {
-          primary: { h: 210, s: 10 }
-        },
-        lightness: { contrast: 12, start: null, end: null },
-        shades: 9
-      }
+    color: {
+      range: {
+        primary: { h: 210, s: 10 }
+      },
+      lightness: { contrast: 12, start: null, end: null },
+      shades: 9
     },
-    color: { hsl: { h: 211, s: 10, l: 50 }, rgb: { r: 115, g: 127, b: 140 }, contrast: { light: 40, dark: 40 }, generated: {} },
     accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
     font: {
       display: { name: '', weight: 400, style: 'normal' },
@@ -64,9 +61,9 @@ state.default = {
   autoSuggest: false
 };
 
-state.default.theme.xxx.color.lightness.start = state.default.theme.xxx.color.lightness.contrast;
+state.default.theme.color.lightness.start = state.default.theme.color.lightness.contrast;
 
-state.default.theme.xxx.color.lightness.end = 100 - state.default.theme.xxx.color.lightness.contrast;
+state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.contrast;
 
 state.minMax = {
   grid: {
@@ -94,27 +91,17 @@ state.minMax = {
     }
   },
   theme: {
-    xxx: {
-      color: {
-        range: {
-          primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } }
-        },
-        lightness: {
-          contrast: { min: 0, max: 30 }
-        }
+    color: {
+      range: {
+        primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } }
+      },
+      lightness: {
+        contrast: { min: 0, max: 40 }
       }
     },
     accent: {
       hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
       rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-    },
-    color: {
-      hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-      rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-      contrast: {
-        light: { min: 10, max: 80 },
-        dark: { min: 10, max: 80 }
-      }
     },
     bookmark: {
       shadow: {

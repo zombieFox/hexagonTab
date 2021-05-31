@@ -94,15 +94,6 @@ theme.mod.color = {
     };
 
     return shadeColors;
-  },
-  generated: function() {
-    const shades = theme.mod.color.shades({
-      rgb: state.get.current().theme.color.rgb,
-      contrastNegative: state.get.current().theme.color.contrast.dark,
-      contrastPositive: state.get.current().theme.color.contrast.light
-    });
-    state.get.current().theme.color.generated.negative = shades.negative;
-    state.get.current().theme.color.generated.positive = shades.positive;
   }
 };
 
@@ -111,13 +102,13 @@ theme.render = {};
 theme.render.color = function() {
   const html = document.querySelector('html');
 
-  let shades = (state.get.current().theme.xxx.color.lightness.end - state.get.current().theme.xxx.color.lightness.start) / (state.get.current().theme.xxx.color.shades - 1);
+  let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
 
-  for (var type in state.get.current().theme.xxx.color.range) {
-    for (var i = 0; i < state.get.current().theme.xxx.color.shades; i++) {
-      let hsl = JSON.parse(JSON.stringify(state.get.current().theme.xxx.color.range[type]));
+  for (var type in state.get.current().theme.color.range) {
+    for (var i = 0; i < state.get.current().theme.color.shades; i++) {
+      let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
 
-      hsl.l = (shades * i) + state.get.current().theme.xxx.color.lightness.start;
+      hsl.l = (shades * i) + state.get.current().theme.color.lightness.start;
 
       let rgb = convertColor.hsl.rgb(hsl);
 
@@ -301,7 +292,6 @@ theme.render.background.video.filter = function() {
 theme.init = function() {
   theme.mod.style.initial();
   theme.bind.style.initial();
-  theme.mod.color.generated();
   theme.render.color();
   theme.render.accent();
   theme.render.class();
