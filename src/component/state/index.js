@@ -91,7 +91,7 @@ state.minMax = {
   theme: {
     color: {
       range: { primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } } },
-      lightness: { contrast: { min: 0, max: 40 } }
+      lightness: { contrast: { min: 5, max: 45 } }
     },
     accent: {
       hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },

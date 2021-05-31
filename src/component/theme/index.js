@@ -1,5 +1,6 @@
 import { state } from '../state';
 import { data } from '../data';
+import { rgbToHsl, hslToRgb } from '../control';
 
 import { Video } from '../video';
 
@@ -49,54 +50,6 @@ theme.mod.style = {
   }
 };
 
-theme.mod.color = {
-  shades: function({ rgb = { r: 0, g: 0, b: 0 }, contrastNegative = 40, contrastPositive = 40 } = {}) {
-    const shadeMax = 10;
-    const shadeMin = 1;
-
-    var hsl = convertColor.rgb.hsl(rgb);
-
-    var validateRGBNumber = function(rgb) {
-      for (var key in rgb) {
-        if (rgb[key] < 0) {
-          rgb[key] = 0;
-        } else if (rgb[key] > 255) {
-          rgb[key] = 255;
-        };
-        rgb[key] = Math.round(rgb[key]);
-      };
-      return rgb;
-    };
-
-    var shadeColors = {
-      negative: {},
-      positive: {}
-    };
-
-    // set light theme shades
-    for (var i = shadeMax; i >= shadeMin; i--) {
-      var rgb = convertColor.hsl.rgb({
-        h: hsl.h,
-        s: hsl.s,
-        l: hsl.l - ((contrastNegative / 10) * i)
-      });
-      shadeColors.negative[i] = validateRGBNumber(rgb);
-    };
-
-    // set dark theme shades
-    for (var i = shadeMin; i <= shadeMax; i++) {
-      var rgb = convertColor.hsl.rgb({
-        h: hsl.h,
-        s: hsl.s,
-        l: hsl.l + ((contrastPositive / 10) * i)
-      });
-      shadeColors.positive[i] = validateRGBNumber(rgb);
-    };
-
-    return shadeColors;
-  }
-};
-
 theme.render = {};
 
 theme.render.color = function() {
@@ -105,22 +58,27 @@ theme.render.color = function() {
   let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
 
   for (var type in state.get.current().theme.color.range) {
+
     for (var i = 0; i < state.get.current().theme.color.shades; i++) {
+
       let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
 
-      hsl.l = (shades * i) + state.get.current().theme.color.lightness.start;
+      hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
 
-      let rgb = convertColor.hsl.rgb(hsl);
+      let rgb = hslToRgb(hsl);
 
       for (var key in rgb) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, Math.round(rgb[key]));
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
       };
 
       for (var key in hsl) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, Math.round(hsl[key]));
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
       };
+
     };
+
   };
+
 };
 
 theme.render.class = function() {
