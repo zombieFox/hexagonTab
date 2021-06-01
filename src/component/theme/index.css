@@ -160,7 +160,7 @@
   --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);
   --theme-shadow-offset-base: 20;
   --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);
-  --theme-shadow-blur-base: 20;
+  --theme-shadow-blur-base: 30;
   --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);
   --theme-shadow-opacity-base: 20;
   --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);
