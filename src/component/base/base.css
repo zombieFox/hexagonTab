@@ -35,16 +35,16 @@ html.is-theme-style-dark,
 .is-theme-style-dark body,
 html.is-theme-style-light,
 .is-theme-style-light body {
-  background-color: hsl(var(--theme-primary-200));
-  color: hsl(var(--theme-primary-text-200));
+  background-color: hsl(var(--theme-primary-100));
+  color: hsl(var(--theme-primary-text-100));
 }
 
 @media (prefers-color-scheme: light) {
 
   html.is-theme-style-system,
   .is-theme-style-system body {
-    background-color: hsl(var(--theme-primary-200));
-    color: hsl(var(--theme-primary-text-200));
+    background-color: hsl(var(--theme-primary-100));
+    color: hsl(var(--theme-primary-text-100));
   }
 }
 
@@ -52,7 +52,7 @@ html.is-theme-style-light,
 
   html.is-theme-style-system,
   .is-theme-style-system body {
-    background-color: hsl(var(--theme-primary-200));
-    color: hsl(var(--theme-primary-text-200));
+    background-color: hsl(var(--theme-primary-100));
+    color: hsl(var(--theme-primary-text-100));
   }
 }

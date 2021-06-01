@@ -127,7 +127,7 @@ menu.mod.area = {
   all: [{
     id: 'layout',
     name: 'Layout',
-    active: false,
+    active: true,
     overscroll: true,
     subNav: [{ id: 'size', name: 'Scaling' }, { id: 'grid', name: 'Hex grid' }]
   }, {
@@ -145,7 +145,7 @@ menu.mod.area = {
   }, {
     id: 'theme',
     name: 'Theme',
-    active: true,
+    active: false,
     overscroll: true,
     subNav: [{ id: 'style', name: 'Style' }, { id: 'color', name: 'Color' }, { id: 'accent', name: 'Accent' }, { id: 'bookmark', name: 'Bookmarks' }, { id: 'background', name: 'Background' }]
   }, {

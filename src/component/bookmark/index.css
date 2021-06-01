@@ -1,10 +1,10 @@
 :root {
-  --bookmark-color: var(--theme-primary-100);
-  --bookmark-color-focus-hover: var(--theme-primary-100);
+  --bookmark-color: var(--theme-primary-200);
+  --bookmark-color-focus-hover: var(--theme-primary-200);
   --bookmark-display-visual-color: var(--theme-accent);
   --bookmark-display-visual-color-focus-hover: var(--theme-accent);
-  --bookmark-display-name-color: var(--theme-primary-text-100);
-  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);
+  --bookmark-display-name-color: var(--theme-primary-text-200);
+  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-200);
   /* --bookmark-shape: circle(45% at 50% 50%); */
   /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */
   --bookmark-shape: url(#bookmark-mask);

@@ -37,6 +37,22 @@ update.all = {
     dataToUpdate.state.toolbar = { style: 'transparent', position: 'bottom-right' };
 
     return dataToUpdate;
+  },
+  '3.0.0': function(dataToUpdate) {
+    const h = dataToUpdate.state.theme.color.hsl.h;
+    const s = dataToUpdate.state.theme.color.hsl.s;
+
+    dataToUpdate.state.theme.color = {
+      range: { primary: { h: h, s: s } },
+      lightness: { contrast: 30, offset: 10, start: null, end: null },
+      shades: 9
+    };
+
+    dataToUpdate.state.theme.color.lightness.start = dataToUpdate.state.theme.color.lightness.offset;
+
+    dataToUpdate.state.theme.color.lightness.end = 100 - dataToUpdate.state.theme.color.lightness.offset;
+
+    return dataToUpdate;
   }
 };
 

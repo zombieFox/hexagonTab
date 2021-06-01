@@ -68,7 +68,7 @@ menuContentTheme.color = function() {
     object: state.get.current(),
     path: 'theme.color.range.primary.h',
     id: 'theme-color-range-primary-h',
-    labelText: 'Primary Colour',
+    labelText: 'Primary colour',
     hue: true,
     value: state.get.current().theme.color.range.primary.h,
     defaultValue: state.get.default().theme.color.range.primary.h,
