@@ -26,7 +26,7 @@ state.default = {
   theme: {
     color: {
       range: { primary: { h: 210, s: 10 } },
-      lightness: { contrast: 30, offset: null, start: null, end: null },
+      lightness: { contrast: 32, offset: null, start: null, end: null },
       shades: 9
     },
     accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },

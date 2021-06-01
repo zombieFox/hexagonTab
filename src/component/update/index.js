@@ -44,7 +44,7 @@ update.all = {
 
     dataToUpdate.state.theme.color = {
       range: { primary: { h: h, s: s } },
-      lightness: { contrast: 30, offset: null, start: null, end: null },
+      lightness: { contrast: 32, offset: null, start: null, end: null },
       shades: 9
     };
 
