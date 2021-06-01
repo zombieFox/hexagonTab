@@ -236,11 +236,11 @@
 
   .menu-nav-sub:focus,
   .menu-nav-sub:hover {
-    background-color: hsl(var(--theme-primary-400));
+    background-color: hsl(var(--theme-primary-200));
   }
 
   .menu-nav-sub:active {
-    background-color: hsl(var(--theme-primary-500));
+    background-color: hsl(var(--theme-primary-300));
   }
 
   .menu-nav-sub:after,
