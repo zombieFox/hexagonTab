@@ -1,6 +1,12 @@
 :root {
   --layout-size: 1;
+}
+
+:root {
   --layout-line-width: 0.2em;
+}
+
+:root {
   --layout-duration-01: 0.1s;
   --layout-duration-02: 0.2s;
   --layout-duration-03: 0.3s;
@@ -18,6 +24,9 @@
   --layout-transition-medium: var(--layout-duration-06) var(--layout-timing-ease);
   --layout-transition-slow: var(--layout-duration-08) var(--layout-timing-ease);
   --layout-transition-extra-slow: var(--layout-duration-10) var(--layout-timing-ease);
+}
+
+:root {
   --layout-horizontal-rule-small: 1px solid hsl(var(--theme-primary-200));
   --layout-horizontal-rule-large: 2px solid hsl(var(--theme-primary-200));
 }
