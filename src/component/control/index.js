@@ -380,7 +380,7 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
       set({
         object: object,
         path: path,
-        value: defaultValue
+        value: JSON.parse(JSON.stringify(defaultValue))
       });
       this.update();
       if (action) {
@@ -517,7 +517,7 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
       set({
         object: object,
         path: path,
-        value: defaultValue
+        value: JSON.parse(JSON.stringify(defaultValue))
       });
       this.update();
       if (action) {
@@ -654,7 +654,7 @@ const ControlModule_color = function({ object = {}, path = false, id = 'name', l
       set({
         object: object,
         path: path,
-        value: defaultValue
+        value: JSON.parse(JSON.stringify(defaultValue))
       });
       this.update({ all: true });
       if (action) {
