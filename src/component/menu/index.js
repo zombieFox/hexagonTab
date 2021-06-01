@@ -53,7 +53,7 @@ const MenuNav = function() {
 
       item.subNav.forEach((item, i) => {
 
-        const subNavBarItem = node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-line button-small,tabindex:1');
+        const subNavBarItem = node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-link button-small,tabindex:1');
         subNav.appendChild(subNavBarItem);
       });
 
