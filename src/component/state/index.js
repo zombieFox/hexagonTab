@@ -26,7 +26,7 @@ state.default = {
   theme: {
     color: {
       range: { primary: { h: 210, s: 10 } },
-      lightness: { contrast: 30, offset: 10, start: null, end: null },
+      lightness: { contrast: 40, offset: null, start: null, end: null },
       shades: 9
     },
     accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
@@ -58,10 +58,6 @@ state.default = {
   menu: false,
   autoSuggest: false
 };
-
-state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
-
-state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
 
 state.minMax = {
   grid: {
@@ -127,6 +123,12 @@ state.minMax = {
     }
   }
 };
+
+state.default.theme.color.lightness.offset = state.minMax.theme.color.lightness.contrast.max - state.default.theme.color.lightness.contrast;
+
+state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
+
+state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
 
 state.get = {
   current: () => { return state.current },
