@@ -159,7 +159,7 @@ toolbar.bar.render = function() {
     type: 'color',
     labelText: 'Accent colour',
     srOnly: true,
-    inputButton: ['dot', 'accent'],
+    inputButton: ['dot'],
     inputButtonClassList: ['toolbar-item'],
     action: () => {
       theme.render.accent();

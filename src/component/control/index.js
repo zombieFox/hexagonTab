@@ -168,10 +168,6 @@ const ControlModule_inputButton = function({ object = {}, path = false, id = 'na
         case 'dot':
           this.button.classList.add('input-color-dot');
           break;
-
-        case 'accent':
-          this.button.classList.add('input-color-dot-accent');
-          break;
       };
     });
   };
