@@ -46,16 +46,11 @@ toolbar.render.class = function() {
 toolbar.render.style = {};
 
 toolbar.render.style.set = function(rgb) {
-  toolbar.bar.style.setProperty('--toolbar-t', 0.5);
-  toolbar.bar.style.setProperty('--toolbar-t-r', 0.2721);
-  toolbar.bar.style.setProperty('--toolbar-t-g', 0.7152);
-  toolbar.bar.style.setProperty('--toolbar-t-b', 0.1255);
-
   toolbar.bar.style.setProperty('--toolbar-color-r', rgb.r);
   toolbar.bar.style.setProperty('--toolbar-color-g', rgb.g);
   toolbar.bar.style.setProperty('--toolbar-color-b', rgb.b);
 
-  toolbar.bar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--toolbar-t-r)) + (var(--toolbar-color-g) * var(--toolbar-t-g)) + (var(--toolbar-color-b) * var(--toolbar-t-b))) / 255) - var(--toolbar-t)) * -10000000%)');
+  toolbar.bar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--theme-t-r)) + (var(--toolbar-color-g) * var(--theme-t-g)) + (var(--toolbar-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
 
   toolbar.bar.style.setProperty('--button-link-text', 'var(--toolbar-color-text)');
   toolbar.bar.style.setProperty('--button-link-text-focus-hover', 'var(--toolbar-color-text)');
@@ -63,11 +58,6 @@ toolbar.render.style.set = function(rgb) {
 }
 
 toolbar.render.style.remove = function() {
-  toolbar.bar.style.removeProperty('--toolbar-t');
-  toolbar.bar.style.removeProperty('--toolbar-t-r');
-  toolbar.bar.style.removeProperty('--toolbar-t-g');
-  toolbar.bar.style.removeProperty('--toolbar-t-b');
-
   toolbar.bar.style.removeProperty('--toolbar-color-r');
   toolbar.bar.style.removeProperty('--toolbar-color-g');
   toolbar.bar.style.removeProperty('--toolbar-color-b');

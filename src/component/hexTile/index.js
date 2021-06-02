@@ -115,11 +115,6 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.accent.rgb.b);
       this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
 
-      this.element.bookmark.style.setProperty('--theme-t', 0.5);
-      this.element.bookmark.style.setProperty('--theme-t-r', 0.2721);
-      this.element.bookmark.style.setProperty('--theme-t-g', 0.7152);
-      this.element.bookmark.style.setProperty('--theme-t-b', 0.1255);
-
       this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
 
       this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');

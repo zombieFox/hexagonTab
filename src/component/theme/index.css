@@ -1,10 +1,17 @@
 :root {
+  /* calculates perceived lightness using the sRGB Luma method */
+  --theme-t: 0.55;
+  --theme-t-r: 0.2721;
+  --theme-t-g: 0.7152;
+  --theme-t-b: 0.1255;
+}
+
+:root {
   --theme-accent-r: 25;
   --theme-accent-g: 25;
   --theme-accent-b: 25;
   --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);
-  --theme-accent-text: 0, 0%,
-    calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);
+  --theme-accent-text: 0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);
 }
 
 :root {
@@ -67,14 +74,6 @@
   --theme-primary-700: var(--theme-primary-7);
   --theme-primary-800: var(--theme-primary-8);
   --theme-primary-900: var(--theme-primary-9);
-}
-
-:root {
-  --theme-t: 0.5;
-  /* calculates perceived lightness using the sRGB Luma method */
-  --theme-t-r: 0.2721;
-  --theme-t-g: 0.7152;
-  --theme-t-b: 0.1255;
 }
 
 @media (prefers-color-scheme: light) {
