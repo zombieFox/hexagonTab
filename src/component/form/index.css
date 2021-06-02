@@ -66,14 +66,15 @@
 }
 
 :root {
-  --form-range-track-background: var(--theme-primary-400);
-  --form-range-track-background-hover: var(--theme-primary-400);
-  --form-range-track-background-focus: var(--theme-primary-400);
-  --form-range-track-background-disabled: var(--theme-primary-300);
+  --form-range-track-background: var(--theme-primary-200);
+  --form-range-track-background-hover: var(--theme-primary-200);
+  --form-range-track-background-focus: var(--theme-primary-200);
+  --form-range-track-background-disabled: var(--theme-primary-100);
   --form-range-thumb-size: 1.5em;
   --form-range-thumb-background: var(--theme-primary-text-100);
   --form-range-thumb-background-disabled: var(--theme-primary-300);
   --form-range-thumb-border: var(--theme-primary-100);
+  --form-range-thumb-border-focus: var(--theme-primary-text-100);
   --form-range-thumb-border-disabled: var(--theme-primary-100);
   --form-range-hue: linear-gradient(to right,
       hsl(0, 100%, 50%),
@@ -951,11 +952,12 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   box-sizing: border-box;
   -webkit-appearance: none;
-  transition: background-color var(--layout-transition-extra-fast), border var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);
+  transition: background-color var(--layout-transition-extra-fast), border var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
-  box-shadow: var(--theme-focus-primary);
+  box-shadow: var(--form-ring-accent);
+  border-color: hsl(var(--form-range-thumb-border-focus));
 }
 
 input[type="range"]:disabled::-webkit-slider-thumb,
@@ -964,6 +966,7 @@ input[type="range"]:disabled:focus::-webkit-slider-thumb {
   background-color: hsl(var(--form-range-thumb-background-disabled));
   border-color: hsl(var(--form-range-thumb-border-disabled));
   box-shadow: none;
+  cursor: default;
 }
 
 input[type="range"].input-range-hue-spectrum::-webkit-slider-runnable-track {
@@ -1011,11 +1014,12 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
   box-sizing: border-box;
   -webkit-appearance: none;
-  transition: background-color var(--layout-transition-extra-fast), border var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);
+  transition: background-color var(--layout-transition-extra-fast), border var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);
 }
 
 input[type="range"]:focus::-moz-range-thumb {
-  box-shadow: var(--theme-focus-primary);
+  box-shadow: var(--form-ring-accent);
+  border-color: hsl(var(--form-range-thumb-border-focus));
 }
 
 input[type="range"]:disabled::-moz-range-thumb,
@@ -1024,6 +1028,7 @@ input[type="range"]:disabled:focus::-moz-range-thumb {
   background-color: hsl(var(--form-range-thumb-background-disabled));
   border-color: hsl(var(--form-range-thumb-border-disabled));
   box-shadow: none;
+  cursor: default;
 }
 
 input[type="range"].input-range-hue-spectrum::-moz-range-track {
