@@ -66,8 +66,6 @@ const MenuNav = function() {
 
   });
 
-  console.log(this.navItem);
-
   this.init = () => {
     this.navItem.forEach((item, i) => {
       if (item.subLevel) {

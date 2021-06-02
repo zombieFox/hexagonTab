@@ -39,6 +39,7 @@ menuContentToolbar.style = function() {
       toolbar.bar.clear();
       toolbar.bar.render();
       toolbar.bar.active();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -77,6 +78,7 @@ menuContentToolbar.position = function() {
       toolbar.bar.clear();
       toolbar.bar.render();
       toolbar.bar.active();
+      toolbar.render.style.update();
       data.save();
     }
   });

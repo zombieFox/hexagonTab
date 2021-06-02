@@ -42,7 +42,7 @@
 .toolbar-item input[type="color"],
 .toolbar-item input[type="color"]:hover,
 .toolbar-item input[type="color"]:focus {
-  transition: box-shadow var(--layout-transition-extra-slow);
+  transition: box-shadow var(--layout-transition-extra-fast);
 }
 
 .is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"],

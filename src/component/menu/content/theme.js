@@ -168,6 +168,7 @@ menuContentTheme.accent = function() {
     action: () => {
       theme.render.accent();
       toolbar.accent.update();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -285,6 +286,7 @@ menuContentTheme.background = function() {
     action: () => {
       theme.render.background.type();
       themeBackgroundCollapse.update();
+      toolbar.render.style.update();
       updateDisabled();
       updateVideoPlayState();
       data.save();
@@ -300,6 +302,7 @@ menuContentTheme.background = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.color();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -315,6 +318,7 @@ menuContentTheme.background = function() {
     max: state.get.minMax().theme.background.gradient.angle.max,
     action: () => {
       theme.render.background.gradient();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -328,6 +332,7 @@ menuContentTheme.background = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.gradient();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -341,6 +346,7 @@ menuContentTheme.background = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.gradient();
+      toolbar.render.style.update();
       data.save();
     }
   });

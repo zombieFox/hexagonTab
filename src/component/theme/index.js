@@ -181,7 +181,9 @@ theme.render.background.gradient = function() {
   const html = document.querySelector('html');
 
   html.style.setProperty('--theme-background-gradient-angle', state.get.current().theme.background.gradient.angle);
+
   html.style.setProperty('--theme-background-gradient-start', state.get.current().theme.background.gradient.start.rgb.r + ', ' + state.get.current().theme.background.gradient.start.rgb.g + ', ' + state.get.current().theme.background.gradient.start.rgb.b);
+
   html.style.setProperty('--theme-background-gradient-end', state.get.current().theme.background.gradient.end.rgb.r + ', ' + state.get.current().theme.background.gradient.end.rgb.g + ', ' + state.get.current().theme.background.gradient.end.rgb.b);
 };
 
