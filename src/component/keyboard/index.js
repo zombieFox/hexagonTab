@@ -77,7 +77,9 @@ keyboard.ctrAltD = new KeyPress({
   alt: true,
   action: () => {
     theme.style.toggle();
-    menuContentTheme.exposeControl.style.update();
+    if (menuContentTheme.exposeControl.style) {
+      menuContentTheme.exposeControl.style.update();
+    };
     data.save();
   }
 });

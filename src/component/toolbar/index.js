@@ -43,6 +43,103 @@ toolbar.render.class = function() {
   html.classList.add('is-toolbar-style-' + state.get.current().toolbar.style);
 };
 
+toolbar.render.style = {};
+
+toolbar.render.style.set = function(rgb) {
+  toolbar.bar.style.setProperty('--toolbar-color-r', rgb.r);
+  toolbar.bar.style.setProperty('--toolbar-color-g', rgb.g);
+  toolbar.bar.style.setProperty('--toolbar-color-b', rgb.b);
+
+  toolbar.bar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--theme-t-r)) + (var(--toolbar-color-g) * var(--theme-t-g)) + (var(--toolbar-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+  toolbar.bar.style.setProperty('--button-link-text', 'var(--toolbar-color-text)');
+  toolbar.bar.style.setProperty('--button-link-text-focus-hover', 'var(--toolbar-color-text)');
+  toolbar.bar.style.setProperty('--button-link-text-active', 'var(--toolbar-color-text)');
+}
+
+toolbar.render.style.remove = function() {
+  toolbar.bar.style.removeProperty('--toolbar-color-r');
+  toolbar.bar.style.removeProperty('--toolbar-color-g');
+  toolbar.bar.style.removeProperty('--toolbar-color-b');
+
+  toolbar.bar.style.removeProperty('--toolbar-color-text');
+
+  toolbar.bar.style.removeProperty('--button-link-text');
+  toolbar.bar.style.removeProperty('--button-link-text-focus-hover');
+  toolbar.bar.style.removeProperty('--button-link-text-active');
+}
+
+toolbar.render.style.update = function() {
+
+  switch (state.get.current().toolbar.style) {
+
+    case 'transparent':
+
+      switch (state.get.current().theme.background.type) {
+
+        case 'theme':
+        case 'image':
+        case 'video':
+          toolbar.render.style.remove();
+          break;
+
+        case 'accent':
+          toolbar.render.style.set(state.get.current().theme.accent.rgb);
+          break;
+
+        case 'color':
+          toolbar.render.style.set(state.get.current().theme.background.color.rgb);
+          break;
+
+        case 'gradient':
+          let angle = state.get.current().theme.background.gradient.angle;
+
+          switch (state.get.current().toolbar.position) {
+
+            case 'top-left':
+            case 'top-right':
+              if (angle < 90) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.end.rgb);
+              } else if (angle >= 90 && angle < 180) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.start.rgb);
+              } else if (angle >= 180 && angle < 270) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.start.rgb);
+              } else if (angle >= 270) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.end.rgb);
+              };
+              break;
+
+            case 'bottom-right':
+            case 'bottom-left':
+              if (angle < 90) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.start.rgb);
+              } else if (angle >= 90 && angle < 180) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.end.rgb);
+              } else if (angle >= 180 && angle < 270) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.end.rgb);
+              } else if (angle >= 270) {
+                toolbar.render.style.set(state.get.current().theme.background.gradient.start.rgb);
+              };
+              break;
+
+          };
+
+          break;
+
+      };
+
+      break;
+
+    case 'bar':
+
+      toolbar.render.style.remove();
+
+      break;
+
+  };
+
+};
+
 toolbar.bar.render = function() {
 
   const accentOptions = {
@@ -52,10 +149,11 @@ toolbar.bar.render = function() {
     type: 'color',
     labelText: 'Accent colour',
     srOnly: true,
-    inputButton: ['dot', 'accent'],
+    inputButton: ['dot'],
     inputButtonClassList: ['toolbar-item'],
     action: () => {
-      theme.render.accent.color();
+      theme.render.accent();
+      toolbar.render.style.update();
       data.save();
     }
   };
@@ -172,6 +270,7 @@ toolbar.bar.active = function() {
 
 toolbar.init = function() {
   toolbar.render.class();
+  toolbar.render.style.update();
   toolbar.bar.render();
   toolbar.bar.active();
 };

@@ -168,10 +168,6 @@ const ControlModule_inputButton = function({ object = {}, path = false, id = 'na
         case 'dot':
           this.button.classList.add('input-color-dot');
           break;
-
-        case 'accent':
-          this.button.classList.add('input-color-dot-accent');
-          break;
       };
     });
   };
@@ -317,24 +313,31 @@ const ControlModule_text = function({ object = {}, path = false, id = 'name', va
   };
 };
 
-const ControlModule_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
+const ControlModule_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
 
   this.label = form.render.label({
     forInput: id,
     text: labelText
   });
 
+  const classList = [];
+
+  if (hue) {
+    classList.push('input-range-hue-spectrum');
+  };
+
   this.range = form.render.input.range({
     id: id,
     value: value,
     min: min,
     max: max,
+    classList: classList,
     func: () => {
       if (path) {
         set({
           object: object,
           path: path,
-          value: parseInt(this.range.value, 10)
+          value: this.value()
         });
       };
       if (action) {
@@ -408,6 +411,10 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
     } else {
       updateControl();
     };
+  };
+
+  this.value = () => {
+    return parseInt(this.range.value, 10);
   };
 
   this.wrap = () => {
@@ -452,26 +459,32 @@ const ControlModule_slider = function({ object = {}, path = false, id = 'name', 
   };
 };
 
-const ControlModule_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
+const ControlModule_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
 
   this.label = form.render.label({
     forInput: id,
     text: labelText,
-    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-large', 'pb-0']
+    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-medium', ]
   });
+
+  const classList = ['form-group-item-grow'];
+
+  if (hue) {
+    classList.push('input-range-hue-spectrum');
+  };
 
   this.range = form.render.input.range({
     id: id,
     value: value,
     min: min,
     max: max,
-    classList: ['form-group-item-grow'],
+    classList: classList,
     func: () => {
       if (path) {
         set({
           object: object,
           path: path,
-          value: parseInt(this.range.value, 10)
+          value: this.value()
         });
       };
       if (action) {
@@ -545,6 +558,10 @@ const ControlModule_slimSlider = function({ object = {}, path = false, id = 'nam
     } else {
       updateControl();
     };
+  };
+
+  this.value = () => {
+    return parseInt(this.range.value, 10);
   };
 
   this.wrap = () => {
@@ -1373,4 +1390,4 @@ const ControlModule_colorMixer = function({ object = {}, path = false, defaultVa
   this.moreControlsUpdate();
 };
 
-export { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_radioGrid, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text };
+export { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_radioGrid, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text, rgbToHsl, hslToRgb };

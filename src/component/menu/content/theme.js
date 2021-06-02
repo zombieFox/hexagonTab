@@ -64,48 +64,51 @@ menuContentTheme.color = function() {
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
 
-  const themeColorMixer = new ControlModule_colorMixer({
+  const themeColorRangePrimaryH = new ControlModule_slider({
     object: state.get.current(),
-    path: 'theme.color',
-    id: 'theme-color',
+    path: 'theme.color.range.primary.h',
+    id: 'theme-color-range-primary-h',
     labelText: 'Primary colour',
-    defaultValue: state.get.default().theme.color.rgb,
-    minMaxObject: state.get.minMax(),
+    hue: true,
+    value: state.get.current().theme.color.range.primary.h,
+    defaultValue: state.get.default().theme.color.range.primary.h,
+    min: state.get.minMax().theme.color.range.primary.h.min,
+    max: state.get.minMax().theme.color.range.primary.h.max,
     action: () => {
-      theme.mod.color.generated();
-      theme.render.color.shade();
+      theme.render.color();
       data.save();
     }
   });
 
-  const themeColorContrastLight = new ControlModule_slider({
+  const themeColorRangePrimaryS = new ControlModule_slider({
     object: state.get.current(),
-    path: 'theme.color.contrast.light',
-    id: 'theme-color-contrast-light',
-    labelText: 'Light shade contrast',
-    value: state.get.current().theme.color.contrast.light,
-    defaultValue: state.get.default().theme.color.contrast.light,
-    min: state.get.minMax().theme.color.contrast.light.min,
-    max: state.get.minMax().theme.color.contrast.light.max,
+    path: 'theme.color.range.primary.s',
+    id: 'theme-color-range-primary-s',
+    labelText: 'Saturation',
+    value: state.get.current().theme.color.range.primary.s,
+    defaultValue: state.get.default().theme.color.range.primary.s,
+    min: state.get.minMax().theme.color.range.primary.s.min,
+    max: state.get.minMax().theme.color.range.primary.s.max,
     action: () => {
-      theme.mod.color.generated();
-      theme.render.color.shade();
+      theme.render.color();
       data.save();
     }
   });
 
-  const themeColorContrastDark = new ControlModule_slider({
+  const themeColorRangeContrast = new ControlModule_slider({
     object: state.get.current(),
-    path: 'theme.color.contrast.dark',
-    id: 'theme-color-contrast-dark',
-    labelText: 'Dark shade contrast',
-    value: state.get.current().theme.color.contrast.dark,
-    defaultValue: state.get.default().theme.color.contrast.dark,
-    min: state.get.minMax().theme.color.contrast.dark.min,
-    max: state.get.minMax().theme.color.contrast.dark.max,
+    path: 'theme.color.lightness.contrast',
+    id: 'theme-color-range-contrast',
+    labelText: 'Contrast',
+    value: state.get.current().theme.color.lightness.contrast,
+    defaultValue: state.get.default().theme.color.lightness.contrast,
+    min: state.get.minMax().theme.color.lightness.contrast.min,
+    max: state.get.minMax().theme.color.lightness.contrast.max,
     action: () => {
-      theme.mod.color.generated();
-      theme.render.color.shade();
+      state.get.current().theme.color.lightness.offset = 40 - state.get.current().theme.color.lightness.contrast;
+      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
+      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
+      theme.render.color();
       data.save();
     }
   });
@@ -119,14 +122,9 @@ menuContentTheme.color = function() {
       ]),
       shadesHelper.wrap(),
       node('hr'),
-      themeColorMixer.wrap(),
-      form.render.wrap([
-        form.render.indent([
-          node('hr'),
-          themeColorContrastLight.wrap(),
-          themeColorContrastDark.wrap()
-        ])
-      ])
+      themeColorRangePrimaryH.wrap(),
+      themeColorRangePrimaryS.wrap(),
+      themeColorRangeContrast.wrap()
     ])
   );
 
@@ -136,34 +134,19 @@ menuContentTheme.color = function() {
 menuContentTheme.shades = function() {
   const formGroup = node('div|class:form-group form-group-block form-group-border form-group-border-theme-color');
 
-  for (var i = 10; i >= 1; i--) {
+  const shadeCount = state.get.current().theme.color.shades;
+
+  for (var i = 1; i <= shadeCount; i++) {
     let count = i;
+
     if (count < 10) {
       count = '0' + count;
     };
+
     formGroup.appendChild(
-      node('div|class:form-group-text form-group-text-borderless',
-        node('div|class:theme-color-box theme-color-negative-' + count + '')
-      )
-    );
-  };
-
-
-  formGroup.appendChild(
-    node('div|class:form-group-text form-group-text-borderless form-group-item-small',
-      node('div|class:theme-color-box theme-color')
-    )
-  );
-
-  for (var i = 1; i <= 10; i++) {
-    let count = i;
-    if (count < 10) {
-      count = '0' + count;
-    };
-    formGroup.appendChild(
-      node('div|class:form-group-text form-group-text-borderless',
-        node('div|class:theme-color-box theme-color-positive-' + count + '')
-      )
+      node('div|class:form-group-text form-group-text-borderless', [
+        node('div|class:theme-color-box theme-color-shade-' + count + '')
+      ])
     );
   };
 
@@ -183,8 +166,9 @@ menuContentTheme.accent = function() {
     defaultValue: state.get.default().theme.accent.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.accent.color();
+      theme.render.accent();
       toolbar.accent.update();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -302,6 +286,7 @@ menuContentTheme.background = function() {
     action: () => {
       theme.render.background.type();
       themeBackgroundCollapse.update();
+      toolbar.render.style.update();
       updateDisabled();
       updateVideoPlayState();
       data.save();
@@ -317,6 +302,7 @@ menuContentTheme.background = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.color();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -332,6 +318,7 @@ menuContentTheme.background = function() {
     max: state.get.minMax().theme.background.gradient.angle.max,
     action: () => {
       theme.render.background.gradient();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -345,6 +332,7 @@ menuContentTheme.background = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.gradient();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -358,6 +346,7 @@ menuContentTheme.background = function() {
     minMaxObject: state.get.minMax(),
     action: () => {
       theme.render.background.gradient();
+      toolbar.render.style.update();
       data.save();
     }
   });

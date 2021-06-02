@@ -1,5 +1,6 @@
 import { state } from '../state';
 import { data } from '../data';
+import { rgbToHsl, hslToRgb } from '../control';
 
 import { Video } from '../video';
 
@@ -49,90 +50,35 @@ theme.mod.style = {
   }
 };
 
-theme.mod.color = {
-  shades: function({ rgb = { r: 0, g: 0, b: 0 }, contrastNegative = 40, contrastPositive = 40 } = {}) {
-    const shadeMax = 10;
-    const shadeMin = 1;
-
-    var hsl = convertColor.rgb.hsl(rgb);
-
-    var validateRGBNumber = function(rgb) {
-      for (var key in rgb) {
-        if (rgb[key] < 0) {
-          rgb[key] = 0;
-        } else if (rgb[key] > 255) {
-          rgb[key] = 255;
-        };
-        rgb[key] = Math.round(rgb[key]);
-      };
-      return rgb;
-    };
-
-    var shadeColors = {
-      negative: {},
-      positive: {}
-    };
-
-    // set light theme shades
-    for (var i = shadeMax; i >= shadeMin; i--) {
-      var rgb = convertColor.hsl.rgb({
-        h: hsl.h,
-        s: hsl.s,
-        l: hsl.l - ((contrastNegative / 10) * i)
-      });
-      shadeColors.negative[i] = validateRGBNumber(rgb);
-    };
-
-    // set dark theme shades
-    for (var i = shadeMin; i <= shadeMax; i++) {
-      var rgb = convertColor.hsl.rgb({
-        h: hsl.h,
-        s: hsl.s,
-        l: hsl.l + ((contrastPositive / 10) * i)
-      });
-      shadeColors.positive[i] = validateRGBNumber(rgb);
-    };
-
-    return shadeColors;
-  },
-  generated: function() {
-    const shades = theme.mod.color.shades({
-      rgb: state.get.current().theme.color.rgb,
-      contrastNegative: state.get.current().theme.color.contrast.dark,
-      contrastPositive: state.get.current().theme.color.contrast.light
-    });
-    state.get.current().theme.color.generated.negative = shades.negative;
-    state.get.current().theme.color.generated.positive = shades.positive;
-  }
-};
-
 theme.render = {};
 
-theme.render.color = {};
-
-theme.render.color.shade = function() {
+theme.render.color = function() {
   const html = document.querySelector('html');
-  // negative
-  for (var i = 10; i >= 1; i--) {
-    var rgb = state.get.current().theme.color.generated.negative[i];
-    var number = i;
-    if (i < 10) {
-      number = '0' + number;
+
+  let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
+
+  for (var type in state.get.current().theme.color.range) {
+
+    for (var i = 0; i < state.get.current().theme.color.shades; i++) {
+
+      let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
+
+      hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
+
+      let rgb = hslToRgb(hsl);
+
+      for (var key in rgb) {
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
+      };
+
+      for (var key in hsl) {
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
+      };
+
     };
-    html.style.setProperty('--theme-shade-negative-' + number, rgb.r + ', ' + rgb.g + ', ' + rgb.b);
+
   };
-  // neutral
-  var rgb = state.get.current().theme.color.rgb;
-  html.style.setProperty('--theme-shade', rgb.r + ', ' + rgb.g + ', ' + rgb.b);
-  // positive
-  for (var i = 1; i <= 10; i++) {
-    var rgb = state.get.current().theme.color.generated.positive[i];
-    var number = i;
-    if (i < 10) {
-      number = '0' + number;
-    };
-    html.style.setProperty('--theme-shade-positive-' + number, rgb.r + ', ' + rgb.g + ', ' + rgb.b);
-  };
+
 };
 
 theme.render.class = function() {
@@ -155,9 +101,7 @@ theme.render.class = function() {
   html.classList.add('is-theme-bookmark-shadow-color-type-' + state.get.current().theme.bookmark.shadow.color.type);
 };
 
-theme.render.accent = {};
-
-theme.render.accent.color = function() {
+theme.render.accent = function() {
   const html = document.querySelector('html');
   const rgb = state.get.current().theme.accent.rgb;
   html.style.setProperty('--theme-accent-r', rgb.r);
@@ -237,7 +181,9 @@ theme.render.background.gradient = function() {
   const html = document.querySelector('html');
 
   html.style.setProperty('--theme-background-gradient-angle', state.get.current().theme.background.gradient.angle);
+
   html.style.setProperty('--theme-background-gradient-start', state.get.current().theme.background.gradient.start.rgb.r + ', ' + state.get.current().theme.background.gradient.start.rgb.g + ', ' + state.get.current().theme.background.gradient.start.rgb.b);
+
   html.style.setProperty('--theme-background-gradient-end', state.get.current().theme.background.gradient.end.rgb.r + ', ' + state.get.current().theme.background.gradient.end.rgb.g + ', ' + state.get.current().theme.background.gradient.end.rgb.b);
 };
 
@@ -306,9 +252,8 @@ theme.render.background.video.filter = function() {
 theme.init = function() {
   theme.mod.style.initial();
   theme.bind.style.initial();
-  theme.mod.color.generated();
-  theme.render.color.shade();
-  theme.render.accent.color();
+  theme.render.color();
+  theme.render.accent();
   theme.render.class();
   theme.render.radius();
   theme.render.shadow();

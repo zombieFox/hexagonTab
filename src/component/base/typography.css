@@ -7,7 +7,7 @@ h6 {
   margin: 0 0 1em 0;
   font-weight: normal;
   line-height: 1.6;
-  color: rgb(var(--theme-color-18));
+  color: hsl(var(--theme-primary-text-100));
 }
 
 h1 {
@@ -55,7 +55,7 @@ h6 {
 }
 
 p {
-  color: rgb(var(--theme-color-16));
+  color: hsl(var(--theme-primary-text-100));
   margin: 0;
   line-height: 1.6;
 }
@@ -76,7 +76,7 @@ hr {
 b,
 caption,
 strong {
-  color: rgb(var(--theme-style-text));
+  color: hsl(var(--theme-primary-text-100));
   font-family: var(--theme-font-ui-name);
   font-weight: 600;
 }
@@ -86,29 +86,29 @@ i {
 }
 
 a {
-  color: rgb(var(--theme-color-16));
+  color: hsl(var(--theme-primary-text-100));
   text-decoration: underline;
   transition: text-decoration var(--layout-transition-extra-fast);
 }
 
 a:link,
 a:visited {
-  color: rgb(var(--theme-color-18));
+  color: hsl(var(--theme-primary-text-100));
 }
 
 a:focus {
-  text-decoration-color: rgb(var(--theme-style-text));
+  text-decoration-color: hsl(var(--theme-primary-text-100));
   outline: none;
 }
 
 a:hover {
-  color: rgb(var(--theme-style-text));
+  color: hsl(var(--theme-primary-text-100));
   text-decoration-color: rgb(var(--theme-accent));
 }
 
 a:active {
-  color: rgb(var(--theme-style-text));
-  text-decoration-color: rgb(var(--theme-style-text));
+  color: hsl(var(--theme-primary-text-100));
+  text-decoration-color: hsl(var(--theme-primary-text-100));
 }
 
 ol,
@@ -150,9 +150,9 @@ table {
 
 table thead tr td,
 table thead tr th {
-  background-color: rgb(var(--theme-color-03));
+  background-color: hsl(var(--theme-primary-300));
   border: 0;
-  border-bottom: 1px solid rgb(var(--theme-color-04));
+  border-bottom: 1px solid hsl(var(--theme-primary-400));
   padding: 0.5em;
   margin: 0;
   text-align: left;
@@ -164,7 +164,7 @@ table thead tr th {
 }
 
 table tr:nth-child(odd) {
-  background-color: rgb(var(--theme-color-02));
+  background-color: hsl(var(--theme-primary-200));
 }
 
 table tbody tr td,
@@ -177,7 +177,7 @@ table tbody tr th {
 }
 
 code {
-  background-color: rgb(var(--theme-color-04));
+  background-color: hsl(var(--theme-primary-400));
   padding: 0.2em 0.5em;
   border-radius: var(--theme-radius-base);
 }

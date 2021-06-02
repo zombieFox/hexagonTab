@@ -1,20 +1,29 @@
 :root {
-  --button-background: var(--theme-color-02);
-  --button-background-focus-hover: var(--theme-color-03);
-  --button-background-active: var(--theme-color-04);
-  --button-background-disabled: var(--theme-color-01);
-  --button-border: var(--theme-color-02);
-  --button-border-focus-hover: var(--theme-color-06);
+  --button-background: var(--theme-primary-200);
+  --button-background-focus-hover: var(--theme-primary-300);
+  --button-background-active: var(--theme-primary-400);
+  --button-background-disabled: var(--theme-primary-100);
+}
+
+:root {
+  --button-border: var(--theme-primary-300);
+  --button-border-focus-hover: var(--theme-primary-500);
   --button-border-active: var(--theme-accent);
-  --button-border-disabled: var(--theme-color-01);
-  --button-text: var(--theme-color-12);
-  --button-text-focus-hover: var(--theme-color-20);
-  --button-text-active: var(--theme-style-text);
-  --button-text-disabled: var(--theme-color-04);
-  --button-link-text: var(--theme-color-12);
-  --button-link-text-focus-hover: var(--theme-style-text);
-  --button-link-text-active: var(--theme-style-text);
-  --button-link-text-disabled: var(--theme-color-04);
+  --button-border-disabled: var(--theme-primary-100);
+}
+
+:root {
+  --button-text: var(--theme-primary-text-200);
+  --button-text-focus-hover: var(--theme-primary-text-300);
+  --button-text-active: var(--theme-primary-text-300);
+  --button-text-disabled: var(--theme-primary-300);
+}
+
+:root {
+  --button-link-text: var(--theme-primary-text-100);
+  --button-link-text-focus-hover: var(--theme-primary-text-100);
+  --button-link-text-active: var(--theme-primary-text-100);
+  --button-link-text-disabled: var(--theme-primary-300);
 }
 
 button,
@@ -22,10 +31,10 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  background-color: rgb(var(--button-background));
+  background-color: hsl(var(--button-background));
   padding: 0.25em 1.25em;
   margin: 0;
-  color: rgb(var(--button-text));
+  color: hsl(var(--button-text));
   font-size: 1em;
   font-family: var(--theme-font-ui-name);
   font-weight: var(--theme-font-ui-weight);
@@ -57,8 +66,8 @@ input[type="reset"]:focus,
 input[type="reset"]:hover,
 input[type="submit"]:focus,
 input[type="submit"]:hover {
-  background-color: rgb(var(--button-background-focus-hover));
-  color: rgb(var(--button-text-focus-hover));
+  background-color: hsl(var(--button-background-focus-hover));
+  color: hsl(var(--button-text-focus-hover));
   outline: none;
   text-decoration: none;
 }
@@ -68,8 +77,8 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  background-color: rgb(var(--button-background-active));
-  color: rgb(var(--button-text-active));
+  background-color: hsl(var(--button-background-active));
+  color: hsl(var(--button-text-active));
   outline: none;
   text-decoration: none;
   transition: none;
@@ -77,7 +86,8 @@ input[type="submit"]:active {
 
 button.active,
 .button.active {
-  color: rgb(var(--button-text-focus-active));
+  background-color: hsl(var(--button-background-active));
+  color: hsl(var(--button-text-active));
 }
 
 button.disabled,
@@ -96,8 +106,8 @@ button:disabled:active,
 .button:disabled:hover,
 .button:disabled:focus,
 .button:disabled:active {
-  background-color: rgb(var(--button-background-disabled));
-  color: rgb(var(--button-text-disabled));
+  background-color: hsl(var(--button-background-disabled));
+  color: hsl(var(--button-text-disabled));
   cursor: default;
   text-decoration: none;
 }
@@ -118,7 +128,7 @@ button:disabled:active,
 
 .button-line:focus:after,
 .button-line:hover:after {
-  background-color: rgb(var(--button-border-focus-hover));
+  background-color: hsl(var(--button-border-focus-hover));
 }
 
 .button-line:active:after,
@@ -135,7 +145,7 @@ button:disabled:active,
 .button-line:disabled:hover:after,
 .button-line:disabled:focus:after,
 .button-line:disabled:active:after {
-  background-color: rgb(var(--button-border-disabled));
+  background-color: hsl(var(--button-border-disabled));
 }
 
 .button-ring {
@@ -211,18 +221,19 @@ button [class*=" button-"]:last-child,
 .button-link {
   background-color: transparent;
   border: 0;
-  color: rgb(var(--button-link-text));
+  color: hsl(var(--button-link-text));
 }
 
 .button-link:hover,
 .button-link:focus {
   background-color: transparent;
-  color: rgb(var(--button-link-text-focus-hover));
+  color: hsl(var(--button-link-text-focus-hover));
 }
 
+.button-link.active,
 .button-link:active {
   background-color: transparent;
-  color: rgb(var(--button-link-text-active));
+  color: hsl(var(--button-link-text-active));
 }
 
 .button-link.disabled,

@@ -24,7 +24,11 @@ state.default = {
     add: false
   },
   theme: {
-    color: { hsl: { h: 211, s: 10, l: 50 }, rgb: { r: 115, g: 127, b: 140 }, contrast: { light: 40, dark: 40 }, generated: {} },
+    color: {
+      range: { primary: { h: 210, s: 10 } },
+      lightness: { contrast: 32, offset: null, start: null, end: null },
+      shades: 9
+    },
     accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
     font: {
       display: { name: '', weight: 400, style: 'normal' },
@@ -81,17 +85,13 @@ state.minMax = {
     }
   },
   theme: {
+    color: {
+      range: { primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } } },
+      lightness: { contrast: { min: 5, max: 45 } }
+    },
     accent: {
       hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
       rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-    },
-    color: {
-      hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-      rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-      contrast: {
-        light: { min: 10, max: 80 },
-        dark: { min: 10, max: 80 }
-      }
     },
     bookmark: {
       shadow: {
@@ -123,6 +123,12 @@ state.minMax = {
     }
   }
 };
+
+state.default.theme.color.lightness.offset = state.minMax.theme.color.lightness.contrast.max - state.default.theme.color.lightness.contrast;
+
+state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
+
+state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
 
 state.get = {
   current: () => { return state.current },

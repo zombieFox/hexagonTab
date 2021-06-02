@@ -29,8 +29,8 @@ menuContentToolbar.style = function() {
   const toolbarStyle = new ControlModule_radio({
     object: state.get.current(),
     radioGroup: [
-      { id: 'toolbar-style-Bar', labelText: 'Bar', value: 'bar' },
-      { id: 'toolbar-style-transparent', labelText: 'Transparent', value: 'transparent' }
+      { id: 'toolbar-style-transparent', labelText: 'Transparent', value: 'transparent' },
+      { id: 'toolbar-style-Bar', labelText: 'Bar', value: 'bar' }
     ],
     groupName: 'toolbar-style',
     path: 'toolbar.style',
@@ -39,6 +39,7 @@ menuContentToolbar.style = function() {
       toolbar.bar.clear();
       toolbar.bar.render();
       toolbar.bar.active();
+      toolbar.render.style.update();
       data.save();
     }
   });
@@ -77,6 +78,7 @@ menuContentToolbar.position = function() {
       toolbar.bar.clear();
       toolbar.bar.render();
       toolbar.bar.active();
+      toolbar.render.style.update();
       data.save();
     }
   });

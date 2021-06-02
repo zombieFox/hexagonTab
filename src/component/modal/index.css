@@ -7,7 +7,7 @@
 }
 
 .modal {
-  background-color: rgb(var(--theme-color-01));
+  background-color: hsl(var(--theme-primary-100));
   border-radius: var(--theme-radius-base);
   box-shadow: var(--theme-shadow-bottom-large);
   position: fixed;
@@ -76,7 +76,7 @@
 }
 
 .modal-controls {
-  background-color: rgb(var(--theme-color-01));
+  background-color: hsl(var(--theme-primary-100));
   border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);
   position: relative;
   z-index: 2;

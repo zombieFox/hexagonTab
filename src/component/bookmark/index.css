@@ -1,10 +1,10 @@
 :root {
-  --bookmark-color: var(--theme-color-02);
-  --bookmark-color-focus-hover: var(--theme-color-03);
+  --bookmark-color: var(--theme-primary-100);
+  --bookmark-color-focus-hover: var(--theme-primary-100);
   --bookmark-display-visual-color: var(--theme-accent);
   --bookmark-display-visual-color-focus-hover: var(--theme-accent);
-  --bookmark-display-name-color: var(--theme-color-18);
-  --bookmark-display-name-color-focus-hover: var(--theme-color-18);
+  --bookmark-display-name-color: var(--theme-primary-text-100);
+  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);
   /* --bookmark-shape: circle(45% at 50% 50%); */
   /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */
   --bookmark-shape: url(#bookmark-mask);
@@ -122,7 +122,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 }
 
 .bookmark-link {
-  background-color: rgba(var(--bookmark-color), var(--bookmark-color-opacity));
+  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));
   position: relative;
   width: 100%;
   height: 100%;
@@ -142,7 +142,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-link:focus,
 .bookmark-link:hover {
-  background-color: rgba(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));
+  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));
 }
 
 .is-bookmark-edit .bookmark-link {
@@ -214,7 +214,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 }
 
 .bookmark-display-name {
-  color: rgb(var(--bookmark-display-name-color));
+  color: hsl(var(--bookmark-display-name-color));
   font-size: calc(var(--bookmark-display-name-size) * 0.1em);
   display: flex;
   justify-content: center;
@@ -224,7 +224,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 .bookmark:focus .bookmark-display-name,
 .bookmark:hover .bookmark-display-name,
 .bookmark:focus-within .bookmark-display-name {
-  color: rgb(var(--bookmark-display-name-color-focus-hover));
+  color: hsl(var(--bookmark-display-name-color-focus-hover));
 }
 
 .bookmark-display-name-text {
@@ -360,7 +360,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 @media (min-width: 900px) {
   .bookmark-form {
     display: grid;
-    grid-template-columns: 5fr 2fr;
+    grid-template-columns: 6fr 3fr;
     grid-gap: var(--modal-space);
     align-items: stretch;
   }
@@ -371,6 +371,9 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 }
 
 .bookmark-form-preview {
+  background-color: hsl(var(--theme-primary-200));
+  padding: var(--modal-space);
+  border-radius: var(--theme-radius-base);
   position: sticky;
   top: 50%;
   transform: translateY(-50%);
@@ -392,7 +395,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-form-text-icon:empty:before {
   content: "";
-  background-color: rgb(var(--theme-color-04));
+  background-color: hsl(var(--theme-primary-400));
   top: 50%;
   left: 50%;
   position: absolute;
