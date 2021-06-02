@@ -88,6 +88,8 @@ toolbar.render.style.update = function() {
       switch (state.get.current().theme.background.type) {
 
         case 'theme':
+        case 'image':
+        case 'video':
           toolbar.render.style.remove();
           break;
 
