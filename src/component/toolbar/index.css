@@ -39,18 +39,6 @@
   min-width: initial;
 }
 
-.toolbar-item input[type="color"],
-.toolbar-item input[type="color"]:hover,
-.toolbar-item input[type="color"]:focus {
-  transition: box-shadow var(--layout-transition-extra-fast);
-}
-
-.is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"],
-.is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"]:hover,
-.is-theme-background-type-accent.is-toolbar-style-transparent .toolbar-item input[type="color"]:focus {
-  box-shadow: 0 0 0 2px hsl(var(--button-link-text));
-}
-
 .is-presentation-mode .toolbar {
   opacity: 0;
 }

@@ -1341,6 +1341,11 @@ input[type="range"]:disabled.input-range-hue-spectrum::-moz-range-track {
   position: relative;
 }
 
+.form-input-button-link.input-color-dot input[type="color"] {
+  transition: box-shadow var(--layout-transition-extra-fast);
+  box-shadow: 0 0 0 2px hsl(var(--button-link-text));
+}
+
 .form-input-hide input[type="checkbox"]+label .label-icon,
 .form-input-hide input[type="checkbox"]:checked+label .label-icon,
 .form-input-hide input[type="radio"]+label .label-icon,
