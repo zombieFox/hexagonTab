@@ -9533,9 +9533,9 @@ convertColor.rgb.hsl = function(rgb) {
   };
 
   return {
-    h: h,
-    s: s * 100,
-    l: l * 100
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100)
   };
 };
 
@@ -9559,9 +9559,9 @@ convertColor.hsl.rgb = function(hsl) {
   if (s === 0) {
     val = l * 255;
     return {
-      r: val,
-      g: val,
-      b: val
+      r: Math.round(val),
+      g: Math.round(val),
+      b: Math.round(val)
     };
   };
 
@@ -9599,9 +9599,9 @@ convertColor.hsl.rgb = function(hsl) {
   };
 
   return {
-    r: rgb[0],
-    g: rgb[1],
-    b: rgb[2]
+    r: Math.round(rgb[0]),
+    g: Math.round(rgb[1]),
+    b: Math.round(rgb[2])
   };
 };
 
@@ -10193,226 +10193,6 @@ const Button = function({ text = 'Button', srOnly = false, iconName = false, blo
 
 
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
-var collapse = __webpack_require__(5655);
-;// CONCATENATED MODULE: ./src/component/collapse/index.css
-
-            
-
-var collapse_options = {};
-
-collapse_options.insert = "head";
-collapse_options.singleton = false;
-
-var collapse_update = injectStylesIntoStyleTag_default()(collapse/* default */.Z, collapse_options);
-
-
-
-/* harmony default export */ const component_collapse = (collapse/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/collapse/index.js
-
-
-
-
-
-
-
-
-const Collapse = function({ type = false, radioGroup = false, checkbox = false, target = false } = {}) {
-
-  target.forEach((item, i) => {
-    item.state = {
-      collapsed: true
-    };
-
-    item.area = node('div|class:collapse-area');
-
-    item.spacer = node('div|class:collapse-spacer');
-  });
-
-  this.target = () => {
-    return target;
-  };
-
-  this.collapseElement = node('div|class:collapse');
-
-  this.collapse = () => {
-    target.forEach((item, i) => {
-      item.spacer.appendChild(item.content);
-
-      item.area.appendChild(item.spacer);
-
-      this.collapseElement.appendChild(item.area);
-    });
-
-    return this.collapseElement;
-  };
-
-  this.toggle = () => {
-    target.forEach((item, i) => {
-      if (item.state.collapsed) {
-        item.state.collapsed = false;
-      } else {
-        item.state.collapsed = true;
-      };
-    });
-
-    this.update();
-  };
-
-  this.renderTarget = (state, area) => {
-    if (state) {
-      area.classList.add('is-collapsed');
-      area.setAttribute('aria-hidden', true);
-    } else {
-      area.classList.remove('is-collapsed');
-      area.removeAttribute('aria-hidden');
-    };
-  };
-
-  this.renderToggle = (state, toggle) => {
-    if (state) {
-      toggle.classList.remove('active');
-      toggle.classList.remove('is-collapsed');
-    } else {
-      toggle.classList.add('active');
-      toggle.classList.add('is-collapsed');
-    };
-  };
-
-  this.update = () => {
-
-    switch (type) {
-      case 'radio':
-        const selectedRadioValue = radioGroup.value();
-
-        target.forEach((item, i) => {
-
-          this.renderTarget(!(item.id === selectedRadioValue), item.area);
-
-        });
-        break;
-
-      case 'checkbox':
-        const state = checkbox.checked();
-
-        target.forEach((item, i) => {
-
-          this.renderTarget(!state, item.area);
-
-        });
-        break;
-
-      case 'toggle':
-        target.forEach((item, i) => {
-
-          this.renderTarget(item.state.collapsed, item.area);
-
-          if (item.toggle) {
-            this.renderToggle(item.state.collapsed, item.toggle);
-          };
-
-        });
-        break;
-    };
-  };
-};
-
-
-
-;// CONCATENATED MODULE: ./src/utility/makePath.js
-const makePath = function(string) {
-  if (string) {
-    let array;
-    if (string.indexOf('[') != -1 && string.indexOf(']') != -1) {
-      array = string.split('.').join(',').split('[').join(',').split(']').join(',').split(',');
-      for (var i = 0; i < array.length; i++) {
-        if (array[i] == '') {
-          array.splice(i, 1);
-        };
-        if (!isNaN(parseInt(array[i], 10))) {
-          array[i] = parseInt(array[i], 10);
-        };
-      };
-    } else {
-      array = string.split('.');
-    };
-    return array;
-  } else {
-    return false;
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/get.js
-
-
-const get = function({ object = null, path = null } = {}) {
-  const address = makePath(path);
-
-  const getValue = function() {
-    while (address.length > 1) {
-      // shift off and store the first key
-      var currentKey = address.shift();
-      // if the key is not found make a new object
-      if (!(currentKey in object)) {
-        // make an empty object in the current object level
-        if (isNaN(currentKey)) {
-          object[currentKey] = {};
-        } else {
-          object[currentKey] = [];
-        };
-      };
-      // drill down the object with the first key
-      object = object[currentKey];
-    };
-    var finalKey = address.shift();
-    if (!(finalKey in object)) {
-      return '';
-    } else {
-      return object[finalKey];
-    };
-  };
-
-  if (object != null && path != null) {
-    return getValue();
-  } else {
-    return false;
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/set.js
-
-
-const set = function({ path = null, object = null, value = null } = {}) {
-  const address = makePath(path);
-
-  const setValue = function() {
-    while (address.length > 1) {
-      // shift off and store the first key
-      var currentKey = address.shift();
-      // if the key is not found make a new object
-      if (!(currentKey in object)) {
-        // make an empty object in the current object level
-        if (isNaN(currentKey)) {
-          object[currentKey] = {};
-        } else {
-          object[currentKey] = [];
-        };
-      };
-      // drill down the object with the first key
-      object = object[currentKey];
-    };
-    var finalKey = address.shift();
-    object[finalKey] = value;
-  };
-
-  if (object != null && path != null && value != null) {
-    setValue();
-  } else {
-    return false;
-  };
-};
-
 ;// CONCATENATED MODULE: ./src/utility/ifValidString.js
 const ifValidString = function(value) {
   let result = false;
@@ -10426,1401 +10206,6 @@ const ifValidString = function(value) {
 
   return result;
 };
-
-;// CONCATENATED MODULE: ./src/component/control/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const control_update = function({ controlInput = [], delay = false } = {}) {
-  if (controlInput.length > 0) {
-
-    let delayedUpdate = null;
-
-    const updateControl = () => {
-      controlInput.forEach((item, i) => {
-        item.update();
-      });
-    };
-
-    if (delay) {
-      clearTimeout(delayedUpdate);
-      delayedUpdate = setTimeout(updateControl, 2000);
-    } else {
-      updateControl();
-    };
-
-  };
-};
-
-const minMax = function({ min = 0, max = 0, value = 0 } = {}) {
-  if (value > max) {
-    return max;
-  } else if (value < min) {
-    return min;
-  } else if (isNaN(value)) {
-    return min;
-  } else {
-    return value;
-  };
-};
-
-const rgbToHsl = function(rgb) {
-  const hsl = convertColor.rgb.hsl(rgb);
-  hsl.h = Math.round(hsl.h);
-  hsl.s = Math.round(hsl.s);
-  hsl.l = Math.round(hsl.l);
-  return hsl;
-};
-
-const hslToRgb = function(hsl) {
-  const rgb = convertColor.hsl.rgb(hsl);
-  rgb.r = Math.round(rgb.r);
-  rgb.g = Math.round(rgb.g);
-  rgb.b = Math.round(rgb.b);
-  return rgb;
-};
-
-const ControlModul_helperText = function({ text = [] } = {}) {
-  this.para = [];
-
-  text.forEach((item, i) => {
-    this.para.push(form_form.render.helper({
-      tag: 'p',
-      text: item
-    }));
-  });
-
-  this.wrap = () => {
-    const formWrap = form_form.render.wrap();
-
-    this.para.forEach((item, i) => {
-      formWrap.appendChild(item);
-    });
-
-    return formWrap;
-  };
-
-  this.disable = () => {
-    this.para.forEach((item, i) => {
-      item.classList.add('disabled');
-    });
-  };
-
-  this.enable = () => {
-    this.para.forEach((item, i) => {
-      item.classList.remove('disabled');
-    });
-  };
-};
-
-const ControlModule_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
-
-  this.input;
-
-  switch (type) {
-    case 'file':
-      this.input = form_form.render.input.file({
-        id: id,
-        func: () => {
-          if (action) {
-            action();
-          };
-        }
-      });
-
-      break;
-
-    case 'color':
-      this.input = form_form.render.input.color({
-        id: id,
-        value: convertColor.rgb.hex(get({
-          object: object,
-          path: path
-        })),
-        classList: classList,
-        func: () => {
-          if (path) {
-            set({
-              object: object,
-              path: path,
-              value: convertColor.hex.rgb(this.input.value)
-            });
-          };
-          if (action) {
-            action();
-          };
-        }
-      });
-
-      break;
-  };
-
-  this.label = form_form.render.label({
-    text: labelText,
-    forInput: id
-  });
-
-  this.button = node('div|class:form-input-button');
-
-  if (inputButtonClassList.length > 0) {
-    inputButtonClassList.forEach((item, i) => {
-      this.button.classList.add(item);
-    });
-  };
-
-  if (inputButton.length > 0) {
-    inputButton.forEach((item, i) => {
-      switch (item) {
-        case 'link':
-          this.button.classList.add('form-input-button-link');
-          break;
-
-        case 'line':
-          this.button.classList.add('form-input-button-line');
-          break;
-
-        case 'ring':
-          this.button.classList.add('form-input-button-ring');
-          break;
-
-        case 'dot':
-          this.button.classList.add('input-color-dot');
-          break;
-      };
-    });
-  };
-
-  if (inputHide) {
-    this.button.classList.add('form-input-hide');
-  };
-
-  if (srOnly) {
-    this.button.classList.add('form-input-button-sr-only');
-  };
-
-  this.button.appendChild(this.input);
-
-  this.button.appendChild(this.label);
-
-  this.update = () => {
-    switch (type) {
-      case 'color':
-        this.input.value = convertColor.rgb.hex(get({
-          object: object,
-          path: path,
-        }));
-
-        break;
-    };
-  };
-
-  this.wrap = () => {
-    return form_form.render.wrap([
-      this.button
-    ])
-  };
-
-  this.disable = () => {
-    this.label.classList.add('disabled');
-    this.input.disabled = true;
-  };
-
-  this.enable = () => {
-    this.label.classList.remove('disabled');
-    this.input.disabled = false;
-  };
-};
-
-const ControlModule_groupText = function({ text = false, classList = [] } = {}) {
-  this.groupText = form_form.render.groupText({
-    text: text,
-    classList: classList
-  });
-
-  this.update = (content) => {
-    while (this.groupText.lastChild) {
-      this.groupText.removeChild(this.groupText.lastChild);
-    };
-    if (typeof content === 'string' && ifValidString(content)) {
-      this.groupText.textContent = content;
-    } else if (content && content != '') {
-      this.groupText.appendChild(content);
-    };
-  };
-
-  this.wrap = () => {
-    return form_form.render.wrap([
-      this.groupText
-    ])
-  };
-
-  this.disable = () => {
-    this.groupText.classList.add('disabled');
-  };
-
-  this.enable = () => {
-    this.groupText.classList.remove('disabled');
-  };
-};
-
-const ControlModule_text = function({ object = {}, path = false, id = 'name', value = false, min = false, max = false, placeholder = false, classList = [], labelText = 'Name', srOnly = false, action = false } = {}) {
-  this.label = form_form.render.label({
-    forInput: id,
-    text: labelText
-  });
-
-  if (srOnly) {
-    this.label.classList.add('sr-only')
-  };
-
-  this.text = form_form.render.input.text({
-    id: id,
-    classList: classList,
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: this.text.value
-        });
-      };
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  if (value) {
-    this.text.value = value;
-  };
-
-  if (min) {
-    this.text.min = min;
-  };
-
-  if (max) {
-    this.text.max = max;
-  };
-
-  if (placeholder) {
-    this.text.placeholder = placeholder;
-  };
-
-  this.update = () => {
-    this.text.value = get({
-      object: object,
-      path: path,
-    });
-  };
-
-  this.wrap = () => {
-    return form_form.render.wrap([
-      this.label,
-      this.text
-    ])
-  };
-
-  this.disable = () => {
-    this.label.classList.add('disabled');
-    this.text.disabled = true;
-  };
-
-  this.enable = () => {
-    this.label.classList.remove('disabled');
-    this.text.disabled = false;
-  };
-};
-
-const ControlModule_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
-
-  this.label = form_form.render.label({
-    forInput: id,
-    text: labelText
-  });
-
-  const classList = [];
-
-  if (hue) {
-    classList.push('input-range-hue-spectrum');
-  };
-
-  this.range = form_form.render.input.range({
-    id: id,
-    value: value,
-    min: min,
-    max: max,
-    classList: classList,
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: this.value()
-        });
-      };
-      if (action) {
-        action();
-      };
-      this.number.value = get({
-        object: object,
-        path: path,
-      });
-    }
-  });
-
-  this.number = form_form.render.input.number({
-    value: value,
-    min: min,
-    max: max,
-    classList: ['form-group-item-small'],
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: minMax({
-            value: parseInt(this.number.value, 10),
-            min: min,
-            max: max
-          })
-        });
-      };
-      if (action) {
-        action();
-      };
-      this.update({ delay: true });
-    }
-  });
-
-  this.reset = new Button({
-    text: false,
-    iconName: 'replay',
-    style: ['line'],
-    classList: ['form-group-item-small'],
-    func: () => {
-      set({
-        object: object,
-        path: path,
-        value: JSON.parse(JSON.stringify(defaultValue))
-      });
-      this.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.update = ({ delay = false } = {}) => {
-    let delayedUpdate = null;
-    const updateControl = () => {
-      this.range.value = get({
-        object: object,
-        path: path,
-      });
-      this.number.value = get({
-        object: object,
-        path: path,
-      });
-    };
-
-    if (delay) {
-      clearTimeout(delayedUpdate);
-      delayedUpdate = setTimeout(updateControl, 2000);
-    } else {
-      updateControl();
-    };
-  };
-
-  this.value = () => {
-    return parseInt(this.range.value, 10);
-  };
-
-  this.wrap = () => {
-    const formGroup = form_form.render.group({
-      children: [
-        this.number
-      ]
-    });
-
-    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
-      formGroup.appendChild(this.reset.button);
-    };
-
-    const formInline = form_form.render.inline({
-      block: true,
-      children: [
-        this.range,
-        formGroup
-      ]
-    });
-
-    const wrap = form_form.render.wrap([
-      this.label,
-      formInline
-    ]);
-
-    return wrap;
-  };
-
-  this.disable = () => {
-    this.label.classList.add('disabled');
-    this.range.disabled = true;
-    this.number.disabled = true;
-    this.reset.disable();
-  };
-
-  this.enable = () => {
-    this.label.classList.remove('disabled');
-    this.range.disabled = false;
-    this.number.disabled = false;
-    this.reset.enable();
-  };
-};
-
-const ControlModule_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
-
-  this.label = form_form.render.label({
-    forInput: id,
-    text: labelText,
-    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-medium', ]
-  });
-
-  const classList = ['form-group-item-grow'];
-
-  if (hue) {
-    classList.push('input-range-hue-spectrum');
-  };
-
-  this.range = form_form.render.input.range({
-    id: id,
-    value: value,
-    min: min,
-    max: max,
-    classList: classList,
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: this.value()
-        });
-      };
-      if (action) {
-        action();
-      };
-      this.number.value = get({
-        object: object,
-        path: path,
-      });
-    }
-  });
-
-  this.number = form_form.render.input.number({
-    value: value,
-    min: min,
-    max: max,
-    classList: ['form-group-item-small'],
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: minMax({
-            value: parseInt(this.number.value, 10),
-            min: min,
-            max: max
-          })
-        });
-      };
-      if (action) {
-        action();
-      };
-      this.update({ delay: true });
-    }
-  });
-
-  this.reset = new Button({
-    text: false,
-    iconName: 'replay',
-    style: ['line'],
-    classList: ['form-group-item-small'],
-    func: () => {
-      set({
-        object: object,
-        path: path,
-        value: JSON.parse(JSON.stringify(defaultValue))
-      });
-      this.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.update = ({ delay = false } = {}) => {
-    let delayedUpdate = null;
-    const updateControl = () => {
-      this.range.value = get({
-        object: object,
-        path: path,
-      });
-      this.number.value = get({
-        object: object,
-        path: path,
-      });
-    };
-
-    if (delay) {
-      clearTimeout(delayedUpdate);
-      delayedUpdate = setTimeout(updateControl, 2000);
-    } else {
-      updateControl();
-    };
-  };
-
-  this.value = () => {
-    return parseInt(this.range.value, 10);
-  };
-
-  this.wrap = () => {
-    const formGroup = form_form.render.group({
-      children: [
-        this.number
-      ]
-    });
-
-    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
-      formGroup.appendChild(this.reset.button);
-    };
-
-    const formInline = form_form.render.inline({
-      block: true,
-      children: [
-        this.label,
-        this.range,
-        formGroup
-      ]
-    });
-
-    const wrap = form_form.render.wrap([
-      formInline
-    ]);
-
-    return wrap;
-  };
-
-  this.disable = () => {
-    this.label.classList.add('disabled');
-    this.range.disabled = true;
-    this.number.disabled = true;
-    this.reset.disable();
-  };
-
-  this.enable = () => {
-    this.label.classList.remove('disabled');
-    this.range.disabled = false;
-    this.number.disabled = false;
-    this.reset.enable();
-  };
-};
-
-const ControlModule_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
-
-  this.label = form_form.render.label({
-    forInput: id,
-    text: labelText,
-    srOnly: srOnly
-  });
-
-  this.color = form_form.render.input.color({
-    id: id,
-    value: convertColor.rgb.hex(get({
-      object: object,
-      path: path
-    })),
-    classList: ['form-group-item-half'],
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: convertColor.hex.rgb(this.color.value)
-        });
-      };
-      if (action) {
-        action();
-      };
-      this.text.value = convertColor.rgb.hex(get({
-        object: object,
-        path: path
-      }));
-    }
-  });
-
-  this.text = form_form.render.input.text({
-    value: convertColor.rgb.hex(get({
-      object: object,
-      path: path
-    })),
-    max: 7,
-    classList: ['form-group-item-half'],
-    placeholder: 'Hex code',
-    func: () => {
-      if (path) {
-        set({
-          object: object,
-          path: path,
-          value: convertColor.hex.rgb(this.text.value)
-        });
-      };
-      if (action) {
-        action();
-      };
-      this.update({ delay: true });
-    }
-  });
-
-  this.reset = new Button({
-    text: false,
-    iconName: 'replay',
-    style: ['line'],
-    classList: ['form-group-item-small'],
-    func: () => {
-      set({
-        object: object,
-        path: path,
-        value: JSON.parse(JSON.stringify(defaultValue))
-      });
-      this.update({ all: true });
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.update = ({ delay = false, all = false } = {}) => {
-    let delayedUpdate = null;
-    const updateControl = () => {
-      this.color.value = convertColor.rgb.hex(get({
-        object: object,
-        path: path
-      }));
-      if (all) {
-        this.text.value = convertColor.rgb.hex(get({
-          object: object,
-          path: path
-        }));
-      };
-    };
-
-    if (delay) {
-      clearTimeout(delayedUpdate);
-      delayedUpdate = setTimeout(updateControl, 2000);
-    } else {
-      updateControl();
-    };
-  };
-
-  this.wrap = () => {
-    const formGroup = form_form.render.group({
-      block: true,
-      children: [
-        this.color,
-        this.text
-      ]
-    });
-
-    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
-      formGroup.appendChild(this.reset.button);
-    };
-
-    if (extraButtons.length > 0) {
-      extraButtons.forEach((item, i) => {
-        formGroup.appendChild(item.button);
-      });
-    };
-
-    const wrap = form_form.render.wrap([
-      this.label,
-      formGroup
-    ]);
-
-    return wrap;
-  };
-
-  this.disable = () => {
-    this.label.classList.add('disabled');
-    this.color.disabled = true;
-    this.text.disabled = true;
-    this.reset.disable();
-
-    if (extraButtons.length > 0) {
-      extraButtons.forEach((item, i) => {
-        item.disable();
-      });
-    };
-  };
-
-  this.enable = () => {
-    this.label.classList.remove('disabled');
-    this.color.disabled = false;
-    this.text.disabled = false;
-    this.reset.enable();
-
-    if (extraButtons.length > 0) {
-      extraButtons.forEach((item, i) => {
-        item.enable();
-      });
-    };
-  };
-};
-
-const ControlModule_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
-  this.radioSet = [];
-
-  const radioGroupName = groupName;
-
-  const radioGroupPath = path;
-
-  if (radioGroup.length > 0) {
-    radioGroup.forEach((item, i) => {
-      const radioAndLabel = {
-        radio: form_form.render.input.radio({
-          id: item.id,
-          radioGroup: radioGroupName,
-          value: item.value,
-          checked: (get({
-            object: object,
-            path: radioGroupPath,
-          }) === item.value),
-          func: () => {
-            set({
-              object: object,
-              path: radioGroupPath,
-              value: item.value
-            });
-            if (action) {
-              action();
-            };
-          }
-        }),
-        label: form_form.render.label({
-          forInput: item.id,
-          text: item.labelText,
-          description: item.description,
-          icon: true
-        }),
-        wrap: () => {
-          return form_form.render.wrap([
-            radioAndLabel.radio,
-            radioAndLabel.label
-          ]);
-        }
-      };
-
-      radioAndLabel.radio.update = () => {
-        radioAndLabel.radio.checked = (get({
-          object: object,
-          path: radioGroupPath,
-        }) === item.value);
-      };
-
-      radioAndLabel.radio.disable = () => {
-        radioAndLabel.radio.disabled = true;
-      };
-
-      radioAndLabel.radio.enable = () => {
-        radioAndLabel.radio.disabled = false;
-      };
-
-      this.radioSet.push(radioAndLabel);
-    });
-  };
-
-  this.value = () => {
-    let currentSelectedRadio = false;
-
-    this.radioSet.forEach((item, i) => {
-      if (item.radio.checked) {
-        currentSelectedRadio = item.radio.value;
-      };
-    });
-
-    return currentSelectedRadio;
-  };
-
-  this.update = () => {
-    this.radioSet.forEach((item, i) => {
-      item.radio.update();
-    });
-  };
-
-  this.wrap = () => {
-    const group = form_form.render.wrap();
-
-    this.radioSet.forEach((item, i) => {
-      group.appendChild(
-        form_form.render.wrap([
-          item.radio,
-          item.label
-        ])
-      );
-    });
-
-    return group;
-  };
-
-  this.inline = () => {
-    const formGroup = form_form.render.wrap();
-
-    const formInline = form_form.render.inline({
-      gap: 'large',
-      wrap: true
-    });
-
-    this.radioSet.forEach((item, i) => {
-      formInline.appendChild(
-        form_form.render.wrap([
-          item.radio,
-          item.label
-        ])
-      );
-    });
-
-    formGroup.appendChild(formInline);
-
-    return formGroup;
-  };
-
-  this.disable = () => {
-    this.radioSet.forEach((item, i) => {
-      item.radio.disable();
-    });
-  };
-
-  this.enable = () => {
-    this.radioSet.forEach((item, i) => {
-      item.radio.enable();
-    });
-  };
-};
-
-const ControlModule_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
-  this.radioSet = [];
-
-  const radioGroupName = groupName;
-
-  const radioGroupPath = path;
-
-  const gridElement = form_form.render.grid();
-
-  let gridLabel = false;
-
-  if (label) {
-    gridLabel = form_form.render.label({
-      text: label
-    });
-  };
-
-  if (radioGroup.length > 0) {
-    radioGroup.forEach((item, i) => {
-      const radioAndLabel = {};
-
-      radioAndLabel.position = item.position;
-
-      radioAndLabel.radio = form_form.render.input.radio({
-        id: item.id,
-        radioGroup: radioGroupName,
-        value: item.value,
-        checked: (get({
-          object: object,
-          path: radioGroupPath,
-        }) === item.value),
-        func: () => {
-          set({
-            object: object,
-            path: radioGroupPath,
-            value: item.value
-          });
-          if (action) {
-            action();
-          };
-        }
-      });
-
-      radioAndLabel.label = form_form.render.label({
-        forInput: item.id,
-        text: item.labelText,
-        description: item.description,
-        srOnly: true,
-        icon: true
-      });
-
-      radioAndLabel.wrap = () => {
-        return form_form.render.wrap([
-          radioAndLabel.radio,
-          radioAndLabel.label
-        ]);
-      };
-
-      radioAndLabel.radio.update = () => {
-        radioAndLabel.radio.checked = (get({
-          object: object,
-          path: radioGroupPath,
-        }) === item.value);
-      };
-
-      radioAndLabel.radio.disable = () => {
-        radioAndLabel.radio.disabled = true;
-      };
-
-      radioAndLabel.radio.enable = () => {
-        radioAndLabel.radio.disabled = false;
-      };
-
-      this.radioSet.push(radioAndLabel);
-    });
-  };
-
-  this.value = () => {
-    let currentSelectedRadio = false;
-
-    this.radioSet.forEach((item, i) => {
-      if (item.radio.checked) {
-        currentSelectedRadio = item.radio.value;
-      };
-    });
-
-    return currentSelectedRadio;
-  };
-
-  this.update = () => {
-    this.radioSet.forEach((item, i) => {
-      item.radio.update();
-    });
-  };
-
-  this.grid = () => {
-    const wrap = form_form.render.wrap();
-
-    switch (gridSize) {
-      case '3x3':
-        gridElement.classList.add('form-grid-3x3');
-        break;
-
-      case '3x1':
-        gridElement.classList.add('form-grid-3x1');
-        break;
-
-      case '1x3':
-        gridElement.classList.add('form-grid-1x3');
-        break;
-
-      case '2x2':
-        gridElement.classList.add('form-grid-2x2');
-        break;
-    };
-
-    this.radioSet.forEach((item, i) => {
-      const wrap = form_form.render.wrap([
-        item.radio,
-        item.label
-      ]);
-
-      wrap.style.setProperty('--form-grid-cell', 'cell-' + item.position);
-
-      gridElement.appendChild(wrap);
-    });
-
-    if (label) {
-      wrap.appendChild(gridLabel);
-    };
-
-    wrap.appendChild(gridElement);
-
-    return wrap;
-  };
-
-  this.disable = () => {
-    this.radioSet.forEach((item, i) => {
-      item.radio.disable();
-    });
-
-    gridElement.classList.add('disabled');
-
-    if (label) {
-      gridLabel.classList.add('disabled');
-    };
-  };
-
-  this.enable = () => {
-    this.radioSet.forEach((item, i) => {
-      item.radio.enable();
-    });
-
-    gridElement.classList.remove('disabled');
-
-    if (label) {
-      gridLabel.classList.remove('disabled');
-    };
-  };
-};
-
-const ControlModule_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
-
-  this.checkbox = form_form.render.input.checkbox({
-    id: id,
-    checked: (get({
-      object: object,
-      path: path,
-    }) === true),
-    func: () => {
-      set({
-        object: object,
-        path: path,
-        value: this.checkbox.checked
-      });
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.label = form_form.render.label({
-    forInput: id,
-    text: labelText,
-    description: description,
-    icon: true
-  });
-
-  this.update = () => {
-    this.checkbox.checked = (get({
-      object: object,
-      path: path,
-    }) === true);
-  };
-
-  this.checked = () => {
-    return get({
-      object: object,
-      path: path,
-    });
-  };
-
-  this.wrap = () => {
-    return form_form.render.wrap([
-      form_form.render.group({
-        children: [
-          this.checkbox,
-          this.label
-        ]
-      })
-    ])
-  };
-
-  this.disable = () => {
-    this.checkbox.disabled = true;
-  };
-
-  this.enable = () => {
-    this.checkbox.disabled = false;
-  };
-};
-
-const ControlModule_colorMixer = function({ object = {}, path = false, defaultValue = false, minMaxObject = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
-
-  this.moreControlsToggle = new Button({
-    text: false,
-    iconName: 'arrowKeyboardDown',
-    style: ['line'],
-    classList: ['collapse-toggle', 'form-group-item-small'],
-    func: () => {
-      this.moreControlsCollapse.toggle();
-      this.moreControlsUpdate();
-    }
-  });
-
-  this.color = new ControlModule_color({
-    object: object,
-    path: path + '.rgb',
-    id: id + '-rgb',
-    labelText: labelText,
-    srOnly: srOnly,
-    value: get({ object: object, path: path + '.rgb' }),
-    defaultValue: defaultValue,
-    extraButtons: [this.moreControlsToggle],
-    action: () => {
-      set({
-        object: object,
-        path: path + '.hsl',
-        value: rgbToHsl(get({ object: object, path: path + '.rgb' }))
-      });
-      this.colorSliderR.update();
-      this.colorSliderG.update();
-      this.colorSliderB.update();
-      this.colorSliderH.update();
-      this.colorSliderS.update();
-      this.colorSliderL.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.colorSliderH = new ControlModule_slimSlider({
-    object: object,
-    path: path + '.hsl.h',
-    id: id + '-hsl-h',
-    labelText: 'Hue',
-    value: get({ object: object, path: path + '.hsl.h' }),
-    min: get({ object: minMaxObject, path: path + '.hsl.h.min' }),
-    max: get({ object: minMaxObject, path: path + '.hsl.h.max' }),
-    action: () => {
-      set({
-        object: object,
-        path: path + '.rgb',
-        value: hslToRgb(get({ object: object, path: path + '.hsl' }))
-      });
-      this.color.update({ all: true });
-      this.colorSliderR.update();
-      this.colorSliderG.update();
-      this.colorSliderB.update();
-      this.colorSliderS.update();
-      this.colorSliderL.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.colorSliderS = new ControlModule_slimSlider({
-    object: object,
-    path: path + '.hsl.s',
-    id: id + '-hsl-s',
-    labelText: 'Saturation',
-    value: get({ object: object, path: path + '.hsl.s' }),
-    min: get({ object: minMaxObject, path: path + '.hsl.s.min' }),
-    max: get({ object: minMaxObject, path: path + '.hsl.s.max' }),
-    action: () => {
-      set({
-        object: object,
-        path: path + '.rgb',
-        value: hslToRgb(get({ object: object, path: path + '.hsl' }))
-      });
-      this.color.update({ all: true });
-      this.colorSliderR.update();
-      this.colorSliderG.update();
-      this.colorSliderB.update();
-      this.colorSliderH.update();
-      this.colorSliderL.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.colorSliderL = new ControlModule_slimSlider({
-    object: object,
-    path: path + '.hsl.l',
-    id: id + '-hsl-l',
-    labelText: 'Lightness',
-    value: get({ object: object, path: path + '.hsl.l' }),
-    min: get({ object: minMaxObject, path: path + '.hsl.l.min' }),
-    max: get({ object: minMaxObject, path: path + '.hsl.l.max' }),
-    action: () => {
-      set({
-        object: object,
-        path: path + '.rgb',
-        value: hslToRgb(get({ object: object, path: path + '.hsl' }))
-      });
-      this.color.update({ all: true });
-      this.colorSliderR.update();
-      this.colorSliderG.update();
-      this.colorSliderB.update();
-      this.colorSliderH.update();
-      this.colorSliderS.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.colorSliderR = new ControlModule_slimSlider({
-    object: object,
-    path: path + '.rgb.r',
-    id: id + '-rgb-r',
-    labelText: 'Red',
-    value: get({ object: object, path: path + '.rgb.r' }),
-    min: get({ object: minMaxObject, path: path + '.rgb.r.min' }),
-    max: get({ object: minMaxObject, path: path + '.rgb.r.max' }),
-    action: () => {
-      set({
-        object: object,
-        path: path + '.hsl',
-        value: rgbToHsl(get({ object: object, path: path + '.rgb' }))
-      });
-      this.color.update({ all: true });
-      this.colorSliderG.update();
-      this.colorSliderB.update();
-      this.colorSliderH.update();
-      this.colorSliderS.update();
-      this.colorSliderL.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.colorSliderG = new ControlModule_slimSlider({
-    object: object,
-    path: path + '.rgb.g',
-    id: id + '-rgb-g',
-    labelText: 'Green',
-    value: get({ object: object, path: path + '.rgb.g' }),
-    min: get({ object: minMaxObject, path: path + '.rgb.g.min' }),
-    max: get({ object: minMaxObject, path: path + '.rgb.g.max' }),
-    action: () => {
-      set({
-        object: object,
-        path: path + '.hsl',
-        value: rgbToHsl(get({ object: object, path: path + '.rgb' }))
-      });
-      this.color.update({ all: true });
-      this.colorSliderR.update();
-      this.colorSliderB.update();
-      this.colorSliderH.update();
-      this.colorSliderS.update();
-      this.colorSliderL.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.colorSliderB = new ControlModule_slimSlider({
-    object: object,
-    path: path + '.rgb.b',
-    id: id + '-rgb-b',
-    labelText: 'Blue',
-    value: get({ object: object, path: path + '.rgb.b' }),
-    min: get({ object: minMaxObject, path: path + '.rgb.b.min' }),
-    max: get({ object: minMaxObject, path: path + '.rgb.b.max' }),
-    action: () => {
-      set({
-        object: object,
-        path: path + '.hsl',
-        value: rgbToHsl(get({ object: object, path: path + '.rgb' }))
-      });
-      this.color.update({ all: true });
-      this.colorSliderR.update();
-      this.colorSliderG.update();
-      this.colorSliderH.update();
-      this.colorSliderS.update();
-      this.colorSliderL.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
-  this.moreControls = node('div', [
-    node('hr'),
-    this.colorSliderH.wrap(),
-    this.colorSliderS.wrap(),
-    this.colorSliderL.wrap(),
-    node('hr'),
-    this.colorSliderR.wrap(),
-    this.colorSliderG.wrap(),
-    this.colorSliderB.wrap()
-  ]);
-
-  this.moreControlsCollapse = new Collapse({
-    type: 'toggle',
-    target: [{
-      toggle: this.moreControlsToggle.button,
-      content: this.moreControls
-    }]
-  });
-
-  this.moreControlsCollapse.update();
-
-  this.wrap = () => {
-    return form_form.render.wrap([
-      this.color.wrap(),
-      form_form.render.wrap([
-        form_form.render.indent([
-          form_form.render.wrap([
-            this.moreControlsCollapse.collapse()
-          ])
-        ])
-      ])
-    ])
-  };
-
-  this.disable = () => {
-    this.color.disable();
-
-    if (!this.moreControlsCollapse.target()[0].state.collapsed) {
-      this.colorSliderH.disable();
-      this.colorSliderS.disable();
-      this.colorSliderL.disable();
-      this.colorSliderR.disable();
-      this.colorSliderG.disable();
-      this.colorSliderB.disable();
-    } else {
-      this.moreControlsUpdate();
-    };
-  };
-
-  this.enable = () => {
-    this.color.enable();
-
-    if (!this.moreControlsCollapse.target()[0].state.collapsed) {
-      this.colorSliderH.enable();
-      this.colorSliderS.enable();
-      this.colorSliderL.enable();
-      this.colorSliderR.enable();
-      this.colorSliderG.enable();
-      this.colorSliderB.enable();
-    } else {
-      this.moreControlsUpdate();
-    };
-  };
-
-  this.moreControlsUpdate = () => {
-    if (this.moreControlsCollapse.target()[0].state.collapsed) {
-      this.colorSliderH.disable();
-      this.colorSliderS.disable();
-      this.colorSliderL.disable();
-      this.colorSliderR.disable();
-      this.colorSliderG.disable();
-      this.colorSliderB.disable();
-    } else {
-      this.colorSliderH.enable();
-      this.colorSliderS.enable();
-      this.colorSliderL.enable();
-      this.colorSliderR.enable();
-      this.colorSliderG.enable();
-      this.colorSliderB.enable();
-    };
-  };
-
-  this.moreControlsUpdate();
-};
-
-
 
 ;// CONCATENATED MODULE: ./src/utility/trimString.js
 const trimString = function(value) {
@@ -11848,7 +10233,6 @@ var autoSuggest_update = injectStylesIntoStyleTag_default()(autoSuggest/* defaul
 
 /* harmony default export */ const component_autoSuggest = (autoSuggest/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/autoSuggest/index.js
-
 
 
 
@@ -12662,7 +11046,6 @@ var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, them
 
 
 
-
 const theme_theme = {};
 
 theme_theme.bind = {};
@@ -12717,7 +11100,7 @@ theme_theme.render.color = function() {
 
       hsl.l = Math.round((shades * i) + state_state.get.current().theme.color.lightness.start);
 
-      let rgb = hslToRgb(hsl);
+      let rgb = convertColor.hsl.rgb(hsl);
 
       for (var key in rgb) {
         html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
@@ -12919,6 +11302,133 @@ theme_theme.init = function() {
   theme_theme.render.background.video.set();
   theme_theme.render.background.video.add();
   theme_theme.render.background.video.filter();
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
+var collapse = __webpack_require__(5655);
+;// CONCATENATED MODULE: ./src/component/collapse/index.css
+
+            
+
+var collapse_options = {};
+
+collapse_options.insert = "head";
+collapse_options.singleton = false;
+
+var collapse_update = injectStylesIntoStyleTag_default()(collapse/* default */.Z, collapse_options);
+
+
+
+/* harmony default export */ const component_collapse = (collapse/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/collapse/index.js
+
+
+
+
+
+
+
+
+const Collapse = function({ type = false, radioGroup = false, checkbox = false, target = false } = {}) {
+
+  target.forEach((item, i) => {
+    item.state = {
+      collapsed: true
+    };
+
+    item.area = node('div|class:collapse-area');
+
+    item.spacer = node('div|class:collapse-spacer');
+  });
+
+  this.target = () => {
+    return target;
+  };
+
+  this.collapseElement = node('div|class:collapse');
+
+  this.collapse = () => {
+    target.forEach((item, i) => {
+      item.spacer.appendChild(item.content);
+
+      item.area.appendChild(item.spacer);
+
+      this.collapseElement.appendChild(item.area);
+    });
+
+    return this.collapseElement;
+  };
+
+  this.toggle = () => {
+    target.forEach((item, i) => {
+      if (item.state.collapsed) {
+        item.state.collapsed = false;
+      } else {
+        item.state.collapsed = true;
+      };
+    });
+
+    this.update();
+  };
+
+  this.renderTarget = (state, area) => {
+    if (state) {
+      area.classList.add('is-collapsed');
+      area.setAttribute('aria-hidden', true);
+    } else {
+      area.classList.remove('is-collapsed');
+      area.removeAttribute('aria-hidden');
+    };
+  };
+
+  this.renderToggle = (state, toggle) => {
+    if (state) {
+      toggle.classList.remove('active');
+      toggle.classList.remove('is-collapsed');
+    } else {
+      toggle.classList.add('active');
+      toggle.classList.add('is-collapsed');
+    };
+  };
+
+  this.update = () => {
+
+    switch (type) {
+      case 'radio':
+        const selectedRadioValue = radioGroup.value();
+
+        target.forEach((item, i) => {
+
+          this.renderTarget(!(item.id === selectedRadioValue), item.area);
+
+        });
+        break;
+
+      case 'checkbox':
+        const state = checkbox.checked();
+
+        target.forEach((item, i) => {
+
+          this.renderTarget(!state, item.area);
+
+        });
+        break;
+
+      case 'toggle':
+        target.forEach((item, i) => {
+
+          this.renderTarget(item.state.collapsed, item.area);
+
+          if (item.toggle) {
+            this.renderToggle(item.state.collapsed, item.toggle);
+          };
+
+        });
+        break;
+    };
+  };
 };
 
 
@@ -13396,6 +11906,1631 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
 
 
+;// CONCATENATED MODULE: ./src/component/control/helperText/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_helperText = function({ text = [] } = {}) {
+  this.para = [];
+
+  text.forEach((item, i) => {
+    this.para.push(form_form.render.helper({
+      tag: 'p',
+      text: item
+    }));
+  });
+
+  this.wrap = () => {
+    const formWrap = form_form.render.wrap();
+
+    this.para.forEach((item, i) => {
+      formWrap.appendChild(item);
+    });
+
+    return formWrap;
+  };
+
+  this.disable = () => {
+    this.para.forEach((item, i) => {
+      item.classList.add('disabled');
+    });
+  };
+
+  this.enable = () => {
+    this.para.forEach((item, i) => {
+      item.classList.remove('disabled');
+    });
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/makePath.js
+const makePath = function(string) {
+  if (string) {
+    let array;
+    if (string.indexOf('[') != -1 && string.indexOf(']') != -1) {
+      array = string.split('.').join(',').split('[').join(',').split(']').join(',').split(',');
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] == '') {
+          array.splice(i, 1);
+        };
+        if (!isNaN(parseInt(array[i], 10))) {
+          array[i] = parseInt(array[i], 10);
+        };
+      };
+    } else {
+      array = string.split('.');
+    };
+    return array;
+  } else {
+    return false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/get.js
+
+
+const get = function({ object = null, path = null } = {}) {
+  const address = makePath(path);
+
+  const getValue = function() {
+    while (address.length > 1) {
+      // shift off and store the first key
+      var currentKey = address.shift();
+      // if the key is not found make a new object
+      if (!(currentKey in object)) {
+        // make an empty object in the current object level
+        if (isNaN(currentKey)) {
+          object[currentKey] = {};
+        } else {
+          object[currentKey] = [];
+        };
+      };
+      // drill down the object with the first key
+      object = object[currentKey];
+    };
+    var finalKey = address.shift();
+    if (!(finalKey in object)) {
+      return '';
+    } else {
+      return object[finalKey];
+    };
+  };
+
+  if (object != null && path != null) {
+    return getValue();
+  } else {
+    return false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/set.js
+
+
+const set = function({ path = null, object = null, value = null } = {}) {
+  const address = makePath(path);
+
+  const setValue = function() {
+    while (address.length > 1) {
+      // shift off and store the first key
+      var currentKey = address.shift();
+      // if the key is not found make a new object
+      if (!(currentKey in object)) {
+        // make an empty object in the current object level
+        if (isNaN(currentKey)) {
+          object[currentKey] = {};
+        } else {
+          object[currentKey] = [];
+        };
+      };
+      // drill down the object with the first key
+      object = object[currentKey];
+    };
+    var finalKey = address.shift();
+    object[finalKey] = value;
+  };
+
+  if (object != null && path != null && value != null) {
+    setValue();
+  } else {
+    return false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/inputButton/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+
+  this.input;
+
+  switch (type) {
+    case 'file':
+      this.input = form_form.render.input.file({
+        id: id,
+        func: () => {
+          if (action) {
+            action();
+          };
+        }
+      });
+
+      break;
+
+    case 'color':
+      this.input = form_form.render.input.color({
+        id: id,
+        value: convertColor.rgb.hex(get({
+          object: object,
+          path: path
+        })),
+        classList: classList,
+        func: () => {
+          if (path) {
+            set({
+              object: object,
+              path: path,
+              value: convertColor.hex.rgb(this.input.value)
+            });
+          };
+          if (action) {
+            action();
+          };
+        }
+      });
+
+      break;
+  };
+
+  this.label = form_form.render.label({
+    text: labelText,
+    forInput: id
+  });
+
+  this.button = node('div|class:form-input-button');
+
+  if (inputButtonClassList.length > 0) {
+    inputButtonClassList.forEach((item, i) => {
+      this.button.classList.add(item);
+    });
+  };
+
+  if (inputButton.length > 0) {
+    inputButton.forEach((item, i) => {
+      switch (item) {
+        case 'link':
+          this.button.classList.add('form-input-button-link');
+          break;
+
+        case 'line':
+          this.button.classList.add('form-input-button-line');
+          break;
+
+        case 'ring':
+          this.button.classList.add('form-input-button-ring');
+          break;
+
+        case 'dot':
+          this.button.classList.add('input-color-dot');
+          break;
+      };
+    });
+  };
+
+  if (inputHide) {
+    this.button.classList.add('form-input-hide');
+  };
+
+  if (srOnly) {
+    this.button.classList.add('form-input-button-sr-only');
+  };
+
+  this.button.appendChild(this.input);
+
+  this.button.appendChild(this.label);
+
+  this.update = () => {
+    switch (type) {
+      case 'color':
+        this.input.value = convertColor.rgb.hex(get({
+          object: object,
+          path: path,
+        }));
+
+        break;
+    };
+  };
+
+  this.wrap = () => {
+    return form_form.render.wrap([
+      this.button
+    ])
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.input.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.input.disabled = false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/groupText/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_groupText = function({ text = false, classList = [] } = {}) {
+  this.groupText = form_form.render.groupText({
+    text: text,
+    classList: classList
+  });
+
+  this.update = (content) => {
+    while (this.groupText.lastChild) {
+      this.groupText.removeChild(this.groupText.lastChild);
+    };
+    if (typeof content === 'string' && ifValidString(content)) {
+      this.groupText.textContent = content;
+    } else if (content && content != '') {
+      this.groupText.appendChild(content);
+    };
+  };
+
+  this.wrap = () => {
+    return form_form.render.wrap([
+      this.groupText
+    ])
+  };
+
+  this.disable = () => {
+    this.groupText.classList.add('disabled');
+  };
+
+  this.enable = () => {
+    this.groupText.classList.remove('disabled');
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/radio/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
+  this.radioSet = [];
+
+  const radioGroupName = groupName;
+
+  const radioGroupPath = path;
+
+  if (radioGroup.length > 0) {
+    radioGroup.forEach((item, i) => {
+      const radioAndLabel = {
+        radio: form_form.render.input.radio({
+          id: item.id,
+          radioGroup: radioGroupName,
+          value: item.value,
+          checked: (get({
+            object: object,
+            path: radioGroupPath,
+          }) === item.value),
+          func: () => {
+            set({
+              object: object,
+              path: radioGroupPath,
+              value: item.value
+            });
+            if (action) {
+              action();
+            };
+          }
+        }),
+        label: form_form.render.label({
+          forInput: item.id,
+          text: item.labelText,
+          description: item.description,
+          icon: true
+        }),
+        wrap: () => {
+          return form_form.render.wrap([
+            radioAndLabel.radio,
+            radioAndLabel.label
+          ]);
+        }
+      };
+
+      radioAndLabel.radio.update = () => {
+        radioAndLabel.radio.checked = (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value);
+      };
+
+      radioAndLabel.radio.disable = () => {
+        radioAndLabel.radio.disabled = true;
+      };
+
+      radioAndLabel.radio.enable = () => {
+        radioAndLabel.radio.disabled = false;
+      };
+
+      this.radioSet.push(radioAndLabel);
+    });
+  };
+
+  this.value = () => {
+    let currentSelectedRadio = false;
+
+    this.radioSet.forEach((item, i) => {
+      if (item.radio.checked) {
+        currentSelectedRadio = item.radio.value;
+      };
+    });
+
+    return currentSelectedRadio;
+  };
+
+  this.update = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.update();
+    });
+  };
+
+  this.wrap = () => {
+    const group = form_form.render.wrap();
+
+    this.radioSet.forEach((item, i) => {
+      group.appendChild(
+        form_form.render.wrap([
+          item.radio,
+          item.label
+        ])
+      );
+    });
+
+    return group;
+  };
+
+  this.inline = () => {
+    const formGroup = form_form.render.wrap();
+
+    const formInline = form_form.render.inline({
+      gap: 'large',
+      wrap: true
+    });
+
+    this.radioSet.forEach((item, i) => {
+      formInline.appendChild(
+        form_form.render.wrap([
+          item.radio,
+          item.label
+        ])
+      );
+    });
+
+    formGroup.appendChild(formInline);
+
+    return formGroup;
+  };
+
+  this.disable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.disable();
+    });
+  };
+
+  this.enable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.enable();
+    });
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/radioGrid/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
+  this.radioSet = [];
+
+  const radioGroupName = groupName;
+
+  const radioGroupPath = path;
+
+  const gridElement = form_form.render.grid();
+
+  let gridLabel = false;
+
+  if (label) {
+    gridLabel = form_form.render.label({
+      text: label
+    });
+  };
+
+  if (radioGroup.length > 0) {
+    radioGroup.forEach((item, i) => {
+      const radioAndLabel = {};
+
+      radioAndLabel.position = item.position;
+
+      radioAndLabel.radio = form_form.render.input.radio({
+        id: item.id,
+        radioGroup: radioGroupName,
+        value: item.value,
+        checked: (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value),
+        func: () => {
+          set({
+            object: object,
+            path: radioGroupPath,
+            value: item.value
+          });
+          if (action) {
+            action();
+          };
+        }
+      });
+
+      radioAndLabel.label = form_form.render.label({
+        forInput: item.id,
+        text: item.labelText,
+        description: item.description,
+        srOnly: true,
+        icon: true
+      });
+
+      radioAndLabel.wrap = () => {
+        return form_form.render.wrap([
+          radioAndLabel.radio,
+          radioAndLabel.label
+        ]);
+      };
+
+      radioAndLabel.radio.update = () => {
+        radioAndLabel.radio.checked = (get({
+          object: object,
+          path: radioGroupPath,
+        }) === item.value);
+      };
+
+      radioAndLabel.radio.disable = () => {
+        radioAndLabel.radio.disabled = true;
+      };
+
+      radioAndLabel.radio.enable = () => {
+        radioAndLabel.radio.disabled = false;
+      };
+
+      this.radioSet.push(radioAndLabel);
+    });
+  };
+
+  this.value = () => {
+    let currentSelectedRadio = false;
+
+    this.radioSet.forEach((item, i) => {
+      if (item.radio.checked) {
+        currentSelectedRadio = item.radio.value;
+      };
+    });
+
+    return currentSelectedRadio;
+  };
+
+  this.update = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.update();
+    });
+  };
+
+  this.grid = () => {
+    const wrap = form_form.render.wrap();
+
+    switch (gridSize) {
+      case '3x3':
+        gridElement.classList.add('form-grid-3x3');
+        break;
+
+      case '3x1':
+        gridElement.classList.add('form-grid-3x1');
+        break;
+
+      case '1x3':
+        gridElement.classList.add('form-grid-1x3');
+        break;
+
+      case '2x2':
+        gridElement.classList.add('form-grid-2x2');
+        break;
+    };
+
+    this.radioSet.forEach((item, i) => {
+      const wrap = form_form.render.wrap([
+        item.radio,
+        item.label
+      ]);
+
+      wrap.style.setProperty('--form-grid-cell', 'cell-' + item.position);
+
+      gridElement.appendChild(wrap);
+    });
+
+    if (label) {
+      wrap.appendChild(gridLabel);
+    };
+
+    wrap.appendChild(gridElement);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.disable();
+    });
+
+    gridElement.classList.add('disabled');
+
+    if (label) {
+      gridLabel.classList.add('disabled');
+    };
+  };
+
+  this.enable = () => {
+    this.radioSet.forEach((item, i) => {
+      item.radio.enable();
+    });
+
+    gridElement.classList.remove('disabled');
+
+    if (label) {
+      gridLabel.classList.remove('disabled');
+    };
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/checkbox/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
+
+  this.checkbox = form_form.render.input.checkbox({
+    id: id,
+    checked: (get({
+      object: object,
+      path: path,
+    }) === true),
+    func: () => {
+      set({
+        object: object,
+        path: path,
+        value: this.checkbox.checked
+      });
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.label = form_form.render.label({
+    forInput: id,
+    text: labelText,
+    description: description,
+    icon: true
+  });
+
+  this.update = () => {
+    this.checkbox.checked = (get({
+      object: object,
+      path: path,
+    }) === true);
+  };
+
+  this.checked = () => {
+    return get({
+      object: object,
+      path: path,
+    });
+  };
+
+  this.wrap = () => {
+    return form_form.render.wrap([
+      form_form.render.group({
+        children: [
+          this.checkbox,
+          this.label
+        ]
+      })
+    ])
+  };
+
+  this.disable = () => {
+    this.checkbox.disabled = true;
+  };
+
+  this.enable = () => {
+    this.checkbox.disabled = false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/minMax.js
+const minMax = function({ min = 0, max = 0, value = 0 } = {}) {
+
+  if (value > max) {
+
+    return max;
+
+  } else if (value < min) {
+
+    return min;
+
+  } else if (isNaN(value)) {
+
+    return min;
+
+  } else {
+
+    return value;
+
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/component/control/slider/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
+
+  this.label = form_form.render.label({
+    forInput: id,
+    text: labelText
+  });
+
+  const classList = [];
+
+  if (hue) {
+    classList.push('input-range-hue-spectrum');
+  };
+
+  this.range = form_form.render.input.range({
+    id: id,
+    value: value,
+    min: min,
+    max: max,
+    classList: classList,
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: this.value()
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.number.value = get({
+        object: object,
+        path: path,
+      });
+    }
+  });
+
+  this.number = form_form.render.input.number({
+    value: value,
+    min: min,
+    max: max,
+    classList: ['form-group-item-small'],
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: minMax({
+            value: parseInt(this.number.value, 10),
+            min: min,
+            max: max
+          })
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.update({ delay: true });
+    }
+  });
+
+  this.reset = new Button({
+    text: false,
+    iconName: 'replay',
+    style: ['line'],
+    classList: ['form-group-item-small'],
+    func: () => {
+      set({
+        object: object,
+        path: path,
+        value: JSON.parse(JSON.stringify(defaultValue))
+      });
+      this.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.update = ({ delay = false } = {}) => {
+    let delayedUpdate = null;
+    const updateControl = () => {
+      this.range.value = get({
+        object: object,
+        path: path,
+      });
+      this.number.value = get({
+        object: object,
+        path: path,
+      });
+    };
+
+    if (delay) {
+      clearTimeout(delayedUpdate);
+      delayedUpdate = setTimeout(updateControl, 2000);
+    } else {
+      updateControl();
+    };
+  };
+
+  this.value = () => {
+    return parseInt(this.range.value, 10);
+  };
+
+  this.wrap = () => {
+    const formGroup = form_form.render.group({
+      children: [
+        this.number
+      ]
+    });
+
+    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
+      formGroup.appendChild(this.reset.button);
+    };
+
+    const formInline = form_form.render.inline({
+      block: true,
+      children: [
+        this.range,
+        formGroup
+      ]
+    });
+
+    const wrap = form_form.render.wrap([
+      this.label,
+      formInline
+    ]);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.range.disabled = true;
+    this.number.disabled = true;
+    this.reset.disable();
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.range.disabled = false;
+    this.number.disabled = false;
+    this.reset.enable();
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/slimSlider/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
+
+  this.label = form_form.render.label({
+    forInput: id,
+    text: labelText,
+    classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-medium', ]
+  });
+
+  const classList = ['form-group-item-grow'];
+
+  if (hue) {
+    classList.push('input-range-hue-spectrum');
+  };
+
+  this.range = form_form.render.input.range({
+    id: id,
+    value: value,
+    min: min,
+    max: max,
+    classList: classList,
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: this.value()
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.number.value = get({
+        object: object,
+        path: path,
+      });
+    }
+  });
+
+  this.number = form_form.render.input.number({
+    value: value,
+    min: min,
+    max: max,
+    classList: ['form-group-item-small'],
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: minMax({
+            value: parseInt(this.number.value, 10),
+            min: min,
+            max: max
+          })
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.update({ delay: true });
+    }
+  });
+
+  this.reset = new Button({
+    text: false,
+    iconName: 'replay',
+    style: ['line'],
+    classList: ['form-group-item-small'],
+    func: () => {
+      set({
+        object: object,
+        path: path,
+        value: JSON.parse(JSON.stringify(defaultValue))
+      });
+      this.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.update = ({ delay = false } = {}) => {
+    let delayedUpdate = null;
+    const updateControl = () => {
+      this.range.value = get({
+        object: object,
+        path: path,
+      });
+      this.number.value = get({
+        object: object,
+        path: path,
+      });
+    };
+
+    if (delay) {
+      clearTimeout(delayedUpdate);
+      delayedUpdate = setTimeout(updateControl, 2000);
+    } else {
+      updateControl();
+    };
+  };
+
+  this.value = () => {
+    return parseInt(this.range.value, 10);
+  };
+
+  this.wrap = () => {
+    const formGroup = form_form.render.group({
+      children: [
+        this.number
+      ]
+    });
+
+    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
+      formGroup.appendChild(this.reset.button);
+    };
+
+    const formInline = form_form.render.inline({
+      block: true,
+      children: [
+        this.label,
+        this.range,
+        formGroup
+      ]
+    });
+
+    const wrap = form_form.render.wrap([
+      formInline
+    ]);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.range.disabled = true;
+    this.number.disabled = true;
+    this.reset.disable();
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.range.disabled = false;
+    this.number.disabled = false;
+    this.reset.enable();
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/color/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
+
+  this.label = form_form.render.label({
+    forInput: id,
+    text: labelText,
+    srOnly: srOnly
+  });
+
+  this.color = form_form.render.input.color({
+    id: id,
+    value: convertColor.rgb.hex(get({
+      object: object,
+      path: path
+    })),
+    classList: ['form-group-item-half'],
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: convertColor.hex.rgb(this.color.value)
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.text.value = convertColor.rgb.hex(get({
+        object: object,
+        path: path
+      }));
+    }
+  });
+
+  this.text = form_form.render.input.text({
+    value: convertColor.rgb.hex(get({
+      object: object,
+      path: path
+    })),
+    max: 7,
+    classList: ['form-group-item-half'],
+    placeholder: 'Hex code',
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: convertColor.hex.rgb(this.text.value)
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.update({ delay: true });
+    }
+  });
+
+  this.reset = new Button({
+    text: false,
+    iconName: 'replay',
+    style: ['line'],
+    classList: ['form-group-item-small'],
+    func: () => {
+      set({
+        object: object,
+        path: path,
+        value: JSON.parse(JSON.stringify(defaultValue))
+      });
+      this.update({ all: true });
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.update = ({ delay = false, all = false } = {}) => {
+    let delayedUpdate = null;
+    const updateControl = () => {
+      this.color.value = convertColor.rgb.hex(get({
+        object: object,
+        path: path
+      }));
+      if (all) {
+        this.text.value = convertColor.rgb.hex(get({
+          object: object,
+          path: path
+        }));
+      };
+    };
+
+    if (delay) {
+      clearTimeout(delayedUpdate);
+      delayedUpdate = setTimeout(updateControl, 2000);
+    } else {
+      updateControl();
+    };
+  };
+
+  this.wrap = () => {
+    const formGroup = form_form.render.group({
+      block: true,
+      children: [
+        this.color,
+        this.text
+      ]
+    });
+
+    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
+      formGroup.appendChild(this.reset.button);
+    };
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        formGroup.appendChild(item.button);
+      });
+    };
+
+    const wrap = form_form.render.wrap([
+      this.label,
+      formGroup
+    ]);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.color.disabled = true;
+    this.text.disabled = true;
+    this.reset.disable();
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        item.disable();
+      });
+    };
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.color.disabled = false;
+    this.text.disabled = false;
+    this.reset.enable();
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        item.enable();
+      });
+    };
+  };
+};
+
+;// CONCATENATED MODULE: ./src/component/control/colorMixer/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_colorMixer = function({ object = {}, path = false, defaultValue = false, minMaxObject = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
+
+  this.moreControlsToggle = new Button({
+    text: false,
+    iconName: 'arrowKeyboardDown',
+    style: ['line'],
+    classList: ['collapse-toggle', 'form-group-item-small'],
+    func: () => {
+      this.moreControlsCollapse.toggle();
+      this.moreControlsUpdate();
+    }
+  });
+
+  this.color = new Control_color({
+    object: object,
+    path: path + '.rgb',
+    id: id + '-rgb',
+    labelText: labelText,
+    srOnly: srOnly,
+    value: get({ object: object, path: path + '.rgb' }),
+    defaultValue: defaultValue,
+    extraButtons: [this.moreControlsToggle],
+    action: () => {
+      set({
+        object: object,
+        path: path + '.hsl',
+        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+      });
+      this.colorSliderR.update();
+      this.colorSliderG.update();
+      this.colorSliderB.update();
+      this.colorSliderH.update();
+      this.colorSliderS.update();
+      this.colorSliderL.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.colorSliderH = new Control_slimSlider({
+    object: object,
+    path: path + '.hsl.h',
+    id: id + '-hsl-h',
+    labelText: 'Hue',
+    value: get({ object: object, path: path + '.hsl.h' }),
+    min: get({ object: minMaxObject, path: path + '.hsl.h.min' }),
+    max: get({ object: minMaxObject, path: path + '.hsl.h.max' }),
+    action: () => {
+      set({
+        object: object,
+        path: path + '.rgb',
+        value: convertColor.hsl.rgb(get({ object: object, path: path + '.hsl' }))
+      });
+      this.color.update({ all: true });
+      this.colorSliderR.update();
+      this.colorSliderG.update();
+      this.colorSliderB.update();
+      this.colorSliderS.update();
+      this.colorSliderL.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.colorSliderS = new Control_slimSlider({
+    object: object,
+    path: path + '.hsl.s',
+    id: id + '-hsl-s',
+    labelText: 'Saturation',
+    value: get({ object: object, path: path + '.hsl.s' }),
+    min: get({ object: minMaxObject, path: path + '.hsl.s.min' }),
+    max: get({ object: minMaxObject, path: path + '.hsl.s.max' }),
+    action: () => {
+      set({
+        object: object,
+        path: path + '.rgb',
+        value: convertColor.hsl.rgb(get({ object: object, path: path + '.hsl' }))
+      });
+      this.color.update({ all: true });
+      this.colorSliderR.update();
+      this.colorSliderG.update();
+      this.colorSliderB.update();
+      this.colorSliderH.update();
+      this.colorSliderL.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.colorSliderL = new Control_slimSlider({
+    object: object,
+    path: path + '.hsl.l',
+    id: id + '-hsl-l',
+    labelText: 'Lightness',
+    value: get({ object: object, path: path + '.hsl.l' }),
+    min: get({ object: minMaxObject, path: path + '.hsl.l.min' }),
+    max: get({ object: minMaxObject, path: path + '.hsl.l.max' }),
+    action: () => {
+      set({
+        object: object,
+        path: path + '.rgb',
+        value: convertColor.hsl.rgb(get({ object: object, path: path + '.hsl' }))
+      });
+      this.color.update({ all: true });
+      this.colorSliderR.update();
+      this.colorSliderG.update();
+      this.colorSliderB.update();
+      this.colorSliderH.update();
+      this.colorSliderS.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.colorSliderR = new Control_slimSlider({
+    object: object,
+    path: path + '.rgb.r',
+    id: id + '-rgb-r',
+    labelText: 'Red',
+    value: get({ object: object, path: path + '.rgb.r' }),
+    min: get({ object: minMaxObject, path: path + '.rgb.r.min' }),
+    max: get({ object: minMaxObject, path: path + '.rgb.r.max' }),
+    action: () => {
+      set({
+        object: object,
+        path: path + '.hsl',
+        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+      });
+      this.color.update({ all: true });
+      this.colorSliderG.update();
+      this.colorSliderB.update();
+      this.colorSliderH.update();
+      this.colorSliderS.update();
+      this.colorSliderL.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.colorSliderG = new Control_slimSlider({
+    object: object,
+    path: path + '.rgb.g',
+    id: id + '-rgb-g',
+    labelText: 'Green',
+    value: get({ object: object, path: path + '.rgb.g' }),
+    min: get({ object: minMaxObject, path: path + '.rgb.g.min' }),
+    max: get({ object: minMaxObject, path: path + '.rgb.g.max' }),
+    action: () => {
+      set({
+        object: object,
+        path: path + '.hsl',
+        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+      });
+      this.color.update({ all: true });
+      this.colorSliderR.update();
+      this.colorSliderB.update();
+      this.colorSliderH.update();
+      this.colorSliderS.update();
+      this.colorSliderL.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.colorSliderB = new Control_slimSlider({
+    object: object,
+    path: path + '.rgb.b',
+    id: id + '-rgb-b',
+    labelText: 'Blue',
+    value: get({ object: object, path: path + '.rgb.b' }),
+    min: get({ object: minMaxObject, path: path + '.rgb.b.min' }),
+    max: get({ object: minMaxObject, path: path + '.rgb.b.max' }),
+    action: () => {
+      set({
+        object: object,
+        path: path + '.hsl',
+        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+      });
+      this.color.update({ all: true });
+      this.colorSliderR.update();
+      this.colorSliderG.update();
+      this.colorSliderH.update();
+      this.colorSliderS.update();
+      this.colorSliderL.update();
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.moreControls = node('div', [
+    node('hr'),
+    this.colorSliderH.wrap(),
+    this.colorSliderS.wrap(),
+    this.colorSliderL.wrap(),
+    node('hr'),
+    this.colorSliderR.wrap(),
+    this.colorSliderG.wrap(),
+    this.colorSliderB.wrap()
+  ]);
+
+  this.moreControlsCollapse = new Collapse({
+    type: 'toggle',
+    target: [{
+      toggle: this.moreControlsToggle.button,
+      content: this.moreControls
+    }]
+  });
+
+  this.moreControlsCollapse.update();
+
+  this.wrap = () => {
+    return form_form.render.wrap([
+      this.color.wrap(),
+      form_form.render.wrap([
+        form_form.render.indent([
+          form_form.render.wrap([
+            this.moreControlsCollapse.collapse()
+          ])
+        ])
+      ])
+    ])
+  };
+
+  this.disable = () => {
+    this.color.disable();
+
+    if (!this.moreControlsCollapse.target()[0].state.collapsed) {
+      this.colorSliderH.disable();
+      this.colorSliderS.disable();
+      this.colorSliderL.disable();
+      this.colorSliderR.disable();
+      this.colorSliderG.disable();
+      this.colorSliderB.disable();
+    } else {
+      this.moreControlsUpdate();
+    };
+  };
+
+  this.enable = () => {
+    this.color.enable();
+
+    if (!this.moreControlsCollapse.target()[0].state.collapsed) {
+      this.colorSliderH.enable();
+      this.colorSliderS.enable();
+      this.colorSliderL.enable();
+      this.colorSliderR.enable();
+      this.colorSliderG.enable();
+      this.colorSliderB.enable();
+    } else {
+      this.moreControlsUpdate();
+    };
+  };
+
+  this.moreControlsUpdate = () => {
+    if (this.moreControlsCollapse.target()[0].state.collapsed) {
+      this.colorSliderH.disable();
+      this.colorSliderS.disable();
+      this.colorSliderL.disable();
+      this.colorSliderR.disable();
+      this.colorSliderG.disable();
+      this.colorSliderB.disable();
+    } else {
+      this.colorSliderH.enable();
+      this.colorSliderS.enable();
+      this.colorSliderL.enable();
+      this.colorSliderR.enable();
+      this.colorSliderG.enable();
+      this.colorSliderB.enable();
+    };
+  };
+
+  this.moreControlsUpdate();
+};
+
+;// CONCATENATED MODULE: ./src/component/control/text/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_text = function({ object = {}, path = false, id = 'name', value = false, min = false, max = false, placeholder = false, classList = [], labelText = 'Name', srOnly = false, action = false } = {}) {
+  this.label = form_form.render.label({
+    forInput: id,
+    text: labelText
+  });
+
+  if (srOnly) {
+    this.label.classList.add('sr-only')
+  };
+
+  this.text = form_form.render.input.text({
+    id: id,
+    classList: classList,
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: this.text.value
+        });
+      };
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  if (value) {
+    this.text.value = value;
+  };
+
+  if (min) {
+    this.text.min = min;
+  };
+
+  if (max) {
+    this.text.max = max;
+  };
+
+  if (placeholder) {
+    this.text.placeholder = placeholder;
+  };
+
+  this.update = () => {
+    this.text.value = get({
+      object: object,
+      path: path,
+    });
+  };
+
+  this.wrap = () => {
+    return form_form.render.wrap([
+      this.label,
+      this.text
+    ])
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.text.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.text.disabled = false;
+  };
+};
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmark/index.css
 var bookmark = __webpack_require__(5125);
 ;// CONCATENATED MODULE: ./src/component/bookmark/index.css
@@ -13413,6 +13548,17 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 /* harmony default export */ const component_bookmark = (bookmark/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/bookmark/index.js
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -13898,7 +14044,7 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   const bookmarkFormMain = node('form|class:bookmark-form-main');
 
-  const displayVisualShow = new ControlModule_checkbox({
+  const displayVisualShow = new Control_checkbox({
     object: bookmarkData.link,
     path: 'display.visual.show',
     id: 'display-visual-show',
@@ -13910,7 +14056,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualType = new ControlModule_radio({
+  const displayVisualType = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'display-visual-type-letter', labelText: 'Letter', value: 'letter' },
@@ -13925,7 +14071,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeLetter = new ControlModule_text({
+  const displayVisualTypeLetter = new Control_text({
     object: bookmarkData.link,
     path: 'display.visual.letter.text',
     id: 'display-visual-letter-text',
@@ -13938,7 +14084,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeIcon = new ControlModule_text({
+  const displayVisualTypeIcon = new Control_text({
     object: bookmarkData.link,
     path: 'display.visual.icon.label',
     id: 'display-visual-icon-label',
@@ -13951,7 +14097,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeIconDisplay = new ControlModule_groupText({
+  const displayVisualTypeIconDisplay = new Control_groupText({
     classList: ['bookmark-form-text-icon', 'form-group-item-small']
   });
 
@@ -13970,7 +14116,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeImage = new ControlModule_text({
+  const displayVisualTypeImage = new Control_text({
     object: bookmarkData.link,
     path: 'display.visual.image.url',
     id: 'display-visual-image-url',
@@ -13983,7 +14129,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualSize = new ControlModule_slimSlider({
+  const displayVisualSize = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.visual.size',
     id: 'display-visual-size',
@@ -13997,7 +14143,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualShowPropagate = new ControlModule_checkbox({
+  const displayVisualShowPropagate = new Control_checkbox({
     object: bookmark_bookmark.mod.propagate.state.current,
     path: 'visual',
     id: 'apply-to-all-visual',
@@ -14005,7 +14151,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     description: 'When saved, apply the above Visual Element visibility to all other Bookmarks.'
   });
 
-  const displayNameShow = new ControlModule_checkbox({
+  const displayNameShow = new Control_checkbox({
     object: bookmarkData.link,
     path: 'display.name.show',
     id: 'display-name-show',
@@ -14016,7 +14162,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameText = new ControlModule_text({
+  const displayNameText = new Control_text({
     object: bookmarkData.link,
     path: 'display.name.text',
     id: 'display-name-text',
@@ -14029,7 +14175,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameSize = new ControlModule_slimSlider({
+  const displayNameSize = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.name.size',
     id: 'display-name-size',
@@ -14043,7 +14189,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameShowPropagate = new ControlModule_checkbox({
+  const displayNameShowPropagate = new Control_checkbox({
     object: bookmark_bookmark.mod.propagate.state.current,
     path: 'name',
     id: 'apply-to-all-name',
@@ -14051,7 +14197,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     description: 'When saved, apply the above Name visibility to all other Bookmarks.'
   });
 
-  const url = new ControlModule_text({
+  const url = new Control_text({
     object: bookmarkData.link,
     path: 'url',
     id: 'url',
@@ -14060,7 +14206,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'URL'
   });
 
-  const colorBy = new ControlModule_radio({
+  const colorBy = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'color-by-theme', labelText: 'Theme colour', description: 'Use the Colour defined by the Theme.', value: 'theme' },
@@ -14075,7 +14221,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const colorMixer = new ControlModule_colorMixer({
+  const colorMixer = new Control_colorMixer({
     object: bookmarkData.link,
     path: 'color',
     id: 'color',
@@ -14087,7 +14233,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const accentBy = new ControlModule_radio({
+  const accentBy = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'accent-by-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
@@ -14102,7 +14248,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const accentMixer = new ControlModule_colorMixer({
+  const accentMixer = new Control_colorMixer({
     object: bookmarkData.link,
     path: 'accent',
     id: 'accent',
@@ -14114,7 +14260,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayTranslateX = new ControlModule_slimSlider({
+  const displayTranslateX = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.translate.x',
     id: 'display-translate-x',
@@ -14128,7 +14274,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayTranslateY = new ControlModule_slimSlider({
+  const displayTranslateY = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.translate.y',
     id: 'display-translate-y',
@@ -14142,7 +14288,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayRotate = new ControlModule_slimSlider({
+  const displayRotate = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.rotate',
     id: 'display-rotate',
@@ -14156,7 +14302,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualDirection = new ControlModule_radio({
+  const displayVisualDirection = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'display-direction-vertical', labelText: 'Vertical', description: 'Stack the Visual Element and Name one above the other.', value: 'vertical' },
@@ -14170,7 +14316,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualOrder = new ControlModule_radio({
+  const displayVisualOrder = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name.', value: 'visual-name' },
@@ -14184,7 +14330,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayGutter = new ControlModule_slimSlider({
+  const displayGutter = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.gutter',
     id: 'display-gutter',
@@ -14198,7 +14344,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayLayoutPropagate = new ControlModule_checkbox({
+  const displayLayoutPropagate = new Control_checkbox({
     object: bookmark_bookmark.mod.propagate.state.current,
     path: 'layout',
     id: 'apply-to-all-layout',
@@ -14238,7 +14384,7 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   colorMixerCollapse.update();
 
-  const backgroundShow = new ControlModule_checkbox({
+  const backgroundShow = new Control_checkbox({
     object: bookmarkData.link,
     path: 'background.show',
     id: 'background-show',
@@ -14250,7 +14396,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundType = new ControlModule_radio({
+  const backgroundType = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'background-type-image', labelText: 'Image', value: 'image' },
@@ -14264,7 +14410,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundImageUrl = new ControlModule_text({
+  const backgroundImageUrl = new Control_text({
     object: bookmarkData.link,
     path: 'background.image.url',
     id: 'background-image-url',
@@ -14277,11 +14423,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundImageUrlHelper = new ControlModul_helperText({
+  const backgroundImageUrlHelper = new Control_helperText({
     text: ['Background image only supports a direct URL to an image file.']
   });
 
-  const backgroundVideoUrl = new ControlModule_text({
+  const backgroundVideoUrl = new Control_text({
     object: bookmarkData.link,
     path: 'background.video.url',
     id: 'background-video-url',
@@ -14294,11 +14440,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundVideoUrlHelper = new ControlModul_helperText({
+  const backgroundVideoUrlHelper = new Control_helperText({
     text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
-  const backgroundOpacity = new ControlModule_slimSlider({
+  const backgroundOpacity = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'background.opacity',
     id: 'background-opacity',
@@ -15177,6 +15323,17 @@ var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const toolbar_toolbar = {};
 
 toolbar_toolbar.bar = node('div|class:toolbar');
@@ -15370,7 +15527,7 @@ toolbar_toolbar.bar.render = function() {
       break;
   };
 
-  const accent = new ControlModule_inputButton(accentOptions);
+  const accent = new Control_inputButton(accentOptions);
 
   const add = new Button(addOptions);
 
@@ -15594,12 +15751,23 @@ link_link.render = function({ text = 'Link', href = '#', iconName = false, iconP
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const menuContentLayout = {};
 
 menuContentLayout.size = function() {
   const menuContentItem = node('div|id:menu-content-item-size,class:menu-content-item');
 
-  const gridSize = new ControlModule_slider({
+  const gridSize = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.size',
     id: 'grid-size',
@@ -15614,7 +15782,7 @@ menuContentLayout.size = function() {
     }
   });
 
-  const gridSizeHelper = new ControlModul_helperText({
+  const gridSizeHelper = new Control_helperText({
     text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
   });
 
@@ -15633,7 +15801,7 @@ menuContentLayout.size = function() {
 menuContentLayout.grid = function() {
   const menuContentItem = node('div|id:menu-content-item-grid,class:menu-content-item');
 
-  const gridColumn = new ControlModule_slider({
+  const gridColumn = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.column',
     id: 'grid-column',
@@ -15650,7 +15818,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridGap = new ControlModule_slider({
+  const gridGap = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.gap',
     id: 'grid-gap',
@@ -15665,7 +15833,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridPerspective = new ControlModule_slider({
+  const gridPerspective = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.perspective',
     id: 'grid-perspective',
@@ -15680,7 +15848,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridFocus = new ControlModule_slider({
+  const gridFocus = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.transform.focus',
     id: 'grid-transform-focus',
@@ -15694,7 +15862,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridTransformRotateX = new ControlModule_slider({
+  const gridTransformRotateX = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.transform.rotate.x',
     id: 'grid-transform-rotate-x',
@@ -15710,7 +15878,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridTransformRotateY = new ControlModule_slider({
+  const gridTransformRotateY = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.transform.rotate.y',
     id: 'grid-transform-rotate-y',
@@ -15726,7 +15894,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridTransformRotateZ = new ControlModule_slider({
+  const gridTransformRotateZ = new Control_slider({
     object: state_state.get.current(),
     path: 'grid.transform.rotate.z',
     id: 'grid-transform-rotate-z',
@@ -15784,12 +15952,23 @@ menuContentLayout.grid = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const menuContentBookmark = {};
 
 menuContentBookmark.hover = function() {
   const menuContentItem = node('div|id:menu-content-item-hover,class:menu-content-item');
 
-  const bookmarkHoverSize = new ControlModule_slider({
+  const bookmarkHoverSize = new Control_slider({
     object: state_state.get.current(),
     path: 'bookmark.hover.size',
     id: 'bookmark-hover-size',
@@ -15804,7 +15983,7 @@ menuContentBookmark.hover = function() {
     }
   });
 
-  const bookmarkHoverDistance = new ControlModule_slider({
+  const bookmarkHoverDistance = new Control_slider({
     object: state_state.get.current(),
     path: 'bookmark.hover.distance',
     id: 'bookmark-hover-distance',
@@ -15834,7 +16013,7 @@ menuContentBookmark.hover = function() {
 menuContentBookmark.shadow = function() {
   const menuContentItem = node('div|id:menu-content-item-shadow,class:menu-content-item');
 
-  const bookmarkShadowDistance = new ControlModule_slider({
+  const bookmarkShadowDistance = new Control_slider({
     object: state_state.get.current(),
     path: 'bookmark.shadow.distance',
     id: 'bookmark-shadow-distance',
@@ -15849,7 +16028,7 @@ menuContentBookmark.shadow = function() {
     }
   });
 
-  const bookmarkShadowBlur = new ControlModule_slider({
+  const bookmarkShadowBlur = new Control_slider({
     object: state_state.get.current(),
     path: 'bookmark.shadow.blur',
     id: 'bookmark-shadow-blur',
@@ -15900,6 +16079,17 @@ menuContentBookmark.shadow = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const menuContentToolbar = {};
 
 menuContentToolbar.style = function() {
@@ -15907,7 +16097,7 @@ menuContentToolbar.style = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
 
-  const toolbarStyle = new ControlModule_radio({
+  const toolbarStyle = new Control_radio({
     object: state_state.get.current(),
     radioGroup: [
       { id: 'toolbar-style-transparent', labelText: 'Transparent', value: 'transparent' },
@@ -15925,7 +16115,7 @@ menuContentToolbar.style = function() {
     }
   });
 
-  const toolbarStyleHelper = new ControlModul_helperText({
+  const toolbarStyleHelper = new Control_helperText({
     text: ['Use the Bar style if the Toolbar is not visible with your Background.']
   });
 
@@ -15942,7 +16132,7 @@ menuContentToolbar.position = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Position'));
 
-  const toolbarPosition = new ControlModule_radioGrid({
+  const toolbarPosition = new Control_radioGrid({
     object: state_state.get.current(),
     radioGroup: [
       { id: 'toolbar-position-top-left', labelText: 'Top left', value: 'top-left', position: 1 },
@@ -15964,7 +16154,7 @@ menuContentToolbar.position = function() {
     }
   });
 
-  const toolbarPositionHelper = new ControlModul_helperText({
+  const toolbarPositionHelper = new Control_helperText({
     text: ['Position the Toolbar in one of the four corners of the window.']
   });
 
@@ -16000,6 +16190,17 @@ menuContentToolbar.position = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const menuContentTheme = {};
 
 menuContentTheme.exposeControl = {
@@ -16011,7 +16212,7 @@ menuContentTheme.style = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
 
-  const themeStyle = new ControlModule_radio({
+  const themeStyle = new Control_radio({
     object: state_state.get.current(),
     radioGroup: [
       { id: 'theme-style-dark', labelText: 'Dark mode', description: false, value: 'dark' },
@@ -16041,11 +16242,11 @@ menuContentTheme.color = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Colour'));
 
-  const shadesHelper = new ControlModul_helperText({
+  const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
 
-  const themeColorRangePrimaryH = new ControlModule_slider({
+  const themeColorRangePrimaryH = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.color.range.primary.h',
     id: 'theme-color-range-primary-h',
@@ -16061,7 +16262,7 @@ menuContentTheme.color = function() {
     }
   });
 
-  const themeColorRangePrimaryS = new ControlModule_slider({
+  const themeColorRangePrimaryS = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.color.range.primary.s',
     id: 'theme-color-range-primary-s',
@@ -16076,7 +16277,7 @@ menuContentTheme.color = function() {
     }
   });
 
-  const themeColorRangeContrast = new ControlModule_slider({
+  const themeColorRangeContrast = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.color.lightness.contrast',
     id: 'theme-color-range-contrast',
@@ -16139,7 +16340,7 @@ menuContentTheme.accent = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Accent'));
 
-  const themeAccentMixer = new ControlModule_colorMixer({
+  const themeAccentMixer = new Control_colorMixer({
     object: state_state.get.current(),
     path: 'theme.accent',
     id: 'theme-accent',
@@ -16168,7 +16369,7 @@ menuContentTheme.bookmark = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Bookmark'));
 
-  const themeBookmarkShadowColorBy = new ControlModule_radio({
+  const themeBookmarkShadowColorBy = new Control_radio({
     object: state_state.get.current(),
     radioGroup: [
       { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
@@ -16183,7 +16384,7 @@ menuContentTheme.bookmark = function() {
     }
   });
 
-  const themeBookmarkShadowColor = new ControlModule_colorMixer({
+  const themeBookmarkShadowColor = new Control_colorMixer({
     object: state_state.get.current(),
     path: 'theme.bookmark.shadow.color',
     id: 'theme-bookmark-shadow-color',
@@ -16197,7 +16398,7 @@ menuContentTheme.bookmark = function() {
     }
   });
 
-  const themeBookmarkShadowOpacity = new ControlModule_slider({
+  const themeBookmarkShadowOpacity = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.bookmark.shadow.opacity',
     id: 'theme-bookmark-shadow-opacity',
@@ -16252,7 +16453,7 @@ menuContentTheme.background = function() {
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Background'));
 
-  const themeBackgroundType = new ControlModule_radio({
+  const themeBackgroundType = new Control_radio({
     object: state_state.get.current(),
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
@@ -16274,7 +16475,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundColorMixer = new ControlModule_colorMixer({
+  const themeBackgroundColorMixer = new Control_colorMixer({
     object: state_state.get.current(),
     path: 'theme.background.color',
     id: 'theme-background-color',
@@ -16288,7 +16489,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundGradientAngle = new ControlModule_slider({
+  const themeBackgroundGradientAngle = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.gradient.angle',
     id: 'theme-background-gradient-angle',
@@ -16304,7 +16505,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundGradientStartMixer = new ControlModule_colorMixer({
+  const themeBackgroundGradientStartMixer = new Control_colorMixer({
     object: state_state.get.current(),
     path: 'theme.background.gradient.start',
     id: 'theme-background-gradient-start',
@@ -16318,7 +16519,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundGradientEndMixer = new ControlModule_colorMixer({
+  const themeBackgroundGradientEndMixer = new Control_colorMixer({
     object: state_state.get.current(),
     path: 'theme.background.gradient.end',
     id: 'theme-background-gradient-end',
@@ -16332,7 +16533,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageUrl = new ControlModule_text({
+  const themeBackgroundImageUrl = new Control_text({
     object: state_state.get.current(),
     path: 'theme.background.image.url',
     id: 'theme-background-image-url',
@@ -16345,11 +16546,11 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageUrlHelper = new ControlModul_helperText({
+  const themeBackgroundImageUrlHelper = new Control_helperText({
     text: ['Background image only supports a direct URL to an image file.']
   });
 
-  const themeBackgroundImageBlur = new ControlModule_slider({
+  const themeBackgroundImageBlur = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.image.blur',
     id: 'theme-background-image-blur',
@@ -16364,7 +16565,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageScale = new ControlModule_slider({
+  const themeBackgroundImageScale = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.image.scale',
     id: 'theme-background-image-scale',
@@ -16379,7 +16580,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageOpacity = new ControlModule_slider({
+  const themeBackgroundImageOpacity = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.image.opacity',
     id: 'theme-background-image-opacity',
@@ -16394,7 +16595,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoUrl = new ControlModule_text({
+  const themeBackgroundVideoUrl = new Control_text({
     object: state_state.get.current(),
     path: 'theme.background.video.url',
     id: 'theme-background-video-url',
@@ -16409,11 +16610,11 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoUrlHelper = new ControlModul_helperText({
+  const themeBackgroundVideoUrlHelper = new Control_helperText({
     text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
-  const themeBackgroundVideoBlur = new ControlModule_slider({
+  const themeBackgroundVideoBlur = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.video.blur',
     id: 'theme-background-video-blur',
@@ -16428,7 +16629,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoScale = new ControlModule_slider({
+  const themeBackgroundVideoScale = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.video.scale',
     id: 'theme-background-video-scale',
@@ -16443,7 +16644,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoOpacity = new ControlModule_slider({
+  const themeBackgroundVideoOpacity = new Control_slider({
     object: state_state.get.current(),
     path: 'theme.background.video.opacity',
     id: 'theme-background-video-opacity',
@@ -16648,6 +16849,17 @@ menuContentTheme.background = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const menuContentData = {};
 
 menuContentData.import = function() {
@@ -16659,7 +16871,7 @@ menuContentData.import = function() {
 
   data.render.feedback.empty(importFeedback);
 
-  const importButton = new ControlModule_inputButton({
+  const importButton = new Control_inputButton({
     id: 'name',
     type: 'file',
     inputHide: true,
@@ -16669,7 +16881,7 @@ menuContentData.import = function() {
     }
   });
 
-  const importHelper = new ControlModul_helperText({
+  const importHelper = new Control_helperText({
     text: ['Restore a previously exported ' + data.saveName + ' backup.']
   });
 
@@ -16699,7 +16911,7 @@ menuContentData.backup = function() {
     }
   });
 
-  const exportHelper = new ControlModul_helperText({
+  const exportHelper = new Control_helperText({
     text: ['Download a backup of your ' + data.saveName + ' Bookmarks and Settings.', 'This file can later be imported on this or another deivce.']
   });
 
@@ -16727,7 +16939,7 @@ menuContentData.clear = function() {
     }
   });
 
-  const clearHelper = new ControlModul_helperText({
+  const clearHelper = new Control_helperText({
     text: ['Wipe all data and restore ' + data.saveName + ' to the default state.']
   });
 
@@ -16744,6 +16956,17 @@ menuContentData.clear = function() {
 
 
 ;// CONCATENATED MODULE: ./src/component/menu/content/coffee.js
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16799,6 +17022,17 @@ menuContentCoffee.fuel = function() {
 
 
 ;// CONCATENATED MODULE: ./src/component/menu/content/app.js
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16881,6 +17115,17 @@ var menu_update = injectStylesIntoStyleTag_default()(menu/* default */.Z, menu_o
 
 /* harmony default export */ const component_menu = (menu/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/menu/index.js
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -17408,7 +17653,6 @@ keyboard.init = function() {
 
 
 
-
 const component = {
   base: component_base_base,
   state: state_state,
@@ -17433,15 +17677,7 @@ const component = {
   Button: Button,
   Suggest: Suggest,
   Collapse: Collapse,
-  Tab: Tab,
-  ControlModule_groupText: ControlModule_groupText,
-  ControlModule_radio: ControlModule_radio,
-  ControlModule_checkbox: ControlModule_checkbox,
-  ControlModule_slider: ControlModule_slider,
-  ControlModule_slimSlider: ControlModule_slimSlider,
-  ControlModule_colorMixer: ControlModule_colorMixer,
-  ControlModule_color: ControlModule_color,
-  ControlModule_text: ControlModule_text
+  Tab: Tab
 };
 
 ;// CONCATENATED MODULE: ./src/index.js
