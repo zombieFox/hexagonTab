@@ -14825,6 +14825,8 @@ update_update.all = {
       shades: 9
     };
 
+    dataToUpdate.state.theme.color.lightness.offset = 45 - dataToUpdate.state.theme.color.lightness.contrast;
+
     dataToUpdate.state.theme.color.lightness.start = dataToUpdate.state.theme.color.lightness.offset;
 
     dataToUpdate.state.theme.color.lightness.end = 100 - dataToUpdate.state.theme.color.lightness.offset;
