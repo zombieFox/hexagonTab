@@ -1,6 +1,5 @@
 import { state } from '../state';
 import { data } from '../data';
-import { rgbToHsl, hslToRgb } from '../control';
 
 import { Video } from '../video';
 
@@ -65,7 +64,7 @@ theme.render.color = function() {
 
       hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
 
-      let rgb = hslToRgb(hsl);
+      let rgb = convertColor.hsl.rgb(hsl);
 
       for (var key in rgb) {
         html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);

@@ -6,8 +6,19 @@ import { theme } from '../theme';
 import { grid } from '../grid';
 import { pageLock } from '../pageLock';
 
-import { ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color } from '../control';
 import { Button } from '../button';
+
+import { Control_helperText } from '../control/helperText';
+import { Control_inputButton } from '../control/inputButton';
+import { Control_groupText } from '../control/groupText';
+import { Control_radio } from '../control/radio';
+import { Control_radioGrid } from '../control/radioGrid';
+import { Control_checkbox } from '../control/checkbox';
+import { Control_slider } from '../control/slider';
+import { Control_slimSlider } from '../control/slimSlider';
+import { Control_colorMixer } from '../control/colorMixer';
+import { Control_color } from '../control/color';
+import { Control_text } from '../control/text';
 
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';

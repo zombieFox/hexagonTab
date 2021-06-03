@@ -14,7 +14,18 @@ import { link } from '../../link';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
-import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_radioGrid, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control';
+
+import { Control_helperText } from '../../control/helperText';
+import { Control_inputButton } from '../../control/inputButton';
+import { Control_groupText } from '../../control/groupText';
+import { Control_radio } from '../../control/radio';
+import { Control_radioGrid } from '../../control/radioGrid';
+import { Control_checkbox } from '../../control/checkbox';
+import { Control_slider } from '../../control/slider';
+import { Control_slimSlider } from '../../control/slimSlider';
+import { Control_colorMixer } from '../../control/colorMixer';
+import { Control_color } from '../../control/color';
+import { Control_text } from '../../control/text';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -26,7 +37,7 @@ menuContentToolbar.style = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Style'));
 
-  const toolbarStyle = new ControlModule_radio({
+  const toolbarStyle = new Control_radio({
     object: state.get.current(),
     radioGroup: [
       { id: 'toolbar-style-transparent', labelText: 'Transparent', value: 'transparent' },
@@ -44,7 +55,7 @@ menuContentToolbar.style = function() {
     }
   });
 
-  const toolbarStyleHelper = new ControlModul_helperText({
+  const toolbarStyleHelper = new Control_helperText({
     text: ['Use the Bar style if the Toolbar is not visible with your Background.']
   });
 
@@ -61,7 +72,7 @@ menuContentToolbar.position = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Position'));
 
-  const toolbarPosition = new ControlModule_radioGrid({
+  const toolbarPosition = new Control_radioGrid({
     object: state.get.current(),
     radioGroup: [
       { id: 'toolbar-position-top-left', labelText: 'Top left', value: 'top-left', position: 1 },
@@ -83,7 +94,7 @@ menuContentToolbar.position = function() {
     }
   });
 
-  const toolbarPositionHelper = new ControlModul_helperText({
+  const toolbarPositionHelper = new Control_helperText({
     text: ['Position the Toolbar in one of the four corners of the window.']
   });
 

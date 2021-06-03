@@ -3,7 +3,6 @@ import { bookmark, currentBookmarkForm } from '../bookmark';
 import { fontawesome } from '../fontawesome';
 
 import { Button } from '../button';
-import { ControlModule_text } from '../control';
 
 import { ifValidString } from '../../utility/ifValidString';
 import { trimString } from '../../utility/trimString';

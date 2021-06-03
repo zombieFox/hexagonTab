@@ -14,7 +14,18 @@ import { link } from '../../link';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
-import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control';
+
+import { Control_helperText } from '../../control/helperText';
+import { Control_inputButton } from '../../control/inputButton';
+import { Control_groupText } from '../../control/groupText';
+import { Control_radio } from '../../control/radio';
+import { Control_radioGrid } from '../../control/radioGrid';
+import { Control_checkbox } from '../../control/checkbox';
+import { Control_slider } from '../../control/slider';
+import { Control_slimSlider } from '../../control/slimSlider';
+import { Control_colorMixer } from '../../control/colorMixer';
+import { Control_color } from '../../control/color';
+import { Control_text } from '../../control/text';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -24,7 +35,7 @@ const menuContentBookmark = {};
 menuContentBookmark.hover = function() {
   const menuContentItem = node('div|id:menu-content-item-hover,class:menu-content-item');
 
-  const bookmarkHoverSize = new ControlModule_slider({
+  const bookmarkHoverSize = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.hover.size',
     id: 'bookmark-hover-size',
@@ -39,7 +50,7 @@ menuContentBookmark.hover = function() {
     }
   });
 
-  const bookmarkHoverDistance = new ControlModule_slider({
+  const bookmarkHoverDistance = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.hover.distance',
     id: 'bookmark-hover-distance',
@@ -69,7 +80,7 @@ menuContentBookmark.hover = function() {
 menuContentBookmark.shadow = function() {
   const menuContentItem = node('div|id:menu-content-item-shadow,class:menu-content-item');
 
-  const bookmarkShadowDistance = new ControlModule_slider({
+  const bookmarkShadowDistance = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.shadow.distance',
     id: 'bookmark-shadow-distance',
@@ -84,7 +95,7 @@ menuContentBookmark.shadow = function() {
     }
   });
 
-  const bookmarkShadowBlur = new ControlModule_slider({
+  const bookmarkShadowBlur = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.shadow.blur',
     id: 'bookmark-shadow-blur',

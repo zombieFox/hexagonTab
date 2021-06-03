@@ -41,9 +41,9 @@ convertColor.rgb.hsl = function(rgb) {
   };
 
   return {
-    h: h,
-    s: s * 100,
-    l: l * 100
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100)
   };
 };
 
@@ -67,9 +67,9 @@ convertColor.hsl.rgb = function(hsl) {
   if (s === 0) {
     val = l * 255;
     return {
-      r: val,
-      g: val,
-      b: val
+      r: Math.round(val),
+      g: Math.round(val),
+      b: Math.round(val)
     };
   };
 
@@ -107,9 +107,9 @@ convertColor.hsl.rgb = function(hsl) {
   };
 
   return {
-    r: rgb[0],
-    g: rgb[1],
-    b: rgb[2]
+    r: Math.round(rgb[0]),
+    g: Math.round(rgb[1]),
+    b: Math.round(rgb[2])
   };
 };
 

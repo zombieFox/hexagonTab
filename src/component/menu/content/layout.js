@@ -14,7 +14,18 @@ import { link } from '../../link';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
-import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control';
+
+import { Control_helperText } from '../../control/helperText';
+import { Control_inputButton } from '../../control/inputButton';
+import { Control_groupText } from '../../control/groupText';
+import { Control_radio } from '../../control/radio';
+import { Control_radioGrid } from '../../control/radioGrid';
+import { Control_checkbox } from '../../control/checkbox';
+import { Control_slider } from '../../control/slider';
+import { Control_slimSlider } from '../../control/slimSlider';
+import { Control_colorMixer } from '../../control/colorMixer';
+import { Control_color } from '../../control/color';
+import { Control_text } from '../../control/text';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -24,7 +35,7 @@ const menuContentLayout = {};
 menuContentLayout.size = function() {
   const menuContentItem = node('div|id:menu-content-item-size,class:menu-content-item');
 
-  const gridSize = new ControlModule_slider({
+  const gridSize = new Control_slider({
     object: state.get.current(),
     path: 'grid.size',
     id: 'grid-size',
@@ -39,7 +50,7 @@ menuContentLayout.size = function() {
     }
   });
 
-  const gridSizeHelper = new ControlModul_helperText({
+  const gridSizeHelper = new Control_helperText({
     text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
   });
 
@@ -58,7 +69,7 @@ menuContentLayout.size = function() {
 menuContentLayout.grid = function() {
   const menuContentItem = node('div|id:menu-content-item-grid,class:menu-content-item');
 
-  const gridColumn = new ControlModule_slider({
+  const gridColumn = new Control_slider({
     object: state.get.current(),
     path: 'grid.column',
     id: 'grid-column',
@@ -75,7 +86,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridGap = new ControlModule_slider({
+  const gridGap = new Control_slider({
     object: state.get.current(),
     path: 'grid.gap',
     id: 'grid-gap',
@@ -90,7 +101,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridPerspective = new ControlModule_slider({
+  const gridPerspective = new Control_slider({
     object: state.get.current(),
     path: 'grid.perspective',
     id: 'grid-perspective',
@@ -105,7 +116,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridFocus = new ControlModule_slider({
+  const gridFocus = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.focus',
     id: 'grid-transform-focus',
@@ -119,7 +130,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridTransformRotateX = new ControlModule_slider({
+  const gridTransformRotateX = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.rotate.x',
     id: 'grid-transform-rotate-x',
@@ -135,7 +146,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridTransformRotateY = new ControlModule_slider({
+  const gridTransformRotateY = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.rotate.y',
     id: 'grid-transform-rotate-y',
@@ -151,7 +162,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  const gridTransformRotateZ = new ControlModule_slider({
+  const gridTransformRotateZ = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.rotate.z',
     id: 'grid-transform-rotate-z',

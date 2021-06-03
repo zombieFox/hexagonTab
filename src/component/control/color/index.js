@@ -1,0 +1,165 @@
+import { state } from '../../state';
+import { data } from '../../data';
+import { grid } from '../../grid';
+import { bookmark } from '../../bookmark';
+import { form } from '../../form';
+
+import { Button } from '../../button';
+import { Collapse } from '../../collapse';
+
+import { node } from '../../../utility/node';
+import { get } from '../../../utility/get';
+import { set } from '../../../utility/set';
+import { convertColor } from '../../../utility/convertColor';
+import { ifValidString } from '../../../utility/ifValidString';
+
+export const Control_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
+
+  this.label = form.render.label({
+    forInput: id,
+    text: labelText,
+    srOnly: srOnly
+  });
+
+  this.color = form.render.input.color({
+    id: id,
+    value: convertColor.rgb.hex(get({
+      object: object,
+      path: path
+    })),
+    classList: ['form-group-item-half'],
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: convertColor.hex.rgb(this.color.value)
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.text.value = convertColor.rgb.hex(get({
+        object: object,
+        path: path
+      }));
+    }
+  });
+
+  this.text = form.render.input.text({
+    value: convertColor.rgb.hex(get({
+      object: object,
+      path: path
+    })),
+    max: 7,
+    classList: ['form-group-item-half'],
+    placeholder: 'Hex code',
+    func: () => {
+      if (path) {
+        set({
+          object: object,
+          path: path,
+          value: convertColor.hex.rgb(this.text.value)
+        });
+      };
+      if (action) {
+        action();
+      };
+      this.update({ delay: true });
+    }
+  });
+
+  this.reset = new Button({
+    text: false,
+    iconName: 'replay',
+    style: ['line'],
+    classList: ['form-group-item-small'],
+    func: () => {
+      set({
+        object: object,
+        path: path,
+        value: JSON.parse(JSON.stringify(defaultValue))
+      });
+      this.update({ all: true });
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.update = ({ delay = false, all = false } = {}) => {
+    let delayedUpdate = null;
+    const updateControl = () => {
+      this.color.value = convertColor.rgb.hex(get({
+        object: object,
+        path: path
+      }));
+      if (all) {
+        this.text.value = convertColor.rgb.hex(get({
+          object: object,
+          path: path
+        }));
+      };
+    };
+
+    if (delay) {
+      clearTimeout(delayedUpdate);
+      delayedUpdate = setTimeout(updateControl, 2000);
+    } else {
+      updateControl();
+    };
+  };
+
+  this.wrap = () => {
+    const formGroup = form.render.group({
+      block: true,
+      children: [
+        this.color,
+        this.text
+      ]
+    });
+
+    if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
+      formGroup.appendChild(this.reset.button);
+    };
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        formGroup.appendChild(item.button);
+      });
+    };
+
+    const wrap = form.render.wrap([
+      this.label,
+      formGroup
+    ]);
+
+    return wrap;
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.color.disabled = true;
+    this.text.disabled = true;
+    this.reset.disable();
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        item.disable();
+      });
+    };
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.color.disabled = false;
+    this.text.disabled = false;
+    this.reset.enable();
+
+    if (extraButtons.length > 0) {
+      extraButtons.forEach((item, i) => {
+        item.enable();
+      });
+    };
+  };
+};

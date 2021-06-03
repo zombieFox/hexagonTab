@@ -9,9 +9,20 @@ import { Button } from '../button';
 import { Suggest } from '../autoSuggest';
 import { Collapse } from '../collapse';
 import { Tab } from '../tab';
-import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text, ControlModul_helperText } from '../control';
 import { Video } from '../video';
 import { HexTile } from '../hexTile';
+
+import { Control_helperText } from '../control/helperText';
+import { Control_inputButton } from '../control/inputButton';
+import { Control_groupText } from '../control/groupText';
+import { Control_radio } from '../control/radio';
+import { Control_radioGrid } from '../control/radioGrid';
+import { Control_checkbox } from '../control/checkbox';
+import { Control_slider } from '../control/slider';
+import { Control_slimSlider } from '../control/slimSlider';
+import { Control_colorMixer } from '../control/colorMixer';
+import { Control_color } from '../control/color';
+import { Control_text } from '../control/text';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -483,7 +494,7 @@ bookmark.form = function(bookmarkData) {
 
   const bookmarkFormMain = node('form|class:bookmark-form-main');
 
-  const displayVisualShow = new ControlModule_checkbox({
+  const displayVisualShow = new Control_checkbox({
     object: bookmarkData.link,
     path: 'display.visual.show',
     id: 'display-visual-show',
@@ -495,7 +506,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualType = new ControlModule_radio({
+  const displayVisualType = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'display-visual-type-letter', labelText: 'Letter', value: 'letter' },
@@ -510,7 +521,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeLetter = new ControlModule_text({
+  const displayVisualTypeLetter = new Control_text({
     object: bookmarkData.link,
     path: 'display.visual.letter.text',
     id: 'display-visual-letter-text',
@@ -523,7 +534,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeIcon = new ControlModule_text({
+  const displayVisualTypeIcon = new Control_text({
     object: bookmarkData.link,
     path: 'display.visual.icon.label',
     id: 'display-visual-icon-label',
@@ -536,7 +547,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeIconDisplay = new ControlModule_groupText({
+  const displayVisualTypeIconDisplay = new Control_groupText({
     classList: ['bookmark-form-text-icon', 'form-group-item-small']
   });
 
@@ -555,7 +566,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualTypeImage = new ControlModule_text({
+  const displayVisualTypeImage = new Control_text({
     object: bookmarkData.link,
     path: 'display.visual.image.url',
     id: 'display-visual-image-url',
@@ -568,7 +579,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualSize = new ControlModule_slimSlider({
+  const displayVisualSize = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.visual.size',
     id: 'display-visual-size',
@@ -582,7 +593,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualShowPropagate = new ControlModule_checkbox({
+  const displayVisualShowPropagate = new Control_checkbox({
     object: bookmark.mod.propagate.state.current,
     path: 'visual',
     id: 'apply-to-all-visual',
@@ -590,7 +601,7 @@ bookmark.form = function(bookmarkData) {
     description: 'When saved, apply the above Visual Element visibility to all other Bookmarks.'
   });
 
-  const displayNameShow = new ControlModule_checkbox({
+  const displayNameShow = new Control_checkbox({
     object: bookmarkData.link,
     path: 'display.name.show',
     id: 'display-name-show',
@@ -601,7 +612,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameText = new ControlModule_text({
+  const displayNameText = new Control_text({
     object: bookmarkData.link,
     path: 'display.name.text',
     id: 'display-name-text',
@@ -614,7 +625,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameSize = new ControlModule_slimSlider({
+  const displayNameSize = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.name.size',
     id: 'display-name-size',
@@ -628,7 +639,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayNameShowPropagate = new ControlModule_checkbox({
+  const displayNameShowPropagate = new Control_checkbox({
     object: bookmark.mod.propagate.state.current,
     path: 'name',
     id: 'apply-to-all-name',
@@ -636,7 +647,7 @@ bookmark.form = function(bookmarkData) {
     description: 'When saved, apply the above Name visibility to all other Bookmarks.'
   });
 
-  const url = new ControlModule_text({
+  const url = new Control_text({
     object: bookmarkData.link,
     path: 'url',
     id: 'url',
@@ -645,7 +656,7 @@ bookmark.form = function(bookmarkData) {
     labelText: 'URL'
   });
 
-  const colorBy = new ControlModule_radio({
+  const colorBy = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'color-by-theme', labelText: 'Theme colour', description: 'Use the Colour defined by the Theme.', value: 'theme' },
@@ -660,7 +671,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const colorMixer = new ControlModule_colorMixer({
+  const colorMixer = new Control_colorMixer({
     object: bookmarkData.link,
     path: 'color',
     id: 'color',
@@ -672,7 +683,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const accentBy = new ControlModule_radio({
+  const accentBy = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'accent-by-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
@@ -687,7 +698,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const accentMixer = new ControlModule_colorMixer({
+  const accentMixer = new Control_colorMixer({
     object: bookmarkData.link,
     path: 'accent',
     id: 'accent',
@@ -699,7 +710,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayTranslateX = new ControlModule_slimSlider({
+  const displayTranslateX = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.translate.x',
     id: 'display-translate-x',
@@ -713,7 +724,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayTranslateY = new ControlModule_slimSlider({
+  const displayTranslateY = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.translate.y',
     id: 'display-translate-y',
@@ -727,7 +738,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayRotate = new ControlModule_slimSlider({
+  const displayRotate = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.rotate',
     id: 'display-rotate',
@@ -741,7 +752,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualDirection = new ControlModule_radio({
+  const displayVisualDirection = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'display-direction-vertical', labelText: 'Vertical', description: 'Stack the Visual Element and Name one above the other.', value: 'vertical' },
@@ -755,7 +766,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualOrder = new ControlModule_radio({
+  const displayVisualOrder = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name.', value: 'visual-name' },
@@ -769,7 +780,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayGutter = new ControlModule_slimSlider({
+  const displayGutter = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'display.gutter',
     id: 'display-gutter',
@@ -783,7 +794,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayLayoutPropagate = new ControlModule_checkbox({
+  const displayLayoutPropagate = new Control_checkbox({
     object: bookmark.mod.propagate.state.current,
     path: 'layout',
     id: 'apply-to-all-layout',
@@ -823,7 +834,7 @@ bookmark.form = function(bookmarkData) {
 
   colorMixerCollapse.update();
 
-  const backgroundShow = new ControlModule_checkbox({
+  const backgroundShow = new Control_checkbox({
     object: bookmarkData.link,
     path: 'background.show',
     id: 'background-show',
@@ -835,7 +846,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundType = new ControlModule_radio({
+  const backgroundType = new Control_radio({
     object: bookmarkData.link,
     radioGroup: [
       { id: 'background-type-image', labelText: 'Image', value: 'image' },
@@ -849,7 +860,7 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundImageUrl = new ControlModule_text({
+  const backgroundImageUrl = new Control_text({
     object: bookmarkData.link,
     path: 'background.image.url',
     id: 'background-image-url',
@@ -862,11 +873,11 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundImageUrlHelper = new ControlModul_helperText({
+  const backgroundImageUrlHelper = new Control_helperText({
     text: ['Background image only supports a direct URL to an image file.']
   });
 
-  const backgroundVideoUrl = new ControlModule_text({
+  const backgroundVideoUrl = new Control_text({
     object: bookmarkData.link,
     path: 'background.video.url',
     id: 'background-video-url',
@@ -879,11 +890,11 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const backgroundVideoUrlHelper = new ControlModul_helperText({
+  const backgroundVideoUrlHelper = new Control_helperText({
     text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
-  const backgroundOpacity = new ControlModule_slimSlider({
+  const backgroundOpacity = new Control_slimSlider({
     object: bookmarkData.link,
     path: 'background.opacity',
     id: 'background-opacity',

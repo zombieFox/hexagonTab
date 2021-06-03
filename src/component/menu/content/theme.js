@@ -14,7 +14,18 @@ import { link } from '../../link';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
-import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control';
+
+import { Control_helperText } from '../../control/helperText';
+import { Control_inputButton } from '../../control/inputButton';
+import { Control_groupText } from '../../control/groupText';
+import { Control_radio } from '../../control/radio';
+import { Control_radioGrid } from '../../control/radioGrid';
+import { Control_checkbox } from '../../control/checkbox';
+import { Control_slider } from '../../control/slider';
+import { Control_slimSlider } from '../../control/slimSlider';
+import { Control_colorMixer } from '../../control/colorMixer';
+import { Control_color } from '../../control/color';
+import { Control_text } from '../../control/text';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -30,7 +41,7 @@ menuContentTheme.style = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Style'));
 
-  const themeStyle = new ControlModule_radio({
+  const themeStyle = new Control_radio({
     object: state.get.current(),
     radioGroup: [
       { id: 'theme-style-dark', labelText: 'Dark mode', description: false, value: 'dark' },
@@ -60,11 +71,11 @@ menuContentTheme.color = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Colour'));
 
-  const shadesHelper = new ControlModul_helperText({
+  const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
 
-  const themeColorRangePrimaryH = new ControlModule_slider({
+  const themeColorRangePrimaryH = new Control_slider({
     object: state.get.current(),
     path: 'theme.color.range.primary.h',
     id: 'theme-color-range-primary-h',
@@ -80,7 +91,7 @@ menuContentTheme.color = function() {
     }
   });
 
-  const themeColorRangePrimaryS = new ControlModule_slider({
+  const themeColorRangePrimaryS = new Control_slider({
     object: state.get.current(),
     path: 'theme.color.range.primary.s',
     id: 'theme-color-range-primary-s',
@@ -95,7 +106,7 @@ menuContentTheme.color = function() {
     }
   });
 
-  const themeColorRangeContrast = new ControlModule_slider({
+  const themeColorRangeContrast = new Control_slider({
     object: state.get.current(),
     path: 'theme.color.lightness.contrast',
     id: 'theme-color-range-contrast',
@@ -158,7 +169,7 @@ menuContentTheme.accent = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Accent'));
 
-  const themeAccentMixer = new ControlModule_colorMixer({
+  const themeAccentMixer = new Control_colorMixer({
     object: state.get.current(),
     path: 'theme.accent',
     id: 'theme-accent',
@@ -187,7 +198,7 @@ menuContentTheme.bookmark = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Bookmark'));
 
-  const themeBookmarkShadowColorBy = new ControlModule_radio({
+  const themeBookmarkShadowColorBy = new Control_radio({
     object: state.get.current(),
     radioGroup: [
       { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
@@ -202,7 +213,7 @@ menuContentTheme.bookmark = function() {
     }
   });
 
-  const themeBookmarkShadowColor = new ControlModule_colorMixer({
+  const themeBookmarkShadowColor = new Control_colorMixer({
     object: state.get.current(),
     path: 'theme.bookmark.shadow.color',
     id: 'theme-bookmark-shadow-color',
@@ -216,7 +227,7 @@ menuContentTheme.bookmark = function() {
     }
   });
 
-  const themeBookmarkShadowOpacity = new ControlModule_slider({
+  const themeBookmarkShadowOpacity = new Control_slider({
     object: state.get.current(),
     path: 'theme.bookmark.shadow.opacity',
     id: 'theme-bookmark-shadow-opacity',
@@ -271,7 +282,7 @@ menuContentTheme.background = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Background'));
 
-  const themeBackgroundType = new ControlModule_radio({
+  const themeBackgroundType = new Control_radio({
     object: state.get.current(),
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
@@ -293,7 +304,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundColorMixer = new ControlModule_colorMixer({
+  const themeBackgroundColorMixer = new Control_colorMixer({
     object: state.get.current(),
     path: 'theme.background.color',
     id: 'theme-background-color',
@@ -307,7 +318,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundGradientAngle = new ControlModule_slider({
+  const themeBackgroundGradientAngle = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.gradient.angle',
     id: 'theme-background-gradient-angle',
@@ -323,7 +334,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundGradientStartMixer = new ControlModule_colorMixer({
+  const themeBackgroundGradientStartMixer = new Control_colorMixer({
     object: state.get.current(),
     path: 'theme.background.gradient.start',
     id: 'theme-background-gradient-start',
@@ -337,7 +348,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundGradientEndMixer = new ControlModule_colorMixer({
+  const themeBackgroundGradientEndMixer = new Control_colorMixer({
     object: state.get.current(),
     path: 'theme.background.gradient.end',
     id: 'theme-background-gradient-end',
@@ -351,7 +362,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageUrl = new ControlModule_text({
+  const themeBackgroundImageUrl = new Control_text({
     object: state.get.current(),
     path: 'theme.background.image.url',
     id: 'theme-background-image-url',
@@ -364,11 +375,11 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageUrlHelper = new ControlModul_helperText({
+  const themeBackgroundImageUrlHelper = new Control_helperText({
     text: ['Background image only supports a direct URL to an image file.']
   });
 
-  const themeBackgroundImageBlur = new ControlModule_slider({
+  const themeBackgroundImageBlur = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.image.blur',
     id: 'theme-background-image-blur',
@@ -383,7 +394,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageScale = new ControlModule_slider({
+  const themeBackgroundImageScale = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.image.scale',
     id: 'theme-background-image-scale',
@@ -398,7 +409,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundImageOpacity = new ControlModule_slider({
+  const themeBackgroundImageOpacity = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.image.opacity',
     id: 'theme-background-image-opacity',
@@ -413,7 +424,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoUrl = new ControlModule_text({
+  const themeBackgroundVideoUrl = new Control_text({
     object: state.get.current(),
     path: 'theme.background.video.url',
     id: 'theme-background-video-url',
@@ -428,11 +439,11 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoUrlHelper = new ControlModul_helperText({
+  const themeBackgroundVideoUrlHelper = new Control_helperText({
     text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
   });
 
-  const themeBackgroundVideoBlur = new ControlModule_slider({
+  const themeBackgroundVideoBlur = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.video.blur',
     id: 'theme-background-video-blur',
@@ -447,7 +458,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoScale = new ControlModule_slider({
+  const themeBackgroundVideoScale = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.video.scale',
     id: 'theme-background-video-scale',
@@ -462,7 +473,7 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundVideoOpacity = new ControlModule_slider({
+  const themeBackgroundVideoOpacity = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.video.opacity',
     id: 'theme-background-video-opacity',

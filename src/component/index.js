@@ -23,7 +23,6 @@ import { Button } from './button';
 import { Suggest } from './autoSuggest';
 import { Collapse } from './collapse';
 import { Tab } from './tab';
-import { ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from './control';
 
 export const component = {
   base,
@@ -49,13 +48,5 @@ export const component = {
   Button,
   Suggest,
   Collapse,
-  Tab,
-  ControlModule_groupText,
-  ControlModule_radio,
-  ControlModule_checkbox,
-  ControlModule_slider,
-  ControlModule_slimSlider,
-  ControlModule_colorMixer,
-  ControlModule_color,
-  ControlModule_text
+  Tab
 };

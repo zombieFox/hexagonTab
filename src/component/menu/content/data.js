@@ -14,7 +14,18 @@ import { link } from '../../link';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
-import { ControlModul_helperText, ControlModule_inputButton, ControlModule_groupText, ControlModule_radio, ControlModule_checkbox, ControlModule_slider, ControlModule_slimSlider, ControlModule_colorMixer, ControlModule_color, ControlModule_text } from '../../control';
+
+import { Control_helperText } from '../../control/helperText';
+import { Control_inputButton } from '../../control/inputButton';
+import { Control_groupText } from '../../control/groupText';
+import { Control_radio } from '../../control/radio';
+import { Control_radioGrid } from '../../control/radioGrid';
+import { Control_checkbox } from '../../control/checkbox';
+import { Control_slider } from '../../control/slider';
+import { Control_slimSlider } from '../../control/slimSlider';
+import { Control_colorMixer } from '../../control/colorMixer';
+import { Control_color } from '../../control/color';
+import { Control_text } from '../../control/text';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -30,7 +41,7 @@ menuContentData.import = function() {
 
   data.render.feedback.empty(importFeedback);
 
-  const importButton = new ControlModule_inputButton({
+  const importButton = new Control_inputButton({
     id: 'name',
     type: 'file',
     inputHide: true,
@@ -40,7 +51,7 @@ menuContentData.import = function() {
     }
   });
 
-  const importHelper = new ControlModul_helperText({
+  const importHelper = new Control_helperText({
     text: ['Restore a previously exported ' + data.saveName + ' backup.']
   });
 
@@ -70,7 +81,7 @@ menuContentData.backup = function() {
     }
   });
 
-  const exportHelper = new ControlModul_helperText({
+  const exportHelper = new Control_helperText({
     text: ['Download a backup of your ' + data.saveName + ' Bookmarks and Settings.', 'This file can later be imported on this or another deivce.']
   });
 
@@ -98,7 +109,7 @@ menuContentData.clear = function() {
     }
   });
 
-  const clearHelper = new ControlModul_helperText({
+  const clearHelper = new Control_helperText({
     text: ['Wipe all data and restore ' + data.saveName + ' to the default state.']
   });
 
