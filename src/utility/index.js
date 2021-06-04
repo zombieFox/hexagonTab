@@ -2,7 +2,7 @@ import { complexNode } from './complexNode';
 import { convertColor } from './convertColor';
 import { dateTime } from './dateTime';
 import { get } from './get';
-import { ifValidString } from './ifValidString';
+import { isValidString } from './isValidString';
 import { isJson } from './isJson';
 import { makePath } from './makePath';
 import { node } from './node';
@@ -14,7 +14,7 @@ export const utility = {
   convertColor,
   dateTime,
   get,
-  ifValidString,
+  isValidString,
   isJson,
   makePath,
   node,

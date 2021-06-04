@@ -12,7 +12,7 @@ import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
-import { ifValidString } from '../../../utility/ifValidString';
+import { isValidString } from '../../../utility/isValidString';
 
 import { Control_color } from '../color';
 import { Control_slimSlider } from '../slimSlider';

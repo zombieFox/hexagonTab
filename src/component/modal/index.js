@@ -6,7 +6,7 @@ import { Button } from '../button';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
-import { ifValidString } from '../../utility/ifValidString';
+import { isValidString } from '../../utility/isValidString';
 
 import './index.css';
 
@@ -210,7 +210,7 @@ modal.render.open = function({ heading = 'Heading', content = 'Body', successAct
 
   let headingText = null;
 
-  if (heading && ifValidString(heading)) {
+  if (heading && isValidString(heading)) {
     if (heading.length > maxHeadingLength) {
       heading = heading.substring(0, maxHeadingLength).replace(/\s+$/, '') + '...';
     };

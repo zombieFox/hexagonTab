@@ -4,7 +4,7 @@ import { data } from '../data';
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
-import { ifValidString } from '../../utility/ifValidString';
+import { isValidString } from '../../utility/isValidString';
 
 const Video = function({ url = false } = {}) {
 
@@ -14,7 +14,7 @@ const Video = function({ url = false } = {}) {
 
   this.video.appendChild(this.source);
 
-  if (ifValidString(url)) {
+  if (isValidString(url)) {
 
     this.source.src = url;
 

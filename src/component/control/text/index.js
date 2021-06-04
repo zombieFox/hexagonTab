@@ -12,7 +12,7 @@ import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
-import { ifValidString } from '../../../utility/ifValidString';
+import { isValidString } from '../../../utility/isValidString';
 
 export const Control_text = function({ object = {}, path = false, id = 'name', value = false, min = false, max = false, placeholder = false, classList = [], labelText = 'Name', srOnly = false, action = false } = {}) {
 

@@ -12,7 +12,7 @@ import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
-import { ifValidString } from '../../../utility/ifValidString';
+import { isValidString } from '../../../utility/isValidString';
 
 export const Control_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
 

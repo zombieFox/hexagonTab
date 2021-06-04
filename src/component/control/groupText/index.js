@@ -12,7 +12,7 @@ import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
-import { ifValidString } from '../../../utility/ifValidString';
+import { isValidString } from '../../../utility/isValidString';
 
 export const Control_groupText = function({ text = false, classList = [] } = {}) {
 
@@ -25,7 +25,7 @@ export const Control_groupText = function({ text = false, classList = [] } = {})
     while (this.groupText.lastChild) {
       this.groupText.removeChild(this.groupText.lastChild);
     };
-    if (typeof content === 'string' && ifValidString(content)) {
+    if (typeof content === 'string' && isValidString(content)) {
       this.groupText.textContent = content;
     } else if (content && content != '') {
       this.groupText.appendChild(content);

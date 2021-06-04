@@ -9,7 +9,7 @@ import { bookmark, StagedLink } from '../bookmark';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
-import { ifValidString } from '../../utility/ifValidString';
+import { isValidString } from '../../utility/isValidString';
 import { trimString } from '../../utility/trimString';
 
 const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, preview = false } = {}) {
@@ -59,7 +59,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
     this.element.bookmark.style.setProperty('--bookmark-column-start', column);
 
-    if (ifValidString(bookmarkData.url) && !preview) {
+    if (isValidString(bookmarkData.url) && !preview) {
       this.element.content.link.setAttribute('href', trimString(bookmarkData.url));
     } else {
       this.element.content.link.setAttribute('href', '#');
@@ -149,7 +149,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
       switch (bookmarkData.background.type) {
         case 'image':
-          if (ifValidString(bookmarkData.background.image.url)) {
+          if (isValidString(bookmarkData.background.image.url)) {
             this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.background.image.url) + ')');
           };
           break;
@@ -240,7 +240,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       classList: ['bookmark-control-button', 'bookmark-control-remove'],
       func: () => {
         let heading;
-        if (ifValidString(bookmarkData.display.name.text)) {
+        if (isValidString(bookmarkData.display.name.text)) {
           heading = 'Remove ' + bookmarkData.display.name.text;
         } else {
           heading = 'Remove unnamed bookmark';
@@ -283,14 +283,14 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       if (bookmarkData.display.visual.show) {
         switch (bookmarkData.display.visual.type) {
           case 'letter':
-            if (ifValidString(bookmarkData.display.visual.letter.text)) {
+            if (isValidString(bookmarkData.display.visual.letter.text)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
             break;
 
           case 'icon':
-            if (ifValidString(bookmarkData.display.visual.icon.name)) {
+            if (isValidString(bookmarkData.display.visual.icon.name)) {
               this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
@@ -298,7 +298,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
             break;
 
           case 'image':
-            if (ifValidString(bookmarkData.display.visual.image.url)) {
+            if (isValidString(bookmarkData.display.visual.image.url)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
@@ -306,7 +306,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
         };
       };
 
-      if (bookmarkData.display.name.show && ifValidString(bookmarkData.display.name.text)) {
+      if (bookmarkData.display.name.show && isValidString(bookmarkData.display.name.text)) {
         this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
         this.element.content.display.display.appendChild(this.element.content.display.name.name);
       };
@@ -326,7 +326,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
         case 'video':
           this.element.content.background.wrap.appendChild(this.element.content.background.video);
 
-          if (ifValidString(bookmarkData.background.video.url)) {
+          if (isValidString(bookmarkData.background.video.url)) {
             const backgroundVideoElement = new Video({
               url: bookmarkData.background.video.url
             });

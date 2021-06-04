@@ -4,7 +4,7 @@ import { fontawesome } from '../fontawesome';
 
 import { Button } from '../button';
 
-import { ifValidString } from '../../utility/ifValidString';
+import { isValidString } from '../../utility/isValidString';
 import { trimString } from '../../utility/trimString';
 import { node } from '../../utility/node';
 
@@ -34,7 +34,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
   this.suggestItems = () => {
     const suggestType = {
       fontawesomeIcon: (string) => {
-        if (ifValidString(string)) {
+        if (isValidString(string)) {
 
           return fontawesome.filter((item) => {
             let match = false;

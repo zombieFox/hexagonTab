@@ -28,7 +28,7 @@ import { Control_text } from '../control/text';
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
 import { convertColor } from '../../utility/convertColor';
-import { ifValidString } from '../../utility/ifValidString';
+import { isValidString } from '../../utility/isValidString';
 import { trimString } from '../../utility/trimString';
 
 import './index.css';
@@ -1176,7 +1176,7 @@ bookmark.form = function(bookmarkData) {
 
   bookmarkForm.appendChild(bookmarkFormAside);
 
-  if (ifValidString(bookmarkData.link.display.visual.icon.prefix) && ifValidString(bookmarkData.link.display.visual.icon.name)) {
+  if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
     displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
   } else {
     displayVisualTypeIconDisplay.update();
@@ -1321,7 +1321,7 @@ bookmark.form = function(bookmarkData) {
     displayVisualType.update();
     displayVisualTypeLetter.update();
     displayVisualTypeIcon.update();
-    if (ifValidString(bookmarkData.link.display.visual.icon.prefix) && ifValidString(bookmarkData.link.display.visual.icon.name)) {
+    if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
       displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
     } else {
       displayVisualTypeIconDisplay.update();

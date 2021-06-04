@@ -12,7 +12,7 @@ import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
-import { ifValidString } from '../../../utility/ifValidString';
+import { isValidString } from '../../../utility/isValidString';
 import { minMax } from '../../../utility/minMax';
 
 export const Control_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {

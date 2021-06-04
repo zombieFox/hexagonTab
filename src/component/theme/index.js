@@ -6,7 +6,7 @@ import { Video } from '../video';
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
-import { ifValidString } from '../../utility/ifValidString';
+import { isValidString } from '../../utility/isValidString';
 
 import './index.css';
 
@@ -191,7 +191,7 @@ theme.render.background.image = {};
 theme.render.background.image.set = function() {
   const html = document.querySelector('html');
 
-  if (ifValidString(state.get.current().theme.background.image.url)) {
+  if (isValidString(state.get.current().theme.background.image.url)) {
     html.style.setProperty('--theme-background-image', 'url(' + trimString(state.get.current().theme.background.image.url) + ')');
   } else {
     html.style.removeProperty('--theme-background-image');
@@ -217,7 +217,7 @@ theme.render.background.video.set = function() {
 };
 
 theme.render.background.video.add = function() {
-  if (ifValidString(state.get.current().theme.background.video.url)) {
+  if (isValidString(state.get.current().theme.background.video.url)) {
 
     const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
