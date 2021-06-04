@@ -4,7 +4,6 @@ import { data } from './data';
 import { version } from './version';
 import { autoSuggest } from './autoSuggest';
 import { fontawesome } from './fontawesome';
-import { form } from './form';
 import { grid } from './grid';
 import { icon } from './icon';
 import { keyboard } from './keyboard';
@@ -18,6 +17,8 @@ import { theme } from './theme';
 import { toolbar } from './toolbar';
 import { update } from './update';
 import { bookmark } from './bookmark';
+
+import * as form from './form';
 
 import { Button } from './button';
 import { Suggest } from './autoSuggest';

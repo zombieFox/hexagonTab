@@ -1,0 +1,19 @@
+.form-wrap {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.form-wrap:not(:first-child) {
+  margin-top: var(--form-space);
+}
+
+.form-wrap:not(:last-child) {
+  margin-bottom: var(--form-space);
+}
+
+.form-wrap-hide-space:not(:first-child),
+.form-wrap-hide-space:not(:last-child) {
+  margin-top: calc(var(--form-space) * -1);
+  margin-bottom: 0;
+}

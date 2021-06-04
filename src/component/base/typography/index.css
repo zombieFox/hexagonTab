@@ -68,7 +68,7 @@ hr {
   border: 0;
   border-top: var(--layout-horizontal-rule-small);
   border-radius: var(--theme-radius-base);
-  margin: calc(var(--form-wrap-space) * 2) 0;
+  margin: calc(var(--form-space) * 2) 0;
   clear: both;
   transition: border-color var(--layout-transition-extra-fast);
 }

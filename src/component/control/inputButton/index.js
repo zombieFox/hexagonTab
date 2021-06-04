@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -19,7 +20,7 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
 
   switch (type) {
     case 'file':
-      this.input = form.render.input.file({
+      this.input = form.input.file({
         id: id,
         func: () => {
           if (action) {
@@ -31,7 +32,7 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
       break;
 
     case 'color':
-      this.input = form.render.input.color({
+      this.input = form.input.color({
         id: id,
         value: convertColor.rgb.hex(get({
           object: object,
@@ -55,7 +56,7 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
       break;
   };
 
-  this.label = form.render.label({
+  this.label = form.label({
     text: labelText,
     forInput: id
   });
@@ -115,9 +116,11 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
   };
 
   this.wrap = () => {
-    return form.render.wrap([
-      this.button
-    ])
+    return form.wrap({
+      children: [
+        this.button
+      ]
+    })
   };
 
   this.disable = () => {
@@ -129,4 +132,5 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
     this.label.classList.remove('disabled');
     this.input.disabled = false;
   };
+
 };

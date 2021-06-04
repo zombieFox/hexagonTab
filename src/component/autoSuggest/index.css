@@ -24,7 +24,7 @@
 .auto-suggest-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
-  grid-gap: calc(var(--form-wrap-space) / 2);
+  grid-gap: calc(var(--form-space) / 2);
 }
 
 .auto-suggest-item {

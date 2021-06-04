@@ -1,0 +1,39 @@
+:root {
+  --form-feedback-background: var(--theme-primary-200);
+  --form-feedback-background-disabled: var(--theme-primary-100);
+  --form-feedback-text: var(--theme-primary-text-200);
+  --form-feedback-text-muted: var(--theme-primary-700);
+  --form-feedback-text-disabled: var(--theme-primary-300);
+  --form-feedback-border: var(--theme-primary-300);
+  --form-feedback-border-disabled: var(--theme-primary-100);
+}
+
+.form-feedback {
+  padding: 0.75em 1.25em;
+  background-color: hsl(var(--form-feedback-background));
+  border: 0;
+  border-left-width: calc(var(--layout-line-width) * 2);
+  border-left-style: solid;
+  border-left-color: hsl(var(--form-feedback-border));
+  border-top-right-radius: var(--theme-radius-base);
+  border-bottom-right-radius: var(--theme-radius-base);
+  width: 100%;
+  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);
+}
+
+.form-feedback p {
+  color: hsl(var(--form-feedback-text));
+}
+
+.form-feedback p.muted {
+  color: hsl(var(--form-feedback-text-muted));
+}
+
+.form-feedback.disabled {
+  background-color: hsl(var(--form-feedback-background-disabled));
+  border-color: hsl(var(--form-feedback-border-disabled));
+}
+
+.form-feedback.disabled p {
+  color: hsl(var(--form-feedback-text-disabled));
+}

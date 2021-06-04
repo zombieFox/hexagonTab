@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -14,17 +15,18 @@ import { convertColor } from '../../../utility/convertColor';
 import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_helperText = function({ text = [] } = {}) {
+
   this.para = [];
 
   text.forEach((item, i) => {
-    this.para.push(form.render.helper({
+    this.para.push(form.helper({
       tag: 'p',
       text: item
     }));
   });
 
   this.wrap = () => {
-    const formWrap = form.render.wrap();
+    const formWrap = form.wrap();
 
     this.para.forEach((item, i) => {
       formWrap.appendChild(item);
@@ -44,4 +46,5 @@ export const Control_helperText = function({ text = [] } = {}) {
       item.classList.remove('disabled');
     });
   };
+
 };

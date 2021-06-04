@@ -1,6 +1,5 @@
 import { state } from '../../../state';
 import { data } from '../../../data';
-import { form } from '../../../form';
 import { bookmark } from '../../../bookmark';
 import { theme } from '../../../theme';
 import { toolbar } from '../../../toolbar';
@@ -11,6 +10,8 @@ import { menu } from '../../../menu';
 import { icon } from '../../../icon';
 import { logo } from '../../../logo';
 import { link } from '../../../link';
+
+import * as form from '../../../form';
 
 import { Button } from '../../../button';
 import { Collapse } from '../../../collapse';
@@ -126,11 +127,15 @@ menuContentTheme.color = function() {
 
   menuContentItem.appendChild(
     menu.render.component.item.form([
-      form.render.sticky([
-        form.render.wrap([
-          menuContentTheme.shades()
-        ])
-      ]),
+      form.sticky({
+        children: [
+          form.wrap({
+            children: [
+              menuContentTheme.shades()
+            ]
+          })
+        ]
+      }),
       shadesHelper.wrap(),
       node('hr'),
       themeColorRangePrimaryH.wrap(),
@@ -143,7 +148,10 @@ menuContentTheme.color = function() {
 };
 
 menuContentTheme.shades = function() {
-  const formGroup = node('div|class:form-group form-group-block form-group-border form-group-border-theme-color');
+  const formGroup = form.group({
+    block: true,
+    border: true
+  });
 
   const shadeCount = state.get.current().theme.color.shades;
 
@@ -259,19 +267,25 @@ menuContentTheme.bookmark = function() {
   themeBookmarkShadowColorByCollapse.update();
 
   menuContentItem.appendChild(menu.render.component.item.form([
-    form.render.wrap([
-      form.render.label({
-        text: 'Bookmark shadow colour'
-      })
-    ]),
+    form.wrap({
+      children: [
+        form.label({
+          text: 'Bookmark shadow colour'
+        })
+      ]
+    }),
     themeBookmarkShadowColorBy.wrap(),
-    form.render.wrap([
-      form.render.indent([
-        themeBookmarkShadowColorByCollapse.collapse(),
-        node('hr'),
-        themeBookmarkShadowOpacity.wrap()
-      ])
-    ])
+    form.wrap({
+      children: [
+        form.indent({
+          children: [
+            themeBookmarkShadowColorByCollapse.collapse(),
+            node('hr'),
+            themeBookmarkShadowOpacity.wrap()
+          ]
+        })
+      ]
+    })
   ]));
 
   return menuContentItem;
@@ -544,11 +558,15 @@ menuContentTheme.background = function() {
 
   menuContentItem.appendChild(menu.render.component.item.form([
     themeBackgroundType.wrap(),
-    form.render.wrap([
-      form.render.indent([
-        themeBackgroundCollapse.collapse()
-      ])
-    ])
+    form.wrap({
+      children: [
+        form.indent({
+          children: [
+            themeBackgroundCollapse.collapse()
+          ]
+        })
+      ]
+    })
   ]));
 
   const updateVideoPlayState = () => {

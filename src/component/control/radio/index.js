@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -14,6 +15,7 @@ import { convertColor } from '../../../utility/convertColor';
 import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
+
   this.radioSet = [];
 
   const radioGroupName = groupName;
@@ -23,7 +25,7 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
   if (radioGroup.length > 0) {
     radioGroup.forEach((item, i) => {
       const radioAndLabel = {
-        radio: form.render.input.radio({
+        radio: form.input.radio({
           id: item.id,
           radioGroup: radioGroupName,
           value: item.value,
@@ -42,17 +44,19 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
             };
           }
         }),
-        label: form.render.label({
+        label: form.label({
           forInput: item.id,
           text: item.labelText,
           description: item.description,
           icon: true
         }),
         wrap: () => {
-          return form.render.wrap([
-            radioAndLabel.radio,
-            radioAndLabel.label
-          ]);
+          return form.wrap({
+            children: [
+              radioAndLabel.radio,
+              radioAndLabel.label
+            ]
+          });
         }
       };
 
@@ -94,14 +98,16 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
   };
 
   this.wrap = () => {
-    const group = form.render.wrap();
+    const group = form.wrap();
 
     this.radioSet.forEach((item, i) => {
       group.appendChild(
-        form.render.wrap([
-          item.radio,
-          item.label
-        ])
+        form.wrap({
+          children: [
+            item.radio,
+            item.label
+          ]
+        })
       );
     });
 
@@ -109,19 +115,21 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
   };
 
   this.inline = () => {
-    const formGroup = form.render.wrap();
+    const formGroup = form.wrap();
 
-    const formInline = form.render.inline({
+    const formInline = form.inline({
       gap: 'large',
       wrap: true
     });
 
     this.radioSet.forEach((item, i) => {
       formInline.appendChild(
-        form.render.wrap([
-          item.radio,
-          item.label
-        ])
+        form.wrap({
+          children: [
+            item.radio,
+            item.label
+          ]
+        })
       );
     });
 
@@ -141,4 +149,5 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
       item.radio.enable();
     });
   };
+
 };

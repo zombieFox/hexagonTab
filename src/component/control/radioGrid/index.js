@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -14,18 +15,19 @@ import { convertColor } from '../../../utility/convertColor';
 import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
+
   this.radioSet = [];
 
   const radioGroupName = groupName;
 
   const radioGroupPath = path;
 
-  const gridElement = form.render.grid();
+  const gridElement = form.grid();
 
   let gridLabel = false;
 
   if (label) {
-    gridLabel = form.render.label({
+    gridLabel = form.label({
       text: label
     });
   };
@@ -36,7 +38,7 @@ export const Control_radioGrid = function({ radioGroup = [], label = false, obje
 
       radioAndLabel.position = item.position;
 
-      radioAndLabel.radio = form.render.input.radio({
+      radioAndLabel.radio = form.input.radio({
         id: item.id,
         radioGroup: radioGroupName,
         value: item.value,
@@ -56,7 +58,7 @@ export const Control_radioGrid = function({ radioGroup = [], label = false, obje
         }
       });
 
-      radioAndLabel.label = form.render.label({
+      radioAndLabel.label = form.label({
         forInput: item.id,
         text: item.labelText,
         description: item.description,
@@ -65,10 +67,12 @@ export const Control_radioGrid = function({ radioGroup = [], label = false, obje
       });
 
       radioAndLabel.wrap = () => {
-        return form.render.wrap([
-          radioAndLabel.radio,
-          radioAndLabel.label
-        ]);
+        return form.wrap({
+          children: [
+            radioAndLabel.radio,
+            radioAndLabel.label
+          ]
+        });
       };
 
       radioAndLabel.radio.update = () => {
@@ -109,7 +113,7 @@ export const Control_radioGrid = function({ radioGroup = [], label = false, obje
   };
 
   this.grid = () => {
-    const wrap = form.render.wrap();
+    const wrap = form.wrap();
 
     switch (gridSize) {
       case '3x3':
@@ -130,10 +134,12 @@ export const Control_radioGrid = function({ radioGroup = [], label = false, obje
     };
 
     this.radioSet.forEach((item, i) => {
-      const wrap = form.render.wrap([
-        item.radio,
-        item.label
-      ]);
+      const wrap = form.wrap({
+        children: [
+          item.radio,
+          item.label
+        ]
+      });
 
       wrap.style.setProperty('--form-grid-cell', 'cell-' + item.position);
 
@@ -172,4 +178,5 @@ export const Control_radioGrid = function({ radioGroup = [], label = false, obje
       gridLabel.classList.remove('disabled');
     };
   };
+
 };

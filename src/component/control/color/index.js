@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -15,13 +16,13 @@ import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
 
-  this.label = form.render.label({
+  this.label = form.label({
     forInput: id,
     text: labelText,
     srOnly: srOnly
   });
 
-  this.color = form.render.input.color({
+  this.color = form.input.color({
     id: id,
     value: convertColor.rgb.hex(get({
       object: object,
@@ -46,7 +47,7 @@ export const Control_color = function({ object = {}, path = false, id = 'name', 
     }
   });
 
-  this.text = form.render.input.text({
+  this.text = form.input.text({
     value: convertColor.rgb.hex(get({
       object: object,
       path: path
@@ -111,7 +112,7 @@ export const Control_color = function({ object = {}, path = false, id = 'name', 
   };
 
   this.wrap = () => {
-    const formGroup = form.render.group({
+    const formGroup = form.group({
       block: true,
       children: [
         this.color,
@@ -129,10 +130,12 @@ export const Control_color = function({ object = {}, path = false, id = 'name', 
       });
     };
 
-    const wrap = form.render.wrap([
-      this.label,
-      formGroup
-    ]);
+    const wrap = form.wrap({
+      children: [
+        this.label,
+        formGroup
+      ]
+    });
 
     return wrap;
   };
@@ -162,4 +165,5 @@ export const Control_color = function({ object = {}, path = false, id = 'name', 
       });
     };
   };
+
 };

@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -16,7 +17,7 @@ import { minMax } from '../../../utility/minMax';
 
 export const Control_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
 
-  this.label = form.render.label({
+  this.label = form.label({
     forInput: id,
     text: labelText
   });
@@ -27,7 +28,7 @@ export const Control_slider = function({ object = {}, path = false, id = 'name',
     classList.push('input-range-hue-spectrum');
   };
 
-  this.range = form.render.input.range({
+  this.range = form.input.range({
     id: id,
     value: value,
     min: min,
@@ -51,7 +52,7 @@ export const Control_slider = function({ object = {}, path = false, id = 'name',
     }
   });
 
-  this.number = form.render.input.number({
+  this.number = form.input.number({
     value: value,
     min: min,
     max: max,
@@ -119,7 +120,7 @@ export const Control_slider = function({ object = {}, path = false, id = 'name',
   };
 
   this.wrap = () => {
-    const formGroup = form.render.group({
+    const formGroup = form.group({
       children: [
         this.number
       ]
@@ -129,7 +130,7 @@ export const Control_slider = function({ object = {}, path = false, id = 'name',
       formGroup.appendChild(this.reset.button);
     };
 
-    const formInline = form.render.inline({
+    const formInline = form.inline({
       block: true,
       children: [
         this.range,
@@ -137,10 +138,12 @@ export const Control_slider = function({ object = {}, path = false, id = 'name',
       ]
     });
 
-    const wrap = form.render.wrap([
-      this.label,
-      formInline
-    ]);
+    const wrap = form.wrap({
+      children: [
+        this.label,
+        formInline
+      ]
+    });
 
     return wrap;
   };
@@ -158,4 +161,5 @@ export const Control_slider = function({ object = {}, path = false, id = 'name',
     this.number.disabled = false;
     this.reset.enable();
   };
+
 };

@@ -3,7 +3,8 @@ import { data } from '../data';
 import { gridList } from '../grid';
 import { modal } from '../modal';
 import { theme } from '../theme';
-import { form } from '../form';
+
+import * as form from '../form';
 
 import { Button } from '../button';
 import { Suggest } from '../autoSuggest';
@@ -908,154 +909,236 @@ bookmark.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualArea = form.render.fieldset([
-    form.render.wrap([
-      node('h2:Visual element|class:mb-2'),
-      node('p:Display Letters, Icon or an Image on this Bookmark tile.|class:mb-5')
-    ]),
-    form.render.wrap([
-      form.render.indent([
-        displayVisualShow.wrap(),
-        form.render.wrap([
-          form.render.indent([
-            displayVisualType.radioSet[0].wrap(),
-            form.render.wrap([
-              form.render.indent([
-                displayVisualTypeLetter.wrap()
-              ])
-            ]),
-            displayVisualType.radioSet[1].wrap(),
-            form.render.wrap([
-              form.render.indent([
-                form.render.wrap([
-                  displayVisualTypeIcon.label,
-                  form.render.group({
-                    block: true,
+  const displayVisualArea = form.fieldset({
+    children: [
+      form.wrap({
+        children: [
+          node('h2:Visual element|class:mb-2'),
+          node('p:Display Letters, Icon or an Image on this Bookmark tile.|class:mb-5')
+        ]
+      }),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              displayVisualShow.wrap(),
+              form.wrap({
+                children: [
+                  form.indent({
                     children: [
-                      displayVisualTypeIcon.text,
-                      displayVisualTypeIconDisplay.groupText,
-                      displayVisualTypeIconRemove.button
+                      displayVisualType.radioSet[0].wrap(),
+                      form.wrap({
+                        children: [
+                          form.indent({
+                            children: [
+                              displayVisualTypeLetter.wrap()
+                            ]
+                          })
+                        ]
+                      }),
+                      displayVisualType.radioSet[1].wrap(),
+                      form.wrap({
+                        children: [
+                          form.indent({
+                            children: [
+                              form.wrap({
+                                children: [
+                                  displayVisualTypeIcon.label,
+                                  form.group({
+                                    block: true,
+                                    children: [
+                                      displayVisualTypeIcon.text,
+                                      displayVisualTypeIconDisplay.groupText,
+                                      displayVisualTypeIconRemove.button
+                                    ]
+                                  })
+                                ]
+                              })
+                            ]
+                          })
+                        ]
+                      }),
+                      displayVisualType.radioSet[2].wrap(),
+                      form.wrap({
+                        children: [
+                          form.indent({
+                            children: [
+                              displayVisualTypeImage.wrap()
+                            ]
+                          })
+                        ]
+                      })
                     ]
                   })
-                ])
-              ])
-            ]),
-            displayVisualType.radioSet[2].wrap(),
-            form.render.wrap([
-              form.render.indent([
-                displayVisualTypeImage.wrap()
-              ])
-            ])
-          ])
-        ]),
-        node('hr'),
-        displayVisualShowPropagate.wrap(),
-      ])
-    ])
-  ]);
+                ]
+              }),
+              node('hr'),
+              displayVisualShowPropagate.wrap(),
+            ]
+          })
+        ]
+      })
+    ]
+  });
 
-  const displayNameArea = form.render.fieldset([
-    form.render.wrap([
-      node('h2:Name|class:mb-2'),
-      node('p:Display a Name on this Bookmark tile.|class:mb-5')
-    ]),
-    form.render.wrap([
-      form.render.indent([
-        displayNameShow.wrap(),
-        form.render.wrap([
-          form.render.indent([
-            displayNameText.wrap()
-          ]),
-        ]),
-        node('hr'),
-        displayNameShowPropagate.wrap()
-      ])
-    ])
-  ]);
+  const displayNameArea = form.fieldset({
+    children: [
+      form.wrap({
+        children: [
+          node('h2:Name|class:mb-2'),
+          node('p:Display a Name on this Bookmark tile.|class:mb-5')
+        ]
+      }),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              displayNameShow.wrap(),
+              form.wrap({
+                children: [
+                  form.indent({
+                    children: [
+                      displayNameText.wrap()
+                    ]
+                  }),
+                ]
+              }),
+              node('hr'),
+              displayNameShowPropagate.wrap()
+            ]
+          })
+        ]
+      })
+    ]
+  });
 
-  const displayAddressArea = form.render.fieldset([
-    form.render.wrap([
-      node('h2:Address|class:mb-2'),
-      node('p:The websites address.'),
-      complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>', attr: [{ key: 'class', value: 'mb-5' }] })
-    ]),
-    form.render.wrap([
-      form.render.indent([
-        url.wrap()
-      ])
-    ])
-  ]);
+  const displayAddressArea = form.fieldset({
+    children: [
+      form.wrap({
+        children: [
+          node('h2:Address|class:mb-2'),
+          node('p:The websites address.'),
+          complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>', attr: [{ key: 'class', value: 'mb-5' }] })
+        ]
+      }),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              url.wrap()
+            ]
+          })
+        ]
+      })
+    ]
+  });
 
-  const displayLayoutArea = form.render.fieldset([
-    form.render.wrap([
-      node('h2:Layout|class:mb-2'),
-      node('p:Change the Visual element and Name position.|class:mb-5')
-    ]),
-    form.render.wrap([
-      form.render.indent([
-        displayVisualSize.wrap(),
-        displayNameSize.wrap(),
-        node('hr'),
-        displayTranslateX.wrap(),
-        displayTranslateY.wrap(),
-        displayRotate.wrap(),
-        node('hr'),
-        displayVisualDirection.wrap(),
-        node('hr'),
-        displayVisualOrder.wrap(),
-        node('hr'),
-        displayGutter.wrap(),
-        node('hr'),
-        displayLayoutPropagate.wrap()
-      ])
-    ])
-  ]);
+  const displayLayoutArea = form.fieldset({
+    children: [
+      form.wrap({
+        children: [
+          node('h2:Layout|class:mb-2'),
+          node('p:Change the Visual element and Name position.|class:mb-5')
+        ]
+      }),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              displayVisualSize.wrap(),
+              displayNameSize.wrap(),
+              node('hr'),
+              displayTranslateX.wrap(),
+              displayTranslateY.wrap(),
+              displayRotate.wrap(),
+              node('hr'),
+              displayVisualDirection.wrap(),
+              node('hr'),
+              displayVisualOrder.wrap(),
+              node('hr'),
+              displayGutter.wrap(),
+              node('hr'),
+              displayLayoutPropagate.wrap()
+            ]
+          })
+        ]
+      })
+    ]
+  });
 
-  const displayThemeArea = form.render.fieldset([
-    form.render.wrap([
-      node('h2:Theme|class:mb-2'),
-      node('p:Override the Theme and Accent colour.|class:mb-5')
-    ]),
-    form.render.wrap([
-      form.render.indent([
-        colorBy.wrap(),
-        form.render.wrap([
-          form.render.indent([
-            colorMixerCollapse.collapse()
-          ])
-        ]),
-        node('hr'),
-        accentBy.wrap(),
-        form.render.wrap([
-          form.render.indent([
-            accentMixerCollapse.collapse()
-          ])
-        ]),
-        node('hr'),
-        backgroundShow.wrap(),
-        form.render.wrap([
-          form.render.indent([
-            backgroundType.radioSet[0].wrap(),
-            form.render.wrap([
-              form.render.indent([
-                backgroundImageUrl.wrap(),
-                backgroundImageUrlHelper.wrap()
-              ])
-            ]),
-            backgroundType.radioSet[1].wrap(),
-            form.render.wrap([
-              form.render.indent([
-                backgroundVideoUrl.wrap(),
-                backgroundVideoUrlHelper.wrap()
-              ])
-            ]),
-            node('hr'),
-            backgroundOpacity.wrap()
-          ])
-        ])
-      ])
-    ])
-  ]);
+  const displayThemeArea = form.fieldset({
+    children: [
+      form.wrap({
+        children: [
+          node('h2:Theme|class:mb-2'),
+          node('p:Override the Theme and Accent colour.|class:mb-5')
+        ]
+      }),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              colorBy.wrap(),
+              form.wrap({
+                children: [
+                  form.indent({
+                    children: [
+                      colorMixerCollapse.collapse()
+                    ]
+                  })
+                ]
+              }),
+              node('hr'),
+              accentBy.wrap(),
+              form.wrap({
+                children: [
+                  form.indent({
+                    children: [
+                      accentMixerCollapse.collapse()
+                    ]
+                  })
+                ]
+              }),
+              node('hr'),
+              backgroundShow.wrap(),
+              form.wrap({
+                children: [
+                  form.indent({
+                    children: [
+                      backgroundType.radioSet[0].wrap(),
+                      form.wrap({
+                        children: [
+                          form.indent({
+                            children: [
+                              backgroundImageUrl.wrap(),
+                              backgroundImageUrlHelper.wrap()
+                            ]
+                          })
+                        ]
+                      }),
+                      backgroundType.radioSet[1].wrap(),
+                      form.wrap({
+                        children: [
+                          form.indent({
+                            children: [
+                              backgroundVideoUrl.wrap(),
+                              backgroundVideoUrlHelper.wrap()
+                            ]
+                          })
+                        ]
+                      }),
+                      node('hr'),
+                      backgroundOpacity.wrap()
+                    ]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      })
+    ]
+  });
 
   const formTab = new Tab({
     group: [{

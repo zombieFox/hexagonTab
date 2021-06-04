@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -15,7 +16,7 @@ import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
 
-  this.checkbox = form.render.input.checkbox({
+  this.checkbox = form.input.checkbox({
     id: id,
     checked: (get({
       object: object,
@@ -33,7 +34,7 @@ export const Control_checkbox = function({ object = {}, id = 'name', path = fals
     }
   });
 
-  this.label = form.render.label({
+  this.label = form.label({
     forInput: id,
     text: labelText,
     description: description,
@@ -55,14 +56,16 @@ export const Control_checkbox = function({ object = {}, id = 'name', path = fals
   };
 
   this.wrap = () => {
-    return form.render.wrap([
-      form.render.group({
-        children: [
-          this.checkbox,
-          this.label
-        ]
-      })
-    ])
+    return form.wrap({
+      children: [
+        form.group({
+          children: [
+            this.checkbox,
+            this.label
+          ]
+        })
+      ]
+    })
   };
 
   this.disable = () => {
@@ -72,4 +75,5 @@ export const Control_checkbox = function({ object = {}, id = 'name', path = fals
   this.enable = () => {
     this.checkbox.disabled = false;
   };
+
 };

@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -14,7 +15,8 @@ import { convertColor } from '../../../utility/convertColor';
 import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_groupText = function({ text = false, classList = [] } = {}) {
-  this.groupText = form.render.groupText({
+
+  this.groupText = form.groupText({
     text: text,
     classList: classList
   });
@@ -31,9 +33,11 @@ export const Control_groupText = function({ text = false, classList = [] } = {})
   };
 
   this.wrap = () => {
-    return form.render.wrap([
-      this.groupText
-    ])
+    return form.wrap({
+      children: [
+        this.groupText
+      ]
+    })
   };
 
   this.disable = () => {
@@ -43,4 +47,5 @@ export const Control_groupText = function({ text = false, classList = [] } = {})
   this.enable = () => {
     this.groupText.classList.remove('disabled');
   };
+
 };

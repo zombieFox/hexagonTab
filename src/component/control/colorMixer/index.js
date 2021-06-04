@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -234,16 +235,24 @@ export const Control_colorMixer = function({ object = {}, path = false, defaultV
   this.moreControlsCollapse.update();
 
   this.wrap = () => {
-    return form.render.wrap([
-      this.color.wrap(),
-      form.render.wrap([
-        form.render.indent([
-          form.render.wrap([
-            this.moreControlsCollapse.collapse()
-          ])
-        ])
-      ])
-    ])
+    return form.wrap({
+      children: [
+        this.color.wrap(),
+        form.wrap({
+          children: [
+            form.indent({
+              children: [
+                form.wrap({
+                  children: [
+                    this.moreControlsCollapse.collapse()
+                  ]
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    })
   };
 
   this.disable = () => {
@@ -295,4 +304,5 @@ export const Control_colorMixer = function({ object = {}, path = false, defaultV
   };
 
   this.moreControlsUpdate();
+
 };

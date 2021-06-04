@@ -1,6 +1,5 @@
 import { state } from '../../../state';
 import { data } from '../../../data';
-import { form } from '../../../form';
 import { bookmark } from '../../../bookmark';
 import { theme } from '../../../theme';
 import { toolbar } from '../../../toolbar';
@@ -11,6 +10,8 @@ import { menu } from '../../../menu';
 import { icon } from '../../../icon';
 import { logo } from '../../../logo';
 import { link } from '../../../link';
+
+import * as form from '../../../form';
 
 import { Button } from '../../../button';
 import { Collapse } from '../../../collapse';
@@ -44,17 +45,19 @@ menuContentCoffee.fuel = function() {
         text: data.saveName + ' is free, appreciation is welcome in the form of coffee!'
       }),
       node('hr'),
-      form.render.wrap([
-        link.render({
-          text: 'Buy me a coffee',
-          href: 'https://www.buymeacoffee.com/zombieFox',
-          iconName: 'coffee',
-          iconPosition: 'left',
-          linkButton: true,
-          style: ['line'],
-          classList: ['button-line', 'button-large', 'px-4', 'py-3']
-        })
-      ])
+      form.wrap({
+        children: [
+          link.render({
+            text: 'Buy me a coffee',
+            href: 'https://www.buymeacoffee.com/zombieFox',
+            iconName: 'coffee',
+            iconPosition: 'left',
+            linkButton: true,
+            style: ['line'],
+            classList: ['button-line', 'button-large', 'px-4', 'py-3']
+          })
+        ]
+      })
     ])
   );
 

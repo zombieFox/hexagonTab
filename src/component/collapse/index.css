@@ -26,7 +26,7 @@
 }
 
 .collapse-spacer hr:first-child {
-  margin-top: calc(var(--form-wrap-space) * 1);
+  margin-top: calc(var(--form-space) * 1);
 }
 
 .collapse-area.is-collapsed .collapse-spacer {

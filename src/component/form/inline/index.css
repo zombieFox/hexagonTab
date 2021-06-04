@@ -1,0 +1,60 @@
+.form-inline {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-inline-horizontal {
+  flex-direction: row;
+}
+
+.form-inline-vertical {
+  flex-direction: column;
+}
+
+.form-inline-gap-small,
+.form-inline-gap-medium,
+.form-inline-gap-large {
+  row-gap: var(--form-space);
+}
+
+.form-inline-gap-small {
+  column-gap: calc(var(--form-space) * 1);
+}
+
+.form-inline-gap-medium {
+  column-gap: calc(var(--form-space) * 2);
+}
+
+.form-inline-gap-large {
+  column-gap: calc(var(--form-space) * 3);
+}
+
+.form-inline-wrap {
+  flex-wrap: wrap;
+}
+
+.form-inline-block {
+  display: flex;
+}
+
+.form-inline .form-wrap:not(:first-child),
+.form-inline .form-wrap:not(:last-child) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-inline .form-wrap {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.form-inline .form-wrap label {
+  white-space: nowrap;
+}
+
+.form-inline label:not(:only-child):not(:last-child) {
+  padding-bottom: 0;
+}

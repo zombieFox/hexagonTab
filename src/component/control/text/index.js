@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -14,7 +15,8 @@ import { convertColor } from '../../../utility/convertColor';
 import { ifValidString } from '../../../utility/ifValidString';
 
 export const Control_text = function({ object = {}, path = false, id = 'name', value = false, min = false, max = false, placeholder = false, classList = [], labelText = 'Name', srOnly = false, action = false } = {}) {
-  this.label = form.render.label({
+
+  this.label = form.label({
     forInput: id,
     text: labelText
   });
@@ -23,7 +25,7 @@ export const Control_text = function({ object = {}, path = false, id = 'name', v
     this.label.classList.add('sr-only')
   };
 
-  this.text = form.render.input.text({
+  this.text = form.input.text({
     id: id,
     classList: classList,
     func: () => {
@@ -64,10 +66,12 @@ export const Control_text = function({ object = {}, path = false, id = 'name', v
   };
 
   this.wrap = () => {
-    return form.render.wrap([
-      this.label,
-      this.text
-    ])
+    return form.wrap({
+      children: [
+        this.label,
+        this.text
+      ]
+    })
   };
 
   this.disable = () => {
@@ -79,4 +83,5 @@ export const Control_text = function({ object = {}, path = false, id = 'name', v
     this.label.classList.remove('disabled');
     this.text.disabled = false;
   };
+
 };

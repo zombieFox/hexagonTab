@@ -1,6 +1,5 @@
 import { state } from '../../../state';
 import { data } from '../../../data';
-import { form } from '../../../form';
 import { bookmark } from '../../../bookmark';
 import { theme } from '../../../theme';
 import { toolbar } from '../../../toolbar';
@@ -11,6 +10,8 @@ import { menu } from '../../../menu';
 import { icon } from '../../../icon';
 import { logo } from '../../../logo';
 import { link } from '../../../link';
+
+import * as form from '../../../form';
 
 import { Button } from '../../../button';
 import { Collapse } from '../../../collapse';
@@ -37,7 +38,7 @@ menuContentData.import = function() {
 
   menuContentItem.appendChild(menu.render.component.item.header('Import'));
 
-  const importFeedback = form.render.feedback();
+  const importFeedback = form.feedback();
 
   data.render.feedback.empty(importFeedback);
 
@@ -59,9 +60,11 @@ menuContentData.import = function() {
     menu.render.component.item.form([
       importButton.wrap(),
       importHelper.wrap(),
-      form.render.wrap([
-        importFeedback
-      ])
+      form.wrap({
+        children: [
+          importFeedback
+        ]
+      })
     ])
   );
 

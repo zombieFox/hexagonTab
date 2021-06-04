@@ -38,7 +38,7 @@
 }
 
 .modal-overscroll .modal-content-wrapper {
-  padding-bottom: calc(var(--form-wrap-space) * 14);
+  padding-bottom: calc(var(--form-space) * 14);
 }
 
 .modal-content {

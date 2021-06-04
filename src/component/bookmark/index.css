@@ -367,7 +367,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 }
 
 .bookmark-form-main {
-  padding-bottom: calc(var(--form-wrap-space) * 20);
+  padding-bottom: calc(var(--form-space) * 20);
 }
 
 .bookmark-form-preview {

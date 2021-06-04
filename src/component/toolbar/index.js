@@ -4,7 +4,8 @@ import { data } from '../data';
 import { bookmark } from '../bookmark';
 import { icon } from '../icon';
 import { theme } from '../theme';
-import { form } from '../form';
+
+import * as form from '../form';
 
 import { Button } from '../button';
 
@@ -236,13 +237,13 @@ toolbar.bar.render = function() {
   switch (state.get.current().toolbar.position) {
     case 'top-right':
     case 'bottom-right':
-      formGroup = form.render.group();
+      formGroup = form.group();
 
       break;
 
     case 'top-left':
     case 'bottom-left':
-      formGroup = form.render.group({
+      formGroup = form.group({
         reverse: true
       });
 

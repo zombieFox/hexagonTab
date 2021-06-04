@@ -1,0 +1,14 @@
+:root {
+  --form-helper: var(--theme-primary-text-100);
+  --form-helper-disabled: var(--theme-primary-300);
+}
+
+.form-helper-item {
+  font-size: 0.8em;
+  color: hsl(var(--form-helper));
+  transition: color var(--layout-transition-extra-fast);
+}
+
+.form-helper-item.disabled {
+  color: hsl(var(--form-helper-disabled));
+}

@@ -2,7 +2,8 @@ import { state } from '../../state';
 import { data } from '../../data';
 import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
-import { form } from '../../form';
+
+import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
@@ -16,7 +17,7 @@ import { minMax } from '../../../utility/minMax';
 
 export const Control_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
 
-  this.label = form.render.label({
+  this.label = form.label({
     forInput: id,
     text: labelText,
     classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-medium', ]
@@ -28,7 +29,7 @@ export const Control_slimSlider = function({ object = {}, path = false, id = 'na
     classList.push('input-range-hue-spectrum');
   };
 
-  this.range = form.render.input.range({
+  this.range = form.input.range({
     id: id,
     value: value,
     min: min,
@@ -52,7 +53,7 @@ export const Control_slimSlider = function({ object = {}, path = false, id = 'na
     }
   });
 
-  this.number = form.render.input.number({
+  this.number = form.input.number({
     value: value,
     min: min,
     max: max,
@@ -120,7 +121,7 @@ export const Control_slimSlider = function({ object = {}, path = false, id = 'na
   };
 
   this.wrap = () => {
-    const formGroup = form.render.group({
+    const formGroup = form.group({
       children: [
         this.number
       ]
@@ -130,7 +131,7 @@ export const Control_slimSlider = function({ object = {}, path = false, id = 'na
       formGroup.appendChild(this.reset.button);
     };
 
-    const formInline = form.render.inline({
+    const formInline = form.inline({
       block: true,
       children: [
         this.label,
@@ -139,9 +140,11 @@ export const Control_slimSlider = function({ object = {}, path = false, id = 'na
       ]
     });
 
-    const wrap = form.render.wrap([
-      formInline
-    ]);
+    const wrap = form.wrap({
+      children: [
+        formInline
+      ]
+    });
 
     return wrap;
   };
@@ -159,4 +162,5 @@ export const Control_slimSlider = function({ object = {}, path = false, id = 'na
     this.number.disabled = false;
     this.reset.enable();
   };
+
 };
