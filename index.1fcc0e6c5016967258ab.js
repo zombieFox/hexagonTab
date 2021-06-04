@@ -15727,7 +15727,7 @@ link_link.render = function({ text = 'Link', href = '#', iconName = false, iconP
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/layout.js
+;// CONCATENATED MODULE: ./src/component/menu/content/layout/index.js
 
 
 
@@ -15928,7 +15928,7 @@ menuContentLayout.grid = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/bookmark.js
+;// CONCATENATED MODULE: ./src/component/menu/content/bookmark/index.js
 
 
 
@@ -16055,7 +16055,7 @@ menuContentBookmark.shadow = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/toolbar.js
+;// CONCATENATED MODULE: ./src/component/menu/content/toolbar/index.js
 
 
 
@@ -16166,7 +16166,7 @@ menuContentToolbar.position = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/theme.js
+;// CONCATENATED MODULE: ./src/component/menu/content/theme/index.js
 
 
 
@@ -16825,7 +16825,7 @@ menuContentTheme.background = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/data.js
+;// CONCATENATED MODULE: ./src/component/menu/content/data/index.js
 
 
 
@@ -16953,7 +16953,7 @@ menuContentData.clear = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/coffee.js
+;// CONCATENATED MODULE: ./src/component/menu/content/coffee/index.js
 
 
 
@@ -17019,7 +17019,7 @@ menuContentCoffee.fuel = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/app.js
+;// CONCATENATED MODULE: ./src/component/menu/content/app/index.js
 
 
 
