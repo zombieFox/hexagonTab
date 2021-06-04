@@ -262,6 +262,10 @@ menu.render.frame = {
     menuElement.classList.remove('is-transparent');
     menuElement.classList.add('is-opaque');
 
+    if (currentMenu) {
+      menu.render.frame.close();
+    };
+
     currentMenu = menuElement;
 
     menuNav.init();
