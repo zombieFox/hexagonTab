@@ -11031,8 +11031,8 @@ const Button = function({ text = 'Button', srOnly = false, iconName = false, blo
 
 };
 
-;// CONCATENATED MODULE: ./src/utility/ifValidString.js
-const ifValidString = function(value) {
+;// CONCATENATED MODULE: ./src/utility/isValidString.js
+const isValidString = function(value) {
   let result = false;
 
   if (typeof value == 'string') {
@@ -11107,7 +11107,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
   this.suggestItems = () => {
     const suggestType = {
       fontawesomeIcon: (string) => {
-        if (ifValidString(string)) {
+        if (isValidString(string)) {
 
           return fontawesome_fontawesome.filter((item) => {
             let match = false;
@@ -11693,7 +11693,7 @@ modal_modal.render.open = function({ heading = 'Heading', content = 'Body', succ
 
   let headingText = null;
 
-  if (heading && ifValidString(heading)) {
+  if (heading && isValidString(heading)) {
     if (heading.length > maxHeadingLength) {
       heading = heading.substring(0, maxHeadingLength).replace(/\s+$/, '') + '...';
     };
@@ -11962,7 +11962,7 @@ const Video = function({ url = false } = {}) {
 
   this.video.appendChild(this.source);
 
-  if (ifValidString(url)) {
+  if (isValidString(url)) {
 
     this.source.src = url;
 
@@ -12211,7 +12211,7 @@ theme_theme.render.background.image = {};
 theme_theme.render.background.image.set = function() {
   const html = document.querySelector('html');
 
-  if (ifValidString(state_state.get.current().theme.background.image.url)) {
+  if (isValidString(state_state.get.current().theme.background.image.url)) {
     html.style.setProperty('--theme-background-image', 'url(' + trimString(state_state.get.current().theme.background.image.url) + ')');
   } else {
     html.style.removeProperty('--theme-background-image');
@@ -12237,7 +12237,7 @@ theme_theme.render.background.video.set = function() {
 };
 
 theme_theme.render.background.video.add = function() {
-  if (ifValidString(state_state.get.current().theme.background.video.url)) {
+  if (isValidString(state_state.get.current().theme.background.video.url)) {
 
     const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
@@ -12564,7 +12564,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
     this.element.bookmark.style.setProperty('--bookmark-column-start', column);
 
-    if (ifValidString(bookmarkData.url) && !preview) {
+    if (isValidString(bookmarkData.url) && !preview) {
       this.element.content.link.setAttribute('href', trimString(bookmarkData.url));
     } else {
       this.element.content.link.setAttribute('href', '#');
@@ -12654,7 +12654,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
       switch (bookmarkData.background.type) {
         case 'image':
-          if (ifValidString(bookmarkData.background.image.url)) {
+          if (isValidString(bookmarkData.background.image.url)) {
             this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.background.image.url) + ')');
           };
           break;
@@ -12745,7 +12745,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       classList: ['bookmark-control-button', 'bookmark-control-remove'],
       func: () => {
         let heading;
-        if (ifValidString(bookmarkData.display.name.text)) {
+        if (isValidString(bookmarkData.display.name.text)) {
           heading = 'Remove ' + bookmarkData.display.name.text;
         } else {
           heading = 'Remove unnamed bookmark';
@@ -12788,14 +12788,14 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       if (bookmarkData.display.visual.show) {
         switch (bookmarkData.display.visual.type) {
           case 'letter':
-            if (ifValidString(bookmarkData.display.visual.letter.text)) {
+            if (isValidString(bookmarkData.display.visual.letter.text)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
             break;
 
           case 'icon':
-            if (ifValidString(bookmarkData.display.visual.icon.name)) {
+            if (isValidString(bookmarkData.display.visual.icon.name)) {
               this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
@@ -12803,7 +12803,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
             break;
 
           case 'image':
-            if (ifValidString(bookmarkData.display.visual.image.url)) {
+            if (isValidString(bookmarkData.display.visual.image.url)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
@@ -12811,7 +12811,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
         };
       };
 
-      if (bookmarkData.display.name.show && ifValidString(bookmarkData.display.name.text)) {
+      if (bookmarkData.display.name.show && isValidString(bookmarkData.display.name.text)) {
         this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
         this.element.content.display.display.appendChild(this.element.content.display.name.name);
       };
@@ -12831,7 +12831,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
         case 'video':
           this.element.content.background.wrap.appendChild(this.element.content.background.video);
 
-          if (ifValidString(bookmarkData.background.video.url)) {
+          if (isValidString(bookmarkData.background.video.url)) {
             const backgroundVideoElement = new Video({
               url: bookmarkData.background.video.url
             });
@@ -13201,7 +13201,7 @@ const Control_groupText = function({ text = false, classList = [] } = {}) {
     while (this.groupText.lastChild) {
       this.groupText.removeChild(this.groupText.lastChild);
     };
-    if (typeof content === 'string' && ifValidString(content)) {
+    if (typeof content === 'string' && isValidString(content)) {
       this.groupText.textContent = content;
     } else if (content && content != '') {
       this.groupText.appendChild(content);
@@ -15769,7 +15769,7 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   bookmarkForm.appendChild(bookmarkFormAside);
 
-  if (ifValidString(bookmarkData.link.display.visual.icon.prefix) && ifValidString(bookmarkData.link.display.visual.icon.name)) {
+  if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
     displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
   } else {
     displayVisualTypeIconDisplay.update();
@@ -15914,7 +15914,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     displayVisualType.update();
     displayVisualTypeLetter.update();
     displayVisualTypeIcon.update();
-    if (ifValidString(bookmarkData.link.display.visual.icon.prefix) && ifValidString(bookmarkData.link.display.visual.icon.name)) {
+    if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
       displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
     } else {
       displayVisualTypeIconDisplay.update();
@@ -16176,7 +16176,7 @@ const utility_utility = {
   convertColor: convertColor,
   dateTime: dateTime,
   get: get,
-  ifValidString: ifValidString,
+  isValidString: isValidString,
   isJson: isJson,
   makePath: makePath,
   node: node,
