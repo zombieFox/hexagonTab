@@ -1,12 +1,12 @@
-import './reset.css';
-import './base.css';
-import './font.css';
-import './animation.css';
-import './spacing.css';
-import './state.css';
-import './typography.css';
-import './version.css';
-import './zindex.css';
-import './utility.css';
+import './reset/index.css';
+import './base/index.css';
+import './font/index.css';
+import './animation/index.css';
+import './spacing/index.css';
+import './state/index.css';
+import './typography/index.css';
+import './version/index.css';
+import './zindex/index.css';
+import './utility/index.css';
 
 export const base = {};
