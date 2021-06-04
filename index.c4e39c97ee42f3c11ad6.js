@@ -507,7 +507,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --layout-size: 1;\n}\n\n:ro
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".logo {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.logo:hover {\n  transform: scale(1.2) rotate(180deg);\n}\n\n.logo:active {\n  transform: scale(1.4) rotate(180deg);\n}\n\n.logo,\n.logo-hexagon,\n.logo-circle,\n.logo-cross-x,\n.logo-cross-y {\n  transform-origin: center;\n}\n\n.logo {\n  animation-name: spin-down;\n  animation-duration: 0.3s;\n  animation-timing-function: var(--layout-timing-bounce);\n  animation-iteration-count: 1;\n  animation-delay: 1.6s;\n  animation-fill-mode: backwards;\n}\n\n.logo-hexagon {\n  animation-name: grow;\n  animation-duration: 0.3s;\n  animation-timing-function: var(--layout-timing-ease);\n  animation-iteration-count: 1;\n  animation-fill-mode: forwards;\n}\n\n.logo-circle {\n  animation-name: grow;\n  animation-duration: 0.4s;\n  animation-timing-function: var(--layout-timing-bounce);\n  animation-iteration-count: 1;\n  animation-delay: 0.3s;\n  animation-fill-mode: backwards;\n}\n\n.logo-cross-x {\n  animation-name: slide-in-x, spin;\n  animation-duration: 0.3s, 0.5s;\n  animation-timing-function: var(--layout-timing-bounce), var(--layout-timing-ease);\n  animation-iteration-count: 1, 1;\n  animation-delay: 0.8s, 1.8s;\n  animation-fill-mode: backwards, forwards;\n}\n\n.logo-cross-y {\n  animation-name: slide-in-y, spin;\n  animation-duration: 0.3s, 0.5s;\n  animation-timing-function: var(--layout-timing-bounce), var(--layout-timing-ease);\n  animation-iteration-count: 1, 1;\n  animation-delay: 1s, 1.8s;\n  animation-fill-mode: backwards, forwards;\n}\n\n.logo-fill-solid {\n  fill: hsl(var(--theme-primary-900));\n}\n\n.logo-fill-clear {\n  fill: hsl(var(--theme-primary-100));\n}\n\n@keyframes grow {\n  0% {\n    transform: scale(0);\n  }\n\n  100% {\n    transform: scale(1);\n  }\n}\n\n@keyframes slide-in-y {\n  0% {\n    transform: translateY(-100%);\n  }\n\n  100% {\n    transform: translateY(0);\n  }\n}\n\n@keyframes slide-in-x {\n  0% {\n    transform: translateX(-100%);\n  }\n\n  100% {\n    transform: translateX(0);\n  }\n}\n\n@keyframes spin-down {\n  0% {\n    transform: scale(1.2) rotate(-90deg);\n  }\n\n  100% {\n    transform: scale(1) rotate(0);\n  }\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(-360deg);\n  }\n\n  100% {\n    transform: rotate(0);\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".logo {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.logo:hover {\n  transform: scale(1.2) rotate(180deg);\n}\n\n.logo:active {\n  transform: scale(1.4) rotate(180deg);\n}\n\n.logo,\n.logo-hexagon,\n.logo-cross {\n  transform-origin: center;\n}\n\n.logo {\n  animation-name: spin-down;\n  animation-duration: 0.4s;\n  animation-timing-function: var(--layout-timing-bounce);\n  animation-iteration-count: 1;\n  animation-delay: 1.2s;\n  animation-fill-mode: backwards;\n}\n\n.logo-hexagon {\n  animation-name: grow;\n  animation-duration: 0.4s;\n  animation-timing-function: var(--layout-timing-ease);\n  animation-iteration-count: 1;\n  animation-fill-mode: forwards;\n}\n\n.logo-cross {\n  animation-name: grow, spin;\n  animation-duration: 0.4s, 0.6s;\n  animation-timing-function: var(--layout-timing-bounce), var(--layout-timing-ease);\n  animation-iteration-count: 1, 1;\n  animation-delay: 0.4s, 0.8s;\n  animation-fill-mode: backwards, forwards;\n}\n\n.logo-hexagon,\n.logo-cross {\n  fill: hsl(var(--theme-primary-900));\n}\n\n@keyframes grow {\n  0% {\n    transform: scale(0);\n  }\n\n  100% {\n    transform: scale(1);\n  }\n}\n\n@keyframes spin-down {\n  0% {\n    transform: scale(1.2) rotate(-90deg);\n  }\n\n  100% {\n    transform: scale(1) rotate(0);\n  }\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(-360deg);\n  }\n\n  100% {\n    transform: rotate(0);\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15623,14 +15623,11 @@ var logo_update = injectStylesIntoStyleTag_default()(logo/* default */.Z, logo_o
 
 const logo_logo = {};
 
-logo_logo.svg = `<svg class="logo" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <g>
-    <polygon class="logo-hexagon logo-fill-solid" points="384 35 512 256 384 477 128 477 0 256 128 35"></polygon>
-    <circle class="logo-circle logo-fill-clear" cx="256" cy="256" r="160"></circle>
-    <rect class="logo-cross-x logo-fill-solid" x="160" y="224" width="192" height="64"></rect>
-    <rect class="logo-cross-y logo-fill-solid" x="224" y="160" width="64" height="192"></rect>
-  </g>
-</svg>`;
+logo_logo.svg =
+  '<svg class="logo" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg">' +
+  '<path fill-rule="evenodd" clip-rule="evenodd" d="M503.292 271.036C508.678 261.736 508.678 250.264 503.292 240.964L392.667 49.9643C387.303 40.7024 377.41 35 366.707 35H145.293C134.59 35 124.697 40.7024 119.333 49.9643L8.70847 240.964C3.32195 250.264 3.32194 261.736 8.70847 271.036L119.333 462.036C124.697 471.298 134.59 477 145.293 477H366.707C377.41 477 387.303 471.298 392.667 462.036L503.292 271.036ZM416 256C416 344.366 344.366 416 256 416C167.634 416 96 344.366 96 256C96 167.634 167.634 96 256 96C344.366 96 416 167.634 416 256Z" class="logo-hexagon" />' +
+  '<path d="M224 170C224 164.477 228.477 160 234 160H278C283.523 160 288 164.477 288 170V214C288 219.523 292.477 224 298 224H342C347.523 224 352 228.477 352 234V278C352 283.523 347.523 288 342 288H298C292.477 288 288 292.477 288 298V342C288 347.523 283.523 352 278 352H234C228.477 352 224 347.523 224 342V298C224 292.477 219.523 288 214 288H170C164.477 288 160 283.523 160 278V234C160 228.477 164.477 224 170 224H214C219.523 224 224 219.523 224 214V170Z" class="logo-cross"/>' +
+  '</svg>';
 
 logo_logo.render = function() {
   const element = node('div|class:version-icon');
@@ -15638,6 +15635,7 @@ logo_logo.render = function() {
 
   return element;
 };
+
 
 
 ;// CONCATENATED MODULE: ./src/component/link/index.js
