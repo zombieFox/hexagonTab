@@ -22,6 +22,8 @@ import { Control_text } from '../control/text';
 
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
+import { get } from '../../utility/get';
+import { set } from '../../utility/set';
 
 import { menuContentLayout } from './content/layout';
 import { menuContentBookmark } from './content/bookmark';
@@ -132,7 +134,7 @@ const MenuNav = function() {
 
 let currentMenu = null;
 
-let currentContentArea = node('div|class:menu-content');
+let currentContentArea = null;
 
 const menu = {};
 
@@ -247,6 +249,8 @@ menu.render.frame = {
 
     let menuNav = new MenuNav();
 
+    currentContentArea = node('div|class:menu-content');
+
     menuArea.appendChild(menuNav.render());
     menuArea.appendChild(menuClose);
     menuArea.appendChild(currentContentArea);
@@ -289,6 +293,94 @@ menu.render.frame = {
   }
 };
 
+const config = [{
+  heading: 'Scaling',
+  controls: [
+    { type: 'slider', path: 'grid.size', label: 'Global size', description: false, action: () => { grid.render.style(); data.save(); } },
+    { type: 'slider', path: 'grid.column', label: 'Global column', description: false, action: () => { grid.render.style(); bookmark.render.clear(); bookmark.render.item(); data.save(); } },
+    {
+      type: 'radio',
+      path: 'theme.style',
+      group: [
+        { value: 'dark', label: 'Dark mode', description: false},
+        { value: 'light', label: 'Light mode', description: false},
+        { value: 'system', label: 'Automatic', description: 'Follow the system Light or Dark mode.' }
+      ],
+      action: () => { theme.mod.style.initial(); theme.render.class(); data.save(); }
+    }
+  ]
+}];
+
+const controller = function() {
+
+  const wrapper = node('div');
+
+  config.forEach((item, i) => {
+
+    item.controls.forEach((item, i) => {
+
+      switch (item.type) {
+
+        case 'slider':
+          const slider = new Control_slider({
+            object: state.get.current(),
+            path: item.path,
+            id: item.path.replace('.', '-'),
+            labelText: item.label,
+            value: get({ object: state.get.current(), path: item.path }),
+            defaultValue: get({ object: state.get.default(), path: item.path }),
+            min: get({ object: state.get.minMax(), path: item.path + '.min' }),
+            max: get({ object: state.get.minMax(), path: item.path + '.max' }),
+            action: () => {
+              item.action();
+            }
+          });
+
+          wrapper.appendChild(slider.wrap());
+
+          break;
+
+        case 'radio':
+          const path = item.path.replace('.', '-');
+
+          const radioGroup = [];
+
+          const radioOption = {
+            object: state.get.current(),
+            path: item.path,
+            groupName: path,
+            radioGroup: radioGroup,
+            action: () => {
+              item.action();
+            }
+          };
+
+          item.group.forEach((item, i) => {
+            radioGroup.push({
+              id: path + '-' + item.value,
+              labelText: item.label,
+              description: item.description,
+              value: item.value
+            });
+          });
+
+          const radio = new Control_radio(radioOption);
+
+          wrapper.appendChild(radio.wrap());
+
+          break;
+
+      };
+
+    });
+
+  });
+
+  return wrapper;
+
+};
+
+
 menu.render.component = {
   close: function() {
     const menuClose = node('div|class:menu-close');
@@ -323,8 +415,6 @@ menu.render.component = {
 
         if (menu.render.component.section[item.id]) {
           menu.render.component.section[item.id](currentContentArea);
-        } else {
-          currentContentArea.appendChild(node('p:' + item.id));
         };
       };
     });
@@ -342,6 +432,7 @@ menu.render.component = {
   },
   section: {
     layout: function(currentContentArea) {
+      currentContentArea.appendChild(controller());
       currentContentArea.appendChild(menuContentLayout.size());
       currentContentArea.appendChild(menuContentLayout.grid());
     },
