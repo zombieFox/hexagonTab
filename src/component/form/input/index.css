@@ -4,7 +4,7 @@
   --form-input-background-focus-active: var(--theme-primary-100);
   --form-input-background-disabled: var(--theme-primary-100);
   --form-input-text: var(--theme-primary-text-200);
-  --form-input-text-hover: var(--theme-primary-text-300);
+  --form-input-text-hover: var(--theme-primary-text-200);
   --form-input-text-focus-active: var(--theme-primary-text-400);
   --form-input-text-disabled: var(--theme-primary-300);
 }
