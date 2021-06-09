@@ -239,7 +239,6 @@ button [class*=" button-"]:last-child,
 .button-link.disabled,
 .button-link:disabled {
   background-color: transparent;
-  color: transparent;
   pointer-events: none;
 }
 
@@ -248,5 +247,4 @@ button [class*=" button-"]:last-child,
 .button-link:hover:disabled,
 .button-link:focus:disabled {
   background-color: transparent;
-  color: transparent;
 }
