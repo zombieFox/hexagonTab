@@ -10685,9 +10685,9 @@ var range_update = injectStylesIntoStyleTag_default()(range/* default */.Z, rang
 
 
 
-const range_range = function({ id = false, min = 0, max = 100, value = 0, classList = [], func = false } = {}) {
+const range_range = function({ id = false, min = 0, max = 100, step = 1, value = 0, classList = [], func = false } = {}) {
 
-  const input = node('input|class:mb-0,type:range,min:' + min + ',max:' + max + ',value:' + value + ',tabindex:1');
+  const input = node('input|class:mb-0,type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -13700,7 +13700,7 @@ const minMax = function({ min = 0, max = 0, value = 0 } = {}) {
 
 
 
-const Control_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
+const Control_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, step = 1, action = false } = {}) {
 
   this.label = label_label({
     forInput: id,
@@ -13718,6 +13718,7 @@ const Control_slider = function({ object = {}, path = false, id = 'name', labelT
     value: value,
     min: min,
     max: max,
+    step: step,
     classList: classList,
     func: () => {
       if (path) {
@@ -13867,7 +13868,7 @@ const Control_slider = function({ object = {}, path = false, id = 'name', labelT
 
 
 
-const Control_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, action = false } = {}) {
+const Control_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, step = 1, action = false } = {}) {
 
   this.label = label_label({
     forInput: id,
@@ -13886,6 +13887,7 @@ const Control_slimSlider = function({ object = {}, path = false, id = 'name', la
     value: value,
     min: min,
     max: max,
+    step: step,
     classList: classList,
     func: () => {
       if (path) {
