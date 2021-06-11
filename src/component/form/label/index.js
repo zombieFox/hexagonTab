@@ -22,12 +22,25 @@ export const label = function({ forInput = false, text = 'label', description = 
     };
   };
 
-  if (text && description) {
+  if (text) {
     labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
-    labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
-    label.appendChild(labelBlock);
-  } else if (text) {
-    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+  };
+
+  if (description) {
+    if (Array.isArray(description)) {
+
+      description.forEach((item, i) => {
+        labelBlock.appendChild(node('span:' + item + '|class:label-block-item small muted'));
+      });
+
+    } else if (typeof description === 'string') {
+
+      labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
+
+    };
+  };
+
+  if (text || description) {
     label.appendChild(labelBlock);
   };
 
