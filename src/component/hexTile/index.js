@@ -166,7 +166,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       srOnly: true,
       iconName: 'arrowKeyboardLeft',
       style: ['link'],
-      title: 'Edit this bookmark',
+      title: 'Move this bookmark left',
       classList: ['bookmark-control-button', 'bookmark-control-left'],
       func: () => {
         let newBookmarkData = new StagedLink();
@@ -187,7 +187,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       srOnly: true,
       iconName: 'arrowKeyboardRight',
       style: ['link'],
-      title: 'Move this bookmark left',
+      title: 'Move this bookmark right',
       classList: ['bookmark-control-button', 'bookmark-control-right'],
       func: () => {
         let newBookmarkData = new StagedLink();
@@ -208,7 +208,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       srOnly: true,
       iconName: 'edit',
       style: ['link'],
-      title: 'Move this bookmark right',
+      title: 'Edit this bookmark',
       classList: ['bookmark-control-button', 'bookmark-control-edit'],
       func: () => {
         let newBookmarkData = new StagedLink();
