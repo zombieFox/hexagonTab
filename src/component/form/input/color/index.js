@@ -4,7 +4,7 @@ import './index.css';
 
 export const color = function({ id = false, value = '#000000', classList = [], func = false } = {}) {
 
-  const input = node('input|class:mb-0,type:color,value:' + value + ',tabindex:1');
+  const input = node('input|type:color,value:' + value + ',tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
