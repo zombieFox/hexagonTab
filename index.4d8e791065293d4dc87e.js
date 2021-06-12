@@ -10471,7 +10471,7 @@ var color_update = injectStylesIntoStyleTag_default()(color/* default */.Z, colo
 
 const color_color = function({ id = false, value = '#000000', classList = [], func = false } = {}) {
 
-  const input = node('input|class:mb-0,type:color,value:' + value + ',tabindex:1');
+  const input = node('input|type:color,value:' + value + ',tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -10687,7 +10687,7 @@ var range_update = injectStylesIntoStyleTag_default()(range/* default */.Z, rang
 
 const range_range = function({ id = false, min = 0, max = 100, step = 1, value = 0, classList = [], func = false } = {}) {
 
-  const input = node('input|class:mb-0,type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
+  const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
