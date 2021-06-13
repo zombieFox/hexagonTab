@@ -7,6 +7,7 @@ import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
 import { isValidString } from '../../utility/isValidString';
+import { clearChildNode } from '../../utility/clearChildNode';
 
 import './index.css';
 
@@ -234,9 +235,9 @@ theme.render.background.video.remove = function() {
   const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
   if (themeBackgroundTypeVideo.lastChild) {
-    while (themeBackgroundTypeVideo.lastChild) {
-      themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
-    };
+
+    clearChildNode(themeBackgroundTypeVideo);
+
   };
 };
 

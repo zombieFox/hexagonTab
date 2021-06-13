@@ -30,6 +30,7 @@ import { complexNode } from '../../utility/complexNode';
 import { convertColor } from '../../utility/convertColor';
 import { isValidString } from '../../utility/isValidString';
 import { trimString } from '../../utility/trimString';
+import { clearChildNode } from '../../utility/clearChildNode';
 
 import './index.css';
 
@@ -307,9 +308,9 @@ bookmark.mod.propagate.state = {
 bookmark.render = {};
 
 bookmark.render.clear = function() {
-  while (gridList.lastChild) {
-    gridList.removeChild(gridList.lastChild);
-  };
+
+  clearChildNode(gridList);
+
 };
 
 bookmark.render.mask = function() {
@@ -1349,9 +1350,9 @@ bookmark.form = function(bookmarkData) {
 
   bookmarkForm.preview.render = () => {
     if (bookmarkFormPreview.lastChild) {
-      while (bookmarkFormPreview.lastChild) {
-        bookmarkFormPreview.removeChild(bookmarkFormPreview.lastChild);
-      };
+
+      clearChildNode(bookmarkFormPreview);
+
     };
 
     bookmarkForm.preview.current = new HexTile({

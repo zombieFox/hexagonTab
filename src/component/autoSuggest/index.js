@@ -7,6 +7,7 @@ import { Button } from '../button';
 import { isValidString } from '../../utility/isValidString';
 import { trimString } from '../../utility/trimString';
 import { node } from '../../utility/node';
+import { clearChildNode } from '../../utility/clearChildNode';
 
 import './index.css';
 
@@ -131,9 +132,9 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
       // define the current suggest panel
       if (this.suggestPanel) {
         suggestElement = this.suggestPanel;
-        while (this.suggestPanel.lastChild) {
-          this.suggestPanel.removeChild(this.suggestPanel.lastChild);
-        };
+
+        clearChildNode(this.suggestPanel);
+
       } else {
         suggestElement = node('div|class:auto-suggest');
         this.suggestPanel = suggestElement;

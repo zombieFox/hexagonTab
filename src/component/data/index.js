@@ -4,7 +4,10 @@ import { version } from '../version';
 import { update } from '../update';
 import { modal } from '../modal';
 
-import { utility } from '../../utility';
+import { dateTime } from '../../utility/dateTime';
+import { node } from '../../utility/node';
+import { isJson } from '../../utility/isJson';
+import { clearChildNode } from '../../utility/clearChildNode';
 
 const data = {};
 
@@ -32,7 +35,7 @@ data.validateJsonFile = function(fileList, input, feedback) {
   // define the on load event for the reader
   reader.onload = function(event) {
     // is this a JSON file
-    if (utility.isJson(event.target.result)) {
+    if (isJson(event.target.result)) {
       // is this JSON from this app
       if (JSON.parse(event.target.result)[data.saveName]) {
         data.render.feedback.clear(feedback);
@@ -59,7 +62,7 @@ data.validateJsonFile = function(fileList, input, feedback) {
 };
 
 data.export = function() {
-  let timestamp = utility.dateTime();
+  let timestamp = dateTime();
 
   const leadingZero = function(value) {
     if (value < 10) {
@@ -152,11 +155,11 @@ data.render.reload = function() {
 };
 
 data.render.clear = function() {
-  const clearContent = utility.node('div');
+  const clearContent = node('div');
 
-  const para1 = utility.node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
+  const para1 = node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
 
-  const para2 = utility.node('p:This can not be undone.');
+  const para2 = node('p:This can not be undone.');
 
   clearContent.appendChild(para1);
 
@@ -176,29 +179,29 @@ data.render.clear = function() {
 
 data.render.feedback = {
   empty: function(feedback) {
-    feedback.appendChild(utility.node('p:No JSON file selected.|class:muted small'));
+    feedback.appendChild(node('p:No JSON file selected.|class:muted small'));
   },
   success: function(feedback, filename, action) {
-    feedback.appendChild(utility.node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
-    feedback.appendChild(utility.node('p:' + filename));
+    feedback.appendChild(node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
+    feedback.appendChild(node('p:' + filename));
     if (action) {
       data.render.feedback.animation.set(feedback, 'is-pop', action);
     };
   },
   clear: function(feedback) {
-    while (feedback.lastChild) {
-      feedback.removeChild(feedback.lastChild);
-    };
+
+    clearChildNode(feedback);
+
   },
   fail: {
     notJson: function(feedback, filename) {
-      feedback.appendChild(utility.node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
-      feedback.appendChild(utility.node('p:' + filename));
+      feedback.appendChild(node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
+      feedback.appendChild(node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     },
     notAppJson: function(feedback, filename) {
-      feedback.appendChild(utility.node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
-      feedback.appendChild(utility.node('p:' + filename));
+      feedback.appendChild(node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
+      feedback.appendChild(node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     }
   },

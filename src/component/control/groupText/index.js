@@ -13,6 +13,7 @@ import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
+import { clearChildNode } from '../../../utility/clearChildNode';
 
 export const Control_groupText = function({ text = false, classList = [] } = {}) {
 
@@ -22,9 +23,9 @@ export const Control_groupText = function({ text = false, classList = [] } = {})
   });
 
   this.update = (content) => {
-    while (this.groupText.lastChild) {
-      this.groupText.removeChild(this.groupText.lastChild);
-    };
+
+    clearChildNode(this.groupText);
+
     if (typeof content === 'string' && isValidString(content)) {
       this.groupText.textContent = content;
     } else if (content && content != '') {

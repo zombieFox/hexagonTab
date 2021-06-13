@@ -22,6 +22,7 @@ import { Control_text } from '../control/text';
 
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
+import { clearChildNode } from '../../utility/clearChildNode';
 
 import { menuContentLayout } from './content/layout';
 import { menuContentBookmark } from './content/bookmark';
@@ -309,9 +310,8 @@ menu.render.component = {
     return menuClose;
   },
   content: function() {
-    while (currentContentArea.lastChild) {
-      currentContentArea.removeChild(currentContentArea.lastChild);
-    };
+
+    clearChildNode(currentContentArea);
 
     menu.mod.area.all.forEach((item, i) => {
       if (item.active) {

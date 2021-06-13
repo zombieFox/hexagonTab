@@ -22,6 +22,7 @@ import { Control_color } from '../control/color';
 import { Control_text } from '../control/text';
 
 import { node } from '../../utility/node';
+import { clearChildNode } from '../../utility/clearChildNode';
 
 import './index.css';
 
@@ -267,9 +268,9 @@ toolbar.bar.render = function() {
 };
 
 toolbar.bar.clear = function() {
-  while (toolbar.bar.lastChild) {
-    toolbar.bar.removeChild(toolbar.bar.lastChild);
-  };
+
+  clearChildNode(toolbar.bar);
+
 };
 
 toolbar.bar.active = function() {
