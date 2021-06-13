@@ -678,7 +678,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-input-background: va
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form-input-button {\n  position: relative;\n  display: flex;\n}\n\n.form-input-button input[type=\"checkbox\"]+label,\n.form-input-button input[type=\"radio\"]+label,\n.form-input-button input[type=\"color\"]+label,\n.form-input-button input[type=\"file\"]+label {\n  background-color: hsl(var(--button-background));\n  padding: 0.25em 1.25em;\n  margin: 0;\n  color: hsl(var(--button-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  min-height: 2.5em;\n  line-height: 1;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  box-shadow: none;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-input-button input[type=\"checkbox\"]:focus+label,\n.form-input-button input[type=\"checkbox\"]:hover+label,\n.form-input-button input[type=\"radio\"]:focus+label,\n.form-input-button input[type=\"radio\"]:hover+label,\n.form-input-button input[type=\"color\"]:focus+label,\n.form-input-button input[type=\"color\"]:hover+label,\n.form-input-button input[type=\"file\"]:focus+label,\n.form-input-button input[type=\"file\"]:hover+label {\n  background-color: hsl(var(--button-background-focus-hover));\n  color: hsl(var(--button-text-focus-hover));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:active+label,\n.form-input-button input[type=\"radio\"]:active+label,\n.form-input-button input[type=\"color\"]:active+label,\n.form-input-button input[type=\"file\"]:active+label {\n  background-color: hsl(var(--button-background-active));\n  color: hsl(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n  transition: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:checked+label,\n.form-input-button input[type=\"radio\"]:checked+label,\n.form-input-button input[type=\"color\"]:checked+label,\n.form-input-button input[type=\"file\"]:checked+label {\n  background-color: hsl(var(--button-background-active));\n  color: hsl(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:disabled+label,\n.form-input-button input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button input[type=\"radio\"]:disabled+label,\n.form-input-button input[type=\"radio\"]:disabled:hover+label,\n.form-input-button input[type=\"radio\"]:disabled:focus+label,\n.form-input-button input[type=\"radio\"]:disabled:active+label,\n.form-input-button input[type=\"color\"]:disabled+label,\n.form-input-button input[type=\"color\"]:disabled:hover+label,\n.form-input-button input[type=\"color\"]:disabled:focus+label,\n.form-input-button input[type=\"color\"]:disabled:active+label,\n.form-input-button input[type=\"file\"]:disabled+label,\n.form-input-button input[type=\"file\"]:disabled:hover+label,\n.form-input-button input[type=\"file\"]:disabled:focus+label,\n.form-input-button input[type=\"file\"]:disabled:active+label {\n  background-color: hsl(var(--button-background-disabled));\n  color: hsl(var(--button-text-disabled));\n  cursor: default;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]+label .label-icon,\n.form-input-button input[type=\"radio\"]+label .label-icon {\n  top: inherit;\n}\n\n.form-input-button-ring input[type=\"checkbox\"]+label,\n.form-input-button-ring input[type=\"radio\"]+label,\n.form-input-button-ring input[type=\"color\"]+label,\n.form-input-button-ring input[type=\"file\"]+label {\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:hover+label,\n.form-input-button-ring input[type=\"radio\"]:focus+label,\n.form-input-button-ring input[type=\"radio\"]:hover+label,\n.form-input-button-ring input[type=\"color\"]:focus+label,\n.form-input-button-ring input[type=\"color\"]:hover+label,\n.form-input-button-ring input[type=\"file\"]:focus+label,\n.form-input-button-ring input[type=\"file\"]:hover+label {\n  box-shadow: var(--form-ring-hover);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:active+label,\n.form-input-button-ring input[type=\"radio\"]:active+label,\n.form-input-button-ring input[type=\"color\"]:active+label,\n.form-input-button-ring input[type=\"file\"]:active+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:checked+label,\n.form-input-button-ring input[type=\"radio\"]:checked+label,\n.form-input-button-ring input[type=\"color\"]:checked+label,\n.form-input-button-ring input[type=\"file\"]:checked+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:disabled+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button-ring input[type=\"radio\"]:disabled+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:active+label,\n.form-input-button-ring input[type=\"color\"]:disabled+label,\n.form-input-button-ring input[type=\"color\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"color\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"color\"]:disabled:active+label,\n.form-input-button-ring input[type=\"file\"]:disabled+label,\n.form-input-button-ring input[type=\"file\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"file\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"file\"]:disabled:active+label {\n  box-shadow: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]+label:after,\n.form-input-button-line input[type=\"radio\"]+label:after,\n.form-input-button-line input[type=\"color\"]+label:after,\n.form-input-button-line input[type=\"file\"]+label:after {\n  content: \"\";\n  background: transparent;\n  border-radius: var(--theme-radius-base);\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  clip-path: polygon(0 calc(100% - var(--layout-line-width)), 100% calc(100% - var(--layout-line-width)), 100% 100%, 0% 100%);\n  transition: background-color var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:hover+label:after,\n.form-input-button-line input[type=\"color\"]:focus+label:after,\n.form-input-button-line input[type=\"color\"]:hover+label:after,\n.form-input-button-line input[type=\"file\"]:focus+label:after,\n.form-input-button-line input[type=\"file\"]:hover+label:after {\n  background-color: hsl(var(--button-border-focus-hover));\n}\n\n.form-input-button-line input[type=\"checkbox\"]:active+label:after,\n.form-input-button-line input[type=\"radio\"]:active+label:after,\n.form-input-button-line input[type=\"color\"]:active+label:after,\n.form-input-button-line input[type=\"file\"]:active+label:after {\n  background-color: hsl(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:checked+label:after,\n.form-input-button-line input[type=\"radio\"]:checked+label:after,\n.form-input-button-line input[type=\"color\"]:checked+label:after,\n.form-input-button-line input[type=\"file\"]:checked+label:after {\n  background-color: hsl(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:disabled+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"color\"]:disabled+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"file\"]:disabled+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:active+label:after {\n  background-color: hsl(var(--button-border-disabled));\n}\n\n/* form input button link */\n.form-input-button-link input[type=\"checkbox\"]+label,\n.form-input-button-link input[type=\"radio\"]+label,\n.form-input-button-link input[type=\"color\"]+label,\n.form-input-button-link input[type=\"file\"]+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:hover+label,\n.form-input-button-link input[type=\"checkbox\"]:focus+label,\n.form-input-button-link input[type=\"checkbox\"]:checked+label,\n.form-input-button-link input[type=\"radio\"]:hover+label,\n.form-input-button-link input[type=\"radio\"]:focus+label,\n.form-input-button-link input[type=\"radio\"]:checked+label,\n.form-input-button-link input[type=\"color\"]:hover+label,\n.form-input-button-link input[type=\"color\"]:focus+label,\n.form-input-button-link input[type=\"color\"]:checked+label,\n.form-input-button-link input[type=\"file\"]:hover+label,\n.form-input-button-link input[type=\"file\"]:focus+label,\n.form-input-button-link input[type=\"file\"]:checked+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:active+label,\n.form-input-button-link input[type=\"radio\"]:active+label,\n.form-input-button-link input[type=\"color\"]:active+label,\n.form-input-button-link input[type=\"file\"]:active+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]+label,\n.form-input-button-link input:disabled[type=\"radio\"]+label,\n.form-input-button-link input:disabled[type=\"color\"]+label,\n.form-input-button-link input:disabled[type=\"file\"]+label {\n  background-color: transparent;\n  pointer-events: none;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]:hover+label,\n.form-input-button-link input:disabled[type=\"checkbox\"]:focus+label,\n.form-input-button-link input:disabled[type=\"radio\"]:hover+label,\n.form-input-button-link input:disabled[type=\"radio\"]:focus+label,\n.form-input-button-link input:disabled[type=\"color\"]:hover+label,\n.form-input-button-link input:disabled[type=\"color\"]:focus+label,\n.form-input-button-link input:disabled[type=\"file\"]:hover+label,\n.form-input-button-link input:disabled[type=\"file\"]:focus+label {\n  background-color: transparent;\n}\n\n.form-input-button-sr-only input[type=\"checkbox\"]+label,\n.form-input-button-sr-only input[type=\"radio\"]+label,\n.form-input-button-sr-only input[type=\"color\"]+label,\n.form-input-button-sr-only input[type=\"file\"]+label {\n  display: block;\n}\n\n.form-input-button-sr-only input[type=\"checkbox\"]+label .label-block,\n.form-input-button-sr-only input[type=\"radio\"]+label .label-block,\n.form-input-button-sr-only input[type=\"color\"]+label .label-block,\n.form-input-button-sr-only input[type=\"file\"]+label .label-block {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border: 0;\n}\n\n.form-input-button-sr-only.input-color-dot input[type=\"color\"]+label {\n  padding: 0.25em 1.75em;\n}\n\n.form-input-button-sr-only.input-color-dot input[type=\"color\"] {\n  top: 50%;\n  left: 50%;\n  right: initial;\n  transform: translate(-50%, -50%);\n}\n\n.form-input-hide input[type=\"checkbox\"]+label .label-icon,\n.form-input-hide input[type=\"checkbox\"]:checked+label .label-icon,\n.form-input-hide input[type=\"radio\"]+label .label-icon,\n.form-input-hide input[type=\"radio\"]:checked+label .label-icon,\n.form-input-hide input[type=\"file\"]+label .label-icon,\n.form-input-hide input[type=\"file\"]:checked+label .label-icon {\n  display: none;\n}\n\n.form-input-hide input[type=\"color\"],\n.form-input-hide input[type=\"file\"] {\n  margin: 0;\n  opacity: 0;\n  width: 1px;\n  height: 1px;\n  min-width: 1px;\n  min-height: 1px;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  -webkit-appearance: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form-input-button {\n  position: relative;\n  display: flex;\n}\n\n.form-input-button input[type=\"checkbox\"]+label,\n.form-input-button input[type=\"radio\"]+label,\n.form-input-button input[type=\"color\"]+label,\n.form-input-button input[type=\"file\"]+label {\n  background-color: hsl(var(--button-background));\n  padding: 0.25em 1.25em;\n  margin: 0;\n  color: hsl(var(--button-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  min-height: 2.5em;\n  line-height: 1;\n  border: 0;\n  border-radius: var(--theme-radius-base);\n  position: relative;\n  text-align: center;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  box-shadow: none;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-input-button input[type=\"checkbox\"]:focus+label,\n.form-input-button input[type=\"checkbox\"]:hover+label,\n.form-input-button input[type=\"radio\"]:focus+label,\n.form-input-button input[type=\"radio\"]:hover+label,\n.form-input-button input[type=\"color\"]:focus+label,\n.form-input-button input[type=\"color\"]:hover+label,\n.form-input-button input[type=\"file\"]:focus+label,\n.form-input-button input[type=\"file\"]:hover+label {\n  background-color: hsl(var(--button-background-focus-hover));\n  color: hsl(var(--button-text-focus-hover));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:active+label,\n.form-input-button input[type=\"radio\"]:active+label,\n.form-input-button input[type=\"color\"]:active+label,\n.form-input-button input[type=\"file\"]:active+label {\n  background-color: hsl(var(--button-background-active));\n  color: hsl(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n  transition: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:checked+label,\n.form-input-button input[type=\"radio\"]:checked+label,\n.form-input-button input[type=\"color\"]:checked+label,\n.form-input-button input[type=\"file\"]:checked+label {\n  background-color: hsl(var(--button-background-active));\n  color: hsl(var(--button-text-active));\n  outline: none;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]:disabled+label,\n.form-input-button input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button input[type=\"radio\"]:disabled+label,\n.form-input-button input[type=\"radio\"]:disabled:hover+label,\n.form-input-button input[type=\"radio\"]:disabled:focus+label,\n.form-input-button input[type=\"radio\"]:disabled:active+label,\n.form-input-button input[type=\"color\"]:disabled+label,\n.form-input-button input[type=\"color\"]:disabled:hover+label,\n.form-input-button input[type=\"color\"]:disabled:focus+label,\n.form-input-button input[type=\"color\"]:disabled:active+label,\n.form-input-button input[type=\"file\"]:disabled+label,\n.form-input-button input[type=\"file\"]:disabled:hover+label,\n.form-input-button input[type=\"file\"]:disabled:focus+label,\n.form-input-button input[type=\"file\"]:disabled:active+label {\n  background-color: hsl(var(--button-background-disabled));\n  color: hsl(var(--button-text-disabled));\n  cursor: default;\n  text-decoration: none;\n}\n\n.form-input-button input[type=\"checkbox\"]+label .label-icon,\n.form-input-button input[type=\"radio\"]+label .label-icon {\n  top: inherit;\n}\n\n.form-input-button-ring input[type=\"checkbox\"]+label,\n.form-input-button-ring input[type=\"radio\"]+label,\n.form-input-button-ring input[type=\"color\"]+label,\n.form-input-button-ring input[type=\"file\"]+label {\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:hover+label,\n.form-input-button-ring input[type=\"radio\"]:focus+label,\n.form-input-button-ring input[type=\"radio\"]:hover+label,\n.form-input-button-ring input[type=\"color\"]:focus+label,\n.form-input-button-ring input[type=\"color\"]:hover+label,\n.form-input-button-ring input[type=\"file\"]:focus+label,\n.form-input-button-ring input[type=\"file\"]:hover+label {\n  box-shadow: var(--form-ring-hover);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:active+label,\n.form-input-button-ring input[type=\"radio\"]:active+label,\n.form-input-button-ring input[type=\"color\"]:active+label,\n.form-input-button-ring input[type=\"file\"]:active+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:checked+label,\n.form-input-button-ring input[type=\"radio\"]:checked+label,\n.form-input-button-ring input[type=\"color\"]:checked+label,\n.form-input-button-ring input[type=\"file\"]:checked+label {\n  box-shadow: var(--form-ring-accent);\n}\n\n.form-input-button-ring input[type=\"checkbox\"]:disabled+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"checkbox\"]:disabled:active+label,\n.form-input-button-ring input[type=\"radio\"]:disabled+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"radio\"]:disabled:active+label,\n.form-input-button-ring input[type=\"color\"]:disabled+label,\n.form-input-button-ring input[type=\"color\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"color\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"color\"]:disabled:active+label,\n.form-input-button-ring input[type=\"file\"]:disabled+label,\n.form-input-button-ring input[type=\"file\"]:disabled:hover+label,\n.form-input-button-ring input[type=\"file\"]:disabled:focus+label,\n.form-input-button-ring input[type=\"file\"]:disabled:active+label {\n  box-shadow: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]+label:after,\n.form-input-button-line input[type=\"radio\"]+label:after,\n.form-input-button-line input[type=\"color\"]+label:after,\n.form-input-button-line input[type=\"file\"]+label:after {\n  content: \"\";\n  background: transparent;\n  border-radius: var(--theme-radius-base);\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  clip-path: polygon(0 calc(100% - var(--layout-line-width)), 100% calc(100% - var(--layout-line-width)), 100% 100%, 0% 100%);\n  transition: background-color var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:hover+label:after,\n.form-input-button-line input[type=\"color\"]:focus+label:after,\n.form-input-button-line input[type=\"color\"]:hover+label:after,\n.form-input-button-line input[type=\"file\"]:focus+label:after,\n.form-input-button-line input[type=\"file\"]:hover+label:after {\n  background-color: hsl(var(--button-border-focus-hover));\n}\n\n.form-input-button-line input[type=\"checkbox\"]:active+label:after,\n.form-input-button-line input[type=\"radio\"]:active+label:after,\n.form-input-button-line input[type=\"color\"]:active+label:after,\n.form-input-button-line input[type=\"file\"]:active+label:after {\n  background-color: rgb(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:checked+label:after,\n.form-input-button-line input[type=\"radio\"]:checked+label:after,\n.form-input-button-line input[type=\"color\"]:checked+label:after,\n.form-input-button-line input[type=\"file\"]:checked+label:after {\n  background-color: rgb(var(--button-border-active));\n  transition: none;\n}\n\n.form-input-button-line input[type=\"checkbox\"]:disabled+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"checkbox\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"radio\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"color\"]:disabled+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"color\"]:disabled:active+label:after,\n.form-input-button-line input[type=\"file\"]:disabled+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:hover+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:focus+label:after,\n.form-input-button-line input[type=\"file\"]:disabled:active+label:after {\n  background-color: hsl(var(--button-border-disabled));\n}\n\n/* form input button link */\n.form-input-button-link input[type=\"checkbox\"]+label,\n.form-input-button-link input[type=\"radio\"]+label,\n.form-input-button-link input[type=\"color\"]+label,\n.form-input-button-link input[type=\"file\"]+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:hover+label,\n.form-input-button-link input[type=\"checkbox\"]:focus+label,\n.form-input-button-link input[type=\"checkbox\"]:checked+label,\n.form-input-button-link input[type=\"radio\"]:hover+label,\n.form-input-button-link input[type=\"radio\"]:focus+label,\n.form-input-button-link input[type=\"radio\"]:checked+label,\n.form-input-button-link input[type=\"color\"]:hover+label,\n.form-input-button-link input[type=\"color\"]:focus+label,\n.form-input-button-link input[type=\"color\"]:checked+label,\n.form-input-button-link input[type=\"file\"]:hover+label,\n.form-input-button-link input[type=\"file\"]:focus+label,\n.form-input-button-link input[type=\"file\"]:checked+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input[type=\"checkbox\"]:active+label,\n.form-input-button-link input[type=\"radio\"]:active+label,\n.form-input-button-link input[type=\"color\"]:active+label,\n.form-input-button-link input[type=\"file\"]:active+label {\n  background-color: transparent;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]+label,\n.form-input-button-link input:disabled[type=\"radio\"]+label,\n.form-input-button-link input:disabled[type=\"color\"]+label,\n.form-input-button-link input:disabled[type=\"file\"]+label {\n  background-color: transparent;\n  pointer-events: none;\n}\n\n.form-input-button-link input:disabled[type=\"checkbox\"]:hover+label,\n.form-input-button-link input:disabled[type=\"checkbox\"]:focus+label,\n.form-input-button-link input:disabled[type=\"radio\"]:hover+label,\n.form-input-button-link input:disabled[type=\"radio\"]:focus+label,\n.form-input-button-link input:disabled[type=\"color\"]:hover+label,\n.form-input-button-link input:disabled[type=\"color\"]:focus+label,\n.form-input-button-link input:disabled[type=\"file\"]:hover+label,\n.form-input-button-link input:disabled[type=\"file\"]:focus+label {\n  background-color: transparent;\n}\n\n.form-input-button-sr-only input[type=\"checkbox\"]+label,\n.form-input-button-sr-only input[type=\"radio\"]+label,\n.form-input-button-sr-only input[type=\"color\"]+label,\n.form-input-button-sr-only input[type=\"file\"]+label {\n  display: block;\n}\n\n.form-input-button-sr-only input[type=\"checkbox\"]+label .label-block,\n.form-input-button-sr-only input[type=\"radio\"]+label .label-block,\n.form-input-button-sr-only input[type=\"color\"]+label .label-block,\n.form-input-button-sr-only input[type=\"file\"]+label .label-block {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border: 0;\n}\n\n.form-input-button-sr-only.input-color-dot input[type=\"color\"]+label {\n  padding: 0.25em 1.75em;\n}\n\n.form-input-button-sr-only.input-color-dot input[type=\"color\"] {\n  top: 50%;\n  left: 50%;\n  right: initial;\n  transform: translate(-50%, -50%);\n}\n\n.form-input-hide input[type=\"checkbox\"]+label .label-icon,\n.form-input-hide input[type=\"checkbox\"]:checked+label .label-icon,\n.form-input-hide input[type=\"radio\"]+label .label-icon,\n.form-input-hide input[type=\"radio\"]:checked+label .label-icon,\n.form-input-hide input[type=\"file\"]+label .label-icon,\n.form-input-hide input[type=\"file\"]:checked+label .label-icon {\n  display: none;\n}\n\n.form-input-hide input[type=\"color\"],\n.form-input-hide input[type=\"file\"] {\n  margin: 0;\n  opacity: 0;\n  width: 1px;\n  height: 1px;\n  min-width: 1px;\n  min-height: 1px;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  -webkit-appearance: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11067,6 +11067,15 @@ const trimString = function(value) {
   };
 };
 
+;// CONCATENATED MODULE: ./src/utility/clearChildNode.js
+const clearChildNode = function(element) {
+
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
+  };
+
+};
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/autoSuggest/index.css
 var autoSuggest = __webpack_require__(8625);
 ;// CONCATENATED MODULE: ./src/component/autoSuggest/index.css
@@ -11084,6 +11093,7 @@ var autoSuggest_update = injectStylesIntoStyleTag_default()(autoSuggest/* defaul
 
 /* harmony default export */ const component_autoSuggest = (autoSuggest/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/autoSuggest/index.js
+
 
 
 
@@ -11217,9 +11227,9 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
       // define the current suggest panel
       if (this.suggestPanel) {
         suggestElement = this.suggestPanel;
-        while (this.suggestPanel.lastChild) {
-          this.suggestPanel.removeChild(this.suggestPanel.lastChild);
-        };
+
+        clearChildNode(this.suggestPanel);
+
       } else {
         suggestElement = node('div|class:auto-suggest');
         this.suggestPanel = suggestElement;
@@ -12043,6 +12053,7 @@ var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, them
 
 
 
+
 const theme_theme = {};
 
 theme_theme.bind = {};
@@ -12267,9 +12278,9 @@ theme_theme.render.background.video.remove = function() {
   const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
 
   if (themeBackgroundTypeVideo.lastChild) {
-    while (themeBackgroundTypeVideo.lastChild) {
-      themeBackgroundTypeVideo.removeChild(themeBackgroundTypeVideo.lastChild);
-    };
+
+    clearChildNode(themeBackgroundTypeVideo);
+
   };
 };
 
@@ -13065,7 +13076,7 @@ const set = function({ path = null, object = null, value = null } = {}) {
 
 
 
-const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButtonStyle = [], action = false } = {}) {
 
   this.input;
 
@@ -13115,13 +13126,15 @@ const Control_inputButton = function({ object = {}, path = false, id = 'name', c
   this.button = node('div|class:form-input-button');
 
   if (inputButtonClassList.length > 0) {
+
     inputButtonClassList.forEach((item, i) => {
       this.button.classList.add(item);
     });
+
   };
 
-  if (inputButton.length > 0) {
-    inputButton.forEach((item, i) => {
+  if (inputButtonStyle.length > 0) {
+    inputButtonStyle.forEach((item, i) => {
       switch (item) {
         case 'link':
           this.button.classList.add('form-input-button-link');
@@ -13203,6 +13216,7 @@ const Control_inputButton = function({ object = {}, path = false, id = 'name', c
 
 
 
+
 const Control_groupText = function({ text = false, classList = [] } = {}) {
 
   this.groupText = groupText_groupText({
@@ -13211,9 +13225,9 @@ const Control_groupText = function({ text = false, classList = [] } = {}) {
   });
 
   this.update = (content) => {
-    while (this.groupText.lastChild) {
-      this.groupText.removeChild(this.groupText.lastChild);
-    };
+
+    clearChildNode(this.groupText);
+
     if (typeof content === 'string' && isValidString(content)) {
       this.groupText.textContent = content;
     } else if (content && content != '') {
@@ -14641,6 +14655,7 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 
 
+
 const defaultBookmark = {
   url: '',
   display: {
@@ -14915,9 +14930,9 @@ bookmark_bookmark.mod.propagate.state = {
 bookmark_bookmark.render = {};
 
 bookmark_bookmark.render.clear = function() {
-  while (gridList.lastChild) {
-    gridList.removeChild(gridList.lastChild);
-  };
+
+  clearChildNode(gridList);
+
 };
 
 bookmark_bookmark.render.mask = function() {
@@ -15957,9 +15972,9 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   bookmarkForm.preview.render = () => {
     if (bookmarkFormPreview.lastChild) {
-      while (bookmarkFormPreview.lastChild) {
-        bookmarkFormPreview.removeChild(bookmarkFormPreview.lastChild);
-      };
+
+      clearChildNode(bookmarkFormPreview);
+
     };
 
     bookmarkForm.preview.current = new HexTile({
@@ -16174,32 +16189,10 @@ const isJson = function(string) {
   return true;
 };
 
-;// CONCATENATED MODULE: ./src/utility/index.js
-
-
-
-
-
-
-
-
-
-
-
-const utility_utility = {
-  complexNode: complexNode,
-  convertColor: convertColor,
-  dateTime: dateTime,
-  get: get,
-  isValidString: isValidString,
-  isJson: isJson,
-  makePath: makePath,
-  node: node,
-  set: set,
-  trimString: trimString
-};
-
 ;// CONCATENATED MODULE: ./src/component/data/index.js
+
+
+
 
 
 
@@ -16234,7 +16227,7 @@ data.validateJsonFile = function(fileList, input, feedback) {
   // define the on load event for the reader
   reader.onload = function(event) {
     // is this a JSON file
-    if (utility_utility.isJson(event.target.result)) {
+    if (isJson(event.target.result)) {
       // is this JSON from this app
       if (JSON.parse(event.target.result)[data.saveName]) {
         data.render.feedback.clear(feedback);
@@ -16261,7 +16254,7 @@ data.validateJsonFile = function(fileList, input, feedback) {
 };
 
 data.export = function() {
-  let timestamp = utility_utility.dateTime();
+  let timestamp = dateTime();
 
   const leadingZero = function(value) {
     if (value < 10) {
@@ -16354,11 +16347,11 @@ data.render.reload = function() {
 };
 
 data.render.clear = function() {
-  const clearContent = utility_utility.node('div');
+  const clearContent = node('div');
 
-  const para1 = utility_utility.node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
+  const para1 = node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
 
-  const para2 = utility_utility.node('p:This can not be undone.');
+  const para2 = node('p:This can not be undone.');
 
   clearContent.appendChild(para1);
 
@@ -16378,29 +16371,29 @@ data.render.clear = function() {
 
 data.render.feedback = {
   empty: function(feedback) {
-    feedback.appendChild(utility_utility.node('p:No JSON file selected.|class:muted small'));
+    feedback.appendChild(node('p:No JSON file selected.|class:muted small'));
   },
   success: function(feedback, filename, action) {
-    feedback.appendChild(utility_utility.node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
-    feedback.appendChild(utility_utility.node('p:' + filename));
+    feedback.appendChild(node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
+    feedback.appendChild(node('p:' + filename));
     if (action) {
       data.render.feedback.animation.set(feedback, 'is-pop', action);
     };
   },
   clear: function(feedback) {
-    while (feedback.lastChild) {
-      feedback.removeChild(feedback.lastChild);
-    };
+
+    clearChildNode(feedback);
+
   },
   fail: {
     notJson: function(feedback, filename) {
-      feedback.appendChild(utility_utility.node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
-      feedback.appendChild(utility_utility.node('p:' + filename));
+      feedback.appendChild(node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
+      feedback.appendChild(node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     },
     notAppJson: function(feedback, filename) {
-      feedback.appendChild(utility_utility.node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
-      feedback.appendChild(utility_utility.node('p:' + filename));
+      feedback.appendChild(node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
+      feedback.appendChild(node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     }
   },
@@ -16449,6 +16442,7 @@ var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, 
 
 /* harmony default export */ const component_toolbar = (toolbar/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/toolbar/index.js
+
 
 
 
@@ -16612,7 +16606,7 @@ toolbar_toolbar.bar.render = function() {
     type: 'color',
     labelText: 'Accent colour',
     srOnly: true,
-    inputButton: ['dot'],
+    inputButtonStyle: ['dot'],
     inputButtonClassList: ['toolbar-item'],
     action: () => {
       theme_theme.render.accent();
@@ -16658,14 +16652,14 @@ toolbar_toolbar.bar.render = function() {
       addOptions.style = ['line'];
       editOptions.style = ['line'];
       settingsMenuOptions.style = ['line'];
-      accentOptions.inputButton.push('line');
+      accentOptions.inputButtonStyle.push('line');
       break;
 
     case 'transparent':
       addOptions.style = ['link'];
       editOptions.style = ['link'];
       settingsMenuOptions.style = ['link'];
-      accentOptions.inputButton.push('link');
+      accentOptions.inputButtonStyle.push('link');
       break;
   };
 
@@ -16718,9 +16712,9 @@ toolbar_toolbar.bar.render = function() {
 };
 
 toolbar_toolbar.bar.clear = function() {
-  while (toolbar_toolbar.bar.lastChild) {
-    toolbar_toolbar.bar.removeChild(toolbar_toolbar.bar.lastChild);
-  };
+
+  clearChildNode(toolbar_toolbar.bar);
+
 };
 
 toolbar_toolbar.bar.active = function() {
@@ -18034,10 +18028,11 @@ menuContentData.import = function() {
   data.render.feedback.empty(importFeedback);
 
   const importButton = new Control_inputButton({
-    id: 'name',
+    id: 'import-data',
     type: 'file',
     inputHide: true,
     labelText: 'Import data',
+    inputButtonStyle: ['line'],
     action: () => {
       data.import(importButton.input, importFeedback)
     }
@@ -18283,6 +18278,7 @@ var menu_update = injectStylesIntoStyleTag_default()(menu/* default */.Z, menu_o
 
 /* harmony default export */ const component_menu = (menu/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/menu/index.js
+
 
 
 
@@ -18594,9 +18590,8 @@ menu_menu.render.component = {
     return menuClose;
   },
   content: function() {
-    while (currentContentArea.lastChild) {
-      currentContentArea.removeChild(currentContentArea.lastChild);
-    };
+
+    clearChildNode(currentContentArea);
 
     menu_menu.mod.area.all.forEach((item, i) => {
       if (item.active) {
@@ -18851,6 +18846,31 @@ const component = {
   Suggest: Suggest,
   Collapse: Collapse,
   Tab: Tab
+};
+
+;// CONCATENATED MODULE: ./src/utility/index.js
+
+
+
+
+
+
+
+
+
+
+
+const utility_utility = {
+  complexNode: complexNode,
+  convertColor: convertColor,
+  dateTime: dateTime,
+  get: get,
+  isValidString: isValidString,
+  isJson: isJson,
+  makePath: makePath,
+  node: node,
+  set: set,
+  trimString: trimString
 };
 
 ;// CONCATENATED MODULE: ./src/index.js
