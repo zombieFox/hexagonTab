@@ -18860,6 +18860,7 @@ const component = {
 
 
 
+
 const utility_utility = {
   complexNode: complexNode,
   convertColor: convertColor,
@@ -18870,7 +18871,8 @@ const utility_utility = {
   makePath: makePath,
   node: node,
   set: set,
-  trimString: trimString
+  trimString: trimString,
+  clearChildNode: clearChildNode
 };
 
 ;// CONCATENATED MODULE: ./src/index.js
