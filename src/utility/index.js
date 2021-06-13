@@ -8,6 +8,7 @@ import { makePath } from './makePath';
 import { node } from './node';
 import { set } from './set';
 import { trimString } from './trimString';
+import { clearChildNode } from './clearChildNode';
 
 export const utility = {
   complexNode,
@@ -19,5 +20,6 @@ export const utility = {
   makePath,
   node,
   set,
-  trimString
+  trimString,
+  clearChildNode
 };
