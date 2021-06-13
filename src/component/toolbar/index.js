@@ -162,7 +162,7 @@ toolbar.bar.render = function() {
     type: 'color',
     labelText: 'Accent colour',
     srOnly: true,
-    inputButton: ['dot'],
+    inputButtonStyle: ['dot'],
     inputButtonClassList: ['toolbar-item'],
     action: () => {
       theme.render.accent();
@@ -208,14 +208,14 @@ toolbar.bar.render = function() {
       addOptions.style = ['line'];
       editOptions.style = ['line'];
       settingsMenuOptions.style = ['line'];
-      accentOptions.inputButton.push('line');
+      accentOptions.inputButtonStyle.push('line');
       break;
 
     case 'transparent':
       addOptions.style = ['link'];
       editOptions.style = ['link'];
       settingsMenuOptions.style = ['link'];
-      accentOptions.inputButton.push('link');
+      accentOptions.inputButtonStyle.push('link');
       break;
   };
 

@@ -14,7 +14,7 @@ import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
-export const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButton = [], action = false } = {}) {
+export const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButtonStyle = [], action = false } = {}) {
 
   this.input;
 
@@ -64,13 +64,15 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
   this.button = node('div|class:form-input-button');
 
   if (inputButtonClassList.length > 0) {
+
     inputButtonClassList.forEach((item, i) => {
       this.button.classList.add(item);
     });
+
   };
 
-  if (inputButton.length > 0) {
-    inputButton.forEach((item, i) => {
+  if (inputButtonStyle.length > 0) {
+    inputButtonStyle.forEach((item, i) => {
       switch (item) {
         case 'link':
           this.button.classList.add('form-input-button-link');

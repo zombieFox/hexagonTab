@@ -178,7 +178,7 @@
 .form-input-button-line input[type="radio"]:active+label:after,
 .form-input-button-line input[type="color"]:active+label:after,
 .form-input-button-line input[type="file"]:active+label:after {
-  background-color: hsl(var(--button-border-active));
+  background-color: rgb(var(--button-border-active));
   transition: none;
 }
 
@@ -186,7 +186,7 @@
 .form-input-button-line input[type="radio"]:checked+label:after,
 .form-input-button-line input[type="color"]:checked+label:after,
 .form-input-button-line input[type="file"]:checked+label:after {
-  background-color: hsl(var(--button-border-active));
+  background-color: rgb(var(--button-border-active));
   transition: none;
 }
 

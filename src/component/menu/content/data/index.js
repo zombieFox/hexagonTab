@@ -43,10 +43,11 @@ menuContentData.import = function() {
   data.render.feedback.empty(importFeedback);
 
   const importButton = new Control_inputButton({
-    id: 'name',
+    id: 'import-data',
     type: 'file',
     inputHide: true,
     labelText: 'Import data',
+    inputButtonStyle: ['line'],
     action: () => {
       data.import(importButton.input, importFeedback)
     }
