@@ -59,7 +59,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   background-color: hsl(var(--form-range-track-background));
   padding: 0;
   margin: 0;
-  height: calc(var(--layout-line-width) * 1.5);
+  height: calc(var(--layout-line-width) * 4);
   border: 0;
   border-radius: 10em;
   transition: background-color var(--layout-transition-extra-fast);
@@ -123,7 +123,7 @@ input[type="range"]::-moz-range-track {
   background-color: hsl(var(--form-range-track-background));
   padding: 0;
   margin: 0;
-  height: calc(var(--layout-line-width) * 1.5);
+  height: calc(var(--layout-line-width) * 4);
   border: 0;
   border-radius: 10em;
   transition: background-color var(--layout-transition-extra-fast);
