@@ -325,7 +325,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  --bookmark-color-focus-hover: var(--theme-primary-100);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 6fr 3fr;\n    grid-gap: var(--modal-space);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-space) * 20);\n}\n\n.bookmark-form-preview {\n  background-color: hsl(var(--theme-primary-200));\n  padding: var(--modal-space);\n  border-radius: var(--theme-radius-base);\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: hsl(var(--theme-primary-400));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  --bookmark-color-focus-hover: var(--theme-primary-100);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 6fr 3fr;\n    grid-gap: calc(var(--modal-space) * 1em);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-space) * 20);\n}\n\n.bookmark-form-preview {\n  background-color: hsl(var(--theme-primary-200));\n  padding: calc(var(--modal-space) * 0.5em);\n  border-radius: var(--theme-radius-base);\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: hsl(var(--theme-primary-400));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -944,7 +944,26 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --menu-background: var(--th
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-small: 30em;\n  --modal-medium: 50em;\n  --modal-large: 70em;\n  --modal-size: var(--modal-medium);\n  --modal-space: 2em;\n}\n\n.modal {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: var(--theme-radius-base);\n  box-shadow: var(--theme-shadow-bottom-large);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-size: 1em;\n  max-height: calc(100vh - 2em);\n  width: var(--modal-size);\n  max-width: calc(100% - 2em);\n  min-width: 10em;\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 1fr auto;\n  transform: translate(-50%, -50%);\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  z-index: var(--z-index-modal);\n}\n\n.modal.modal-max-height {\n  min-height: calc(100vh - 2em);\n}\n\n.modal-content-wrapper {\n  padding: calc(var(--modal-space) * 1.75);\n  position: relative;\n  overflow-y: auto;\n}\n\n.modal-overscroll .modal-content-wrapper {\n  padding-bottom: calc(var(--form-space) * 14);\n}\n\n.modal-content {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: auto 1fr;\n  justify-items: stretch;\n  align-items: stretch;\n  gap: var(--modal-space);\n}\n\n.modal-body {\n  border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;\n  position: relative;\n}\n\n.modal-body-spacer {\n  margin: var(--modal-space);\n}\n\n.modal-heading-text {\n  margin-bottom: 0;\n}\n\n.modal-heading-text:focus {\n  outline: none;\n}\n\n.modal-container {\n  max-width: 100%;\n}\n\n.modal-container:focus {\n  outline: none;\n}\n\n.modal-controls {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);\n  position: relative;\n  z-index: 2;\n  display: flex;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.modal-button {\n  background-color: transparent;\n  margin: 0;\n  border-radius: 0;\n  padding-top: 1.5em;\n  padding-bottom: 1.5em;\n  flex-basis: 50%;\n}\n\n.modal-controls .modal-button:first-child {\n  border-radius: 0 0 0 var(--theme-radius-base);\n}\n\n.modal-controls .modal-button:last-child {\n  border-radius: 0 0 var(--theme-radius-base) 0\n}\n\n.modal-shade {\n  background-color: rgba(var(--theme-accent), 0.5);\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-space: 2;\n  --modal-width: 50;\n}\n\n.modal {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: var(--theme-radius-base);\n  box-shadow: var(--theme-shadow-bottom-large);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-size: 1em;\n  max-height: calc(100vh - 2em);\n  width: calc(var(--modal-width) * 1em);\n  max-width: calc(100% - 2em);\n  min-width: 10em;\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 1fr auto;\n  transform: translate(-50%, -50%);\n  overflow: hidden;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  z-index: var(--z-index-modal);\n}\n\n.modal.modal-max-height {\n  min-height: calc(100vh - 2em);\n}\n\n.modal-content-wrapper {\n  padding: calc(var(--modal-space) * 1.75em);\n  position: relative;\n  overflow-y: auto;\n}\n\n.modal-overscroll .modal-content-wrapper {\n  padding-bottom: calc(var(--form-space) * 14);\n}\n\n.modal-content {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: auto 1fr;\n  justify-items: stretch;\n  align-items: stretch;\n  gap: calc(var(--modal-space) * 1em);\n}\n\n.modal-body {\n  border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;\n  position: relative;\n}\n\n.modal-body-spacer {\n  margin: calc(var(--modal-space) * 1em);\n}\n\n.modal-heading-text {\n  margin-bottom: 0;\n}\n\n.modal-heading-text:focus {\n  outline: none;\n}\n\n.modal-container {\n  max-width: 100%;\n}\n\n.modal-container:focus {\n  outline: none;\n}\n\n.modal-control {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);\n  position: relative;\n  z-index: 2;\n  display: flex;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.modal-control-button {\n  background-color: transparent;\n  margin: 0;\n  border-radius: 0;\n  padding-top: 1.5em;\n  padding-bottom: 1.5em;\n  flex-basis: 50%;\n}\n\n.modal-control .modal-control-button:first-child {\n  border-radius: 0 0 0 var(--theme-radius-base);\n}\n\n.modal-control .modal-control-button:last-child {\n  border-radius: 0 0 var(--theme-radius-base) 0\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 9888:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2541,6 +2560,1826 @@ grid_grid.init = function() {
   grid_grid.render.rotate.bind();
 };
 
+
+;// CONCATENATED MODULE: ./src/utility/convertColor.js
+const convertColor = {
+  rgb: {},
+  hsl: {},
+  hex: {}
+};
+
+convertColor.rgb.hsl = function(rgb) {
+  var r = rgb.r / 255;
+  var g = rgb.g / 255;
+  var b = rgb.b / 255;
+  var min = Math.min(r, g, b);
+  var max = Math.max(r, g, b);
+  var delta = max - min;
+  var h;
+  var s;
+
+  if (max === min) {
+    h = 0;
+  } else if (r === max) {
+    h = (g - b) / delta;
+  } else if (g === max) {
+    h = 2 + (b - r) / delta;
+  } else if (b === max) {
+    h = 4 + (r - g) / delta;
+  };
+
+  h = Math.min(h * 60, 360);
+
+  if (h < 0) {
+    h += 360;
+  };
+
+  var l = (min + max) / 2;
+
+  if (max === min) {
+    s = 0;
+  } else if (l <= 0.5) {
+    s = delta / (max + min);
+  } else {
+    s = delta / (2 - max - min);
+  };
+
+  return {
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100)
+  };
+};
+
+convertColor.rgb.hex = function(args) {
+  var integer = ((Math.round(args.r) & 0xFF) << 16) +
+    ((Math.round(args.g) & 0xFF) << 8) +
+    (Math.round(args.b) & 0xFF);
+
+  var string = integer.toString(16);
+  return '#' + '000000'.substring(string.length) + string;
+};
+
+convertColor.hsl.rgb = function(hsl) {
+  var h = hsl.h / 360;
+  var s = hsl.s / 100;
+  var l = hsl.l / 100;
+  var t2;
+  var t3;
+  var val;
+
+  if (s === 0) {
+    val = l * 255;
+    return {
+      r: Math.round(val),
+      g: Math.round(val),
+      b: Math.round(val)
+    };
+  };
+
+  if (l < 0.5) {
+    t2 = l * (1 + s);
+  } else {
+    t2 = l + s - l * s;
+  };
+
+  var t1 = 2 * l - t2;
+
+  var rgb = [0, 0, 0];
+
+  for (var i = 0; i < 3; i++) {
+    t3 = h + 1 / 3 * -(i - 1);
+    if (t3 < 0) {
+      t3++;
+    };
+
+    if (t3 > 1) {
+      t3--;
+    };
+
+    if (6 * t3 < 1) {
+      val = t1 + (t2 - t1) * 6 * t3;
+    } else if (2 * t3 < 1) {
+      val = t2;
+    } else if (3 * t3 < 2) {
+      val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
+    } else {
+      val = t1;
+    };
+
+    rgb[i] = val * 255;
+  };
+
+  return {
+    r: Math.round(rgb[0]),
+    g: Math.round(rgb[1]),
+    b: Math.round(rgb[2])
+  };
+};
+
+convertColor.hex.rgb = function(args) {
+  var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
+  if (!match) {
+    return {
+      r: 0,
+      g: 0,
+      b: 0
+    };
+  };
+
+  var colorString = match[0];
+
+  if (match[0].length === 3) {
+    colorString = colorString.split('').map(function(char) {
+      return char + char;
+    }).join('');
+  };
+
+  var integer = parseInt(colorString, 16);
+  var r = (integer >> 16) & 0xFF;
+  var g = (integer >> 8) & 0xFF;
+  var b = integer & 0xFF;
+
+  return {
+    r: r,
+    g: g,
+    b: b
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/isValidString.js
+const isValidString = function(value) {
+  let result = false;
+
+  if (typeof value == 'string') {
+    value = value.trim().replace(/\s/g, '');
+    if (value != '') {
+      result = true;
+    };
+  };
+
+  return result;
+};
+
+;// CONCATENATED MODULE: ./src/component/video/index.js
+
+
+
+
+
+
+
+
+const Video = function({ url = false } = {}) {
+
+  this.video = node('video|autoplay,loop,muted');
+
+  this.source = node('source');
+
+  this.video.appendChild(this.source);
+
+  if (isValidString(url)) {
+
+    this.source.src = url;
+
+    this.video.muted = true;
+
+    this.video.loop = true;
+
+    this.video.autoplay = true;
+
+  };
+
+  if (url.includes('mp4') || url.endsWith('mp4')) {
+
+    this.source.type = 'video/mp4';
+
+  } else if (url.includes('webm') || url.endsWith('webm')) {
+
+    this.source.type = 'video/webm';
+
+  };
+
+  this.play = () => {
+    this.video.play();
+  };
+
+  this.pause = () => {
+    var playPromise = this.video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        this.video.pause();
+      });
+    };
+  };
+};
+
+
+
+;// CONCATENATED MODULE: ./src/utility/trimString.js
+const trimString = function(value) {
+  if (typeof value == 'string') {
+    return value.trim().replace(/\s\s+/g, ' ');
+  } else {
+    return value;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/clearChildNode.js
+const clearChildNode = function(element) {
+
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
+  };
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/theme/index.css
+var theme = __webpack_require__(8776);
+;// CONCATENATED MODULE: ./src/component/theme/index.css
+
+            
+
+var theme_options = {};
+
+theme_options.insert = "head";
+theme_options.singleton = false;
+
+var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, theme_options);
+
+
+
+/* harmony default export */ const component_theme = (theme/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/theme/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+const theme_theme = {};
+
+theme_theme.bind = {};
+
+theme_theme.bind.style = {
+  initial: function() {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
+      theme_theme.mod.style.initial();
+    });
+  }
+};
+
+theme_theme.mod = {};
+
+theme_theme.mod.style = {
+  initial: function() {
+    switch (state_state.get.current().theme.style) {
+      case 'dark':
+      case 'light':
+        localStorage.setItem(data.saveName + 'Style', state_state.get.current().theme.style);
+        break;
+
+      case 'system':
+        if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
+          localStorage.setItem(data.saveName + 'Style', 'dark');
+        } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
+          localStorage.setItem(data.saveName + 'Style', 'light');
+        };
+        break;
+    };
+  },
+  light: function() {
+    state_state.get.current().theme.style = 'light';
+  },
+  dark: function() {
+    state_state.get.current().theme.style = 'dark';
+  }
+};
+
+theme_theme.render = {};
+
+theme_theme.render.color = function() {
+  const html = document.querySelector('html');
+
+  let shades = (state_state.get.current().theme.color.lightness.end - state_state.get.current().theme.color.lightness.start) / (state_state.get.current().theme.color.shades - 1);
+
+  for (var type in state_state.get.current().theme.color.range) {
+
+    for (var i = 0; i < state_state.get.current().theme.color.shades; i++) {
+
+      let hsl = JSON.parse(JSON.stringify(state_state.get.current().theme.color.range[type]));
+
+      hsl.l = Math.round((shades * i) + state_state.get.current().theme.color.lightness.start);
+
+      let rgb = convertColor.hsl.rgb(hsl);
+
+      for (var key in rgb) {
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
+      };
+
+      for (var key in hsl) {
+        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
+      };
+
+    };
+
+  };
+
+};
+
+theme_theme.render.class = function() {
+  const html = document.querySelector('html');
+
+  if (state_state.get.current().bookmark.edit) {
+    html.classList.add('is-bookmark-edit');
+  } else {
+    html.classList.remove('is-bookmark-edit');
+  };
+
+  const type = ['dark', 'light', 'system', 'theme', 'custom'];
+
+  type.forEach((item, i) => {
+    html.classList.remove('is-theme-style-' + item);
+    html.classList.remove('is-theme-bookmark-shadow-color-type-' + item);
+  });
+
+  html.classList.add('is-theme-style-' + state_state.get.current().theme.style);
+  html.classList.add('is-theme-bookmark-shadow-color-type-' + state_state.get.current().theme.bookmark.shadow.color.type);
+};
+
+theme_theme.render.accent = function() {
+  const html = document.querySelector('html');
+  const rgb = state_state.get.current().theme.accent.rgb;
+  html.style.setProperty('--theme-accent-r', rgb.r);
+  html.style.setProperty('--theme-accent-g', rgb.g);
+  html.style.setProperty('--theme-accent-b', rgb.b);
+};
+
+theme_theme.render.radius = function() {
+  const html = document.querySelector('html');
+  html.style.setProperty('--theme-radius', state_state.get.current().theme.radius);
+};
+
+theme_theme.render.shadow = function() {
+  const html = document.querySelector('html');
+  html.style.setProperty('--theme-shadow', state_state.get.current().theme.shadow);
+};
+
+theme_theme.style = {
+  dark: function() {
+    theme_theme.mod.style.dark();
+    theme_theme.mod.style.initial();
+    theme_theme.render.class();
+  },
+  light: function() {
+    theme_theme.mod.style.light();
+    theme_theme.mod.style.initial();
+    theme_theme.render.class();
+  },
+  toggle: function() {
+    if (state_state.get.current().theme.style == 'dark') {
+      theme_theme.style.light();
+    } else if (state_state.get.current().theme.style == 'light') {
+      theme_theme.style.dark();
+    };
+  }
+}
+
+theme_theme.render.bookmark = {};
+
+theme_theme.render.bookmark.style = function() {
+  const html = document.querySelector('html');
+  html.style.setProperty('--theme-bookmark-shadow-color', state_state.get.current().theme.bookmark.shadow.color.rgb.r + ', ' + state_state.get.current().theme.bookmark.shadow.color.rgb.g + ', ' + state_state.get.current().theme.bookmark.shadow.color.rgb.b);
+  html.style.setProperty('--theme-bookmark-shadow-opacity', state_state.get.current().theme.bookmark.shadow.opacity);
+};
+
+theme_theme.render.background = {};
+
+theme_theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
+
+theme_theme.render.background.area = function() {
+  const backgroundElement = node('div|class:theme-background');
+
+  theme_theme.render.background.choices.forEach((item, i) => {
+    backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-' + item));
+  });
+
+  document.querySelector('body').appendChild(backgroundElement);
+};
+
+theme_theme.render.background.type = function() {
+  const html = document.querySelector('html');
+
+  theme_theme.render.background.choices.forEach((item, i) => {
+    html.classList.remove('is-theme-background-type-' + item);
+  });
+
+  html.classList.add('is-theme-background-type-' + state_state.get.current().theme.background.type);
+};
+
+theme_theme.render.background.color = function() {
+  const html = document.querySelector('html');
+
+  html.style.setProperty('--theme-background-color', state_state.get.current().theme.background.color.rgb.r + ', ' + state_state.get.current().theme.background.color.rgb.g + ', ' + state_state.get.current().theme.background.color.rgb.b);
+};
+
+theme_theme.render.background.gradient = function() {
+  const html = document.querySelector('html');
+
+  html.style.setProperty('--theme-background-gradient-angle', state_state.get.current().theme.background.gradient.angle);
+
+  html.style.setProperty('--theme-background-gradient-start', state_state.get.current().theme.background.gradient.start.rgb.r + ', ' + state_state.get.current().theme.background.gradient.start.rgb.g + ', ' + state_state.get.current().theme.background.gradient.start.rgb.b);
+
+  html.style.setProperty('--theme-background-gradient-end', state_state.get.current().theme.background.gradient.end.rgb.r + ', ' + state_state.get.current().theme.background.gradient.end.rgb.g + ', ' + state_state.get.current().theme.background.gradient.end.rgb.b);
+};
+
+theme_theme.render.background.image = {};
+
+theme_theme.render.background.image.set = function() {
+  const html = document.querySelector('html');
+
+  if (isValidString(state_state.get.current().theme.background.image.url)) {
+    html.style.setProperty('--theme-background-image', 'url(' + trimString(state_state.get.current().theme.background.image.url) + ')');
+  } else {
+    html.style.removeProperty('--theme-background-image');
+  };
+};
+
+theme_theme.render.background.image.filter = function() {
+  const html = document.querySelector('html');
+
+  html.style.setProperty('--theme-background-image-blur', state_state.get.current().theme.background.image.blur);
+  html.style.setProperty('--theme-background-image-scale', state_state.get.current().theme.background.image.scale);
+  html.style.setProperty('--theme-background-image-opacity', state_state.get.current().theme.background.image.opacity);
+};
+
+theme_theme.render.background.video = {};
+
+theme_theme.render.background.video.element = false;
+
+theme_theme.render.background.video.set = function() {
+  theme_theme.render.background.video.element = new Video({
+    url: state_state.get.current().theme.background.video.url
+  });
+};
+
+theme_theme.render.background.video.add = function() {
+  if (isValidString(state_state.get.current().theme.background.video.url)) {
+
+    const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
+
+    themeBackgroundTypeVideo.appendChild(theme_theme.render.background.video.element.video);
+
+  } else {
+
+    theme_theme.render.background.video.remove();
+
+  };
+};
+
+theme_theme.render.background.video.remove = function() {
+  const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
+
+  if (themeBackgroundTypeVideo.lastChild) {
+
+    clearChildNode(themeBackgroundTypeVideo);
+
+  };
+};
+
+theme_theme.render.background.video.filter = function() {
+  const html = document.querySelector('html');
+
+  html.style.setProperty('--theme-background-video-blur', state_state.get.current().theme.background.video.blur);
+  html.style.setProperty('--theme-background-video-scale', state_state.get.current().theme.background.video.scale);
+  html.style.setProperty('--theme-background-video-opacity', state_state.get.current().theme.background.video.opacity);
+};
+
+theme_theme.init = function() {
+  theme_theme.mod.style.initial();
+  theme_theme.bind.style.initial();
+  theme_theme.render.color();
+  theme_theme.render.accent();
+  theme_theme.render.class();
+  theme_theme.render.radius();
+  theme_theme.render.shadow();
+  theme_theme.render.bookmark.style();
+  theme_theme.render.background.area();
+  theme_theme.render.background.type();
+  theme_theme.render.background.color();
+  theme_theme.render.background.gradient();
+  theme_theme.render.background.image.set();
+  theme_theme.render.background.image.filter();
+  theme_theme.render.background.video.set();
+  theme_theme.render.background.video.add();
+  theme_theme.render.background.video.filter();
+};
+
+
+
+;// CONCATENATED MODULE: ./src/utility/complexNode.js
+const complexNode = function({ tag = 'div', text = false, attr = [], node = [] } = {}) {
+  const element = document.createElement(tag);
+
+  if (text) {
+    element.innerHTML = text;
+  };
+
+  if (attr.length > 0) {
+    attr.forEach((item, i) => {
+
+      if ('key' in item && 'value' in item) {
+        element.setAttribute(item.key, item.value);
+      } else if ('key' in item) {
+        element.setAttribute(item.key, '');
+      };
+
+    });
+  };
+
+  if (node) {
+    if (typeof node != 'string') {
+      if (node.length > 0) {
+
+        node.forEach((item, i) => {
+          if (item instanceof HTMLElement) {
+            element.appendChild(item);
+          };
+        });
+
+      } else {
+
+        if (node instanceof HTMLElement) {
+          element.appendChild(node);
+        };
+
+      };
+    };
+  };
+
+  return element;
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/feedback/index.css
+var feedback = __webpack_require__(2207);
+;// CONCATENATED MODULE: ./src/component/form/feedback/index.css
+
+            
+
+var feedback_options = {};
+
+feedback_options.insert = "head";
+feedback_options.singleton = false;
+
+var feedback_update = injectStylesIntoStyleTag_default()(feedback/* default */.Z, feedback_options);
+
+
+
+/* harmony default export */ const form_feedback = (feedback/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/feedback/index.js
+
+
+
+
+
+const feedback_feedback = function({ text = false } = {}) {
+
+  const feedback = node('div|class:form-feedback');
+
+  if (text) {
+    const feedbackText = complexNode({
+      tag: 'p',
+      text: text,
+      attr: [{
+        key: 'class',
+        value: 'muted small'
+      }]
+    });
+
+    feedback.appendChild(feedbackText);
+  };
+
+  return feedback;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/fieldset/index.css
+var fieldset = __webpack_require__(3681);
+;// CONCATENATED MODULE: ./src/component/form/fieldset/index.css
+
+            
+
+var fieldset_options = {};
+
+fieldset_options.insert = "head";
+fieldset_options.singleton = false;
+
+var fieldset_update = injectStylesIntoStyleTag_default()(fieldset/* default */.Z, fieldset_options);
+
+
+
+/* harmony default export */ const form_fieldset = (fieldset/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/fieldset/index.js
+
+
+
+
+const fieldset_fieldset = function({ children = false } = {}) {
+
+  return node('fieldset|class:form-fieldset', children);
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/group/index.css
+var group = __webpack_require__(7039);
+;// CONCATENATED MODULE: ./src/component/form/group/index.css
+
+            
+
+var group_options = {};
+
+group_options.insert = "head";
+group_options.singleton = false;
+
+var group_update = injectStylesIntoStyleTag_default()(group/* default */.Z, group_options);
+
+
+
+/* harmony default export */ const form_group = (group/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/group/index.js
+
+
+
+
+const group_group = function({ direction = 'horizontal', reverse = false, block = false, border = false, children = false } = {}) {
+
+  const group = node('div|class:form-group', children);
+
+  switch (direction) {
+    case 'horizontal':
+      group.classList.add('form-group-horizontal');
+      break;
+
+    case 'vertical':
+      group.classList.add('form-group-vertical');
+      break;
+  };
+
+  if (reverse) {
+    group.classList.add('form-group-reverse');
+  };
+
+  if (block) {
+    group.classList.add('form-group-block');
+  };
+
+  if (border) {
+    group.classList.add('form-group-border');
+  };
+
+  return group;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/groupText/index.css
+var groupText = __webpack_require__(5516);
+;// CONCATENATED MODULE: ./src/component/form/groupText/index.css
+
+            
+
+var groupText_options = {};
+
+groupText_options.insert = "head";
+groupText_options.singleton = false;
+
+var groupText_update = injectStylesIntoStyleTag_default()(groupText/* default */.Z, groupText_options);
+
+
+
+/* harmony default export */ const form_groupText = (groupText/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/groupText/index.js
+
+
+
+
+const groupText_groupText = function({ text = false, classList = [] } = {}) {
+
+  const textElement = node('div|class:form-group-text,tabindex:1');
+
+  if (text) {
+    textElement.textContent = text;
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      textElement.classList.add(item);
+    });
+
+  };
+
+  return textElement;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/helper/index.css
+var helper = __webpack_require__(214);
+;// CONCATENATED MODULE: ./src/component/form/helper/index.css
+
+            
+
+var helper_options = {};
+
+helper_options.insert = "head";
+helper_options.singleton = false;
+
+var helper_update = injectStylesIntoStyleTag_default()(helper/* default */.Z, helper_options);
+
+
+
+/* harmony default export */ const form_helper = (helper/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/helper/index.js
+
+
+
+
+
+const helper_helper = function({ text = 'text', classList = [] } = {}) {
+
+  const helper = complexNode({
+    tag: 'p',
+    text: text,
+    attr: [{
+      key: 'class',
+      value: 'form-helper-item'
+    }]
+  });
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      helper.classList.add(item);
+    });
+
+  };
+
+  return helper;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/indent/index.css
+var indent = __webpack_require__(1400);
+;// CONCATENATED MODULE: ./src/component/form/indent/index.css
+
+            
+
+var indent_options = {};
+
+indent_options.insert = "head";
+indent_options.singleton = false;
+
+var indent_update = injectStylesIntoStyleTag_default()(indent/* default */.Z, indent_options);
+
+
+
+/* harmony default export */ const form_indent = (indent/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/indent/index.js
+
+
+
+
+const indent_indent = function({ children = false } = {}) {
+
+  return node('div|class:form-indent', children);
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/inline/index.css
+var inline = __webpack_require__(4046);
+;// CONCATENATED MODULE: ./src/component/form/inline/index.css
+
+            
+
+var inline_options = {};
+
+inline_options.insert = "head";
+inline_options.singleton = false;
+
+var inline_update = injectStylesIntoStyleTag_default()(inline/* default */.Z, inline_options);
+
+
+
+/* harmony default export */ const form_inline = (inline/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/inline/index.js
+
+
+
+
+const inline_inline = function({ direction = 'horizontal', reverse = false, block = false, wrap = false, gap = 'medium', children = false } = {}) {
+
+  const inline = node('div|class:form-inline', children);
+
+  switch (direction) {
+    case 'horizontal':
+      inline.classList.add('form-inline-horizontal');
+      break;
+
+    case 'vertical':
+      inline.classList.add('form-inline-vertical');
+      break;
+  };
+
+  switch (gap) {
+    case 'small':
+      inline.classList.add('form-inline-gap-small');
+      break;
+
+    case 'medium':
+      inline.classList.add('form-inline-gap-medium');
+      break;
+
+    case 'large':
+      inline.classList.add('form-inline-gap-large');
+      break;
+  };
+
+  if (reverse) {
+    inline.classList.add('form-inline-reverse');
+  };
+
+  if (block) {
+    inline.classList.add('form-inline-block');
+  };
+
+  if (wrap) {
+    inline.classList.add('form-inline-wrap');
+  };
+
+  return inline;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/label/index.css
+var label = __webpack_require__(5071);
+;// CONCATENATED MODULE: ./src/component/form/label/index.css
+
+            
+
+var label_options = {};
+
+label_options.insert = "head";
+label_options.singleton = false;
+
+var label_update = injectStylesIntoStyleTag_default()(label/* default */.Z, label_options);
+
+
+
+/* harmony default export */ const form_label = (label/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/label/index.js
+
+
+
+
+const label_label = function({ forInput = false, text = 'label', description = false, srOnly = false, icon = false, classList = [] } = {}) {
+
+  let label;
+
+  if (forInput) {
+    label = node('label|for:' + forInput);
+  } else {
+    label = node('label');
+  };
+
+  const labelBlock = node('span|class:label-block');
+
+  if (srOnly) {
+    if (icon) {
+      labelBlock.classList.add('sr-only');
+    } else {
+      label.classList.add('sr-only');
+    };
+  };
+
+  if (text) {
+    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+  };
+
+  if (description) {
+    if (Array.isArray(description)) {
+
+      description.forEach((item, i) => {
+        labelBlock.appendChild(node('span:' + item + '|class:label-block-item small muted'));
+      });
+
+    } else if (typeof description === 'string') {
+
+      labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
+
+    };
+  };
+
+  if (text || description) {
+    label.appendChild(labelBlock);
+  };
+
+  if (icon) {
+    label.prepend(node('span|class:label-icon'));
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      label.classList.add(item);
+    });
+
+  };
+
+  return label;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/sticky/index.css
+var sticky = __webpack_require__(460);
+;// CONCATENATED MODULE: ./src/component/form/sticky/index.css
+
+            
+
+var sticky_options = {};
+
+sticky_options.insert = "head";
+sticky_options.singleton = false;
+
+var sticky_update = injectStylesIntoStyleTag_default()(sticky/* default */.Z, sticky_options);
+
+
+
+/* harmony default export */ const form_sticky = (sticky/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/sticky/index.js
+
+
+
+
+const sticky_sticky = function({ children = false } = {}) {
+
+  return node('div|class:form-sticky', children);
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/wrap/index.css
+var wrap = __webpack_require__(1879);
+;// CONCATENATED MODULE: ./src/component/form/wrap/index.css
+
+            
+
+var wrap_options = {};
+
+wrap_options.insert = "head";
+wrap_options.singleton = false;
+
+var wrap_update = injectStylesIntoStyleTag_default()(wrap/* default */.Z, wrap_options);
+
+
+
+/* harmony default export */ const form_wrap = (wrap/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/wrap/index.js
+
+
+
+
+const wrap_wrap = function({ children = false } = {}) {
+
+  return node('div|class:form-wrap', children);
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/grid/index.css
+var form_grid = __webpack_require__(7662);
+;// CONCATENATED MODULE: ./src/component/form/grid/index.css
+
+            
+
+var form_grid_options = {};
+
+form_grid_options.insert = "head";
+form_grid_options.singleton = false;
+
+var form_grid_update = injectStylesIntoStyleTag_default()(form_grid/* default */.Z, form_grid_options);
+
+
+
+/* harmony default export */ const component_form_grid = (form_grid/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/grid/index.js
+
+
+
+
+const form_grid_grid = function({ children = false } = {}) {
+
+  return node('div|class:form-grid', children);
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/checkbox/index.css
+var input_checkbox = __webpack_require__(5875);
+;// CONCATENATED MODULE: ./src/component/form/input/checkbox/index.css
+
+            
+
+var checkbox_options = {};
+
+checkbox_options.insert = "head";
+checkbox_options.singleton = false;
+
+var checkbox_update = injectStylesIntoStyleTag_default()(input_checkbox/* default */.Z, checkbox_options);
+
+
+
+/* harmony default export */ const form_input_checkbox = (input_checkbox/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/checkbox/index.js
+
+
+
+
+const checkbox_checkbox = function({ id = false, value = false, checked = false, classList = [], func = false } = {}) {
+
+  const input = node('input|type:checkbox,tabindex:1');
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (value) {
+    input.setAttribute('value', value);
+  };
+
+  if (checked) {
+    input.setAttribute('checked', '');
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    input.addEventListener('change', function(event) {
+      func();
+    });
+
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/color/index.css
+var color = __webpack_require__(9755);
+;// CONCATENATED MODULE: ./src/component/form/input/color/index.css
+
+            
+
+var color_options = {};
+
+color_options.insert = "head";
+color_options.singleton = false;
+
+var color_update = injectStylesIntoStyleTag_default()(color/* default */.Z, color_options);
+
+
+
+/* harmony default export */ const input_color = (color/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/color/index.js
+
+
+
+
+const color_color = function({ id = false, value = '#000000', classList = [], func = false } = {}) {
+
+  const input = node('input|type:color,value:' + value + ',tabindex:1');
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    input.addEventListener('change', function(event) {
+      func();
+    });
+
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/file/index.css
+var file = __webpack_require__(462);
+;// CONCATENATED MODULE: ./src/component/form/input/file/index.css
+
+            
+
+var file_options = {};
+
+file_options.insert = "head";
+file_options.singleton = false;
+
+var file_update = injectStylesIntoStyleTag_default()(file/* default */.Z, file_options);
+
+
+
+/* harmony default export */ const input_file = (file/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/file/index.js
+
+
+
+
+const file_file = function({ id = false, classList = [], func = false } = {}) {
+
+  const input = node('input|type:file,tabindex:1');
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    input.addEventListener('change', function(event) {
+      func();
+    });
+
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/number/index.css
+var number = __webpack_require__(2725);
+;// CONCATENATED MODULE: ./src/component/form/input/number/index.css
+
+            
+
+var number_options = {};
+
+number_options.insert = "head";
+number_options.singleton = false;
+
+var number_update = injectStylesIntoStyleTag_default()(number/* default */.Z, number_options);
+
+
+
+/* harmony default export */ const input_number = (number/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/number/index.js
+
+
+
+
+const number_number = function({ id = false, min = 0, max = 100, step = 1, value = false, placeholder = false, classList = [], func = false } = {}) {
+
+  const input = node('input|type:number,min:' + min + ',max:' + max + ',step:' + step + ',tabindex:1');
+
+  let delayUpdate = null;
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (value || (typeof value === 'number' && value === 0)) {
+    input.setAttribute('value', value);
+  };
+
+  if (placeholder) {
+    input.setAttribute('placeholder', placeholder);
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    input.addEventListener('input', function(event) {
+      func();
+    });
+
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/radio/index.css
+var input_radio = __webpack_require__(9610);
+;// CONCATENATED MODULE: ./src/component/form/input/radio/index.css
+
+            
+
+var radio_options = {};
+
+radio_options.insert = "head";
+radio_options.singleton = false;
+
+var radio_update = injectStylesIntoStyleTag_default()(input_radio/* default */.Z, radio_options);
+
+
+
+/* harmony default export */ const form_input_radio = (input_radio/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/radio/index.js
+
+
+
+
+const radio_radio = function({ id = false, radioGroup = false, value = false, checked = false, classList = [], func = false } = {}) {
+
+  const input = node('input|type:radio,tabindex:1');
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (radioGroup) {
+    input.setAttribute('name', radioGroup);
+  };
+
+  if (value) {
+    input.setAttribute('value', value);
+  };
+
+  if (checked) {
+    input.setAttribute('checked', '');
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+    input.addEventListener('change', function(event) {
+      func();
+    });
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/range/index.css
+var range = __webpack_require__(349);
+;// CONCATENATED MODULE: ./src/component/form/input/range/index.css
+
+            
+
+var range_options = {};
+
+range_options.insert = "head";
+range_options.singleton = false;
+
+var range_update = injectStylesIntoStyleTag_default()(range/* default */.Z, range_options);
+
+
+
+/* harmony default export */ const input_range = (range/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/range/index.js
+
+
+
+
+const range_range = function({ id = false, min = 0, max = 100, step = 1, value = 0, classList = [], func = false } = {}) {
+
+  const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    input.addEventListener('input', function(event) {
+      func();
+    });
+
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/text/index.css
+var input_text = __webpack_require__(4224);
+;// CONCATENATED MODULE: ./src/component/form/input/text/index.css
+
+            
+
+var text_options = {};
+
+text_options.insert = "head";
+text_options.singleton = false;
+
+var text_update = injectStylesIntoStyleTag_default()(input_text/* default */.Z, text_options);
+
+
+
+/* harmony default export */ const form_input_text = (input_text/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/text/index.js
+
+
+
+
+const text_text = function({ id = false, value = false, min = false, max = false, placeholder = false, classList = [], func = false } = {}) {
+
+  const input = node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
+
+  if (id) {
+    input.setAttribute('id', id);
+  };
+
+  if (value) {
+    input.setAttribute('value', value);
+  };
+
+  if (typeof min === 'number') {
+    input.setAttribute('minlength', min);
+  };
+
+  if (typeof max === 'number') {
+    input.setAttribute('maxlength', max);
+  };
+
+  if (placeholder) {
+    input.setAttribute('placeholder', placeholder);
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      input.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    input.addEventListener('input', function(event) {
+      func();
+    });
+
+  };
+
+  return input;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/textarea/index.css
+var input_textarea = __webpack_require__(8843);
+;// CONCATENATED MODULE: ./src/component/form/input/textarea/index.css
+
+            
+
+var textarea_options = {};
+
+textarea_options.insert = "head";
+textarea_options.singleton = false;
+
+var textarea_update = injectStylesIntoStyleTag_default()(input_textarea/* default */.Z, textarea_options);
+
+
+
+/* harmony default export */ const form_input_textarea = (input_textarea/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/textarea/index.js
+
+
+
+
+const textarea_textarea = function({ id = false, value = false, placeholder = false, classList = [], func = false } = {}) {
+
+  const textarea = node('textarea|tabindex:1,spellcheck:false');
+
+  if (id) {
+    textarea.setAttribute('id', id);
+  };
+
+  if (value) {
+    textarea.setAttribute('value', value);
+  };
+
+  if (placeholder) {
+    textarea.setAttribute('placeholder', placeholder);
+  };
+
+  if (checked) {
+    textarea.setAttribute('checked', '');
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      textarea.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    textarea.addEventListener('input', function(event) {
+      func();
+    });
+
+  };
+
+  return textarea;
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/inputButton/index.css
+var inputButton = __webpack_require__(9606);
+;// CONCATENATED MODULE: ./src/component/form/input/inputButton/index.css
+
+            
+
+var inputButton_options = {};
+
+inputButton_options.insert = "head";
+inputButton_options.singleton = false;
+
+var inputButton_update = injectStylesIntoStyleTag_default()(inputButton/* default */.Z, inputButton_options);
+
+
+
+/* harmony default export */ const input_inputButton = (inputButton/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/inputButton/index.js
+
+
+
+
+const inputButton_inputButton = function() {};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/index.css
+var input = __webpack_require__(443);
+;// CONCATENATED MODULE: ./src/component/form/input/index.css
+
+            
+
+var input_options = {};
+
+input_options.insert = "head";
+input_options.singleton = false;
+
+var input_update = injectStylesIntoStyleTag_default()(input/* default */.Z, input_options);
+
+
+
+/* harmony default export */ const form_input = (input/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/index.css
+var component_form = __webpack_require__(1058);
+;// CONCATENATED MODULE: ./src/component/form/index.css
+
+            
+
+var form_options = {};
+
+form_options.insert = "head";
+form_options.singleton = false;
+
+var form_update = injectStylesIntoStyleTag_default()(component_form/* default */.Z, form_options);
+
+
+
+/* harmony default export */ const src_component_form = (component_form/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/icon/index.css
+var icon = __webpack_require__(2826);
+;// CONCATENATED MODULE: ./src/component/icon/index.css
+
+            
+
+var icon_options = {};
+
+icon_options.insert = "head";
+icon_options.singleton = false;
+
+var icon_update = injectStylesIntoStyleTag_default()(icon/* default */.Z, icon_options);
+
+
+
+/* harmony default export */ const component_icon = (icon/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/icon/index.js
+
+
+
+
+const icon_icon = {};
+
+icon_icon.all = {
+  add: {
+    name: 'add',
+    path: 'M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z'
+  },
+  arrowBack: {
+    name: 'arrow-back',
+    path: 'M20.016 11.016v1.969h-12.188l5.578 5.625-1.406 1.406-8.016-8.016 8.016-8.016 1.406 1.406-5.578 5.625h12.188z'
+  },
+  arrowDownward: {
+    name: 'arrow-downward',
+    path: 'M20.016 12l-8.016 8.016-8.016-8.016 1.453-1.406 5.578 5.578v-12.188h1.969v12.188l5.625-5.578z'
+  },
+  arrowForward: {
+    name: 'arrow-forward',
+    path: 'M12 3.984l8.016 8.016-8.016 8.016-1.406-1.406 5.578-5.625h-12.188v-1.969h12.188l-5.578-5.625z'
+  },
+  arrowUpward: {
+    name: 'arrow-upward',
+    path: 'M3.984 12l8.016-8.016 8.016 8.016-1.453 1.406-5.578-5.578v12.188h-1.969v-12.188l-5.625 5.578z'
+  },
+  check: {
+    name: 'check',
+    path: 'M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z'
+  },
+  cross: {
+    name: 'cross',
+    path: 'M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z'
+  },
+  arrowKeyboardDown: {
+    name: 'arrow-keyboard-down',
+    path: 'M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'
+  },
+  arrowKeyboardLeft: {
+    name: 'arrow-keyboard-left',
+    path: 'M15.422 16.078l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z'
+  },
+  arrowKeyboardRight: {
+    name: 'arrow-keyboard-right',
+    path: 'M8.578 16.359l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z'
+  },
+  arrowKeyboardUp: {
+    name: 'arrow-keyboard-up',
+    path: 'M7.406 15.422l-1.406-1.406 6-6 6 6-1.406 1.406-4.594-4.594z'
+  },
+  edit: {
+    name: 'edit',
+    path: 'M20.719 7.031l-1.828 1.828-3.75-3.75 1.828-1.828c0.375-0.375 1.031-0.375 1.406 0l2.344 2.344c0.375 0.375 0.375 1.031 0 1.406zM3 17.25l11.063-11.063 3.75 3.75-11.063 11.063h-3.75v-3.75z'
+  },
+  moreHorizontal: {
+    name: 'more-horizontal',
+    path: 'M12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM18 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM6 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016z'
+  },
+  moreVertical: {
+    name: 'more-vertical',
+    path: 'M12 15.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 8.016c-1.078 0-2.016-0.938-2.016-2.016s0.938-2.016 2.016-2.016 2.016 0.938 2.016 2.016-0.938 2.016-2.016 2.016z'
+  },
+  redo: {
+    name: 'redo',
+    path: 'M18.422 10.594l3.563-3.609v9h-9l3.656-3.609q-2.25-1.875-5.156-1.875-2.391 0-4.617 1.594t-2.977 3.891l-2.344-0.75q1.031-3.188 3.773-5.203t6.164-2.016q3.984 0 6.938 2.578z'
+  },
+  refresh: {
+    name: 'refresh',
+    path: 'M17.672 6.328l2.344-2.344v7.031h-7.031l3.234-3.234c-1.078-1.078-2.578-1.781-4.219-1.781-3.328 0-6 2.672-6 6s2.672 6 6 6c2.625 0 4.875-1.641 5.672-3.984h2.063c-0.891 3.469-3.984 6-7.734 6-4.406 0-7.969-3.609-7.969-8.016s3.563-8.016 7.969-8.016c2.203 0 4.219 0.891 5.672 2.344z'
+  },
+  remove: {
+    name: 'remove',
+    path: 'M18.984 12.984h-13.969v-1.969h13.969v1.969z'
+  },
+  reorder: {
+    name: 'reorder',
+    path: 'M3 5.016h18v1.969h-18v-1.969zM3 11.016v-2.016h18v2.016h-18zM3 18.984v-1.969h18v1.969h-18zM3 15v-2.016h18v2.016h-18z'
+  },
+  replay: {
+    name: 'replay',
+    path: 'M12 5.016q3.328 0 5.672 2.344t2.344 5.625q0 3.328-2.367 5.672t-5.648 2.344-5.648-2.344-2.367-5.672h2.016q0 2.484 1.758 4.242t4.242 1.758 4.242-1.758 1.758-4.242-1.758-4.242-4.242-1.758v4.031l-5.016-5.016 5.016-5.016v4.031z'
+  },
+  settings: {
+    name: 'settings',
+    path: 'M12 15.516c1.922 0 3.516-1.594 3.516-3.516s-1.594-3.516-3.516-3.516-3.516 1.594-3.516 3.516 1.594 3.516 3.516 3.516zM19.453 12.984l2.109 1.641c0.188 0.141 0.234 0.422 0.094 0.656l-2.016 3.469c-0.141 0.234-0.375 0.281-0.609 0.188l-2.484-0.984c-0.516 0.375-1.078 0.75-1.688 0.984l-0.375 2.625c-0.047 0.234-0.234 0.422-0.469 0.422h-4.031c-0.234 0-0.422-0.188-0.469-0.422l-0.375-2.625c-0.609-0.234-1.172-0.563-1.688-0.984l-2.484 0.984c-0.234 0.094-0.469 0.047-0.609-0.188l-2.016-3.469c-0.141-0.234-0.094-0.516 0.094-0.656l2.109-1.641c-0.047-0.328-0.047-0.656-0.047-0.984s0-0.656 0.047-0.984l-2.109-1.641c-0.188-0.141-0.234-0.422-0.094-0.656l2.016-3.469c0.141-0.234 0.375-0.281 0.609-0.188l2.484 0.984c0.516-0.375 1.078-0.75 1.688-0.984l0.375-2.625c0.047-0.234 0.234-0.422 0.469-0.422h4.031c0.234 0 0.422 0.188 0.469 0.422l0.375 2.625c0.609 0.234 1.172 0.563 1.688 0.984l2.484-0.984c0.234-0.094 0.469-0.047 0.609 0.188l2.016 3.469c0.141 0.234 0.094 0.516-0.094 0.656l-2.109 1.641c0.047 0.328 0.047 0.656 0.047 0.984s0 0.656-0.047 0.984z'
+  },
+  undo: {
+    name: 'undo',
+    path: 'M12.516 8.016q3.422 0 6.141 2.016t3.797 5.203l-2.344 0.75q-0.797-2.438-2.883-3.961t-4.711-1.523q-2.906 0-5.156 1.875l3.656 3.609h-9v-9l3.563 3.609q2.953-2.578 6.938-2.578z'
+  },
+  unfoldLess: {
+    name: 'unfold-less',
+    path: 'M16.594 5.391l-4.594 4.594-4.594-4.594 1.406-1.406 3.188 3.188 3.188-3.188zM7.406 18.609l4.594-4.594 4.594 4.594-1.406 1.406-3.188-3.188-3.188 3.188z'
+  },
+  unfoldMore: {
+    name: 'unfold-more',
+    path: 'M12 18.188l3.188-3.188 1.406 1.406-4.594 4.594-4.594-4.594 1.406-1.406zM12 5.813l-3.188 3.188-1.406-1.406 4.594-4.594 4.594 4.594-1.406 1.406z'
+  },
+  coffee: {
+    name: 'coffee',
+    path: 'M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z'
+  }
+};
+
+icon_icon.render = function(name) {
+  const iconElement = node('span|class:icon');
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('version', '1.1');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('width', '24');
+  svg.setAttribute('height', '24');
+  svg.setAttribute('fill', 'currentColor');
+
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', icon_icon.all[name].path);
+
+  svg.appendChild(path);
+  iconElement.appendChild(svg);
+
+  return iconElement;
+};
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/button/index.css
+var component_button = __webpack_require__(8509);
+;// CONCATENATED MODULE: ./src/component/button/index.css
+
+            
+
+var button_options = {};
+
+button_options.insert = "head";
+button_options.singleton = false;
+
+var button_update = injectStylesIntoStyleTag_default()(component_button/* default */.Z, button_options);
+
+
+
+/* harmony default export */ const src_component_button = (component_button/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/button/index.js
+
+
+
+
+
+
+
+
+const Button = function({ text = 'Button', srOnly = false, iconName = false, block = false, size = false, style = [], title = false, classList = [], func = false } = {}) {
+  this.button = node('button|class:button,tabindex:1,type:button');
+
+  if (text) {
+    const buttonText = node('span:' + text + '|class:button-text');
+
+    if (srOnly) {
+      buttonText.classList.add('sr-only');
+    };
+
+    this.button.appendChild(buttonText);
+  };
+
+  if (iconName) {
+    this.button.appendChild(icon_icon.render(iconName));
+  };
+
+  if (block) {
+    this.button.classList.add('button-block');
+  };
+
+  switch (size) {
+    case 'small':
+      this.button.classList.add('button-small');
+      break;
+
+    case 'large':
+      this.button.classList.add('button-large');
+      break;
+  };
+
+  if (style.length > 0) {
+    style.forEach((item, i) => {
+      switch (item) {
+        case 'link':
+          this.button.classList.add('button-link');
+          break;
+
+        case 'line':
+          this.button.classList.add('button-line');
+          break;
+
+        case 'ring':
+          this.button.classList.add('button-ring');
+          break;
+      };
+    });
+  };
+
+  if (title) {
+    this.button.setAttribute('title', title);
+  };
+
+  if (classList.length > 0) {
+    classList.forEach((item, i) => {
+      this.button.classList.add(item);
+    });
+  };
+
+  if (func) {
+    this.button.addEventListener('click', function(event) {
+      func();
+    });
+  };
+
+  this.disable = () => {
+    this.button.disabled = true;
+  };
+
+  this.enable = () => {
+    this.button.disabled = false;
+  };
+
+  this.deactive = () => {
+    this.button.classList.remove('active');
+  };
+
+  this.active = () => {
+    this.button.classList.add('active');
+  };
+
+  this.wrap = () => {
+    return wrap_wrap({
+      children: [
+        this.button
+      ]
+    })
+  };
+
+};
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/fontawesome/index.css
 var fontawesome = __webpack_require__(3831);
@@ -9748,1334 +11587,6 @@ const fontawesome_fontawesome = [{
   label: "Zhihu"
 }];
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/icon/index.css
-var icon = __webpack_require__(2826);
-;// CONCATENATED MODULE: ./src/component/icon/index.css
-
-            
-
-var icon_options = {};
-
-icon_options.insert = "head";
-icon_options.singleton = false;
-
-var icon_update = injectStylesIntoStyleTag_default()(icon/* default */.Z, icon_options);
-
-
-
-/* harmony default export */ const component_icon = (icon/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/icon/index.js
-
-
-
-
-const icon_icon = {};
-
-icon_icon.all = {
-  add: {
-    name: 'add',
-    path: 'M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z'
-  },
-  arrowBack: {
-    name: 'arrow-back',
-    path: 'M20.016 11.016v1.969h-12.188l5.578 5.625-1.406 1.406-8.016-8.016 8.016-8.016 1.406 1.406-5.578 5.625h12.188z'
-  },
-  arrowDownward: {
-    name: 'arrow-downward',
-    path: 'M20.016 12l-8.016 8.016-8.016-8.016 1.453-1.406 5.578 5.578v-12.188h1.969v12.188l5.625-5.578z'
-  },
-  arrowForward: {
-    name: 'arrow-forward',
-    path: 'M12 3.984l8.016 8.016-8.016 8.016-1.406-1.406 5.578-5.625h-12.188v-1.969h12.188l-5.578-5.625z'
-  },
-  arrowUpward: {
-    name: 'arrow-upward',
-    path: 'M3.984 12l8.016-8.016 8.016 8.016-1.453 1.406-5.578-5.578v12.188h-1.969v-12.188l-5.625 5.578z'
-  },
-  check: {
-    name: 'check',
-    path: 'M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z'
-  },
-  cross: {
-    name: 'cross',
-    path: 'M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z'
-  },
-  arrowKeyboardDown: {
-    name: 'arrow-keyboard-down',
-    path: 'M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'
-  },
-  arrowKeyboardLeft: {
-    name: 'arrow-keyboard-left',
-    path: 'M15.422 16.078l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z'
-  },
-  arrowKeyboardRight: {
-    name: 'arrow-keyboard-right',
-    path: 'M8.578 16.359l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z'
-  },
-  arrowKeyboardUp: {
-    name: 'arrow-keyboard-up',
-    path: 'M7.406 15.422l-1.406-1.406 6-6 6 6-1.406 1.406-4.594-4.594z'
-  },
-  edit: {
-    name: 'edit',
-    path: 'M20.719 7.031l-1.828 1.828-3.75-3.75 1.828-1.828c0.375-0.375 1.031-0.375 1.406 0l2.344 2.344c0.375 0.375 0.375 1.031 0 1.406zM3 17.25l11.063-11.063 3.75 3.75-11.063 11.063h-3.75v-3.75z'
-  },
-  moreHorizontal: {
-    name: 'more-horizontal',
-    path: 'M12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM18 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM6 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016z'
-  },
-  moreVertical: {
-    name: 'more-vertical',
-    path: 'M12 15.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 8.016c-1.078 0-2.016-0.938-2.016-2.016s0.938-2.016 2.016-2.016 2.016 0.938 2.016 2.016-0.938 2.016-2.016 2.016z'
-  },
-  redo: {
-    name: 'redo',
-    path: 'M18.422 10.594l3.563-3.609v9h-9l3.656-3.609q-2.25-1.875-5.156-1.875-2.391 0-4.617 1.594t-2.977 3.891l-2.344-0.75q1.031-3.188 3.773-5.203t6.164-2.016q3.984 0 6.938 2.578z'
-  },
-  refresh: {
-    name: 'refresh',
-    path: 'M17.672 6.328l2.344-2.344v7.031h-7.031l3.234-3.234c-1.078-1.078-2.578-1.781-4.219-1.781-3.328 0-6 2.672-6 6s2.672 6 6 6c2.625 0 4.875-1.641 5.672-3.984h2.063c-0.891 3.469-3.984 6-7.734 6-4.406 0-7.969-3.609-7.969-8.016s3.563-8.016 7.969-8.016c2.203 0 4.219 0.891 5.672 2.344z'
-  },
-  remove: {
-    name: 'remove',
-    path: 'M18.984 12.984h-13.969v-1.969h13.969v1.969z'
-  },
-  reorder: {
-    name: 'reorder',
-    path: 'M3 5.016h18v1.969h-18v-1.969zM3 11.016v-2.016h18v2.016h-18zM3 18.984v-1.969h18v1.969h-18zM3 15v-2.016h18v2.016h-18z'
-  },
-  replay: {
-    name: 'replay',
-    path: 'M12 5.016q3.328 0 5.672 2.344t2.344 5.625q0 3.328-2.367 5.672t-5.648 2.344-5.648-2.344-2.367-5.672h2.016q0 2.484 1.758 4.242t4.242 1.758 4.242-1.758 1.758-4.242-1.758-4.242-4.242-1.758v4.031l-5.016-5.016 5.016-5.016v4.031z'
-  },
-  settings: {
-    name: 'settings',
-    path: 'M12 15.516c1.922 0 3.516-1.594 3.516-3.516s-1.594-3.516-3.516-3.516-3.516 1.594-3.516 3.516 1.594 3.516 3.516 3.516zM19.453 12.984l2.109 1.641c0.188 0.141 0.234 0.422 0.094 0.656l-2.016 3.469c-0.141 0.234-0.375 0.281-0.609 0.188l-2.484-0.984c-0.516 0.375-1.078 0.75-1.688 0.984l-0.375 2.625c-0.047 0.234-0.234 0.422-0.469 0.422h-4.031c-0.234 0-0.422-0.188-0.469-0.422l-0.375-2.625c-0.609-0.234-1.172-0.563-1.688-0.984l-2.484 0.984c-0.234 0.094-0.469 0.047-0.609-0.188l-2.016-3.469c-0.141-0.234-0.094-0.516 0.094-0.656l2.109-1.641c-0.047-0.328-0.047-0.656-0.047-0.984s0-0.656 0.047-0.984l-2.109-1.641c-0.188-0.141-0.234-0.422-0.094-0.656l2.016-3.469c0.141-0.234 0.375-0.281 0.609-0.188l2.484 0.984c0.516-0.375 1.078-0.75 1.688-0.984l0.375-2.625c0.047-0.234 0.234-0.422 0.469-0.422h4.031c0.234 0 0.422 0.188 0.469 0.422l0.375 2.625c0.609 0.234 1.172 0.563 1.688 0.984l2.484-0.984c0.234-0.094 0.469-0.047 0.609 0.188l2.016 3.469c0.141 0.234 0.094 0.516-0.094 0.656l-2.109 1.641c0.047 0.328 0.047 0.656 0.047 0.984s0 0.656-0.047 0.984z'
-  },
-  undo: {
-    name: 'undo',
-    path: 'M12.516 8.016q3.422 0 6.141 2.016t3.797 5.203l-2.344 0.75q-0.797-2.438-2.883-3.961t-4.711-1.523q-2.906 0-5.156 1.875l3.656 3.609h-9v-9l3.563 3.609q2.953-2.578 6.938-2.578z'
-  },
-  unfoldLess: {
-    name: 'unfold-less',
-    path: 'M16.594 5.391l-4.594 4.594-4.594-4.594 1.406-1.406 3.188 3.188 3.188-3.188zM7.406 18.609l4.594-4.594 4.594 4.594-1.406 1.406-3.188-3.188-3.188 3.188z'
-  },
-  unfoldMore: {
-    name: 'unfold-more',
-    path: 'M12 18.188l3.188-3.188 1.406 1.406-4.594 4.594-4.594-4.594 1.406-1.406zM12 5.813l-3.188 3.188-1.406-1.406 4.594-4.594 4.594 4.594-1.406 1.406z'
-  },
-  coffee: {
-    name: 'coffee',
-    path: 'M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z'
-  }
-};
-
-icon_icon.render = function(name) {
-  const iconElement = node('span|class:icon');
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('version', '1.1');
-  svg.setAttribute('viewBox', '0 0 24 24');
-  svg.setAttribute('width', '24');
-  svg.setAttribute('height', '24');
-  svg.setAttribute('fill', 'currentColor');
-
-  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  path.setAttribute('d', icon_icon.all[name].path);
-
-  svg.appendChild(path);
-  iconElement.appendChild(svg);
-
-  return iconElement;
-};
-
-
-;// CONCATENATED MODULE: ./src/utility/complexNode.js
-const complexNode = function({ tag = 'div', text = false, attr = [], node = [] } = {}) {
-  const element = document.createElement(tag);
-
-  if (text) {
-    element.innerHTML = text;
-  };
-
-  if (attr.length > 0) {
-    attr.forEach((item, i) => {
-
-      if ('key' in item && 'value' in item) {
-        element.setAttribute(item.key, item.value);
-      } else if ('key' in item) {
-        element.setAttribute(item.key, '');
-      };
-
-    });
-  };
-
-  if (node) {
-    if (typeof node != 'string') {
-      if (node.length > 0) {
-
-        node.forEach((item, i) => {
-          if (item instanceof HTMLElement) {
-            element.appendChild(item);
-          };
-        });
-
-      } else {
-
-        if (node instanceof HTMLElement) {
-          element.appendChild(node);
-        };
-
-      };
-    };
-  };
-
-  return element;
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/feedback/index.css
-var feedback = __webpack_require__(2207);
-;// CONCATENATED MODULE: ./src/component/form/feedback/index.css
-
-            
-
-var feedback_options = {};
-
-feedback_options.insert = "head";
-feedback_options.singleton = false;
-
-var feedback_update = injectStylesIntoStyleTag_default()(feedback/* default */.Z, feedback_options);
-
-
-
-/* harmony default export */ const form_feedback = (feedback/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/feedback/index.js
-
-
-
-
-
-const feedback_feedback = function({ text = false } = {}) {
-
-  const feedback = node('div|class:form-feedback');
-
-  if (text) {
-    const feedbackText = complexNode({
-      tag: 'p',
-      text: text,
-      attr: [{
-        key: 'class',
-        value: 'muted small'
-      }]
-    });
-
-    feedback.appendChild(feedbackText);
-  };
-
-  return feedback;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/fieldset/index.css
-var fieldset = __webpack_require__(3681);
-;// CONCATENATED MODULE: ./src/component/form/fieldset/index.css
-
-            
-
-var fieldset_options = {};
-
-fieldset_options.insert = "head";
-fieldset_options.singleton = false;
-
-var fieldset_update = injectStylesIntoStyleTag_default()(fieldset/* default */.Z, fieldset_options);
-
-
-
-/* harmony default export */ const form_fieldset = (fieldset/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/fieldset/index.js
-
-
-
-
-const fieldset_fieldset = function({ children = false } = {}) {
-
-  return node('fieldset|class:form-fieldset', children);
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/group/index.css
-var group = __webpack_require__(7039);
-;// CONCATENATED MODULE: ./src/component/form/group/index.css
-
-            
-
-var group_options = {};
-
-group_options.insert = "head";
-group_options.singleton = false;
-
-var group_update = injectStylesIntoStyleTag_default()(group/* default */.Z, group_options);
-
-
-
-/* harmony default export */ const form_group = (group/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/group/index.js
-
-
-
-
-const group_group = function({ direction = 'horizontal', reverse = false, block = false, border = false, children = false } = {}) {
-
-  const group = node('div|class:form-group', children);
-
-  switch (direction) {
-    case 'horizontal':
-      group.classList.add('form-group-horizontal');
-      break;
-
-    case 'vertical':
-      group.classList.add('form-group-vertical');
-      break;
-  };
-
-  if (reverse) {
-    group.classList.add('form-group-reverse');
-  };
-
-  if (block) {
-    group.classList.add('form-group-block');
-  };
-
-  if (border) {
-    group.classList.add('form-group-border');
-  };
-
-  return group;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/groupText/index.css
-var groupText = __webpack_require__(5516);
-;// CONCATENATED MODULE: ./src/component/form/groupText/index.css
-
-            
-
-var groupText_options = {};
-
-groupText_options.insert = "head";
-groupText_options.singleton = false;
-
-var groupText_update = injectStylesIntoStyleTag_default()(groupText/* default */.Z, groupText_options);
-
-
-
-/* harmony default export */ const form_groupText = (groupText/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/groupText/index.js
-
-
-
-
-const groupText_groupText = function({ text = false, classList = [] } = {}) {
-
-  const textElement = node('div|class:form-group-text,tabindex:1');
-
-  if (text) {
-    textElement.textContent = text;
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      textElement.classList.add(item);
-    });
-
-  };
-
-  return textElement;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/helper/index.css
-var helper = __webpack_require__(214);
-;// CONCATENATED MODULE: ./src/component/form/helper/index.css
-
-            
-
-var helper_options = {};
-
-helper_options.insert = "head";
-helper_options.singleton = false;
-
-var helper_update = injectStylesIntoStyleTag_default()(helper/* default */.Z, helper_options);
-
-
-
-/* harmony default export */ const form_helper = (helper/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/helper/index.js
-
-
-
-
-
-const helper_helper = function({ text = 'text', classList = [] } = {}) {
-
-  const helper = complexNode({
-    tag: 'p',
-    text: text,
-    attr: [{
-      key: 'class',
-      value: 'form-helper-item'
-    }]
-  });
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      helper.classList.add(item);
-    });
-
-  };
-
-  return helper;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/indent/index.css
-var indent = __webpack_require__(1400);
-;// CONCATENATED MODULE: ./src/component/form/indent/index.css
-
-            
-
-var indent_options = {};
-
-indent_options.insert = "head";
-indent_options.singleton = false;
-
-var indent_update = injectStylesIntoStyleTag_default()(indent/* default */.Z, indent_options);
-
-
-
-/* harmony default export */ const form_indent = (indent/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/indent/index.js
-
-
-
-
-const indent_indent = function({ children = false } = {}) {
-
-  return node('div|class:form-indent', children);
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/inline/index.css
-var inline = __webpack_require__(4046);
-;// CONCATENATED MODULE: ./src/component/form/inline/index.css
-
-            
-
-var inline_options = {};
-
-inline_options.insert = "head";
-inline_options.singleton = false;
-
-var inline_update = injectStylesIntoStyleTag_default()(inline/* default */.Z, inline_options);
-
-
-
-/* harmony default export */ const form_inline = (inline/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/inline/index.js
-
-
-
-
-const inline_inline = function({ direction = 'horizontal', reverse = false, block = false, wrap = false, gap = 'medium', children = false } = {}) {
-
-  const inline = node('div|class:form-inline', children);
-
-  switch (direction) {
-    case 'horizontal':
-      inline.classList.add('form-inline-horizontal');
-      break;
-
-    case 'vertical':
-      inline.classList.add('form-inline-vertical');
-      break;
-  };
-
-  switch (gap) {
-    case 'small':
-      inline.classList.add('form-inline-gap-small');
-      break;
-
-    case 'medium':
-      inline.classList.add('form-inline-gap-medium');
-      break;
-
-    case 'large':
-      inline.classList.add('form-inline-gap-large');
-      break;
-  };
-
-  if (reverse) {
-    inline.classList.add('form-inline-reverse');
-  };
-
-  if (block) {
-    inline.classList.add('form-inline-block');
-  };
-
-  if (wrap) {
-    inline.classList.add('form-inline-wrap');
-  };
-
-  return inline;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/label/index.css
-var label = __webpack_require__(5071);
-;// CONCATENATED MODULE: ./src/component/form/label/index.css
-
-            
-
-var label_options = {};
-
-label_options.insert = "head";
-label_options.singleton = false;
-
-var label_update = injectStylesIntoStyleTag_default()(label/* default */.Z, label_options);
-
-
-
-/* harmony default export */ const form_label = (label/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/label/index.js
-
-
-
-
-const label_label = function({ forInput = false, text = 'label', description = false, srOnly = false, icon = false, classList = [] } = {}) {
-
-  let label;
-
-  if (forInput) {
-    label = node('label|for:' + forInput);
-  } else {
-    label = node('label');
-  };
-
-  const labelBlock = node('span|class:label-block');
-
-  if (srOnly) {
-    if (icon) {
-      labelBlock.classList.add('sr-only');
-    } else {
-      label.classList.add('sr-only');
-    };
-  };
-
-  if (text) {
-    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
-  };
-
-  if (description) {
-    if (Array.isArray(description)) {
-
-      description.forEach((item, i) => {
-        labelBlock.appendChild(node('span:' + item + '|class:label-block-item small muted'));
-      });
-
-    } else if (typeof description === 'string') {
-
-      labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
-
-    };
-  };
-
-  if (text || description) {
-    label.appendChild(labelBlock);
-  };
-
-  if (icon) {
-    label.prepend(node('span|class:label-icon'));
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      label.classList.add(item);
-    });
-
-  };
-
-  return label;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/sticky/index.css
-var sticky = __webpack_require__(460);
-;// CONCATENATED MODULE: ./src/component/form/sticky/index.css
-
-            
-
-var sticky_options = {};
-
-sticky_options.insert = "head";
-sticky_options.singleton = false;
-
-var sticky_update = injectStylesIntoStyleTag_default()(sticky/* default */.Z, sticky_options);
-
-
-
-/* harmony default export */ const form_sticky = (sticky/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/sticky/index.js
-
-
-
-
-const sticky_sticky = function({ children = false } = {}) {
-
-  return node('div|class:form-sticky', children);
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/wrap/index.css
-var wrap = __webpack_require__(1879);
-;// CONCATENATED MODULE: ./src/component/form/wrap/index.css
-
-            
-
-var wrap_options = {};
-
-wrap_options.insert = "head";
-wrap_options.singleton = false;
-
-var wrap_update = injectStylesIntoStyleTag_default()(wrap/* default */.Z, wrap_options);
-
-
-
-/* harmony default export */ const form_wrap = (wrap/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/wrap/index.js
-
-
-
-
-const wrap_wrap = function({ children = false } = {}) {
-
-  return node('div|class:form-wrap', children);
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/grid/index.css
-var form_grid = __webpack_require__(7662);
-;// CONCATENATED MODULE: ./src/component/form/grid/index.css
-
-            
-
-var form_grid_options = {};
-
-form_grid_options.insert = "head";
-form_grid_options.singleton = false;
-
-var form_grid_update = injectStylesIntoStyleTag_default()(form_grid/* default */.Z, form_grid_options);
-
-
-
-/* harmony default export */ const component_form_grid = (form_grid/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/grid/index.js
-
-
-
-
-const form_grid_grid = function({ children = false } = {}) {
-
-  return node('div|class:form-grid', children);
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/checkbox/index.css
-var input_checkbox = __webpack_require__(5875);
-;// CONCATENATED MODULE: ./src/component/form/input/checkbox/index.css
-
-            
-
-var checkbox_options = {};
-
-checkbox_options.insert = "head";
-checkbox_options.singleton = false;
-
-var checkbox_update = injectStylesIntoStyleTag_default()(input_checkbox/* default */.Z, checkbox_options);
-
-
-
-/* harmony default export */ const form_input_checkbox = (input_checkbox/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/checkbox/index.js
-
-
-
-
-const checkbox_checkbox = function({ id = false, value = false, checked = false, classList = [], func = false } = {}) {
-
-  const input = node('input|type:checkbox,tabindex:1');
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (value) {
-    input.setAttribute('value', value);
-  };
-
-  if (checked) {
-    input.setAttribute('checked', '');
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    input.addEventListener('change', function(event) {
-      func();
-    });
-
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/color/index.css
-var color = __webpack_require__(9755);
-;// CONCATENATED MODULE: ./src/component/form/input/color/index.css
-
-            
-
-var color_options = {};
-
-color_options.insert = "head";
-color_options.singleton = false;
-
-var color_update = injectStylesIntoStyleTag_default()(color/* default */.Z, color_options);
-
-
-
-/* harmony default export */ const input_color = (color/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/color/index.js
-
-
-
-
-const color_color = function({ id = false, value = '#000000', classList = [], func = false } = {}) {
-
-  const input = node('input|type:color,value:' + value + ',tabindex:1');
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    input.addEventListener('change', function(event) {
-      func();
-    });
-
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/file/index.css
-var file = __webpack_require__(462);
-;// CONCATENATED MODULE: ./src/component/form/input/file/index.css
-
-            
-
-var file_options = {};
-
-file_options.insert = "head";
-file_options.singleton = false;
-
-var file_update = injectStylesIntoStyleTag_default()(file/* default */.Z, file_options);
-
-
-
-/* harmony default export */ const input_file = (file/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/file/index.js
-
-
-
-
-const file_file = function({ id = false, classList = [], func = false } = {}) {
-
-  const input = node('input|type:file,tabindex:1');
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    input.addEventListener('change', function(event) {
-      func();
-    });
-
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/number/index.css
-var number = __webpack_require__(2725);
-;// CONCATENATED MODULE: ./src/component/form/input/number/index.css
-
-            
-
-var number_options = {};
-
-number_options.insert = "head";
-number_options.singleton = false;
-
-var number_update = injectStylesIntoStyleTag_default()(number/* default */.Z, number_options);
-
-
-
-/* harmony default export */ const input_number = (number/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/number/index.js
-
-
-
-
-const number_number = function({ id = false, min = 0, max = 100, step = 1, value = false, placeholder = false, classList = [], func = false } = {}) {
-
-  const input = node('input|type:number,min:' + min + ',max:' + max + ',step:' + step + ',tabindex:1');
-
-  let delayUpdate = null;
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (value || (typeof value === 'number' && value === 0)) {
-    input.setAttribute('value', value);
-  };
-
-  if (placeholder) {
-    input.setAttribute('placeholder', placeholder);
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    input.addEventListener('input', function(event) {
-      func();
-    });
-
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/radio/index.css
-var input_radio = __webpack_require__(9610);
-;// CONCATENATED MODULE: ./src/component/form/input/radio/index.css
-
-            
-
-var radio_options = {};
-
-radio_options.insert = "head";
-radio_options.singleton = false;
-
-var radio_update = injectStylesIntoStyleTag_default()(input_radio/* default */.Z, radio_options);
-
-
-
-/* harmony default export */ const form_input_radio = (input_radio/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/radio/index.js
-
-
-
-
-const radio_radio = function({ id = false, radioGroup = false, value = false, checked = false, classList = [], func = false } = {}) {
-
-  const input = node('input|type:radio,tabindex:1');
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (radioGroup) {
-    input.setAttribute('name', radioGroup);
-  };
-
-  if (value) {
-    input.setAttribute('value', value);
-  };
-
-  if (checked) {
-    input.setAttribute('checked', '');
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-    input.addEventListener('change', function(event) {
-      func();
-    });
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/range/index.css
-var range = __webpack_require__(349);
-;// CONCATENATED MODULE: ./src/component/form/input/range/index.css
-
-            
-
-var range_options = {};
-
-range_options.insert = "head";
-range_options.singleton = false;
-
-var range_update = injectStylesIntoStyleTag_default()(range/* default */.Z, range_options);
-
-
-
-/* harmony default export */ const input_range = (range/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/range/index.js
-
-
-
-
-const range_range = function({ id = false, min = 0, max = 100, step = 1, value = 0, classList = [], func = false } = {}) {
-
-  const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    input.addEventListener('input', function(event) {
-      func();
-    });
-
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/text/index.css
-var input_text = __webpack_require__(4224);
-;// CONCATENATED MODULE: ./src/component/form/input/text/index.css
-
-            
-
-var text_options = {};
-
-text_options.insert = "head";
-text_options.singleton = false;
-
-var text_update = injectStylesIntoStyleTag_default()(input_text/* default */.Z, text_options);
-
-
-
-/* harmony default export */ const form_input_text = (input_text/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/text/index.js
-
-
-
-
-const text_text = function({ id = false, value = false, min = false, max = false, placeholder = false, classList = [], func = false } = {}) {
-
-  const input = node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
-
-  if (id) {
-    input.setAttribute('id', id);
-  };
-
-  if (value) {
-    input.setAttribute('value', value);
-  };
-
-  if (typeof min === 'number') {
-    input.setAttribute('minlength', min);
-  };
-
-  if (typeof max === 'number') {
-    input.setAttribute('maxlength', max);
-  };
-
-  if (placeholder) {
-    input.setAttribute('placeholder', placeholder);
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      input.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    input.addEventListener('input', function(event) {
-      func();
-    });
-
-  };
-
-  return input;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/textarea/index.css
-var input_textarea = __webpack_require__(8843);
-;// CONCATENATED MODULE: ./src/component/form/input/textarea/index.css
-
-            
-
-var textarea_options = {};
-
-textarea_options.insert = "head";
-textarea_options.singleton = false;
-
-var textarea_update = injectStylesIntoStyleTag_default()(input_textarea/* default */.Z, textarea_options);
-
-
-
-/* harmony default export */ const form_input_textarea = (input_textarea/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/textarea/index.js
-
-
-
-
-const textarea_textarea = function({ id = false, value = false, placeholder = false, classList = [], func = false } = {}) {
-
-  const textarea = node('textarea|tabindex:1,spellcheck:false');
-
-  if (id) {
-    textarea.setAttribute('id', id);
-  };
-
-  if (value) {
-    textarea.setAttribute('value', value);
-  };
-
-  if (placeholder) {
-    textarea.setAttribute('placeholder', placeholder);
-  };
-
-  if (checked) {
-    textarea.setAttribute('checked', '');
-  };
-
-  if (classList.length > 0) {
-
-    classList.forEach((item, i) => {
-      textarea.classList.add(item);
-    });
-
-  };
-
-  if (func) {
-
-    textarea.addEventListener('input', function(event) {
-      func();
-    });
-
-  };
-
-  return textarea;
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/inputButton/index.css
-var inputButton = __webpack_require__(9606);
-;// CONCATENATED MODULE: ./src/component/form/input/inputButton/index.css
-
-            
-
-var inputButton_options = {};
-
-inputButton_options.insert = "head";
-inputButton_options.singleton = false;
-
-var inputButton_update = injectStylesIntoStyleTag_default()(inputButton/* default */.Z, inputButton_options);
-
-
-
-/* harmony default export */ const input_inputButton = (inputButton/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/inputButton/index.js
-
-
-
-
-const inputButton_inputButton = function() {};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/index.css
-var input = __webpack_require__(443);
-;// CONCATENATED MODULE: ./src/component/form/input/index.css
-
-            
-
-var input_options = {};
-
-input_options.insert = "head";
-input_options.singleton = false;
-
-var input_update = injectStylesIntoStyleTag_default()(input/* default */.Z, input_options);
-
-
-
-/* harmony default export */ const form_input = (input/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/input/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/index.css
-var component_form = __webpack_require__(1058);
-;// CONCATENATED MODULE: ./src/component/form/index.css
-
-            
-
-var form_options = {};
-
-form_options.insert = "head";
-form_options.singleton = false;
-
-var form_update = injectStylesIntoStyleTag_default()(component_form/* default */.Z, form_options);
-
-
-
-/* harmony default export */ const src_component_form = (component_form/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/form/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/button/index.css
-var component_button = __webpack_require__(8509);
-;// CONCATENATED MODULE: ./src/component/button/index.css
-
-            
-
-var button_options = {};
-
-button_options.insert = "head";
-button_options.singleton = false;
-
-var button_update = injectStylesIntoStyleTag_default()(component_button/* default */.Z, button_options);
-
-
-
-/* harmony default export */ const src_component_button = (component_button/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/button/index.js
-
-
-
-
-
-
-
-
-const Button = function({ text = 'Button', srOnly = false, iconName = false, block = false, size = false, style = [], title = false, classList = [], func = false } = {}) {
-  this.button = node('button|class:button,tabindex:1,type:button');
-
-  if (text) {
-    const buttonText = node('span:' + text + '|class:button-text');
-
-    if (srOnly) {
-      buttonText.classList.add('sr-only');
-    };
-
-    this.button.appendChild(buttonText);
-  };
-
-  if (iconName) {
-    this.button.appendChild(icon_icon.render(iconName));
-  };
-
-  if (block) {
-    this.button.classList.add('button-block');
-  };
-
-  switch (size) {
-    case 'small':
-      this.button.classList.add('button-small');
-      break;
-
-    case 'large':
-      this.button.classList.add('button-large');
-      break;
-  };
-
-  if (style.length > 0) {
-    style.forEach((item, i) => {
-      switch (item) {
-        case 'link':
-          this.button.classList.add('button-link');
-          break;
-
-        case 'line':
-          this.button.classList.add('button-line');
-          break;
-
-        case 'ring':
-          this.button.classList.add('button-ring');
-          break;
-      };
-    });
-  };
-
-  if (title) {
-    this.button.setAttribute('title', title);
-  };
-
-  if (classList.length > 0) {
-    classList.forEach((item, i) => {
-      this.button.classList.add(item);
-    });
-  };
-
-  if (func) {
-    this.button.addEventListener('click', function(event) {
-      func();
-    });
-  };
-
-  this.disable = () => {
-    this.button.disabled = true;
-  };
-
-  this.enable = () => {
-    this.button.disabled = false;
-  };
-
-  this.deactive = () => {
-    this.button.classList.remove('active');
-  };
-
-  this.active = () => {
-    this.button.classList.add('active');
-  };
-
-  this.wrap = () => {
-    return wrap_wrap({
-      children: [
-        this.button
-      ]
-    })
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/utility/isValidString.js
-const isValidString = function(value) {
-  let result = false;
-
-  if (typeof value == 'string') {
-    value = value.trim().replace(/\s/g, '');
-    if (value != '') {
-      result = true;
-    };
-  };
-
-  return result;
-};
-
-;// CONCATENATED MODULE: ./src/utility/trimString.js
-const trimString = function(value) {
-  if (typeof value == 'string') {
-    return value.trim().replace(/\s\s+/g, ' ');
-  } else {
-    return value;
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/clearChildNode.js
-const clearChildNode = function(element) {
-
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  };
-
-};
-
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/autoSuggest/index.css
 var autoSuggest = __webpack_require__(8625);
 ;// CONCATENATED MODULE: ./src/component/autoSuggest/index.css
@@ -11470,850 +11981,6 @@ autoSuggest_autoSuggest.init = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/pageLock/index.js
-
-
-const pageLock = {};
-
-pageLock.render = () => {
-  const html = document.querySelector('html');
-
-  if (state_state.get.current().modal || state_state.get.current().menu) {
-    html.classList.add('is-scroll-disabled');
-  } else {
-    html.classList.remove('is-scroll-disabled');
-  };
-};
-
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
-var modal = __webpack_require__(4719);
-;// CONCATENATED MODULE: ./src/component/modal/index.css
-
-            
-
-var modal_options = {};
-
-modal_options.insert = "head";
-modal_options.singleton = false;
-
-var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, modal_options);
-
-
-
-/* harmony default export */ const component_modal = (modal/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/modal/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-const maxHeadingLength = 50;
-
-let previousModal = null;
-
-const modal_modal = {}
-
-modal_modal.mod = {};
-
-modal_modal.mod.open = function() {
-  state_state.get.current().modal = true;
-};
-
-modal_modal.mod.close = function() {
-  state_state.get.current().modal = false;
-};
-
-modal_modal.bind = {};
-
-modal_modal.bind.close = {
-  check: function(event) {
-    const path = event.path || (event.composedPath && event.composedPath());
-
-    if (!path.includes(previousModal) && !path.includes(autoSuggest_autoSuggest.current)) {
-      modal_modal.close();
-    };
-  },
-  add: function() {
-    window.addEventListener('mouseup', modal_modal.bind.close.check);
-  },
-  remove: function() {
-    window.removeEventListener('mouseup', modal_modal.bind.close.check);
-  }
-};
-
-modal_modal.bind.focus = {
-  loop: function(event) {
-    const allElements = document.querySelector('.modal').querySelectorAll('[tabindex]');
-
-    const firstElement = allElements[0];
-
-    const lastElement = allElements[allElements.length - 1];
-
-    if (event.keyCode == 9 && event.shiftKey) {
-
-      if (document.activeElement === firstElement) {
-        lastElement.focus();
-
-        event.preventDefault();
-      }
-
-    } else if (event.keyCode == 9) {
-
-      if (document.activeElement === lastElement) {
-        firstElement.focus();
-
-        event.preventDefault();
-      }
-
-    };
-  },
-  add: function() {
-    window.addEventListener('keydown', modal_modal.bind.focus.loop);
-  },
-  remove: function() {
-    window.removeEventListener('keydown', modal_modal.bind.focus.loop);
-  }
-};
-
-modal_modal.render = {};
-
-modal_modal.render.toggle = function(options) {
-  if (state_state.get.current().modal) {
-    render.open(options);
-  } else {
-    render.close();
-  };
-};
-
-modal_modal.render.close = function() {
-  var allModal = document.querySelectorAll('.modal');
-  if (allModal[0]) {
-    for (var i = 0; i < allModal.length; i++) {
-      allModal[i].close();
-    };
-  };
-  previousModal = null;
-};
-
-modal_modal.render.open = function({ heading = 'Heading', content = 'Body', successAction = false, cancelAction = false, dismissAction = false, actionText = 'OK', cancelText = 'Cancel', size = 'medium', width = false, maxHeight = false, overscroll = false } = {}) {
-
-  if (previousModal != null) {
-    modal_modal.render.close();
-  };
-
-  modal_modal.bind.focus.add();
-
-  modal_modal.bind.close.add();
-
-  var modalElement = node('div|class:modal');
-
-  var modalShade = node('div|class:modal-shade');
-
-  if (overscroll) {
-    modalElement.classList.add('modal-overscroll');
-  };
-
-  if (maxHeight) {
-    modalElement.classList.add('modal-max-height');
-  };
-
-  var modalContentWrapper = node('div|class:modal-content-wrapper');
-
-  var modalContent = node('div|class:modal-content');
-
-  if (width && typeof width == 'number') {
-
-    modalElement.setAttribute('style', '--modal-size: ' + width + 'em;');
-
-  } else {
-
-    switch (size) {
-      case 'small':
-        modalElement.setAttribute('style', '--modal-size: var(--modal-small);');
-        break;
-
-      case 'medium':
-        modalElement.setAttribute('style', '--modal-size: var(--modal-medium);');
-        break;
-
-      case 'large':
-        modalElement.setAttribute('style', '--modal-size: var(--modal-large);');
-        break;
-    };
-
-  };
-
-  modalElement.close = () => {
-    if (modalShade.classList.contains('is-opaque')) {
-      modalShade.classList.remove('is-opaque');
-      modalShade.classList.add('is-transparent');
-    } else {
-      modalShade.remove();
-    };
-
-    if (modalElement.classList.contains('is-opaque')) {
-      modalElement.classList.remove('is-opaque');
-      modalElement.classList.add('is-transparent');
-    } else {
-      modalElement.remove();
-    };
-
-    modal_modal.bind.focus.remove();
-
-    modal_modal.bind.close.remove();
-
-    if (dismissAction) {
-      dismissAction();
-    };
-  };
-
-  const modalBody = node('div|class:modal-body');
-
-  const modalControls = node('div|class:modal-controls form-group');
-
-  const modalAction = new Button({
-    text: actionText,
-    style: ['line'],
-    iconName: false,
-    block: true,
-    classList: ['modal-button'],
-    func: () => {
-      if (successAction) {
-        successAction();
-      };
-      modal_modal.close();
-    }
-  });
-
-  const modalCancel = new Button({
-    text: cancelText,
-    style: ['line'],
-    iconName: false,
-    block: true,
-    classList: ['modal-button'],
-    func: () => {
-      if (cancelAction) {
-        cancelAction();
-      };
-      modal_modal.close();
-    }
-  });
-
-  modalControls.appendChild(modalCancel.button);
-
-  modalControls.appendChild(modalAction.button);
-
-  let modalHeading = null;
-
-  let headingText = null;
-
-  if (heading && isValidString(heading)) {
-    if (heading.length > maxHeadingLength) {
-      heading = heading.substring(0, maxHeadingLength).replace(/\s+$/, '') + '...';
-    };
-
-    modalHeading = node('div|class:modal-heading');
-
-    headingText = complexNode({
-      tag: 'h1',
-      text: heading,
-      attr: [{
-        key: 'tabindex',
-        value: 1
-      }, {
-        key: 'class',
-        value: 'modal-heading-text'
-      }]
-    });
-
-    modalHeading.appendChild(headingText);
-
-    modalContent.appendChild(modalHeading);
-  };
-
-  if (content) {
-    if (typeof content == 'string') {
-      const container = node('div|class:modal-container,tabindex:1');
-
-      const para = complexNode({
-        tag: 'p',
-        text: content
-      });
-
-      container.appendChild(para);
-
-      modalBody.appendChild(container);
-    } else {
-      modalBody.appendChild(content);
-    };
-  };
-
-  modalContent.appendChild(modalBody);
-
-  modalContentWrapper.appendChild(modalContent);
-
-  modalElement.appendChild(modalContentWrapper);
-
-  modalElement.appendChild(modalControls);
-
-  modalElement.addEventListener('transitionend', function(event) {
-    if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
-      this.remove();
-    };
-  });
-
-  modalShade.addEventListener('transitionend', function(event) {
-    if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
-      this.remove();
-    };
-  });
-
-  previousModal = modalElement;
-
-  const body = document.querySelector('body');
-
-  body.appendChild(modalShade);
-
-  getComputedStyle(modalShade).opacity;
-
-  modalShade.classList.remove('is-transparent');
-
-  modalShade.classList.add('is-opaque');
-
-  body.appendChild(modalElement);
-
-  getComputedStyle(modalElement).opacity;
-
-  modalElement.classList.remove('is-transparent');
-
-  modalElement.classList.add('is-opaque');
-
-  if (heading) {
-    headingText.focus(this);
-  } else if (content) {
-    container.focus(this);
-  };
-};
-
-modal_modal.open = function(options) {
-  modal_modal.mod.open();
-  modal_modal.render.open(options);
-  pageLock.render();
-};
-
-modal_modal.close = function() {
-  modal_modal.mod.close();
-  modal_modal.render.close();
-  pageLock.render();
-};
-
-modal_modal.init = function() {
-  modal_modal.close();
-};
-
-
-
-;// CONCATENATED MODULE: ./src/utility/convertColor.js
-const convertColor = {
-  rgb: {},
-  hsl: {},
-  hex: {}
-};
-
-convertColor.rgb.hsl = function(rgb) {
-  var r = rgb.r / 255;
-  var g = rgb.g / 255;
-  var b = rgb.b / 255;
-  var min = Math.min(r, g, b);
-  var max = Math.max(r, g, b);
-  var delta = max - min;
-  var h;
-  var s;
-
-  if (max === min) {
-    h = 0;
-  } else if (r === max) {
-    h = (g - b) / delta;
-  } else if (g === max) {
-    h = 2 + (b - r) / delta;
-  } else if (b === max) {
-    h = 4 + (r - g) / delta;
-  };
-
-  h = Math.min(h * 60, 360);
-
-  if (h < 0) {
-    h += 360;
-  };
-
-  var l = (min + max) / 2;
-
-  if (max === min) {
-    s = 0;
-  } else if (l <= 0.5) {
-    s = delta / (max + min);
-  } else {
-    s = delta / (2 - max - min);
-  };
-
-  return {
-    h: Math.round(h),
-    s: Math.round(s * 100),
-    l: Math.round(l * 100)
-  };
-};
-
-convertColor.rgb.hex = function(args) {
-  var integer = ((Math.round(args.r) & 0xFF) << 16) +
-    ((Math.round(args.g) & 0xFF) << 8) +
-    (Math.round(args.b) & 0xFF);
-
-  var string = integer.toString(16);
-  return '#' + '000000'.substring(string.length) + string;
-};
-
-convertColor.hsl.rgb = function(hsl) {
-  var h = hsl.h / 360;
-  var s = hsl.s / 100;
-  var l = hsl.l / 100;
-  var t2;
-  var t3;
-  var val;
-
-  if (s === 0) {
-    val = l * 255;
-    return {
-      r: Math.round(val),
-      g: Math.round(val),
-      b: Math.round(val)
-    };
-  };
-
-  if (l < 0.5) {
-    t2 = l * (1 + s);
-  } else {
-    t2 = l + s - l * s;
-  };
-
-  var t1 = 2 * l - t2;
-
-  var rgb = [0, 0, 0];
-
-  for (var i = 0; i < 3; i++) {
-    t3 = h + 1 / 3 * -(i - 1);
-    if (t3 < 0) {
-      t3++;
-    };
-
-    if (t3 > 1) {
-      t3--;
-    };
-
-    if (6 * t3 < 1) {
-      val = t1 + (t2 - t1) * 6 * t3;
-    } else if (2 * t3 < 1) {
-      val = t2;
-    } else if (3 * t3 < 2) {
-      val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
-    } else {
-      val = t1;
-    };
-
-    rgb[i] = val * 255;
-  };
-
-  return {
-    r: Math.round(rgb[0]),
-    g: Math.round(rgb[1]),
-    b: Math.round(rgb[2])
-  };
-};
-
-convertColor.hex.rgb = function(args) {
-  var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
-  if (!match) {
-    return {
-      r: 0,
-      g: 0,
-      b: 0
-    };
-  };
-
-  var colorString = match[0];
-
-  if (match[0].length === 3) {
-    colorString = colorString.split('').map(function(char) {
-      return char + char;
-    }).join('');
-  };
-
-  var integer = parseInt(colorString, 16);
-  var r = (integer >> 16) & 0xFF;
-  var g = (integer >> 8) & 0xFF;
-  var b = integer & 0xFF;
-
-  return {
-    r: r,
-    g: g,
-    b: b
-  };
-};
-
-;// CONCATENATED MODULE: ./src/component/video/index.js
-
-
-
-
-
-
-
-
-const Video = function({ url = false } = {}) {
-
-  this.video = node('video|autoplay,loop,muted');
-
-  this.source = node('source');
-
-  this.video.appendChild(this.source);
-
-  if (isValidString(url)) {
-
-    this.source.src = url;
-
-    this.video.muted = true;
-
-    this.video.loop = true;
-
-    this.video.autoplay = true;
-
-  };
-
-  if (url.includes('mp4') || url.endsWith('mp4')) {
-
-    this.source.type = 'video/mp4';
-
-  } else if (url.includes('webm') || url.endsWith('webm')) {
-
-    this.source.type = 'video/webm';
-
-  };
-
-  this.play = () => {
-    this.video.play();
-  };
-
-  this.pause = () => {
-    var playPromise = this.video.play();
-
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        this.video.pause();
-      });
-    };
-  };
-};
-
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/theme/index.css
-var theme = __webpack_require__(8776);
-;// CONCATENATED MODULE: ./src/component/theme/index.css
-
-            
-
-var theme_options = {};
-
-theme_options.insert = "head";
-theme_options.singleton = false;
-
-var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, theme_options);
-
-
-
-/* harmony default export */ const component_theme = (theme/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/theme/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-const theme_theme = {};
-
-theme_theme.bind = {};
-
-theme_theme.bind.style = {
-  initial: function() {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
-      theme_theme.mod.style.initial();
-    });
-  }
-};
-
-theme_theme.mod = {};
-
-theme_theme.mod.style = {
-  initial: function() {
-    switch (state_state.get.current().theme.style) {
-      case 'dark':
-      case 'light':
-        localStorage.setItem(data.saveName + 'Style', state_state.get.current().theme.style);
-        break;
-
-      case 'system':
-        if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'dark');
-        } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'light');
-        };
-        break;
-    };
-  },
-  light: function() {
-    state_state.get.current().theme.style = 'light';
-  },
-  dark: function() {
-    state_state.get.current().theme.style = 'dark';
-  }
-};
-
-theme_theme.render = {};
-
-theme_theme.render.color = function() {
-  const html = document.querySelector('html');
-
-  let shades = (state_state.get.current().theme.color.lightness.end - state_state.get.current().theme.color.lightness.start) / (state_state.get.current().theme.color.shades - 1);
-
-  for (var type in state_state.get.current().theme.color.range) {
-
-    for (var i = 0; i < state_state.get.current().theme.color.shades; i++) {
-
-      let hsl = JSON.parse(JSON.stringify(state_state.get.current().theme.color.range[type]));
-
-      hsl.l = Math.round((shades * i) + state_state.get.current().theme.color.lightness.start);
-
-      let rgb = convertColor.hsl.rgb(hsl);
-
-      for (var key in rgb) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
-      };
-
-      for (var key in hsl) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
-      };
-
-    };
-
-  };
-
-};
-
-theme_theme.render.class = function() {
-  const html = document.querySelector('html');
-
-  if (state_state.get.current().bookmark.edit) {
-    html.classList.add('is-bookmark-edit');
-  } else {
-    html.classList.remove('is-bookmark-edit');
-  };
-
-  const type = ['dark', 'light', 'system', 'theme', 'custom'];
-
-  type.forEach((item, i) => {
-    html.classList.remove('is-theme-style-' + item);
-    html.classList.remove('is-theme-bookmark-shadow-color-type-' + item);
-  });
-
-  html.classList.add('is-theme-style-' + state_state.get.current().theme.style);
-  html.classList.add('is-theme-bookmark-shadow-color-type-' + state_state.get.current().theme.bookmark.shadow.color.type);
-};
-
-theme_theme.render.accent = function() {
-  const html = document.querySelector('html');
-  const rgb = state_state.get.current().theme.accent.rgb;
-  html.style.setProperty('--theme-accent-r', rgb.r);
-  html.style.setProperty('--theme-accent-g', rgb.g);
-  html.style.setProperty('--theme-accent-b', rgb.b);
-};
-
-theme_theme.render.radius = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-radius', state_state.get.current().theme.radius);
-};
-
-theme_theme.render.shadow = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-shadow', state_state.get.current().theme.shadow);
-};
-
-theme_theme.style = {
-  dark: function() {
-    theme_theme.mod.style.dark();
-    theme_theme.mod.style.initial();
-    theme_theme.render.class();
-  },
-  light: function() {
-    theme_theme.mod.style.light();
-    theme_theme.mod.style.initial();
-    theme_theme.render.class();
-  },
-  toggle: function() {
-    if (state_state.get.current().theme.style == 'dark') {
-      theme_theme.style.light();
-    } else if (state_state.get.current().theme.style == 'light') {
-      theme_theme.style.dark();
-    };
-  }
-}
-
-theme_theme.render.bookmark = {};
-
-theme_theme.render.bookmark.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-bookmark-shadow-color', state_state.get.current().theme.bookmark.shadow.color.rgb.r + ', ' + state_state.get.current().theme.bookmark.shadow.color.rgb.g + ', ' + state_state.get.current().theme.bookmark.shadow.color.rgb.b);
-  html.style.setProperty('--theme-bookmark-shadow-opacity', state_state.get.current().theme.bookmark.shadow.opacity);
-};
-
-theme_theme.render.background = {};
-
-theme_theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
-
-theme_theme.render.background.area = function() {
-  const backgroundElement = node('div|class:theme-background');
-
-  theme_theme.render.background.choices.forEach((item, i) => {
-    backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-' + item));
-  });
-
-  document.querySelector('body').appendChild(backgroundElement);
-};
-
-theme_theme.render.background.type = function() {
-  const html = document.querySelector('html');
-
-  theme_theme.render.background.choices.forEach((item, i) => {
-    html.classList.remove('is-theme-background-type-' + item);
-  });
-
-  html.classList.add('is-theme-background-type-' + state_state.get.current().theme.background.type);
-};
-
-theme_theme.render.background.color = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-color', state_state.get.current().theme.background.color.rgb.r + ', ' + state_state.get.current().theme.background.color.rgb.g + ', ' + state_state.get.current().theme.background.color.rgb.b);
-};
-
-theme_theme.render.background.gradient = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-gradient-angle', state_state.get.current().theme.background.gradient.angle);
-
-  html.style.setProperty('--theme-background-gradient-start', state_state.get.current().theme.background.gradient.start.rgb.r + ', ' + state_state.get.current().theme.background.gradient.start.rgb.g + ', ' + state_state.get.current().theme.background.gradient.start.rgb.b);
-
-  html.style.setProperty('--theme-background-gradient-end', state_state.get.current().theme.background.gradient.end.rgb.r + ', ' + state_state.get.current().theme.background.gradient.end.rgb.g + ', ' + state_state.get.current().theme.background.gradient.end.rgb.b);
-};
-
-theme_theme.render.background.image = {};
-
-theme_theme.render.background.image.set = function() {
-  const html = document.querySelector('html');
-
-  if (isValidString(state_state.get.current().theme.background.image.url)) {
-    html.style.setProperty('--theme-background-image', 'url(' + trimString(state_state.get.current().theme.background.image.url) + ')');
-  } else {
-    html.style.removeProperty('--theme-background-image');
-  };
-};
-
-theme_theme.render.background.image.filter = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-image-blur', state_state.get.current().theme.background.image.blur);
-  html.style.setProperty('--theme-background-image-scale', state_state.get.current().theme.background.image.scale);
-  html.style.setProperty('--theme-background-image-opacity', state_state.get.current().theme.background.image.opacity);
-};
-
-theme_theme.render.background.video = {};
-
-theme_theme.render.background.video.element = false;
-
-theme_theme.render.background.video.set = function() {
-  theme_theme.render.background.video.element = new Video({
-    url: state_state.get.current().theme.background.video.url
-  });
-};
-
-theme_theme.render.background.video.add = function() {
-  if (isValidString(state_state.get.current().theme.background.video.url)) {
-
-    const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
-
-    themeBackgroundTypeVideo.appendChild(theme_theme.render.background.video.element.video);
-
-  } else {
-
-    theme_theme.render.background.video.remove();
-
-  };
-};
-
-theme_theme.render.background.video.remove = function() {
-  const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
-
-  if (themeBackgroundTypeVideo.lastChild) {
-
-    clearChildNode(themeBackgroundTypeVideo);
-
-  };
-};
-
-theme_theme.render.background.video.filter = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-video-blur', state_state.get.current().theme.background.video.blur);
-  html.style.setProperty('--theme-background-video-scale', state_state.get.current().theme.background.video.scale);
-  html.style.setProperty('--theme-background-video-opacity', state_state.get.current().theme.background.video.opacity);
-};
-
-theme_theme.init = function() {
-  theme_theme.mod.style.initial();
-  theme_theme.bind.style.initial();
-  theme_theme.render.color();
-  theme_theme.render.accent();
-  theme_theme.render.class();
-  theme_theme.render.radius();
-  theme_theme.render.shadow();
-  theme_theme.render.bookmark.style();
-  theme_theme.render.background.area();
-  theme_theme.render.background.type();
-  theme_theme.render.background.color();
-  theme_theme.render.background.gradient();
-  theme_theme.render.background.image.set();
-  theme_theme.render.background.image.filter();
-  theme_theme.render.background.video.set();
-  theme_theme.render.background.video.add();
-  theme_theme.render.background.video.filter();
-};
-
-
-
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
 var collapse = __webpack_require__(5655);
 ;// CONCATENATED MODULE: ./src/component/collapse/index.css
@@ -12526,7 +12193,386 @@ const Tab = function({ group = [] } = {}) {
 
 
 
+;// CONCATENATED MODULE: ./src/component/pageLock/index.js
+
+
+const pageLock = {};
+
+pageLock.render = () => {
+  const html = document.querySelector('html');
+
+  if (state_state.get.current().modal || state_state.get.current().menu) {
+    html.classList.add('is-scroll-disabled');
+  } else {
+    html.classList.remove('is-scroll-disabled');
+  };
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/shade/index.css
+var shade = __webpack_require__(9888);
+;// CONCATENATED MODULE: ./src/component/shade/index.css
+
+            
+
+var shade_options = {};
+
+shade_options.insert = "head";
+shade_options.singleton = false;
+
+var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shade_options);
+
+
+
+/* harmony default export */ const component_shade = (shade/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/shade/index.js
+
+
+
+
+const Shade = function() {
+
+  this.shade = node('div|class:shade');
+
+  this.open = () => {
+    const body = document.querySelector('body');
+
+    this.shade.classList.add('is-transparent');
+
+    this.shade.addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'opacity' && getComputedStyle(this.shade).opacity == 0) {
+        body.removeChild(this.shade);
+      };
+    });
+
+    body.appendChild(this.shade);
+
+    getComputedStyle(this.shade).opacity;
+
+    this.shade.classList.remove('is-transparent');
+
+    this.shade.classList.add('is-opaque');
+  };
+
+  this.close = () => {
+
+    this.shade.classList.remove('is-opaque');
+
+    this.shade.classList.add('is-transparent');
+
+  };
+
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
+var modal = __webpack_require__(4719);
+;// CONCATENATED MODULE: ./src/component/modal/index.css
+
+            
+
+var modal_options = {};
+
+modal_options.insert = "head";
+modal_options.singleton = false;
+
+var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, modal_options);
+
+
+
+/* harmony default export */ const component_modal = (modal/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/modal/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Modal = function({
+  heading = false,
+  content = false,
+  successText = 'OK',
+  successAction = false,
+  cancelText = 'Cancel',
+  cancelAction = false,
+  dismissAction = false,
+  size = 'medium',
+  width = false,
+  maxHeight = false,
+  overscroll = false,
+  maxHeadingLength = 50
+} = {}) {
+
+  this.element = {
+    modal: node('div|class:modal'),
+    heading: node('div|class:modal-heading'),
+    content: {
+      wrapper: node('div|class:modal-content-wrapper'),
+      content: node('div|class:modal-content')
+    },
+    control: node('div|class:modal-control')
+  };
+
+  this.shade = new Shade();
+
+  this.open = () => {
+
+    const body = document.querySelector('body');
+
+    this.element.modal.classList.add('is-transparent');
+
+    this.element.modal.addEventListener('transitionend', (event) => {
+
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.modal).opacity == 0) {
+
+        body.removeChild(this.element.modal);
+
+      };
+
+    });
+
+    this.shade.open();
+
+    this.style();
+
+    this.assemble();
+
+    body.appendChild(this.element.modal);
+
+    getComputedStyle(this.element.modal).opacity;
+
+    this.element.modal.classList.remove('is-transparent');
+
+    this.element.modal.classList.add('is-opaque');
+
+    this.bind.add();
+
+    this.focus.add();
+
+  };
+
+  this.close = () => {
+
+    this.element.modal.classList.remove('is-opaque');
+
+    this.element.modal.classList.add('is-transparent');
+
+    this.bind.remove();
+
+    this.focus.remove();
+
+    this.shade.close();
+
+    if (dismissAction) {
+      dismissAction();
+    };
+
+  };
+
+  this.bind = {
+    add: () => {
+
+      window.addEventListener('mouseup', this.clickOut);
+
+      window.addEventListener('keydown', this.esc);
+
+    },
+    remove: () => {
+
+      window.removeEventListener('mouseup', this.clickOut);
+
+      window.removeEventListener('keydown', this.esc);
+
+    }
+  };
+
+  this.clickOut = (event) => {
+
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    const suggest = document.querySelector('.suggest');
+
+    if (!path.includes(this.element.modal) && !path.includes(suggest)) {
+      this.close();
+    };
+
+  };
+
+  this.esc = (event) => {
+
+    if ((event.keyCode == 27)) {
+
+      event.preventDefault();
+
+      this.close();
+
+    };
+
+  };
+
+  this.style = () => {
+    if (typeof width === 'number') {
+
+      this.element.modal.style.setProperty('--modal-width', width);
+
+    } else {
+
+      switch (width) {
+        case 'small':
+          this.element.modal.style.setProperty('--modal-width', 30);
+          break;
+
+        default:
+        case 'medium':
+          this.element.modal.style.setProperty('--modal-width', 50);
+          break;
+
+        case 'large':
+          this.element.modal.style.setProperty('--modal-width', 70);
+          break;
+
+      };
+
+    };
+  };
+
+  this.focus = {
+    loop: (event) => {
+
+      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
+
+      const firstElement = allFocusElement[0];
+
+      const lastElement = allFocusElement[allFocusElement.length - 1];
+
+      if (event.keyCode == 9 && event.shiftKey) {
+
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+
+          event.preventDefault();
+        }
+
+      } else if (event.keyCode == 9) {
+
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+
+          event.preventDefault();
+        }
+
+      };
+
+    },
+    add: () => { window.addEventListener('keydown', this.focus.loop); },
+    remove: () => { window.removeEventListener('keydown', this.focus.loop); }
+  };
+
+  this.successButton = new Button({
+    text: successText,
+    block: false,
+    style: ['line'],
+    classList: ['modal-control-button'],
+    func: () => {
+
+      if (successAction) {
+        successAction();
+      };
+
+      this.close();
+
+    }
+  });
+
+  this.cancelButton = new Button({
+    text: cancelText,
+    block: false,
+    style: ['line'],
+    classList: ['modal-control-button'],
+    func: () => {
+
+      if (cancelAction) {
+        cancelAction();
+      };
+
+      this.close();
+
+    }
+  });
+
+  this.assemble = () => {
+
+    if (heading && isValidString(heading)) {
+
+      let headingString = heading;
+
+      if (headingString.length > maxHeadingLength) {
+        headingString = trimString(headingString.substring(0, maxHeadingLength)) + '...';
+      };
+
+      this.element.heading.appendChild(complexNode({
+        tag: 'h1',
+        text: headingString,
+        attr: [{
+          key: 'tabindex',
+          value: 1
+        }, {
+          key: 'class',
+          value: 'modal-heading-text'
+        }]
+      }));
+
+      this.element.content.content.appendChild(this.element.heading);
+
+    };
+
+    if (content) {
+      if (typeof content == 'string') {
+
+        const para = complexNode({ tag: 'p', text: content });
+
+        this.element.content.content.appendChild(para);
+
+      } else {
+
+        this.element.content.content.appendChild(content);
+
+      };
+    };
+
+    this.element.content.wrapper.appendChild(this.element.content.content);
+
+    this.element.modal.appendChild(this.element.content.wrapper);
+
+    this.element.control.appendChild(this.cancelButton.button);
+
+    this.element.control.appendChild(this.successButton.button);
+
+    this.element.modal.appendChild(this.element.control);
+
+    if (overscroll) {
+      this.element.modal.classList.add('modal-overscroll');
+    };
+
+    if (maxHeight) {
+      this.element.modal.classList.add('modal-max-height');
+    };
+
+  };
+
+};
+
 ;// CONCATENATED MODULE: ./src/component/hexTile/index.js
+
 
 
 
@@ -12744,10 +12790,11 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
         newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
         newBookmarkData.position.origin = index;
         newBookmarkData.position.destination = index;
-        modal_modal.open({
-          heading: 'Edit ' + bookmarkData.display.name.text,
-          actionText: 'Save',
+
+        const editModal = new Modal({
+          heading: isValidString(bookmarkData.display.name.text) ? 'Edit ' + bookmarkData.display.name.text : 'Edit unnamed bookmark',
           content: bookmark_bookmark.form(newBookmarkData),
+          successText: 'Save',
           width: 60,
           maxHeight: true,
           successAction: () => {
@@ -12758,6 +12805,9 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
             data.save();
           }
         });
+
+        editModal.open();
+
       }
     }),
     remove: new Button({
@@ -12768,17 +12818,12 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       title: 'Remove this bookmark',
       classList: ['bookmark-control-button', 'bookmark-control-remove'],
       func: () => {
-        let heading;
-        if (isValidString(bookmarkData.display.name.text)) {
-          heading = 'Remove ' + bookmarkData.display.name.text;
-        } else {
-          heading = 'Remove unnamed bookmark';
-        };
-        modal_modal.open({
-          heading: heading,
-          size: 'small',
-          actionText: 'Remove',
+
+        const removeModal = new Modal({
+          heading: isValidString(bookmarkData.display.name.text) ? 'Remove ' + bookmarkData.display.name.text : 'Remove unnamed bookmark',
           content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
+          successText: 'Remove',
+          width: 'small',
           successAction: () => {
             let newBookmarkData = new StagedLink();
             newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
@@ -12790,6 +12835,9 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
             data.save();
           }
         });
+
+        removeModal.open();
+
       }
     })
   };
@@ -15091,11 +15139,10 @@ bookmark_bookmark.render.add = function() {
 
   newBookmarkData.newBookmark();
 
-  modal_modal.open({
+  const addModal = new Modal({
     heading: 'Add a new Bookmark',
-    size: 'small',
-    actionText: 'Add',
     content: bookmark_bookmark.form(newBookmarkData),
+    successText: 'Add',
     width: 60,
     maxHeight: true,
     successAction: () => {
@@ -15110,6 +15157,9 @@ bookmark_bookmark.render.add = function() {
       data.save();
     }
   });
+
+  addModal.open();
+
 };
 
 bookmark_bookmark.form = function(bookmarkData) {
@@ -16201,6 +16251,7 @@ const isJson = function(string) {
 
 
 
+
 const data = {};
 
 data.saveName = 'hexagonTab';
@@ -16357,15 +16408,17 @@ data.render.clear = function() {
 
   clearContent.appendChild(para2);
 
-  modal_modal.open({
+  const clearModal = new Modal({
     heading: 'Clear all ' + data.saveName + ' data?',
     content: clearContent,
-    successAction: function() {
+    successText: 'Clear all data',
+    width: 'small',
+    successAction: () => {
       data.wipe();
-    },
-    actionText: 'Clear all data',
-    size: 'small'
+    }
   });
+
+  clearModal.open();
 
 };
 
@@ -16896,7 +16949,6 @@ link_link.render = function({ text = 'Link', href = '#', iconName = false, iconP
 
 
 
-
 const menuContentLayout = {};
 
 menuContentLayout.size = function() {
@@ -17098,7 +17150,6 @@ menuContentLayout.grid = function() {
 
 
 
-
 const menuContentBookmark = {};
 
 menuContentBookmark.hover = function() {
@@ -17226,7 +17277,6 @@ menuContentBookmark.shadow = function() {
 
 
 
-
 const menuContentToolbar = {};
 
 menuContentToolbar.style = function() {
@@ -17306,7 +17356,6 @@ menuContentToolbar.position = function() {
 
 
 ;// CONCATENATED MODULE: ./src/component/menu/content/theme/index.js
-
 
 
 
@@ -18015,7 +18064,6 @@ menuContentTheme.background = function() {
 
 
 
-
 const menuContentData = {};
 
 menuContentData.import = function() {
@@ -18147,7 +18195,6 @@ menuContentData.clear = function() {
 
 
 
-
 const menuContentCoffee = {};
 
 menuContentCoffee.fuel = function() {
@@ -18184,7 +18231,6 @@ menuContentCoffee.fuel = function() {
 
 
 ;// CONCATENATED MODULE: ./src/component/menu/content/app/index.js
-
 
 
 
@@ -18695,8 +18741,6 @@ menu_menu.init = function() {
 
 
 
-
-
 const KeyPress = function({ keycode = false, ctrl = false, alt = false, action = false } = {}) {
   this.bind = () => {
     if (keycode) {
@@ -18721,12 +18765,6 @@ keyboard.esc = new KeyPress({
   action: () => {
     if (state_state.get.current().menu) {
       menu_menu.close();
-    } else if (state_state.get.current().autoSuggest) {
-      autoSuggest_autoSuggest.close();
-    } else if (state_state.get.current().bookmark.add) {
-      modal_modal.close();
-    } else if (state_state.get.current().modal) {
-      modal_modal.close();
     } else if (state_state.get.current().bookmark.edit) {
       bookmark_bookmark.edit.close();
     };
@@ -18776,9 +18814,6 @@ keyboard.ctrAltM = new KeyPress({
   ctrl: true,
   alt: true,
   action: () => {
-    if (state_state.get.current().bookmark.add) {
-      modal_modal.close();
-    };
     menu_menu.toggle();
   }
 });
@@ -18821,6 +18856,7 @@ keyboard.init = function() {
 
 
 
+
 const component = {
   base: component_base_base,
   state: state_state,
@@ -18828,7 +18864,6 @@ const component = {
   version: version_version,
   autoSuggest: autoSuggest_autoSuggest,
   fontawesome: fontawesome_fontawesome,
-  form: component_form_namespaceObject,
   grid: grid_grid,
   icon: icon_icon,
   keyboard: keyboard,
@@ -18836,16 +18871,18 @@ const component = {
   link: link_link,
   logo: logo_logo,
   menu: menu_menu,
-  modal: modal_modal,
   pageLock: pageLock,
   theme: theme_theme,
   toolbar: toolbar_toolbar,
   update: update_update,
   bookmark: bookmark_bookmark,
+  form: component_form_namespaceObject,
   Button: Button,
   Suggest: Suggest,
   Collapse: Collapse,
-  Tab: Tab
+  Tab: Tab,
+  Modal: Modal,
+  Shade: Shade
 };
 
 ;// CONCATENATED MODULE: ./src/utility/index.js
@@ -18888,7 +18925,6 @@ component.bookmark.init();
 component.theme.init();
 component.toolbar.init();
 component.menu.init();
-component.modal.init();
 component.autoSuggest.init();
 component.keyboard.init();
 
