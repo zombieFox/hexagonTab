@@ -361,7 +361,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   .bookmark-form {
     display: grid;
     grid-template-columns: 6fr 3fr;
-    grid-gap: var(--modal-space);
+    grid-gap: calc(var(--modal-space) * 1em);
     align-items: stretch;
   }
 }
@@ -372,7 +372,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-form-preview {
   background-color: hsl(var(--theme-primary-200));
-  padding: var(--modal-space);
+  padding: calc(var(--modal-space) * 0.5em);
   border-radius: var(--theme-radius-base);
   position: sticky;
   top: 50%;

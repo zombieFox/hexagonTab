@@ -11,7 +11,6 @@ import { layout } from './layout';
 import { link } from './link';
 import { logo } from './logo';
 import { menu } from './menu';
-import { modal } from './modal';
 import { pageLock } from './pageLock';
 import { theme } from './theme';
 import { toolbar } from './toolbar';
@@ -24,6 +23,8 @@ import { Button } from './button';
 import { Suggest } from './autoSuggest';
 import { Collapse } from './collapse';
 import { Tab } from './tab';
+import { Modal } from './modal';
+import { Shade } from './shade';
 
 export const component = {
   base,
@@ -32,7 +33,6 @@ export const component = {
   version,
   autoSuggest,
   fontawesome,
-  form,
   grid,
   icon,
   keyboard,
@@ -40,14 +40,16 @@ export const component = {
   link,
   logo,
   menu,
-  modal,
   pageLock,
   theme,
   toolbar,
   update,
   bookmark,
+  form,
   Button,
   Suggest,
   Collapse,
-  Tab
+  Tab,
+  Modal,
+  Shade
 };

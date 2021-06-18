@@ -1,9 +1,6 @@
 :root {
-  --modal-small: 30em;
-  --modal-medium: 50em;
-  --modal-large: 70em;
-  --modal-size: var(--modal-medium);
-  --modal-space: 2em;
+  --modal-space: 2;
+  --modal-width: 50;
 }
 
 .modal {
@@ -15,13 +12,14 @@
   left: 50%;
   font-size: 1em;
   max-height: calc(100vh - 2em);
-  width: var(--modal-size);
+  width: calc(var(--modal-width) * 1em);
   max-width: calc(100% - 2em);
   min-width: 10em;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   transform: translate(-50%, -50%);
+  overflow: hidden;
   opacity: 0;
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
   z-index: var(--z-index-modal);
@@ -32,7 +30,7 @@
 }
 
 .modal-content-wrapper {
-  padding: calc(var(--modal-space) * 1.75);
+  padding: calc(var(--modal-space) * 1.75em);
   position: relative;
   overflow-y: auto;
 }
@@ -47,7 +45,7 @@
   grid-template-rows: auto 1fr;
   justify-items: stretch;
   align-items: stretch;
-  gap: var(--modal-space);
+  gap: calc(var(--modal-space) * 1em);
 }
 
 .modal-body {
@@ -56,7 +54,7 @@
 }
 
 .modal-body-spacer {
-  margin: var(--modal-space);
+  margin: calc(var(--modal-space) * 1em);
 }
 
 .modal-heading-text {
@@ -75,7 +73,7 @@
   outline: none;
 }
 
-.modal-controls {
+.modal-control {
   background-color: hsl(var(--theme-primary-100));
   border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);
   position: relative;
@@ -84,7 +82,7 @@
   transition: background-color var(--layout-transition-extra-fast);
 }
 
-.modal-button {
+.modal-control-button {
   background-color: transparent;
   margin: 0;
   border-radius: 0;
@@ -93,22 +91,10 @@
   flex-basis: 50%;
 }
 
-.modal-controls .modal-button:first-child {
+.modal-control .modal-control-button:first-child {
   border-radius: 0 0 0 var(--theme-radius-base);
 }
 
-.modal-controls .modal-button:last-child {
+.modal-control .modal-control-button:last-child {
   border-radius: 0 0 var(--theme-radius-base) 0
-}
-
-.modal-shade {
-  background-color: rgba(var(--theme-accent), 0.5);
-  position: fixed;
-  top: -1em;
-  left: -1em;
-  width: calc(100vw + 2em);
-  height: calc(100vh + 2em);
-  opacity: 0;
-  z-index: var(--z-index-shade);
-  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
 }

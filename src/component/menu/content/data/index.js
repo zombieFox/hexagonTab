@@ -4,7 +4,6 @@ import { bookmark } from '../../../bookmark';
 import { theme } from '../../../theme';
 import { toolbar } from '../../../toolbar';
 import { grid } from '../../../grid';
-import { modal } from '../../../modal';
 import { version } from '../../../version';
 import { menu } from '../../../menu';
 import { icon } from '../../../icon';

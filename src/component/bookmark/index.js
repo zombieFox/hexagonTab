@@ -1,7 +1,6 @@
 import { state } from '../state';
 import { data } from '../data';
 import { gridList } from '../grid';
-import { modal } from '../modal';
 import { theme } from '../theme';
 
 import * as form from '../form';
@@ -12,6 +11,7 @@ import { Collapse } from '../collapse';
 import { Tab } from '../tab';
 import { Video } from '../video';
 import { HexTile } from '../hexTile';
+import { Modal } from '../modal';
 
 import { Control_helperText } from '../control/helperText';
 import { Control_inputButton } from '../control/inputButton';
@@ -469,11 +469,10 @@ bookmark.render.add = function() {
 
   newBookmarkData.newBookmark();
 
-  modal.open({
+  const addModal = new Modal({
     heading: 'Add a new Bookmark',
-    size: 'small',
-    actionText: 'Add',
     content: bookmark.form(newBookmarkData),
+    successText: 'Add',
     width: 60,
     maxHeight: true,
     successAction: () => {
@@ -488,6 +487,9 @@ bookmark.render.add = function() {
       data.save();
     }
   });
+
+  addModal.open();
+
 };
 
 bookmark.form = function(bookmarkData) {

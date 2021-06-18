@@ -1,11 +1,12 @@
 import { state } from '../state';
 import { data } from '../data';
-import { modal } from '../modal';
 import { theme } from '../theme';
 
 import { Button } from '../button';
 import { Video } from '../video';
+import { Modal } from '../modal';
 import { bookmark, StagedLink } from '../bookmark';
+
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -215,10 +216,11 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
         newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
         newBookmarkData.position.origin = index;
         newBookmarkData.position.destination = index;
-        modal.open({
-          heading: 'Edit ' + bookmarkData.display.name.text,
-          actionText: 'Save',
+
+        const editModal = new Modal({
+          heading: isValidString(bookmarkData.display.name.text) ? 'Edit ' + bookmarkData.display.name.text : 'Edit unnamed bookmark',
           content: bookmark.form(newBookmarkData),
+          successText: 'Save',
           width: 60,
           maxHeight: true,
           successAction: () => {
@@ -229,6 +231,9 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
             data.save();
           }
         });
+
+        editModal.open();
+
       }
     }),
     remove: new Button({
@@ -239,17 +244,12 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
       title: 'Remove this bookmark',
       classList: ['bookmark-control-button', 'bookmark-control-remove'],
       func: () => {
-        let heading;
-        if (isValidString(bookmarkData.display.name.text)) {
-          heading = 'Remove ' + bookmarkData.display.name.text;
-        } else {
-          heading = 'Remove unnamed bookmark';
-        };
-        modal.open({
-          heading: heading,
-          size: 'small',
-          actionText: 'Remove',
+
+        const removeModal = new Modal({
+          heading: isValidString(bookmarkData.display.name.text) ? 'Remove ' + bookmarkData.display.name.text : 'Remove unnamed bookmark',
           content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
+          successText: 'Remove',
+          width: 'small',
           successAction: () => {
             let newBookmarkData = new StagedLink();
             newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
@@ -261,6 +261,9 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
             data.save();
           }
         });
+
+        removeModal.open();
+
       }
     })
   };

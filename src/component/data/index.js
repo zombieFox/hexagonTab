@@ -2,7 +2,8 @@ import { state } from '../state';
 import { bookmark } from '../bookmark';
 import { version } from '../version';
 import { update } from '../update';
-import { modal } from '../modal';
+
+import { Modal } from '../modal';
 
 import { dateTime } from '../../utility/dateTime';
 import { node } from '../../utility/node';
@@ -165,15 +166,17 @@ data.render.clear = function() {
 
   clearContent.appendChild(para2);
 
-  modal.open({
+  const clearModal = new Modal({
     heading: 'Clear all ' + data.saveName + ' data?',
     content: clearContent,
-    successAction: function() {
+    successText: 'Clear all data',
+    width: 'small',
+    successAction: () => {
       data.wipe();
-    },
-    actionText: 'Clear all data',
-    size: 'small'
+    }
   });
+
+  clearModal.open();
 
 };
 

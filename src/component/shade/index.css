@@ -1,0 +1,12 @@
+.shade {
+  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));
+  position: fixed;
+  top: -1em;
+  left: -1em;
+  width: calc(100vw + 2em);
+  height: calc(100vh + 2em);
+  opacity: 0;
+  z-index: var(--z-index-shade);
+  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
+  pointer-events: none;
+}

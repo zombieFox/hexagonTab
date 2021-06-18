@@ -18,7 +18,7 @@ module.exports = {
     clean: true
   },
   devServer: {
-    port: 5000,
+    port: 5001,
     watchContentBase: true
   },
   module: {

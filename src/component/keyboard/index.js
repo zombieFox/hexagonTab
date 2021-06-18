@@ -2,10 +2,8 @@ import { state } from '../state';
 import { data } from '../data';
 
 import { menu } from '../menu';
-import { modal } from '../modal';
 import { bookmark } from '../bookmark';
 import { theme } from '../theme';
-import { autoSuggest } from '../autoSuggest';
 import { toolbar } from '../toolbar';
 
 import { menuContentTheme } from '../menu/content/theme';
@@ -34,12 +32,6 @@ keyboard.esc = new KeyPress({
   action: () => {
     if (state.get.current().menu) {
       menu.close();
-    } else if (state.get.current().autoSuggest) {
-      autoSuggest.close();
-    } else if (state.get.current().bookmark.add) {
-      modal.close();
-    } else if (state.get.current().modal) {
-      modal.close();
     } else if (state.get.current().bookmark.edit) {
       bookmark.edit.close();
     };
@@ -89,9 +81,6 @@ keyboard.ctrAltM = new KeyPress({
   ctrl: true,
   alt: true,
   action: () => {
-    if (state.get.current().bookmark.add) {
-      modal.close();
-    };
     menu.toggle();
   }
 });
