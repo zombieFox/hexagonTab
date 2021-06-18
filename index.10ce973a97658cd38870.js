@@ -2,25 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 8625:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auto-suggest {\n  position: relative;\n  z-index: 1;\n  font-size: 1em;\n}\n\n.auto-suggest {\n  background-color: hsl(var(--theme-primary-200));\n  margin-top: 0.5em;\n  padding: 1em;\n  position: absolute;\n  top: calc(var(--auto-suggest-top) * 1px);\n  left: calc(var(--auto-suggest-left) * 1px);\n  width: calc(var(--auto-suggest-width) * 1px);\n  max-height: 40vh;\n  border-radius: var(--theme-radius-base);\n  overflow-y: auto;\n  z-index: var(--z-index-auto-suggest);\n  box-shadow: var(--theme-shadow-bottom-large);\n  opacity: 0;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.auto-suggest-list {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));\n  grid-gap: calc(var(--form-space) / 2);\n}\n\n.auto-suggest-item {\n  padding: 0.5em;\n  width: 100%;\n  height: 100%;\n  min-height: 6em;\n  display: flex;\n  position: relative;\n  white-space: inherit;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  transition: background-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.auto-suggest-icon {\n  font-size: 2em;\n}\n\n.auto-suggest-icon-text {\n  margin-top: 1em;\n  font-size: 0.6em;\n  text-align: center;\n  line-height: 1.6;\n}\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ 7208:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -306,7 +287,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".version {\n  font-size: 1rem;\n  disp
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;\n  --z-index-layout: 2000;\n  --z-index-toolbar: 3000;\n  --z-index-shade: 4000;\n  --z-index-menu: 5000;\n  --z-index-modal: 6000;\n  --z-index-auto-suggest: 7000;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;\n  --z-index-layout: 2000;\n  --z-index-toolbar: 3000;\n  --z-index-shade: 4000;\n  --z-index-menu: 5000;\n  --z-index-modal: 6000;\n  --z-index-suggest: 7000;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -964,6 +945,25 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-space: 2;\n  --moda
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 9531:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".suggest {\n  position: relative;\n  z-index: 1;\n  font-size: 1em;\n}\n\n.suggest {\n  background-color: hsl(var(--theme-primary-200));\n  margin-top: 0.5em;\n  padding: 1em;\n  position: absolute;\n  top: calc(var(--suggest-top) * 1px);\n  left: calc(var(--suggest-left) * 1px);\n  width: calc(var(--suggest-width) * 1px);\n  max-height: 40vh;\n  border-radius: var(--theme-radius-base);\n  overflow-y: auto;\n  z-index: var(--z-index-suggest);\n  box-shadow: var(--theme-shadow-bottom-large);\n  opacity: 0;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.suggest-list {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));\n  grid-gap: calc(var(--form-space) / 2);\n}\n\n.suggest-item {\n  padding: 0.5em;\n  width: 100%;\n  height: 100%;\n  min-height: 6em;\n  display: flex;\n  position: relative;\n  white-space: inherit;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  transition: background-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.suggest-icon {\n  font-size: 2em;\n}\n\n.suggest-icon-text {\n  margin-top: 1em;\n  font-size: 0.6em;\n  text-align: center;\n  line-height: 1.6;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11587,25 +11587,23 @@ const fontawesome_fontawesome = [{
   label: "Zhihu"
 }];
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/autoSuggest/index.css
-var autoSuggest = __webpack_require__(8625);
-;// CONCATENATED MODULE: ./src/component/autoSuggest/index.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/suggest/index.css
+var suggest = __webpack_require__(9531);
+;// CONCATENATED MODULE: ./src/component/suggest/index.css
 
             
 
-var autoSuggest_options = {};
+var suggest_options = {};
 
-autoSuggest_options.insert = "head";
-autoSuggest_options.singleton = false;
+suggest_options.insert = "head";
+suggest_options.singleton = false;
 
-var autoSuggest_update = injectStylesIntoStyleTag_default()(autoSuggest/* default */.Z, autoSuggest_options);
-
-
-
-/* harmony default export */ const component_autoSuggest = (autoSuggest/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/autoSuggest/index.js
+var suggest_update = injectStylesIntoStyleTag_default()(suggest/* default */.Z, suggest_options);
 
 
+
+/* harmony default export */ const component_suggest = (suggest/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/suggest/index.js
 
 
 
@@ -11617,26 +11615,232 @@ var autoSuggest_update = injectStylesIntoStyleTag_default()(autoSuggest/* defaul
 
 
 
-const Suggest = function({ input = false, widthElement = false, type = false, postFocus = false, action = false } = {}) {
-  this.suggestPanel = false;
 
-  this.input = input;
 
-  this.timer = false;
+const Suggest = function({
+  input = false,
+  widthElement = false,
+  type = false,
+  postFocus = false,
+  action = false
+} = {}) {
+
+  this.state = {
+    open: false
+  };
+
+  this.element = {
+    suggest: node('div|class:suggest'),
+    list: node('div|class:suggest-list list-unstyled'),
+    input: input
+  };
 
   this.open = () => {
-    state_state.get.current().autoSuggest = true;
-    this.render.open();
+
+    const results = this.suggestItems();
+
+    if (results.length > 0) {
+
+      if (this.state.open) {
+
+        this.style();
+
+        clearChildNode(this.element.list);
+
+        this.populateList(results);
+
+      } else {
+
+        const body = document.querySelector('body');
+
+        this.style();
+
+        this.element.suggest.classList.add('is-transparent');
+
+        clearChildNode(this.element.list);
+
+        this.populateList(results);
+
+        body.appendChild(this.element.suggest);
+
+        getComputedStyle(this.element.suggest).opacity;
+
+        this.element.suggest.classList.remove('is-transparent');
+
+        this.element.suggest.classList.add('is-opaque');
+
+        this.bind.add();
+
+        this.state.open = true;
+
+      };
+
+    } else {
+
+      this.close();
+
+    };
+
   };
 
   this.close = () => {
-    state_state.get.current().autoSuggest = false;
-    this.render.close();
+
+    this.element.suggest.classList.remove('is-opaque');
+
+    this.element.suggest.classList.add('is-transparent');
+
+  };
+
+  this.bind = {};
+
+  this.bind.input = () => {
+
+    this.element.input.addEventListener('focus', () => {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(this.open, 300);
+    });
+
+    this.element.input.addEventListener('input', () => {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(this.open, 300);
+    });
+
+  };
+
+  this.bind.add = () => {
+
+    window.addEventListener('mouseup', this.clickOut);
+
+    window.addEventListener('keydown', this.esc);
+
+    window.addEventListener('keydown', this.navigateResults);
+
+  };
+
+  this.bind.remove = () => {
+
+    window.removeEventListener('mouseup', this.clickOut);
+
+    window.removeEventListener('keydown', this.esc);
+
+    window.removeEventListener('keydown', this.navigateResults);
+
+  };
+
+  this.style = () => {
+
+    const inputRect = input.getBoundingClientRect();
+
+    const box = {
+      left: inputRect.left,
+      top: inputRect.bottom + window.scrollY,
+      width: inputRect.width
+    };
+
+    if (widthElement) {
+
+      const widthElementRect = widthElement.getBoundingClientRect();
+
+      box.width = widthElementRect.width;
+
+      box.left = widthElementRect.left;
+
+    };
+
+    this.element.suggest.style.setProperty('--suggest-top', box.top);
+
+    this.element.suggest.style.setProperty('--suggest-left', box.left);
+
+    this.element.suggest.style.setProperty('--suggest-width', box.width);
+
+  };
+
+  this.assemble = () => {
+
+    const body = document.querySelector('body');
+
+    this.element.suggest.appendChild(this.element.list);
+
+    this.element.suggest.addEventListener('transitionend', (event) => {
+
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.suggest).opacity == 0) {
+
+        body.removeChild(this.element.suggest);
+
+        this.bind.remove();
+
+        this.state.open = false;
+
+      };
+
+    });
+
   };
 
   this.searchTerm = () => {
-    return trimString(this.input.value).toLowerCase();
+    return trimString(input.value).toLowerCase();
   };
+
+  this.populateList = (results) => {
+
+    const listType = {
+      fontawesomeIcon: () => {
+        const successAction = (item) => {
+
+          currentBookmarkForm.updateIcon(item);
+
+          this.close();
+
+          if (postFocus) {
+            postFocus.focus();
+          };
+
+          if (action) {
+            action();
+          };
+
+        };
+
+        results.forEach((item, i) => {
+
+          let li = node('li|class:suggest-list-item');
+
+          let resultItem = new Button({
+            text: false,
+            style: ['link', 'ring'],
+            classList: ['suggest-item'],
+            func: () => {
+              successAction(item);
+            }
+          });
+
+          let icon = node('span|class:suggest-icon fa-' + item.name);
+
+          if (item.styles.includes('solid')) {
+            icon.classList.add('fas');
+          } else if (item.styles.includes('brands')) {
+            icon.classList.add('fab');
+          };
+
+          let text = node('span:' + item.label + '|class:suggest-icon-text');
+
+          resultItem.button.appendChild(icon);
+
+          resultItem.button.appendChild(text);
+
+          li.appendChild(resultItem.button);
+
+          this.element.list.appendChild(li);
+
+        });
+      }
+    };
+
+    listType[type]();
+
+  };
+
+  this.timer = false;
 
   this.suggestItems = () => {
     const suggestType = {
@@ -11674,209 +11878,30 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
     return suggestType[type](this.searchTerm());
   };
 
-  this.bind = {};
+  this.navigateResults = (event) => {
 
-  this.bind.input = () => {
-    this.input.addEventListener('focus', () => {
-      clearTimeout(this.timer);
-      this.timer = setTimeout(this.render.delay, 300);
-    });
-
-    this.input.addEventListener('input', () => {
-      clearTimeout(this.timer);
-      this.timer = setTimeout(this.render.delay, 300);
-    });
-  };
-
-  this.bind.navigation = {
-    check: (event) => {
-      const path = event.path || (event.composedPath && event.composedPath());
-
-      if (!path.includes(this.suggestPanel) && !path.includes(input)) {
-        this.close();
-      };
-    },
-    add: () => {
-      window.addEventListener('click', this.bind.navigation.check, false);
-      window.addEventListener('keydown', this.render.navigateResults, false);
-    },
-    remove: () => {
-      window.removeEventListener('click', this.bind.navigation.check, false);
-      window.removeEventListener('keydown', this.render.navigateResults, false);
-    }
-  };
-
-  this.bind.close = {
-    check: (event) => {
-      const path = event.path || (event.composedPath && event.composedPath());
-
-      if (!path.includes(this.suggestPanel) && !path.includes(input)) {
-        this.close();
-      };
-    },
-    add: () => {
-      window.addEventListener('mouseup', this.bind.close.check);
-    },
-    remove: () => {
-      window.removeEventListener('mouseup', this.bind.close.check);
-    }
-  };
-
-  this.render = {};
-
-  this.render.delay = () => {
-    this.open();
-  };
-
-  this.render.open = () => {
-    let suggestElement;
-
-    const results = this.suggestItems();
-
-    if (results.length > 0) {
-
-      // define the current suggest panel
-      if (this.suggestPanel) {
-        suggestElement = this.suggestPanel;
-
-        clearChildNode(this.suggestPanel);
-
-      } else {
-        suggestElement = node('div|class:auto-suggest');
-        this.suggestPanel = suggestElement;
-      };
-
-      // make list
-      let suggestList = node('ul|class:auto-suggest-list list-unstyled');
-      suggestElement.appendChild(suggestList);
-
-      // position and width
-      const box = {
-        left: input.getBoundingClientRect().left,
-        top: input.getBoundingClientRect().bottom + window.scrollY,
-        width: input.getBoundingClientRect().width
-      };
-      if (widthElement) {
-        box.width = widthElement.getBoundingClientRect().width;
-        box.left = widthElement.getBoundingClientRect().left;
-      };
-
-      suggestElement.style.setProperty('--auto-suggest-top', box.top);
-      suggestElement.style.setProperty('--auto-suggest-left', box.left);
-      suggestElement.style.setProperty('--auto-suggest-width', box.width);
-
-      this.bind.close.add();
-      this.bind.navigation.add();
-
-      suggestElement.close = () => {
-        if (suggestElement.classList.contains('is-opaque')) {
-          suggestElement.classList.remove('is-opaque');
-          suggestElement.classList.add('is-transparent');
-        } else {
-          suggestElement.remove();
-        };
-        this.bind.close.remove();
-        this.bind.navigation.remove();
-      };
-
-      suggestElement.addEventListener('transitionend', function(event) {
-        if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
-          this.remove();
-        };
-      });
-
-      this.render.populateList(suggestList, results);
-
-      document.querySelector('body').appendChild(suggestElement);
-
-      getComputedStyle(suggestElement).opacity;
-
-      suggestElement.classList.remove('is-transparent');
-      suggestElement.classList.add('is-opaque');
-
-      autoSuggest_autoSuggest.current = suggestElement;
-
-    } else {
-
-      if (this.suggestPanel) {
-        this.suggestPanel.close();
-      };
-
-    };
-  };
-
-  this.render.close = () => {
-    if (this.suggestPanel) {
-      this.suggestPanel.close();
-      this.suggestPanel = null;
-    };
-  };
-
-  this.render.populateList = (suggestList, results) => {
-    const listType = {
-      fontawesomeIcon: () => {
-        const successAction = (item) => {
-          currentBookmarkForm.updateIcon(item);
-          this.close();
-          if (postFocus) {
-            postFocus.focus();
-          };
-          if (action) {
-            action();
-          }
-        };
-
-        results.forEach((item, i) => {
-          let li = node('li|class:auto-suggest-list-item');
-
-          let resultItem = new Button({
-            text: false,
-            style: ['link', 'ring'],
-            classList: ['auto-suggest-item'],
-            func: () => {
-              successAction(item);
-            }
-          });
-
-          let icon = node('span|class:auto-suggest-icon fa-' + item.name);
-          if (item.styles.includes('solid')) {
-            icon.classList.add('fas');
-          } else if (item.styles.includes('brands')) {
-            icon.classList.add('fab');
-          };
-
-          let text = node('span:' + item.label + '|class:auto-suggest-icon-text');
-
-          resultItem.button.appendChild(icon);
-          resultItem.button.appendChild(text);
-
-          li.appendChild(resultItem.button);
-          suggestList.appendChild(li);
-        });
-      }
-    };
-
-    listType[type]();
-  };
-
-  this.render.navigateResults = (event) => {
     let elementToFocus = null;
 
     let focusIndex = null;
 
-    const allSuggestItems = this.suggestPanel.querySelectorAll('.auto-suggest-item');
+    const allSuggestItems = this.element.suggest.querySelectorAll('.suggest-item');
 
-    const columnCount = getComputedStyle(this.suggestPanel.querySelector('.auto-suggest-list')).getPropertyValue('grid-template-columns').split(' ').length;
+    const columnCount = getComputedStyle(this.element.suggest.querySelector('.suggest-list')).getPropertyValue('grid-template-columns').split(' ').length;
 
     const findFocus = () => {
+
       for (var i = 0; i < allSuggestItems.length; i++) {
+
         if (allSuggestItems[i] == document.activeElement) {
           focusIndex = i;
         };
+
       };
+
     };
 
     const keyEvents = () => {
+
       // up
       if (event.keyCode == 38) {
         event.preventDefault();
@@ -11890,6 +11915,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
           };
         };
       };
+
       // down
       if (event.keyCode == 40) {
         event.preventDefault();
@@ -11903,6 +11929,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
           };
         };
       };
+
       // right
       if (event.keyCode == 39 && document.activeElement != input) {
         event.preventDefault();
@@ -11916,6 +11943,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
           };
         };
       };
+
       // left
       if (event.keyCode == 37 && document.activeElement != input) {
         event.preventDefault();
@@ -11929,6 +11957,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
           };
         };
       };
+
       // tab
       if (!event.shiftKey && event.keyCode == 9 && document.activeElement == input) {
         event.preventDefault();
@@ -11939,6 +11968,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
         elementToFocus = postFocus;
         this.close();
       };
+
       // shift tab
       if (event.shiftKey && event.keyCode == 9 && document.activeElement == allSuggestItems[0]) {
         event.preventDefault();
@@ -11947,6 +11977,7 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
       if (event.shiftKey && event.keyCode == 9 && document.activeElement == input) {
         this.close();
       };
+
     };
 
     findFocus();
@@ -11958,25 +11989,32 @@ const Suggest = function({ input = false, widthElement = false, type = false, po
     };
   };
 
-  this.bind.input();
-};
+  this.clickOut = (event) => {
 
-const autoSuggest_autoSuggest = {};
+    const path = event.path || (event.composedPath && event.composedPath());
 
-autoSuggest_autoSuggest.close = function() {
-  const allSuggest = document.querySelectorAll('.auto-suggest');
+    if (!path.includes(this.element.suggest) && !path.includes(this.element.input)) {
+      this.close();
+    };
 
-  if (allSuggest.length > 0) {
-    allSuggest.forEach((item, i) => {
-      item.close();
-    });
-
-    state_state.get.current().autoSuggest = false;
   };
-};
 
-autoSuggest_autoSuggest.init = function() {
-  state_state.get.current().autoSuggest = false;
+  this.esc = (event) => {
+
+    if ((event.keyCode == 27)) {
+
+      event.preventDefault();
+
+      this.close();
+
+    };
+
+  };
+
+  this.assemble();
+
+  this.bind.input();
+
 };
 
 
@@ -18856,13 +18894,11 @@ keyboard.init = function() {
 
 
 
-
 const component = {
   base: component_base_base,
   state: state_state,
   data: data,
   version: version_version,
-  autoSuggest: autoSuggest_autoSuggest,
   fontawesome: fontawesome_fontawesome,
   grid: grid_grid,
   icon: icon_icon,
@@ -18925,7 +18961,6 @@ component.bookmark.init();
 component.theme.init();
 component.toolbar.init();
 component.menu.init();
-component.autoSuggest.init();
 component.keyboard.init();
 
 })();
