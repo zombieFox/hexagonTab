@@ -6,7 +6,7 @@ import { theme } from '../theme';
 import * as form from '../form';
 
 import { Button } from '../button';
-import { Suggest } from '../autoSuggest';
+import { Suggest } from '../suggest';
 import { Collapse } from '../collapse';
 import { Tab } from '../tab';
 import { Video } from '../video';

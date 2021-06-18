@@ -2,7 +2,6 @@ import { base } from './base';
 import { state } from './state';
 import { data } from './data';
 import { version } from './version';
-import { autoSuggest } from './autoSuggest';
 import { fontawesome } from './fontawesome';
 import { grid } from './grid';
 import { icon } from './icon';
@@ -20,7 +19,7 @@ import { bookmark } from './bookmark';
 import * as form from './form';
 
 import { Button } from './button';
-import { Suggest } from './autoSuggest';
+import { Suggest } from './suggest';
 import { Collapse } from './collapse';
 import { Tab } from './tab';
 import { Modal } from './modal';
@@ -31,7 +30,6 @@ export const component = {
   state,
   data,
   version,
-  autoSuggest,
   fontawesome,
   grid,
   icon,
