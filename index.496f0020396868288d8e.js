@@ -18598,7 +18598,7 @@ menu_menu.render.frame = {
     // menu containers
     const menuElement = node('section|class:menu');
 
-    const menuArea = node('section|class:menu-area');
+    const menuArea = node('div|class:menu-area');
 
     menuElement.addEventListener('transitionend', function(event, elapsed) {
       if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
