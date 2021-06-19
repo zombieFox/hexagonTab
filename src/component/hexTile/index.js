@@ -280,7 +280,7 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
     };
   };
 
-  this.assembleElements = () => {
+  this.assemble = () => {
 
     if (bookmarkData.display.visual.show || bookmarkData.display.name.show) {
       if (bookmarkData.display.visual.show) {
@@ -365,16 +365,6 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
   this.tile = () => {
 
-    this.assembleElements();
-
-    this.makeStyle();
-
-    if (state.get.current().bookmark.edit) {
-      this.control.enable();
-    } else {
-      this.control.disable();
-    };
-
     return this.element.bookmark;
 
   };
@@ -384,6 +374,17 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
     this.makeStyle(newBookmarkData);
 
   };
+
+  if (state.get.current().bookmark.edit) {
+    this.control.enable();
+  } else {
+    this.control.disable();
+  };
+
+  this.assemble();
+
+  this.makeStyle();
+
 };
 
 export { HexTile };
