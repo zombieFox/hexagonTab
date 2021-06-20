@@ -13659,15 +13659,23 @@ const Control_inputButton = function({
         id: id,
         value: convertColor.rgb.hex(get_get({
           object: object,
-          path: path
+          path: path + '.rgb'
         })),
         classList: classList,
         func: () => {
           if (path) {
             set_set({
               object: object,
-              path: path,
+              path: path + '.rgb',
               value: convertColor.hex.rgb(this.input.value)
+            });
+            set_set({
+              object: object,
+              path: path + '.hsl',
+              value: convertColor.rgb.hsl(get_get({
+                object: object,
+                path: path + '.rgb'
+              }))
             });
           };
           if (action) {
@@ -13708,7 +13716,7 @@ const Control_inputButton = function({
       case 'color':
         this.input.value = convertColor.rgb.hex(get_get({
           object: object,
-          path: path,
+          path: path + '.rgb'
         }));
 
         break;
@@ -13734,7 +13742,6 @@ const Control_inputButton = function({
   };
 
 };
-
 ;// CONCATENATED MODULE: ./src/component/control/groupText/index.js
 
 
@@ -14485,7 +14492,6 @@ const Control_slider = function({
 
 
 
-
 const Control_slimSlider = function({
   object = {},
   path = false,
@@ -14497,7 +14503,11 @@ const Control_slimSlider = function({
   min = 0,
   max = 100,
   step = 1,
-  action = false
+  action = false,
+  focusAction = false,
+  blurAction = false,
+  mouseDownAction = false,
+  mouseUpAction = false
 } = {}) {
 
   this.label = label_label({
@@ -14534,7 +14544,11 @@ const Control_slimSlider = function({
         object: object,
         path: path,
       });
-    }
+    },
+    focusFunc: focusAction,
+    blurFunc: blurAction,
+    mouseDownFunc: mouseDownAction,
+    mouseUpFunc: mouseUpAction
   });
 
   this.number = number_number({
@@ -14584,6 +14598,7 @@ const Control_slimSlider = function({
   } = {}) => {
 
     let delayedUpdate = null;
+
     const updateControl = () => {
       this.range.value = get_get({
         object: object,
@@ -14652,9 +14667,7 @@ const Control_slimSlider = function({
   };
 
 };
-
 ;// CONCATENATED MODULE: ./src/component/control/color/index.js
-
 
 
 
@@ -14676,7 +14689,7 @@ const Control_color = function({
   id = 'name',
   labelText = 'Name',
   srOnly = false,
-  value = 0,
+  value = '#000000',
   defaultValue = false,
   action = false,
   extraButtons = []
@@ -14692,15 +14705,23 @@ const Control_color = function({
     id: id,
     value: convertColor.rgb.hex(get_get({
       object: object,
-      path: path
+      path: path + '.rgb'
     })),
     classList: ['form-group-item-half'],
     func: () => {
       if (path) {
         set_set({
           object: object,
-          path: path,
+          path: path + '.rgb',
           value: convertColor.hex.rgb(this.color.value)
+        });
+        set_set({
+          object: object,
+          path: path + '.hsl',
+          value: convertColor.rgb.hsl(get_get({
+            object: object,
+            path: path + '.rgb'
+          }))
         });
       };
       if (action) {
@@ -14708,7 +14729,7 @@ const Control_color = function({
       };
       this.text.value = convertColor.rgb.hex(get_get({
         object: object,
-        path: path
+        path: path + '.rgb'
       }));
     }
   });
@@ -14716,7 +14737,7 @@ const Control_color = function({
   this.text = text_text({
     value: convertColor.rgb.hex(get_get({
       object: object,
-      path: path
+      path: path + '.rgb'
     })),
     max: 7,
     classList: ['form-group-item-half'],
@@ -14725,7 +14746,7 @@ const Control_color = function({
       if (path) {
         set_set({
           object: object,
-          path: path,
+          path: path + '.rgb',
           value: convertColor.hex.rgb(this.text.value)
         });
       };
@@ -14744,7 +14765,7 @@ const Control_color = function({
     func: () => {
       set_set({
         object: object,
-        path: path,
+        path: path + '.rgb',
         value: JSON.parse(JSON.stringify(defaultValue))
       });
       this.update({ all: true });
@@ -14758,16 +14779,17 @@ const Control_color = function({
     delay = false,
     all = false
   } = {}) => {
+
     let delayedUpdate = null;
     const updateControl = () => {
       this.color.value = convertColor.rgb.hex(get_get({
         object: object,
-        path: path
+        path: path + '.rgb'
       }));
       if (all) {
         this.text.value = convertColor.rgb.hex(get_get({
           object: object,
-          path: path
+          path: path + '.rgb'
         }));
       };
     };
@@ -14778,6 +14800,7 @@ const Control_color = function({
     } else {
       updateControl();
     };
+
   };
 
   this.wrap = () => {
@@ -14836,9 +14859,7 @@ const Control_color = function({
   };
 
 };
-
 ;// CONCATENATED MODULE: ./src/component/control/colorMixer/index.js
-
 
 
 
@@ -14881,7 +14902,7 @@ const Control_colorMixer = function({
 
   this.color = new Control_color({
     object: object,
-    path: path + '.rgb',
+    path: path,
     id: id + '-rgb',
     labelText: labelText,
     srOnly: srOnly,
@@ -15081,8 +15102,6 @@ const Control_colorMixer = function({
     }]
   });
 
-  this.moreControlsCollapse.update();
-
   this.wrap = () => {
     return wrap_wrap({
       children: [
@@ -15135,6 +15154,7 @@ const Control_colorMixer = function({
   };
 
   this.moreControlsUpdate = () => {
+
     if (this.moreControlsCollapse.target()[0].state.collapsed) {
       this.colorSliderH.disable();
       this.colorSliderS.disable();
@@ -15150,12 +15170,14 @@ const Control_colorMixer = function({
       this.colorSliderG.enable();
       this.colorSliderB.enable();
     };
+
   };
+
+  this.moreControlsCollapse.update();
 
   this.moreControlsUpdate();
 
 };
-
 ;// CONCATENATED MODULE: ./src/component/control/text/index.js
 
 
@@ -17485,7 +17507,7 @@ toolbar_toolbar.bar.render = function() {
 
   const accentOptions = {
     object: state_state.get.current(),
-    path: 'theme.accent.rgb',
+    path: 'theme.accent',
     id: 'theme-accent-quick',
     type: 'color',
     labelText: 'Accent colour',
@@ -17615,7 +17637,6 @@ toolbar_toolbar.init = function() {
   toolbar_toolbar.bar.render();
   toolbar_toolbar.bar.active();
 };
-
 
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/logo/index.css
