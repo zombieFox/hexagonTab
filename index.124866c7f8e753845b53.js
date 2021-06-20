@@ -306,7 +306,45 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  --bookmark-color-focus-hover: var(--theme-primary-100);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 6fr 3fr;\n    grid-gap: calc(var(--modal-space) * 1em);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-space) * 20);\n}\n\n.bookmark-form-preview {\n  background-color: hsl(var(--theme-primary-200));\n  padding: calc(var(--modal-space) * 0.5em);\n  border-radius: var(--theme-radius-base);\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: hsl(var(--theme-primary-400));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  --bookmark-color-focus-hover: var(--theme-primary-200);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 9675:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 6fr 3fr;\n    grid-gap: calc(var(--modal-space) * 1em);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-space) * 20);\n}\n\n.bookmark-form-preview {\n  background-color: hsl(var(--theme-primary-200));\n  padding: calc(var(--modal-space) * 0.5em);\n  border-radius: var(--theme-radius-base);\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: hsl(var(--theme-primary-400));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 2491:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".bookmark-preview-area {\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n  display: grid;\n  justify-items: center;\n  gap: 1em;\n  grid-template-rows: auto auto;\n}\n\n.bookmark-preview-grid {\n  background-color: hsl(var(--theme-primary-300));\n  padding: calc(var(--modal-space) * 0.5em);\n  border-radius: var(--theme-radius-base);\n  display: block;\n  width: 100%;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.bookmark.bookmark-preview {\n  pointer-events: none;\n}\n\n.bookmark.bookmark-preview .bookmark-control {\n  display: none;\n}\n\n.bookmark.bookmark-preview .bookmark-display {\n  font-size: 1em;\n}\n\n.bookmark.bookmark-preview .bookmark-shadow-wrap {\n  display: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -717,6 +755,25 @@ ___CSS_LOADER_EXPORT___.push([module.id, "input[type=\"radio\"] {\n  margin-bott
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-range-track-background: var(--theme-primary-200);\n  --form-range-track-background-hover: var(--theme-primary-200);\n  --form-range-track-background-focus: var(--theme-primary-200);\n  --form-range-track-background-disabled: var(--theme-primary-100);\n  --form-range-thumb-size: 1.5em;\n  --form-range-thumb-background: var(--theme-primary-text-100);\n  --form-range-thumb-background-disabled: var(--theme-primary-300);\n  --form-range-thumb-border: var(--theme-primary-100);\n  --form-range-thumb-border-focus: var(--theme-primary-text-100);\n  --form-range-thumb-border-disabled: var(--theme-primary-100);\n  --form-range-hue: linear-gradient(to right,\n      hsl(0, 100%, 50%),\n      hsl(30, 100%, 50%),\n      hsl(60, 100%, 50%),\n      hsl(90, 100%, 50%),\n      hsl(120, 100%, 50%),\n      hsl(150, 100%, 50%),\n      hsl(180, 100%, 50%),\n      hsl(210, 100%, 50%),\n      hsl(240, 100%, 50%),\n      hsl(270, 100%, 50%),\n      hsl(300, 100%, 50%),\n      hsl(330, 100%, 50%),\n      hsl(360, 100%, 50%));\n}\n\ninput[type=\"range\"] {\n  background-color: transparent;\n  padding: 0;\n  margin: 0;\n  font-size: 1em;\n  display: block;\n  height: 2.5em;\n  width: 100%;\n  position: relative;\n  border: 0;\n  cursor: pointer;\n  touch-action: none;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  -webkit-appearance: none;\n}\n\ninput[type=\"range\"],\ninput[type=\"range\"]:hover,\ninput[type=\"range\"]:focus,\ninput[type=\"range\"]:active {\n  outline: 0;\n}\n\ninput[type=\"range\"]:disabled,\ninput[type=\"range\"]:disabled:hover,\ninput[type=\"range\"]:disabled:focus,\ninput[type=\"range\"]:disabled:active {\n  cursor: default;\n}\n\ninput[type=\"range\"]::-webkit-slider-runnable-track {\n  background-color: hsl(var(--form-range-track-background));\n  padding: 0;\n  margin: 0;\n  height: calc(var(--layout-line-width) * 4);\n  border: 0;\n  border-radius: 10em;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:hover::-webkit-slider-runnable-track {\n  background-color: hsl(var(--form-range-track-background-hover));\n}\n\ninput[type=\"range\"]:focus::-webkit-slider-runnable-track {\n  background-color: hsl(var(--form-range-track-background-focus));\n}\n\ninput[type=\"range\"]:disabled::-webkit-slider-runnable-track,\ninput[type=\"range\"]:disabled:hover::-webkit-slider-runnable-track,\ninput[type=\"range\"]:disabled:focus::-webkit-slider-runnable-track {\n  background-color: hsl(var(--form-range-track-background-disabled));\n}\n\ninput[type=\"range\"]::-webkit-slider-thumb {\n  background-color: hsl(var(--form-range-thumb-background));\n  margin: 0;\n  padding: 0;\n  border: calc(var(--layout-line-width) * 1) solid hsl(var(--form-range-thumb-border));\n  border-radius: 100%;\n  width: var(--form-range-thumb-size);\n  height: var(--form-range-thumb-size);\n  top: 50%;\n  transform: translateY(-50%);\n  position: relative;\n  cursor: pointer;\n  box-sizing: border-box;\n  -webkit-appearance: none;\n  transition: background-color var(--layout-transition-extra-fast), border var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:focus::-webkit-slider-thumb {\n  box-shadow: var(--form-ring-accent);\n  border-color: hsl(var(--form-range-thumb-border-focus));\n}\n\ninput[type=\"range\"]:disabled::-webkit-slider-thumb,\ninput[type=\"range\"]:disabled:hover::-webkit-slider-thumb,\ninput[type=\"range\"]:disabled:focus::-webkit-slider-thumb {\n  background-color: hsl(var(--form-range-thumb-background-disabled));\n  border-color: hsl(var(--form-range-thumb-border-disabled));\n  box-shadow: none;\n  cursor: default;\n}\n\ninput[type=\"range\"].input-range-hue-spectrum::-webkit-slider-runnable-track {\n  background-image: var(--form-range-hue);\n}\n\ninput[type=\"range\"]:disabled.input-range-hue-spectrum::-webkit-slider-runnable-track {\n  background-image: none;\n  background-color: hsl(var(--form-range-track-background-disabled));\n}\n\ninput[type=\"range\"]::-moz-range-track {\n  background-color: hsl(var(--form-range-track-background));\n  padding: 0;\n  margin: 0;\n  height: calc(var(--layout-line-width) * 4);\n  border: 0;\n  border-radius: 10em;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:hover::-moz-range-track {\n  background-color: hsl(var(--form-range-track-background-hover));\n}\n\ninput[type=\"range\"]:focus::-moz-range-track {\n  background-color: hsl(var(--form-range-track-background-focus));\n}\n\ninput[type=\"range\"]:disabled::-moz-range-track,\ninput[type=\"range\"]:disabled:hover::-moz-range-track,\ninput[type=\"range\"]:disabled:focus::-moz-range-track {\n  background-color: hsl(var(--form-range-track-background-disabled));\n}\n\ninput[type=\"range\"]::-moz-range-thumb {\n  background-color: hsl(var(--form-range-thumb-background));\n  margin: 0;\n  padding: 0;\n  border: calc(var(--layout-line-width) * 1) solid hsl(var(--form-range-thumb-border));\n  border-radius: 100%;\n  width: var(--form-range-thumb-size);\n  height: var(--form-range-thumb-size);\n  position: relative;\n  cursor: pointer;\n  box-sizing: border-box;\n  -webkit-appearance: none;\n  transition: background-color var(--layout-transition-extra-fast), border var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast);\n}\n\ninput[type=\"range\"]:focus::-moz-range-thumb {\n  box-shadow: var(--form-ring-accent);\n  border-color: hsl(var(--form-range-thumb-border-focus));\n}\n\ninput[type=\"range\"]:disabled::-moz-range-thumb,\ninput[type=\"range\"]:disabled:hover::-moz-range-thumb,\ninput[type=\"range\"]:disabled:focus::-moz-range-thumb {\n  background-color: hsl(var(--form-range-thumb-background-disabled));\n  border-color: hsl(var(--form-range-thumb-border-disabled));\n  box-shadow: none;\n  cursor: default;\n}\n\ninput[type=\"range\"].input-range-hue-spectrum::-moz-range-track {\n  background-image: var(--form-range-hue);\n}\n\ninput[type=\"range\"]:disabled.input-range-hue-spectrum::-moz-range-track {\n  background-image: none;\n  background-color: hsl(var(--form-range-track-background-disabled));\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 5819:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "select {\n  background-color: hsl(var(--form-input-background));\n  background-image:\n    linear-gradient(45deg, transparent 60%, hsl(var(--form-label)) 60%),\n    linear-gradient(135deg, hsl(var(--form-label)) 40%, transparent 40%);\n  background-position:\n    calc(100% - 1.5em) 50%,\n    calc(100% - 1em) 50%;\n  background-size:\n    0.5em 0.375em,\n    0.5em 0.375em;\n  background-repeat: no-repeat;\n  padding: 0 3em 0 1.25em;\n  margin: 0;\n  color: hsl(var(--form-input-text));\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  line-height: 2.5;\n  min-height: 2.5em;\n  min-width: 0;\n  width: 100%;\n  border-width: 0;\n  border-radius: var(--theme-radius-base);\n  cursor: pointer;\n  transition: background-color var(--layout-transition-extra-fast), background-image var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n  -moz-appearance: none;\n  -webkit-appearance: none;\n  appearance: none;\n}\n\nselect:hover {\n  background-image:\n    linear-gradient(45deg, transparent 60%, hsl(var(--form-label-hover)) 60%),\n    linear-gradient(135deg, hsl(var(--form-label-hover)) 40%, transparent 40%);\n  background-color: hsl(var(--form-input-background-hover));\n  color: hsl(var(--form-label-hover));\n  outline: none;\n  box-shadow: var(--form-ring-hover);\n}\n\nselect:focus,\nselect:active {\n  background-image:\n    linear-gradient(45deg, transparent 60%, hsl(var(--form-label-focus-active)) 60%),\n    linear-gradient(135deg, hsl(var(--form-label-focus-active)) 40%, transparent 40%);\n  background-color: hsl(var(--form-input-background-border-focus-active));\n  color: hsl(var(--form-label-focus-active));\n  outline: none;\n  z-index: 2;\n  box-shadow: var(--form-ring-accent);\n}\n\nselect:disabled,\nselect:disabled:hover,\nselect:disabled:focus,\nselect:disabled:active {\n  background-color: hsl(var(--form-input-background-disabled));\n  background-image:\n    linear-gradient(45deg, transparent 60%, hsl(var(--form-input-text-disabled)) 60%),\n    linear-gradient(135deg, hsl(var(--form-input-text-disabled)) 40%, transparent 40%);\n  color: hsl(var(--form-input-text-disabled));\n  cursor: default;\n  box-shadow: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1949,6 +2006,7 @@ __webpack_require__.d(form_input_namespaceObject, {
   "number": () => (number_number),
   "radio": () => (radio_radio),
   "range": () => (range_range),
+  "select": () => (select_select),
   "text": () => (text_text),
   "textarea": () => (textarea_textarea)
 });
@@ -2301,7 +2359,7 @@ state_state.set = {
 
 
 ;// CONCATENATED MODULE: ./src/utility/node.js
-const node = function(string, node) {
+const node_node = function(string, node) {
   // set element
   let tag;
   if (string.indexOf('|') > 0) {
@@ -2409,9 +2467,9 @@ var layout_update = injectStylesIntoStyleTag_default()(layout/* default */.Z, la
 
 
 
-const layoutWrap = node('div|class:layout-wrap');
+const layoutWrap = node_node('div|class:layout-wrap');
 
-const layoutArea = node('div|class:layout-area');
+const layoutArea = node_node('div|class:layout-area');
 
 const layout_layout = {}
 
@@ -2419,7 +2477,7 @@ layout_layout.render = function() {
   layoutWrap.appendChild(layoutArea);
 
   if (presentationMode) {
-    layoutArea.appendChild(node('div|class:presentation-name-wrap', node('h1:' + data.saveName + '|class:presentation-name')));
+    layoutArea.appendChild(node_node('div|class:presentation-name-wrap', node_node('h1:' + data.saveName + '|class:presentation-name')));
   };
 
   document.querySelector('body').appendChild(layoutWrap);
@@ -2467,9 +2525,9 @@ var grid_update = injectStylesIntoStyleTag_default()(grid/* default */.Z, grid_o
 
 const grid_grid = {};
 
-const gridArea = node('div|class:grid-area');
+const gridArea = node_node('div|class:grid-area');
 
-const gridList = node('div|class:grid-list');
+const gridList = node_node('div|class:grid-list');
 
 grid_grid.mod = {};
 
@@ -2734,9 +2792,9 @@ const Video = function({
   url = false
 } = {}) {
 
-  this.video = node('video|autoplay,loop,muted');
+  this.video = node_node('video|autoplay,loop,muted');
 
-  this.source = node('source');
+  this.source = node_node('source');
 
   this.video.appendChild(this.source);
 
@@ -2781,7 +2839,7 @@ const Video = function({
 
 
 ;// CONCATENATED MODULE: ./src/utility/trimString.js
-const trimString = function(value) {
+const trimString_trimString = function(value) {
   if (typeof value == 'string') {
     return value.trim().replace(/\s\s+/g, ' ');
   } else {
@@ -2790,7 +2848,7 @@ const trimString = function(value) {
 };
 
 ;// CONCATENATED MODULE: ./src/utility/clearChildNode.js
-const clearChildNode = function(element) {
+const clearChildNode_clearChildNode = function(element) {
 
   while (element.lastChild) {
     element.removeChild(element.lastChild);
@@ -2969,10 +3027,10 @@ theme_theme.render.background = {};
 theme_theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
 
 theme_theme.render.background.area = function() {
-  const backgroundElement = node('div|class:theme-background');
+  const backgroundElement = node_node('div|class:theme-background');
 
   theme_theme.render.background.choices.forEach((item, i) => {
-    backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-' + item));
+    backgroundElement.appendChild(node_node('div|class:theme-background-type theme-background-type-' + item));
   });
 
   document.querySelector('body').appendChild(backgroundElement);
@@ -3010,7 +3068,7 @@ theme_theme.render.background.image.set = function() {
   const html = document.querySelector('html');
 
   if (isValidString(state_state.get.current().theme.background.image.url)) {
-    html.style.setProperty('--theme-background-image', 'url(' + trimString(state_state.get.current().theme.background.image.url) + ')');
+    html.style.setProperty('--theme-background-image', 'url(' + trimString_trimString(state_state.get.current().theme.background.image.url) + ')');
   } else {
     html.style.removeProperty('--theme-background-image');
   };
@@ -3053,7 +3111,7 @@ theme_theme.render.background.video.remove = function() {
 
   if (themeBackgroundTypeVideo.lastChild) {
 
-    clearChildNode(themeBackgroundTypeVideo);
+    clearChildNode_clearChildNode(themeBackgroundTypeVideo);
 
   };
 };
@@ -3087,6 +3145,46 @@ theme_theme.init = function() {
 };
 
 
+
+;// CONCATENATED MODULE: ./src/component/bookmarkDefault/index.js
+const bookmarkDefault = {
+  url: '',
+  display: {
+    direction: 'vertical',
+    order: 'visual-name',
+    rotate: 0,
+    translate: { x: 0, y: 0 },
+    gutter: 75,
+    name: { show: true, text: '', size: 7 },
+    visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
+  },
+  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+};
+
+;// CONCATENATED MODULE: ./src/component/bookmarkMinMax/index.js
+const bookmarkMinMax = {
+  display: {
+    rotate: { min: -180, max: 180 },
+    translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
+    gutter: { min: 0, max: 500 },
+    visual: { size: { min: 5, max: 200 } },
+    name: { size: { min: 5, max: 200 } }
+  },
+  accent: {
+    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
+  },
+  color: {
+    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
+    opacity: { min: 0, max: 100 }
+  },
+  background: {
+    opacity: { min: 0, max: 100 }
+  }
+};
 
 ;// CONCATENATED MODULE: ./src/utility/complexNode.js
 const complexNode = function({
@@ -3164,7 +3262,7 @@ const feedback_feedback = function({
   text = false
 } = {}) {
 
-  const feedback = node('div|class:form-feedback');
+  const feedback = node_node('div|class:form-feedback');
 
   if (text) {
     const feedbackText = complexNode({
@@ -3208,7 +3306,7 @@ const fieldset_fieldset = function({
   children = false
 } = {}) {
 
-  return node('fieldset|class:form-fieldset', children);
+  return node_node('fieldset|class:form-fieldset', children);
 
 };
 
@@ -3241,7 +3339,7 @@ const group_group = function({
   children = false
 } = {}) {
 
-  const group = node('div|class:form-group', children);
+  const group = node_node('div|class:form-group', children);
 
   switch (direction) {
     case 'horizontal':
@@ -3295,7 +3393,7 @@ const groupText_groupText = function({
   classList = []
 } = {}) {
 
-  const textElement = node('div|class:form-group-text,tabindex:1');
+  const textElement = node_node('div|class:form-group-text,tabindex:1');
 
   if (text) {
     textElement.textContent = text;
@@ -3386,7 +3484,7 @@ const indent_indent = function({
   children = false
 } = {}) {
 
-  return node('div|class:form-indent', children);
+  return node_node('div|class:form-indent', children);
 
 };
 
@@ -3420,7 +3518,7 @@ const inline_inline = function({
   children = false
 } = {}) {
 
-  const inline = node('div|class:form-inline', children);
+  const inline = node_node('div|class:form-inline', children);
 
   switch (direction) {
     case 'horizontal':
@@ -3495,12 +3593,12 @@ const label_label = function({
   let label;
 
   if (forInput) {
-    label = node('label|for:' + forInput);
+    label = node_node('label|for:' + forInput);
   } else {
-    label = node('label');
+    label = node_node('label');
   };
 
-  const labelBlock = node('span|class:label-block');
+  const labelBlock = node_node('span|class:label-block');
 
   if (srOnly) {
     if (icon) {
@@ -3511,19 +3609,19 @@ const label_label = function({
   };
 
   if (text) {
-    labelBlock.appendChild(node('span:' + text + '|class:label-block-item'));
+    labelBlock.appendChild(node_node('span:' + text + '|class:label-block-item'));
   };
 
   if (description) {
     if (Array.isArray(description)) {
 
       description.forEach((item, i) => {
-        labelBlock.appendChild(node('span:' + item + '|class:label-block-item small muted'));
+        labelBlock.appendChild(node_node('span:' + item + '|class:label-block-item small muted'));
       });
 
     } else if (typeof description === 'string') {
 
-      labelBlock.appendChild(node('span:' + description + '|class:label-block-item small muted'));
+      labelBlock.appendChild(node_node('span:' + description + '|class:label-block-item small muted'));
 
     };
   };
@@ -3533,7 +3631,7 @@ const label_label = function({
   };
 
   if (icon) {
-    label.prepend(node('span|class:label-icon'));
+    label.prepend(node_node('span|class:label-icon'));
   };
 
   if (classList.length > 0) {
@@ -3573,7 +3671,7 @@ const sticky_sticky = function({
   children = false
 } = {}) {
 
-  return node('div|class:form-sticky', children);
+  return node_node('div|class:form-sticky', children);
 
 };
 
@@ -3602,7 +3700,7 @@ const wrap_wrap = function({
   children = false
 } = {}) {
 
-  return node('div|class:form-wrap', children);
+  return node_node('div|class:form-wrap', children);
 
 };
 
@@ -3631,7 +3729,7 @@ const form_grid_grid = function({
   children = false
 } = {}) {
 
-  return node('div|class:form-grid', children);
+  return node_node('div|class:form-grid', children);
 
 };
 
@@ -3664,7 +3762,7 @@ const checkbox_checkbox = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:checkbox,tabindex:1');
+  const input = node_node('input|type:checkbox,tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -3726,7 +3824,7 @@ const color_color = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:color,value:' + value + ',tabindex:1');
+  const input = node_node('input|type:color,value:' + value + ',tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -3779,7 +3877,7 @@ const file_file = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:file,tabindex:1');
+  const input = node_node('input|type:file,tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -3837,7 +3935,7 @@ const number_number = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:number,min:' + min + ',max:' + max + ',step:' + step + ',tabindex:1');
+  const input = node_node('input|type:number,min:' + min + ',max:' + max + ',step:' + step + ',tabindex:1');
 
   let delayUpdate = null;
 
@@ -3903,7 +4001,7 @@ const radio_radio = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:radio,tabindex:1');
+  const input = node_node('input|type:radio,tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -3970,7 +4068,7 @@ const range_range = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
+  const input = node_node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -4027,7 +4125,7 @@ const text_text = function({
   func = false
 } = {}) {
 
-  const input = node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
+  const input = node_node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
 
   if (id) {
     input.setAttribute('id', id);
@@ -4098,7 +4196,7 @@ const textarea_textarea = function({
   func = false
 } = {}) {
 
-  const textarea = node('textarea|tabindex:1,spellcheck:false');
+  const textarea = node_node('textarea|tabindex:1,spellcheck:false');
 
   if (id) {
     textarea.setAttribute('id', id);
@@ -4164,7 +4262,7 @@ const inputButton_inputButton = function({
   style = []
 } = {}) {
 
-  const inputButtonElement = node('div|class:form-input-button', children);
+  const inputButtonElement = node_node('div|class:form-input-button', children);
 
   if (style.length > 0) {
     style.forEach((item, i) => {
@@ -4201,6 +4299,80 @@ const inputButton_inputButton = function({
 
 };
 
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/select/index.css
+var input_select = __webpack_require__(5819);
+;// CONCATENATED MODULE: ./src/component/form/input/select/index.css
+
+            
+
+var select_options = {};
+
+select_options.insert = "head";
+select_options.singleton = false;
+
+var select_update = injectStylesIntoStyleTag_default()(input_select/* default */.Z, select_options);
+
+
+
+/* harmony default export */ const form_input_select = (input_select/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/form/input/select/index.js
+
+
+
+
+
+const select_select = function({
+  id = false,
+  classList = [],
+  option = [],
+  selected = 0,
+  func = false
+} = {}) {
+
+  const select = node_node('select|tabindex:1');
+
+  if (id) {
+    select.setAttribute('id', id);
+  };
+
+  if (classList.length > 0) {
+
+    classList.forEach((item, i) => {
+      select.classList.add(item);
+    });
+
+  };
+
+  if (func) {
+
+    select.addEventListener('change', function(event) {
+      func();
+    });
+
+  };
+
+  if (option.length > 0) {
+
+    option.forEach((item, i) => {
+
+      select.appendChild(
+        node_node(
+          'option:' +
+          item +
+          '|value:' +
+          trimString_trimString(item).replace(/\s+/g, '-').toLowerCase()
+        )
+      );
+
+    });
+
+    select.selectedIndex = selected;
+
+  };
+
+  return select;
+
+};
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/index.css
 var input = __webpack_require__(443);
 ;// CONCATENATED MODULE: ./src/component/form/input/index.css
@@ -4218,6 +4390,7 @@ var input_update = injectStylesIntoStyleTag_default()(input/* default */.Z, inpu
 
 /* harmony default export */ const form_input = (input/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/form/input/index.js
+
 
 
 
@@ -4390,7 +4563,7 @@ icon_icon.all = {
 };
 
 icon_icon.render = function(name) {
-  const iconElement = node('span|class:icon');
+  const iconElement = node_node('span|class:icon');
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('version', '1.1');
   svg.setAttribute('viewBox', '0 0 24 24');
@@ -4445,10 +4618,10 @@ const Button = function({
   func = false
 } = {}) {
   
-  this.button = node('button|class:button,tabindex:1,type:button');
+  this.button = node_node('button|class:button,tabindex:1,type:button');
 
   if (text) {
-    const buttonText = node('span:' + text + '|class:button-text');
+    const buttonText = node_node('span:' + text + '|class:button-text');
 
     if (srOnly) {
       buttonText.classList.add('sr-only');
@@ -11784,8 +11957,8 @@ const Suggest = function({
   };
 
   this.element = {
-    suggest: node('div|class:suggest'),
-    list: node('div|class:suggest-list list-unstyled'),
+    suggest: node_node('div|class:suggest'),
+    list: node_node('div|class:suggest-list list-unstyled'),
     input: input
   };
 
@@ -11799,7 +11972,7 @@ const Suggest = function({
 
         this.style();
 
-        clearChildNode(this.element.list);
+        clearChildNode_clearChildNode(this.element.list);
 
         this.populateList(results);
 
@@ -11811,7 +11984,7 @@ const Suggest = function({
 
         this.element.suggest.classList.add('is-transparent');
 
-        clearChildNode(this.element.list);
+        clearChildNode_clearChildNode(this.element.list);
 
         this.populateList(results);
 
@@ -11932,7 +12105,7 @@ const Suggest = function({
   };
 
   this.searchTerm = () => {
-    return trimString(input.value).toLowerCase();
+    return trimString_trimString(input.value).toLowerCase();
   };
 
   this.populateList = (results) => {
@@ -11941,7 +12114,7 @@ const Suggest = function({
       fontawesomeIcon: () => {
         const successAction = (item) => {
 
-          currentBookmarkForm.updateIcon(item);
+          bookmarkForm_bookmarkForm.current.updateIcon(item);
 
           this.close();
 
@@ -11957,7 +12130,7 @@ const Suggest = function({
 
         results.forEach((item, i) => {
 
-          let li = node('li|class:suggest-list-item');
+          let li = node_node('li|class:suggest-list-item');
 
           let resultItem = new Button({
             text: false,
@@ -11968,7 +12141,7 @@ const Suggest = function({
             }
           });
 
-          let icon = node('span|class:suggest-icon fa-' + item.name);
+          let icon = node_node('span|class:suggest-icon fa-' + item.name);
 
           if (item.styles.includes('solid')) {
             icon.classList.add('fas');
@@ -11976,7 +12149,7 @@ const Suggest = function({
             icon.classList.add('fab');
           };
 
-          let text = node('span:' + item.label + '|class:suggest-icon-text');
+          let text = node_node('span:' + item.label + '|class:suggest-icon-text');
 
           resultItem.button.appendChild(icon);
 
@@ -12172,7 +12345,6 @@ const Suggest = function({
 };
 
 
-
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
 var collapse = __webpack_require__(5655);
 ;// CONCATENATED MODULE: ./src/component/collapse/index.css
@@ -12210,16 +12382,16 @@ const Collapse = function({
       collapsed: true
     };
 
-    item.area = node('div|class:collapse-area');
+    item.area = node_node('div|class:collapse-area');
 
-    item.spacer = node('div|class:collapse-spacer');
+    item.spacer = node_node('div|class:collapse-spacer');
   });
 
   this.target = () => {
     return target;
   };
 
-  this.collapseElement = node('div|class:collapse');
+  this.collapseElement = node_node('div|class:collapse');
 
   this.collapse = () => {
     target.forEach((item, i) => {
@@ -12335,11 +12507,11 @@ const Tab = function({
   group = []
 } = {}) {
 
-  this.tabElement = node('div|class:tab');
+  this.tabElement = node_node('div|class:tab');
 
-  this.tabNav = node('div|class:tab-nav form-group form-group-horizontal form-group-block');
+  this.tabNav = node_node('div|class:tab-nav form-group form-group-horizontal form-group-block');
 
-  this.tabContent = node('div|class:tab-content');
+  this.tabContent = node_node('div|class:tab-content');
 
   this.tabElement.appendChild(this.tabNav);
 
@@ -12434,7 +12606,7 @@ var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shad
 
 const Shade = function() {
 
-  this.shade = node('div|class:shade');
+  this.shade = node_node('div|class:shade');
 
   this.open = () => {
     const body = document.querySelector('body');
@@ -12514,13 +12686,13 @@ const Modal = function({
 } = {}) {
 
   this.element = {
-    modal: node('div|class:modal'),
-    heading: node('div|class:modal-heading'),
+    modal: node_node('div|class:modal'),
+    heading: node_node('div|class:modal-heading'),
     content: {
-      wrapper: node('div|class:modal-content-wrapper'),
-      content: node('div|class:modal-content')
+      wrapper: node_node('div|class:modal-content-wrapper'),
+      content: node_node('div|class:modal-content')
     },
-    control: node('div|class:modal-control')
+    control: node_node('div|class:modal-control')
   };
 
   this.shade = new Shade();
@@ -12717,7 +12889,7 @@ const Modal = function({
       let headingString = heading;
 
       if (headingString.length > maxHeadingLength) {
-        headingString = trimString(headingString.substring(0, maxHeadingLength)) + '...';
+        headingString = trimString_trimString(headingString.substring(0, maxHeadingLength)) + '...';
       };
 
       this.element.heading.appendChild(complexNode({
@@ -12772,7 +12944,25 @@ const Modal = function({
 
 };
 
+;// CONCATENATED MODULE: ./src/component/stagedBookmark/index.js
+
+
+
+const StagedBookmark = function(bookmarkData) {
+
+  this.link = bookmarkData || JSON.parse(JSON.stringify(bookmarkDefault));
+
+  this.position = { origin: 0, destination: 0 };
+
+  this.newBookmark = function() {
+    this.position.destination = bookmark_bookmark.all.length + 1;
+  };
+
+};
+
 ;// CONCATENATED MODULE: ./src/component/hexTile/index.js
+
+
 
 
 
@@ -12797,148 +12987,39 @@ const HexTile = function({
 } = {}) {
 
   this.element = {
-    bookmark: node('div|class:bookmark'),
+    bookmark: node_node('div|class:bookmark'),
     shadow: {
-      wrap: node('div|class:bookmark-shadow-wrap'),
-      shadow: node('div|class:bookmark-shadow')
+      wrap: node_node('div|class:bookmark-shadow-wrap'),
+      shadow: node_node('div|class:bookmark-shadow')
     },
     content: {
-      link: node('a|class:bookmark-link,tabindex:1'),
-      wrap: node('div|class:bookmark-content-wrap'),
+      link: node_node('a|class:bookmark-link,tabindex:1'),
+      wrap: node_node('div|class:bookmark-content-wrap'),
       display: {
-        wrap: node('div|class:bookmark-display-wrap'),
-        display: node('div|class:bookmark-display'),
+        wrap: node_node('div|class:bookmark-display-wrap'),
+        display: node_node('div|class:bookmark-display'),
         visual: {
-          visual: node('div|class:bookmark-display-visual'),
-          letter: complexNode({ tag: 'div', text: bookmarkData.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
-          icon: node('div|class:bookmark-display-visual-icon'),
-          faIcon: node('div|class:' + bookmarkData.display.visual.icon.prefix + ' fa-' + bookmarkData.display.visual.icon.name),
-          image: node('div|class:bookmark-display-visual-image')
+          visual: node_node('div|class:bookmark-display-visual'),
+          letter: complexNode({ tag: 'div', text: bookmarkData.link.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
+          icon: node_node('div|class:bookmark-display-visual-icon'),
+          faIcon: node_node('div|class:' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name),
+          image: node_node('div|class:bookmark-display-visual-image')
         },
         name: {
-          name: node('div|class:bookmark-display-name'),
-          text: node('div:' + bookmarkData.display.name.text + '|class:bookmark-display-name-text')
+          name: node_node('div|class:bookmark-display-name'),
+          text: node_node('div:' + bookmarkData.link.display.name.text + '|class:bookmark-display-name-text')
         }
       },
       background: {
-        wrap: node('div|class:bookmark-background-wrap'),
-        image: node('div|class:bookmark-background-image'),
-        video: node('div|class:bookmark-background-video')
+        wrap: node_node('div|class:bookmark-background-wrap'),
+        image: node_node('div|class:bookmark-background-image'),
+        video: node_node('div|class:bookmark-background-video')
       }
     },
-    control: node('div|class:bookmark-control')
+    control: node_node('div|class:bookmark-control')
   };
 
   if (preview) { this.element.bookmark.classList.add('bookmark-preview'); };
-
-  this.makeStyle = (newBookmarkData) => {
-
-    if (newBookmarkData) {
-      bookmarkData = newBookmarkData;
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
-
-    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
-
-    if (isValidString(bookmarkData.url) && !preview) {
-      this.element.content.link.setAttribute('href', trimString(bookmarkData.url));
-    } else {
-      this.element.content.link.setAttribute('href', '#');
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
-
-    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.color.opacity);
-
-    switch (bookmarkData.display.direction) {
-      case 'vertical':
-        switch (bookmarkData.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
-            break;
-
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
-            break;
-        };
-        break;
-
-      case 'horizontal':
-        switch (bookmarkData.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
-            break;
-
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
-            break;
-        };
-        break;
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.display.translate.x);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.display.translate.y);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.display.rotate);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.display.gutter);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.display.visual.size);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(bookmarkData.display.visual.image.url) + ')');
-
-    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.display.name.size);
-
-    if (bookmarkData.accent.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.accent.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.accent.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.accent.rgb.b);
-      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
-
-      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
-    };
-
-    if (bookmarkData.color.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.color.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.color.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.color.rgb.b);
-
-      this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.color.hsl.h);
-      this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.color.hsl.s);
-      this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.color.hsl.l);
-
-      this.element.bookmark.style.setProperty('--theme-color', bookmarkData.color.hsl.h + ', ' + bookmarkData.color.hsl.s + '%, ' + bookmarkData.color.hsl.l + '%');
-      this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
-      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
-
-      this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
-    };
-
-    if (bookmarkData.background.show) {
-      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.background.opacity);
-
-      switch (bookmarkData.background.type) {
-        case 'image':
-          if (isValidString(bookmarkData.background.image.url)) {
-            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.background.image.url) + ')');
-          };
-          break;
-      };
-    };
-
-  };
 
   this.control = {};
 
@@ -12951,17 +13032,21 @@ const HexTile = function({
       title: 'Move this bookmark left',
       classList: ['bookmark-control-button', 'bookmark-control-left'],
       func: () => {
-        let newBookmarkData = new StagedLink();
-        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-        newBookmarkData.position.origin = index;
-        newBookmarkData.position.destination = index - 1;
-        if (newBookmarkData.position.destination < 0) {
-          newBookmarkData.position.destination = 0;
+
+        bookmarkData.position.destination--;
+
+        if (bookmarkData.position.destination < 0) {
+          bookmarkData.position.destination = 0;
         };
-        bookmark_bookmark.mod.item.move(newBookmarkData);
+
+        bookmark_bookmark.mod.item.move(bookmarkData);
+
         bookmark_bookmark.render.clear();
+
         bookmark_bookmark.render.item();
+
         data.save();
+
       }
     }),
     right: new Button({
@@ -12972,17 +13057,21 @@ const HexTile = function({
       title: 'Move this bookmark right',
       classList: ['bookmark-control-button', 'bookmark-control-right'],
       func: () => {
-        let newBookmarkData = new StagedLink();
-        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-        newBookmarkData.position.origin = index;
-        newBookmarkData.position.destination = index + 1;
-        if (newBookmarkData.position.destination > bookmark_bookmark.all.length - 1) {
-          newBookmarkData.position.destination = bookmark_bookmark.all.length - 1;
+
+        bookmarkData.position.destination++;
+
+        if (bookmarkData.position.destination > bookmark_bookmark.all.length - 1) {
+          bookmarkData.position.destination = bookmark_bookmark.all.length - 1;
         };
-        bookmark_bookmark.mod.item.move(newBookmarkData);
+
+        bookmark_bookmark.mod.item.move(bookmarkData);
+
         bookmark_bookmark.render.clear();
+
         bookmark_bookmark.render.item();
+
         data.save();
+
       }
     }),
     edit: new Button({
@@ -12993,24 +13082,28 @@ const HexTile = function({
       title: 'Edit this bookmark',
       classList: ['bookmark-control-button', 'bookmark-control-edit'],
       func: () => {
-        let newBookmarkData = new StagedLink();
-        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-        newBookmarkData.position.origin = index;
-        newBookmarkData.position.destination = index;
 
         const editModal = new Modal({
-          heading: isValidString(bookmarkData.display.name.text) ? 'Edit ' + bookmarkData.display.name.text : 'Edit unnamed bookmark',
-          content: bookmark_bookmark.form(newBookmarkData),
+
+          heading: isValidString(bookmarkData.link.display.name.text) ? 'Edit ' + bookmarkData.link.display.name.text : 'Edit unnamed bookmark',
+          content: bookmarkForm_bookmarkForm.form(bookmarkData),
           successText: 'Save',
           width: 60,
           maxHeight: true,
           successAction: () => {
-            bookmark_bookmark.mod.item.edit(newBookmarkData);
-            bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
+
+            bookmark_bookmark.mod.item.edit(bookmarkData);
+
+            bookmark_bookmark.mod.propagate.state.apply(bookmarkData);
+
             bookmark_bookmark.render.clear();
+
             bookmark_bookmark.render.item();
+
             data.save();
+
           }
+
         });
 
         editModal.open();
@@ -13027,19 +13120,20 @@ const HexTile = function({
       func: () => {
 
         const removeModal = new Modal({
-          heading: isValidString(bookmarkData.display.name.text) ? 'Remove ' + bookmarkData.display.name.text : 'Remove unnamed bookmark',
+          heading: isValidString(bookmarkData.link.display.name.text) ? 'Remove ' + bookmarkData.link.display.name.text : 'Remove unnamed bookmark',
           content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
           successText: 'Remove',
           width: 'small',
           successAction: () => {
-            let newBookmarkData = new StagedLink();
-            newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-            newBookmarkData.position.origin = index;
-            newBookmarkData.position.destination = index;
-            bookmark_bookmark.mod.item.remove(newBookmarkData);
+
+            bookmark_bookmark.mod.item.remove(bookmarkData);
+
             bookmark_bookmark.render.clear();
+
             bookmark_bookmark.render.item();
+
             data.save();
+
           }
         });
 
@@ -13061,20 +13155,129 @@ const HexTile = function({
     };
   };
 
+  this.makeStyle = (newBookmarkData) => {
+
+    if (newBookmarkData) {
+      bookmarkData = newBookmarkData;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
+
+    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
+
+    if (isValidString(bookmarkData.link.url) && !preview) {
+      this.element.content.link.setAttribute('href', trimString_trimString(bookmarkData.link.url));
+    } else {
+      this.element.content.link.setAttribute('href', '#');
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
+
+    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.link.color.opacity);
+
+    switch (bookmarkData.link.display.direction) {
+      case 'vertical':
+        switch (bookmarkData.link.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
+            break;
+        };
+        break;
+
+      case 'horizontal':
+        switch (bookmarkData.link.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
+            break;
+        };
+        break;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.link.display.translate.x);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.link.display.translate.y);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.link.display.rotate);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.link.display.gutter);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.link.display.visual.size);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString_trimString(bookmarkData.link.display.visual.image.url) + ')');
+
+    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.link.display.name.size);
+
+    if (bookmarkData.link.accent.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.link.accent.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.link.accent.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.link.accent.rgb.b);
+      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
+
+      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
+    };
+
+    if (bookmarkData.link.color.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.link.color.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.link.color.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.link.color.rgb.b);
+
+      this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.link.color.hsl.h);
+      this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.link.color.hsl.s);
+      this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.link.color.hsl.l);
+
+      this.element.bookmark.style.setProperty('--theme-color', bookmarkData.link.color.hsl.h + ', ' + bookmarkData.link.color.hsl.s + '%, ' + bookmarkData.link.color.hsl.l + '%');
+      this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
+      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
+
+      this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
+    };
+
+    if (bookmarkData.link.background.show) {
+      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.link.background.opacity);
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          if (isValidString(bookmarkData.link.background.image.url)) {
+            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString_trimString(bookmarkData.link.background.image.url) + ')');
+          };
+          break;
+      };
+    };
+
+  };
+
   this.assemble = () => {
 
-    if (bookmarkData.display.visual.show || bookmarkData.display.name.show) {
-      if (bookmarkData.display.visual.show) {
-        switch (bookmarkData.display.visual.type) {
+    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
+      if (bookmarkData.link.display.visual.show) {
+        switch (bookmarkData.link.display.visual.type) {
           case 'letter':
-            if (isValidString(bookmarkData.display.visual.letter.text)) {
+            if (isValidString(bookmarkData.link.display.visual.letter.text)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
             break;
 
           case 'icon':
-            if (isValidString(bookmarkData.display.visual.icon.name)) {
+            if (isValidString(bookmarkData.link.display.visual.icon.name)) {
               this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
@@ -13082,7 +13285,7 @@ const HexTile = function({
             break;
 
           case 'image':
-            if (isValidString(bookmarkData.display.visual.image.url)) {
+            if (isValidString(bookmarkData.link.display.visual.image.url)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
@@ -13090,7 +13293,7 @@ const HexTile = function({
         };
       };
 
-      if (bookmarkData.display.name.show && isValidString(bookmarkData.display.name.text)) {
+      if (bookmarkData.link.display.name.show && isValidString(bookmarkData.link.display.name.text)) {
         this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
         this.element.content.display.display.appendChild(this.element.content.display.name.name);
       };
@@ -13100,9 +13303,9 @@ const HexTile = function({
       this.element.content.link.appendChild(this.element.content.display.wrap);
     };
 
-    if (bookmarkData.background.show) {
+    if (bookmarkData.link.background.show) {
 
-      switch (bookmarkData.background.type) {
+      switch (bookmarkData.link.background.type) {
         case 'image':
           this.element.content.background.wrap.appendChild(this.element.content.background.image);
           break;
@@ -13110,9 +13313,9 @@ const HexTile = function({
         case 'video':
           this.element.content.background.wrap.appendChild(this.element.content.background.video);
 
-          if (isValidString(bookmarkData.background.video.url)) {
+          if (isValidString(bookmarkData.link.background.video.url)) {
             const backgroundVideoElement = new Video({
-              url: bookmarkData.background.video.url
+              url: bookmarkData.link.background.video.url
             });
 
             this.element.content.background.video.appendChild(backgroundVideoElement.video);
@@ -13165,6 +13368,85 @@ const HexTile = function({
   this.assemble();
 
   this.makeStyle();
+
+};
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmarkPreview/index.css
+var bookmarkPreview = __webpack_require__(2491);
+;// CONCATENATED MODULE: ./src/component/bookmarkPreview/index.css
+
+            
+
+var bookmarkPreview_options = {};
+
+bookmarkPreview_options.insert = "head";
+bookmarkPreview_options.singleton = false;
+
+var bookmarkPreview_update = injectStylesIntoStyleTag_default()(bookmarkPreview/* default */.Z, bookmarkPreview_options);
+
+
+
+/* harmony default export */ const component_bookmarkPreview = (bookmarkPreview/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/bookmarkPreview/index.js
+
+
+
+
+
+
+const BookmarkPreview = function({
+  bookmarkData = false
+} = {}) {
+
+  this.area = node_node('div|class:bookmark-preview-area');
+
+  this.grid = node_node('div|class:bookmark-preview-grid');
+
+  this.title = node_node('div:Preview|class:bookmark-preview-title small muted');
+
+  this.bookmarkTile = new HexTile({
+    bookmarkData: bookmarkData,
+    preview: true
+  });
+
+  this.update = {};
+
+  this.update.style = (newBookmarkData) => {
+    bookmarkData = newBookmarkData;
+
+    this.bookmarkTile.update();
+
+  };
+
+  this.update.assemble = (newBookmarkData) => {
+    bookmarkData = newBookmarkData;
+
+    this.area.removeChild(this.title);
+
+    this.grid.removeChild(this.bookmarkTile.tile());
+
+    this.bookmarkTile = new HexTile({
+      bookmarkData: bookmarkData,
+      preview: true
+    });
+
+    this.assemble();
+  };
+
+  this.assemble = () => {
+    this.area.appendChild(this.title);
+
+    this.grid.appendChild(this.bookmarkTile.tile());
+
+    this.area.appendChild(this.grid);
+  };
+
+  this.assemble();
+
+  this.preview = () => {
+    return this.area;
+  };
 
 };
 
@@ -13249,7 +13531,7 @@ const makePath = function(string) {
 ;// CONCATENATED MODULE: ./src/utility/get.js
 
 
-const get = function({
+const get_get = function({
   object = null,
   path = null
 } = {}) {
@@ -13291,7 +13573,7 @@ const get = function({
 ;// CONCATENATED MODULE: ./src/utility/set.js
 
 
-const set = function({
+const set_set = function({
   path = null,
   object = null,
   value = null
@@ -13375,14 +13657,14 @@ const Control_inputButton = function({
     case 'color':
       this.input = color_color({
         id: id,
-        value: convertColor.rgb.hex(get({
+        value: convertColor.rgb.hex(get_get({
           object: object,
           path: path
         })),
         classList: classList,
         func: () => {
           if (path) {
-            set({
+            set_set({
               object: object,
               path: path,
               value: convertColor.hex.rgb(this.input.value)
@@ -13424,7 +13706,7 @@ const Control_inputButton = function({
   this.update = () => {
     switch (type) {
       case 'color':
-        this.input.value = convertColor.rgb.hex(get({
+        this.input.value = convertColor.rgb.hex(get_get({
           object: object,
           path: path,
         }));
@@ -13483,7 +13765,7 @@ const Control_groupText = function({
 
   this.update = (content) => {
 
-    clearChildNode(this.groupText);
+    clearChildNode_clearChildNode(this.groupText);
 
     if (typeof content === 'string' && isValidString(content)) {
       this.groupText.textContent = content;
@@ -13550,12 +13832,12 @@ const Control_radio = function({
           id: item.id,
           radioGroup: radioGroupName,
           value: item.value,
-          checked: (get({
+          checked: (get_get({
             object: object,
             path: radioGroupPath,
           }) === item.value),
           func: () => {
-            set({
+            set_set({
               object: object,
               path: radioGroupPath,
               value: item.value
@@ -13593,7 +13875,7 @@ const Control_radio = function({
       };
 
       radioAndLabel.radio.update = () => {
-        radioAndLabel.radio.checked = (get({
+        radioAndLabel.radio.checked = (get_get({
           object: object,
           path: radioGroupPath,
         }) === item.value);
@@ -13748,12 +14030,12 @@ const Control_radioGrid = function({
         id: item.id,
         radioGroup: radioGroupName,
         value: item.value,
-        checked: (get({
+        checked: (get_get({
           object: object,
           path: radioGroupPath,
         }) === item.value),
         func: () => {
-          set({
+          set_set({
             object: object,
             path: radioGroupPath,
             value: item.value
@@ -13782,7 +14064,7 @@ const Control_radioGrid = function({
       };
 
       radioAndLabel.radio.update = () => {
-        radioAndLabel.radio.checked = (get({
+        radioAndLabel.radio.checked = (get_get({
           object: object,
           path: radioGroupPath,
         }) === item.value);
@@ -13915,12 +14197,12 @@ const Control_checkbox = function({
 
   this.checkbox = checkbox_checkbox({
     id: id,
-    checked: (get({
+    checked: (get_get({
       object: object,
       path: path,
     }) === true),
     func: () => {
-      set({
+      set_set({
         object: object,
         path: path,
         value: this.checkbox.checked
@@ -13939,14 +14221,14 @@ const Control_checkbox = function({
   });
 
   this.update = () => {
-    this.checkbox.checked = (get({
+    this.checkbox.checked = (get_get({
       object: object,
       path: path,
     }) === true);
   };
 
   this.checked = () => {
-    return get({
+    return get_get({
       object: object,
       path: path,
     });
@@ -14054,7 +14336,7 @@ const Control_slider = function({
     classList: classList,
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: this.value()
@@ -14063,7 +14345,7 @@ const Control_slider = function({
       if (action) {
         action();
       };
-      this.number.value = get({
+      this.number.value = get_get({
         object: object,
         path: path,
       });
@@ -14077,7 +14359,7 @@ const Control_slider = function({
     classList: ['form-group-item-small'],
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: minMax({
@@ -14100,7 +14382,7 @@ const Control_slider = function({
     style: ['line'],
     classList: ['form-group-item-small'],
     func: () => {
-      set({
+      set_set({
         object: object,
         path: path,
         value: JSON.parse(JSON.stringify(defaultValue))
@@ -14118,11 +14400,11 @@ const Control_slider = function({
 
     let delayedUpdate = null;
     const updateControl = () => {
-      this.range.value = get({
+      this.range.value = get_get({
         object: object,
         path: path,
       });
-      this.number.value = get({
+      this.number.value = get_get({
         object: object,
         path: path,
       });
@@ -14239,7 +14521,7 @@ const Control_slimSlider = function({
     classList: classList,
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: this.value()
@@ -14248,7 +14530,7 @@ const Control_slimSlider = function({
       if (action) {
         action();
       };
-      this.number.value = get({
+      this.number.value = get_get({
         object: object,
         path: path,
       });
@@ -14262,7 +14544,7 @@ const Control_slimSlider = function({
     classList: ['form-group-item-small'],
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: minMax({
@@ -14285,7 +14567,7 @@ const Control_slimSlider = function({
     style: ['line'],
     classList: ['form-group-item-small'],
     func: () => {
-      set({
+      set_set({
         object: object,
         path: path,
         value: JSON.parse(JSON.stringify(defaultValue))
@@ -14303,11 +14585,11 @@ const Control_slimSlider = function({
 
     let delayedUpdate = null;
     const updateControl = () => {
-      this.range.value = get({
+      this.range.value = get_get({
         object: object,
         path: path,
       });
-      this.number.value = get({
+      this.number.value = get_get({
         object: object,
         path: path,
       });
@@ -14408,14 +14690,14 @@ const Control_color = function({
 
   this.color = color_color({
     id: id,
-    value: convertColor.rgb.hex(get({
+    value: convertColor.rgb.hex(get_get({
       object: object,
       path: path
     })),
     classList: ['form-group-item-half'],
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: convertColor.hex.rgb(this.color.value)
@@ -14424,7 +14706,7 @@ const Control_color = function({
       if (action) {
         action();
       };
-      this.text.value = convertColor.rgb.hex(get({
+      this.text.value = convertColor.rgb.hex(get_get({
         object: object,
         path: path
       }));
@@ -14432,7 +14714,7 @@ const Control_color = function({
   });
 
   this.text = text_text({
-    value: convertColor.rgb.hex(get({
+    value: convertColor.rgb.hex(get_get({
       object: object,
       path: path
     })),
@@ -14441,7 +14723,7 @@ const Control_color = function({
     placeholder: 'Hex code',
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: convertColor.hex.rgb(this.text.value)
@@ -14460,7 +14742,7 @@ const Control_color = function({
     style: ['line'],
     classList: ['form-group-item-small'],
     func: () => {
-      set({
+      set_set({
         object: object,
         path: path,
         value: JSON.parse(JSON.stringify(defaultValue))
@@ -14478,12 +14760,12 @@ const Control_color = function({
   } = {}) => {
     let delayedUpdate = null;
     const updateControl = () => {
-      this.color.value = convertColor.rgb.hex(get({
+      this.color.value = convertColor.rgb.hex(get_get({
         object: object,
         path: path
       }));
       if (all) {
-        this.text.value = convertColor.rgb.hex(get({
+        this.text.value = convertColor.rgb.hex(get_get({
           object: object,
           path: path
         }));
@@ -14603,14 +14885,14 @@ const Control_colorMixer = function({
     id: id + '-rgb',
     labelText: labelText,
     srOnly: srOnly,
-    value: get({ object: object, path: path + '.rgb' }),
+    value: get_get({ object: object, path: path + '.rgb' }),
     defaultValue: defaultValue,
     extraButtons: [this.moreControlsToggle],
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.hsl',
-        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+        value: convertColor.rgb.hsl(get_get({ object: object, path: path + '.rgb' }))
       });
       this.colorSliderR.update();
       this.colorSliderG.update();
@@ -14629,14 +14911,14 @@ const Control_colorMixer = function({
     path: path + '.hsl.h',
     id: id + '-hsl-h',
     labelText: 'Hue',
-    value: get({ object: object, path: path + '.hsl.h' }),
-    min: get({ object: minMaxObject, path: path + '.hsl.h.min' }),
-    max: get({ object: minMaxObject, path: path + '.hsl.h.max' }),
+    value: get_get({ object: object, path: path + '.hsl.h' }),
+    min: get_get({ object: minMaxObject, path: path + '.hsl.h.min' }),
+    max: get_get({ object: minMaxObject, path: path + '.hsl.h.max' }),
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.rgb',
-        value: convertColor.hsl.rgb(get({ object: object, path: path + '.hsl' }))
+        value: convertColor.hsl.rgb(get_get({ object: object, path: path + '.hsl' }))
       });
       this.color.update({ all: true });
       this.colorSliderR.update();
@@ -14655,14 +14937,14 @@ const Control_colorMixer = function({
     path: path + '.hsl.s',
     id: id + '-hsl-s',
     labelText: 'Saturation',
-    value: get({ object: object, path: path + '.hsl.s' }),
-    min: get({ object: minMaxObject, path: path + '.hsl.s.min' }),
-    max: get({ object: minMaxObject, path: path + '.hsl.s.max' }),
+    value: get_get({ object: object, path: path + '.hsl.s' }),
+    min: get_get({ object: minMaxObject, path: path + '.hsl.s.min' }),
+    max: get_get({ object: minMaxObject, path: path + '.hsl.s.max' }),
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.rgb',
-        value: convertColor.hsl.rgb(get({ object: object, path: path + '.hsl' }))
+        value: convertColor.hsl.rgb(get_get({ object: object, path: path + '.hsl' }))
       });
       this.color.update({ all: true });
       this.colorSliderR.update();
@@ -14681,14 +14963,14 @@ const Control_colorMixer = function({
     path: path + '.hsl.l',
     id: id + '-hsl-l',
     labelText: 'Lightness',
-    value: get({ object: object, path: path + '.hsl.l' }),
-    min: get({ object: minMaxObject, path: path + '.hsl.l.min' }),
-    max: get({ object: minMaxObject, path: path + '.hsl.l.max' }),
+    value: get_get({ object: object, path: path + '.hsl.l' }),
+    min: get_get({ object: minMaxObject, path: path + '.hsl.l.min' }),
+    max: get_get({ object: minMaxObject, path: path + '.hsl.l.max' }),
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.rgb',
-        value: convertColor.hsl.rgb(get({ object: object, path: path + '.hsl' }))
+        value: convertColor.hsl.rgb(get_get({ object: object, path: path + '.hsl' }))
       });
       this.color.update({ all: true });
       this.colorSliderR.update();
@@ -14707,14 +14989,14 @@ const Control_colorMixer = function({
     path: path + '.rgb.r',
     id: id + '-rgb-r',
     labelText: 'Red',
-    value: get({ object: object, path: path + '.rgb.r' }),
-    min: get({ object: minMaxObject, path: path + '.rgb.r.min' }),
-    max: get({ object: minMaxObject, path: path + '.rgb.r.max' }),
+    value: get_get({ object: object, path: path + '.rgb.r' }),
+    min: get_get({ object: minMaxObject, path: path + '.rgb.r.min' }),
+    max: get_get({ object: minMaxObject, path: path + '.rgb.r.max' }),
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.hsl',
-        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+        value: convertColor.rgb.hsl(get_get({ object: object, path: path + '.rgb' }))
       });
       this.color.update({ all: true });
       this.colorSliderG.update();
@@ -14733,14 +15015,14 @@ const Control_colorMixer = function({
     path: path + '.rgb.g',
     id: id + '-rgb-g',
     labelText: 'Green',
-    value: get({ object: object, path: path + '.rgb.g' }),
-    min: get({ object: minMaxObject, path: path + '.rgb.g.min' }),
-    max: get({ object: minMaxObject, path: path + '.rgb.g.max' }),
+    value: get_get({ object: object, path: path + '.rgb.g' }),
+    min: get_get({ object: minMaxObject, path: path + '.rgb.g.min' }),
+    max: get_get({ object: minMaxObject, path: path + '.rgb.g.max' }),
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.hsl',
-        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+        value: convertColor.rgb.hsl(get_get({ object: object, path: path + '.rgb' }))
       });
       this.color.update({ all: true });
       this.colorSliderR.update();
@@ -14759,14 +15041,14 @@ const Control_colorMixer = function({
     path: path + '.rgb.b',
     id: id + '-rgb-b',
     labelText: 'Blue',
-    value: get({ object: object, path: path + '.rgb.b' }),
-    min: get({ object: minMaxObject, path: path + '.rgb.b.min' }),
-    max: get({ object: minMaxObject, path: path + '.rgb.b.max' }),
+    value: get_get({ object: object, path: path + '.rgb.b' }),
+    min: get_get({ object: minMaxObject, path: path + '.rgb.b.min' }),
+    max: get_get({ object: minMaxObject, path: path + '.rgb.b.max' }),
     action: () => {
-      set({
+      set_set({
         object: object,
         path: path + '.hsl',
-        value: convertColor.rgb.hsl(get({ object: object, path: path + '.rgb' }))
+        value: convertColor.rgb.hsl(get_get({ object: object, path: path + '.rgb' }))
       });
       this.color.update({ all: true });
       this.colorSliderR.update();
@@ -14780,12 +15062,12 @@ const Control_colorMixer = function({
     }
   });
 
-  this.moreControls = node('div', [
-    node('hr'),
+  this.moreControls = node_node('div', [
+    node_node('hr'),
     this.colorSliderH.wrap(),
     this.colorSliderS.wrap(),
     this.colorSliderL.wrap(),
-    node('hr'),
+    node_node('hr'),
     this.colorSliderR.wrap(),
     this.colorSliderG.wrap(),
     this.colorSliderB.wrap()
@@ -14919,7 +15201,7 @@ const Control_text = function({
     classList: classList,
     func: () => {
       if (path) {
-        set({
+        set_set({
           object: object,
           path: path,
           value: this.text.value
@@ -14948,7 +15230,7 @@ const Control_text = function({
   };
 
   this.update = () => {
-    this.text.value = get({
+    this.text.value = get_get({
       object: object,
       path: path,
     });
@@ -14975,23 +15257,137 @@ const Control_text = function({
 
 };
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmark/index.css
-var bookmark = __webpack_require__(5125);
-;// CONCATENATED MODULE: ./src/component/bookmark/index.css
+;// CONCATENATED MODULE: ./src/component/control/select/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Control_select = function({
+  option = [],
+  selected = 0,
+  object = {},
+  id = 'name',
+  path = false,
+  labelText = 'name',
+  srOnly = false,
+  description = false,
+  action = false
+} = {}) {
+
+  this.select = form.input.select({
+    id: id,
+    option: option,
+    selected: selected,
+    func: () => {
+      set({
+        object: object,
+        path: path,
+        value: this.select.selectedIndex
+      });
+      if (action) {
+        action();
+      };
+    }
+  });
+
+  this.label = form.label({
+    forInput: id,
+    text: labelText,
+    description: description
+  });
+
+  if (srOnly) {
+    this.label.classList.add('sr-only')
+  };
+
+  this.update = () => {
+    this.select.selectedIndex = get({
+      object: object,
+      path: path
+    });
+  };
+
+  this.updateOption = (option, selectedIndex) => {
+
+    if (option.length > 0) {
+
+      clearChildNode(this.select);
+
+      option.forEach((item, i) => {
+
+        this.select.appendChild(
+          node(
+            'option:' +
+            item +
+            '|value:' +
+            trimString(item).replace(/\s+/g, '-').toLowerCase()
+          )
+        );
+
+      });
+
+      if (selectedIndex || selectedIndex === 0) {
+        this.select.selectedIndex = selectedIndex;
+      };
+
+    };
+
+  };
+
+  this.selected = () => {
+    return this.select.selectedIndex;
+  };
+
+  this.wrap = () => {
+    return form.wrap({
+      children: [
+        this.label,
+        this.select
+      ]
+    })
+  };
+
+  this.disable = () => {
+    this.label.classList.add('disabled');
+    this.select.disabled = true;
+  };
+
+  this.enable = () => {
+    this.label.classList.remove('disabled');
+    this.select.disabled = false;
+  };
+
+};
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmarkForm/index.css
+var bookmarkForm = __webpack_require__(9675);
+;// CONCATENATED MODULE: ./src/component/bookmarkForm/index.css
 
             
 
-var bookmark_options = {};
+var bookmarkForm_options = {};
 
-bookmark_options.insert = "head";
-bookmark_options.singleton = false;
+bookmarkForm_options.insert = "head";
+bookmarkForm_options.singleton = false;
 
-var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z, bookmark_options);
+var bookmarkForm_update = injectStylesIntoStyleTag_default()(bookmarkForm/* default */.Z, bookmarkForm_options);
 
 
 
-/* harmony default export */ const component_bookmark = (bookmark/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/bookmark/index.js
+/* harmony default export */ const component_bookmarkForm = (bookmarkForm/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/bookmarkForm/index.js
 
 
 
@@ -15028,469 +15424,16 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 
 
-const defaultBookmark = {
-  url: '',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: '', size: 7 },
-    visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-};
 
-const minMaxBookmark = {
-  display: {
-    rotate: { min: -180, max: 180 },
-    translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
-    gutter: { min: 0, max: 500 },
-    visual: { size: { min: 5, max: 200 } },
-    name: { size: { min: 5, max: 200 } }
-  },
-  accent: {
-    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
-  },
-  color: {
-    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-    opacity: { min: 0, max: 100 }
-  },
-  background: {
-    opacity: { min: 0, max: 100 }
-  }
-};
+const bookmarkForm_bookmarkForm = {};
 
-const StagedLink = function() {
-  this.link = JSON.parse(JSON.stringify(defaultBookmark));
+bookmarkForm_bookmarkForm.current = null;
 
-  this.position = { origin: 0, destination: 0 };
+bookmarkForm_bookmarkForm.form = function(bookmarkData) {
 
-  this.newBookmark = function() {
-    this.position.destination = bookmark_bookmark.all.length + 1;
-  };
-};
-
-let currentBookmarkForm = null;
-
-const bookmark_bookmark = {};
-
-bookmark_bookmark.all = [{
-  url: 'https://zombiefox.github.io/awesomeSheet/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'awesomeSheet', size: 7 },
-    visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://www.amazon.co.uk/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Amazon', size: 7 },
-    visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://mail.google.com/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Gmail', size: 7 },
-    visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://www.reddit.com/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Reddit', size: 7 },
-    visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://www.netflix.com/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Netflix', size: 7 },
-    visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://drive.google.com/drive/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Drive', size: 7 },
-    visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://devdocs.io/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Devdocs', size: 7 },
-    visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}, {
-  url: 'https://github.com/',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: 'Github', size: 7 },
-    visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-}];
-
-bookmark_bookmark.mod = {};
-
-bookmark_bookmark.mod.add = {
-  open: function() {
-    state_state.get.current().bookmark.add = true;
-  },
-  close: function() {
-    state_state.get.current().bookmark.add = false;
-  },
-  toggle: function() {
-    if (state_state.get.current().bookmark.add) {
-      bookmark_bookmark.mod.add.close();
-    } else {
-      bookmark_bookmark.mod.add.open();
-    };
-  }
-};
-
-bookmark_bookmark.mod.edit = {
-  open: function() {
-    state_state.get.current().bookmark.edit = true;
-  },
-  close: function() {
-    state_state.get.current().bookmark.edit = false;
-  },
-  toggle: function() {
-    if (state_state.get.current().bookmark.edit) {
-      bookmark_bookmark.mod.edit.close();
-    } else {
-      bookmark_bookmark.mod.edit.open();
-    };
-  }
-};
-
-bookmark_bookmark.mod.item = {};
-
-bookmark_bookmark.mod.item.add = function(bookmarkData) {
-  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
-};
-
-bookmark_bookmark.mod.item.edit = function(bookmarkData) {
-  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
-  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
-};
-
-bookmark_bookmark.mod.item.remove = function(bookmarkData) {
-  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
-};
-
-bookmark_bookmark.mod.item.move = function(bookmarkData) {
-  var bookmarkCopy = JSON.parse(JSON.stringify(bookmark_bookmark.all[bookmarkData.position.origin]));
-  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
-  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkCopy);
-};
-
-bookmark_bookmark.mod.propagate = {};
-
-bookmark_bookmark.mod.propagate.state = {
-  current: {
-    visual: false,
-    name: false,
-    layout: false,
-    theme: false
-  },
-  reset: function() {
-    for (var key in bookmark_bookmark.mod.propagate.state.current) {
-      bookmark_bookmark.mod.propagate.state.current[key] = false;
-    }
-  },
-  apply: function(bookmarkData) {
-    if (bookmark_bookmark.mod.propagate.state.current.layout) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.display.visual.size = bookmarkData.link.display.visual.size;
-        item.display.name.size = bookmarkData.link.display.name.size;
-        item.display.gutter = bookmarkData.link.display.gutter;
-        item.display.rotate = bookmarkData.link.display.rotate;
-        item.display.translate = bookmarkData.link.display.translate;
-        item.display.direction = bookmarkData.link.display.direction;
-        item.display.order = bookmarkData.link.display.order;
-      });
-    };
-
-    if (bookmark_bookmark.mod.propagate.state.current.visual) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.display.visual.show = bookmarkData.link.display.visual.show;
-      });
-    };
-
-    if (bookmark_bookmark.mod.propagate.state.current.name) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.display.name.show = bookmarkData.link.display.name.show;
-      });
-    };
-
-    if (bookmark_bookmark.mod.propagate.state.current.theme) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.accent = bookmarkData.link.accent;
-        item.color = bookmarkData.link.color;
-      });
-    };
-
-    bookmark_bookmark.mod.propagate.state.reset();
-  }
-};
-
-bookmark_bookmark.render = {};
-
-bookmark_bookmark.render.clear = function() {
-
-  clearChildNode(gridList);
-
-};
-
-bookmark_bookmark.render.mask = function() {
-  const html = document.querySelector('html');
-
-  html.appendChild(node('div', [
-    '<svg width="0" height="0" viewBox="0 0 120 100" class="bookmark-mask">' +
-    '<g id="Assets" fill="none">' +
-    '<defs>' +
-    '<clipPath id="bookmark-mask" clipPathUnits="objectBoundingBox" transform="scale(0.01, 0.009615384615384616)">' +
-    '<path d="M1.25156 54.6013C0.46058 52.9573 0.460582 51.0427 1.25157 49.3987L23.3648 3.43714C24.3644 1.35955 26.466 0.038475 28.7716 0.038475H71.2284C73.534 0.038475 75.6356 1.35955 76.6352 3.43714L98.7484 49.3987C99.5394 51.0427 99.5394 52.9573 98.7484 54.6013L76.6352 100.563C75.6356 102.64 73.534 103.962 71.2284 103.962H28.7716C26.466 103.962 24.3644 102.64 23.3648 100.563L1.25156 54.6013Z"></path>' +
-    '</clipPath>' +
-    '</defs>' +
-    '</g>' +
-    '</svg>'
-  ]));
-};
-
-bookmark_bookmark.render.tile = {};
-
-bookmark_bookmark.render.tile.edit = {
-  open: function() {
-    if (bookmark_bookmark.render.tile.current.length > 0) {
-      bookmark_bookmark.render.tile.current.forEach((item, i) => {
-        item.control.enable();
-      });
-    };
-  },
-  close: function() {
-    if (bookmark_bookmark.render.tile.current.length > 0) {
-      bookmark_bookmark.render.tile.current.forEach((item, i) => {
-        item.control.disable();
-      });
-    };
-  }
-};
-
-bookmark_bookmark.render.tile.current = [];
-
-bookmark_bookmark.render.item = function() {
-
-  bookmark_bookmark.render.tile.current = [];
-
-  var evenRowFlag = true; // if true the row is even
-
-  var rowCount = 1; // used to asign and calculate the overall row start value
-
-  var columnStart = 1; // starting grid column
-
-  var rowStart = 1; // starting grid row
-
-  bookmark_bookmark.all.forEach(function(item, index) {
-
-    //
-    // column start
-    //
-    // define what column this bookmark will sit on
-    if (index > 0) {
-      columnStart = columnStart + 2;
-    };
-
-    // if end of grid reset column start
-    if (index % (state_state.get.current().grid.column) === 0) {
-      columnStart = 1;
-    };
-
-    //
-    // row start
-    //
-    // define what row this bookmark will sit on
-    if (index > 1 && index % state_state.get.current().grid.column === 0) {
-      rowCount = rowCount + 2;
-    };
-
-    // define the offset of this bookmark on this row
-    // find out if row is even
-    if (index % state_state.get.current().grid.column === 0) {
-      // toggle the flag
-      if (evenRowFlag) {
-        evenRowFlag = false;
-      } else {
-        evenRowFlag = true;
-      };
-    };
-
-    // if column count is odd
-    if (state_state.get.current().grid.column % 2 === 1 && state_state.get.current().grid.column > 1) {
-      if (evenRowFlag) { // if row is even
-        if (index % 2 === 1) { // if index is odd
-          rowStart = rowCount;
-        } else { // if index is even
-          rowStart = rowCount + 1;
-        };
-      } else { // if row is odd
-        // if index is odd
-        if (index % 2 === 0) { // if index is even
-          rowStart = rowCount;
-        } else { // if index is odd
-          rowStart = rowCount + 1;
-        };
-      };
-    };
-
-    // if column count is even
-    if (state_state.get.current().grid.column % 2 === 0 && state_state.get.current().grid.column > 1) {
-      if (index % 2 === 0) { // if index is even
-        rowStart = rowCount;
-      } else { // if index is odd
-        rowStart = rowCount + 1;
-      };
-    };
-
-    // if single column
-    if (state_state.get.current().grid.column === 1) {
-      if (index > 0) {
-        rowStart = rowStart + 2;
-      };
-    };
-
-    const hex = new HexTile({
-      bookmarkData: item,
-      index: index,
-      row: rowStart,
-      column: columnStart
-    });
-
-    gridList.appendChild(hex.tile());
-
-    bookmark_bookmark.render.tile.current.push(hex);
-
-  });
-
-};
-
-bookmark_bookmark.render.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--bookmark-size', state_state.get.current().bookmark.size);
-  html.style.setProperty('--bookmark-hover-distance', state_state.get.current().bookmark.hover.distance);
-  html.style.setProperty('--bookmark-hover-size', state_state.get.current().bookmark.hover.size);
-  html.style.setProperty('--bookmark-shadow-blur', state_state.get.current().bookmark.shadow.blur);
-  html.style.setProperty('--bookmark-shadow-distance', state_state.get.current().bookmark.shadow.distance);
-};
-
-bookmark_bookmark.render.class = function() {
-  const html = document.querySelector('html');
-
-  if (state_state.get.current().bookmark.edit) {
-    html.classList.add('is-bookmark-edit');
-  } else {
-    html.classList.remove('is-bookmark-edit');
-  };
-};
-
-bookmark_bookmark.render.add = function() {
-  const newBookmarkData = new StagedLink();
-
-  newBookmarkData.newBookmark();
-
-  const addModal = new Modal({
-    heading: 'Add a new Bookmark',
-    content: bookmark_bookmark.form(newBookmarkData),
-    successText: 'Add',
-    width: 60,
-    maxHeight: true,
-    successAction: () => {
-      bookmark_bookmark.mod.item.add(newBookmarkData);
-      bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
-      bookmark_bookmark.render.clear();
-      bookmark_bookmark.render.item();
-      data.save();
-    },
-    dismissAction: () => {
-      bookmark_bookmark.add.close();
-      data.save();
-    }
-  });
-
-  addModal.open();
-
-};
-
-bookmark_bookmark.form = function(bookmarkData) {
-
-  const bookmarkForm = node('form|class:bookmark-form');
-
-  const bookmarkFormMain = node('form|class:bookmark-form-main');
+  const bookmarkFormElement = node_node('form|class:bookmark-form');
+
+  const bookmarkFormMain = node_node('form|class:bookmark-form-main');
 
   const displayVisualShow = new Control_checkbox({
     object: bookmarkData.link,
@@ -15499,8 +15442,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Show Visual Element',
     description: 'Display Letters, Icon or an Image on this Bookmark hexagon.',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15514,8 +15457,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     groupName: 'display-visual-type',
     path: 'display.visual.type',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15528,7 +15471,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark letter',
     srOnly: true,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15541,7 +15484,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark icon',
     srOnly: true,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15559,8 +15502,8 @@ bookmark_bookmark.form = function(bookmarkData) {
       bookmarkData.link.display.visual.icon.label = '';
       bookmarkData.link.display.visual.icon.prefix = '';
       bookmarkData.link.display.visual.icon.name = '';
-      bookmarkForm.update();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.update();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15573,7 +15516,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark image',
     srOnly: true,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15583,20 +15526,23 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-visual-size',
     labelText: 'Visual size',
     value: bookmarkData.link.display.visual.size,
-    defaultValue: defaultBookmark.display.visual.size,
-    min: minMaxBookmark.display.visual.size.min,
-    max: minMaxBookmark.display.visual.size.max,
+    defaultValue: bookmarkDefault.display.visual.size,
+    min: bookmarkMinMax.display.visual.size.min,
+    max: bookmarkMinMax.display.visual.size.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
   const displayVisualShowPropagate = new Control_checkbox({
     object: bookmark_bookmark.mod.propagate.state.current,
-    path: 'visual',
-    id: 'apply-to-all-visual',
-    labelText: 'Apply Show Visual Element to other Bookmarks',
-    description: 'When saved, apply the above Visual Element visibility to all other Bookmarks.'
+    path: 'display',
+    id: 'apply-to-all-display',
+    labelText: 'Apply Show Visual Element and Name to other Bookmarks',
+    description: [
+      'When saved, apply the above visibility to all other Bookmarks.',
+      'Only the Show Visual Element and Name will be applied to all.'
+    ]
   });
 
   const displayNameShow = new Control_checkbox({
@@ -15605,8 +15551,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-name-show',
     labelText: 'Show Name',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15619,7 +15565,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Bookmark name',
     srOnly: true,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15629,11 +15575,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-name-size',
     labelText: 'Name size',
     value: bookmarkData.link.display.name.size,
-    defaultValue: defaultBookmark.display.name.size,
-    min: minMaxBookmark.display.name.size.min,
-    max: minMaxBookmark.display.name.size.max,
+    defaultValue: bookmarkDefault.display.name.size,
+    min: bookmarkMinMax.display.name.size.min,
+    max: bookmarkMinMax.display.name.size.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15664,8 +15610,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'color.by',
     action: () => {
       colorMixerCollapse.update();
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15674,10 +15620,10 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'color',
     id: 'color',
     labelText: 'Colour',
-    defaultValue: JSON.parse(JSON.stringify(defaultBookmark.color.rgb)),
-    minMaxObject: minMaxBookmark,
+    defaultValue: JSON.parse(JSON.stringify(bookmarkDefault.color.rgb)),
+    minMaxObject: bookmarkMinMax,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15691,8 +15637,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'accent.by',
     action: () => {
       accentMixerCollapse.update();
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15701,10 +15647,10 @@ bookmark_bookmark.form = function(bookmarkData) {
     path: 'accent',
     id: 'accent',
     labelText: 'Accent',
-    defaultValue: JSON.parse(JSON.stringify(defaultBookmark.accent.rgb)),
-    minMaxObject: minMaxBookmark,
+    defaultValue: JSON.parse(JSON.stringify(bookmarkDefault.accent.rgb)),
+    minMaxObject: bookmarkMinMax,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15714,11 +15660,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-translate-x',
     labelText: 'Horizontal shift',
     value: bookmarkData.link.display.translate.x,
-    defaultValue: defaultBookmark.display.translate.x,
-    min: minMaxBookmark.display.translate.x.min,
-    max: minMaxBookmark.display.translate.x.max,
+    defaultValue: bookmarkDefault.display.translate.x,
+    min: bookmarkMinMax.display.translate.x.min,
+    max: bookmarkMinMax.display.translate.x.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15728,11 +15674,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-translate-y',
     labelText: 'Vertical shift',
     value: bookmarkData.link.display.translate.y,
-    defaultValue: defaultBookmark.display.translate.y,
-    min: minMaxBookmark.display.translate.y.min,
-    max: minMaxBookmark.display.translate.y.max,
+    defaultValue: bookmarkDefault.display.translate.y,
+    min: bookmarkMinMax.display.translate.y.min,
+    max: bookmarkMinMax.display.translate.y.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15742,11 +15688,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-rotate',
     labelText: 'Rotate',
     value: bookmarkData.link.display.rotate,
-    defaultValue: defaultBookmark.display.rotate,
-    min: minMaxBookmark.display.rotate.min,
-    max: minMaxBookmark.display.rotate.max,
+    defaultValue: bookmarkDefault.display.rotate,
+    min: bookmarkMinMax.display.rotate.min,
+    max: bookmarkMinMax.display.rotate.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15759,8 +15705,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     groupName: 'display-direction',
     path: 'display.direction',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      bookmarkFormElement.disable();
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15773,8 +15719,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     groupName: 'display-order',
     path: 'display.order',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      bookmarkFormElement.disable();
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15784,11 +15730,11 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'display-gutter',
     labelText: 'Gutter',
     value: bookmarkData.link.display.gutter,
-    defaultValue: defaultBookmark.display.gutter,
-    min: minMaxBookmark.display.gutter.min,
-    max: minMaxBookmark.display.gutter.max,
+    defaultValue: bookmarkDefault.display.gutter,
+    min: bookmarkMinMax.display.gutter.min,
+    max: bookmarkMinMax.display.gutter.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
   });
 
@@ -15800,8 +15746,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     description: 'When saved, apply the above Layout to all other Bookmarks.'
   });
 
-  const accentMixerArea = node('div', [
-    node('hr'),
+  const accentMixerArea = node_node('div', [
+    node_node('hr'),
     accentMixer.wrap()
   ]);
 
@@ -15816,8 +15762,8 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   accentMixerCollapse.update();
 
-  const colorMixerArea = node('div', [
-    node('hr'),
+  const colorMixerArea = node_node('div', [
+    node_node('hr'),
     colorMixer.wrap()
   ]);
 
@@ -15839,8 +15785,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Show background',
     description: 'Display an Image or video Background on this Bookmark tile.',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15853,8 +15799,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     groupName: 'background-type',
     path: 'background.type',
     action: () => {
-      bookmarkForm.disable();
-      bookmarkForm.preview.render();
+      bookmarkFormElement.disable();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15867,7 +15813,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Background image URL',
     srOnly: true,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15884,7 +15830,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     labelText: 'Background video URL',
     srOnly: true,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
@@ -15898,20 +15844,31 @@ bookmark_bookmark.form = function(bookmarkData) {
     id: 'background-opacity',
     labelText: 'Opacity',
     value: bookmarkData.link.background.opacity,
-    defaultValue: defaultBookmark.background.opacity,
-    min: minMaxBookmark.background.opacity.min,
-    max: minMaxBookmark.background.opacity.max,
+    defaultValue: bookmarkDefault.background.opacity,
+    min: bookmarkMinMax.background.opacity.min,
+    max: bookmarkMinMax.background.opacity.max,
     action: () => {
-      bookmarkForm.preview.current.update(bookmarkData.link);
+      hexTilePreview.update.style(bookmarkData);
     }
+  });
+
+  const themePropagate = new Control_checkbox({
+    object: bookmark_bookmark.mod.propagate.state.current,
+    path: 'theme',
+    id: 'apply-to-all-theme',
+    labelText: 'Apply this Theme to other Bookmarks',
+    description: [
+      'When saved, apply the above Theme to all other Bookmarks.',
+      'Only the Colour, Accent and Opacity settings will be applied to all.'
+    ]
   });
 
   const displayVisualArea = fieldset_fieldset({
     children: [
       wrap_wrap({
         children: [
-          node('h2:Visual element|class:mb-2'),
-          node('p:Display Letters, Icon or an Image on this Bookmark tile.|class:mb-5')
+          node_node('h2:Visual & Name|class:mb-2'),
+          node_node('p:Display Letters, Icon, Image and a Name on this Bookmark tile.|class:mb-5')
         ]
       }),
       wrap_wrap({
@@ -15969,27 +15926,7 @@ bookmark_bookmark.form = function(bookmarkData) {
                   })
                 ]
               }),
-              node('hr'),
-              displayVisualShowPropagate.wrap(),
-            ]
-          })
-        ]
-      })
-    ]
-  });
-
-  const displayNameArea = fieldset_fieldset({
-    children: [
-      wrap_wrap({
-        children: [
-          node('h2:Name|class:mb-2'),
-          node('p:Display a Name on this Bookmark tile.|class:mb-5')
-        ]
-      }),
-      wrap_wrap({
-        children: [
-          indent_indent({
-            children: [
+              node_node('hr'),
               displayNameShow.wrap(),
               wrap_wrap({
                 children: [
@@ -16000,8 +15937,8 @@ bookmark_bookmark.form = function(bookmarkData) {
                   }),
                 ]
               }),
-              node('hr'),
-              displayNameShowPropagate.wrap()
+              node_node('hr'),
+              displayVisualShowPropagate.wrap()
             ]
           })
         ]
@@ -16013,8 +15950,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     children: [
       wrap_wrap({
         children: [
-          node('h2:Address|class:mb-2'),
-          node('p:The websites address.'),
+          node_node('h2:Address|class:mb-2'),
+          node_node('p:The websites address.'),
           complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>', attr: [{ key: 'class', value: 'mb-5' }] })
         ]
       }),
@@ -16034,8 +15971,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     children: [
       wrap_wrap({
         children: [
-          node('h2:Layout|class:mb-2'),
-          node('p:Change the Visual element and Name position.|class:mb-5')
+          node_node('h2:Layout|class:mb-2'),
+          node_node('p:Change the Visual element and Name position.|class:mb-5')
         ]
       }),
       wrap_wrap({
@@ -16044,17 +15981,17 @@ bookmark_bookmark.form = function(bookmarkData) {
             children: [
               displayVisualSize.wrap(),
               displayNameSize.wrap(),
-              node('hr'),
+              node_node('hr'),
               displayTranslateX.wrap(),
               displayTranslateY.wrap(),
               displayRotate.wrap(),
-              node('hr'),
+              node_node('hr'),
               displayVisualDirection.wrap(),
-              node('hr'),
+              node_node('hr'),
               displayVisualOrder.wrap(),
-              node('hr'),
+              node_node('hr'),
               displayGutter.wrap(),
-              node('hr'),
+              node_node('hr'),
               displayLayoutPropagate.wrap()
             ]
           })
@@ -16067,8 +16004,8 @@ bookmark_bookmark.form = function(bookmarkData) {
     children: [
       wrap_wrap({
         children: [
-          node('h2:Theme|class:mb-2'),
-          node('p:Override the Theme and Accent colour.|class:mb-5')
+          node_node('h2:Theme|class:mb-2'),
+          node_node('p:Override the Theme and Accent colour.|class:mb-5')
         ]
       }),
       wrap_wrap({
@@ -16085,7 +16022,7 @@ bookmark_bookmark.form = function(bookmarkData) {
                   })
                 ]
               }),
-              node('hr'),
+              node_node('hr'),
               accentBy.wrap(),
               wrap_wrap({
                 children: [
@@ -16096,7 +16033,7 @@ bookmark_bookmark.form = function(bookmarkData) {
                   })
                 ]
               }),
-              node('hr'),
+              node_node('hr'),
               backgroundShow.wrap(),
               wrap_wrap({
                 children: [
@@ -16124,12 +16061,14 @@ bookmark_bookmark.form = function(bookmarkData) {
                           })
                         ]
                       }),
-                      node('hr'),
+                      node_node('hr'),
                       backgroundOpacity.wrap()
                     ]
                   })
                 ]
-              })
+              }),
+              node_node('hr'),
+              themePropagate.wrap()
             ]
           })
         ]
@@ -16139,13 +16078,9 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   const formTab = new Tab({
     group: [{
-      tabText: 'Visual',
+      tabText: 'Visual & Name',
       area: displayVisualArea,
       active: true
-    }, {
-      tabText: 'Name',
-      area: displayNameArea,
-      active: false
     }, {
       tabText: 'Address',
       area: displayAddressArea,
@@ -16163,18 +16098,20 @@ bookmark_bookmark.form = function(bookmarkData) {
 
   bookmarkFormMain.appendChild(formTab.tab());
 
-  const bookmarkFormAside = node('div|class:bookmark-form-aside');
+  const hexTilePreview = new BookmarkPreview({
+    bookmarkData: bookmarkData
+  });
 
-  const bookmarkFormPreview = node('div|class:bookmark-form-preview');
+  const bookmarkFormAside = node_node('div|class:bookmark-form-aside');
 
-  bookmarkFormAside.appendChild(bookmarkFormPreview);
+  bookmarkFormAside.appendChild(hexTilePreview.preview());
 
-  bookmarkForm.appendChild(bookmarkFormMain);
+  bookmarkFormElement.appendChild(bookmarkFormMain);
 
-  bookmarkForm.appendChild(bookmarkFormAside);
+  bookmarkFormElement.appendChild(bookmarkFormAside);
 
   if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
-    displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
+    displayVisualTypeIconDisplay.update(node_node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
   } else {
     displayVisualTypeIconDisplay.update();
   };
@@ -16185,13 +16122,13 @@ bookmark_bookmark.form = function(bookmarkData) {
     type: 'fontawesomeIcon',
     postFocus: displayVisualTypeIconDisplay.groupText,
     action: () => {
-      bookmarkForm.preview.render();
+      hexTilePreview.update.assemble(bookmarkData);
     }
   });
 
   bookmark_bookmark.mod.propagate.state.reset();
 
-  bookmarkForm.disable = () => {
+  bookmarkFormElement.disable = () => {
     if (bookmarkData.link.display.visual.show) {
       displayVisualType.enable();
       displayVisualTypeLetter.enable();
@@ -16313,13 +16250,13 @@ bookmark_bookmark.form = function(bookmarkData) {
     };
   };
 
-  bookmarkForm.update = () => {
+  bookmarkFormElement.update = () => {
     displayVisualShow.update();
     displayVisualType.update();
     displayVisualTypeLetter.update();
     displayVisualTypeIcon.update();
     if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
-      displayVisualTypeIconDisplay.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
+      displayVisualTypeIconDisplay.update(node_node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
     } else {
       displayVisualTypeIconDisplay.update();
     };
@@ -16329,7 +16266,7 @@ bookmark_bookmark.form = function(bookmarkData) {
     url.update();
   };
 
-  bookmarkForm.updateIcon = (autoSuggestData) => {
+  bookmarkFormElement.updateIcon = (autoSuggestData) => {
     bookmarkData.link.display.visual.icon.label = autoSuggestData.label;
     bookmarkData.link.display.visual.icon.name = autoSuggestData.name;
     if (autoSuggestData.styles.includes('solid')) {
@@ -16337,42 +16274,500 @@ bookmark_bookmark.form = function(bookmarkData) {
     } else if (autoSuggestData.styles.includes('brands')) {
       bookmarkData.link.display.visual.icon.prefix = 'fab';
     };
-    bookmarkForm.update();
+    bookmarkFormElement.update();
   };
 
-  bookmarkForm.preview = {};
+  bookmarkFormElement.disable();
 
-  bookmarkForm.preview.current = false;
+  bookmarkForm_bookmarkForm.current = bookmarkFormElement;
 
-  bookmarkForm.preview.render = () => {
-    if (bookmarkFormPreview.lastChild) {
-
-      clearChildNode(bookmarkFormPreview);
-
-    };
-
-    bookmarkForm.preview.current = new HexTile({
-      bookmarkData: bookmarkData.link,
-      preview: true
-    });
-
-    bookmarkFormPreview.appendChild(bookmarkForm.preview.current.tile());
-  };
-
-  bookmarkForm.disable();
-
-  bookmarkForm.preview.render();
-
-  currentBookmarkForm = bookmarkForm;
-
-  bookmarkForm.addEventListener('keydown', function(event) {
+  bookmarkFormElement.addEventListener('keydown', function(event) {
     if (event.keyCode == 13) {
       event.preventDefault();
       return false;
     };
   });
 
-  return bookmarkForm;
+  return bookmarkFormElement;
+
+};
+
+
+;// CONCATENATED MODULE: ./src/component/bookmarkPreset/index.js
+ const bookmarkPreset = {};
+
+ bookmarkPreset.get = function() {
+   return [{
+     url: 'https://zombiefox.github.io/awesomeSheet/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'awesomeSheet', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.amazon.co.uk/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Amazon', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://mail.google.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Gmail', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.reddit.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Reddit', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.netflix.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Netflix', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://drive.google.com/drive/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Drive', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://devdocs.io/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Devdocs', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://github.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Github', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }];
+ };
+
+ 
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmark/index.css
+var bookmark = __webpack_require__(5125);
+;// CONCATENATED MODULE: ./src/component/bookmark/index.css
+
+            
+
+var bookmark_options = {};
+
+bookmark_options.insert = "head";
+bookmark_options.singleton = false;
+
+var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z, bookmark_options);
+
+
+
+/* harmony default export */ const component_bookmark = (bookmark/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/bookmark/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const bookmark_bookmark = {};
+
+bookmark_bookmark.all = bookmarkPreset.get();
+
+bookmark_bookmark.mod = {};
+
+bookmark_bookmark.mod.add = {
+  open: function() {
+    state_state.get.current().bookmark.add = true;
+  },
+  close: function() {
+    state_state.get.current().bookmark.add = false;
+  },
+  toggle: function() {
+    if (state_state.get.current().bookmark.add) {
+      bookmark_bookmark.mod.add.close();
+    } else {
+      bookmark_bookmark.mod.add.open();
+    };
+  }
+};
+
+bookmark_bookmark.mod.edit = {
+  open: function() {
+    state_state.get.current().bookmark.edit = true;
+  },
+  close: function() {
+    state_state.get.current().bookmark.edit = false;
+  },
+  toggle: function() {
+    if (state_state.get.current().bookmark.edit) {
+      bookmark_bookmark.mod.edit.close();
+    } else {
+      bookmark_bookmark.mod.edit.open();
+    };
+  }
+};
+
+bookmark_bookmark.mod.item = {};
+
+bookmark_bookmark.mod.item.add = function(bookmarkData) {
+  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
+};
+
+bookmark_bookmark.mod.item.edit = function(bookmarkData) {
+  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
+  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
+};
+
+bookmark_bookmark.mod.item.remove = function(bookmarkData) {
+  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
+};
+
+bookmark_bookmark.mod.item.move = function(bookmarkData) {
+  var bookmarkCopy = JSON.parse(JSON.stringify(bookmark_bookmark.all[bookmarkData.position.origin]));
+  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
+  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkCopy);
+};
+
+bookmark_bookmark.mod.propagate = {};
+
+bookmark_bookmark.mod.propagate.state = {
+  current: {
+    display: false,
+    layout: false,
+    theme: false
+  },
+  reset: function() {
+    for (var key in bookmark_bookmark.mod.propagate.state.current) {
+      bookmark_bookmark.mod.propagate.state.current[key] = false;
+    }
+  },
+  apply: function(bookmarkData) {
+
+    if (bookmark_bookmark.mod.propagate.state.current.display) {
+      bookmark_bookmark.all.forEach((item, i) => {
+        item.display.visual.show = bookmarkData.link.display.visual.show;
+        item.display.name.show = bookmarkData.link.display.name.show;
+      });
+    };
+
+    if (bookmark_bookmark.mod.propagate.state.current.layout) {
+      bookmark_bookmark.all.forEach((item, i) => {
+        item.display.visual.size = bookmarkData.link.display.visual.size;
+        item.display.name.size = bookmarkData.link.display.name.size;
+        item.display.gutter = bookmarkData.link.display.gutter;
+        item.display.rotate = bookmarkData.link.display.rotate;
+        item.display.translate = bookmarkData.link.display.translate;
+        item.display.direction = bookmarkData.link.display.direction;
+        item.display.order = bookmarkData.link.display.order;
+      });
+    };
+
+    if (bookmark_bookmark.mod.propagate.state.current.theme) {
+      bookmark_bookmark.all.forEach((item, i) => {
+        item.accent = bookmarkData.link.accent;
+        item.color = bookmarkData.link.color;
+      });
+    };
+
+    bookmark_bookmark.mod.propagate.state.reset();
+
+  }
+};
+
+bookmark_bookmark.render = {};
+
+bookmark_bookmark.render.clear = function() {
+
+  clearChildNode_clearChildNode(gridList);
+
+};
+
+bookmark_bookmark.render.mask = function() {
+  const html = document.querySelector('html');
+
+  html.appendChild(node_node('div', [
+    '<svg width="0" height="0" viewBox="0 0 120 100" class="bookmark-mask">' +
+    '<g id="Assets" fill="none">' +
+    '<defs>' +
+    '<clipPath id="bookmark-mask" clipPathUnits="objectBoundingBox" transform="scale(0.01, 0.009615384615384616)">' +
+    '<path d="M1.25156 54.6013C0.46058 52.9573 0.460582 51.0427 1.25157 49.3987L23.3648 3.43714C24.3644 1.35955 26.466 0.038475 28.7716 0.038475H71.2284C73.534 0.038475 75.6356 1.35955 76.6352 3.43714L98.7484 49.3987C99.5394 51.0427 99.5394 52.9573 98.7484 54.6013L76.6352 100.563C75.6356 102.64 73.534 103.962 71.2284 103.962H28.7716C26.466 103.962 24.3644 102.64 23.3648 100.563L1.25156 54.6013Z"></path>' +
+    '</clipPath>' +
+    '</defs>' +
+    '</g>' +
+    '</svg>'
+  ]));
+};
+
+bookmark_bookmark.render.tile = {};
+
+bookmark_bookmark.render.tile.edit = {
+  open: function() {
+    if (bookmark_bookmark.render.tile.current.length > 0) {
+      bookmark_bookmark.render.tile.current.forEach((item, i) => {
+        item.control.enable();
+      });
+    };
+  },
+  close: function() {
+    if (bookmark_bookmark.render.tile.current.length > 0) {
+      bookmark_bookmark.render.tile.current.forEach((item, i) => {
+        item.control.disable();
+      });
+    };
+  }
+};
+
+bookmark_bookmark.render.tile.current = [];
+
+bookmark_bookmark.render.item = function() {
+
+  bookmark_bookmark.render.tile.current = [];
+
+  var evenRowFlag = true; // if true the row is even
+
+  var rowCount = 1; // used to asign and calculate the overall row start value
+
+  var columnStart = 1; // starting grid column
+
+  var rowStart = 1; // starting grid row
+
+  bookmark_bookmark.all.forEach(function(item, index) {
+
+    //
+    // column start
+    //
+    // define what column this bookmark will sit on
+    if (index > 0) {
+      columnStart = columnStart + 2;
+    };
+
+    // if end of grid reset column start
+    if (index % (state_state.get.current().grid.column) === 0) {
+      columnStart = 1;
+    };
+
+    //
+    // row start
+    //
+    // define what row this bookmark will sit on
+    if (index > 1 && index % state_state.get.current().grid.column === 0) {
+      rowCount = rowCount + 2;
+    };
+
+    // define the offset of this bookmark on this row
+    // find out if row is even
+    if (index % state_state.get.current().grid.column === 0) {
+      // toggle the flag
+      if (evenRowFlag) {
+        evenRowFlag = false;
+      } else {
+        evenRowFlag = true;
+      };
+    };
+
+    // if column count is odd
+    if (state_state.get.current().grid.column % 2 === 1 && state_state.get.current().grid.column > 1) {
+      if (evenRowFlag) { // if row is even
+        if (index % 2 === 1) { // if index is odd
+          rowStart = rowCount;
+        } else { // if index is even
+          rowStart = rowCount + 1;
+        };
+      } else { // if row is odd
+        // if index is odd
+        if (index % 2 === 0) { // if index is even
+          rowStart = rowCount;
+        } else { // if index is odd
+          rowStart = rowCount + 1;
+        };
+      };
+    };
+
+    // if column count is even
+    if (state_state.get.current().grid.column % 2 === 0 && state_state.get.current().grid.column > 1) {
+      if (index % 2 === 0) { // if index is even
+        rowStart = rowCount;
+      } else { // if index is odd
+        rowStart = rowCount + 1;
+      };
+    };
+
+    // if single column
+    if (state_state.get.current().grid.column === 1) {
+      if (index > 0) {
+        rowStart = rowStart + 2;
+      };
+    };
+
+    const itemIndex = index;
+
+    const currentBookmarkData = new StagedBookmark(item);
+
+    currentBookmarkData.position.origin = index;
+
+    currentBookmarkData.position.destination = index;
+
+    const bookmarkTile = new HexTile({
+      bookmarkData: currentBookmarkData,
+      index: index,
+      row: rowStart,
+      column: columnStart
+    });
+
+    gridList.appendChild(bookmarkTile.tile());
+
+    bookmark_bookmark.render.tile.current.push(bookmarkTile);
+
+  });
+
+};
+
+bookmark_bookmark.render.style = function() {
+  const html = document.querySelector('html');
+  html.style.setProperty('--bookmark-size', state_state.get.current().bookmark.size);
+  html.style.setProperty('--bookmark-hover-distance', state_state.get.current().bookmark.hover.distance);
+  html.style.setProperty('--bookmark-hover-size', state_state.get.current().bookmark.hover.size);
+  html.style.setProperty('--bookmark-shadow-blur', state_state.get.current().bookmark.shadow.blur);
+  html.style.setProperty('--bookmark-shadow-distance', state_state.get.current().bookmark.shadow.distance);
+};
+
+bookmark_bookmark.render.class = function() {
+  const html = document.querySelector('html');
+
+  if (state_state.get.current().bookmark.edit) {
+    html.classList.add('is-bookmark-edit');
+  } else {
+    html.classList.remove('is-bookmark-edit');
+  };
+};
+
+bookmark_bookmark.render.add = function() {
+  const newBookmarkData = new StagedBookmark();
+
+  newBookmarkData.newBookmark();
+
+  const addModal = new Modal({
+    heading: 'Add a new Bookmark',
+    content: bookmarkForm_bookmarkForm.form(newBookmarkData),
+    successText: 'Add',
+    width: 60,
+    maxHeight: true,
+    successAction: () => {
+      bookmark_bookmark.mod.item.add(newBookmarkData);
+      bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
+      bookmark_bookmark.render.clear();
+      bookmark_bookmark.render.item();
+      data.save();
+    },
+    dismissAction: () => {
+      bookmark_bookmark.add.close();
+      data.save();
+    }
+  });
+
+  addModal.open();
 
 };
 
@@ -16418,7 +16813,6 @@ bookmark_bookmark.init = function() {
   bookmark_bookmark.render.class();
   bookmark_bookmark.render.item();
 };
-
 
 
 ;// CONCATENATED MODULE: ./src/component/version/index.js
@@ -16722,11 +17116,11 @@ data.render.reload = function() {
 };
 
 data.render.clear = function() {
-  const clearContent = node('div');
+  const clearContent = node_node('div');
 
-  const para1 = node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
+  const para1 = node_node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
 
-  const para2 = node('p:This can not be undone.');
+  const para2 = node_node('p:This can not be undone.');
 
   clearContent.appendChild(para1);
 
@@ -16748,29 +17142,29 @@ data.render.clear = function() {
 
 data.render.feedback = {
   empty: function(feedback) {
-    feedback.appendChild(node('p:No JSON file selected.|class:muted small'));
+    feedback.appendChild(node_node('p:No JSON file selected.|class:muted small'));
   },
   success: function(feedback, filename, action) {
-    feedback.appendChild(node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
-    feedback.appendChild(node('p:' + filename));
+    feedback.appendChild(node_node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
+    feedback.appendChild(node_node('p:' + filename));
     if (action) {
       data.render.feedback.animation.set(feedback, 'is-pop', action);
     };
   },
   clear: function(feedback) {
 
-    clearChildNode(feedback);
+    clearChildNode_clearChildNode(feedback);
 
   },
   fail: {
     notJson: function(feedback, filename) {
-      feedback.appendChild(node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
-      feedback.appendChild(node('p:' + filename));
+      feedback.appendChild(node_node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
+      feedback.appendChild(node_node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     },
     notAppJson: function(feedback, filename) {
-      feedback.appendChild(node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
-      feedback.appendChild(node('p:' + filename));
+      feedback.appendChild(node_node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
+      feedback.appendChild(node_node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     }
   },
@@ -16849,7 +17243,7 @@ var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, 
 
 const toolbar_toolbar = {};
 
-toolbar_toolbar.bar = node('div|class:toolbar');
+toolbar_toolbar.bar = node_node('div|class:toolbar');
 
 toolbar_toolbar.edit = false;
 
@@ -17034,7 +17428,7 @@ toolbar_toolbar.bar.render = function() {
 
     case 'transparent':
       addOptions.style = ['link'];
-      editOptions.style = ['link'];
+      editOptions.style = ['link', 'line'];
       settingsMenuOptions.style = ['link'];
       accentOptions.inputButtonStyle.push('link');
       break;
@@ -17052,7 +17446,7 @@ toolbar_toolbar.bar.render = function() {
 
   toolbar_toolbar.accent = accent;
 
-  const toolbarControl = node('div|class:toolbar-control');
+  const toolbarControl = node_node('div|class:toolbar-control');
 
   let formGroup;
 
@@ -17090,7 +17484,7 @@ toolbar_toolbar.bar.render = function() {
 
 toolbar_toolbar.bar.clear = function() {
 
-  clearChildNode(toolbar_toolbar.bar);
+  clearChildNode_clearChildNode(toolbar_toolbar.bar);
 
 };
 
@@ -17143,7 +17537,7 @@ logo_logo.svg =
   '</svg>';
 
 logo_logo.render = function() {
-  const element = node('div|class:version-icon');
+  const element = node_node('div|class:version-icon');
   element.innerHTML = logo_logo.svg;
 
   return element;
@@ -17173,7 +17567,7 @@ link_link.render = function({
   func = false
 } = {}) {
 
-  const linkElement = node('a|tabindex:1');
+  const linkElement = node_node('a|tabindex:1');
 
   if (linkButton) {
     linkElement.classList.add('button');
@@ -17198,13 +17592,13 @@ link_link.render = function({
   };
 
   if (image) {
-    const linkImage = node('img|src:' + image + ',class:mr-2');
+    const linkImage = node_node('img|src:' + image + ',class:mr-2');
 
     linkElement.appendChild(linkImage);
   };
 
   if (text) {
-    const linkText = node('span:' + text);
+    const linkText = node_node('span:' + text);
 
     if (linkButton) {
       linkText.classList.add('button-text');
@@ -17290,7 +17684,7 @@ link_link.render = function({
 const menuContentLayout = {};
 
 menuContentLayout.size = function() {
-  const menuContentItem = node('div|id:menu-content-item-size,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-size,class:menu-content-item');
 
   const gridSize = new Control_slider({
     object: state_state.get.current(),
@@ -17324,7 +17718,7 @@ menuContentLayout.size = function() {
 };
 
 menuContentLayout.grid = function() {
-  const menuContentItem = node('div|id:menu-content-item-grid,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-grid,class:menu-content-item');
 
   const gridColumn = new Control_slider({
     object: state_state.get.current(),
@@ -17443,7 +17837,7 @@ menuContentLayout.grid = function() {
       gridGap.wrap(),
       gridPerspective.wrap(),
       gridFocus.wrap(),
-      node('hr'),
+      node_node('hr'),
       gridTransformRotateX.wrap(),
       gridTransformRotateY.wrap(),
       gridTransformRotateZ.wrap()
@@ -17491,7 +17885,7 @@ menuContentLayout.grid = function() {
 const menuContentBookmark = {};
 
 menuContentBookmark.hover = function() {
-  const menuContentItem = node('div|id:menu-content-item-hover,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-hover,class:menu-content-item');
 
   const bookmarkHoverSize = new Control_slider({
     object: state_state.get.current(),
@@ -17536,7 +17930,7 @@ menuContentBookmark.hover = function() {
 };
 
 menuContentBookmark.shadow = function() {
-  const menuContentItem = node('div|id:menu-content-item-shadow,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-shadow,class:menu-content-item');
 
   const bookmarkShadowDistance = new Control_slider({
     object: state_state.get.current(),
@@ -17618,7 +18012,7 @@ menuContentBookmark.shadow = function() {
 const menuContentToolbar = {};
 
 menuContentToolbar.style = function() {
-  const menuContentItem = node('div|id:menu-content-item-style,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-style,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
 
@@ -17653,7 +18047,7 @@ menuContentToolbar.style = function() {
 };
 
 menuContentToolbar.position = function() {
-  const menuContentItem = node('div|id:menu-content-item-position,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-position,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Position'));
 
@@ -17733,7 +18127,7 @@ menuContentTheme.exposeControl = {
 };
 
 menuContentTheme.style = function() {
-  const menuContentItem = node('div|id:menu-content-item-style,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-style,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
 
@@ -17763,7 +18157,7 @@ menuContentTheme.style = function() {
 };
 
 menuContentTheme.color = function() {
-  const menuContentItem = node('div|id:menu-content-item-color,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-color,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Colour'));
 
@@ -17832,7 +18226,7 @@ menuContentTheme.color = function() {
         ]
       }),
       shadesHelper.wrap(),
-      node('hr'),
+      node_node('hr'),
       themeColorRangePrimaryH.wrap(),
       themeColorRangePrimaryS.wrap(),
       themeColorRangeContrast.wrap()
@@ -17858,8 +18252,8 @@ menuContentTheme.shades = function() {
     };
 
     formGroup.appendChild(
-      node('div|class:form-group-text form-group-text-borderless', [
-        node('div|class:theme-color-box theme-color-shade-' + count + '')
+      node_node('div|class:form-group-text form-group-text-borderless', [
+        node_node('div|class:theme-color-box theme-color-shade-' + count + '')
       ])
     );
   };
@@ -17868,7 +18262,7 @@ menuContentTheme.shades = function() {
 };
 
 menuContentTheme.accent = function() {
-  const menuContentItem = node('div|id:menu-content-item-accent,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-accent,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Accent'));
 
@@ -17897,7 +18291,7 @@ menuContentTheme.accent = function() {
 };
 
 menuContentTheme.bookmark = function() {
-  const menuContentItem = node('div|id:menu-content-item-bookmark,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-bookmark,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Bookmark'));
 
@@ -17945,8 +18339,8 @@ menuContentTheme.bookmark = function() {
     }
   });
 
-  const themeBookmarkShadowColorByCustonArea = node('div', [
-    node('hr'),
+  const themeBookmarkShadowColorByCustonArea = node_node('div', [
+    node_node('hr'),
     themeBookmarkShadowColor.wrap(),
   ]);
 
@@ -17975,7 +18369,7 @@ menuContentTheme.bookmark = function() {
         indent_indent({
           children: [
             themeBookmarkShadowColorByCollapse.collapse(),
-            node('hr'),
+            node_node('hr'),
             themeBookmarkShadowOpacity.wrap()
           ]
         })
@@ -17987,7 +18381,7 @@ menuContentTheme.bookmark = function() {
 };
 
 menuContentTheme.background = function() {
-  const menuContentItem = node('div|id:menu-content-item-background,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-background,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Background'));
 
@@ -18197,35 +18591,35 @@ menuContentTheme.background = function() {
     }
   });
 
-  const themeBackgroundColorArea = node('div', [
-    node('hr'),
+  const themeBackgroundColorArea = node_node('div', [
+    node_node('hr'),
     themeBackgroundColorMixer.wrap()
   ]);
 
-  const themeBackgroundGradientArea = node('div', [
-    node('hr'),
+  const themeBackgroundGradientArea = node_node('div', [
+    node_node('hr'),
     themeBackgroundGradientAngle.wrap(),
-    node('hr'),
+    node_node('hr'),
     themeBackgroundGradientStartMixer.wrap(),
-    node('hr'),
+    node_node('hr'),
     themeBackgroundGradientEndMixer.wrap()
   ]);
 
-  const themeBackgroundImageArea = node('div', [
-    node('hr'),
+  const themeBackgroundImageArea = node_node('div', [
+    node_node('hr'),
     themeBackgroundImageUrl.wrap(),
     themeBackgroundImageUrlHelper.wrap(),
-    node('hr'),
+    node_node('hr'),
     themeBackgroundImageBlur.wrap(),
     themeBackgroundImageScale.wrap(),
     themeBackgroundImageOpacity.wrap()
   ]);
 
-  const themeBackgroundVideoArea = node('div', [
-    node('hr'),
+  const themeBackgroundVideoArea = node_node('div', [
+    node_node('hr'),
     themeBackgroundVideoUrl.wrap(),
     themeBackgroundVideoUrlHelper.wrap(),
-    node('hr'),
+    node_node('hr'),
     themeBackgroundVideoBlur.wrap(),
     themeBackgroundVideoScale.wrap(),
     themeBackgroundVideoOpacity.wrap()
@@ -18405,7 +18799,7 @@ menuContentTheme.background = function() {
 const menuContentData = {};
 
 menuContentData.import = function() {
-  const menuContentItem = node('div|id:menu-content-item-import,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-import,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Import'));
 
@@ -18444,7 +18838,7 @@ menuContentData.import = function() {
 };
 
 menuContentData.backup = function() {
-  const menuContentItem = node('div|id:menu-content-item-backup,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-backup,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Backup'));
 
@@ -18471,7 +18865,7 @@ menuContentData.backup = function() {
 };
 
 menuContentData.clear = function() {
-  const menuContentItem = node('div|id:menu-content-item-clear,class:menu-content-item');
+  const menuContentItem = node_node('div|id:menu-content-item-clear,class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Clear'));
 
@@ -18536,7 +18930,7 @@ menuContentData.clear = function() {
 const menuContentCoffee = {};
 
 menuContentCoffee.fuel = function() {
-  const menuContentItem = node('div|class:menu-content-item');
+  const menuContentItem = node_node('div|class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header('Coffee for fuel'));
 
@@ -18546,7 +18940,7 @@ menuContentCoffee.fuel = function() {
         tag: 'p',
         text: data.saveName + ' is free, appreciation is welcome in the form of coffee!'
       }),
-      node('hr'),
+      node_node('hr'),
       wrap_wrap({
         children: [
           link_link.render({
@@ -18604,20 +18998,20 @@ menuContentCoffee.fuel = function() {
 const menuContentApp = {};
 
 menuContentApp.splash = function() {
-  const menuContentItem = node('div|class:menu-content-item');
+  const menuContentItem = node_node('div|class:menu-content-item');
 
   menuContentItem.appendChild(menu_menu.render.component.item.header(data.saveName));
 
   menuContentItem.appendChild(
     menu_menu.render.component.item.form([
-      node('div|class:version', [
+      node_node('div|class:version', [
         logo_logo.render(),
-        node('div|class:version-details', [
-          node('p:Version ' + version_version.number + '|class:version-number mb-0'),
-          node('p:' + version_version.name + '|class:version-name small')
+        node_node('div|class:version-details', [
+          node_node('p:Version ' + version_version.number + '|class:version-number mb-0'),
+          node_node('p:' + version_version.name + '|class:version-name small')
         ])
       ]),
-      node('hr'),
+      node_node('hr'),
       complexNode({
         tag: 'p',
         text: 'Project repository on ',
@@ -18627,7 +19021,7 @@ menuContentApp.splash = function() {
           openNew: true
         })]
       }),
-      node('hr'),
+      node_node('hr'),
       complexNode({
         tag: 'p',
         text: 'For feedback and support, submit an ',
@@ -18699,7 +19093,7 @@ var menu_update = injectStylesIntoStyleTag_default()(menu/* default */.Z, menu_o
 
 
 const MenuNav = function() {
-  this.nav = node('div|class:menu-nav');
+  this.nav = node_node('div|class:menu-nav');
 
   this.navItem = [];
 
@@ -18727,11 +19121,11 @@ const MenuNav = function() {
     navItem.topLevel = navButton.button;
 
     if (item.subNav) {
-      const subNav = node('div|class:menu-subnav');
+      const subNav = node_node('div|class:menu-subnav');
 
       item.subNav.forEach((item, i) => {
 
-        const subNavBarItem = node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-link button-small,tabindex:1');
+        const subNavBarItem = node_node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-link button-small,tabindex:1');
         subNav.appendChild(subNavBarItem);
       });
 
@@ -18776,7 +19170,7 @@ const MenuNav = function() {
 
   this.render = () => {
     this.navItem.forEach((item, i) => {
-      item.menuNavItem = node('div|class:menu-nav-item');
+      item.menuNavItem = node_node('div|class:menu-nav-item');
 
       if (item.active) {
         item.menuNavItem.classList.add('active');
@@ -18797,7 +19191,7 @@ const MenuNav = function() {
 
 let currentMenu = null;
 
-let currentContentArea = node('div|class:menu-content');
+let currentContentArea = node_node('div|class:menu-content');
 
 const menu_menu = {};
 
@@ -18896,9 +19290,9 @@ menu_menu.render.class = () => {
 menu_menu.render.frame = {
   open: function() {
     // menu containers
-    const menuElement = node('section|class:menu');
+    const menuElement = node_node('section|class:menu');
 
-    const menuArea = node('div|class:menu-area');
+    const menuArea = node_node('div|class:menu-area');
 
     menuElement.addEventListener('transitionend', function(event, elapsed) {
       if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
@@ -18956,7 +19350,7 @@ menu_menu.render.frame = {
 
 menu_menu.render.component = {
   close: function() {
-    const menuClose = node('div|class:menu-close');
+    const menuClose = node_node('div|class:menu-close');
 
     const closeButton = new Button({
       text: 'Close settings menu',
@@ -18975,7 +19369,7 @@ menu_menu.render.component = {
   },
   content: function() {
 
-    clearChildNode(currentContentArea);
+    clearChildNode_clearChildNode(currentContentArea);
 
     menu_menu.mod.area.all.forEach((item, i) => {
       if (item.active) {
@@ -18988,18 +19382,18 @@ menu_menu.render.component = {
         if (menu_menu.render.component.section[item.id]) {
           menu_menu.render.component.section[item.id](currentContentArea);
         } else {
-          currentContentArea.appendChild(node('p:' + item.id));
+          currentContentArea.appendChild(node_node('p:' + item.id));
         };
       };
     });
   },
   item: {
     form: function(children) {
-      return node('div|class:menu-item-form', children);
+      return node_node('div|class:menu-item-form', children);
     },
     header: function(name) {
-      const item = node('div|class:menu-item-header');
-      const text = node('h1:' + name + '|class:menu-item-header-text');
+      const item = node_node('div|class:menu-item-header');
+      const text = node_node('h1:' + name + '|class:menu-item-header-text');
       item.appendChild(text);
       return item;
     }
@@ -19245,14 +19639,14 @@ const utility_utility = {
   complexNode: complexNode,
   convertColor: convertColor,
   dateTime: dateTime,
-  get: get,
+  get: get_get,
   isValidString: isValidString,
   isJson: isJson,
   makePath: makePath,
-  node: node,
-  set: set,
-  trimString: trimString,
-  clearChildNode: clearChildNode
+  node: node_node,
+  set: set_set,
+  trimString: trimString_trimString,
+  clearChildNode: clearChildNode_clearChildNode
 };
 
 ;// CONCATENATED MODULE: ./src/index.js
