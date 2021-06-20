@@ -96,6 +96,10 @@ state.minMax = {
       hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
       rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
     },
+    font: {
+      display: { weight: { min: 100, max: 900 } },
+      ui: { weight: { min: 100, max: 900 } }
+    },
     bookmark: {
       shadow: {
         opacity: { min: 0, max: 100 },
@@ -130,6 +134,15 @@ state.minMax = {
   }
 };
 
+state.step = {
+  theme: {
+    font: {
+      display: { weight: 100 },
+      ui: { weight: 100 }
+    }
+  }
+};
+
 state.default.theme.color.lightness.offset = state.minMax.theme.color.lightness.contrast.max - state.default.theme.color.lightness.contrast;
 
 state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
@@ -139,7 +152,8 @@ state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightn
 state.get = {
   current: () => { return state.current },
   default: () => { return JSON.parse(JSON.stringify(state.default)) },
-  minMax: () => { return JSON.parse(JSON.stringify(state.minMax)) }
+  minMax: () => { return JSON.parse(JSON.stringify(state.minMax)) },
+  step: () => { return JSON.parse(JSON.stringify(state.step)) }
 };
 
 state.set = {

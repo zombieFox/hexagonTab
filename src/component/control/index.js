@@ -9,6 +9,7 @@ import { Control_radioGrid } from './radioGrid';
 import { Control_slider } from './slider';
 import { Control_slimSlider } from './slimSlider';
 import { Control_text } from './text';
+import { Control_select } from './select';
 
 export {
   Control_checkbox,
@@ -22,4 +23,5 @@ export {
   Control_slider,
   Control_slimSlider,
   Control_text
+  Control_select
 };

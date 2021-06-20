@@ -55,6 +55,19 @@ update.all = {
     dataToUpdate.state.theme.color.lightness.end = 100 - dataToUpdate.state.theme.color.lightness.offset;
 
     return dataToUpdate;
+  },
+  '3.1.0': function(dataToUpdate) {
+
+    dataToUpdate.state.theme.shade = {
+      opacity: 20
+    };
+
+    dataToUpdate.state.theme.font = {
+      display: { name: '', weight: 400, style: 'normal' },
+      ui: { name: '', weight: 400, style: 'normal' }
+    };
+
+    return dataToUpdate;
   }
 };
 

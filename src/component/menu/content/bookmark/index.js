@@ -26,6 +26,7 @@ import { Control_slimSlider } from '../../../control/slimSlider';
 import { Control_colorMixer } from '../../../control/colorMixer';
 import { Control_color } from '../../../control/color';
 import { Control_text } from '../../../control/text';
+import { Control_textReset } from '../../../control/textReset';
 
 import { node } from '../../../../utility/node';
 import { complexNode } from '../../../../utility/complexNode';

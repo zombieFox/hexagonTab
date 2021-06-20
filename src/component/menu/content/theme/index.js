@@ -26,6 +26,7 @@ import { Control_slimSlider } from '../../../control/slimSlider';
 import { Control_colorMixer } from '../../../control/colorMixer';
 import { Control_color } from '../../../control/color';
 import { Control_text } from '../../../control/text';
+import { Control_textReset } from '../../../control/textReset';
 
 import { node } from '../../../../utility/node';
 import { complexNode } from '../../../../utility/complexNode';
@@ -194,6 +195,263 @@ menuContentTheme.accent = function() {
   menuContentItem.appendChild(
     menu.render.component.item.form([
       themeAccentMixer.wrap()
+    ])
+  );
+
+  return menuContentItem;
+};
+
+menuContentTheme.font = function() {
+
+  const fontWeight = { light: 300, regular: 400, bold: 700 };
+
+  const menuContentItem = node('div|id:menu-content-item-font,class:menu-content-item');
+
+  const themeFontDisplayName = new Control_textReset({
+    object: state.get.current(),
+    path: 'theme.font.display.name',
+    id: 'theme-font-display-name',
+    value: state.get.current().theme.font.display.name,
+    defaultValue: state.get.default().theme.font.display.name,
+    placeholder: 'Google font name',
+    labelText: 'Display font',
+    action: () => {
+      theme.render.font.delay.display();
+      data.save();
+    }
+  });
+
+  const themeFontDisplayNameHelper = new Control_helperText({
+    text: [
+      'Use a <a href="https://fonts.google.com/" target="_blank">Google Font</a> to customise the Clock, Date, Group names and Bookmark Letters.',
+      'Add a font name as it appears on Google Fonts, including capital letters and spaces, eg: enter "Fredoka One" or "Kanit"',
+      'Clear the field to use the default font "Fjalla One".'
+    ]
+  });
+
+  const themeFontDisplayWeight = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.font.display.weight',
+    id: 'theme-font-display-weight',
+    labelText: 'Font weight',
+    value: state.get.current().theme.font.display.weight,
+    defaultValue: state.get.default().theme.font.display.weight,
+    step: state.get.step().theme.font.display.weight,
+    min: state.get.minMax().theme.font.display.weight.min,
+    max: state.get.minMax().theme.font.display.weight.max,
+    action: () => {
+      theme.render.font.display.weight();
+      data.save();
+    }
+  });
+
+  const themeFontDisplayWeightLight = new Button({
+    text: 'Light',
+    style: ['line'],
+    func: () => {
+      state.get.current().theme.font.display.weight = fontWeight.light;
+      theme.render.font.display.weight();
+      themeFontDisplayWeight.update();
+      data.save();
+    }
+  });
+
+  const themeFontDisplayWeightRegular = new Button({
+    text: 'Regular',
+    style: ['line'],
+    func: () => {
+      state.get.current().theme.font.display.weight = fontWeight.regular;
+      theme.render.font.display.weight();
+      themeFontDisplayWeight.update();
+      data.save();
+    }
+  });
+
+  const themeFontDisplayWeightBold = new Button({
+    text: 'Bold',
+    style: ['line'],
+    func: () => {
+      state.get.current().theme.font.display.weight = fontWeight.bold;
+      theme.render.font.display.weight();
+      themeFontDisplayWeight.update();
+      data.save();
+    }
+  });
+
+  const themeFontDisplayWeighHelper = new Control_helperText({
+    text: ['Not all fonts support all weights. Refer to the Google Font page to see which are available.']
+  });
+
+  const themeFontDisplayStyle = new Control_radio({
+    object: state.get.current(),
+    radioGroup: [
+      { id: 'theme-font-display-style-normal', labelText: 'Normal', value: 'normal' },
+      { id: 'theme-font-display-style-italic', labelText: 'Italic', value: 'italic' }
+    ],
+    groupName: 'theme-font-display-style',
+    path: 'theme.font.display.style',
+    inputButton: true,
+    inputHide: true,
+    inputButtonStyle: ['line'],
+    action: () => {
+      theme.render.font.display.style();
+      data.save();
+    }
+  });
+
+  const themeFontUiName = new Control_textReset({
+    object: state.get.current(),
+    path: 'theme.font.ui.name',
+    id: 'theme-font-ui-name',
+    value: state.get.current().theme.font.ui.name,
+    defaultValue: state.get.default().theme.font.ui.name,
+    placeholder: 'Google font name',
+    labelText: 'User interface font',
+    action: () => {
+      theme.render.font.delay.ui();
+      data.save();
+    }
+  });
+
+  const themeFontUiNameHelper = new Control_helperText({
+    text: [
+      'Use a <a href="https://fonts.google.com/" target="_blank">Google Font</a> to customise the Bookmark name, URL and form elements.',
+      'Add a font name as it appears on Google Fonts, including capital letters and spaces, eg: enter "Roboto", "Source Sans Pro" or "Noto Sans"',
+      'Clear the field to use the default font "Open Sans".'
+    ]
+  });
+
+  const themeFontUiWeight = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.font.ui.weight',
+    id: 'theme-font-ui-weight',
+    labelText: 'Font weight',
+    value: state.get.current().theme.font.ui.weight,
+    defaultValue: state.get.default().theme.font.ui.weight,
+    step: state.get.step().theme.font.ui.weight,
+    min: state.get.minMax().theme.font.ui.weight.min,
+    max: state.get.minMax().theme.font.ui.weight.max,
+    action: () => {
+      theme.render.font.ui.weight();
+      data.save();
+    }
+  });
+
+  const themeFontUiWeightLight = new Button({
+    text: 'Light',
+    style: ['line'],
+    func: () => {
+      state.get.current().theme.font.ui.weight = fontWeight.light;
+      theme.render.font.ui.weight();
+      themeFontUiWeight.update();
+      data.save();
+    }
+  });
+
+  const themeFontUiWeightRegular = new Button({
+    text: 'Regular',
+    style: ['line'],
+    func: () => {
+      state.get.current().theme.font.ui.weight = fontWeight.regular;
+      theme.render.font.ui.weight();
+      themeFontUiWeight.update();
+      data.save();
+    }
+  });
+
+  const themeFontUiWeightBold = new Button({
+    text: 'Bold',
+    style: ['line'],
+    func: () => {
+      state.get.current().theme.font.ui.weight = fontWeight.bold;
+      theme.render.font.ui.weight();
+      themeFontUiWeight.update();
+      data.save();
+    }
+  });
+
+  const themeFontUiWeighHelper = new Control_helperText({
+    text: ['Not all fonts support all weights. Refer to the Google Font page to see which are available.']
+  });
+
+  const themeFontUiStyle = new Control_radio({
+    object: state.get.current(),
+    radioGroup: [
+      { id: 'theme-font-ui-style-normal', labelText: 'Normal', value: 'normal' },
+      { id: 'theme-font-ui-style-italic', labelText: 'Italic', value: 'italic' }
+    ],
+    groupName: 'theme-font-ui-style',
+    path: 'theme.font.ui.style',
+    inputButton: true,
+    inputHide: true,
+    inputButtonStyle: ['line'],
+    action: () => {
+      theme.render.font.ui.style();
+      data.save();
+    }
+  });
+
+  menuContentItem.appendChild(menu.render.component.item.header('Font'));
+
+  menuContentItem.appendChild(
+    menu.render.component.item.form([
+      themeFontDisplayName.wrap(),
+      themeFontDisplayNameHelper.wrap(),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              themeFontDisplayWeight.wrap(),
+              form.wrap({
+                children: [
+                  form.group({
+                    children: [
+                      themeFontDisplayWeightLight.button,
+                      themeFontDisplayWeightRegular.button,
+                      themeFontDisplayWeightBold.button
+                    ]
+                  })
+                ]
+              }),
+              form.wrap({
+                children: [
+                  themeFontDisplayStyle.inputButton()
+                ]
+              }),
+              themeFontDisplayWeighHelper.wrap()
+            ]
+          })
+        ]
+      }),
+      node('hr'),
+      themeFontUiName.wrap(),
+      themeFontUiNameHelper.wrap(),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              themeFontUiWeight.wrap(),
+              form.wrap({
+                children: [
+                  form.group({
+                    children: [
+                      themeFontUiWeightLight.button,
+                      themeFontUiWeightRegular.button,
+                      themeFontUiWeightBold.button
+                    ]
+                  })
+                ]
+              }),
+              form.wrap({
+                children: [
+                  themeFontUiStyle.inputButton()
+                ]
+              }),
+              themeFontUiWeighHelper.wrap()
+            ]
+          })
+        ]
+      }),
     ])
   );
 

@@ -1,6 +1,6 @@
 export const version = {};
 
-version.number = '3.0.0';
+version.number = '3.1.0';
 
 version.name = 'Quirky Llama';
 
