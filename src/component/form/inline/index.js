@@ -2,7 +2,14 @@ import { node } from '../../../utility/node';
 
 import './index.css';
 
-export const inline = function({ direction = 'horizontal', reverse = false, block = false, wrap = false, gap = 'medium', children = false } = {}) {
+export const inline = function({
+  direction = 'horizontal',
+  reverse = false,
+  block = false,
+  wrap = false,
+  gap = 'medium',
+  children = false
+} = {}) {
 
   const inline = node('div|class:form-inline', children);
 

@@ -6,7 +6,18 @@ import { node } from '../../utility/node';
 
 import './index.css';
 
-export const Button = function({ text = 'Button', srOnly = false, iconName = false, block = false, size = false, style = [], title = false, classList = [], func = false } = {}) {
+export const Button = function({
+  text = 'Button',
+  srOnly = false,
+  iconName = false,
+  block = false,
+  size = false,
+  style = [],
+  title = false,
+  classList = [],
+  func = false
+} = {}) {
+  
   this.button = node('button|class:button,tabindex:1,type:button');
 
   if (text) {

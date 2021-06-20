@@ -17,7 +17,16 @@ import { isValidString } from '../../../utility/isValidString';
 import { Control_color } from '../color';
 import { Control_slimSlider } from '../slimSlider';
 
-export const Control_colorMixer = function({ object = {}, path = false, defaultValue = false, minMaxObject = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
+export const Control_colorMixer = function({
+  object = {},
+  path = false,
+  defaultValue = false,
+  minMaxObject = false,
+  id = 'name',
+  labelText = 'name',
+  srOnly = false,
+  action = false
+} = {}) {
 
   this.moreControlsToggle = new Button({
     text: false,

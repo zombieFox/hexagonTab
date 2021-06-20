@@ -3,7 +3,9 @@ import { complexNode } from '../../../utility/complexNode';
 
 import './index.css';
 
-export const feedback = function({ text = false } = {}) {
+export const feedback = function({
+  text = false
+} = {}) {
 
   const feedback = node('div|class:form-feedback');
 

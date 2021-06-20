@@ -2,7 +2,15 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const range = function({ id = false, min = 0, max = 100, step = 1, value = 0, classList = [], func = false } = {}) {
+export const range = function({
+  id = false,
+  min = 0,
+  max = 100,
+  step = 1,
+  value = 0,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
 

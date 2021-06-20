@@ -1,4 +1,8 @@
-export const minMax = function({ min = 0, max = 0, value = 0 } = {}) {
+export const minMax = function({
+  min = 0,
+  max = 0,
+  value = 0
+} = {}) {
 
   if (value > max) {
 

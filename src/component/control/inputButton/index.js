@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -14,7 +13,19 @@ import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
-export const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButtonStyle = [], action = false } = {}) {
+export const Control_inputButton = function({
+  object = {},
+  path = false,
+  id = 'name',
+  classList = [],
+  inputButtonClassList = [],
+  type = false,
+  inputHide = false,
+  labelText = 'Name',
+  srOnly = false,
+  inputButtonStyle = [],
+  action = false
+} = {}) {
 
   this.input;
 
@@ -54,6 +65,7 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
       });
 
       break;
+
   };
 
   this.label = form.label({
@@ -61,7 +73,11 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
     forInput: id
   });
 
-  this.button = node('div|class:form-input-button');
+  this.button = form.input.inputButton({
+    style: inputButtonStyle,
+    inputHide: inputHide,
+    srOnly: srOnly
+  });
 
   if (inputButtonClassList.length > 0) {
 
@@ -69,36 +85,6 @@ export const Control_inputButton = function({ object = {}, path = false, id = 'n
       this.button.classList.add(item);
     });
 
-  };
-
-  if (inputButtonStyle.length > 0) {
-    inputButtonStyle.forEach((item, i) => {
-      switch (item) {
-        case 'link':
-          this.button.classList.add('form-input-button-link');
-          break;
-
-        case 'line':
-          this.button.classList.add('form-input-button-line');
-          break;
-
-        case 'ring':
-          this.button.classList.add('form-input-button-ring');
-          break;
-
-        case 'dot':
-          this.button.classList.add('input-color-dot');
-          break;
-      };
-    });
-  };
-
-  if (inputHide) {
-    this.button.classList.add('form-input-hide');
-  };
-
-  if (srOnly) {
-    this.button.classList.add('form-input-button-sr-only');
   };
 
   this.button.appendChild(this.input);

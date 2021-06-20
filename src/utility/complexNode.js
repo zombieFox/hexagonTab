@@ -1,4 +1,10 @@
-export const complexNode = function({ tag = 'div', text = false, attr = [], node = [] } = {}) {
+export const complexNode = function({
+  tag = 'div',
+  text = false,
+  attr = [],
+  node = []
+} = {}) {
+
   const element = document.createElement(tag);
 
   if (text) {
@@ -38,4 +44,5 @@ export const complexNode = function({ tag = 'div', text = false, attr = [], node
   };
 
   return element;
+
 };

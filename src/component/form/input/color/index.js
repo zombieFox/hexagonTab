@@ -2,7 +2,12 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const color = function({ id = false, value = '#000000', classList = [], func = false } = {}) {
+export const color = function({
+  id = false,
+  value = '#000000',
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:color,value:' + value + ',tabindex:1');
 

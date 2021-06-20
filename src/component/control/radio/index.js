@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -14,7 +13,16 @@ import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
-export const Control_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
+export const Control_radio = function({
+  radioGroup = [],
+  object = {},
+  groupName = 'group',
+  path = false,
+  action = false,
+  inputButton = false,
+  inputHide = false,
+  inputButtonStyle = false
+} = {}) {
 
   this.radioSet = [];
 
@@ -52,6 +60,17 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
         }),
         wrap: () => {
           return form.wrap({
+            children: [
+              radioAndLabel.radio,
+              radioAndLabel.label
+            ]
+          });
+        },
+        inputButton: () => {
+          return form.input.inputButton({
+            inputButton: inputButton,
+            inputHide: inputHide,
+            style: inputButtonStyle,
             children: [
               radioAndLabel.radio,
               radioAndLabel.label
@@ -98,20 +117,31 @@ export const Control_radio = function({ radioGroup = [], object = {}, groupName 
   };
 
   this.wrap = () => {
-    const group = form.wrap();
+    const wrap = form.wrap();
+
+    this.radioSet.forEach((item, i) => {
+      wrap.appendChild(
+        item.wrap()
+      );
+    });
+
+    return wrap;
+  };
+
+  this.inputButton = ({
+    inputHide = false
+  } = {}) => {
+
+    const group = form.group();
 
     this.radioSet.forEach((item, i) => {
       group.appendChild(
-        form.wrap({
-          children: [
-            item.radio,
-            item.label
-          ]
-        })
+        item.inputButton()
       );
     });
 
     return group;
+
   };
 
   this.inline = () => {

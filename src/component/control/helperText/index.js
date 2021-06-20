@@ -14,7 +14,9 @@ import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
-export const Control_helperText = function({ text = [] } = {}) {
+export const Control_helperText = function({
+  text = []
+} = {}) {
 
   this.para = [];
 

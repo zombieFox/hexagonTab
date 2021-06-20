@@ -2,7 +2,13 @@ import { node } from '../../../utility/node';
 
 import './index.css';
 
-export const group = function({ direction = 'horizontal', reverse = false, block = false, border = false, children = false } = {}) {
+export const group = function({
+  direction = 'horizontal',
+  reverse = false,
+  block = false,
+  border = false,
+  children = false
+} = {}) {
 
   const group = node('div|class:form-group', children);
 

@@ -2,7 +2,14 @@ import { node } from '../../../utility/node';
 
 import './index.css';
 
-export const label = function({ forInput = false, text = 'label', description = false, srOnly = false, icon = false, classList = [] } = {}) {
+export const label = function({
+  forInput = false,
+  text = 'label',
+  description = false,
+  srOnly = false,
+  icon = false,
+  classList = []
+} = {}) {
 
   let label;
 

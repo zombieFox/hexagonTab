@@ -3,7 +3,10 @@ import { complexNode } from '../../../utility/complexNode';
 
 import './index.css';
 
-export const helper = function({ text = 'text', classList = [] } = {}) {
+export const helper = function({
+  text = 'text',
+  classList = []
+} = {}) {
 
   const helper = complexNode({
     tag: 'p',

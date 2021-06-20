@@ -8,7 +8,13 @@ import { toolbar } from '../toolbar';
 
 import { menuContentTheme } from '../menu/content/theme';
 
-const KeyPress = function({ keycode = false, ctrl = false, alt = false, action = false } = {}) {
+const KeyPress = function({
+  keycode = false,
+  ctrl = false,
+  alt = false,
+  action = false
+} = {}) {
+
   this.bind = () => {
     if (keycode) {
 
@@ -23,6 +29,7 @@ const KeyPress = function({ keycode = false, ctrl = false, alt = false, action =
 
     };
   };
+
 };
 
 const keyboard = {};

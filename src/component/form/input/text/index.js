@@ -2,7 +2,15 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const text = function({ id = false, value = false, min = false, max = false, placeholder = false, classList = [], func = false } = {}) {
+export const text = function({
+  id = false,
+  value = false,
+  min = false,
+  max = false,
+  placeholder = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
 

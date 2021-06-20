@@ -2,7 +2,16 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const number = function({ id = false, min = 0, max = 100, step = 1, value = false, placeholder = false, classList = [], func = false } = {}) {
+export const number = function({
+  id = false,
+  min = 0,
+  max = 100,
+  step = 1,
+  value = false,
+  placeholder = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:number,min:' + min + ',max:' + max + ',step:' + step + ',tabindex:1');
 

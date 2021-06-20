@@ -6,7 +6,12 @@ import { node } from '../../utility/node';
 
 import './index.css';
 
-const Collapse = function({ type = false, radioGroup = false, checkbox = false, target = false } = {}) {
+const Collapse = function({
+  type = false,
+  radioGroup = false,
+  checkbox = false,
+  target = false
+} = {}) {
 
   target.forEach((item, i) => {
     item.state = {

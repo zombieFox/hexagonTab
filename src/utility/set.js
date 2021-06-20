@@ -1,6 +1,11 @@
 import { makePath } from './makePath.js';
 
-export const set = function({ path = null, object = null, value = null } = {}) {
+export const set = function({
+  path = null,
+  object = null,
+  value = null
+} = {}) {
+
   const address = makePath(path);
 
   const setValue = function() {
@@ -28,4 +33,5 @@ export const set = function({ path = null, object = null, value = null } = {}) {
   } else {
     return false;
   };
+
 };

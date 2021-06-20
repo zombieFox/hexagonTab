@@ -2,7 +2,13 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const checkbox = function({ id = false, value = false, checked = false, classList = [], func = false } = {}) {
+export const checkbox = function({
+  id = false,
+  value = false,
+  checked = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:checkbox,tabindex:1');
 

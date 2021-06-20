@@ -13,7 +13,13 @@ import { complexNode } from '../../utility/complexNode';
 import { isValidString } from '../../utility/isValidString';
 import { trimString } from '../../utility/trimString';
 
-const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, preview = false } = {}) {
+const HexTile = function({
+  bookmarkData = {},
+  index = 0,
+  row = 0,
+  column = 0,
+  preview = false
+} = {}) {
 
   this.element = {
     bookmark: node('div|class:bookmark'),

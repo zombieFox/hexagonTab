@@ -2,7 +2,14 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const radio = function({ id = false, radioGroup = false, value = false, checked = false, classList = [], func = false } = {}) {
+export const radio = function({
+  id = false,
+  radioGroup = false,
+  value = false,
+  checked = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:radio,tabindex:1');
 

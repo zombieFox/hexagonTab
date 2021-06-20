@@ -2,7 +2,13 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const textarea = function({ id = false, value = false, placeholder = false, classList = [], func = false } = {}) {
+export const textarea = function({
+  id = false,
+  value = false,
+  placeholder = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const textarea = node('textarea|tabindex:1,spellcheck:false');
 

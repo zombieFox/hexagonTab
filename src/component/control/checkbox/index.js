@@ -14,7 +14,14 @@ import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
-export const Control_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
+export const Control_checkbox = function({
+  object = {},
+  id = 'name',
+  path = false,
+  labelText = 'name',
+  description = false,
+  action = false
+} = {}) {
 
   this.checkbox = form.input.checkbox({
     id: id,

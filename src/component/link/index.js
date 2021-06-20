@@ -5,7 +5,20 @@ import { node } from '../../utility/node';
 
 const link = {};
 
-link.render = function({ text = 'Link', href = '#', iconName = false, iconPosition = 'right', image = false, linkButton = false, style = [], title = false, openNew = false, classList = [], func = false } = {}) {
+link.render = function({
+  text = 'Link',
+  href = '#',
+  iconName = false,
+  iconPosition = 'right',
+  image = false,
+  linkButton = false,
+  style = [],
+  title = false,
+  openNew = false,
+  classList = [],
+  func = false
+} = {}) {
+
   const linkElement = node('a|tabindex:1');
 
   if (linkButton) {
@@ -82,6 +95,7 @@ link.render = function({ text = 'Link', href = '#', iconName = false, iconPositi
   };
 
   return linkElement;
+
 };
 
 export { link };

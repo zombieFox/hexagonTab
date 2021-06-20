@@ -7,7 +7,10 @@ import { complexNode } from '../../utility/complexNode';
 
 import './index.css';
 
-const Tab = function({ group = [] } = {}) {
+const Tab = function({
+  group = []
+} = {}) {
+
   this.tabElement = node('div|class:tab');
 
   this.tabNav = node('div|class:tab-nav form-group form-group-horizontal form-group-block');
@@ -62,6 +65,7 @@ const Tab = function({ group = [] } = {}) {
   this.tab = () => {
     return this.tabElement;
   };
+
 };
 
 export { Tab };
