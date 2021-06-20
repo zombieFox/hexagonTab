@@ -17196,6 +17196,119 @@ data.init = function() {
 
 
 
+;// CONCATENATED MODULE: ./src/component/menuNav/index.js
+
+
+
+
+
+
+const MenuNav = function({
+  navData = {},
+  contentArea = false
+} = {}) {
+
+  this.element = {
+    menuNav: node_node('div|class:menu-nav')
+  };
+
+  this.navItem = [];
+
+  navData.forEach((item, i) => {
+
+    const navItem = {
+      active: item.active,
+      topLevel: false,
+      subLevel: false
+    };
+
+    const navButton = new Button({
+      text: item.name,
+      style: ['link'],
+      block: true,
+      classList: ['menu-nav-tab'],
+      func: () => {
+        menu_menu.mod.area.toggle(item.name);
+        menu_menu.render.component.content();
+        contentArea.scrollTop = 0;
+        this.update();
+      }
+    });
+
+    navItem.topLevel = navButton.button;
+
+    if (item.sub) {
+      const sub = node_node('div|class:menu-subnav');
+
+      item.sub.forEach((item, i) => {
+
+        const subBarItem = node_node('a:' + item + '|href:#menu-content-item-' + item.replace(/\s+/g, '-').toLowerCase() + ',class:menu-nav-sub button button-link button-small,tabindex:1');
+        sub.appendChild(subBarItem);
+      });
+
+      navItem.subLevel = sub;
+    };
+
+    this.navItem.push(navItem);
+
+  });
+
+  this.init = () => {
+    this.navItem.forEach((item, i) => {
+      if (item.subLevel) {
+        item.subLevel.classList.add('active');
+        item.subLevel.setAttribute('style', '--menu-subnav-height: ' + item.subLevel.getBoundingClientRect().height + 'px;');
+        item.subLevel.classList.remove('active');
+      };
+    });
+  };
+
+  this.update = () => {
+    navData.forEach((item, i) => {
+
+      this.navItem[i].menuNavItem.classList.remove('active');
+      this.navItem[i].topLevel.classList.remove('active');
+
+      if (item.sub) {
+        this.navItem[i].subLevel.classList.remove('active');
+      };
+
+      if (item.active) {
+        this.navItem[i].menuNavItem.classList.add('active');
+        this.navItem[i].topLevel.classList.add('active');
+
+        if (item.sub) {
+          this.navItem[i].subLevel.classList.add('active');
+        };
+      };
+
+    });
+  };
+
+  this.render = () => {
+    this.navItem.forEach((item, i) => {
+      item.menuNavItem = node_node('div|class:menu-nav-item');
+
+      if (item.active) {
+        item.menuNavItem.classList.add('active');
+      };
+
+      item.menuNavItem.appendChild(item.topLevel);
+
+      if (item.subLevel) {
+        item.menuNavItem.appendChild(item.subLevel);
+      };
+
+      this.element.menuNav.appendChild(item.menuNavItem);
+    });
+
+    return this.element.menuNav;
+  };
+
+};
+
+
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbar/index.css
 var toolbar = __webpack_require__(4879);
 ;// CONCATENATED MODULE: ./src/component/toolbar/index.css
@@ -19092,108 +19205,23 @@ var menu_update = injectStylesIntoStyleTag_default()(menu/* default */.Z, menu_o
 
 
 
-const MenuNav = function() {
-  this.nav = node_node('div|class:menu-nav');
 
-  this.navItem = [];
-
-  menu_menu.mod.area.all.forEach((item, i) => {
-
-    const navItem = {
-      active: item.active,
-      topLevel: false,
-      subLevel: false
-    };
-
-    const navButton = new Button({
-      text: item.name,
-      style: ['link'],
-      block: true,
-      classList: ['menu-nav-tab'],
-      func: () => {
-        menu_menu.mod.area.toggle(item.name);
-        menu_menu.render.component.content();
-        currentContentArea.scrollTop = 0;
-        this.update();
-      }
-    });
-
-    navItem.topLevel = navButton.button;
-
-    if (item.subNav) {
-      const subNav = node_node('div|class:menu-subnav');
-
-      item.subNav.forEach((item, i) => {
-
-        const subNavBarItem = node_node('a:' + item.name + '|href:#menu-content-item-' + item.id + ',class:menu-nav-sub button button-link button-small,tabindex:1');
-        subNav.appendChild(subNavBarItem);
-      });
-
-      navItem.subLevel = subNav;
-    };
-
-    this.navItem.push(navItem);
-
-  });
-
-  this.init = () => {
-    this.navItem.forEach((item, i) => {
-      if (item.subLevel) {
-        item.subLevel.classList.add('active');
-        item.subLevel.setAttribute('style', '--menu-subnav-height: ' + item.subLevel.getBoundingClientRect().height + 'px;');
-        item.subLevel.classList.remove('active');
-      };
-    });
-  };
-
-  this.update = () => {
-    menu_menu.mod.area.all.forEach((item, i) => {
-
-      this.navItem[i].menuNavItem.classList.remove('active');
-      this.navItem[i].topLevel.classList.remove('active');
-
-      if (item.subNav) {
-        this.navItem[i].subLevel.classList.remove('active');
-      };
-
-      if (item.active) {
-        this.navItem[i].menuNavItem.classList.add('active');
-        this.navItem[i].topLevel.classList.add('active');
-
-        if (item.subNav) {
-          this.navItem[i].subLevel.classList.add('active');
-        };
-      };
-
-    });
-  };
-
-  this.render = () => {
-    this.navItem.forEach((item, i) => {
-      item.menuNavItem = node_node('div|class:menu-nav-item');
-
-      if (item.active) {
-        item.menuNavItem.classList.add('active');
-      };
-
-      item.menuNavItem.appendChild(item.topLevel);
-
-      if (item.subLevel) {
-        item.menuNavItem.appendChild(item.subLevel);
-      };
-
-      this.nav.appendChild(item.menuNavItem);
-    });
-
-    return this.nav;
-  };
-};
 
 let currentMenu = null;
 
 let currentContentArea = node_node('div|class:menu-content');
 
 const menu_menu = {};
+
+menu_menu.navData = [
+  { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Hex Grid'] },
+  { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
+  { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
+  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Background'] },
+  { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
+  { name: 'Coffee', active: false, overscroll: false },
+  { name: 'App', active: false, overscroll: false }
+];
 
 menu_menu.mod = {};
 
@@ -19206,49 +19234,8 @@ menu_menu.mod.close = function() {
 };
 
 menu_menu.mod.area = {
-  all: [{
-    id: 'layout',
-    name: 'Layout',
-    active: true,
-    overscroll: true,
-    subNav: [{ id: 'size', name: 'Scaling' }, { id: 'grid', name: 'Hex grid' }]
-  }, {
-    id: 'bookmark',
-    name: 'Bookmarks',
-    active: false,
-    overscroll: true,
-    subNav: [{ id: 'hover', name: 'Hover' }, { id: 'shadow', name: 'Shadow' }]
-  }, {
-    id: 'toolbar',
-    name: 'Toolbar',
-    active: false,
-    overscroll: true,
-    subNav: [{ id: 'style', name: 'Style' }, { id: 'position', name: 'Position' }]
-  }, {
-    id: 'theme',
-    name: 'Theme',
-    active: false,
-    overscroll: true,
-    subNav: [{ id: 'style', name: 'Style' }, { id: 'color', name: 'Color' }, { id: 'accent', name: 'Accent' }, { id: 'bookmark', name: 'Bookmarks' }, { id: 'background', name: 'Background' }]
-  }, {
-    id: 'data',
-    name: 'Data',
-    active: false,
-    overscroll: true,
-    subNav: [{ id: 'import', name: 'Import' }, { id: 'backup', name: 'Backup' }, { id: 'clear', name: 'Clear' }]
-  }, {
-    id: 'coffee',
-    name: 'Coffee',
-    active: false,
-    overscroll: false
-  }, {
-    id: 'app',
-    name: data.saveName,
-    active: false,
-    overscroll: false
-  }],
   toggle: function(name) {
-    menu_menu.mod.area.all.forEach((item, i) => {
+    menu_menu.navData.forEach((item, i) => {
       item.active = false;
       if (item.name == name) {
         item.active = true;
@@ -19260,32 +19247,49 @@ menu_menu.mod.area = {
 menu_menu.bind = {};
 
 menu_menu.bind.close = {
-  check: function(event) {
-    const path = event.path || (event.composedPath && event.composedPath());
-
-    if (!path.includes(currentMenu)) {
-      menu_menu.close();
-    };
-  },
   add: function() {
-    window.addEventListener('mouseup', menu_menu.bind.close.check);
+
+    window.addEventListener('drag', menu_menu.clickOut);
+
+    window.addEventListener('mouseup', menu_menu.clickOut);
+
+    window.addEventListener('keydown', menu_menu.esc);
+
   },
   remove: function() {
-    window.removeEventListener('mouseup', menu_menu.bind.close.check);
+
+    window.removeEventListener('drag', menu_menu.clickOut);
+
+    window.removeEventListener('mouseup', menu_menu.clickOut);
+
+    window.removeEventListener('keydown', menu_menu.esc);
+
   }
 };
 
-menu_menu.render = {};
+menu_menu.clickOut = (event) => {
 
-menu_menu.render.class = () => {
-  const html = document.querySelector('html');
+  const path = event.path || (event.composedPath && event.composedPath());
 
-  if (state_state.get.current().menu) {
-    html.classList.add('is-menu-open');
-  } else {
-    html.classList.remove('is-menu-open');
+  if (!path.includes(currentMenu)) {
+    menu_menu.close();
   };
+
 };
+
+menu_menu.esc = (event) => {
+
+  if ((event.keyCode == 27)) {
+
+    event.preventDefault();
+
+    menu_menu.close();
+
+  };
+
+};
+
+menu_menu.render = {};
 
 menu_menu.render.frame = {
   open: function() {
@@ -19304,7 +19308,10 @@ menu_menu.render.frame = {
     // menu components
     const menuClose = menu_menu.render.component.close();
 
-    let menuNav = new MenuNav();
+    let menuNav = new MenuNav({
+      navData: menu_menu.navData,
+      contentArea: currentContentArea
+    });
 
     menuArea.appendChild(menuNav.render());
     menuArea.appendChild(menuClose);
@@ -19371,7 +19378,8 @@ menu_menu.render.component = {
 
     clearChildNode_clearChildNode(currentContentArea);
 
-    menu_menu.mod.area.all.forEach((item, i) => {
+    menu_menu.navData.forEach((item, i) => {
+
       if (item.active) {
         if (item.overscroll) {
           currentContentArea.classList.add('menu-content-overscroll');
@@ -19379,23 +19387,24 @@ menu_menu.render.component = {
           currentContentArea.classList.remove('menu-content-overscroll');
         };
 
-        if (menu_menu.render.component.section[item.id]) {
-          menu_menu.render.component.section[item.id](currentContentArea);
+        if (menu_menu.render.component.section[item.name.replace(/\s+/g, '-').toLowerCase()]) {
+          menu_menu.render.component.section[item.name.replace(/\s+/g, '-').toLowerCase()](currentContentArea);
         } else {
-          currentContentArea.appendChild(node_node('p:' + item.id));
+          currentContentArea.appendChild(node_node('p:' + item.name.replace(/\s+/g, '-').toLowerCase()));
         };
       };
+
     });
+
   },
   item: {
     form: function(children) {
       return node_node('div|class:menu-item-form', children);
     },
     header: function(name) {
-      const item = node_node('div|class:menu-item-header');
-      const text = node_node('h1:' + name + '|class:menu-item-header-text');
-      item.appendChild(text);
-      return item;
+      return node_node('div|class:menu-item-header', [
+        node_node('h1:' + name + '|class:menu-item-header-text')
+      ]);
     }
   },
   section: {
@@ -19432,18 +19441,23 @@ menu_menu.render.component = {
   }
 };
 
+menu_menu.shade = false;
+
 menu_menu.open = function() {
+  menu_menu.shade = new Shade();
+  menu_menu.shade.open();
   menu_menu.mod.open();
   menu_menu.render.frame.open();
-  menu_menu.render.class();
   menu_menu.bind.close.add();
   pageLock.render();
 };
 
 menu_menu.close = function() {
+  if (menu_menu.shade) {
+    menu_menu.shade.close();
+  };
   menu_menu.mod.close();
   menu_menu.render.frame.close();
-  menu_menu.render.class();
   menu_menu.bind.close.remove();
   pageLock.render();
 };
@@ -19459,7 +19473,6 @@ menu_menu.toggle = function() {
 menu_menu.init = function() {
   menu_menu.close();
 };
-
 
 
 ;// CONCATENATED MODULE: ./src/component/keyboard/index.js
