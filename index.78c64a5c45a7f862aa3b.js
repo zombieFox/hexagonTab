@@ -2730,7 +2730,9 @@ const isValidString = function(value) {
 
 
 
-const Video = function({ url = false } = {}) {
+const Video = function({
+  url = false
+} = {}) {
 
   this.video = node('video|autoplay,loop,muted');
 
@@ -2773,6 +2775,7 @@ const Video = function({ url = false } = {}) {
       });
     };
   };
+
 };
 
 
@@ -3086,7 +3089,13 @@ theme_theme.init = function() {
 
 
 ;// CONCATENATED MODULE: ./src/utility/complexNode.js
-const complexNode = function({ tag = 'div', text = false, attr = [], node = [] } = {}) {
+const complexNode = function({
+  tag = 'div',
+  text = false,
+  attr = [],
+  node = []
+} = {}) {
+
   const element = document.createElement(tag);
 
   if (text) {
@@ -3126,6 +3135,7 @@ const complexNode = function({ tag = 'div', text = false, attr = [], node = [] }
   };
 
   return element;
+
 };
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/feedback/index.css
@@ -3150,7 +3160,9 @@ var feedback_update = injectStylesIntoStyleTag_default()(feedback/* default */.Z
 
 
 
-const feedback_feedback = function({ text = false } = {}) {
+const feedback_feedback = function({
+  text = false
+} = {}) {
 
   const feedback = node('div|class:form-feedback');
 
@@ -3192,7 +3204,9 @@ var fieldset_update = injectStylesIntoStyleTag_default()(fieldset/* default */.Z
 
 
 
-const fieldset_fieldset = function({ children = false } = {}) {
+const fieldset_fieldset = function({
+  children = false
+} = {}) {
 
   return node('fieldset|class:form-fieldset', children);
 
@@ -3219,7 +3233,13 @@ var group_update = injectStylesIntoStyleTag_default()(group/* default */.Z, grou
 
 
 
-const group_group = function({ direction = 'horizontal', reverse = false, block = false, border = false, children = false } = {}) {
+const group_group = function({
+  direction = 'horizontal',
+  reverse = false,
+  block = false,
+  border = false,
+  children = false
+} = {}) {
 
   const group = node('div|class:form-group', children);
 
@@ -3270,7 +3290,10 @@ var groupText_update = injectStylesIntoStyleTag_default()(groupText/* default */
 
 
 
-const groupText_groupText = function({ text = false, classList = [] } = {}) {
+const groupText_groupText = function({
+  text = false,
+  classList = []
+} = {}) {
 
   const textElement = node('div|class:form-group-text,tabindex:1');
 
@@ -3312,7 +3335,10 @@ var helper_update = injectStylesIntoStyleTag_default()(helper/* default */.Z, he
 
 
 
-const helper_helper = function({ text = 'text', classList = [] } = {}) {
+const helper_helper = function({
+  text = 'text',
+  classList = []
+} = {}) {
 
   const helper = complexNode({
     tag: 'p',
@@ -3356,7 +3382,9 @@ var indent_update = injectStylesIntoStyleTag_default()(indent/* default */.Z, in
 
 
 
-const indent_indent = function({ children = false } = {}) {
+const indent_indent = function({
+  children = false
+} = {}) {
 
   return node('div|class:form-indent', children);
 
@@ -3383,7 +3411,14 @@ var inline_update = injectStylesIntoStyleTag_default()(inline/* default */.Z, in
 
 
 
-const inline_inline = function({ direction = 'horizontal', reverse = false, block = false, wrap = false, gap = 'medium', children = false } = {}) {
+const inline_inline = function({
+  direction = 'horizontal',
+  reverse = false,
+  block = false,
+  wrap = false,
+  gap = 'medium',
+  children = false
+} = {}) {
 
   const inline = node('div|class:form-inline', children);
 
@@ -3448,7 +3483,14 @@ var label_update = injectStylesIntoStyleTag_default()(label/* default */.Z, labe
 
 
 
-const label_label = function({ forInput = false, text = 'label', description = false, srOnly = false, icon = false, classList = [] } = {}) {
+const label_label = function({
+  forInput = false,
+  text = 'label',
+  description = false,
+  srOnly = false,
+  icon = false,
+  classList = []
+} = {}) {
 
   let label;
 
@@ -3527,7 +3569,9 @@ var sticky_update = injectStylesIntoStyleTag_default()(sticky/* default */.Z, st
 
 
 
-const sticky_sticky = function({ children = false } = {}) {
+const sticky_sticky = function({
+  children = false
+} = {}) {
 
   return node('div|class:form-sticky', children);
 
@@ -3554,7 +3598,9 @@ var wrap_update = injectStylesIntoStyleTag_default()(wrap/* default */.Z, wrap_o
 
 
 
-const wrap_wrap = function({ children = false } = {}) {
+const wrap_wrap = function({
+  children = false
+} = {}) {
 
   return node('div|class:form-wrap', children);
 
@@ -3581,7 +3627,9 @@ var form_grid_update = injectStylesIntoStyleTag_default()(form_grid/* default */
 
 
 
-const form_grid_grid = function({ children = false } = {}) {
+const form_grid_grid = function({
+  children = false
+} = {}) {
 
   return node('div|class:form-grid', children);
 
@@ -3608,7 +3656,13 @@ var checkbox_update = injectStylesIntoStyleTag_default()(input_checkbox/* defaul
 
 
 
-const checkbox_checkbox = function({ id = false, value = false, checked = false, classList = [], func = false } = {}) {
+const checkbox_checkbox = function({
+  id = false,
+  value = false,
+  checked = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:checkbox,tabindex:1');
 
@@ -3665,7 +3719,12 @@ var color_update = injectStylesIntoStyleTag_default()(color/* default */.Z, colo
 
 
 
-const color_color = function({ id = false, value = '#000000', classList = [], func = false } = {}) {
+const color_color = function({
+  id = false,
+  value = '#000000',
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:color,value:' + value + ',tabindex:1');
 
@@ -3714,7 +3773,11 @@ var file_update = injectStylesIntoStyleTag_default()(file/* default */.Z, file_o
 
 
 
-const file_file = function({ id = false, classList = [], func = false } = {}) {
+const file_file = function({
+  id = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:file,tabindex:1');
 
@@ -3763,7 +3826,16 @@ var number_update = injectStylesIntoStyleTag_default()(number/* default */.Z, nu
 
 
 
-const number_number = function({ id = false, min = 0, max = 100, step = 1, value = false, placeholder = false, classList = [], func = false } = {}) {
+const number_number = function({
+  id = false,
+  min = 0,
+  max = 100,
+  step = 1,
+  value = false,
+  placeholder = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:number,min:' + min + ',max:' + max + ',step:' + step + ',tabindex:1');
 
@@ -3822,7 +3894,14 @@ var radio_update = injectStylesIntoStyleTag_default()(input_radio/* default */.Z
 
 
 
-const radio_radio = function({ id = false, radioGroup = false, value = false, checked = false, classList = [], func = false } = {}) {
+const radio_radio = function({
+  id = false,
+  radioGroup = false,
+  value = false,
+  checked = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:radio,tabindex:1');
 
@@ -3881,7 +3960,15 @@ var range_update = injectStylesIntoStyleTag_default()(range/* default */.Z, rang
 
 
 
-const range_range = function({ id = false, min = 0, max = 100, step = 1, value = 0, classList = [], func = false } = {}) {
+const range_range = function({
+  id = false,
+  min = 0,
+  max = 100,
+  step = 1,
+  value = 0,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
 
@@ -3930,7 +4017,15 @@ var text_update = injectStylesIntoStyleTag_default()(input_text/* default */.Z, 
 
 
 
-const text_text = function({ id = false, value = false, min = false, max = false, placeholder = false, classList = [], func = false } = {}) {
+const text_text = function({
+  id = false,
+  value = false,
+  min = false,
+  max = false,
+  placeholder = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const input = node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
 
@@ -3995,7 +4090,13 @@ var textarea_update = injectStylesIntoStyleTag_default()(input_textarea/* defaul
 
 
 
-const textarea_textarea = function({ id = false, value = false, placeholder = false, classList = [], func = false } = {}) {
+const textarea_textarea = function({
+  id = false,
+  value = false,
+  placeholder = false,
+  classList = [],
+  func = false
+} = {}) {
 
   const textarea = node('textarea|tabindex:1,spellcheck:false');
 
@@ -4056,7 +4157,49 @@ var inputButton_update = injectStylesIntoStyleTag_default()(inputButton/* defaul
 
 
 
-const inputButton_inputButton = function() {};
+const inputButton_inputButton = function({
+  children = false,
+  inputHide = false,
+  srOnly = false,
+  style = []
+} = {}) {
+
+  const inputButtonElement = node('div|class:form-input-button', children);
+
+  if (style.length > 0) {
+    style.forEach((item, i) => {
+      switch (item) {
+        case 'link':
+          inputButtonElement.classList.add('form-input-button-link');
+          break;
+
+        case 'line':
+          inputButtonElement.classList.add('form-input-button-line');
+          break;
+
+        case 'ring':
+          inputButtonElement.classList.add('form-input-button-ring');
+          break;
+
+        case 'dot':
+          inputButtonElement.classList.add('input-color-dot');
+          break;
+
+      };
+    });
+  };
+
+  if (inputHide) {
+    inputButtonElement.classList.add('form-input-hide');
+  };
+
+  if (srOnly) {
+    inputButtonElement.classList.add('form-input-button-sr-only');
+  };
+
+  return inputButtonElement;
+
+};
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/index.css
 var input = __webpack_require__(443);
@@ -4290,7 +4433,18 @@ var button_update = injectStylesIntoStyleTag_default()(component_button/* defaul
 
 
 
-const Button = function({ text = 'Button', srOnly = false, iconName = false, block = false, size = false, style = [], title = false, classList = [], func = false } = {}) {
+const Button = function({
+  text = 'Button',
+  srOnly = false,
+  iconName = false,
+  block = false,
+  size = false,
+  style = [],
+  title = false,
+  classList = [],
+  func = false
+} = {}) {
+  
   this.button = node('button|class:button,tabindex:1,type:button');
 
   if (text) {
@@ -12044,7 +12198,12 @@ var collapse_update = injectStylesIntoStyleTag_default()(collapse/* default */.Z
 
 
 
-const Collapse = function({ type = false, radioGroup = false, checkbox = false, target = false } = {}) {
+const Collapse = function({
+  type = false,
+  radioGroup = false,
+  checkbox = false,
+  target = false
+} = {}) {
 
   target.forEach((item, i) => {
     item.state = {
@@ -12172,7 +12331,10 @@ var tab_update = injectStylesIntoStyleTag_default()(tab/* default */.Z, tab_opti
 
 
 
-const Tab = function({ group = [] } = {}) {
+const Tab = function({
+  group = []
+} = {}) {
+
   this.tabElement = node('div|class:tab');
 
   this.tabNav = node('div|class:tab-nav form-group form-group-horizontal form-group-block');
@@ -12227,6 +12389,7 @@ const Tab = function({ group = [] } = {}) {
   this.tab = () => {
     return this.tabElement;
   };
+
 };
 
 
@@ -12625,7 +12788,13 @@ const Modal = function({
 
 
 
-const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, preview = false } = {}) {
+const HexTile = function({
+  bookmarkData = {},
+  index = 0,
+  row = 0,
+  column = 0,
+  preview = false
+} = {}) {
 
   this.element = {
     bookmark: node('div|class:bookmark'),
@@ -13018,7 +13187,9 @@ const HexTile = function({ bookmarkData = {}, index = 0, row = 0, column = 0, pr
 
 
 
-const Control_helperText = function({ text = [] } = {}) {
+const Control_helperText = function({
+  text = []
+} = {}) {
 
   this.para = [];
 
@@ -13079,7 +13250,11 @@ const makePath = function(string) {
 ;// CONCATENATED MODULE: ./src/utility/get.js
 
 
-const get = function({ object = null, path = null } = {}) {
+const get = function({
+  object = null,
+  path = null
+} = {}) {
+
   const address = makePath(path);
 
   const getValue = function() {
@@ -13111,12 +13286,18 @@ const get = function({ object = null, path = null } = {}) {
   } else {
     return false;
   };
+
 };
 
 ;// CONCATENATED MODULE: ./src/utility/set.js
 
 
-const set = function({ path = null, object = null, value = null } = {}) {
+const set = function({
+  path = null,
+  object = null,
+  value = null
+} = {}) {
+
   const address = makePath(path);
 
   const setValue = function() {
@@ -13144,6 +13325,7 @@ const set = function({ path = null, object = null, value = null } = {}) {
   } else {
     return false;
   };
+
 };
 
 ;// CONCATENATED MODULE: ./src/component/control/inputButton/index.js
@@ -13162,8 +13344,19 @@ const set = function({ path = null, object = null, value = null } = {}) {
 
 
 
-
-const Control_inputButton = function({ object = {}, path = false, id = 'name', classList = [], inputButtonClassList = [], type = false, inputHide = false, labelText = 'Name', srOnly = false, inputButtonStyle = [], action = false } = {}) {
+const Control_inputButton = function({
+  object = {},
+  path = false,
+  id = 'name',
+  classList = [],
+  inputButtonClassList = [],
+  type = false,
+  inputHide = false,
+  labelText = 'Name',
+  srOnly = false,
+  inputButtonStyle = [],
+  action = false
+} = {}) {
 
   this.input;
 
@@ -13203,6 +13396,7 @@ const Control_inputButton = function({ object = {}, path = false, id = 'name', c
       });
 
       break;
+
   };
 
   this.label = label_label({
@@ -13210,7 +13404,11 @@ const Control_inputButton = function({ object = {}, path = false, id = 'name', c
     forInput: id
   });
 
-  this.button = node('div|class:form-input-button');
+  this.button = inputButton_inputButton({
+    style: inputButtonStyle,
+    inputHide: inputHide,
+    srOnly: srOnly
+  });
 
   if (inputButtonClassList.length > 0) {
 
@@ -13218,36 +13416,6 @@ const Control_inputButton = function({ object = {}, path = false, id = 'name', c
       this.button.classList.add(item);
     });
 
-  };
-
-  if (inputButtonStyle.length > 0) {
-    inputButtonStyle.forEach((item, i) => {
-      switch (item) {
-        case 'link':
-          this.button.classList.add('form-input-button-link');
-          break;
-
-        case 'line':
-          this.button.classList.add('form-input-button-line');
-          break;
-
-        case 'ring':
-          this.button.classList.add('form-input-button-ring');
-          break;
-
-        case 'dot':
-          this.button.classList.add('input-color-dot');
-          break;
-      };
-    });
-  };
-
-  if (inputHide) {
-    this.button.classList.add('form-input-hide');
-  };
-
-  if (srOnly) {
-    this.button.classList.add('form-input-button-sr-only');
   };
 
   this.button.appendChild(this.input);
@@ -13304,7 +13472,10 @@ const Control_inputButton = function({ object = {}, path = false, id = 'name', c
 
 
 
-const Control_groupText = function({ text = false, classList = [] } = {}) {
+const Control_groupText = function({
+  text = false,
+  classList = []
+} = {}) {
 
   this.groupText = groupText_groupText({
     text: text,
@@ -13356,8 +13527,16 @@ const Control_groupText = function({ text = false, classList = [] } = {}) {
 
 
 
-
-const Control_radio = function({ radioGroup = [], object = {}, groupName = 'group', path = false, action = false } = {}) {
+const Control_radio = function({
+  radioGroup = [],
+  object = {},
+  groupName = 'group',
+  path = false,
+  action = false,
+  inputButton = false,
+  inputHide = false,
+  inputButtonStyle = false
+} = {}) {
 
   this.radioSet = [];
 
@@ -13395,6 +13574,17 @@ const Control_radio = function({ radioGroup = [], object = {}, groupName = 'grou
         }),
         wrap: () => {
           return wrap_wrap({
+            children: [
+              radioAndLabel.radio,
+              radioAndLabel.label
+            ]
+          });
+        },
+        inputButton: () => {
+          return inputButton_inputButton({
+            inputButton: inputButton,
+            inputHide: inputHide,
+            style: inputButtonStyle,
             children: [
               radioAndLabel.radio,
               radioAndLabel.label
@@ -13441,20 +13631,31 @@ const Control_radio = function({ radioGroup = [], object = {}, groupName = 'grou
   };
 
   this.wrap = () => {
-    const group = wrap_wrap();
+    const wrap = wrap_wrap();
+
+    this.radioSet.forEach((item, i) => {
+      wrap.appendChild(
+        item.wrap()
+      );
+    });
+
+    return wrap;
+  };
+
+  this.inputButton = ({
+    inputHide = false
+  } = {}) => {
+
+    const group = group_group();
 
     this.radioSet.forEach((item, i) => {
       group.appendChild(
-        wrap_wrap({
-          children: [
-            item.radio,
-            item.label
-          ]
-        })
+        item.inputButton()
       );
     });
 
     return group;
+
   };
 
   this.inline = () => {
@@ -13512,7 +13713,15 @@ const Control_radio = function({ radioGroup = [], object = {}, groupName = 'grou
 
 
 
-const Control_radioGrid = function({ radioGroup = [], label = false, object = {}, groupName = 'group', path = false, gridSize = '3x3', action = false } = {}) {
+const Control_radioGrid = function({
+  radioGroup = [],
+  label = false,
+  object = {},
+  groupName = 'group',
+  path = false,
+  gridSize = '3x3',
+  action = false
+} = {}) {
 
   this.radioSet = [];
 
@@ -13696,7 +13905,14 @@ const Control_radioGrid = function({ radioGroup = [], label = false, object = {}
 
 
 
-const Control_checkbox = function({ object = {}, id = 'name', path = false, labelText = 'name', description = false, action = false } = {}) {
+const Control_checkbox = function({
+  object = {},
+  id = 'name',
+  path = false,
+  labelText = 'name',
+  description = false,
+  action = false
+} = {}) {
 
   this.checkbox = checkbox_checkbox({
     id: id,
@@ -13761,7 +13977,11 @@ const Control_checkbox = function({ object = {}, id = 'name', path = false, labe
 };
 
 ;// CONCATENATED MODULE: ./src/utility/minMax.js
-const minMax = function({ min = 0, max = 0, value = 0 } = {}) {
+const minMax = function({
+  min = 0,
+  max = 0,
+  value = 0
+} = {}) {
 
   if (value > max) {
 
@@ -13801,7 +14021,19 @@ const minMax = function({ min = 0, max = 0, value = 0 } = {}) {
 
 
 
-const Control_slider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, step = 1, action = false } = {}) {
+const Control_slider = function({
+  object = {},
+  path = false,
+  id = 'name',
+  labelText = 'Name',
+  hue = false,
+  value = 0,
+  defaultValue = false,
+  min = 0,
+  max = 100,
+  step = 1,
+  action = false
+} = {}) {
 
   this.label = label_label({
     forInput: id,
@@ -13881,7 +14113,10 @@ const Control_slider = function({ object = {}, path = false, id = 'name', labelT
     }
   });
 
-  this.update = ({ delay = false } = {}) => {
+  this.update = ({
+    delay = false
+  } = {}) => {
+
     let delayedUpdate = null;
     const updateControl = () => {
       this.range.value = get({
@@ -13900,6 +14135,7 @@ const Control_slider = function({ object = {}, path = false, id = 'name', labelT
     } else {
       updateControl();
     };
+
   };
 
   this.value = () => {
@@ -13969,7 +14205,19 @@ const Control_slider = function({ object = {}, path = false, id = 'name', labelT
 
 
 
-const Control_slimSlider = function({ object = {}, path = false, id = 'name', labelText = 'Name', hue = false, value = 0, defaultValue = false, min = 0, max = 100, step = 1, action = false } = {}) {
+const Control_slimSlider = function({
+  object = {},
+  path = false,
+  id = 'name',
+  labelText = 'Name',
+  hue = false,
+  value = 0,
+  defaultValue = false,
+  min = 0,
+  max = 100,
+  step = 1,
+  action = false
+} = {}) {
 
   this.label = label_label({
     forInput: id,
@@ -14050,7 +14298,10 @@ const Control_slimSlider = function({ object = {}, path = false, id = 'name', la
     }
   });
 
-  this.update = ({ delay = false } = {}) => {
+  this.update = ({
+    delay = false
+  } = {}) => {
+
     let delayedUpdate = null;
     const updateControl = () => {
       this.range.value = get({
@@ -14069,6 +14320,7 @@ const Control_slimSlider = function({ object = {}, path = false, id = 'name', la
     } else {
       updateControl();
     };
+
   };
 
   this.value = () => {
@@ -14137,7 +14389,17 @@ const Control_slimSlider = function({ object = {}, path = false, id = 'name', la
 
 
 
-const Control_color = function({ object = {}, path = false, id = 'name', labelText = 'Name', srOnly = false, value = 0, defaultValue = false, action = false, extraButtons = [] } = {}) {
+const Control_color = function({
+  object = {},
+  path = false,
+  id = 'name',
+  labelText = 'Name',
+  srOnly = false,
+  value = 0,
+  defaultValue = false,
+  action = false,
+  extraButtons = []
+} = {}) {
 
   this.label = label_label({
     forInput: id,
@@ -14211,7 +14473,10 @@ const Control_color = function({ object = {}, path = false, id = 'name', labelTe
     }
   });
 
-  this.update = ({ delay = false, all = false } = {}) => {
+  this.update = ({
+    delay = false,
+    all = false
+  } = {}) => {
     let delayedUpdate = null;
     const updateControl = () => {
       this.color.value = convertColor.rgb.hex(get({
@@ -14311,7 +14576,16 @@ const Control_color = function({ object = {}, path = false, id = 'name', labelTe
 
 
 
-const Control_colorMixer = function({ object = {}, path = false, defaultValue = false, minMaxObject = false, id = 'name', labelText = 'name', srOnly = false, action = false } = {}) {
+const Control_colorMixer = function({
+  object = {},
+  path = false,
+  defaultValue = false,
+  minMaxObject = false,
+  id = 'name',
+  labelText = 'name',
+  srOnly = false,
+  action = false
+} = {}) {
 
   this.moreControlsToggle = new Button({
     text: false,
@@ -14618,7 +14892,19 @@ const Control_colorMixer = function({ object = {}, path = false, defaultValue = 
 
 
 
-const Control_text = function({ object = {}, path = false, id = 'name', value = false, min = false, max = false, placeholder = false, classList = [], labelText = 'Name', srOnly = false, action = false } = {}) {
+const Control_text = function({
+  object = {},
+  path = false,
+  id = 'name',
+  value = false,
+  min = false,
+  max = false,
+  placeholder = false,
+  classList = [],
+  labelText = 'Name',
+  srOnly = false,
+  action = false
+} = {}) {
 
   this.label = label_label({
     forInput: id,
@@ -16874,7 +17160,20 @@ logo_logo.render = function() {
 
 const link_link = {};
 
-link_link.render = function({ text = 'Link', href = '#', iconName = false, iconPosition = 'right', image = false, linkButton = false, style = [], title = false, openNew = false, classList = [], func = false } = {}) {
+link_link.render = function({
+  text = 'Link',
+  href = '#',
+  iconName = false,
+  iconPosition = 'right',
+  image = false,
+  linkButton = false,
+  style = [],
+  title = false,
+  openNew = false,
+  classList = [],
+  func = false
+} = {}) {
+
   const linkElement = node('a|tabindex:1');
 
   if (linkButton) {
@@ -16951,6 +17250,7 @@ link_link.render = function({ text = 'Link', href = '#', iconName = false, iconP
   };
 
   return linkElement;
+
 };
 
 
@@ -18780,7 +19080,13 @@ menu_menu.init = function() {
 
 
 
-const KeyPress = function({ keycode = false, ctrl = false, alt = false, action = false } = {}) {
+const KeyPress = function({
+  keycode = false,
+  ctrl = false,
+  alt = false,
+  action = false
+} = {}) {
+
   this.bind = () => {
     if (keycode) {
 
@@ -18795,6 +19101,7 @@ const KeyPress = function({ keycode = false, ctrl = false, alt = false, action =
 
     };
   };
+
 };
 
 const keyboard = {};
