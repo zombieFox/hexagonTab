@@ -35,7 +35,7 @@ const HexTile = function({
         display: node('div|class:bookmark-display'),
         visual: {
           visual: node('div|class:bookmark-display-visual'),
-          letter: node('div:' + bookmarkData.display.visual.letter.text + '|class:bookmark-display-visual-letter'),
+          letter: complexNode({ tag: 'div', text: bookmarkData.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
           icon: node('div|class:bookmark-display-visual-icon'),
           faIcon: node('div|class:' + bookmarkData.display.visual.icon.prefix + ' fa-' + bookmarkData.display.visual.icon.name),
           image: node('div|class:bookmark-display-visual-image')
