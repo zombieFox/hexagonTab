@@ -43,7 +43,7 @@ let currentContentArea = node('div|class:menu-content');
 const menu = {};
 
 menu.navData = [
-  { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Hex Grid'] },
+  { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
   { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Shade', 'Background'] },
@@ -238,7 +238,7 @@ menu.render.component = {
   },
   section: {
     layout: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentLayout.size());
+      currentContentArea.appendChild(menuContentLayout.scaling());
       currentContentArea.appendChild(menuContentLayout.grid());
     },
     bookmark: function(currentContentArea) {

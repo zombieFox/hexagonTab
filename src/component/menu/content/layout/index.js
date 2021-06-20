@@ -32,8 +32,8 @@ import { complexNode } from '../../../../utility/complexNode';
 
 const menuContentLayout = {};
 
-menuContentLayout.size = function() {
-  const menuContentItem = node('div|id:menu-content-item-size,class:menu-content-item');
+menuContentLayout.scaling = function() {
+  const menuContentItem = node('div|id:menu-content-item-scaling,class:menu-content-item');
 
   const gridSize = new Control_slider({
     object: state.get.current(),
@@ -178,7 +178,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  menuContentItem.appendChild(menu.render.component.item.header('Hex grid'));
+  menuContentItem.appendChild(menu.render.component.item.header('Grid'));
 
   menuContentItem.appendChild(
     menu.render.component.item.form([
