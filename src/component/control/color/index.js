@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -20,7 +19,7 @@ export const Control_color = function({
   id = 'name',
   labelText = 'Name',
   srOnly = false,
-  value = 0,
+  value = '#000000',
   defaultValue = false,
   action = false,
   extraButtons = []
@@ -36,15 +35,23 @@ export const Control_color = function({
     id: id,
     value: convertColor.rgb.hex(get({
       object: object,
-      path: path
+      path: path + '.rgb'
     })),
     classList: ['form-group-item-half'],
     func: () => {
       if (path) {
         set({
           object: object,
-          path: path,
+          path: path + '.rgb',
           value: convertColor.hex.rgb(this.color.value)
+        });
+        set({
+          object: object,
+          path: path + '.hsl',
+          value: convertColor.rgb.hsl(get({
+            object: object,
+            path: path + '.rgb'
+          }))
         });
       };
       if (action) {
@@ -52,7 +59,7 @@ export const Control_color = function({
       };
       this.text.value = convertColor.rgb.hex(get({
         object: object,
-        path: path
+        path: path + '.rgb'
       }));
     }
   });
@@ -60,7 +67,7 @@ export const Control_color = function({
   this.text = form.input.text({
     value: convertColor.rgb.hex(get({
       object: object,
-      path: path
+      path: path + '.rgb'
     })),
     max: 7,
     classList: ['form-group-item-half'],
@@ -69,7 +76,7 @@ export const Control_color = function({
       if (path) {
         set({
           object: object,
-          path: path,
+          path: path + '.rgb',
           value: convertColor.hex.rgb(this.text.value)
         });
       };
@@ -88,7 +95,7 @@ export const Control_color = function({
     func: () => {
       set({
         object: object,
-        path: path,
+        path: path + '.rgb',
         value: JSON.parse(JSON.stringify(defaultValue))
       });
       this.update({ all: true });
@@ -102,16 +109,17 @@ export const Control_color = function({
     delay = false,
     all = false
   } = {}) => {
+
     let delayedUpdate = null;
     const updateControl = () => {
       this.color.value = convertColor.rgb.hex(get({
         object: object,
-        path: path
+        path: path + '.rgb'
       }));
       if (all) {
         this.text.value = convertColor.rgb.hex(get({
           object: object,
-          path: path
+          path: path + '.rgb'
         }));
       };
     };
@@ -122,6 +130,7 @@ export const Control_color = function({
     } else {
       updateControl();
     };
+
   };
 
   this.wrap = () => {

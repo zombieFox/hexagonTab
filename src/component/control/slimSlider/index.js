@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -26,7 +25,11 @@ export const Control_slimSlider = function({
   min = 0,
   max = 100,
   step = 1,
-  action = false
+  action = false,
+  focusAction = false,
+  blurAction = false,
+  mouseDownAction = false,
+  mouseUpAction = false
 } = {}) {
 
   this.label = form.label({
@@ -63,7 +66,11 @@ export const Control_slimSlider = function({
         object: object,
         path: path,
       });
-    }
+    },
+    focusFunc: focusAction,
+    blurFunc: blurAction,
+    mouseDownFunc: mouseDownAction,
+    mouseUpFunc: mouseUpAction
   });
 
   this.number = form.input.number({
@@ -113,6 +120,7 @@ export const Control_slimSlider = function({
   } = {}) => {
 
     let delayedUpdate = null;
+
     const updateControl = () => {
       this.range.value = get({
         object: object,

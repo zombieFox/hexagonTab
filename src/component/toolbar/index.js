@@ -157,7 +157,7 @@ toolbar.bar.render = function() {
 
   const accentOptions = {
     object: state.get.current(),
-    path: 'theme.accent.rgb',
+    path: 'theme.accent',
     id: 'theme-accent-quick',
     type: 'color',
     labelText: 'Accent colour',

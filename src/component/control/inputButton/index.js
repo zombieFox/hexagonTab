@@ -47,15 +47,23 @@ export const Control_inputButton = function({
         id: id,
         value: convertColor.rgb.hex(get({
           object: object,
-          path: path
+          path: path + '.rgb'
         })),
         classList: classList,
         func: () => {
           if (path) {
             set({
               object: object,
-              path: path,
+              path: path + '.rgb',
               value: convertColor.hex.rgb(this.input.value)
+            });
+            set({
+              object: object,
+              path: path + '.hsl',
+              value: convertColor.rgb.hsl(get({
+                object: object,
+                path: path + '.rgb'
+              }))
             });
           };
           if (action) {
@@ -96,7 +104,7 @@ export const Control_inputButton = function({
       case 'color':
         this.input.value = convertColor.rgb.hex(get({
           object: object,
-          path: path,
+          path: path + '.rgb'
         }));
 
         break;
