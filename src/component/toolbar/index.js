@@ -213,7 +213,7 @@ toolbar.bar.render = function() {
 
     case 'transparent':
       addOptions.style = ['link'];
-      editOptions.style = ['link'];
+      editOptions.style = ['link', 'line'];
       settingsMenuOptions.style = ['link'];
       accentOptions.inputButtonStyle.push('link');
       break;

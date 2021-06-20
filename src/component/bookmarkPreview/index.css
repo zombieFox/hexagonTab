@@ -1,0 +1,34 @@
+.bookmark-preview-area {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 1em;
+  grid-template-rows: auto auto;
+}
+
+.bookmark-preview-grid {
+  background-color: hsl(var(--theme-primary-300));
+  padding: calc(var(--modal-space) * 0.5em);
+  border-radius: var(--theme-radius-base);
+  display: block;
+  width: 100%;
+  transition: background-color var(--layout-transition-extra-fast);
+}
+
+.bookmark.bookmark-preview {
+  pointer-events: none;
+}
+
+.bookmark.bookmark-preview .bookmark-control {
+  display: none;
+}
+
+.bookmark.bookmark-preview .bookmark-display {
+  font-size: 1em;
+}
+
+.bookmark.bookmark-preview .bookmark-shadow-wrap {
+  display: none;
+}

@@ -1,0 +1,70 @@
+.bookmark-form {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .bookmark-form {
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    grid-gap: calc(var(--modal-space) * 1em);
+    align-items: stretch;
+  }
+}
+
+.bookmark-form-main {
+  padding-bottom: calc(var(--form-space) * 20);
+}
+
+.bookmark-form-preview {
+  background-color: hsl(var(--theme-primary-200));
+  padding: calc(var(--modal-space) * 0.5em);
+  border-radius: var(--theme-radius-base);
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bookmark-form-aside {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .bookmark-form-aside {
+    display: block;
+  }
+}
+
+.bookmark-form-text-icon {
+  position: relative;
+}
+
+.bookmark-form-text-icon:empty:before {
+  content: "";
+  background-color: hsl(var(--theme-primary-400));
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  display: block;
+  transform: translate(-50%, -50%);
+}
+
+.bookmark-form-text-icon .bookmark-form-icon {
+  transform: scale(1) rotate(0deg);
+  transition: transform var(--layout-transition-extra-fast);
+}
+
+.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {
+  transform: scale(2) rotate(360deg);
+  z-index: 1;
+}
+
+.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {
+  transform: scale(4) rotate(360deg);
+}
+
+.bookmark-form-icon {
+  font-size: 1.5em;
+}

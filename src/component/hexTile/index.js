@@ -1,11 +1,13 @@
 import { state } from '../state';
 import { data } from '../data';
 import { theme } from '../theme';
+import { bookmark } from '../bookmark';
+import { bookmarkForm } from '../bookmarkForm';
 
 import { Button } from '../button';
 import { Video } from '../video';
 import { Modal } from '../modal';
-import { bookmark, StagedLink } from '../bookmark';
+import { StagedBookmark } from '../stagedBookmark';
 
 
 import { node } from '../../utility/node';
@@ -35,14 +37,14 @@ const HexTile = function({
         display: node('div|class:bookmark-display'),
         visual: {
           visual: node('div|class:bookmark-display-visual'),
-          letter: complexNode({ tag: 'div', text: bookmarkData.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
+          letter: complexNode({ tag: 'div', text: bookmarkData.link.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
           icon: node('div|class:bookmark-display-visual-icon'),
-          faIcon: node('div|class:' + bookmarkData.display.visual.icon.prefix + ' fa-' + bookmarkData.display.visual.icon.name),
+          faIcon: node('div|class:' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name),
           image: node('div|class:bookmark-display-visual-image')
         },
         name: {
           name: node('div|class:bookmark-display-name'),
-          text: node('div:' + bookmarkData.display.name.text + '|class:bookmark-display-name-text')
+          text: node('div:' + bookmarkData.link.display.name.text + '|class:bookmark-display-name-text')
         }
       },
       background: {
@@ -56,115 +58,6 @@ const HexTile = function({
 
   if (preview) { this.element.bookmark.classList.add('bookmark-preview'); };
 
-  this.makeStyle = (newBookmarkData) => {
-
-    if (newBookmarkData) {
-      bookmarkData = newBookmarkData;
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
-
-    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
-
-    if (isValidString(bookmarkData.url) && !preview) {
-      this.element.content.link.setAttribute('href', trimString(bookmarkData.url));
-    } else {
-      this.element.content.link.setAttribute('href', '#');
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
-
-    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.color.opacity);
-
-    switch (bookmarkData.display.direction) {
-      case 'vertical':
-        switch (bookmarkData.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
-            break;
-
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
-            break;
-        };
-        break;
-
-      case 'horizontal':
-        switch (bookmarkData.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
-            break;
-
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
-            break;
-        };
-        break;
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.display.translate.x);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.display.translate.y);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.display.rotate);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.display.gutter);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.display.visual.size);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(bookmarkData.display.visual.image.url) + ')');
-
-    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.display.name.size);
-
-    if (bookmarkData.accent.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.accent.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.accent.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.accent.rgb.b);
-      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
-
-      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
-    };
-
-    if (bookmarkData.color.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.color.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.color.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.color.rgb.b);
-
-      this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.color.hsl.h);
-      this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.color.hsl.s);
-      this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.color.hsl.l);
-
-      this.element.bookmark.style.setProperty('--theme-color', bookmarkData.color.hsl.h + ', ' + bookmarkData.color.hsl.s + '%, ' + bookmarkData.color.hsl.l + '%');
-      this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
-      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
-
-      this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
-    };
-
-    if (bookmarkData.background.show) {
-      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.background.opacity);
-
-      switch (bookmarkData.background.type) {
-        case 'image':
-          if (isValidString(bookmarkData.background.image.url)) {
-            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.background.image.url) + ')');
-          };
-          break;
-      };
-    };
-
-  };
-
   this.control = {};
 
   this.control.button = {
@@ -176,17 +69,21 @@ const HexTile = function({
       title: 'Move this bookmark left',
       classList: ['bookmark-control-button', 'bookmark-control-left'],
       func: () => {
-        let newBookmarkData = new StagedLink();
-        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-        newBookmarkData.position.origin = index;
-        newBookmarkData.position.destination = index - 1;
-        if (newBookmarkData.position.destination < 0) {
-          newBookmarkData.position.destination = 0;
+
+        bookmarkData.position.destination--;
+
+        if (bookmarkData.position.destination < 0) {
+          bookmarkData.position.destination = 0;
         };
-        bookmark.mod.item.move(newBookmarkData);
+
+        bookmark.mod.item.move(bookmarkData);
+
         bookmark.render.clear();
+
         bookmark.render.item();
+
         data.save();
+
       }
     }),
     right: new Button({
@@ -197,17 +94,21 @@ const HexTile = function({
       title: 'Move this bookmark right',
       classList: ['bookmark-control-button', 'bookmark-control-right'],
       func: () => {
-        let newBookmarkData = new StagedLink();
-        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-        newBookmarkData.position.origin = index;
-        newBookmarkData.position.destination = index + 1;
-        if (newBookmarkData.position.destination > bookmark.all.length - 1) {
-          newBookmarkData.position.destination = bookmark.all.length - 1;
+
+        bookmarkData.position.destination++;
+
+        if (bookmarkData.position.destination > bookmark.all.length - 1) {
+          bookmarkData.position.destination = bookmark.all.length - 1;
         };
-        bookmark.mod.item.move(newBookmarkData);
+
+        bookmark.mod.item.move(bookmarkData);
+
         bookmark.render.clear();
+
         bookmark.render.item();
+
         data.save();
+
       }
     }),
     edit: new Button({
@@ -218,24 +119,28 @@ const HexTile = function({
       title: 'Edit this bookmark',
       classList: ['bookmark-control-button', 'bookmark-control-edit'],
       func: () => {
-        let newBookmarkData = new StagedLink();
-        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-        newBookmarkData.position.origin = index;
-        newBookmarkData.position.destination = index;
 
         const editModal = new Modal({
-          heading: isValidString(bookmarkData.display.name.text) ? 'Edit ' + bookmarkData.display.name.text : 'Edit unnamed bookmark',
-          content: bookmark.form(newBookmarkData),
+
+          heading: isValidString(bookmarkData.link.display.name.text) ? 'Edit ' + bookmarkData.link.display.name.text : 'Edit unnamed bookmark',
+          content: bookmarkForm.form(bookmarkData),
           successText: 'Save',
           width: 60,
           maxHeight: true,
           successAction: () => {
-            bookmark.mod.item.edit(newBookmarkData);
-            bookmark.mod.propagate.state.apply(newBookmarkData);
+
+            bookmark.mod.item.edit(bookmarkData);
+
+            bookmark.mod.propagate.state.apply(bookmarkData);
+
             bookmark.render.clear();
+
             bookmark.render.item();
+
             data.save();
+
           }
+
         });
 
         editModal.open();
@@ -252,19 +157,20 @@ const HexTile = function({
       func: () => {
 
         const removeModal = new Modal({
-          heading: isValidString(bookmarkData.display.name.text) ? 'Remove ' + bookmarkData.display.name.text : 'Remove unnamed bookmark',
+          heading: isValidString(bookmarkData.link.display.name.text) ? 'Remove ' + bookmarkData.link.display.name.text : 'Remove unnamed bookmark',
           content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
           successText: 'Remove',
           width: 'small',
           successAction: () => {
-            let newBookmarkData = new StagedLink();
-            newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData));
-            newBookmarkData.position.origin = index;
-            newBookmarkData.position.destination = index;
-            bookmark.mod.item.remove(newBookmarkData);
+
+            bookmark.mod.item.remove(bookmarkData);
+
             bookmark.render.clear();
+
             bookmark.render.item();
+
             data.save();
+
           }
         });
 
@@ -286,20 +192,129 @@ const HexTile = function({
     };
   };
 
+  this.makeStyle = (newBookmarkData) => {
+
+    if (newBookmarkData) {
+      bookmarkData = newBookmarkData;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
+
+    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
+
+    if (isValidString(bookmarkData.link.url) && !preview) {
+      this.element.content.link.setAttribute('href', trimString(bookmarkData.link.url));
+    } else {
+      this.element.content.link.setAttribute('href', '#');
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
+
+    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.link.color.opacity);
+
+    switch (bookmarkData.link.display.direction) {
+      case 'vertical':
+        switch (bookmarkData.link.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
+            break;
+        };
+        break;
+
+      case 'horizontal':
+        switch (bookmarkData.link.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
+            break;
+        };
+        break;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.link.display.translate.x);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.link.display.translate.y);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.link.display.rotate);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.link.display.gutter);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.link.display.visual.size);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(bookmarkData.link.display.visual.image.url) + ')');
+
+    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.link.display.name.size);
+
+    if (bookmarkData.link.accent.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.link.accent.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.link.accent.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.link.accent.rgb.b);
+      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
+
+      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
+    };
+
+    if (bookmarkData.link.color.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.link.color.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.link.color.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.link.color.rgb.b);
+
+      this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.link.color.hsl.h);
+      this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.link.color.hsl.s);
+      this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.link.color.hsl.l);
+
+      this.element.bookmark.style.setProperty('--theme-color', bookmarkData.link.color.hsl.h + ', ' + bookmarkData.link.color.hsl.s + '%, ' + bookmarkData.link.color.hsl.l + '%');
+      this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
+      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
+
+      this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
+    };
+
+    if (bookmarkData.link.background.show) {
+      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.link.background.opacity);
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          if (isValidString(bookmarkData.link.background.image.url)) {
+            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.link.background.image.url) + ')');
+          };
+          break;
+      };
+    };
+
+  };
+
   this.assemble = () => {
 
-    if (bookmarkData.display.visual.show || bookmarkData.display.name.show) {
-      if (bookmarkData.display.visual.show) {
-        switch (bookmarkData.display.visual.type) {
+    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
+      if (bookmarkData.link.display.visual.show) {
+        switch (bookmarkData.link.display.visual.type) {
           case 'letter':
-            if (isValidString(bookmarkData.display.visual.letter.text)) {
+            if (isValidString(bookmarkData.link.display.visual.letter.text)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
             break;
 
           case 'icon':
-            if (isValidString(bookmarkData.display.visual.icon.name)) {
+            if (isValidString(bookmarkData.link.display.visual.icon.name)) {
               this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
@@ -307,7 +322,7 @@ const HexTile = function({
             break;
 
           case 'image':
-            if (isValidString(bookmarkData.display.visual.image.url)) {
+            if (isValidString(bookmarkData.link.display.visual.image.url)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
             };
@@ -315,7 +330,7 @@ const HexTile = function({
         };
       };
 
-      if (bookmarkData.display.name.show && isValidString(bookmarkData.display.name.text)) {
+      if (bookmarkData.link.display.name.show && isValidString(bookmarkData.link.display.name.text)) {
         this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
         this.element.content.display.display.appendChild(this.element.content.display.name.name);
       };
@@ -325,9 +340,9 @@ const HexTile = function({
       this.element.content.link.appendChild(this.element.content.display.wrap);
     };
 
-    if (bookmarkData.background.show) {
+    if (bookmarkData.link.background.show) {
 
-      switch (bookmarkData.background.type) {
+      switch (bookmarkData.link.background.type) {
         case 'image':
           this.element.content.background.wrap.appendChild(this.element.content.background.image);
           break;
@@ -335,9 +350,9 @@ const HexTile = function({
         case 'video':
           this.element.content.background.wrap.appendChild(this.element.content.background.video);
 
-          if (isValidString(bookmarkData.background.video.url)) {
+          if (isValidString(bookmarkData.link.background.video.url)) {
             const backgroundVideoElement = new Video({
-              url: bookmarkData.background.video.url
+              url: bookmarkData.link.background.video.url
             });
 
             this.element.content.background.video.appendChild(backgroundVideoElement.video);

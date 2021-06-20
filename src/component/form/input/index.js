@@ -7,6 +7,7 @@ import { range } from './range';
 import { text } from './text';
 import { textarea } from './textarea';
 import { inputButton } from './inputButton';
+import { select } from './select';
 
 import './index.css';
 
@@ -19,5 +20,6 @@ export {
   range,
   text,
   textarea,
-  inputButton
+  inputButton,
+  select
 };

@@ -1,5 +1,5 @@
 import { state } from '../state';
-import { bookmark, currentBookmarkForm } from '../bookmark';
+import { bookmarkForm } from '../bookmarkForm';
 import { fontawesome } from '../fontawesome';
 
 import { Button } from '../button';
@@ -181,7 +181,7 @@ const Suggest = function({
       fontawesomeIcon: () => {
         const successAction = (item) => {
 
-          currentBookmarkForm.updateIcon(item);
+          bookmarkForm.current.updateIcon(item);
 
           this.close();
 
