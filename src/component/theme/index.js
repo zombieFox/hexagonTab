@@ -119,6 +119,13 @@ theme.render.shadow = function() {
   html.style.setProperty('--theme-shadow', state.get.current().theme.shadow);
 };
 
+theme.render.shade = {
+  opacity: function() {
+    const html = document.querySelector('html');
+    html.style.setProperty("--theme-shade-opacity", state.get.current().theme.shade.opacity);
+  }
+};
+
 theme.style = {
   dark: function() {
     theme.mod.style.dark();
@@ -257,6 +264,7 @@ theme.init = function() {
   theme.render.class();
   theme.render.radius();
   theme.render.shadow();
+  theme.render.shade.opacity();
   theme.render.bookmark.style();
   theme.render.background.area();
   theme.render.background.type();

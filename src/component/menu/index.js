@@ -46,7 +46,7 @@ menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Hex Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
-  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Background'] },
+  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
   { name: 'App', active: false, overscroll: false }
@@ -254,6 +254,7 @@ menu.render.component = {
       currentContentArea.appendChild(menuContentTheme.color());
       currentContentArea.appendChild(menuContentTheme.accent());
       currentContentArea.appendChild(menuContentTheme.bookmark());
+      currentContentArea.appendChild(menuContentTheme.shade());
       currentContentArea.appendChild(menuContentTheme.background());
     },
     data: function(currentContentArea) {

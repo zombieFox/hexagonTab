@@ -290,6 +290,35 @@ menuContentTheme.bookmark = function() {
   return menuContentItem;
 };
 
+menuContentTheme.shade = function() {
+  const menuContentItem = node('div|id:menu-content-item-shade,class:menu-content-item');
+
+  const themeShadeOpacity = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.shade.opacity',
+    id: 'theme.shade.opacity',
+    labelText: 'Shade opacity',
+    value: state.get.current().theme.shade.opacity,
+    defaultValue: state.get.default().theme.shade.opacity,
+    min: state.get.minMax().theme.shade.opacity.min,
+    max: state.get.minMax().theme.shade.opacity.max,
+    action: () => {
+      theme.render.shade.opacity();
+      data.save();
+    }
+  });
+
+  menuContentItem.appendChild(menu.render.component.item.header('Shade'));
+
+  menuContentItem.appendChild(
+    menu.render.component.item.form([
+      themeShadeOpacity.wrap()
+    ])
+  );
+
+  return menuContentItem;
+};
+
 menuContentTheme.background = function() {
   const menuContentItem = node('div|id:menu-content-item-background,class:menu-content-item');
 

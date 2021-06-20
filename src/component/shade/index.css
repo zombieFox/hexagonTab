@@ -8,5 +8,5 @@
   opacity: 0;
   z-index: var(--z-index-shade);
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
-  pointer-events: none;
+  pointer-events: all;
 }

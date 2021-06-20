@@ -50,7 +50,10 @@ state.default = {
       video: { url: '', blur: 0, scale: 100, opacity: 100 }
     },
     radius: 25,
-    shadow: 75
+    shadow: 75,
+    shade: {
+      opacity: 20
+    }
   },
   toolbar: { style: 'transparent', position: 'bottom-right' },
   edit: false,
@@ -120,6 +123,9 @@ state.minMax = {
       },
       image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } },
       video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } }
+    },
+    shade: {
+      opacity: { min: 0, max: 100 }
     }
   }
 };
