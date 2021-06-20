@@ -16484,27 +16484,6 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const bookmark_bookmark = {};
 
 bookmark_bookmark.all = bookmarkPreset.get();
@@ -17829,8 +17808,8 @@ link_link.render = function({
 
 const menuContentLayout = {};
 
-menuContentLayout.size = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-size,class:menu-content-item');
+menuContentLayout.scaling = function() {
+  const menuContentItem = node_node('div|id:menu-content-item-scaling,class:menu-content-item');
 
   const gridSize = new Control_slider({
     object: state_state.get.current(),
@@ -17975,7 +17954,7 @@ menuContentLayout.grid = function() {
     }
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Hex grid'));
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Grid'));
 
   menuContentItem.appendChild(
     menu_menu.render.component.item.form([
@@ -17992,7 +17971,6 @@ menuContentLayout.grid = function() {
 
   return menuContentItem;
 };
-
 
 
 ;// CONCATENATED MODULE: ./src/component/menu/content/bookmark/index.js
@@ -19275,7 +19253,7 @@ let currentContentArea = node_node('div|class:menu-content');
 const menu_menu = {};
 
 menu_menu.navData = [
-  { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Hex Grid'] },
+  { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
   { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Shade', 'Background'] },
@@ -19470,7 +19448,7 @@ menu_menu.render.component = {
   },
   section: {
     layout: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentLayout.size());
+      currentContentArea.appendChild(menuContentLayout.scaling());
       currentContentArea.appendChild(menuContentLayout.grid());
     },
     bookmark: function(currentContentArea) {
