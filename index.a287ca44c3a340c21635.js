@@ -1001,7 +1001,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-space: 2;\n  --moda
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: all;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2259,7 +2259,10 @@ state_state.default = {
       video: { url: '', blur: 0, scale: 100, opacity: 100 }
     },
     radius: 25,
-    shadow: 75
+    shadow: 75,
+    shade: {
+      opacity: 20
+    }
   },
   toolbar: { style: 'transparent', position: 'bottom-right' },
   edit: false,
@@ -2329,6 +2332,9 @@ state_state.minMax = {
       },
       image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } },
       video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, opacity: { min: 0, max: 100 } }
+    },
+    shade: {
+      opacity: { min: 0, max: 100 }
     }
   }
 };
@@ -2355,7 +2361,6 @@ state_state.set = {
     console.log('state set to default');
   }
 };
-
 
 
 ;// CONCATENATED MODULE: ./src/utility/node.js
@@ -2994,6 +2999,13 @@ theme_theme.render.shadow = function() {
   html.style.setProperty('--theme-shadow', state_state.get.current().theme.shadow);
 };
 
+theme_theme.render.shade = {
+  opacity: function() {
+    const html = document.querySelector('html');
+    html.style.setProperty("--theme-shade-opacity", state_state.get.current().theme.shade.opacity);
+  }
+};
+
 theme_theme.style = {
   dark: function() {
     theme_theme.mod.style.dark();
@@ -3132,6 +3144,7 @@ theme_theme.init = function() {
   theme_theme.render.class();
   theme_theme.render.radius();
   theme_theme.render.shadow();
+  theme_theme.render.shade.opacity();
   theme_theme.render.bookmark.style();
   theme_theme.render.background.area();
   theme_theme.render.background.type();
@@ -3143,7 +3156,6 @@ theme_theme.init = function() {
   theme_theme.render.background.video.add();
   theme_theme.render.background.video.filter();
 };
-
 
 
 ;// CONCATENATED MODULE: ./src/component/bookmarkDefault/index.js
@@ -18514,6 +18526,35 @@ menuContentTheme.bookmark = function() {
   return menuContentItem;
 };
 
+menuContentTheme.shade = function() {
+  const menuContentItem = node_node('div|id:menu-content-item-shade,class:menu-content-item');
+
+  const themeShadeOpacity = new Control_slider({
+    object: state_state.get.current(),
+    path: 'theme.shade.opacity',
+    id: 'theme.shade.opacity',
+    labelText: 'Shade opacity',
+    value: state_state.get.current().theme.shade.opacity,
+    defaultValue: state_state.get.default().theme.shade.opacity,
+    min: state_state.get.minMax().theme.shade.opacity.min,
+    max: state_state.get.minMax().theme.shade.opacity.max,
+    action: () => {
+      theme_theme.render.shade.opacity();
+      data.save();
+    }
+  });
+
+  menuContentItem.appendChild(menu_menu.render.component.item.header('Shade'));
+
+  menuContentItem.appendChild(
+    menu_menu.render.component.item.form([
+      themeShadeOpacity.wrap()
+    ])
+  );
+
+  return menuContentItem;
+};
+
 menuContentTheme.background = function() {
   const menuContentItem = node_node('div|id:menu-content-item-background,class:menu-content-item');
 
@@ -18896,7 +18937,6 @@ menuContentTheme.background = function() {
 };
 
 
-
 ;// CONCATENATED MODULE: ./src/component/menu/content/data/index.js
 
 
@@ -19238,7 +19278,7 @@ menu_menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Hex Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
-  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Background'] },
+  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Bookmarks', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
   { name: 'App', active: false, overscroll: false }
@@ -19446,6 +19486,7 @@ menu_menu.render.component = {
       currentContentArea.appendChild(menuContentTheme.color());
       currentContentArea.appendChild(menuContentTheme.accent());
       currentContentArea.appendChild(menuContentTheme.bookmark());
+      currentContentArea.appendChild(menuContentTheme.shade());
       currentContentArea.appendChild(menuContentTheme.background());
     },
     data: function(currentContentArea) {
