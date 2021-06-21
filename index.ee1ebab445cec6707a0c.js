@@ -15844,14 +15844,14 @@ bookmarkForm_bookmarkForm.form = function(bookmarkData) {
     }
   });
 
-  const displayVisualShowPropagate = new Control_checkbox({
+  const displayVisualNameShowPropagate = new Control_checkbox({
     object: bookmark_bookmark.mod.propagate.state.current,
     path: 'display',
     id: 'apply-to-all-display',
-    labelText: 'Apply Show Visual Element and Name to other Bookmarks',
+    labelText: 'Apply Show Visual Element and Show Name to other Bookmarks',
     description: [
       'When saved, apply the above visibility to all other Bookmarks.',
-      'Only the Show Visual Element and Name will be applied to all.'
+      'Only the Show Visual Element and Show Name settings will be applied to all.'
     ]
   });
 
@@ -15891,14 +15891,6 @@ bookmarkForm_bookmarkForm.form = function(bookmarkData) {
     action: () => {
       hexTilePreview.update.style(bookmarkData);
     }
-  });
-
-  const displayNameShowPropagate = new Control_checkbox({
-    object: bookmark_bookmark.mod.propagate.state.current,
-    path: 'name',
-    id: 'apply-to-all-name',
-    labelText: 'Apply Show Name to other Bookmarks',
-    description: 'When saved, apply the above Name visibility to all other Bookmarks.'
   });
 
   const url = new Control_text({
@@ -16248,7 +16240,7 @@ bookmarkForm_bookmarkForm.form = function(bookmarkData) {
                 ]
               }),
               node_node('hr'),
-              displayVisualShowPropagate.wrap()
+              displayVisualNameShowPropagate.wrap()
             ]
           })
         ]
