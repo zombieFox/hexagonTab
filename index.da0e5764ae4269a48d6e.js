@@ -20006,6 +20006,16 @@ menu_menu.esc = (event) => {
 
 menu_menu.render = {};
 
+menu_menu.render.class = () => {
+  const html = document.querySelector('html');
+
+  if (state_state.get.current().menu) {
+    html.classList.add('is-menu-open');
+  } else {
+    html.classList.remove('is-menu-open');
+  };
+};
+
 menu_menu.render.frame = {
   open: function() {
     // menu containers
@@ -20165,6 +20175,7 @@ menu_menu.open = function() {
   menu_menu.shade.open();
   menu_menu.mod.open();
   menu_menu.render.frame.open();
+  menu_menu.render.class();
   menu_menu.bind.close.add();
   pageLock.render();
 };
@@ -20175,6 +20186,7 @@ menu_menu.close = function() {
   };
   menu_menu.mod.close();
   menu_menu.render.frame.close();
+  menu_menu.render.class();
   menu_menu.bind.close.remove();
   pageLock.render();
 };
