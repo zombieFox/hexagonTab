@@ -28,7 +28,10 @@ export const Modal = function({
 
   this.element = {
     modal: node('div|class:modal'),
-    heading: node('div|class:modal-heading'),
+    heading: {
+      heading: node('div|class:modal-heading'),
+      text: node('h1|class:modal-heading-text,tabindex:1')
+    },
     content: {
       wrapper: node('div|class:modal-content-wrapper'),
       content: node('div|class:modal-content')
@@ -70,7 +73,7 @@ export const Modal = function({
 
     this.bind.add();
 
-    this.focus.add();
+    this.focus.set();
 
   };
 
@@ -81,8 +84,6 @@ export const Modal = function({
     this.element.modal.classList.add('is-transparent');
 
     this.bind.remove();
-
-    this.focus.remove();
 
     this.shade.close();
 
@@ -99,12 +100,16 @@ export const Modal = function({
 
       window.addEventListener('keydown', this.esc);
 
+      window.addEventListener('keydown', this.focus.loop);
+
     },
     remove: () => {
 
       window.removeEventListener('mouseup', this.clickOut);
 
       window.removeEventListener('keydown', this.esc);
+
+      window.removeEventListener('keydown', this.focus.loop);
 
     }
   };
@@ -160,6 +165,9 @@ export const Modal = function({
   };
 
   this.focus = {
+    set: () => {
+      this.element.heading.text.focus();
+    },
     loop: (event) => {
 
       const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
@@ -186,9 +194,7 @@ export const Modal = function({
 
       };
 
-    },
-    add: () => { window.addEventListener('keydown', this.focus.loop); },
-    remove: () => { window.removeEventListener('keydown', this.focus.loop); }
+    }
   };
 
   this.successButton = new Button({
@@ -233,19 +239,11 @@ export const Modal = function({
         headingString = trimString(headingString.substring(0, maxHeadingLength)) + '...';
       };
 
-      this.element.heading.appendChild(complexNode({
-        tag: 'h1',
-        text: headingString,
-        attr: [{
-          key: 'tabindex',
-          value: 1
-        }, {
-          key: 'class',
-          value: 'modal-heading-text'
-        }]
-      }));
+      this.element.heading.text.innerHTML = headingString;
 
-      this.element.content.content.appendChild(this.element.heading);
+      this.element.heading.heading.appendChild(this.element.heading.text);
+
+      this.element.content.content.appendChild(this.element.heading.heading);
 
     };
 
