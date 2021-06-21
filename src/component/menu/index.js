@@ -120,6 +120,16 @@ menu.esc = (event) => {
 
 menu.render = {};
 
+menu.render.class = () => {
+  const html = document.querySelector('html');
+
+  if (state.get.current().menu) {
+    html.classList.add('is-menu-open');
+  } else {
+    html.classList.remove('is-menu-open');
+  };
+};
+
 menu.render.frame = {
   open: function() {
     // menu containers
@@ -279,6 +289,7 @@ menu.open = function() {
   menu.shade.open();
   menu.mod.open();
   menu.render.frame.open();
+  menu.render.class();
   menu.bind.close.add();
   pageLock.render();
 };
@@ -289,6 +300,7 @@ menu.close = function() {
   };
   menu.mod.close();
   menu.render.frame.close();
+  menu.render.class();
   menu.bind.close.remove();
   pageLock.render();
 };
