@@ -19932,7 +19932,7 @@ menu_menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
-  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Font', 'Bookmarks', 'Shade', 'Background'] },
+  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
   { name: 'App', active: false, overscroll: false }
