@@ -88,6 +88,10 @@ keyboard.ctrAltM = new KeyPress({
   ctrl: true,
   alt: true,
   action: () => {
+    console.log(state.get.current().bookmark.add);
+    if (state.get.current().bookmark.add) {
+      bookmark.add.close();
+    };
     menu.toggle();
   }
 });

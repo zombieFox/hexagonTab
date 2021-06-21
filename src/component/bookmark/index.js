@@ -19,6 +19,8 @@ import './index.css';
 
 const bookmark = {};
 
+bookmark.modal = null;
+
 bookmark.all = bookmarkPreset.get();
 
 bookmark.mod = {};
@@ -289,32 +291,38 @@ bookmark.render.class = function() {
   };
 };
 
-bookmark.render.add = function() {
-  const newBookmarkData = new StagedBookmark();
+bookmark.render.add = {
+  open: function() {
 
-  newBookmarkData.newBookmark();
+    const newBookmarkData = new StagedBookmark();
 
-  const addModal = new Modal({
-    heading: 'Add a new Bookmark',
-    content: bookmarkForm.form(newBookmarkData),
-    successText: 'Add',
-    width: 60,
-    maxHeight: true,
-    successAction: () => {
-      bookmark.mod.item.add(newBookmarkData);
-      bookmark.mod.propagate.state.apply(newBookmarkData);
-      bookmark.render.clear();
-      bookmark.render.item();
-      data.save();
-    },
-    dismissAction: () => {
-      bookmark.add.close();
-      data.save();
-    }
-  });
+    newBookmarkData.newBookmark();
 
-  addModal.open();
+    bookmark.modal = new Modal({
+      heading: 'Add a new Bookmark',
+      content: bookmarkForm.form(newBookmarkData),
+      successText: 'Add',
+      width: 60,
+      maxHeight: true,
+      successAction: () => {
+        bookmark.mod.item.add(newBookmarkData);
+        bookmark.mod.propagate.state.apply(newBookmarkData);
+        bookmark.render.clear();
+        bookmark.render.item();
+        data.save();
+      }
+    });
 
+    bookmark.modal.open();
+
+  },
+  close: function() {
+
+    if (bookmark.modal) {
+      bookmark.modal.close();
+    };
+
+  }
 };
 
 bookmark.restore = function(dataToRestore) {
@@ -325,10 +333,11 @@ bookmark.restore = function(dataToRestore) {
 bookmark.add = {
   open: function() {
     bookmark.mod.add.open();
-    bookmark.render.add();
+    bookmark.render.add.open();
   },
   close: function() {
     bookmark.mod.add.close();
+    bookmark.render.add.close();
   }
 };
 
