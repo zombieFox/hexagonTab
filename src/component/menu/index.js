@@ -68,4 +68,8 @@ menu.toggle = function() {
   };
 };
 
+menu.init = function() {
+  state.get.current().menu = false;
+};
+
 export { menu };
