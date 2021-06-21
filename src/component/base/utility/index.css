@@ -1,9 +1,9 @@
 :root {
-  --utility-muted: var(--theme-primary-120);
-  --utility-muted-hover: var(--theme-primary-120);
-  --utility-muted-focus-active: var(--theme-primary-120);
-  --utility-muted-checked: var(--theme-primary-120);
-  --utility-muted-disabled: var(--theme-primary-030);
+  --utility-muted: var(--theme-primary-700);
+  --utility-muted-hover: var(--theme-primary-700);
+  --utility-muted-focus-active: var(--theme-primary-700);
+  --utility-muted-checked: var(--theme-primary-700);
+  --utility-muted-disabled: var(--theme-primary-300);
 }
 
 .list-unstyled {

@@ -1,5 +1,5 @@
 :root {
-  --form-helper: var(--theme-primary-120);
+  --form-helper: var(--theme-primary-700);
   --form-helper-disabled: var(--theme-primary-300);
 }
 
