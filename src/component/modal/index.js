@@ -172,27 +172,32 @@ export const Modal = function({
 
       const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
 
-      const firstElement = allFocusElement[0];
+      if (allFocusElement.length > 0) {
 
-      const lastElement = allFocusElement[allFocusElement.length - 1];
+        const firstElement = allFocusElement[0];
 
-      if (event.keyCode == 9 && event.shiftKey) {
+        const lastElement = allFocusElement[allFocusElement.length - 1];
 
-        if (document.activeElement === firstElement) {
-          lastElement.focus();
+        if (event.keyCode == 9 && event.shiftKey) {
 
-          event.preventDefault();
-        }
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
 
-      } else if (event.keyCode == 9) {
+            event.preventDefault();
+          }
 
-        if (document.activeElement === lastElement) {
-          firstElement.focus();
+        } else if (event.keyCode == 9) {
 
-          event.preventDefault();
-        }
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+
+            event.preventDefault();
+          }
+
+        };
 
       };
+
 
     }
   };

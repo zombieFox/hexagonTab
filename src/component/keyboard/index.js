@@ -6,7 +6,7 @@ import { bookmark } from '../bookmark';
 import { theme } from '../theme';
 import { toolbar } from '../toolbar';
 
-import { menuContentTheme } from '../menu/content/theme';
+import { themeSetting } from '../menuContent/themeSetting';
 
 const KeyPress = function({
   keycode = false,
@@ -76,8 +76,8 @@ keyboard.ctrAltD = new KeyPress({
   alt: true,
   action: () => {
     theme.style.toggle();
-    if (menuContentTheme.exposeControl.style) {
-      menuContentTheme.exposeControl.style.update();
+    if (themeSetting.exposeControl.style) {
+      themeSetting.exposeControl.style.update();
     };
     data.save();
   }
