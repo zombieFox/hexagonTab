@@ -15,13 +15,13 @@
 
 html,
 body {
-  background-color: hsl(var(--theme-primary-010));
+  background-color: hsl(var(--theme-primary-100));
   font-size: var(--font-size);
   line-height: 1.6;
   font-family: var(--theme-font-ui-name);
   font-weight: var(--theme-font-ui-weight);
   font-style: var(--theme-font-ui-style);
-  color: hsl(var(--theme-primary-text-010));
+  color: hsl(var(--theme-primary-text-100));
   transition: background-color var(--layout-transition-extra-fast);
 }
 
