@@ -1,0 +1,15 @@
+.menu-content-item {
+  padding-top: var(--menu-content-gap);
+  padding-right: var(--menu-content-gap);
+  padding-left: var(--menu-content-gap);
+  position: relative;
+  z-index: 1;
+}
+
+.menu-content-item:last-child {
+  padding-bottom: var(--menu-content-gap);
+}
+
+.menu-content-overscroll .menu-content-item:last-child {
+  padding-bottom: calc(var(--menu-content-gap) * 10);
+}
