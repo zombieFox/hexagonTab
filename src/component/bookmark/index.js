@@ -26,35 +26,13 @@ bookmark.all = bookmarkPreset.get();
 bookmark.mod = {};
 
 bookmark.mod.add = {
-  open: function() {
-    state.get.current().bookmark.add = true;
-  },
-  close: function() {
-    state.get.current().bookmark.add = false;
-  },
-  toggle: function() {
-    if (state.get.current().bookmark.add) {
-      bookmark.mod.add.close();
-    } else {
-      bookmark.mod.add.open();
-    };
-  }
+  open: () => { state.get.current().bookmark.add = true; },
+  close: () => { state.get.current().bookmark.add = false; }
 };
 
 bookmark.mod.edit = {
-  open: function() {
-    state.get.current().bookmark.edit = true;
-  },
-  close: function() {
-    state.get.current().bookmark.edit = false;
-  },
-  toggle: function() {
-    if (state.get.current().bookmark.edit) {
-      bookmark.mod.edit.close();
-    } else {
-      bookmark.mod.edit.open();
-    };
-  }
+  open: () => { state.get.current().bookmark.edit = true; },
+  close: () => { state.get.current().bookmark.edit = false; }
 };
 
 bookmark.mod.item = {};
@@ -150,21 +128,22 @@ bookmark.render.mask = function() {
 
 bookmark.render.tile = {};
 
-bookmark.render.tile.edit = {
-  open: function() {
-    if (bookmark.render.tile.current.length > 0) {
-      bookmark.render.tile.current.forEach((item, i) => {
+bookmark.render.tile.edit = function() {
+
+  if (bookmark.render.tile.current.length > 0) {
+
+    bookmark.render.tile.current.forEach((item, i) => {
+
+      if (state.get.current().bookmark.edit) {
         item.control.enable();
-      });
-    };
-  },
-  close: function() {
-    if (bookmark.render.tile.current.length > 0) {
-      bookmark.render.tile.current.forEach((item, i) => {
+      } else {
         item.control.disable();
-      });
-    };
-  }
+      };
+
+    });
+
+  };
+
 };
 
 bookmark.render.tile.current = [];
@@ -305,15 +284,28 @@ bookmark.render.add = {
       width: 60,
       maxHeight: true,
       successAction: () => {
+
         bookmark.mod.item.add(newBookmarkData);
+
         bookmark.mod.propagate.state.apply(newBookmarkData);
+
         bookmark.render.clear();
+
         bookmark.render.item();
+
         data.save();
+
+        console.log('add', state.get.current().bookmark.add);
+
       },
       dismissAction: () => {
+
         bookmark.mod.add.close();
+
         data.save();
+
+        console.log('add', state.get.current().bookmark.add);
+
       }
     });
 
@@ -321,11 +313,25 @@ bookmark.render.add = {
 
     bookmark.add.modal.open();
 
+    console.log('add', state.get.current().bookmark.add);
+
   },
   close: function() {
     if (bookmark.add.modal) {
       bookmark.add.modal.close();
+      bookmark.add.modal = null;
     };
+    console.log('add', state.get.current().bookmark.add);
+  }
+};
+
+bookmark.render.edit = {
+  close: function() {
+    if (bookmark.edit.modal) {
+      bookmark.edit.modal.close();
+      bookmark.edit.modal = null;
+    };
+    console.log('edit', state.get.current().bookmark.edit);
   }
 };
 
@@ -342,15 +348,16 @@ bookmark.add = {
 };
 
 bookmark.edit = {
+  modal: null,
   open: function() {
     bookmark.mod.edit.open();
     bookmark.render.class();
-    bookmark.render.tile.edit.open();
+    bookmark.render.tile.edit();
   },
   close: function() {
     bookmark.mod.edit.close();
     bookmark.render.class();
-    bookmark.render.tile.edit.close();
+    bookmark.render.tile.edit();
   },
   toggle: function() {
     if (state.get.current().bookmark.edit) {

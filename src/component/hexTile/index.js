@@ -139,11 +139,17 @@ const HexTile = function({
 
             data.save();
 
+            console.log('edit', state.get.current().bookmark.edit);
+
           }
 
         });
 
-        editModal.open();
+        bookmark.edit.modal = editModal;
+
+        bookmark.edit.modal.open();
+
+        console.log('edit', state.get.current().bookmark.edit);
 
       }
     }),

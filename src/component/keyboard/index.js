@@ -69,6 +69,7 @@ keyboard.ctrAltE = new KeyPress({
     bookmark.edit.toggle();
     toolbar.bar.toggle();
     data.save();
+    console.log('edit', state.get.current().bookmark.edit);
   }
 });
 
@@ -93,7 +94,16 @@ keyboard.ctrAltM = new KeyPress({
     if (state.get.current().bookmark.add) {
       bookmark.add.close();
     };
+    if (state.get.current().bookmark.edit) {
+      const body = document.querySelector('body');
+      if (bookmark.edit.modal && body.contains(bookmark.edit.modal.modal())) {
+        bookmark.edit.modal.close();
+      };
+    };
     menu.toggle();
+
+    console.log('add', state.get.current().bookmark.add);
+    console.log('edit', state.get.current().bookmark.edit);
   }
 });
 
