@@ -47,7 +47,7 @@ toolbarSetting.style = (parent) => {
       toolbar.render.class();
       toolbar.bar.clear();
       toolbar.bar.render();
-      toolbar.bar.active();
+      toolbar.bar.toggle();
       toolbar.render.style.update();
       data.save();
     }
@@ -84,7 +84,7 @@ toolbarSetting.position = (parent) => {
       toolbar.render.class();
       toolbar.bar.clear();
       toolbar.bar.render();
-      toolbar.bar.active();
+      toolbar.bar.toggle();
       toolbar.render.style.update();
       data.save();
     }
