@@ -39,8 +39,10 @@ keyboard.esc = new KeyPress({
   action: () => {
     if (state.get.current().menu) {
       menu.close();
-    } else if (state.get.current().bookmark.edit) {
+    };
+    if (state.get.current().bookmark.edit) {
       bookmark.edit.close();
+      toolbar.bar.toggle();
     };
   }
 });
@@ -65,7 +67,7 @@ keyboard.ctrAltE = new KeyPress({
   alt: true,
   action: () => {
     bookmark.edit.toggle();
-    toolbar.bar.active();
+    toolbar.bar.toggle();
     data.save();
   }
 });
@@ -88,7 +90,6 @@ keyboard.ctrAltM = new KeyPress({
   ctrl: true,
   alt: true,
   action: () => {
-    console.log(state.get.current().bookmark.add);
     if (state.get.current().bookmark.add) {
       bookmark.add.close();
     };

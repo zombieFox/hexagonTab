@@ -382,6 +382,12 @@ const HexTile = function({
 
     this.element.content.wrap.appendChild(this.element.control);
 
+    if (state.get.current().bookmark.edit) {
+      this.control.enable();
+    } else {
+      this.control.disable();
+    };
+
   };
 
   this.tile = () => {
@@ -394,12 +400,6 @@ const HexTile = function({
 
     this.makeStyle(newBookmarkData);
 
-  };
-
-  if (state.get.current().bookmark.edit) {
-    this.control.enable();
-  } else {
-    this.control.disable();
   };
 
   this.assemble();

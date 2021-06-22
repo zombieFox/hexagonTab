@@ -43,6 +43,8 @@ export const Modal = function({
 
   this.open = () => {
 
+    state.get.current().modal = true;
+
     const body = document.querySelector('body');
 
     this.element.modal.classList.add('is-transparent');
@@ -78,6 +80,8 @@ export const Modal = function({
   };
 
   this.close = () => {
+
+    state.get.current().modal = false;
 
     this.element.modal.classList.remove('is-opaque');
 

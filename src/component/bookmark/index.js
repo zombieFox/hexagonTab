@@ -298,7 +298,7 @@ bookmark.render.add = {
 
     newBookmarkData.newBookmark();
 
-    bookmark.modal = new Modal({
+    const addModal = new Modal({
       heading: 'Add a new Bookmark',
       content: bookmarkForm.form(newBookmarkData),
       successText: 'Add',
@@ -310,27 +310,27 @@ bookmark.render.add = {
         bookmark.render.clear();
         bookmark.render.item();
         data.save();
+      },
+      dismissAction: () => {
+        bookmark.mod.add.close();
+        data.save();
       }
     });
 
-    bookmark.modal.open();
+    bookmark.add.modal = addModal;
+
+    bookmark.add.modal.open();
 
   },
   close: function() {
-
-    if (bookmark.modal) {
-      bookmark.modal.close();
+    if (bookmark.add.modal) {
+      bookmark.add.modal.close();
     };
-
   }
 };
 
-bookmark.restore = function(dataToRestore) {
-  bookmark.all = dataToRestore.bookmark;
-  console.log('bookmark restored');
-};
-
 bookmark.add = {
+  modal: null,
   open: function() {
     bookmark.mod.add.open();
     bookmark.render.add.open();
@@ -361,12 +361,17 @@ bookmark.edit = {
   }
 };
 
+bookmark.restore = function(dataToRestore) {
+  bookmark.all = dataToRestore.bookmark;
+  console.log('bookmark restored');
+};
+
 bookmark.init = function() {
   bookmark.render.mask();
-  bookmark.add.close();
   bookmark.render.style();
   bookmark.render.class();
   bookmark.render.item();
+  bookmark.add.close();
 };
 
 export { bookmark };
