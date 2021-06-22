@@ -14,8 +14,6 @@ import { Shade } from '../shade';
 import { node } from '../../utility/node';
 import { clearChildNode } from '../../utility/clearChildNode';
 
-import './index.css';
-
 let currentMenu = null;
 
 let currentContentArea = node('div|class:menu-content');

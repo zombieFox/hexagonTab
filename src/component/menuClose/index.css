@@ -1,0 +1,36 @@
+.menu-close {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-self: start;
+  z-index: 3;
+}
+
+.menu-close-button {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  height: calc(var(--menu-space) * 5);
+  width: calc(var(--menu-space) * 5);
+  line-height: 1;
+}
+
+@media (min-width: 700px) {
+  .menu-close-button {
+    border-radius: var(--theme-radius-base);
+    height: calc(var(--menu-space) * 4);
+    width: calc(var(--menu-space) * 4);
+    position: relative;
+    top: calc(var(--theme-radius-base) / 6);
+    right: calc(var(--theme-radius-base) / 6);
+  }
+}
+
+@media (min-width: 900px) {
+  .menu-close-button {
+    height: calc(var(--menu-space) * 5);
+    width: calc(var(--menu-space) * 5);
+  }
+}

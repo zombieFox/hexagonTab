@@ -4,6 +4,8 @@ import { Button } from '../button';
 
 import { node } from '../../utility/node';
 
+import './index.css';
+
 const MenuNav = function({
   navData = {},
   action = false

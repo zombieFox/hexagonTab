@@ -11,6 +11,8 @@ import { MenuContent } from '../menuContent';
 import { node } from '../../utility/node';
 import { clearChildNode } from '../../utility/clearChildNode';
 
+import './index.css';
+
 const MenuFrame = function({
   navData = [],
 } = {}) {
