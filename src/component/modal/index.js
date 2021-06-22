@@ -98,7 +98,7 @@ export const Modal = function({
     clearTimeout(this.delayedForceRemove);
 
     this.delayedForceRemove = setTimeout(() => {
-      console.log('force remove modal');
+
       const body = document.querySelector('body');
 
       if (body.contains(this.element.modal)) {

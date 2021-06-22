@@ -37,7 +37,7 @@ const Shade = function() {
     clearTimeout(this.delayedForceRemove);
 
     this.delayedForceRemove = setTimeout(() => {
-      console.log('force remove shade');
+
       const body = document.querySelector('body');
 
       if (body.contains(this.element.shade)) {

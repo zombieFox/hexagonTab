@@ -112,7 +112,7 @@ const MenuFrame = function({
     clearTimeout(this.delayedForceRemove);
 
     this.delayedForceRemove = setTimeout(() => {
-      console.log('force remove menu');
+
       const body = document.querySelector('body');
 
       if (body.contains(this.element.menu)) {

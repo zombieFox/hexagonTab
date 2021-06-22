@@ -55,9 +55,7 @@ keyboard.ctrAltA = new KeyPress({
     if (state.get.current().menu) {
       menu.close();
     };
-    if (state.get.current().bookmark.add) {
-      bookmark.add.close();
-    } else {
+    if (!state.get.current().bookmark.add) {
       bookmark.add.open();
     };
   }
