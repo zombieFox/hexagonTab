@@ -19,10 +19,6 @@
   transition: opacity var(--layout-transition-extra-fast);
 }
 
-.menu:focus {
-  outline: none;
-}
-
 .menu-area {
   background-color: hsl(var(--menu-background));
   border-radius: var(--theme-radius-base);
@@ -37,6 +33,10 @@
   pointer-events: all;
   box-shadow: var(--theme-shadow-bottom-large);
   transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);
+}
+
+.menu.is-transparent .menu-area {
+  pointer-events: none;
 }
 
 .menu-nav {

@@ -107,7 +107,21 @@ const MenuFrame = function({
 
     pageLock.render();
 
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+      console.log('force remove menu');
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.menu)) {
+        body.removeChild(this.element.menu)
+      };
+
+    }, 6000);
+
   };
+
+  this.delayedForceRemove = null;
 
   this.locationReset = () => {
 

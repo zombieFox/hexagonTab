@@ -95,7 +95,21 @@ export const Modal = function({
       dismissAction();
     };
 
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+      console.log('force remove modal');
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.modal)) {
+        body.removeChild(this.element.modal)
+      };
+
+    }, 6000);
+
   };
+
+  this.delayedForceRemove = null;
 
   this.bind = {
     add: () => {
@@ -288,6 +302,10 @@ export const Modal = function({
       this.element.modal.classList.add('modal-max-height');
     };
 
+  };
+
+  this.modal = () => {
+    return this.element.modal;
   };
 
 };

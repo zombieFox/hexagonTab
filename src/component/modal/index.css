@@ -20,9 +20,14 @@
   grid-template-rows: 1fr auto;
   transform: translate(-50%, -50%);
   overflow: hidden;
+  pointer-events: all;
   opacity: 0;
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
   z-index: var(--z-index-modal);
+}
+
+.modal.is-transparent {
+  pointer-events: none;
 }
 
 .modal.modal-max-height {
