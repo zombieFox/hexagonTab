@@ -65,7 +65,7 @@ themeSetting.style = (parent) => {
 
 };
 
-themeSetting.color = (parent) => {
+themeSetting.colour = (parent) => {
 
   const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']

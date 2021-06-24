@@ -14,34 +14,19 @@ import { Shade } from '../shade';
 import { node } from '../../utility/node';
 import { clearChildNode } from '../../utility/clearChildNode';
 
-let currentMenu = null;
-
-let currentContentArea = node('div|class:menu-content');
-
 const menu = {};
 
 menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
-  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
+  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Colour', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
   { name: data.saveName.toLowerCase(), active: false, overscroll: false }
 ];
 
 menu.mod = {};
-
-menu.mod.area = {
-  toggle: function(name) {
-    menu.navData.forEach((item, i) => {
-      item.active = false;
-      if (item.name == name) {
-        item.active = true;
-      };
-    });
-  }
-};
 
 menu.frame = null;
 

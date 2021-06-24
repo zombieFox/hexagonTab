@@ -24,6 +24,7 @@ import { Collapse } from './collapse';
 import { Tab } from './tab';
 import { Modal } from './modal';
 import { Shade } from './shade';
+import { MenuNav } from './menuNav';
 import { KeyboardShortcut } from './keyboardShortcut';
 
 export const component = {
@@ -51,5 +52,6 @@ export const component = {
   Tab,
   Modal,
   Shade,
+  MenuNav,
   KeyboardShortcut
 };
