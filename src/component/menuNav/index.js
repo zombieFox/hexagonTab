@@ -4,95 +4,151 @@ import { Button } from '../button';
 
 import { node } from '../../utility/node';
 
+import './index.css';
+
 const MenuNav = function({
   navData = {},
-  contentArea = false
+  action = false
 } = {}) {
 
-  this.element = {
-    menuNav: node('div|class:menu-nav')
-  };
+  this.state = {
+    current: {},
+    set: () => {
 
-  this.navItem = [];
+      navData.forEach((item, i) => {
 
-  navData.forEach((item, i) => {
+        this.state.current[this.makeId(item.name)] = item.active;
 
-    const navItem = {
-      active: item.active,
-      topLevel: false,
-      subLevel: false
-    };
-
-    const navButton = new Button({
-      text: item.name,
-      style: ['link'],
-      block: true,
-      classList: ['menu-nav-tab'],
-      func: () => {
-        menu.mod.area.toggle(item.name);
-        menu.render.component.content();
-        contentArea.scrollTop = 0;
-        this.update();
-      }
-    });
-
-    navItem.topLevel = navButton.button;
-
-    if (item.sub) {
-      const sub = node('div|class:menu-subnav');
-
-      item.sub.forEach((item, i) => {
-
-        const subBarItem = node('a:' + item + '|href:#menu-content-item-' + item.replace(/\s+/g, '-').toLowerCase() + ',class:menu-nav-sub button button-link button-small,tabindex:1');
-        sub.appendChild(subBarItem);
       });
 
-      navItem.subLevel = sub;
-    };
+    },
+    toggle: (name) => {
 
-    this.navItem.push(navItem);
+      for (let key in this.state.current) {
+        this.state.current[key] = false;
+      };
 
-  });
+      this.state.current[this.makeId(name)] = true;
+
+      navData.forEach((item, i) => {
+
+        item.active = false;
+
+        if (item.name === name) {
+          item.active = true;
+        };
+
+      });
+
+    }
+  };
+
+  this.makeId = (name) => {
+    return name.replace(/\s+/g, '-').toLowerCase()
+  };
+
+  this.element = {
+    nav: node('div|class:menu-nav'),
+    item: [],
+  };
 
   this.init = () => {
-    this.navItem.forEach((item, i) => {
+
+    this.element.item.forEach((item, i) => {
       if (item.subLevel) {
         item.subLevel.classList.add('active');
         item.subLevel.setAttribute('style', '--menu-subnav-height: ' + item.subLevel.getBoundingClientRect().height + 'px;');
         item.subLevel.classList.remove('active');
       };
     });
+
+    this.update();
+
   };
 
   this.update = () => {
     navData.forEach((item, i) => {
 
-      this.navItem[i].menuNavItem.classList.remove('active');
-      this.navItem[i].topLevel.classList.remove('active');
+      this.element.item[i].menuNavItem.classList.remove('active');
+      this.element.item[i].topLevel.classList.remove('active');
 
       if (item.sub) {
-        this.navItem[i].subLevel.classList.remove('active');
+        this.element.item[i].subLevel.classList.remove('active');
       };
 
-      if (item.active) {
-        this.navItem[i].menuNavItem.classList.add('active');
-        this.navItem[i].topLevel.classList.add('active');
+      if (this.state.current[this.makeId(item.name)]) {
+        this.element.item[i].menuNavItem.classList.add('active');
+        this.element.item[i].topLevel.classList.add('active');
 
         if (item.sub) {
-          this.navItem[i].subLevel.classList.add('active');
+          this.element.item[i].subLevel.classList.add('active');
         };
       };
 
     });
   };
 
-  this.render = () => {
-    this.navItem.forEach((item, i) => {
-      item.menuNavItem = node('div|class:menu-nav-item');
+  this.nav = () => {
 
-      if (item.active) {
-        item.menuNavItem.classList.add('active');
+    this.state.set();
+
+    this.assemble();
+
+    return this.element.nav;
+  };
+
+  this.assemble = () => {
+
+    navData.forEach((item, i) => {
+
+      const navItem = {
+        topLevel: false,
+        subLevel: false
       };
+
+      const navButton = new Button({
+        text: item.name,
+        style: ['link'],
+        block: true,
+        classList: ['menu-nav-tab'],
+        func: () => {
+
+          this.state.toggle(item.name);
+
+          this.update();
+
+          if (action) {
+            action();
+          };
+
+        }
+      });
+
+      navItem.topLevel = navButton.button;
+
+      if (item.sub) {
+
+        const subNav = node('div|class:menu-subnav');
+
+        item.sub.forEach((item, i) => {
+
+          const subBarItem = node('a:' + item + '|href:#menu-content-item-' + this.makeId(item) + ',class:menu-nav-sub button button-link button-small,tabindex:1');
+
+          subNav.appendChild(subBarItem);
+
+        });
+
+        navItem.subLevel = subNav;
+
+      };
+
+      this.element.item.push(navItem);
+
+    });
+
+    this.element.item.forEach((item, i) => {
+
+      item.menuNavItem = node('div|class:menu-nav-item');
 
       item.menuNavItem.appendChild(item.topLevel);
 
@@ -100,10 +156,10 @@ const MenuNav = function({
         item.menuNavItem.appendChild(item.subLevel);
       };
 
-      this.element.menuNav.appendChild(item.menuNavItem);
+      this.element.nav.appendChild(item.menuNavItem);
+
     });
 
-    return this.element.menuNav;
   };
 
 };

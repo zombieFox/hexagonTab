@@ -1,8 +1,10 @@
 import { state } from '../state';
+import { data } from '../data';
 import { pageLock } from '../pageLock';
 
 import { Button } from '../button';
 import { Shade } from '../shade';
+import { KeyboardShortcut } from '../keyboardShortcut';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -43,6 +45,10 @@ export const Modal = function({
 
   this.open = () => {
 
+    state.get.current().modal = true;
+
+    data.save();
+
     const body = document.querySelector('body');
 
     this.element.modal.classList.add('is-transparent');
@@ -79,6 +85,10 @@ export const Modal = function({
 
   this.close = () => {
 
+    state.get.current().modal = false;
+
+    data.save();
+
     this.element.modal.classList.remove('is-opaque');
 
     this.element.modal.classList.add('is-transparent');
@@ -91,28 +101,75 @@ export const Modal = function({
       dismissAction();
     };
 
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.modal)) {
+        body.removeChild(this.element.modal)
+      };
+
+    }, 6000);
+
   };
+
+  this.delayedForceRemove = null;
 
   this.bind = {
     add: () => {
 
       window.addEventListener('mouseup', this.clickOut);
 
-      window.addEventListener('keydown', this.esc);
-
       window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrlM.add();
+
+      this.ctrlA.add();
 
     },
     remove: () => {
 
       window.removeEventListener('mouseup', this.clickOut);
 
-      window.removeEventListener('keydown', this.esc);
-
       window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrlM.remove();
+
+      this.ctrlA.remove();
 
     }
   };
+
+  this.esc = new KeyboardShortcut({
+    keycode: 27,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrlM = new KeyboardShortcut({
+    keycode: 77,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrlA = new KeyboardShortcut({
+    keycode: 65,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
 
   this.clickOut = (event) => {
 
@@ -126,16 +183,42 @@ export const Modal = function({
 
   };
 
-  this.esc = (event) => {
+  this.focus = {
+    set: () => {
+      this.element.heading.text.focus();
+    },
+    loop: (event) => {
 
-    if ((event.keyCode == 27)) {
+      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
 
-      event.preventDefault();
+      if (allFocusElement.length > 0) {
 
-      this.close();
+        const firstElement = allFocusElement[0];
 
-    };
+        const lastElement = allFocusElement[allFocusElement.length - 1];
 
+        if (event.keyCode == 9 && event.shiftKey) {
+
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+
+            event.preventDefault();
+          }
+
+        } else if (event.keyCode == 9) {
+
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+
+            event.preventDefault();
+          }
+
+        };
+
+      };
+
+
+    }
   };
 
   this.style = () => {
@@ -162,39 +245,6 @@ export const Modal = function({
       };
 
     };
-  };
-
-  this.focus = {
-    set: () => {
-      this.element.heading.text.focus();
-    },
-    loop: (event) => {
-
-      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
-
-      const firstElement = allFocusElement[0];
-
-      const lastElement = allFocusElement[allFocusElement.length - 1];
-
-      if (event.keyCode == 9 && event.shiftKey) {
-
-        if (document.activeElement === firstElement) {
-          lastElement.focus();
-
-          event.preventDefault();
-        }
-
-      } else if (event.keyCode == 9) {
-
-        if (document.activeElement === lastElement) {
-          firstElement.focus();
-
-          event.preventDefault();
-        }
-
-      };
-
-    }
   };
 
   this.successButton = new Button({
@@ -279,6 +329,10 @@ export const Modal = function({
       this.element.modal.classList.add('modal-max-height');
     };
 
+  };
+
+  this.modal = () => {
+    return this.element.modal;
   };
 
 };

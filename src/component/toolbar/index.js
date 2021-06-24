@@ -188,7 +188,7 @@ toolbar.bar.render = function() {
     classList: ['toolbar-item'],
     func: function() {
       bookmark.edit.toggle();
-      toolbar.bar.active();
+      toolbar.bar.toggle();
       data.save();
     }
   };
@@ -273,7 +273,7 @@ toolbar.bar.clear = function() {
 
 };
 
-toolbar.bar.active = function() {
+toolbar.bar.toggle = function() {
   if (state.get.current().bookmark.edit) {
     toolbar.edit.active();
   } else {
@@ -285,7 +285,7 @@ toolbar.init = function() {
   toolbar.render.class();
   toolbar.render.style.update();
   toolbar.bar.render();
-  toolbar.bar.active();
+  toolbar.bar.toggle();
 };
 
 export { toolbar }

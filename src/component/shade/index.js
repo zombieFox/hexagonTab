@@ -4,34 +4,54 @@ import './index.css';
 
 const Shade = function() {
 
-  this.shade = node('div|class:shade');
+  this.element = {
+    shade: node('div|class:shade')
+  };
 
   this.open = () => {
     const body = document.querySelector('body');
 
-    this.shade.classList.add('is-transparent');
+    this.element.shade.classList.add('is-transparent');
 
-    this.shade.addEventListener('transitionend', (event) => {
-      if (event.propertyName === 'opacity' && getComputedStyle(this.shade).opacity == 0) {
-        body.removeChild(this.shade);
+    this.element.shade.addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
+        body.removeChild(this.element.shade);
       };
     });
 
-    body.appendChild(this.shade);
+    body.appendChild(this.element.shade);
 
-    getComputedStyle(this.shade).opacity;
+    getComputedStyle(this.element.shade).opacity;
 
-    this.shade.classList.remove('is-transparent');
+    this.element.shade.classList.remove('is-transparent');
 
-    this.shade.classList.add('is-opaque');
+    this.element.shade.classList.add('is-opaque');
   };
 
   this.close = () => {
 
-    this.shade.classList.remove('is-opaque');
+    this.element.shade.classList.remove('is-opaque');
 
-    this.shade.classList.add('is-transparent');
+    this.element.shade.classList.add('is-transparent');
 
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.shade)) {
+        body.removeChild(this.element.shade)
+      };
+
+    }, 6000);
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.shade = () => {
+    return this.element.shade;
   };
 
 };

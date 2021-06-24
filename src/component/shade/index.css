@@ -10,3 +10,7 @@
   transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
   pointer-events: all;
 }
+
+.shade.is-transparent {
+  pointer-events: none;
+}
