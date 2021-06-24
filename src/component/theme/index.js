@@ -278,7 +278,7 @@ theme.style = {
       theme.style.dark();
     };
   }
-}
+};
 
 theme.render.bookmark = {};
 
@@ -293,7 +293,7 @@ theme.render.background = {};
 theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
 
 theme.render.background.area = function() {
-  const backgroundElement = node('div|class:theme-background');
+  const backgroundElement = node('div|class:background');
 
   theme.render.background.choices.forEach((item, i) => {
     backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-' + item));
@@ -345,6 +345,7 @@ theme.render.background.image.filter = function() {
 
   html.style.setProperty('--theme-background-image-blur', state.get.current().theme.background.image.blur);
   html.style.setProperty('--theme-background-image-scale', state.get.current().theme.background.image.scale);
+  html.style.setProperty('--theme-background-image-accent', state.get.current().theme.background.image.accent);
   html.style.setProperty('--theme-background-image-opacity', state.get.current().theme.background.image.opacity);
 };
 
@@ -387,6 +388,7 @@ theme.render.background.video.filter = function() {
 
   html.style.setProperty('--theme-background-video-blur', state.get.current().theme.background.video.blur);
   html.style.setProperty('--theme-background-video-scale', state.get.current().theme.background.video.scale);
+  html.style.setProperty('--theme-background-video-accent', state.get.current().theme.background.video.accent);
   html.style.setProperty('--theme-background-video-opacity', state.get.current().theme.background.video.opacity);
 };
 

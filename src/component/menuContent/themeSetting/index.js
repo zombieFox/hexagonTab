@@ -685,6 +685,21 @@ themeSetting.background = (parent) => {
     }
   });
 
+  const themeBackgroundImageAccent = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.background.image.accent',
+    id: 'theme-background-image-accent',
+    labelText: 'Background image accent',
+    value: state.get.current().theme.background.image.accent,
+    defaultValue: state.get.default().theme.background.image.accent,
+    min: state.get.minMax().theme.background.image.accent.min,
+    max: state.get.minMax().theme.background.image.accent.max,
+    action: () => {
+      theme.render.background.image.filter();
+      data.save();
+    }
+  });
+
   const themeBackgroundImageOpacity = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.image.opacity',
@@ -749,6 +764,21 @@ themeSetting.background = (parent) => {
     }
   });
 
+  const themeBackgroundVideoAccent = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.background.video.accent',
+    id: 'theme-background-video-accent',
+    labelText: 'Background video accent',
+    value: state.get.current().theme.background.video.accent,
+    defaultValue: state.get.default().theme.background.video.accent,
+    min: state.get.minMax().theme.background.video.accent.min,
+    max: state.get.minMax().theme.background.video.accent.max,
+    action: () => {
+      theme.render.background.video.filter();
+      data.save();
+    }
+  });
+
   const themeBackgroundVideoOpacity = new Control_slider({
     object: state.get.current(),
     path: 'theme.background.video.opacity',
@@ -785,6 +815,7 @@ themeSetting.background = (parent) => {
     node('hr'),
     themeBackgroundImageBlur.wrap(),
     themeBackgroundImageScale.wrap(),
+    themeBackgroundImageAccent.wrap(),
     themeBackgroundImageOpacity.wrap()
   ]);
 
@@ -795,6 +826,7 @@ themeSetting.background = (parent) => {
     node('hr'),
     themeBackgroundVideoBlur.wrap(),
     themeBackgroundVideoScale.wrap(),
+    themeBackgroundVideoAccent.wrap(),
     themeBackgroundVideoOpacity.wrap()
   ]);
 

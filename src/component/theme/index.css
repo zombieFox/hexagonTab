@@ -236,7 +236,7 @@
   background-color: hsl(var(--theme-primary-900));
 }
 
-.theme-background {
+.background {
   position: fixed;
   top: 0;
   left: 0;
@@ -284,9 +284,31 @@
   filter: blur(calc(var(--theme-background-image-blur) * 1px));
 }
 
+.theme-background-type-image:after {
+  content: "";
+  background-color: rgba(var(--theme-accent), calc(var(--theme-background-image-accent) / 100));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
 .theme-background-type-video {
   transform: scale(calc(var(--theme-background-video-scale) / 100));
   filter: blur(calc(var(--theme-background-video-blur) * 1px));
+}
+
+.theme-background-type-video:after {
+  content: "";
+  background-color: rgba(var(--theme-accent), calc(var(--theme-background-video-accent) / 100));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
 .theme-background-type-video video {

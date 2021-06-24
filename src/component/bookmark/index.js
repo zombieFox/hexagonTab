@@ -283,14 +283,18 @@ bookmark.add = function() {
     width: 60,
     maxHeight: true,
     openAction: () => {
+
       bookmark.mod.add.open();
 
       data.save();
+
     },
     closeAction: () => {
+
       bookmark.mod.add.close();
 
       data.save();
+
     },
     successAction: () => {
 
@@ -308,9 +312,11 @@ bookmark.add = function() {
 
     },
     cancelAction: () => {
+
       bookmark.mod.add.close();
 
       data.save();
+
     }
   });
 
