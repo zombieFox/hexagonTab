@@ -24,6 +24,7 @@ import { Collapse } from './collapse';
 import { Tab } from './tab';
 import { Modal } from './modal';
 import { Shade } from './shade';
+import { KeyboardShortcut } from './keyboardShortcut';
 
 export const component = {
   base,
@@ -49,5 +50,6 @@ export const component = {
   Collapse,
   Tab,
   Modal,
-  Shade
+  Shade,
+  KeyboardShortcut
 };

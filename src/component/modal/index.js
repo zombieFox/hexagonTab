@@ -16,11 +16,12 @@ import './index.css';
 export const Modal = function({
   heading = false,
   content = false,
+  openAction = false,
   successText = 'OK',
   successAction = false,
   cancelText = 'Cancel',
   cancelAction = false,
-  dismissAction = false,
+  closeAction = false,
   size = 'medium',
   width = false,
   maxHeight = false,
@@ -46,8 +47,6 @@ export const Modal = function({
   this.open = () => {
 
     state.get.current().modal = true;
-
-    data.save();
 
     const body = document.querySelector('body');
 
@@ -81,13 +80,15 @@ export const Modal = function({
 
     this.focus.set();
 
+    if (openAction) {
+      openAction();
+    };
+
   };
 
   this.close = () => {
 
     state.get.current().modal = false;
-
-    data.save();
 
     this.element.modal.classList.remove('is-opaque');
 
@@ -97,8 +98,8 @@ export const Modal = function({
 
     this.shade.close();
 
-    if (dismissAction) {
-      dismissAction();
+    if (closeAction) {
+      closeAction();
     };
 
     clearTimeout(this.delayedForceRemove);
@@ -128,8 +129,6 @@ export const Modal = function({
 
       this.ctrlM.add();
 
-      this.ctrlA.add();
-
     },
     remove: () => {
 
@@ -140,8 +139,6 @@ export const Modal = function({
       this.esc.remove();
 
       this.ctrlM.remove();
-
-      this.ctrlA.remove();
 
     }
   };
@@ -155,15 +152,6 @@ export const Modal = function({
 
   this.ctrlM = new KeyboardShortcut({
     keycode: 77,
-    ctrl: true,
-    alt: true,
-    action: () => {
-      this.close();
-    }
-  });
-
-  this.ctrlA = new KeyboardShortcut({
-    keycode: 65,
     ctrl: true,
     alt: true,
     action: () => {

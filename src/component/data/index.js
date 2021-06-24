@@ -22,6 +22,10 @@ data.get = function(key) {
   return localStorage.getItem(key);
 };
 
+data.remove = function(key) {
+  localStorage.removeItem(key);
+};
+
 data.import = function(input, feedback) {
   const fileList = input.files;
 
@@ -93,10 +97,6 @@ data.export = function() {
 
   document.querySelector('body').appendChild(link);
   link.click();
-};
-
-data.remove = function(key) {
-  localStorage.removeItem(key);
 };
 
 data.backup = function(dataToBackup) {

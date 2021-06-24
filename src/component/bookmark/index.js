@@ -270,79 +270,64 @@ bookmark.render.class = function() {
   };
 };
 
-bookmark.render.add = {
-  open: function() {
+bookmark.add = function() {
 
-    const newBookmarkData = new StagedBookmark();
+  const newBookmarkData = new StagedBookmark();
 
-    newBookmarkData.newBookmark();
+  newBookmarkData.newBookmark();
 
-    const addModal = new Modal({
-      heading: 'Add a new Bookmark',
-      content: bookmarkForm.form(newBookmarkData),
-      successText: 'Add',
-      width: 60,
-      maxHeight: true,
-      successAction: () => {
+  const addModal = new Modal({
+    heading: 'Add a new Bookmark',
+    content: bookmarkForm.form(newBookmarkData),
+    successText: 'Add',
+    width: 60,
+    maxHeight: true,
+    openAction: () => {
+      bookmark.mod.add.open();
 
-        bookmark.mod.item.add(newBookmarkData);
+      data.save();
+    },
+    closeAction: () => {
+      bookmark.mod.add.close();
 
-        bookmark.mod.propagate.state.apply(newBookmarkData);
+      data.save();
+    },
+    successAction: () => {
 
-        bookmark.render.clear();
+      bookmark.mod.item.add(newBookmarkData);
 
-        bookmark.render.item();
+      bookmark.mod.propagate.state.apply(newBookmarkData);
 
-        data.save();
+      bookmark.render.clear();
 
-      },
-      dismissAction: () => {
-        bookmark.add.close();
+      bookmark.render.item();
 
-        data.save();
-      }
-    });
+      bookmark.mod.add.close();
 
-    addModal.open();
+      data.save();
 
-  }
+    },
+    cancelAction: () => {
+      bookmark.mod.add.close();
+
+      data.save();
+    }
+  });
+
+  addModal.open();
+
 };
 
-bookmark.add = {
-  open: function() {
-    bookmark.mod.add.open();
-    bookmark.render.add.open();
-  },
-  close: function() {
-    bookmark.mod.add.close();
-  },
-  toggle: function() {
-    if (state.get.current().bookmark.add) {
-      bookmark.add.close();
-    } else {
-      bookmark.add.open();
-    };
-  }
-};
-
-bookmark.edit = {
-  open: function() {
-    bookmark.mod.edit.open();
-    bookmark.render.class();
-    bookmark.render.tile.edit();
-  },
-  close: function() {
+bookmark.edit = function() {
+  if (state.get.current().bookmark.edit) {
     bookmark.mod.edit.close();
     bookmark.render.class();
     bookmark.render.tile.edit();
-  },
-  toggle: function() {
-    if (state.get.current().bookmark.edit) {
-      bookmark.edit.close();
-    } else {
-      bookmark.edit.open();
-    };
-  }
+  } else {
+    bookmark.mod.edit.open();
+    bookmark.render.class();
+    bookmark.render.tile.edit();
+  };
 };
 
 bookmark.restore = function(dataToRestore) {
@@ -355,7 +340,6 @@ bookmark.init = function() {
   bookmark.render.style();
   bookmark.render.class();
   bookmark.render.item();
-  bookmark.add.close();
 };
 
 export { bookmark };

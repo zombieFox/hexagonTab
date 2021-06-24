@@ -1,7 +1,4 @@
-import { state } from '../state';
-import { data } from '../data';
-
-export const KeyboardShortcut = function({
+const KeyboardShortcut = function({
   keycode = false,
   ctrl = false,
   alt = false,
@@ -31,3 +28,5 @@ export const KeyboardShortcut = function({
   };
 
 };
+
+export { KeyboardShortcut };

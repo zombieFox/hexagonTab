@@ -177,7 +177,7 @@ toolbar.bar.render = function() {
     iconName: 'add',
     classList: ['toolbar-item'],
     func: function() {
-      bookmark.add.open();
+      bookmark.add();
     }
   };
 
@@ -187,8 +187,8 @@ toolbar.bar.render = function() {
     iconName: 'edit',
     classList: ['toolbar-item'],
     func: function() {
-      bookmark.edit.toggle();
-      toolbar.bar.toggle();
+      bookmark.edit();
+      toolbar.bar.edit();
       data.save();
     }
   };
@@ -273,7 +273,7 @@ toolbar.bar.clear = function() {
 
 };
 
-toolbar.bar.toggle = function() {
+toolbar.bar.edit = function() {
   if (state.get.current().bookmark.edit) {
     toolbar.edit.active();
   } else {
@@ -285,7 +285,7 @@ toolbar.init = function() {
   toolbar.render.class();
   toolbar.render.style.update();
   toolbar.bar.render();
-  toolbar.bar.toggle();
+  toolbar.bar.edit();
 };
 
 export { toolbar }
