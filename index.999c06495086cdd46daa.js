@@ -18939,7 +18939,7 @@ themeSetting.style = (parent) => {
 
 };
 
-themeSetting.color = (parent) => {
+themeSetting.colour = (parent) => {
 
   const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
@@ -20508,34 +20508,19 @@ const MenuFrame = function({
 
 
 
-let currentMenu = null;
-
-let currentContentArea = node_node('div|class:menu-content');
-
 const menu = {};
 
 menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
-  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
+  { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Colour', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
   { name: data.saveName.toLowerCase(), active: false, overscroll: false }
 ];
 
 menu.mod = {};
-
-menu.mod.area = {
-  toggle: function(name) {
-    menu.navData.forEach((item, i) => {
-      item.active = false;
-      if (item.name == name) {
-        item.active = true;
-      };
-    });
-  }
-};
 
 menu.frame = null;
 
@@ -20674,6 +20659,7 @@ keyboard.init = function() {
 
 
 
+
 const component = {
   base: component_base_base,
   state: state_state,
@@ -20699,6 +20685,7 @@ const component = {
   Tab: Tab,
   Modal: Modal,
   Shade: Shade,
+  MenuNav: MenuNav,
   KeyboardShortcut: KeyboardShortcut
 };
 
