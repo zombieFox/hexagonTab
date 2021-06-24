@@ -1,4 +1,5 @@
 import { state } from '../state';
+import { data } from '../data';
 import { menu } from '../menu';
 import { pageLock } from '../pageLock';
 
@@ -7,6 +8,7 @@ import { Shade } from '../shade';
 import { MenuNav } from '../menuNav';
 import { MenuClose } from '../menuClose';
 import { MenuContent } from '../menuContent';
+import { KeyboardShortcut } from '../keyboardShortcut';
 
 import { node } from '../../utility/node';
 import { clearChildNode } from '../../utility/clearChildNode';
@@ -51,6 +53,8 @@ const MenuFrame = function({
 
     state.get.current().menu = true;
 
+    data.save();
+
     const body = document.querySelector('body');
 
     this.element.menu.classList.add('is-transparent');
@@ -94,6 +98,8 @@ const MenuFrame = function({
   this.close = () => {
 
     state.get.current().menu = false;
+
+    data.save();
 
     this.element.menu.classList.remove('is-opaque');
 
@@ -140,21 +146,41 @@ const MenuFrame = function({
 
       window.addEventListener('mouseup', this.clickOut);
 
-      window.addEventListener('keydown', this.esc);
-
       window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrAltA.add();
 
     },
     remove: () => {
 
       window.removeEventListener('mouseup', this.clickOut);
 
-      window.removeEventListener('keydown', this.esc);
-
       window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrAltA.remove();
 
     }
   };
+
+  this.esc = new KeyboardShortcut({
+    keycode: 27,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrAltA = new KeyboardShortcut({
+    keycode: 65,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
 
   this.clickOut = (event) => {
 
@@ -162,18 +188,6 @@ const MenuFrame = function({
 
     if (!path.includes(this.element.menu)) {
       this.close();
-    };
-
-  };
-
-  this.esc = (event) => {
-
-    if ((event.keyCode == 27)) {
-
-      event.preventDefault();
-
-      this.close();
-
     };
 
   };

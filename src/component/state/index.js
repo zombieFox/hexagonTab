@@ -56,7 +56,6 @@ state.default = {
     }
   },
   toolbar: { style: 'transparent', position: 'bottom-right' },
-  edit: false,
   modal: false,
   menu: false,
   autoSuggest: false

@@ -295,60 +295,37 @@ bookmark.render.add = {
 
         data.save();
 
-        console.log('add', state.get.current().bookmark.add);
-
       },
       dismissAction: () => {
-
-        bookmark.mod.add.close();
+        bookmark.add.close();
 
         data.save();
-
-        console.log('add', state.get.current().bookmark.add);
-
       }
     });
 
-    bookmark.add.modal = addModal;
+    addModal.open();
 
-    bookmark.add.modal.open();
-
-    console.log('add', state.get.current().bookmark.add);
-
-  },
-  close: function() {
-    if (bookmark.add.modal) {
-      bookmark.add.modal.close();
-      bookmark.add.modal = null;
-    };
-    console.log('add', state.get.current().bookmark.add);
-  }
-};
-
-bookmark.render.edit = {
-  close: function() {
-    if (bookmark.edit.modal) {
-      bookmark.edit.modal.close();
-      bookmark.edit.modal = null;
-    };
-    console.log('edit', state.get.current().bookmark.edit);
   }
 };
 
 bookmark.add = {
-  modal: null,
   open: function() {
     bookmark.mod.add.open();
     bookmark.render.add.open();
   },
   close: function() {
     bookmark.mod.add.close();
-    bookmark.render.add.close();
+  },
+  toggle: function() {
+    if (state.get.current().bookmark.add) {
+      bookmark.add.close();
+    } else {
+      bookmark.add.open();
+    };
   }
 };
 
 bookmark.edit = {
-  modal: null,
   open: function() {
     bookmark.mod.edit.open();
     bookmark.render.class();

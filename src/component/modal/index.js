@@ -1,8 +1,10 @@
 import { state } from '../state';
+import { data } from '../data';
 import { pageLock } from '../pageLock';
 
 import { Button } from '../button';
 import { Shade } from '../shade';
+import { KeyboardShortcut } from '../keyboardShortcut';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -45,6 +47,8 @@ export const Modal = function({
 
     state.get.current().modal = true;
 
+    data.save();
+
     const body = document.querySelector('body');
 
     this.element.modal.classList.add('is-transparent');
@@ -83,6 +87,8 @@ export const Modal = function({
 
     state.get.current().modal = false;
 
+    data.save();
+
     this.element.modal.classList.remove('is-opaque');
 
     this.element.modal.classList.add('is-transparent');
@@ -116,21 +122,54 @@ export const Modal = function({
 
       window.addEventListener('mouseup', this.clickOut);
 
-      window.addEventListener('keydown', this.esc);
-
       window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrlM.add();
+
+      this.ctrlA.add();
 
     },
     remove: () => {
 
       window.removeEventListener('mouseup', this.clickOut);
 
-      window.removeEventListener('keydown', this.esc);
-
       window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrlM.remove();
+
+      this.ctrlA.remove();
 
     }
   };
+
+  this.esc = new KeyboardShortcut({
+    keycode: 27,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrlM = new KeyboardShortcut({
+    keycode: 77,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrlA = new KeyboardShortcut({
+    keycode: 65,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
 
   this.clickOut = (event) => {
 
@@ -142,44 +181,6 @@ export const Modal = function({
       this.close();
     };
 
-  };
-
-  this.esc = (event) => {
-
-    if ((event.keyCode == 27)) {
-
-      event.preventDefault();
-
-      this.close();
-
-    };
-
-  };
-
-  this.style = () => {
-    if (typeof width === 'number') {
-
-      this.element.modal.style.setProperty('--modal-width', width);
-
-    } else {
-
-      switch (width) {
-        case 'small':
-          this.element.modal.style.setProperty('--modal-width', 30);
-          break;
-
-        default:
-        case 'medium':
-          this.element.modal.style.setProperty('--modal-width', 50);
-          break;
-
-        case 'large':
-          this.element.modal.style.setProperty('--modal-width', 70);
-          break;
-
-      };
-
-    };
   };
 
   this.focus = {
@@ -218,6 +219,32 @@ export const Modal = function({
 
 
     }
+  };
+
+  this.style = () => {
+    if (typeof width === 'number') {
+
+      this.element.modal.style.setProperty('--modal-width', width);
+
+    } else {
+
+      switch (width) {
+        case 'small':
+          this.element.modal.style.setProperty('--modal-width', 30);
+          break;
+
+        default:
+        case 'medium':
+          this.element.modal.style.setProperty('--modal-width', 50);
+          break;
+
+        case 'large':
+          this.element.modal.style.setProperty('--modal-width', 70);
+          break;
+
+      };
+
+    };
   };
 
   this.successButton = new Button({
