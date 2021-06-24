@@ -1,4 +1,4 @@
-const KeyboardShortcut = function({
+export const KeyboardShortcut = function({
   keycode = false,
   ctrl = false,
   alt = false,
@@ -19,14 +19,8 @@ const KeyboardShortcut = function({
     };
   };
 
-  this.add = () => {
-    window.addEventListener('keydown', this.action);
-  };
+  this.add = () => { window.addEventListener('keydown', this.action); };
 
-  this.remove = () => {
-    window.removeEventListener('keydown', this.action);
-  };
+  this.remove = () => { window.removeEventListener('keydown', this.action); };
 
 };
-
-export { KeyboardShortcut };
