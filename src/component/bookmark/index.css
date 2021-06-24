@@ -1,6 +1,8 @@
 :root {
   --bookmark-color: var(--theme-primary-100);
   /* --bookmark-color-focus-hover: var(--theme-primary-200); */
+  --bookmark-color-focus-hover-light: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);
+  --bookmark-color-focus-hover-dark: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);
   --bookmark-display-visual-color: var(--theme-accent);
   --bookmark-display-visual-color-focus-hover: var(--theme-accent);
   --bookmark-display-name-color: var(--theme-primary-text-100);
@@ -11,11 +13,23 @@
 }
 
 .is-theme-style-light {
-  --bookmark-color-focus-hover: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);
+  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);
 }
 
 .is-theme-style-dark {
-  --bookmark-color-focus-hover: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);
+  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);
+}
+
+@media (prefers-color-scheme: light) {
+  .is-theme-style-system {
+    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .is-theme-style-system {
+    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);
+  }
 }
 
 .bookmark {
