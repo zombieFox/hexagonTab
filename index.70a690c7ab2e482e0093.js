@@ -316,7 +316,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  /* --bookmark-color-focus-hover: var(--theme-primary-200); */\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.is-theme-style-light {\n  --bookmark-color-focus-hover: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);\n}\n\n.is-theme-style-dark {\n  --bookmark-color-focus-hover: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  /* --bookmark-color-focus-hover: var(--theme-primary-200); */\n  --bookmark-color-focus-hover-light: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);\n  --bookmark-color-focus-hover-dark: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.is-theme-style-light {\n  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);\n}\n\n.is-theme-style-dark {\n  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);\n  }\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -993,7 +993,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".logo {\n  transform: scale(1) rotate(
 
 /***/ }),
 
-/***/ 7525:
+/***/ 229:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1006,7 +1006,67 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".logo {\n  transform: scale(1) rotate(
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --menu-background: var(--theme-primary-100);\n  --menu-text: var(--theme-primary-text-100);\n  --menu-space: 0.75em;\n  --menu-content-multiplier: 4;\n  --menu-content-gap: calc(var(--menu-space) * var(--menu-content-multiplier));\n}\n\n.menu {\n  padding: 1em;\n  position: fixed;\n  top: 0;\n  right: 0;\n  width: 100vw;\n  height: 90vh;\n  opacity: 0;\n  z-index: var(--z-index-menu);\n  pointer-events: none;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.menu:focus {\n  outline: none;\n}\n\n.menu-area {\n  background-color: hsl(var(--menu-background));\n  border-radius: var(--theme-radius-base);\n  width: 100%;\n  max-height: 100%;\n  display: grid;\n  grid-template-rows: auto 1fr;\n  grid-template-columns: 1fr auto;\n  justify-items: stretch;\n  align-items: stretch;\n  overflow-y: auto;\n  pointer-events: all;\n  box-shadow: var(--theme-shadow-bottom-large);\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.menu-nav {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.menu-nav-item {\n  flex-grow: 1;\n  flex-basis: 33.33333333%;\n}\n\n.menu-nav-tab {\n  margin: 0;\n  padding-top: 0;\n  padding-bottom: 0;\n  border-radius: 0;\n  height: calc(var(--menu-space) * 5);\n  width: 100%;\n  line-height: 1;\n}\n\n.menu-nav-tab:focus,\n.menu-nav-tab:hover {\n  background-color: hsl(var(--theme-primary-200));\n}\n\n.menu-nav-tab:active {\n  background-color: hsl(var(--theme-primary-300));\n}\n\n.menu-nav-tab.active {\n  background-color: hsl(var(--menu-background));\n  color: hsl(var(--menu-text));\n}\n\n.menu-nav-tab.active:hover {\n  background-color: hsl(var(--theme-primary-200));\n}\n\n.menu-nav-tab.active:active {\n  background-color: hsl(var(--theme-primary-300));\n}\n\n.menu-nav-tab:after {\n  border-radius: 0;\n}\n\n.menu-close-button {\n  background-color: transparent;\n  margin: 0;\n  padding: 0;\n  border-radius: 0;\n  height: calc(var(--menu-space) * 5);\n  width: calc(var(--menu-space) * 5);\n  line-height: 1;\n}\n\n.menu-subnav {\n  display: none;\n}\n\n.menu-nav-area-tab {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  align-items: flex-start;\n  flex-grow: 1;\n}\n\n.menu-list {\n  display: none;\n}\n\n.menu-content {\n  grid-column-start: 1;\n  grid-column-end: 3;\n}\n\n.menu-content-item {\n  padding-top: var(--menu-content-gap);\n  padding-right: var(--menu-content-gap);\n  padding-left: var(--menu-content-gap);\n  position: relative;\n  z-index: 1;\n}\n\n.menu-content-item:last-child {\n  padding-bottom: var(--menu-content-gap);\n}\n\n.menu-content-overscroll .menu-content-item:last-child {\n  padding-bottom: calc(var(--menu-content-gap) * 10);\n}\n\n.menu-item-header {\n  margin-bottom: var(--menu-space);\n}\n\n.menu-item-header-text {\n  margin-bottom: 0;\n}\n\n.menu-item-form {\n  padding-left: calc(var(--menu-space) * 3);\n  z-index: 1;\n}\n\n@media (min-width: 550px) {\n  .menu {\n    width: 90vw;\n  }\n}\n\n@media (min-width: 700px) {\n  :root {\n    --menu-content-multiplier: 5;\n  }\n\n  .menu {\n    width: 100%;\n    height: 100%;\n    max-height: initial;\n  }\n\n  .menu-area {\n    max-height: 100%;\n    grid-template-rows: 1fr;\n    grid-template-columns: 4fr 10fr auto;\n    overflow: hidden;\n    position: relative;\n  }\n\n  .menu-nav {\n    background-color: hsla(var(--theme-primary-200), 0.75);\n    grid-column-start: 1;\n    grid-column-end: 2;\n    grid-row-start: 1;\n    grid-row-end: 2;\n    flex-direction: column;\n    align-items: stretch;\n    flex-wrap: nowrap;\n    overflow-y: auto;\n    z-index: 1;\n    transition: background-color var(--layout-transition-extra-fast);\n  }\n\n  .menu-content {\n    grid-column-start: 2;\n    grid-column-end: 4;\n    grid-row-start: 1;\n    grid-row-end: 2;\n    scroll-behavior: smooth;\n    overflow-y: auto;\n    z-index: 2;\n  }\n\n  .menu-close {\n    grid-column-start: 3;\n    grid-column-end: 4;\n    grid-row-start: 1;\n    grid-row-end: 2;\n    align-self: start;\n    z-index: 3;\n  }\n\n  .menu-item-header {\n    margin-bottom: calc(var(--menu-space) * 2);\n  }\n\n  .menu-nav-item {\n    flex-grow: 0;\n    flex-basis: auto;\n    position: relative;\n  }\n\n  .menu-nav-item:before {\n    content: \"\";\n    position: absolute;\n    background-color: transparent;\n    top: 0;\n    left: 0;\n    width: var(--layout-line-width);\n    height: 100%;\n    z-index: 1;\n    transition: background-color var(--layout-transition-extra-fast);\n  }\n\n  .menu-nav-item.active:before {\n    background-color: rgb(var(--theme-accent));\n  }\n\n  .menu-nav-tab {\n    padding-left: calc(calc(var(--menu-space) * 2) + calc(var(--theme-radius-base) / 3));\n    padding-right: calc(var(--menu-space) * 2);\n    height: calc(var(--menu-space) * 4);\n    justify-content: flex-start;\n  }\n\n  .menu-nav-tab:after {}\n\n  .menu-subnav {\n    background-color: hsl(var(--theme-primary-100));\n    display: flex;\n    flex-direction: column;\n    flex-wrap: nowrap;\n    overflow: hidden;\n    height: 0;\n    transition: background-color var(--layout-transition-extra-fast), height var(--layout-transition-extra-fast);\n  }\n\n  .menu-subnav.active {\n    height: var(--menu-subnav-height);\n  }\n\n  .menu-nav-sub {\n    background-color: transparent;\n    margin: 0;\n    padding-top: 0;\n    padding-bottom: 0;\n    padding-left: calc(calc(var(--menu-space) * 4) + calc(var(--theme-radius-base) / 3));\n    border-radius: 0;\n    height: 3em;\n    min-height: 3em;\n    width: 100%;\n    line-height: 1;\n    justify-content: flex-start;\n  }\n\n  .menu-nav-sub:focus,\n  .menu-nav-sub:hover {\n    background-color: hsl(var(--theme-primary-200));\n  }\n\n  .menu-nav-sub:active {\n    background-color: hsl(var(--theme-primary-300));\n  }\n\n  .menu-nav-sub:after,\n  .menu-nav-sub:after {\n    border-radius: 0;\n  }\n\n  .menu-close-button {\n    border-radius: var(--theme-radius-base);\n    height: calc(var(--menu-space) * 4);\n    width: calc(var(--menu-space) * 4);\n    position: relative;\n    top: calc(var(--theme-radius-base) / 6);\n    right: calc(var(--theme-radius-base) / 6);\n  }\n\n  .menu-item-form {\n    padding-left: calc(var(--menu-space) * 4);\n  }\n}\n\n@media (min-width: 900px) {\n  :root {\n    --menu-content-multiplier: 6;\n  }\n\n  .menu {\n    width: 90vw;\n  }\n\n  .menu-close-button {\n    height: calc(var(--menu-space) * 5);\n    width: calc(var(--menu-space) * 5);\n  }\n\n  .menu-item-form {\n    padding-left: calc(var(--menu-space) * 5);\n  }\n}\n\n@media (min-width: 1100px) {\n  .menu {\n    width: 80vw;\n    max-width: 60em;\n  }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".menu-close {\n  grid-column-start: 3;\n  grid-column-end: 4;\n  grid-row-start: 1;\n  grid-row-end: 2;\n  align-self: start;\n  z-index: 3;\n}\n\n.menu-close-button {\n  background-color: transparent;\n  margin: 0;\n  padding: 0;\n  border-radius: 0;\n  height: calc(var(--menu-space) * 5);\n  width: calc(var(--menu-space) * 5);\n  line-height: 1;\n}\n\n@media (min-width: 700px) {\n  .menu-close-button {\n    border-radius: var(--theme-radius-base);\n    height: calc(var(--menu-space) * 4);\n    width: calc(var(--menu-space) * 4);\n    position: relative;\n    top: calc(var(--theme-radius-base) / 6);\n    right: calc(var(--theme-radius-base) / 6);\n  }\n}\n\n@media (min-width: 900px) {\n  .menu-close-button {\n    height: calc(var(--menu-space) * 5);\n    width: calc(var(--menu-space) * 5);\n  }\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 1290:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".menu-content-item {\n  padding-top: var(--menu-content-gap);\n  padding-right: var(--menu-content-gap);\n  padding-left: var(--menu-content-gap);\n  position: relative;\n  z-index: 1;\n}\n\n.menu-content-item:last-child {\n  padding-bottom: var(--menu-content-gap);\n}\n\n.menu-content-overscroll .menu-content-item:last-child {\n  padding-bottom: calc(var(--menu-content-gap) * 10);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 9782:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --menu-background: var(--theme-primary-100);\n  --menu-text: var(--theme-primary-text-100);\n  --menu-space: 0.75em;\n  --menu-content-multiplier: 4;\n  --menu-content-gap: calc(var(--menu-space) * var(--menu-content-multiplier));\n}\n\n.menu {\n  padding: 1em;\n  position: fixed;\n  top: 0;\n  right: 0;\n  width: 100vw;\n  height: 90vh;\n  opacity: 0;\n  z-index: var(--z-index-menu);\n  pointer-events: none;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.menu-area {\n  background-color: hsl(var(--menu-background));\n  border-radius: var(--theme-radius-base);\n  width: 100%;\n  max-height: 100%;\n  display: grid;\n  grid-template-rows: auto 1fr;\n  grid-template-columns: 1fr auto;\n  justify-items: stretch;\n  align-items: stretch;\n  overflow-y: auto;\n  pointer-events: all;\n  box-shadow: var(--theme-shadow-bottom-large);\n  transition: background-color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);\n}\n\n.menu.is-transparent .menu-area {\n  pointer-events: none;\n}\n\n.menu-list {\n  display: none;\n}\n\n.menu-content {\n  grid-column-start: 1;\n  grid-column-end: 3;\n}\n\n.menu-item-header {\n  margin-bottom: var(--menu-space);\n}\n\n.menu-item-header-text {\n  margin-bottom: 0;\n}\n\n.menu-item-form {\n  padding-left: calc(var(--menu-space) * 3);\n  z-index: 1;\n}\n\n@media (min-width: 550px) {\n  .menu {\n    width: 90vw;\n  }\n}\n\n@media (min-width: 700px) {\n  :root {\n    --menu-content-multiplier: 5;\n  }\n\n  .menu {\n    width: 100%;\n    height: 100%;\n    max-height: initial;\n  }\n\n  .menu-area {\n    max-height: 100%;\n    grid-template-rows: 1fr;\n    grid-template-columns: 4fr 10fr auto;\n    overflow: hidden;\n    position: relative;\n  }\n\n  .menu-content {\n    grid-column-start: 2;\n    grid-column-end: 4;\n    grid-row-start: 1;\n    grid-row-end: 2;\n    scroll-behavior: smooth;\n    overflow-y: auto;\n    z-index: 2;\n  }\n\n  .menu-item-header {\n    margin-bottom: calc(var(--menu-space) * 2);\n  }\n\n  .menu-item-form {\n    padding-left: calc(var(--menu-space) * 4);\n  }\n}\n\n@media (min-width: 900px) {\n  :root {\n    --menu-content-multiplier: 6;\n  }\n\n  .menu {\n    width: 90vw;\n  }\n\n  .menu-item-form {\n    padding-left: calc(var(--menu-space) * 5);\n  }\n}\n\n@media (min-width: 1100px) {\n  .menu {\n    width: 80vw;\n    max-width: 60em;\n  }\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ 8765:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3645);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".menu-nav {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n\n.menu-nav-item {\n  flex-grow: 1;\n  flex-basis: 33.33333333%;\n}\n\n.menu-nav-tab {\n  margin: 0;\n  padding-top: 0;\n  padding-bottom: 0;\n  border-radius: 0;\n  height: calc(var(--menu-space) * 5);\n  width: 100%;\n  line-height: 1;\n}\n\n.menu-nav-tab:focus,\n.menu-nav-tab:hover {\n  background-color: hsl(var(--theme-primary-200));\n}\n\n.menu-nav-tab:active {\n  background-color: hsl(var(--theme-primary-300));\n}\n\n.menu-nav-tab.active {\n  background-color: hsl(var(--menu-background));\n  color: hsl(var(--menu-text));\n}\n\n.menu-nav-tab.active:hover {\n  background-color: hsl(var(--theme-primary-200));\n}\n\n.menu-nav-tab.active:active {\n  background-color: hsl(var(--theme-primary-300));\n}\n\n.menu-nav-tab:after {\n  border-radius: 0;\n}\n\n.menu-subnav {\n  display: none;\n}\n\n.menu-nav-area-tab {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  align-items: flex-start;\n  flex-grow: 1;\n}\n\n@media (min-width: 700px) {\n  .menu-nav {\n    background-color: hsla(var(--theme-primary-200), 0.75);\n    grid-column-start: 1;\n    grid-column-end: 2;\n    grid-row-start: 1;\n    grid-row-end: 2;\n    flex-direction: column;\n    align-items: stretch;\n    flex-wrap: nowrap;\n    overflow-y: auto;\n    z-index: 1;\n    transition: background-color var(--layout-transition-extra-fast);\n  }\n\n  .menu-nav-item {\n    flex-grow: 0;\n    flex-basis: auto;\n    position: relative;\n  }\n\n  .menu-nav-item:before {\n    content: \"\";\n    position: absolute;\n    background-color: transparent;\n    top: 0;\n    left: 0;\n    width: var(--layout-line-width);\n    height: 100%;\n    z-index: 1;\n    transition: background-color var(--layout-transition-extra-fast);\n  }\n\n  .menu-nav-item.active:before {\n    background-color: rgb(var(--theme-accent));\n  }\n\n  .menu-nav-tab {\n    padding-left: calc(calc(var(--menu-space) * 2) + calc(var(--theme-radius-base) / 3));\n    padding-right: calc(var(--menu-space) * 2);\n    height: calc(var(--menu-space) * 4);\n    justify-content: flex-start;\n  }\n\n  .menu-nav-tab:after {}\n\n  .menu-subnav {\n    background-color: hsl(var(--theme-primary-100));\n    display: flex;\n    flex-direction: column;\n    flex-wrap: nowrap;\n    overflow: hidden;\n    height: 0;\n    transition: background-color var(--layout-transition-extra-fast), height var(--layout-transition-extra-fast);\n  }\n\n  .menu-subnav.active {\n    height: var(--menu-subnav-height);\n  }\n\n  .menu-nav-sub {\n    background-color: transparent;\n    margin: 0;\n    padding-top: 0;\n    padding-bottom: 0;\n    padding-left: calc(calc(var(--menu-space) * 4) + calc(var(--theme-radius-base) / 3));\n    border-radius: 0;\n    height: 3em;\n    min-height: 3em;\n    width: 100%;\n    line-height: 1;\n    justify-content: flex-start;\n  }\n\n  .menu-nav-sub:focus,\n  .menu-nav-sub:hover {\n    background-color: hsl(var(--theme-primary-200));\n  }\n\n  .menu-nav-sub:active {\n    background-color: hsl(var(--theme-primary-300));\n  }\n\n  .menu-nav-sub:after,\n  .menu-nav-sub:after {\n    border-radius: 0;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1026,7 +1086,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --menu-background: var(--th
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-space: 2;\n  --modal-width: 50;\n}\n\n.modal {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: var(--theme-radius-base);\n  box-shadow: var(--theme-shadow-bottom-large);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-size: 1em;\n  max-height: calc(100vh - 2em);\n  width: calc(var(--modal-width) * 1em);\n  max-width: calc(100% - 2em);\n  min-width: 10em;\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 1fr auto;\n  transform: translate(-50%, -50%);\n  overflow: hidden;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  z-index: var(--z-index-modal);\n}\n\n.modal.modal-max-height {\n  min-height: calc(100vh - 2em);\n}\n\n.modal-content-wrapper {\n  padding: calc(var(--modal-space) * 1.75em);\n  position: relative;\n  overflow-y: auto;\n}\n\n.modal-overscroll .modal-content-wrapper {\n  padding-bottom: calc(var(--form-space) * 14);\n}\n\n.modal-content {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: auto 1fr;\n  justify-items: stretch;\n  align-items: stretch;\n  gap: calc(var(--modal-space) * 1em);\n}\n\n.modal-body {\n  border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;\n  position: relative;\n}\n\n.modal-body-spacer {\n  margin: calc(var(--modal-space) * 1em);\n}\n\n.modal-heading-text {\n  margin-bottom: 0;\n}\n\n.modal-heading-text:focus {\n  outline: none;\n}\n\n.modal-container {\n  max-width: 100%;\n}\n\n.modal-container:focus {\n  outline: none;\n}\n\n.modal-control {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);\n  position: relative;\n  z-index: 2;\n  display: flex;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.modal-control-button {\n  background-color: transparent;\n  margin: 0;\n  border-radius: 0;\n  padding-top: 1.5em;\n  padding-bottom: 1.5em;\n  flex-basis: 50%;\n}\n\n.modal-control .modal-control-button:first-child {\n  border-radius: 0 0 0 var(--theme-radius-base);\n}\n\n.modal-control .modal-control-button:last-child {\n  border-radius: 0 0 var(--theme-radius-base) 0\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-space: 2;\n  --modal-width: 50;\n}\n\n.modal {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: var(--theme-radius-base);\n  box-shadow: var(--theme-shadow-bottom-large);\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  font-size: 1em;\n  max-height: calc(100vh - 2em);\n  width: calc(var(--modal-width) * 1em);\n  max-width: calc(100% - 2em);\n  min-width: 10em;\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: 1fr auto;\n  transform: translate(-50%, -50%);\n  overflow: hidden;\n  pointer-events: all;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  z-index: var(--z-index-modal);\n}\n\n.modal.is-transparent {\n  pointer-events: none;\n}\n\n.modal.modal-max-height {\n  min-height: calc(100vh - 2em);\n}\n\n.modal-content-wrapper {\n  padding: calc(var(--modal-space) * 1.75em);\n  position: relative;\n  overflow-y: auto;\n}\n\n.modal-overscroll .modal-content-wrapper {\n  padding-bottom: calc(var(--form-space) * 14);\n}\n\n.modal-content {\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: auto 1fr;\n  justify-items: stretch;\n  align-items: stretch;\n  gap: calc(var(--modal-space) * 1em);\n}\n\n.modal-body {\n  border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;\n  position: relative;\n}\n\n.modal-body-spacer {\n  margin: calc(var(--modal-space) * 1em);\n}\n\n.modal-heading-text {\n  margin-bottom: 0;\n}\n\n.modal-heading-text:focus {\n  outline: none;\n}\n\n.modal-container {\n  max-width: 100%;\n}\n\n.modal-container:focus {\n  outline: none;\n}\n\n.modal-control {\n  background-color: hsl(var(--theme-primary-100));\n  border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);\n  position: relative;\n  z-index: 2;\n  display: flex;\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\n.modal-control-button {\n  background-color: transparent;\n  margin: 0;\n  border-radius: 0;\n  padding-top: 1.5em;\n  padding-bottom: 1.5em;\n  flex-basis: 50%;\n}\n\n.modal-control .modal-control-button:first-child {\n  border-radius: 0 0 0 var(--theme-radius-base);\n}\n\n.modal-control .modal-control-button:last-child {\n  border-radius: 0 0 var(--theme-radius-base) 0\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1046,7 +1106,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --modal-space: 2;\n  --moda
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: all;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: all;\n}\n\n.shade.is-transparent {\n  pointer-events: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2385,7 +2445,6 @@ state_state.default = {
     }
   },
   toolbar: { style: 'transparent', position: 'bottom-right' },
-  edit: false,
   modal: false,
   menu: false,
   autoSuggest: false
@@ -2495,6 +2554,7 @@ state_state.set = {
     console.log('state set to default');
   }
 };
+
 
 
 ;// CONCATENATED MODULE: ./src/utility/node.js
@@ -12863,6 +12923,7 @@ const Tab = function({
 const pageLock = {};
 
 pageLock.render = () => {
+
   const html = document.querySelector('html');
 
   if (state_state.get.current().modal || state_state.get.current().menu) {
@@ -12870,6 +12931,7 @@ pageLock.render = () => {
   } else {
     html.classList.remove('is-scroll-disabled');
   };
+
 };
 
 
@@ -12897,39 +12959,87 @@ var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shad
 
 const Shade = function() {
 
-  this.shade = node_node('div|class:shade');
+  this.element = {
+    shade: node_node('div|class:shade')
+  };
 
   this.open = () => {
     const body = document.querySelector('body');
 
-    this.shade.classList.add('is-transparent');
+    this.element.shade.classList.add('is-transparent');
 
-    this.shade.addEventListener('transitionend', (event) => {
-      if (event.propertyName === 'opacity' && getComputedStyle(this.shade).opacity == 0) {
-        body.removeChild(this.shade);
+    this.element.shade.addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
+        body.removeChild(this.element.shade);
       };
     });
 
-    body.appendChild(this.shade);
+    body.appendChild(this.element.shade);
 
-    getComputedStyle(this.shade).opacity;
+    getComputedStyle(this.element.shade).opacity;
 
-    this.shade.classList.remove('is-transparent');
+    this.element.shade.classList.remove('is-transparent');
 
-    this.shade.classList.add('is-opaque');
+    this.element.shade.classList.add('is-opaque');
   };
 
   this.close = () => {
 
-    this.shade.classList.remove('is-opaque');
+    this.element.shade.classList.remove('is-opaque');
 
-    this.shade.classList.add('is-transparent');
+    this.element.shade.classList.add('is-transparent');
 
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.shade)) {
+        body.removeChild(this.element.shade)
+      };
+
+    }, 6000);
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.shade = () => {
+    return this.element.shade;
   };
 
 };
 
 
+
+;// CONCATENATED MODULE: ./src/component/keyboardShortcut/index.js
+const KeyboardShortcut = function({
+  keycode = false,
+  ctrl = false,
+  alt = false,
+  action = false
+} = {}) {
+
+  this.action = () => {
+    if (keycode) {
+      if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
+
+        event.preventDefault();
+
+        if (action) {
+          action();
+        };
+
+      };
+    };
+  };
+
+  this.add = () => { window.addEventListener('keydown', this.action); };
+
+  this.remove = () => { window.removeEventListener('keydown', this.action); };
+
+};
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
 var modal = __webpack_require__(4719);
@@ -12961,14 +13071,17 @@ var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, moda
 
 
 
+
+
 const Modal = function({
   heading = false,
   content = false,
+  openAction = false,
   successText = 'OK',
   successAction = false,
   cancelText = 'Cancel',
   cancelAction = false,
-  dismissAction = false,
+  closeAction = false,
   size = 'medium',
   width = false,
   maxHeight = false,
@@ -12992,6 +13105,8 @@ const Modal = function({
   this.shade = new Shade();
 
   this.open = () => {
+
+    state_state.get.current().modal = true;
 
     const body = document.querySelector('body');
 
@@ -13025,9 +13140,15 @@ const Modal = function({
 
     this.focus.set();
 
+    if (openAction) {
+      openAction();
+    };
+
   };
 
   this.close = () => {
+
+    state_state.get.current().modal = false;
 
     this.element.modal.classList.remove('is-opaque');
 
@@ -13037,32 +13158,66 @@ const Modal = function({
 
     this.shade.close();
 
-    if (dismissAction) {
-      dismissAction();
+    if (closeAction) {
+      closeAction();
     };
 
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.modal)) {
+        body.removeChild(this.element.modal)
+      };
+
+    }, 6000);
+
   };
+
+  this.delayedForceRemove = null;
 
   this.bind = {
     add: () => {
 
       window.addEventListener('mouseup', this.clickOut);
 
-      window.addEventListener('keydown', this.esc);
-
       window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrlM.add();
 
     },
     remove: () => {
 
       window.removeEventListener('mouseup', this.clickOut);
 
-      window.removeEventListener('keydown', this.esc);
-
       window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrlM.remove();
 
     }
   };
+
+  this.esc = new KeyboardShortcut({
+    keycode: 27,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrlM = new KeyboardShortcut({
+    keycode: 77,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
 
   this.clickOut = (event) => {
 
@@ -13076,16 +13231,42 @@ const Modal = function({
 
   };
 
-  this.esc = (event) => {
+  this.focus = {
+    set: () => {
+      this.element.heading.text.focus();
+    },
+    loop: (event) => {
 
-    if ((event.keyCode == 27)) {
+      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
 
-      event.preventDefault();
+      if (allFocusElement.length > 0) {
 
-      this.close();
+        const firstElement = allFocusElement[0];
 
-    };
+        const lastElement = allFocusElement[allFocusElement.length - 1];
 
+        if (event.keyCode == 9 && event.shiftKey) {
+
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+
+            event.preventDefault();
+          }
+
+        } else if (event.keyCode == 9) {
+
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+
+            event.preventDefault();
+          }
+
+        };
+
+      };
+
+
+    }
   };
 
   this.style = () => {
@@ -13112,39 +13293,6 @@ const Modal = function({
       };
 
     };
-  };
-
-  this.focus = {
-    set: () => {
-      this.element.heading.text.focus();
-    },
-    loop: (event) => {
-
-      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
-
-      const firstElement = allFocusElement[0];
-
-      const lastElement = allFocusElement[allFocusElement.length - 1];
-
-      if (event.keyCode == 9 && event.shiftKey) {
-
-        if (document.activeElement === firstElement) {
-          lastElement.focus();
-
-          event.preventDefault();
-        }
-
-      } else if (event.keyCode == 9) {
-
-        if (document.activeElement === lastElement) {
-          firstElement.focus();
-
-          event.preventDefault();
-        }
-
-      };
-
-    }
   };
 
   this.successButton = new Button({
@@ -13231,7 +13379,12 @@ const Modal = function({
 
   };
 
+  this.modal = () => {
+    return this.element.modal;
+  };
+
 };
+
 ;// CONCATENATED MODULE: ./src/component/stagedBookmark/index.js
 
 
@@ -13633,6 +13786,12 @@ const HexTile = function({
 
     this.element.content.wrap.appendChild(this.element.control);
 
+    if (state_state.get.current().bookmark.edit) {
+      this.control.enable();
+    } else {
+      this.control.disable();
+    };
+
   };
 
   this.tile = () => {
@@ -13647,17 +13806,12 @@ const HexTile = function({
 
   };
 
-  if (state_state.get.current().bookmark.edit) {
-    this.control.enable();
-  } else {
-    this.control.disable();
-  };
-
   this.assemble();
 
   this.makeStyle();
 
 };
+
 
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmarkPreview/index.css
@@ -16754,40 +16908,20 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 const bookmark_bookmark = {};
 
+bookmark_bookmark.modal = null;
+
 bookmark_bookmark.all = bookmarkPreset.get();
 
 bookmark_bookmark.mod = {};
 
 bookmark_bookmark.mod.add = {
-  open: function() {
-    state_state.get.current().bookmark.add = true;
-  },
-  close: function() {
-    state_state.get.current().bookmark.add = false;
-  },
-  toggle: function() {
-    if (state_state.get.current().bookmark.add) {
-      bookmark_bookmark.mod.add.close();
-    } else {
-      bookmark_bookmark.mod.add.open();
-    };
-  }
+  open: () => { state_state.get.current().bookmark.add = true; },
+  close: () => { state_state.get.current().bookmark.add = false; }
 };
 
 bookmark_bookmark.mod.edit = {
-  open: function() {
-    state_state.get.current().bookmark.edit = true;
-  },
-  close: function() {
-    state_state.get.current().bookmark.edit = false;
-  },
-  toggle: function() {
-    if (state_state.get.current().bookmark.edit) {
-      bookmark_bookmark.mod.edit.close();
-    } else {
-      bookmark_bookmark.mod.edit.open();
-    };
-  }
+  open: () => { state_state.get.current().bookmark.edit = true; },
+  close: () => { state_state.get.current().bookmark.edit = false; }
 };
 
 bookmark_bookmark.mod.item = {};
@@ -16883,21 +17017,22 @@ bookmark_bookmark.render.mask = function() {
 
 bookmark_bookmark.render.tile = {};
 
-bookmark_bookmark.render.tile.edit = {
-  open: function() {
-    if (bookmark_bookmark.render.tile.current.length > 0) {
-      bookmark_bookmark.render.tile.current.forEach((item, i) => {
+bookmark_bookmark.render.tile.edit = function() {
+
+  if (bookmark_bookmark.render.tile.current.length > 0) {
+
+    bookmark_bookmark.render.tile.current.forEach((item, i) => {
+
+      if (state_state.get.current().bookmark.edit) {
         item.control.enable();
-      });
-    };
-  },
-  close: function() {
-    if (bookmark_bookmark.render.tile.current.length > 0) {
-      bookmark_bookmark.render.tile.current.forEach((item, i) => {
+      } else {
         item.control.disable();
-      });
-    };
-  }
+      };
+
+    });
+
+  };
+
 };
 
 bookmark_bookmark.render.tile.current = [];
@@ -17024,7 +17159,8 @@ bookmark_bookmark.render.class = function() {
   };
 };
 
-bookmark_bookmark.render.add = function() {
+bookmark_bookmark.add = function() {
+
   const newBookmarkData = new StagedBookmark();
 
   newBookmarkData.newBookmark();
@@ -17035,15 +17171,34 @@ bookmark_bookmark.render.add = function() {
     successText: 'Add',
     width: 60,
     maxHeight: true,
-    successAction: () => {
-      bookmark_bookmark.mod.item.add(newBookmarkData);
-      bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
-      bookmark_bookmark.render.clear();
-      bookmark_bookmark.render.item();
+    openAction: () => {
+      bookmark_bookmark.mod.add.open();
+
       data.save();
     },
-    dismissAction: () => {
-      bookmark_bookmark.add.close();
+    closeAction: () => {
+      bookmark_bookmark.mod.add.close();
+
+      data.save();
+    },
+    successAction: () => {
+
+      bookmark_bookmark.mod.item.add(newBookmarkData);
+
+      bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
+
+      bookmark_bookmark.render.clear();
+
+      bookmark_bookmark.render.item();
+
+      bookmark_bookmark.mod.add.close();
+
+      data.save();
+
+    },
+    cancelAction: () => {
+      bookmark_bookmark.mod.add.close();
+
       data.save();
     }
   });
@@ -17052,48 +17207,30 @@ bookmark_bookmark.render.add = function() {
 
 };
 
+bookmark_bookmark.edit = function() {
+  if (state_state.get.current().bookmark.edit) {
+    bookmark_bookmark.mod.edit.close();
+    bookmark_bookmark.render.class();
+    bookmark_bookmark.render.tile.edit();
+  } else {
+    bookmark_bookmark.mod.edit.open();
+    bookmark_bookmark.render.class();
+    bookmark_bookmark.render.tile.edit();
+  };
+};
+
 bookmark_bookmark.restore = function(dataToRestore) {
   bookmark_bookmark.all = dataToRestore.bookmark;
   console.log('bookmark restored');
 };
 
-bookmark_bookmark.add = {
-  open: function() {
-    bookmark_bookmark.mod.add.open();
-    bookmark_bookmark.render.add();
-  },
-  close: function() {
-    bookmark_bookmark.mod.add.close();
-  }
-};
-
-bookmark_bookmark.edit = {
-  open: function() {
-    bookmark_bookmark.mod.edit.open();
-    bookmark_bookmark.render.class();
-    bookmark_bookmark.render.tile.edit.open();
-  },
-  close: function() {
-    bookmark_bookmark.mod.edit.close();
-    bookmark_bookmark.render.class();
-    bookmark_bookmark.render.tile.edit.close();
-  },
-  toggle: function() {
-    if (state_state.get.current().bookmark.edit) {
-      bookmark_bookmark.edit.close();
-    } else {
-      bookmark_bookmark.edit.open();
-    };
-  }
-};
-
 bookmark_bookmark.init = function() {
   bookmark_bookmark.render.mask();
-  bookmark_bookmark.add.close();
   bookmark_bookmark.render.style();
   bookmark_bookmark.render.class();
   bookmark_bookmark.render.item();
 };
+
 
 
 ;// CONCATENATED MODULE: ./src/component/version/index.js
@@ -17274,6 +17411,10 @@ data.get = function(key) {
   return localStorage.getItem(key);
 };
 
+data.remove = function(key) {
+  localStorage.removeItem(key);
+};
+
 data.import = function(input, feedback) {
   const fileList = input.files;
 
@@ -17345,10 +17486,6 @@ data.export = function() {
 
   document.querySelector('body').appendChild(link);
   link.click();
-};
-
-data.remove = function(key) {
-  localStorage.removeItem(key);
 };
 
 data.backup = function(dataToBackup) {
@@ -17488,7 +17625,25 @@ data.init = function() {
 
 
 
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/menuNav/index.css
+var menuNav = __webpack_require__(8765);
+;// CONCATENATED MODULE: ./src/component/menuNav/index.css
+
+            
+
+var menuNav_options = {};
+
+menuNav_options.insert = "head";
+menuNav_options.singleton = false;
+
+var menuNav_update = injectStylesIntoStyleTag_default()(menuNav/* default */.Z, menuNav_options);
+
+
+
+/* harmony default export */ const component_menuNav = (menuNav/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/menuNav/index.js
+
+
 
 
 
@@ -17497,93 +17652,147 @@ data.init = function() {
 
 const MenuNav = function({
   navData = {},
-  contentArea = false
+  action = false
 } = {}) {
 
-  this.element = {
-    menuNav: node_node('div|class:menu-nav')
-  };
+  this.state = {
+    current: {},
+    set: () => {
 
-  this.navItem = [];
+      navData.forEach((item, i) => {
 
-  navData.forEach((item, i) => {
+        this.state.current[this.makeId(item.name)] = item.active;
 
-    const navItem = {
-      active: item.active,
-      topLevel: false,
-      subLevel: false
-    };
-
-    const navButton = new Button({
-      text: item.name,
-      style: ['link'],
-      block: true,
-      classList: ['menu-nav-tab'],
-      func: () => {
-        menu_menu.mod.area.toggle(item.name);
-        menu_menu.render.component.content();
-        contentArea.scrollTop = 0;
-        this.update();
-      }
-    });
-
-    navItem.topLevel = navButton.button;
-
-    if (item.sub) {
-      const sub = node_node('div|class:menu-subnav');
-
-      item.sub.forEach((item, i) => {
-
-        const subBarItem = node_node('a:' + item + '|href:#menu-content-item-' + item.replace(/\s+/g, '-').toLowerCase() + ',class:menu-nav-sub button button-link button-small,tabindex:1');
-        sub.appendChild(subBarItem);
       });
 
-      navItem.subLevel = sub;
-    };
+    },
+    toggle: (name) => {
 
-    this.navItem.push(navItem);
+      for (let key in this.state.current) {
+        this.state.current[key] = false;
+      };
 
-  });
+      this.state.current[this.makeId(name)] = true;
+
+      navData.forEach((item, i) => {
+
+        item.active = false;
+
+        if (item.name === name) {
+          item.active = true;
+        };
+
+      });
+
+    }
+  };
+
+  this.makeId = (name) => {
+    return name.replace(/\s+/g, '-').toLowerCase()
+  };
+
+  this.element = {
+    nav: node_node('div|class:menu-nav'),
+    item: [],
+  };
 
   this.init = () => {
-    this.navItem.forEach((item, i) => {
+
+    this.element.item.forEach((item, i) => {
       if (item.subLevel) {
         item.subLevel.classList.add('active');
         item.subLevel.setAttribute('style', '--menu-subnav-height: ' + item.subLevel.getBoundingClientRect().height + 'px;');
         item.subLevel.classList.remove('active');
       };
     });
+
+    this.update();
+
   };
 
   this.update = () => {
     navData.forEach((item, i) => {
 
-      this.navItem[i].menuNavItem.classList.remove('active');
-      this.navItem[i].topLevel.classList.remove('active');
+      this.element.item[i].menuNavItem.classList.remove('active');
+      this.element.item[i].topLevel.classList.remove('active');
 
       if (item.sub) {
-        this.navItem[i].subLevel.classList.remove('active');
+        this.element.item[i].subLevel.classList.remove('active');
       };
 
-      if (item.active) {
-        this.navItem[i].menuNavItem.classList.add('active');
-        this.navItem[i].topLevel.classList.add('active');
+      if (this.state.current[this.makeId(item.name)]) {
+        this.element.item[i].menuNavItem.classList.add('active');
+        this.element.item[i].topLevel.classList.add('active');
 
         if (item.sub) {
-          this.navItem[i].subLevel.classList.add('active');
+          this.element.item[i].subLevel.classList.add('active');
         };
       };
 
     });
   };
 
-  this.render = () => {
-    this.navItem.forEach((item, i) => {
-      item.menuNavItem = node_node('div|class:menu-nav-item');
+  this.nav = () => {
 
-      if (item.active) {
-        item.menuNavItem.classList.add('active');
+    this.state.set();
+
+    this.assemble();
+
+    return this.element.nav;
+  };
+
+  this.assemble = () => {
+
+    navData.forEach((item, i) => {
+
+      const navItem = {
+        topLevel: false,
+        subLevel: false
       };
+
+      const navButton = new Button({
+        text: item.name,
+        style: ['link'],
+        block: true,
+        classList: ['menu-nav-tab'],
+        func: () => {
+
+          this.state.toggle(item.name);
+
+          this.update();
+
+          if (action) {
+            action();
+          };
+
+        }
+      });
+
+      navItem.topLevel = navButton.button;
+
+      if (item.sub) {
+
+        const subNav = node_node('div|class:menu-subnav');
+
+        item.sub.forEach((item, i) => {
+
+          const subBarItem = node_node('a:' + item + '|href:#menu-content-item-' + this.makeId(item) + ',class:menu-nav-sub button button-link button-small,tabindex:1');
+
+          subNav.appendChild(subBarItem);
+
+        });
+
+        navItem.subLevel = subNav;
+
+      };
+
+      this.element.item.push(navItem);
+
+    });
+
+    this.element.item.forEach((item, i) => {
+
+      item.menuNavItem = node_node('div|class:menu-nav-item');
 
       item.menuNavItem.appendChild(item.topLevel);
 
@@ -17591,10 +17800,70 @@ const MenuNav = function({
         item.menuNavItem.appendChild(item.subLevel);
       };
 
-      this.element.menuNav.appendChild(item.menuNavItem);
+      this.element.nav.appendChild(item.menuNavItem);
+
     });
 
-    return this.element.menuNav;
+  };
+
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/menuClose/index.css
+var menuClose = __webpack_require__(229);
+;// CONCATENATED MODULE: ./src/component/menuClose/index.css
+
+            
+
+var menuClose_options = {};
+
+menuClose_options.insert = "head";
+menuClose_options.singleton = false;
+
+var menuClose_update = injectStylesIntoStyleTag_default()(menuClose/* default */.Z, menuClose_options);
+
+
+
+/* harmony default export */ const component_menuClose = (menuClose/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/menuClose/index.js
+
+
+
+
+
+
+
+
+const MenuClose = function() {
+
+  this.element = {
+    close: node_node('div|class:menu-close')
+  };
+
+  this.button = new Button({
+    text: 'Close settings menu',
+    srOnly: true,
+    style: ['link'],
+    iconName: 'cross',
+    classList: ['menu-close-button'],
+    func: function() {
+      menu.close();
+    }
+  });
+
+  this.assemble = () => {
+
+    this.element.close.appendChild(this.button.button);
+
+  };
+
+  this.close = () => {
+
+    this.assemble();
+
+    return this.element.close;
+
   };
 
 };
@@ -17797,7 +18066,7 @@ toolbar_toolbar.bar.render = function() {
     iconName: 'add',
     classList: ['toolbar-item'],
     func: function() {
-      bookmark_bookmark.add.open();
+      bookmark_bookmark.add();
     }
   };
 
@@ -17807,8 +18076,8 @@ toolbar_toolbar.bar.render = function() {
     iconName: 'edit',
     classList: ['toolbar-item'],
     func: function() {
-      bookmark_bookmark.edit.toggle();
-      toolbar_toolbar.bar.active();
+      bookmark_bookmark.edit();
+      toolbar_toolbar.bar.edit();
       data.save();
     }
   };
@@ -17819,7 +18088,7 @@ toolbar_toolbar.bar.render = function() {
     iconName: 'settings',
     classList: ['toolbar-item'],
     func: function() {
-      menu_menu.toggle();
+      menu.toggle();
     }
   };
 
@@ -17893,7 +18162,7 @@ toolbar_toolbar.bar.clear = function() {
 
 };
 
-toolbar_toolbar.bar.active = function() {
+toolbar_toolbar.bar.edit = function() {
   if (state_state.get.current().bookmark.edit) {
     toolbar_toolbar.edit.active();
   } else {
@@ -17905,8 +18174,9 @@ toolbar_toolbar.init = function() {
   toolbar_toolbar.render.class();
   toolbar_toolbar.render.style.update();
   toolbar_toolbar.bar.render();
-  toolbar_toolbar.bar.active();
+  toolbar_toolbar.bar.edit();
 };
+
 
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/logo/index.css
@@ -18179,7 +18449,7 @@ const Control_textReset = function({
   };
 
 };
-;// CONCATENATED MODULE: ./src/component/menu/content/layout/index.js
+;// CONCATENATED MODULE: ./src/component/menuContent/layoutSetting/index.js
 
 
 
@@ -18213,10 +18483,9 @@ const Control_textReset = function({
 
 
 
-const menuContentLayout = {};
+const layoutSetting = {};
 
-menuContentLayout.scaling = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-scaling,class:menu-content-item');
+layoutSetting.scaling = (parent) => {
 
   const gridSize = new Control_slider({
     object: state_state.get.current(),
@@ -18237,20 +18506,16 @@ menuContentLayout.scaling = function() {
     text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Scaling'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       gridSize.wrap(),
       gridSizeHelper.wrap()
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentLayout.grid = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-grid,class:menu-content-item');
+layoutSetting.grid = (parent) => {
 
   const gridColumn = new Control_slider({
     object: state_state.get.current(),
@@ -18361,10 +18626,8 @@ menuContentLayout.grid = function() {
     }
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Grid'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       gridColumn.wrap(),
       gridGap.wrap(),
       gridPerspective.wrap(),
@@ -18376,11 +18639,11 @@ menuContentLayout.grid = function() {
     ])
   );
 
-  return menuContentItem;
 };
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/bookmark/index.js
+
+;// CONCATENATED MODULE: ./src/component/menuContent/bookmarkSetting/index.js
 
 
 
@@ -18414,10 +18677,9 @@ menuContentLayout.grid = function() {
 
 
 
-const menuContentBookmark = {};
+const bookmarkSetting = {};
 
-menuContentBookmark.hover = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-hover,class:menu-content-item');
+bookmarkSetting.hover = (parent) => {
 
   const bookmarkHoverSize = new Control_slider({
     object: state_state.get.current(),
@@ -18449,20 +18711,16 @@ menuContentBookmark.hover = function() {
     }
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Hover'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       bookmarkHoverSize.wrap(),
       bookmarkHoverDistance.wrap(),
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentBookmark.shadow = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-shadow,class:menu-content-item');
+bookmarkSetting.shadow = (parent) => {
 
   const bookmarkShadowDistance = new Control_slider({
     object: state_state.get.current(),
@@ -18494,20 +18752,18 @@ menuContentBookmark.shadow = function() {
     }
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Shadow'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       bookmarkShadowDistance.wrap(),
       bookmarkShadowBlur.wrap()
     ])
   );
 
-  return menuContentItem;
 };
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/toolbar/index.js
+
+;// CONCATENATED MODULE: ./src/component/menuContent/toolbarSetting/index.js
 
 
 
@@ -18541,12 +18797,9 @@ menuContentBookmark.shadow = function() {
 
 
 
-const menuContentToolbar = {};
+const toolbarSetting = {};
 
-menuContentToolbar.style = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-style,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
+toolbarSetting.style = (parent) => {
 
   const toolbarStyle = new Control_radio({
     object: state_state.get.current(),
@@ -18560,7 +18813,7 @@ menuContentToolbar.style = function() {
       toolbar_toolbar.render.class();
       toolbar_toolbar.bar.clear();
       toolbar_toolbar.bar.render();
-      toolbar_toolbar.bar.active();
+      toolbar_toolbar.bar.edit();
       toolbar_toolbar.render.style.update();
       data.save();
     }
@@ -18570,18 +18823,16 @@ menuContentToolbar.style = function() {
     text: ['Use the Bar style if the Toolbar is not visible with your Background.']
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.form([
-    toolbarStyle.inline(),
-    toolbarStyleHelper.wrap()
-  ]));
+  parent.appendChild(
+    node_node('div', [
+      toolbarStyle.inline(),
+      toolbarStyleHelper.wrap()
+    ])
+  );
 
-  return menuContentItem;
 };
 
-menuContentToolbar.position = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-position,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Position'));
+toolbarSetting.position = (parent) => {
 
   const toolbarPosition = new Control_radioGrid({
     object: state_state.get.current(),
@@ -18599,7 +18850,7 @@ menuContentToolbar.position = function() {
       toolbar_toolbar.render.class();
       toolbar_toolbar.bar.clear();
       toolbar_toolbar.bar.render();
-      toolbar_toolbar.bar.active();
+      toolbar_toolbar.bar.edit();
       toolbar_toolbar.render.style.update();
       data.save();
     }
@@ -18609,16 +18860,18 @@ menuContentToolbar.position = function() {
     text: ['Position the Toolbar in one of the four corners of the window.']
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.form([
-    toolbarPosition.grid(),
-    toolbarPositionHelper.wrap()
-  ]));
+  parent.appendChild(
+    node_node('div', [
+      toolbarPosition.grid(),
+      toolbarPositionHelper.wrap()
+    ])
+  );
 
-  return menuContentItem;
 };
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/theme/index.js
+
+;// CONCATENATED MODULE: ./src/component/menuContent/themeSetting/index.js
 
 
 
@@ -18652,16 +18905,13 @@ menuContentToolbar.position = function() {
 
 
 
-const menuContentTheme = {};
+const themeSetting = {};
 
-menuContentTheme.exposeControl = {
+themeSetting.exposeControl = {
   style: false
 };
 
-menuContentTheme.style = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-style,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Style'));
+themeSetting.style = (parent) => {
 
   const themeStyle = new Control_radio({
     object: state_state.get.current(),
@@ -18679,19 +18929,17 @@ menuContentTheme.style = function() {
     }
   });
 
-  menuContentTheme.exposeControl.style = themeStyle;
+  themeSetting.exposeControl.style = themeStyle;
 
-  menuContentItem.appendChild(menu_menu.render.component.item.form([
-    themeStyle.wrap()
-  ]));
+  parent.appendChild(
+    node_node('div', [
+      themeStyle.wrap()
+    ])
+  );
 
-  return menuContentItem;
 };
 
-menuContentTheme.color = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-color,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Colour'));
+themeSetting.color = (parent) => {
 
   const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
@@ -18746,13 +18994,13 @@ menuContentTheme.color = function() {
     }
   });
 
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       sticky_sticky({
         children: [
           wrap_wrap({
             children: [
-              menuContentTheme.shades()
+              themeSetting.shades()
             ]
           })
         ]
@@ -18765,10 +19013,9 @@ menuContentTheme.color = function() {
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentTheme.shades = function() {
+themeSetting.shades = (parent) => {
   const formGroup = group_group({
     block: true,
     border: true
@@ -18793,10 +19040,7 @@ menuContentTheme.shades = function() {
   return formGroup;
 };
 
-menuContentTheme.accent = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-accent,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Accent'));
+themeSetting.accent = (parent) => {
 
   const themeAccentMixer = new Control_colorMixer({
     object: state_state.get.current(),
@@ -18813,20 +19057,17 @@ menuContentTheme.accent = function() {
     }
   });
 
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       themeAccentMixer.wrap()
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentTheme.font = function() {
+themeSetting.font = (parent) => {
 
   const fontWeight = { light: 300, regular: 400, bold: 700 };
-
-  const menuContentItem = node_node('div|id:menu-content-item-font,class:menu-content-item');
 
   const themeFontDisplayName = new Control_textReset({
     object: state_state.get.current(),
@@ -19012,10 +19253,8 @@ menuContentTheme.font = function() {
     }
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Font'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       themeFontDisplayName.wrap(),
       themeFontDisplayNameHelper.wrap(),
       wrap_wrap({
@@ -19076,13 +19315,9 @@ menuContentTheme.font = function() {
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentTheme.bookmark = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-bookmark,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Bookmark'));
+themeSetting.bookmark = (parent) => {
 
   const themeBookmarkShadowColorBy = new Control_radio({
     object: state_state.get.current(),
@@ -19144,33 +19379,33 @@ menuContentTheme.bookmark = function() {
 
   themeBookmarkShadowColorByCollapse.update();
 
-  menuContentItem.appendChild(menu_menu.render.component.item.form([
-    wrap_wrap({
-      children: [
-        label_label({
-          text: 'Bookmark shadow colour'
-        })
-      ]
-    }),
-    themeBookmarkShadowColorBy.wrap(),
-    wrap_wrap({
-      children: [
-        indent_indent({
-          children: [
-            themeBookmarkShadowColorByCollapse.collapse(),
-            node_node('hr'),
-            themeBookmarkShadowOpacity.wrap()
-          ]
-        })
-      ]
-    })
-  ]));
+  parent.appendChild(
+    node_node('div', [
+      wrap_wrap({
+        children: [
+          label_label({
+            text: 'Bookmark shadow colour'
+          })
+        ]
+      }),
+      themeBookmarkShadowColorBy.wrap(),
+      wrap_wrap({
+        children: [
+          indent_indent({
+            children: [
+              themeBookmarkShadowColorByCollapse.collapse(),
+              node_node('hr'),
+              themeBookmarkShadowOpacity.wrap()
+            ]
+          })
+        ]
+      })
+    ])
+  );
 
-  return menuContentItem;
 };
 
-menuContentTheme.shade = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-shade,class:menu-content-item');
+themeSetting.shade = (parent) => {
 
   const themeShadeOpacity = new Control_slider({
     object: state_state.get.current(),
@@ -19187,21 +19422,15 @@ menuContentTheme.shade = function() {
     }
   });
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Shade'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       themeShadeOpacity.wrap()
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentTheme.background = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-background,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Background'));
+themeSetting.background = (parent) => {
 
   const themeBackgroundType = new Control_radio({
     object: state_state.get.current(),
@@ -19463,18 +19692,20 @@ menuContentTheme.background = function() {
 
   themeBackgroundCollapse.update();
 
-  menuContentItem.appendChild(menu_menu.render.component.item.form([
-    themeBackgroundType.wrap(),
-    wrap_wrap({
-      children: [
-        indent_indent({
-          children: [
-            themeBackgroundCollapse.collapse()
-          ]
-        })
-      ]
-    })
-  ]));
+  parent.appendChild(
+    node_node('div', [
+      themeBackgroundType.wrap(),
+      wrap_wrap({
+        children: [
+          indent_indent({
+            children: [
+              themeBackgroundCollapse.collapse()
+            ]
+          })
+        ]
+      })
+    ])
+  );
 
   const updateVideoPlayState = () => {
     if (themeBackgroundType.value() === 'video') {
@@ -19576,11 +19807,11 @@ menuContentTheme.background = function() {
 
   updateDisabled();
 
-  return menuContentItem;
 };
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/data/index.js
+
+;// CONCATENATED MODULE: ./src/component/menuContent/dataSetting/index.js
 
 
 
@@ -19614,12 +19845,9 @@ menuContentTheme.background = function() {
 
 
 
-const menuContentData = {};
+const dataSetting = {};
 
-menuContentData.import = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-import,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Import'));
+dataSetting.import = (parent) => {
 
   const importFeedback = feedback_feedback();
 
@@ -19640,8 +19868,8 @@ menuContentData.import = function() {
     text: ['Restore a previously exported ' + data.saveName + ' backup.']
   });
 
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       importButton.wrap(),
       importHelper.wrap(),
       wrap_wrap({
@@ -19652,13 +19880,9 @@ menuContentData.import = function() {
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentData.backup = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-backup,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Backup'));
+dataSetting.backup = (parent) => {
 
   const exportButton = new Button({
     text: 'Export data',
@@ -19672,26 +19896,22 @@ menuContentData.backup = function() {
     text: ['Download a backup of your ' + data.saveName + ' Bookmarks and Settings.', 'This file can later be imported on this or another deivce.']
   });
 
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       exportButton.wrap(),
       exportHelper.wrap()
     ])
   );
 
-  return menuContentItem;
 };
 
-menuContentData.clear = function() {
-  const menuContentItem = node_node('div|id:menu-content-item-clear,class:menu-content-item');
-
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Clear'));
+dataSetting.clear = (parent) => {
 
   const clearButton = new Button({
     text: 'Clear all data',
     style: ['line'],
     func: () => {
-      menu_menu.close();
+      menu.close();
       data.render.clear();
     }
   });
@@ -19700,18 +19920,18 @@ menuContentData.clear = function() {
     text: ['Wipe all data and restore ' + data.saveName + ' to the default state.']
   });
 
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       clearButton.wrap(),
       clearHelper.wrap()
     ])
   );
 
-  return menuContentItem;
 };
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/coffee/index.js
+
+;// CONCATENATED MODULE: ./src/component/menuContent/coffeeSetting/index.js
 
 
 
@@ -19745,15 +19965,12 @@ menuContentData.clear = function() {
 
 
 
-const menuContentCoffee = {};
+const coffeeSetting = {};
 
-menuContentCoffee.fuel = function() {
-  const menuContentItem = node_node('div|class:menu-content-item');
+coffeeSetting.coffee = (parent) => {
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header('Coffee for fuel'));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       complexNode({
         tag: 'p',
         text: data.saveName + ' is free, appreciation is welcome in the form of coffee!'
@@ -19775,11 +19992,11 @@ menuContentCoffee.fuel = function() {
     ])
   );
 
-  return menuContentItem;
 };
 
 
-;// CONCATENATED MODULE: ./src/component/menu/content/app/index.js
+
+;// CONCATENATED MODULE: ./src/component/menuContent/appSetting/index.js
 
 
 
@@ -19813,15 +20030,12 @@ menuContentCoffee.fuel = function() {
 
 
 
-const menuContentApp = {};
+const appSetting = {};
 
-menuContentApp.splash = function() {
-  const menuContentItem = node_node('div|class:menu-content-item');
+appSetting[data.saveName.toLowerCase()] = (parent) => {
 
-  menuContentItem.appendChild(menu_menu.render.component.item.header(data.saveName));
-
-  menuContentItem.appendChild(
-    menu_menu.render.component.item.form([
+  parent.appendChild(
+    node_node('div', [
       node_node('div|class:version', [
         logo_logo.render(),
         node_node('div|class:version-details', [
@@ -19852,49 +20066,432 @@ menuContentApp.splash = function() {
     ])
   );
 
-  return menuContentItem;
 };
 
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/menu/index.css
-var menu = __webpack_require__(7525);
-;// CONCATENATED MODULE: ./src/component/menu/index.css
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/menuContent/index.css
+var menuContent = __webpack_require__(1290);
+;// CONCATENATED MODULE: ./src/component/menuContent/index.css
 
             
 
-var menu_options = {};
+var menuContent_options = {};
 
-menu_options.insert = "head";
-menu_options.singleton = false;
+menuContent_options.insert = "head";
+menuContent_options.singleton = false;
 
-var menu_update = injectStylesIntoStyleTag_default()(menu/* default */.Z, menu_options);
+var menuContent_update = injectStylesIntoStyleTag_default()(menuContent/* default */.Z, menuContent_options);
 
 
 
-/* harmony default export */ const component_menu = (menu/* default.locals */.Z.locals || {});
+/* harmony default export */ const component_menuContent = (menuContent/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/menuContent/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const MenuContent = function({
+  activeNavData = {},
+  container = false
+} = {}) {
+
+  this.element = {
+    content: (name) => {
+      return node_node('div|id:menu-content-item-' + this.makeId(name) + ',class:menu-content-item');
+    },
+    header: (name) => {
+      return node_node('div|class:menu-item-header', [
+        node_node('h1:' + name + '|class:menu-item-header-text')
+      ]);
+    },
+    form: (children) => {
+      return node_node('div|class:menu-item-form', children);
+    }
+  };
+
+  this.content = () => {
+
+    if (activeNavData.sub && activeNavData.sub.length > 0) {
+
+      activeNavData.sub.forEach((item, i) => {
+
+        const menuContentItem = this.element.content(item);
+
+        menuContentItem.appendChild(this.element.header(item));
+
+        const formElement = this.element.form();
+
+        switch (this.makeId(activeNavData.name)) {
+          case 'layout':
+            layoutSetting[this.makeId(item)](formElement);
+            break;
+
+          case 'bookmark':
+            bookmarkSetting[this.makeId(item)](formElement);
+            break;
+
+          case 'toolbar':
+            toolbarSetting[this.makeId(item)](formElement);
+            break;
+
+          case 'theme':
+            themeSetting[this.makeId(item)](formElement);
+            break;
+
+          case 'data':
+            dataSetting[this.makeId(item)](formElement);
+            break;
+
+        };
+
+        menuContentItem.appendChild(formElement);
+
+        container.appendChild(menuContentItem);
+
+      });
+
+    } else {
+
+      const menuContentItem = this.element.content(activeNavData.name);
+
+      menuContentItem.appendChild(this.element.header(activeNavData.name));
+
+      const formElement = this.element.form();
+
+      switch (this.makeId(activeNavData.name)) {
+        case 'coffee':
+          coffeeSetting[this.makeId(activeNavData.name)](formElement);
+          break;
+
+        case this.makeId(data.saveName):
+          appSetting[this.makeId(activeNavData.name)](formElement);
+          break;
+
+      };
+
+      menuContentItem.appendChild(formElement);
+
+      container.appendChild(menuContentItem);
+
+    };
+
+  };
+
+  this.makeId = (name) => {
+    return name.replace(/\s+/g, '-').toLowerCase()
+  };
+
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/menuFrame/index.css
+var menuFrame = __webpack_require__(9782);
+;// CONCATENATED MODULE: ./src/component/menuFrame/index.css
+
+            
+
+var menuFrame_options = {};
+
+menuFrame_options.insert = "head";
+menuFrame_options.singleton = false;
+
+var menuFrame_update = injectStylesIntoStyleTag_default()(menuFrame/* default */.Z, menuFrame_options);
+
+
+
+/* harmony default export */ const component_menuFrame = (menuFrame/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/menuFrame/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const MenuFrame = function({
+  navData = [],
+} = {}) {
+
+  this.element = {
+    menu: node_node('section|class:menu'),
+    area: node_node('div|class:menu-area'),
+    content: node_node('div|class:menu-content')
+  };
+
+  this.menuNav = new MenuNav({
+    navData: navData,
+    action: () => {
+      this.content();
+      this.element.content.scrollTop = 0;
+    }
+  });
+
+  this.menuClose = new MenuClose();
+
+  this.shade = new Shade();
+
+  this.class = () => {
+
+    const html = document.querySelector('html');
+
+    if (state_state.get.current().menu) {
+      html.classList.add('is-menu-open');
+    } else {
+      html.classList.remove('is-menu-open');
+    };
+
+  };
+
+  this.open = () => {
+
+    state_state.get.current().menu = true;
+
+    data.save();
+
+    const body = document.querySelector('body');
+
+    this.element.menu.classList.add('is-transparent');
+
+    this.element.menu.addEventListener('transitionend', (event) => {
+
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.menu).opacity == 0) {
+
+        body.removeChild(this.element.menu);
+
+      };
+
+    });
+
+    this.shade.open();
+
+    this.assemble();
+
+    body.appendChild(this.element.menu);
+
+    getComputedStyle(this.element.menu).opacity;
+
+    this.element.menu.classList.remove('is-transparent');
+
+    this.element.menu.classList.add('is-opaque');
+
+    this.bind.add();
+
+    this.focus.set();
+
+    this.menuNav.init();
+
+    this.content();
+
+    this.class();
+
+    pageLock.render();
+
+  };
+
+  this.close = () => {
+
+    state_state.get.current().menu = false;
+
+    data.save();
+
+    this.element.menu.classList.remove('is-opaque');
+
+    this.element.menu.classList.add('is-transparent');
+
+    this.bind.remove();
+
+    this.shade.close();
+
+    this.locationReset();
+
+    this.class();
+
+    pageLock.render();
+
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.menu)) {
+        body.removeChild(this.element.menu)
+      };
+
+    }, 6000);
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.locationReset = () => {
+
+    const location = window.location;
+
+    if ('pushState' in history) {
+      history.pushState('', document.title, location.origin + location.pathname + location.search);
+    };
+
+  };
+
+  this.bind = {
+    add: () => {
+
+      window.addEventListener('mouseup', this.clickOut);
+
+      window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrAltA.add();
+
+    },
+    remove: () => {
+
+      window.removeEventListener('mouseup', this.clickOut);
+
+      window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrAltA.remove();
+
+    }
+  };
+
+  this.esc = new KeyboardShortcut({
+    keycode: 27,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrAltA = new KeyboardShortcut({
+    keycode: 65,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.clickOut = (event) => {
+
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    if (!path.includes(this.element.menu)) {
+      this.close();
+    };
+
+  };
+
+  this.focus = {
+    set: () => {
+
+      const allFocusElement = document.querySelector('.menu').querySelectorAll('[tabindex]');
+
+      allFocusElement[0].focus();
+
+    },
+    loop: (event) => {
+
+      const allFocusElement = document.querySelector('.menu').querySelectorAll('[tabindex]');
+
+      if (allFocusElement.length > 0) {
+
+        const firstElement = allFocusElement[0];
+
+        const lastElement = allFocusElement[allFocusElement.length - 1];
+
+        if (event.keyCode == 9 && event.shiftKey) {
+
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+
+            event.preventDefault();
+          }
+
+        } else if (event.keyCode == 9) {
+
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+
+            event.preventDefault();
+          }
+
+        };
+
+      };
+
+    }
+  };
+
+  this.assemble = () => {
+
+    this.element.area.appendChild(this.menuNav.nav());
+
+    this.element.area.appendChild(this.menuClose.close());
+
+    this.element.area.appendChild(this.element.content);
+
+    this.element.menu.appendChild(this.element.area);
+
+  };
+
+  this.content = () => {
+
+    clearChildNode_clearChildNode(this.element.content);
+
+    navData.forEach((item, i) => {
+
+      if (item.active) {
+
+        if (item.overscroll) {
+          this.element.content.classList.add('menu-content-overscroll');
+        } else {
+          this.element.content.classList.remove('menu-content-overscroll');
+        };
+
+        const settingContent = new MenuContent({
+          activeNavData: item,
+          container: this.element.content
+        });
+
+        settingContent.content();
+
+      };
+
+    });
+
+  };
+
+};
+
+
+
 ;// CONCATENATED MODULE: ./src/component/menu/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -19915,31 +20512,23 @@ let currentMenu = null;
 
 let currentContentArea = node_node('div|class:menu-content');
 
-const menu_menu = {};
+const menu = {};
 
-menu_menu.navData = [
+menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
   { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
   { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Color', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
-  { name: 'App', active: false, overscroll: false }
+  { name: data.saveName.toLowerCase(), active: false, overscroll: false }
 ];
 
-menu_menu.mod = {};
+menu.mod = {};
 
-menu_menu.mod.open = function() {
-  state_state.get.current().menu = true;
-};
-
-menu_menu.mod.close = function() {
-  state_state.get.current().menu = false;
-};
-
-menu_menu.mod.area = {
+menu.mod.area = {
   toggle: function(name) {
-    menu_menu.navData.forEach((item, i) => {
+    menu.navData.forEach((item, i) => {
       item.active = false;
       if (item.name == name) {
         item.active = true;
@@ -19948,249 +20537,33 @@ menu_menu.mod.area = {
   }
 };
 
-menu_menu.bind = {};
+menu.frame = null;
 
-menu_menu.bind.close = {
-  add: function() {
-
-    window.addEventListener('drag', menu_menu.clickOut);
-
-    window.addEventListener('mouseup', menu_menu.clickOut);
-
-    window.addEventListener('keydown', menu_menu.esc);
-
-  },
-  remove: function() {
-
-    window.removeEventListener('drag', menu_menu.clickOut);
-
-    window.removeEventListener('mouseup', menu_menu.clickOut);
-
-    window.removeEventListener('keydown', menu_menu.esc);
-
-  }
+menu.open = function() {
+  menu.frame = new MenuFrame({
+    navData: menu.navData
+  });
+  menu.frame.open();
 };
 
-menu_menu.clickOut = (event) => {
-
-  const path = event.path || (event.composedPath && event.composedPath());
-
-  if (!path.includes(currentMenu)) {
-    menu_menu.close();
+menu.close = function() {
+  if (menu.frame) {
+    menu.frame.close();
   };
-
 };
 
-menu_menu.esc = (event) => {
-
-  if ((event.keyCode == 27)) {
-
-    event.preventDefault();
-
-    menu_menu.close();
-
-  };
-
-};
-
-menu_menu.render = {};
-
-menu_menu.render.class = () => {
-  const html = document.querySelector('html');
-
+menu.toggle = function() {
   if (state_state.get.current().menu) {
-    html.classList.add('is-menu-open');
+    menu.close();
   } else {
-    html.classList.remove('is-menu-open');
+    menu.open();
   };
 };
 
-menu_menu.render.frame = {
-  open: function() {
-    // menu containers
-    const menuElement = node_node('section|class:menu');
-
-    const menuArea = node_node('div|class:menu-area');
-
-    menuElement.addEventListener('transitionend', function(event, elapsed) {
-      if (event.propertyName === 'opacity' && getComputedStyle(this).opacity == 0) {
-        menuElement.remove();
-        currentMenu = null;
-      };
-    });
-
-    // menu components
-    const menuClose = menu_menu.render.component.close();
-
-    let menuNav = new MenuNav({
-      navData: menu_menu.navData,
-      contentArea: currentContentArea
-    });
-
-    menuArea.appendChild(menuNav.render());
-    menuArea.appendChild(menuClose);
-    menuArea.appendChild(currentContentArea);
-
-    // add menu content for active area
-    menu_menu.render.component.content();
-
-    menuElement.appendChild(menuArea);
-    document.querySelector('body').appendChild(menuElement);
-
-    getComputedStyle(menuElement).opacity;
-
-    menuElement.classList.remove('is-transparent');
-    menuElement.classList.add('is-opaque');
-
-    if (currentMenu) {
-      menu_menu.render.frame.close();
-    };
-
-    currentMenu = menuElement;
-
-    menuNav.init();
-    menuNav.update();
-  },
-  close: function() {
-    if (currentMenu) {
-      if (currentMenu.classList.contains('is-opaque')) {
-        currentMenu.classList.remove('is-opaque');
-        currentMenu.classList.add('is-transparent');
-      } else {
-        currentMenu.remove();
-      };
-    } else {
-      document.querySelectorAll('.menu').forEach((item, i) => {
-        item.classList.add('is-opaque');
-        item.classList.remove('is-transparent');
-        item.remove();
-      });
-    };
-  }
+menu.init = function() {
+  state_state.get.current().menu = false;
 };
 
-menu_menu.render.component = {
-  close: function() {
-    const menuClose = node_node('div|class:menu-close');
-
-    const closeButton = new Button({
-      text: 'Close settings menu',
-      srOnly: true,
-      style: ['link'],
-      iconName: 'cross',
-      classList: ['menu-close-button'],
-      func: function() {
-        menu_menu.close();
-      }
-    });
-
-    menuClose.appendChild(closeButton.button);
-
-    return menuClose;
-  },
-  content: function() {
-
-    clearChildNode_clearChildNode(currentContentArea);
-
-    menu_menu.navData.forEach((item, i) => {
-
-      if (item.active) {
-        if (item.overscroll) {
-          currentContentArea.classList.add('menu-content-overscroll');
-        } else {
-          currentContentArea.classList.remove('menu-content-overscroll');
-        };
-
-        if (menu_menu.render.component.section[item.name.replace(/\s+/g, '-').toLowerCase()]) {
-          menu_menu.render.component.section[item.name.replace(/\s+/g, '-').toLowerCase()](currentContentArea);
-        } else {
-          currentContentArea.appendChild(node_node('p:' + item.name.replace(/\s+/g, '-').toLowerCase()));
-        };
-      };
-
-    });
-
-  },
-  item: {
-    form: function(children) {
-      return node_node('div|class:menu-item-form', children);
-    },
-    header: function(name) {
-      return node_node('div|class:menu-item-header', [
-        node_node('h1:' + name + '|class:menu-item-header-text')
-      ]);
-    }
-  },
-  section: {
-    layout: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentLayout.scaling());
-      currentContentArea.appendChild(menuContentLayout.grid());
-    },
-    bookmark: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentBookmark.hover());
-      currentContentArea.appendChild(menuContentBookmark.shadow());
-    },
-    toolbar: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentToolbar.style());
-      currentContentArea.appendChild(menuContentToolbar.position());
-    },
-    theme: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentTheme.style());
-      currentContentArea.appendChild(menuContentTheme.color());
-      currentContentArea.appendChild(menuContentTheme.accent());
-      currentContentArea.appendChild(menuContentTheme.font());
-      currentContentArea.appendChild(menuContentTheme.bookmark());
-      currentContentArea.appendChild(menuContentTheme.shade());
-      currentContentArea.appendChild(menuContentTheme.background());
-    },
-    data: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentData.import());
-      currentContentArea.appendChild(menuContentData.backup());
-      currentContentArea.appendChild(menuContentData.clear());
-    },
-    coffee: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentCoffee.fuel());
-    },
-    app: function(currentContentArea) {
-      currentContentArea.appendChild(menuContentApp.splash());
-    }
-  }
-};
-
-menu_menu.shade = false;
-
-menu_menu.open = function() {
-  menu_menu.shade = new Shade();
-  menu_menu.shade.open();
-  menu_menu.mod.open();
-  menu_menu.render.frame.open();
-  menu_menu.render.class();
-  menu_menu.bind.close.add();
-  pageLock.render();
-};
-
-menu_menu.close = function() {
-  if (menu_menu.shade) {
-    menu_menu.shade.close();
-  };
-  menu_menu.mod.close();
-  menu_menu.render.frame.close();
-  menu_menu.render.class();
-  menu_menu.bind.close.remove();
-  pageLock.render();
-};
-
-menu_menu.toggle = function() {
-  if (state_state.get.current().menu) {
-    menu_menu.close();
-  } else {
-    menu_menu.open();
-  };
-};
-
-menu_menu.init = function() {
-  menu_menu.close();
-};
 
 
 ;// CONCATENATED MODULE: ./src/component/keyboard/index.js
@@ -20204,101 +20577,76 @@ menu_menu.init = function() {
 
 
 
-const KeyPress = function({
-  keycode = false,
-  ctrl = false,
-  alt = false,
-  action = false
-} = {}) {
 
-  this.bind = () => {
-    if (keycode) {
-
-      window.addEventListener('keydown', function(event) {
-        if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
-          event.preventDefault();
-          if (action) {
-            action();
-          };
-        };
-      });
-
-    };
-  };
-
-};
 
 const keyboard = {};
 
-keyboard.esc = new KeyPress({
+keyboard.esc = new KeyboardShortcut({
   keycode: 27,
   action: () => {
-    if (state_state.get.current().menu) {
-      menu_menu.close();
-    } else if (state_state.get.current().bookmark.edit) {
-      bookmark_bookmark.edit.close();
+    if (state_state.get.current().bookmark.edit && !state_state.get.current().modal && !state_state.get.current().menu) {
+      bookmark_bookmark.edit();
+      toolbar_toolbar.bar.edit();
     };
   }
 });
 
-keyboard.ctrAltA = new KeyPress({
-  keycode: 65,
-  ctrl: true,
-  alt: true,
-  action: () => {
-    if (state_state.get.current().menu) {
-      menu_menu.close();
-    };
-    if (!state_state.get.current().bookmark.add) {
-      bookmark_bookmark.add.open();
-    };
-  }
-});
-
-keyboard.ctrAltE = new KeyPress({
-  keycode: 69,
-  ctrl: true,
-  alt: true,
-  action: () => {
-    bookmark_bookmark.edit.toggle();
-    toolbar_toolbar.bar.active();
-    data.save();
-  }
-});
-
-keyboard.ctrAltD = new KeyPress({
+keyboard.ctrAltD = new KeyboardShortcut({
   keycode: 68,
   ctrl: true,
   alt: true,
   action: () => {
     theme_theme.style.toggle();
-    if (menuContentTheme.exposeControl.style) {
-      menuContentTheme.exposeControl.style.update();
+    if (themeSetting.exposeControl.style) {
+      themeSetting.exposeControl.style.update();
     };
     data.save();
   }
 });
 
-keyboard.ctrAltM = new KeyPress({
+keyboard.ctrAltA = new KeyboardShortcut({
+  keycode: 65,
+  ctrl: true,
+  alt: true,
+  action: () => {
+    if (!state_state.get.current().bookmark.add) {
+      bookmark_bookmark.add();
+    };
+  }
+});
+
+keyboard.ctrAltE = new KeyboardShortcut({
+  keycode: 69,
+  ctrl: true,
+  alt: true,
+  action: () => {
+    bookmark_bookmark.edit();
+    toolbar_toolbar.bar.edit();
+    data.save();
+  }
+});
+
+keyboard.ctrAltM = new KeyboardShortcut({
   keycode: 77,
   ctrl: true,
   alt: true,
   action: () => {
-    menu_menu.toggle();
+    menu.toggle();
   }
 });
 
 keyboard.init = function() {
-  keyboard.esc.bind();
-  keyboard.ctrAltA.bind();
-  keyboard.ctrAltE.bind();
-  keyboard.ctrAltD.bind();
-  keyboard.ctrAltM.bind();
+  keyboard.esc.add();
+  keyboard.ctrAltA.add();
+  keyboard.ctrAltE.add();
+  keyboard.ctrAltD.add();
+  keyboard.ctrAltM.add();
 };
 
 
 
 ;// CONCATENATED MODULE: ./src/component/index.js
+
 
 
 
@@ -20338,7 +20686,7 @@ const component = {
   layout: layout_layout,
   link: link_link,
   logo: logo_logo,
-  menu: menu_menu,
+  menu: menu,
   pageLock: pageLock,
   theme: theme_theme,
   toolbar: toolbar_toolbar,
@@ -20350,7 +20698,8 @@ const component = {
   Collapse: Collapse,
   Tab: Tab,
   Modal: Modal,
-  Shade: Shade
+  Shade: Shade,
+  KeyboardShortcut: KeyboardShortcut
 };
 
 ;// CONCATENATED MODULE: ./src/utility/index.js
@@ -20394,6 +20743,8 @@ component.theme.init();
 component.toolbar.init();
 component.menu.init();
 component.keyboard.init();
+
+// component.menu.open();
 
 })();
 
