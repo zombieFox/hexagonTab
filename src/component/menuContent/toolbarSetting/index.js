@@ -44,11 +44,7 @@ toolbarSetting.style = (parent) => {
     groupName: 'toolbar-style',
     path: 'toolbar.style',
     action: () => {
-      toolbar.render.class();
-      toolbar.bar.clear();
-      toolbar.bar.render();
-      toolbar.bar.edit();
-      toolbar.render.style.update();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -81,11 +77,8 @@ toolbarSetting.position = (parent) => {
     path: 'toolbar.position',
     gridSize: '2x2',
     action: () => {
-      toolbar.render.class();
-      toolbar.bar.clear();
-      toolbar.bar.render();
-      toolbar.bar.edit();
-      toolbar.render.style.update();
+      toolbar.current.update.position();
+      toolbar.current.update.style();
       data.save();
     }
   });

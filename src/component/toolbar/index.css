@@ -8,22 +8,22 @@
   z-index: var(--z-index-toolbar);
 }
 
-.is-toolbar-position-top-left .toolbar {
+.toolbar.is-toolbar-position-top-left {
   top: var(--toolbar-position-offset);
   left: var(--toolbar-position-offset);
 }
 
-.is-toolbar-position-top-right .toolbar {
+.toolbar.is-toolbar-position-top-right {
   top: var(--toolbar-position-offset);
   right: var(--toolbar-position-offset);
 }
 
-.is-toolbar-position-bottom-left .toolbar {
+.toolbar.is-toolbar-position-bottom-left {
   bottom: var(--toolbar-position-offset);
   left: var(--toolbar-position-offset);
 }
 
-.is-toolbar-position-bottom-right .toolbar {
+.toolbar.is-toolbar-position-bottom-right {
   bottom: var(--toolbar-position-offset);
   right: var(--toolbar-position-offset);
 }
@@ -31,12 +31,6 @@
 .toolbar-control {
   display: flex;
   transition: opacity var(--layout-transition-extra-fast);
-}
-
-.toolbar-item {
-  padding: 0;
-  width: 3.5em;
-  min-width: initial;
 }
 
 .is-presentation-mode .toolbar {
