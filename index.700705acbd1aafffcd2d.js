@@ -4911,6 +4911,10 @@ icon_icon.all = {
   coffee: {
     name: 'coffee',
     path: 'M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z'
+  },
+  drag: {
+    name: 'drag',
+    path: 'M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z'
   }
 };
 
@@ -4931,6 +4935,7 @@ icon_icon.render = function(name) {
 
   return iconElement;
 };
+
 
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/button/index.css
@@ -4969,7 +4974,7 @@ const Button = function({
   classList = [],
   func = false
 } = {}) {
-  
+
   this.button = node_node('button|class:button,tabindex:1,type:button');
 
   if (text) {
@@ -5000,24 +5005,6 @@ const Button = function({
       break;
   };
 
-  if (style.length > 0) {
-    style.forEach((item, i) => {
-      switch (item) {
-        case 'link':
-          this.button.classList.add('button-link');
-          break;
-
-        case 'line':
-          this.button.classList.add('button-line');
-          break;
-
-        case 'ring':
-          this.button.classList.add('button-ring');
-          break;
-      };
-    });
-  };
-
   if (title) {
     this.button.setAttribute('title', title);
   };
@@ -5033,6 +5020,54 @@ const Button = function({
       func();
     });
   };
+
+  this.style = {};
+
+  this.style.add = (style) => {
+
+    if (style) {
+
+      if (style.length > 0) {
+        style.forEach((item, i) => {
+          switch (item) {
+            case 'link':
+              this.button.classList.add('button-link');
+              break;
+
+            case 'line':
+              this.button.classList.add('button-line');
+              break;
+
+            case 'ring':
+              this.button.classList.add('button-ring');
+              break;
+          };
+        });
+      };
+
+    };
+
+  };
+
+  this.style.remove = () => {
+
+    this.button.classList.remove('button-link');
+
+    this.button.classList.remove('button-line');
+
+    this.button.classList.remove('button-ring');
+
+  };
+
+  this.style.update = (style) => {
+
+    this.style.remove();
+
+    this.style.add(style);
+
+  };
+
+  this.style.add(style);
 
   this.disable = () => {
     this.button.disabled = true;
@@ -13188,7 +13223,7 @@ const Modal = function({
 
       this.esc.add();
 
-      this.ctrlM.add();
+      this.ctrAltM.add();
 
     },
     remove: () => {
@@ -13199,7 +13234,7 @@ const Modal = function({
 
       this.esc.remove();
 
-      this.ctrlM.remove();
+      this.ctrAltM.remove();
 
     }
   };
@@ -13211,7 +13246,7 @@ const Modal = function({
     }
   });
 
-  this.ctrlM = new KeyboardShortcut({
+  this.ctrAltM = new KeyboardShortcut({
     keycode: 77,
     ctrl: true,
     alt: true,
@@ -14142,6 +14177,62 @@ const Control_inputButton = function({
     srOnly: srOnly
   });
 
+  this.inputButtonStyle = {};
+
+  this.inputButtonStyle.add = (inputButtonStyle) => {
+
+    if (inputButtonStyle) {
+      if (inputButtonStyle.length > 0) {
+
+        inputButtonStyle.forEach((item, i) => {
+
+          switch (item) {
+            case 'link':
+              this.button.classList.add('form-input-button-link');
+              break;
+
+            case 'line':
+              this.button.classList.add('form-input-button-line');
+              break;
+
+            case 'ring':
+              this.button.classList.add('form-input-button-ring');
+              break;
+
+            case 'dot':
+              this.button.classList.add('input-color-dot');
+              break;
+          };
+
+        });
+
+      };
+    };
+
+  };
+
+  this.inputButtonStyle.remove = () => {
+
+    this.button.classList.remove('form-input-button-link');
+
+    this.button.classList.remove('form-input-button-line');
+
+    this.button.classList.remove('form-input-button-ring');
+
+    this.button.classList.remove('input-color-dot');
+
+  };
+
+  this.inputButtonStyle.update = (inputButtonStyle) => {
+
+    this.inputButtonStyle.remove();
+
+    this.inputButtonStyle.add(inputButtonStyle);
+
+  };
+
+  this.inputButtonStyle.add(inputButtonStyle);
+
   if (inputButtonClassList.length > 0) {
 
     inputButtonClassList.forEach((item, i) => {
@@ -14185,6 +14276,7 @@ const Control_inputButton = function({
   };
 
 };
+
 ;// CONCATENATED MODULE: ./src/component/control/groupText/index.js
 
 
@@ -20690,15 +20782,6 @@ keyboard.init = function() {
 
 
 
-
-
-
-
-
-
-
-
-
 const component = {
   base: component_base_base,
   state: state_state,
@@ -20717,15 +20800,7 @@ const component = {
   toolbar: toolbar_toolbar,
   update: update_update,
   bookmark: bookmark_bookmark,
-  form: component_form_namespaceObject,
-  Button: Button,
-  Suggest: Suggest,
-  Collapse: Collapse,
-  Tab: Tab,
-  Modal: Modal,
-  Shade: Shade,
-  MenuNav: MenuNav,
-  KeyboardShortcut: KeyboardShortcut
+  form: component_form_namespaceObject
 };
 
 ;// CONCATENATED MODULE: ./src/utility/index.js
