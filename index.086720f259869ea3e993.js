@@ -1186,7 +1186,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  /* calculates perceived lig
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1.25em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  z-index: var(--z-index-toolbar);\n}\n\n.is-toolbar-position-top-left .toolbar {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-top-right .toolbar {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-left .toolbar {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-right .toolbar {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.toolbar-item {\n  padding: 0;\n  width: 3.5em;\n  min-width: initial;\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1.25em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  z-index: var(--z-index-toolbar);\n}\n\n.toolbar.is-toolbar-position-top-left {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.toolbar.is-toolbar-position-top-right {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar.is-toolbar-position-bottom-left {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.toolbar.is-toolbar-position-bottom-right {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17969,6 +17969,317 @@ const MenuClose = function() {
 
 
 
+;// CONCATENATED MODULE: ./src/component/toolbarControl/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const ToolbarControl = function() {
+
+  this.element = {
+    toolbar: node_node('div|class:toolbar'),
+    group: group_group()
+  };
+
+  this.control = {};
+
+  this.control.button = {
+    accent: new Control_inputButton({
+      object: state_state.get.current(),
+      path: 'theme.accent',
+      id: 'theme-accent-quick',
+      type: 'color',
+      labelText: 'Accent colour',
+      srOnly: true,
+      inputButtonStyle: ['dot', 'line'],
+      inputButtonClassList: ['toolbar-item'],
+      action: () => {
+        theme_theme.render.accent();
+        this.update.style();
+        data.save();
+      }
+    }),
+    edit: new Button({
+      text: 'Enter edit bookmark mode',
+      srOnly: true,
+      iconName: 'edit',
+      classList: ['toolbar-item'],
+      style: ['line'],
+      func: () => {
+        bookmark_bookmark.edit();
+        this.update.edit();
+        data.save();
+      }
+    }),
+    setting: new Button({
+      text: 'Open settings menu',
+      srOnly: true,
+      iconName: 'settings',
+      classList: ['toolbar-item'],
+      style: ['line'],
+      func: () => {
+        menu.toggle();
+      }
+    }),
+    add: new Button({
+      text: 'Add a bookmark',
+      srOnly: true,
+      iconName: 'add',
+      classList: ['toolbar-item'],
+      func: function() {
+        bookmark_bookmark.add();
+      }
+    })
+  };
+
+  this.assemble = () => {
+
+    const toolbarControl = node_node('div|class:toolbar-control');
+
+    switch (state_state.get.current().toolbar.position) {
+
+      case 'top-right':
+      case 'bottom-right':
+        this.element.group.classList.remove('form-group-reverse');
+        break;
+
+      case 'top-left':
+      case 'bottom-left':
+        this.element.group.classList.add('form-group-reverse');
+        break;
+
+    };
+
+    this.element.group.appendChild(this.control.button.accent.button);
+
+    this.element.group.appendChild(this.control.button.add.button);
+
+    this.element.group.appendChild(this.control.button.edit.button);
+
+    this.element.group.appendChild(this.control.button.setting.button);
+
+    toolbarControl.appendChild(this.element.group);
+
+    this.element.toolbar.appendChild(toolbarControl);
+
+  };
+
+  this.toolbar = () => {
+
+    return this.element.toolbar;
+
+  };
+
+  this.update = {};
+
+  this.update.style = () => {
+
+    const add = (rgb) => {
+
+      this.element.toolbar.style.setProperty('--toolbar-color-r', rgb.r);
+      this.element.toolbar.style.setProperty('--toolbar-color-g', rgb.g);
+      this.element.toolbar.style.setProperty('--toolbar-color-b', rgb.b);
+
+      this.element.toolbar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--theme-t-r)) + (var(--toolbar-color-g) * var(--theme-t-g)) + (var(--toolbar-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.toolbar.style.setProperty('--button-link-text', 'var(--toolbar-color-text)');
+      this.element.toolbar.style.setProperty('--button-link-text-focus-hover', 'var(--toolbar-color-text)');
+      this.element.toolbar.style.setProperty('--button-link-text-active', 'var(--toolbar-color-text)');
+
+    };
+
+    const remove = () => {
+
+      this.element.toolbar.style.removeProperty('--toolbar-color-r');
+      this.element.toolbar.style.removeProperty('--toolbar-color-g');
+      this.element.toolbar.style.removeProperty('--toolbar-color-b');
+
+      this.element.toolbar.style.removeProperty('--toolbar-color-text');
+
+      this.element.toolbar.style.removeProperty('--button-link-text');
+      this.element.toolbar.style.removeProperty('--button-link-text-focus-hover');
+      this.element.toolbar.style.removeProperty('--button-link-text-active');
+
+    };
+
+    switch (state_state.get.current().toolbar.style) {
+
+      case 'transparent':
+
+        switch (state_state.get.current().theme.background.type) {
+
+          case 'theme':
+          case 'image':
+          case 'video':
+            remove();
+            break;
+
+          case 'accent':
+            add(state_state.get.current().theme.accent.rgb);
+            break;
+
+          case 'color':
+            add(state_state.get.current().theme.background.color.rgb);
+            break;
+
+          case 'gradient':
+            let angle = state_state.get.current().theme.background.gradient.angle;
+
+            switch (state_state.get.current().toolbar.position) {
+
+              case 'top-left':
+              case 'top-right':
+                if (angle < 90) {
+                  remove(state_state.get.current().theme.background.gradient.end.rgb);
+                } else if (angle >= 90 && angle < 180) {
+                  add(state_state.get.current().theme.background.gradient.start.rgb);
+                } else if (angle >= 180 && angle < 270) {
+                  add(state_state.get.current().theme.background.gradient.start.rgb);
+                } else if (angle >= 270) {
+                  add(state_state.get.current().theme.background.gradient.end.rgb);
+                };
+                break;
+
+              case 'bottom-right':
+              case 'bottom-left':
+                if (angle < 90) {
+                  add(state_state.get.current().theme.background.gradient.start.rgb);
+                } else if (angle >= 90 && angle < 180) {
+                  add(state_state.get.current().theme.background.gradient.end.rgb);
+                } else if (angle >= 180 && angle < 270) {
+                  add(state_state.get.current().theme.background.gradient.end.rgb);
+                } else if (angle >= 270) {
+                  add(state_state.get.current().theme.background.gradient.start.rgb);
+                };
+                break;
+
+            };
+
+            break;
+
+        };
+
+        break;
+
+      case 'bar':
+
+        remove();
+
+        break;
+
+    };
+
+    switch (state_state.get.current().toolbar.style) {
+
+      case 'transparent':
+
+        this.control.button.accent.inputButtonStyle.update(['dot', 'link']);
+        this.control.button.edit.style.update(['line', 'link']);
+        this.control.button.setting.style.update(['link']);
+        this.control.button.add.style.update(['link']);
+
+        break;
+
+      case 'bar':
+
+        this.control.button.accent.inputButtonStyle.update(['dot', 'line']);
+        this.control.button.edit.style.update(['line']);
+        this.control.button.setting.style.update(['line']);
+        this.control.button.add.style.update(['line']);
+
+        break;
+
+    };
+
+  };
+
+  this.update.edit = () => {
+
+    if (state_state.get.current().bookmark.edit) {
+
+      this.control.button.edit.active();
+
+    } else {
+
+      this.control.button.edit.deactive();
+
+    };
+
+  };
+
+  this.update.position = () => {
+
+    switch (state_state.get.current().toolbar.position) {
+
+      case 'top-right':
+      case 'bottom-right':
+        this.element.group.classList.remove('form-group-reverse');
+        break;
+
+      case 'top-left':
+      case 'bottom-left':
+        this.element.group.classList.add('form-group-reverse');
+        break;
+
+    };
+
+    this.element.toolbar.classList.remove('is-toolbar-position-top-left');
+
+    this.element.toolbar.classList.remove('is-toolbar-position-top-right');
+
+    this.element.toolbar.classList.remove('is-toolbar-position-bottom-left');
+
+    this.element.toolbar.classList.remove('is-toolbar-position-bottom-right');
+
+    switch (state_state.get.current().toolbar.position) {
+
+      case 'top-left':
+        this.element.toolbar.classList.add('is-toolbar-position-top-left');
+        break;
+
+      case 'top-right':
+        this.element.toolbar.classList.add('is-toolbar-position-top-right');
+        break;
+
+      case 'bottom-right':
+        this.element.toolbar.classList.add('is-toolbar-position-bottom-right');
+        break;
+
+      case 'bottom-left':
+        this.element.toolbar.classList.add('is-toolbar-position-bottom-left');
+        break;
+
+    };
+
+  };
+
+  this.update.accent = () => {
+
+    this.control.button.accent.update();
+
+  };
+
+  this.assemble();
+
+  this.update.style();
+
+  this.update.position();
+
+};
+
+
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbar/index.css
 var toolbar = __webpack_require__(4879);
 ;// CONCATENATED MODULE: ./src/component/toolbar/index.css
@@ -17992,39 +18303,13 @@ var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const toolbar_toolbar = {};
 
-toolbar_toolbar.bar = node_node('div|class:toolbar');
+toolbar_toolbar.current = false;
 
-toolbar_toolbar.edit = false;
+toolbar_toolbar.class = {};
 
-toolbar_toolbar.accent = false;
-
-toolbar_toolbar.render = {};
-
-toolbar_toolbar.render.class = function() {
+toolbar_toolbar.class.render = function() {
   const html = document.querySelector('html');
 
   const position = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
@@ -18044,236 +18329,21 @@ toolbar_toolbar.render.class = function() {
   html.classList.add('is-toolbar-style-' + state_state.get.current().toolbar.style);
 };
 
-toolbar_toolbar.render.style = {};
-
-toolbar_toolbar.render.style.set = function(rgb) {
-  toolbar_toolbar.bar.style.setProperty('--toolbar-color-r', rgb.r);
-  toolbar_toolbar.bar.style.setProperty('--toolbar-color-g', rgb.g);
-  toolbar_toolbar.bar.style.setProperty('--toolbar-color-b', rgb.b);
-
-  toolbar_toolbar.bar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--theme-t-r)) + (var(--toolbar-color-g) * var(--theme-t-g)) + (var(--toolbar-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-  toolbar_toolbar.bar.style.setProperty('--button-link-text', 'var(--toolbar-color-text)');
-  toolbar_toolbar.bar.style.setProperty('--button-link-text-focus-hover', 'var(--toolbar-color-text)');
-  toolbar_toolbar.bar.style.setProperty('--button-link-text-active', 'var(--toolbar-color-text)');
-}
-
-toolbar_toolbar.render.style.remove = function() {
-  toolbar_toolbar.bar.style.removeProperty('--toolbar-color-r');
-  toolbar_toolbar.bar.style.removeProperty('--toolbar-color-g');
-  toolbar_toolbar.bar.style.removeProperty('--toolbar-color-b');
-
-  toolbar_toolbar.bar.style.removeProperty('--toolbar-color-text');
-
-  toolbar_toolbar.bar.style.removeProperty('--button-link-text');
-  toolbar_toolbar.bar.style.removeProperty('--button-link-text-focus-hover');
-  toolbar_toolbar.bar.style.removeProperty('--button-link-text-active');
-}
-
-toolbar_toolbar.render.style.update = function() {
-
-  switch (state_state.get.current().toolbar.style) {
-
-    case 'transparent':
-
-      switch (state_state.get.current().theme.background.type) {
-
-        case 'theme':
-        case 'image':
-        case 'video':
-          toolbar_toolbar.render.style.remove();
-          break;
-
-        case 'accent':
-          toolbar_toolbar.render.style.set(state_state.get.current().theme.accent.rgb);
-          break;
-
-        case 'color':
-          toolbar_toolbar.render.style.set(state_state.get.current().theme.background.color.rgb);
-          break;
-
-        case 'gradient':
-          let angle = state_state.get.current().theme.background.gradient.angle;
-
-          switch (state_state.get.current().toolbar.position) {
-
-            case 'top-left':
-            case 'top-right':
-              if (angle < 90) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.end.rgb);
-              } else if (angle >= 90 && angle < 180) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.start.rgb);
-              } else if (angle >= 180 && angle < 270) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.start.rgb);
-              } else if (angle >= 270) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.end.rgb);
-              };
-              break;
-
-            case 'bottom-right':
-            case 'bottom-left':
-              if (angle < 90) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.start.rgb);
-              } else if (angle >= 90 && angle < 180) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.end.rgb);
-              } else if (angle >= 180 && angle < 270) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.end.rgb);
-              } else if (angle >= 270) {
-                toolbar_toolbar.render.style.set(state_state.get.current().theme.background.gradient.start.rgb);
-              };
-              break;
-
-          };
-
-          break;
-
-      };
-
-      break;
-
-    case 'bar':
-
-      toolbar_toolbar.render.style.remove();
-
-      break;
-
-  };
-
-};
+toolbar_toolbar.bar = {};
 
 toolbar_toolbar.bar.render = function() {
 
-  const accentOptions = {
-    object: state_state.get.current(),
-    path: 'theme.accent',
-    id: 'theme-accent-quick',
-    type: 'color',
-    labelText: 'Accent colour',
-    srOnly: true,
-    inputButtonStyle: ['dot'],
-    inputButtonClassList: ['toolbar-item'],
-    action: () => {
-      theme_theme.render.accent();
-      toolbar_toolbar.render.style.update();
-      data.save();
-    }
-  };
+  const body = document.querySelector('body');
 
-  const addOptions = {
-    text: 'Add a bookmark',
-    srOnly: true,
-    iconName: 'add',
-    classList: ['toolbar-item'],
-    func: function() {
-      bookmark_bookmark.add();
-    }
-  };
+  toolbar_toolbar.current = new ToolbarControl();
 
-  const editOptions = {
-    text: 'Enter edit bookmark mode',
-    srOnly: true,
-    iconName: 'edit',
-    classList: ['toolbar-item'],
-    func: function() {
-      bookmark_bookmark.edit();
-      toolbar_toolbar.bar.edit();
-      data.save();
-    }
-  };
+  body.appendChild(toolbar_toolbar.current.toolbar());
 
-  const settingsMenuOptions = {
-    text: 'Open settings menu',
-    srOnly: true,
-    iconName: 'settings',
-    classList: ['toolbar-item'],
-    func: function() {
-      menu.toggle();
-    }
-  };
-
-  switch (state_state.get.current().toolbar.style) {
-    case 'bar':
-      addOptions.style = ['line'];
-      editOptions.style = ['line'];
-      settingsMenuOptions.style = ['line'];
-      accentOptions.inputButtonStyle.push('line');
-      break;
-
-    case 'transparent':
-      addOptions.style = ['link'];
-      editOptions.style = ['link', 'line'];
-      settingsMenuOptions.style = ['link'];
-      accentOptions.inputButtonStyle.push('link');
-      break;
-  };
-
-  const accent = new Control_inputButton(accentOptions);
-
-  const add = new Button(addOptions);
-
-  const edit = new Button(editOptions);
-
-  const settingsMenu = new Button(settingsMenuOptions);
-
-  toolbar_toolbar.edit = edit;
-
-  toolbar_toolbar.accent = accent;
-
-  const toolbarControl = node_node('div|class:toolbar-control');
-
-  let formGroup;
-
-  switch (state_state.get.current().toolbar.position) {
-    case 'top-right':
-    case 'bottom-right':
-      formGroup = group_group();
-
-      break;
-
-    case 'top-left':
-    case 'bottom-left':
-      formGroup = group_group({
-        reverse: true
-      });
-
-      break;
-  };
-
-  formGroup.appendChild(accent.button);
-
-  formGroup.appendChild(add.button);
-
-  formGroup.appendChild(edit.button);
-
-  formGroup.appendChild(settingsMenu.button);
-
-  toolbarControl.appendChild(formGroup);
-
-  toolbar_toolbar.bar.appendChild(toolbarControl);
-
-  document.querySelector('body').appendChild(toolbar_toolbar.bar);
-
-};
-
-toolbar_toolbar.bar.clear = function() {
-
-  clearChildNode_clearChildNode(toolbar_toolbar.bar);
-
-};
-
-toolbar_toolbar.bar.edit = function() {
-  if (state_state.get.current().bookmark.edit) {
-    toolbar_toolbar.edit.active();
-  } else {
-    toolbar_toolbar.edit.deactive();
-  };
 };
 
 toolbar_toolbar.init = function() {
-  toolbar_toolbar.render.class();
-  toolbar_toolbar.render.style.update();
+  toolbar_toolbar.class.render();
   toolbar_toolbar.bar.render();
-  toolbar_toolbar.bar.edit();
 };
 
 
@@ -18909,11 +18979,7 @@ toolbarSetting.style = (parent) => {
     groupName: 'toolbar-style',
     path: 'toolbar.style',
     action: () => {
-      toolbar_toolbar.render.class();
-      toolbar_toolbar.bar.clear();
-      toolbar_toolbar.bar.render();
-      toolbar_toolbar.bar.edit();
-      toolbar_toolbar.render.style.update();
+      toolbar_toolbar.current.update.style();
       data.save();
     }
   });
@@ -18946,11 +19012,8 @@ toolbarSetting.position = (parent) => {
     path: 'toolbar.position',
     gridSize: '2x2',
     action: () => {
-      toolbar_toolbar.render.class();
-      toolbar_toolbar.bar.clear();
-      toolbar_toolbar.bar.render();
-      toolbar_toolbar.bar.edit();
-      toolbar_toolbar.render.style.update();
+      toolbar_toolbar.current.update.position();
+      toolbar_toolbar.current.update.style();
       data.save();
     }
   });
@@ -20844,8 +20907,6 @@ component.theme.init();
 component.toolbar.init();
 component.menu.init();
 component.keyboard.init();
-
-// component.menu.open();
 
 })();
 
