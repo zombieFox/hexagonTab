@@ -127,7 +127,7 @@ export const Modal = function({
 
       this.esc.add();
 
-      this.ctrlM.add();
+      this.ctrAltM.add();
 
     },
     remove: () => {
@@ -138,7 +138,7 @@ export const Modal = function({
 
       this.esc.remove();
 
-      this.ctrlM.remove();
+      this.ctrAltM.remove();
 
     }
   };
@@ -150,7 +150,7 @@ export const Modal = function({
     }
   });
 
-  this.ctrlM = new KeyboardShortcut({
+  this.ctrAltM = new KeyboardShortcut({
     keycode: 77,
     ctrl: true,
     alt: true,

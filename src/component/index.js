@@ -18,15 +18,6 @@ import { bookmark } from './bookmark';
 
 import * as form from './form';
 
-import { Button } from './button';
-import { Suggest } from './suggest';
-import { Collapse } from './collapse';
-import { Tab } from './tab';
-import { Modal } from './modal';
-import { Shade } from './shade';
-import { MenuNav } from './menuNav';
-import { KeyboardShortcut } from './keyboardShortcut';
-
 export const component = {
   base,
   state,
@@ -45,13 +36,5 @@ export const component = {
   toolbar,
   update,
   bookmark,
-  form,
-  Button,
-  Suggest,
-  Collapse,
-  Tab,
-  Modal,
-  Shade,
-  MenuNav,
-  KeyboardShortcut
+  form
 };
