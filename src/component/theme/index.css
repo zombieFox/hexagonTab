@@ -15,10 +15,6 @@
 }
 
 :root {
-  --theme-background-accent: var(--theme-accent);
-}
-
-:root {
   --theme-font-display-name: "Fjalla One", sans-serif;
   --theme-font-display-weight: 400;
   --theme-font-display-style: "normal";
@@ -33,11 +29,12 @@
 }
 
 :root {
-  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1em);
+  --theme-background-accent: var(--theme-accent);
+  --theme-background-theme: var(--theme-primary-100);
 }
 
 :root {
-  --theme-background-theme: var(--theme-primary-100);
+  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1em);
 }
 
 :root {
