@@ -17,7 +17,7 @@ export const Button = function({
   classList = [],
   func = false
 } = {}) {
-  
+
   this.button = node('button|class:button,tabindex:1,type:button');
 
   if (text) {
@@ -48,24 +48,6 @@ export const Button = function({
       break;
   };
 
-  if (style.length > 0) {
-    style.forEach((item, i) => {
-      switch (item) {
-        case 'link':
-          this.button.classList.add('button-link');
-          break;
-
-        case 'line':
-          this.button.classList.add('button-line');
-          break;
-
-        case 'ring':
-          this.button.classList.add('button-ring');
-          break;
-      };
-    });
-  };
-
   if (title) {
     this.button.setAttribute('title', title);
   };
@@ -81,6 +63,54 @@ export const Button = function({
       func();
     });
   };
+
+  this.style = {};
+
+  this.style.add = (style) => {
+
+    if (style) {
+
+      if (style.length > 0) {
+        style.forEach((item, i) => {
+          switch (item) {
+            case 'link':
+              this.button.classList.add('button-link');
+              break;
+
+            case 'line':
+              this.button.classList.add('button-line');
+              break;
+
+            case 'ring':
+              this.button.classList.add('button-ring');
+              break;
+          };
+        });
+      };
+
+    };
+
+  };
+
+  this.style.remove = () => {
+
+    this.button.classList.remove('button-link');
+
+    this.button.classList.remove('button-line');
+
+    this.button.classList.remove('button-ring');
+
+  };
+
+  this.style.update = (style) => {
+
+    this.style.remove();
+
+    this.style.add(style);
+
+  };
+
+  this.style.add(style);
 
   this.disable = () => {
     this.button.disabled = true;

@@ -87,6 +87,62 @@ export const Control_inputButton = function({
     srOnly: srOnly
   });
 
+  this.inputButtonStyle = {};
+
+  this.inputButtonStyle.add = (inputButtonStyle) => {
+
+    if (inputButtonStyle) {
+      if (inputButtonStyle.length > 0) {
+
+        inputButtonStyle.forEach((item, i) => {
+
+          switch (item) {
+            case 'link':
+              this.button.classList.add('form-input-button-link');
+              break;
+
+            case 'line':
+              this.button.classList.add('form-input-button-line');
+              break;
+
+            case 'ring':
+              this.button.classList.add('form-input-button-ring');
+              break;
+
+            case 'dot':
+              this.button.classList.add('input-color-dot');
+              break;
+          };
+
+        });
+
+      };
+    };
+
+  };
+
+  this.inputButtonStyle.remove = () => {
+
+    this.button.classList.remove('form-input-button-link');
+
+    this.button.classList.remove('form-input-button-line');
+
+    this.button.classList.remove('form-input-button-ring');
+
+    this.button.classList.remove('input-color-dot');
+
+  };
+
+  this.inputButtonStyle.update = (inputButtonStyle) => {
+
+    this.inputButtonStyle.remove();
+
+    this.inputButtonStyle.add(inputButtonStyle);
+
+  };
+
+  this.inputButtonStyle.add(inputButtonStyle);
+
   if (inputButtonClassList.length > 0) {
 
     inputButtonClassList.forEach((item, i) => {
