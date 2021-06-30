@@ -11,7 +11,6 @@ import { Button } from '../button';
 import { Control_inputButton } from '../control/inputButton';
 
 import { node } from '../../utility/node';
-import { clearChildNode } from '../../utility/clearChildNode';
 
 const ToolbarControl = function() {
 
@@ -169,7 +168,7 @@ const ToolbarControl = function() {
               case 'top-left':
               case 'top-right':
                 if (angle < 90) {
-                  remove(state.get.current().theme.background.gradient.end.rgb);
+                  add(state.get.current().theme.background.gradient.end.rgb);
                 } else if (angle >= 90 && angle < 180) {
                   add(state.get.current().theme.background.gradient.start.rgb);
                 } else if (angle >= 180 && angle < 270) {
