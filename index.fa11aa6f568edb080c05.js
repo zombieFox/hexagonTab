@@ -17984,7 +17984,6 @@ const MenuClose = function() {
 
 
 
-
 const ToolbarControl = function() {
 
   this.element = {
@@ -18141,7 +18140,7 @@ const ToolbarControl = function() {
               case 'top-left':
               case 'top-right':
                 if (angle < 90) {
-                  remove(state_state.get.current().theme.background.gradient.end.rgb);
+                  add(state_state.get.current().theme.background.gradient.end.rgb);
                 } else if (angle >= 90 && angle < 180) {
                   add(state_state.get.current().theme.background.gradient.start.rgb);
                 } else if (angle >= 180 && angle < 270) {
