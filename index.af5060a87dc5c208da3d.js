@@ -14642,7 +14642,7 @@ const Control_radioGrid = function({
     });
   };
 
-  this.grid = () => {
+  this.wrap = () => {
     const wrap = wrap_wrap();
 
     switch (gridSize) {
@@ -19023,7 +19023,7 @@ toolbarSetting.position = (parent) => {
 
   parent.appendChild(
     node_node('div', [
-      toolbarPosition.grid(),
+      toolbarPosition.wrap(),
       toolbarPositionHelper.wrap()
     ])
   );
