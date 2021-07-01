@@ -89,7 +89,7 @@ toolbarSetting.position = (parent) => {
 
   parent.appendChild(
     node('div', [
-      toolbarPosition.grid(),
+      toolbarPosition.wrap(),
       toolbarPositionHelper.wrap()
     ])
   );

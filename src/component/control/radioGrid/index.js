@@ -120,7 +120,7 @@ export const Control_radioGrid = function({
     });
   };
 
-  this.grid = () => {
+  this.wrap = () => {
     const wrap = form.wrap();
 
     switch (gridSize) {
