@@ -55,9 +55,9 @@ bookmark.item = {
     },
     propagate: (bookmarkData) => {
 
-      bookmark.all.forEach((item, i) => {
+      if (bookmarkData.propagate.display || bookmarkData.propagate.layout || bookmarkData.propagate.theme) {
 
-        item.items.forEach((item, i) => {
+        bookmark.all.forEach((item, i) => {
 
           if (bookmarkData.propagate.display) {
             item.display.visual.show = bookmarkData.link.display.visual.show;
@@ -81,7 +81,7 @@ bookmark.item = {
 
         });
 
-      });
+      };
 
     }
   },
@@ -97,7 +97,7 @@ bookmark.item = {
 
     let rowStart = 1; // starting grid row
 
-    bookmark.all.forEach(function(item, index) {
+    bookmark.all.forEach((item, index) => {
 
       //
       // column start
@@ -339,36 +339,36 @@ bookmark.add = {
       maxHeight: true,
       openAction: () => {
 
-        bookmark.mod.add.open();
+        bookmark.add.mod.open();
 
         data.save();
 
       },
       closeAction: () => {
 
-        bookmark.mod.add.close();
+        bookmark.add.mod.close();
 
         data.save();
 
       },
       successAction: () => {
 
-        bookmark.mod.item.add(newBookmarkData);
+        bookmark.item.mod.add(newBookmarkData);
 
-        bookmark.mod.propagate.state.apply(newBookmarkData);
+        bookmark.item.mod.propagate(newBookmarkData);
 
-        bookmark.render.clear();
+        bookmark.item.clear();
 
-        bookmark.render.item();
+        bookmark.item.render();
 
-        bookmark.mod.add.close();
+        bookmark.add.mod.close();
 
         data.save();
 
       },
       cancelAction: () => {
 
-        bookmark.mod.add.close();
+        bookmark.add.mod.close();
 
         data.save();
 
@@ -385,9 +385,10 @@ bookmark.restore = (dataToRestore) => {
   console.log('bookmark restored');
 };
 
-bookmark.init = function() {
+bookmark.init = () => {
   bookmark.add.mod.close();
   bookmark.mask.render();
+  bookmark.size.render();
   bookmark.hover.distance.render();
   bookmark.hover.size.render();
   bookmark.shadow.blur.render();

@@ -76,8 +76,8 @@ layoutSetting.grid = (parent) => {
     max: state.get.minMax().grid.column.max,
     action: () => {
       grid.render.style();
-      bookmark.render.clear();
-      bookmark.render.item();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });

@@ -75,11 +75,11 @@ const HexTile = function({
           bookmarkData.position.destination = 0;
         };
 
-        bookmark.mod.item.move(bookmarkData);
+        bookmark.item.mod.move(bookmarkData);
 
-        bookmark.render.clear();
+        bookmark.item.clear();
 
-        bookmark.render.item();
+        bookmark.item.render();
 
         data.save();
 
@@ -100,11 +100,11 @@ const HexTile = function({
           bookmarkData.position.destination = bookmark.all.length - 1;
         };
 
-        bookmark.mod.item.move(bookmarkData);
+        bookmark.item.mod.move(bookmarkData);
 
-        bookmark.render.clear();
+        bookmark.item.clear();
 
-        bookmark.render.item();
+        bookmark.item.render();
 
         data.save();
 
@@ -119,24 +119,32 @@ const HexTile = function({
       classList: ['bookmark-control-button', 'bookmark-control-edit'],
       func: () => {
 
-        const bookmarkForm = new BookmarkForm({ bookmarkData: bookmarkData });
+        let newBookmarkData = new StagedBookmark();
+
+        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData.link));
+
+        newBookmarkData.position.origin = index;
+
+        newBookmarkData.position.destination = index;
+
+        const bookmarkForm = new BookmarkForm({ bookmarkData: newBookmarkData });
 
         const editModal = new Modal({
 
-          heading: isValidString(bookmarkData.link.display.name.text) ? 'Edit ' + bookmarkData.link.display.name.text : 'Edit unnamed bookmark',
+          heading: isValidString(newBookmarkData.link.display.name.text) ? 'Edit ' + newBookmarkData.link.display.name.text : 'Edit unnamed bookmark',
           content: bookmarkForm.form(),
           successText: 'Save',
           width: 60,
           maxHeight: true,
           successAction: () => {
 
-            bookmark.mod.item.edit(bookmarkData);
+            bookmark.item.mod.edit(newBookmarkData);
 
-            bookmark.mod.propagate.state.apply(bookmarkData);
+            bookmark.item.mod.propagate(newBookmarkData);
 
-            bookmark.render.clear();
+            bookmark.item.clear();
 
-            bookmark.render.item();
+            bookmark.item.render();
 
             data.save();
 
@@ -164,11 +172,11 @@ const HexTile = function({
           width: 'small',
           successAction: () => {
 
-            bookmark.mod.item.remove(bookmarkData);
+            bookmark.item.mod.remove(bookmarkData);
 
-            bookmark.render.clear();
+            bookmark.item.clear();
 
-            bookmark.render.item();
+            bookmark.item.render();
 
             data.save();
 
