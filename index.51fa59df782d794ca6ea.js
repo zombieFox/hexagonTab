@@ -336,7 +336,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--the
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 6fr 3fr;\n    grid-gap: calc(var(--modal-space) * 1em);\n    align-items: stretch;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-space) * 20);\n}\n\n.bookmark-form-preview {\n  background-color: hsl(var(--theme-primary-200));\n  padding: calc(var(--modal-space) * 0.5em);\n  border-radius: var(--theme-radius-base);\n  position: sticky;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: hsl(var(--theme-primary-400));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".bookmark-form {\n  display: block;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form {\n    display: grid;\n    grid-template-columns: 6fr 3fr;\n    grid-gap: calc(var(--modal-space) * 1em);\n    align-items: stretch;\n    min-height: 60vh;\n  }\n}\n\n.bookmark-form-main {\n  padding-bottom: calc(var(--form-space) * 20);\n}\n\n.bookmark-form-aside {\n  display: none;\n}\n\n@media (min-width: 900px) {\n  .bookmark-form-aside {\n    display: block;\n  }\n}\n\n.bookmark-form-text-icon {\n  position: relative;\n}\n\n.bookmark-form-text-icon:empty:before {\n  content: \"\";\n  background-color: hsl(var(--theme-primary-040));\n  top: 50%;\n  left: 50%;\n  position: absolute;\n  width: 0.5em;\n  height: 0.5em;\n  border-radius: 50%;\n  display: block;\n  transform: translate(-50%, -50%);\n}\n\n.bookmark-form-text-icon .bookmark-form-icon {\n  transform: scale(1) rotate(0deg);\n  transition: transform var(--layout-transition-extra-fast);\n}\n\n.bookmark-form-text-icon:not(.disabled):hover .bookmark-form-icon {\n  transform: scale(2) rotate(360deg);\n  z-index: 1;\n}\n\n.bookmark-form-text-icon:not(.disabled):active .bookmark-form-icon {\n  transform: scale(4) rotate(360deg);\n}\n\n.bookmark-form-icon {\n  font-size: 1.5em;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3515,28 +3515,126 @@ const bookmarkDefault = {
   background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
 };
 
-;// CONCATENATED MODULE: ./src/component/bookmarkMinMax/index.js
-const bookmarkMinMax = {
-  display: {
-    rotate: { min: -180, max: 180 },
-    translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
-    gutter: { min: 0, max: 500 },
-    visual: { size: { min: 5, max: 200 } },
-    name: { size: { min: 5, max: 200 } }
-  },
-  accent: {
-    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
-  },
-  color: {
-    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-    opacity: { min: 0, max: 100 }
-  },
-  background: {
-    opacity: { min: 0, max: 100 }
-  }
-};
+;// CONCATENATED MODULE: ./src/component/bookmarkPreset/index.js
+ const bookmarkPreset = {};
+
+ bookmarkPreset.get = function() {
+   return [{
+     url: 'https://zombiefox.github.io/awesomeSheet/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'awesomeSheet', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.amazon.co.uk/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Amazon', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://mail.google.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Gmail', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.reddit.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Reddit', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.netflix.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Netflix', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://drive.google.com/drive/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Drive', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://devdocs.io/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Devdocs', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://github.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Github', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }];
+ };
+
+ 
 
 ;// CONCATENATED MODULE: ./src/utility/complexNode.js
 const complexNode = function({
@@ -5093,6 +5191,515 @@ const Button = function({
     })
   };
 
+};
+
+;// CONCATENATED MODULE: ./src/component/pageLock/index.js
+
+
+const pageLock = {};
+
+pageLock.render = () => {
+
+  const html = document.querySelector('html');
+
+  if (state_state.get.current().modal || state_state.get.current().menu) {
+    html.classList.add('is-scroll-disabled');
+  } else {
+    html.classList.remove('is-scroll-disabled');
+  };
+
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/shade/index.css
+var shade = __webpack_require__(9888);
+;// CONCATENATED MODULE: ./src/component/shade/index.css
+
+            
+
+var shade_options = {};
+
+shade_options.insert = "head";
+shade_options.singleton = false;
+
+var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shade_options);
+
+
+
+/* harmony default export */ const component_shade = (shade/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/shade/index.js
+
+
+
+
+const Shade = function() {
+
+  this.element = {
+    shade: node_node('div|class:shade')
+  };
+
+  this.open = () => {
+    const body = document.querySelector('body');
+
+    this.element.shade.classList.add('is-transparent');
+
+    this.element.shade.addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
+        body.removeChild(this.element.shade);
+      };
+    });
+
+    body.appendChild(this.element.shade);
+
+    getComputedStyle(this.element.shade).opacity;
+
+    this.element.shade.classList.remove('is-transparent');
+
+    this.element.shade.classList.add('is-opaque');
+  };
+
+  this.close = () => {
+
+    this.element.shade.classList.remove('is-opaque');
+
+    this.element.shade.classList.add('is-transparent');
+
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.shade)) {
+        body.removeChild(this.element.shade)
+      };
+
+    }, 6000);
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.shade = () => {
+    return this.element.shade;
+  };
+
+};
+
+
+
+;// CONCATENATED MODULE: ./src/component/keyboardShortcut/index.js
+const KeyboardShortcut = function({
+  keycode = false,
+  ctrl = false,
+  alt = false,
+  action = false
+} = {}) {
+
+  this.action = () => {
+    if (keycode) {
+      if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
+
+        event.preventDefault();
+
+        if (action) {
+          action();
+        };
+
+      };
+    };
+  };
+
+  this.add = () => { window.addEventListener('keydown', this.action); };
+
+  this.remove = () => { window.removeEventListener('keydown', this.action); };
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
+var modal = __webpack_require__(4719);
+;// CONCATENATED MODULE: ./src/component/modal/index.css
+
+            
+
+var modal_options = {};
+
+modal_options.insert = "head";
+modal_options.singleton = false;
+
+var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, modal_options);
+
+
+
+/* harmony default export */ const component_modal = (modal/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/modal/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Modal = function({
+  heading = false,
+  content = false,
+  openAction = false,
+  successText = 'OK',
+  successAction = false,
+  cancelText = 'Cancel',
+  cancelAction = false,
+  closeAction = false,
+  size = 'medium',
+  width = false,
+  maxHeight = false,
+  overscroll = false,
+  maxHeadingLength = 50
+} = {}) {
+
+  this.element = {
+    modal: node_node('div|class:modal'),
+    heading: {
+      heading: node_node('div|class:modal-heading'),
+      text: node_node('h1|class:modal-heading-text,tabindex:1')
+    },
+    content: {
+      wrapper: node_node('div|class:modal-content-wrapper'),
+      content: node_node('div|class:modal-content')
+    },
+    control: node_node('div|class:modal-control')
+  };
+
+  this.shade = new Shade();
+
+  this.open = () => {
+
+    state_state.get.current().modal = true;
+
+    const body = document.querySelector('body');
+
+    this.element.modal.classList.add('is-transparent');
+
+    this.element.modal.addEventListener('transitionend', (event) => {
+
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.modal).opacity == 0) {
+
+        body.removeChild(this.element.modal);
+
+      };
+
+    });
+
+    this.shade.open();
+
+    this.style();
+
+    this.assemble();
+
+    body.appendChild(this.element.modal);
+
+    getComputedStyle(this.element.modal).opacity;
+
+    this.element.modal.classList.remove('is-transparent');
+
+    this.element.modal.classList.add('is-opaque');
+
+    this.bind.add();
+
+    this.focus.set();
+
+    if (openAction) {
+      openAction();
+    };
+
+  };
+
+  this.close = () => {
+
+    state_state.get.current().modal = false;
+
+    this.element.modal.classList.remove('is-opaque');
+
+    this.element.modal.classList.add('is-transparent');
+
+    this.bind.remove();
+
+    this.shade.close();
+
+    if (closeAction) {
+      closeAction();
+    };
+
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.modal)) {
+        body.removeChild(this.element.modal)
+      };
+
+    }, 6000);
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.bind = {
+    add: () => {
+
+      window.addEventListener('mouseup', this.clickOut);
+
+      window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrAltM.add();
+
+    },
+    remove: () => {
+
+      window.removeEventListener('mouseup', this.clickOut);
+
+      window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrAltM.remove();
+
+    }
+  };
+
+  this.esc = new KeyboardShortcut({
+    keycode: 27,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.ctrAltM = new KeyboardShortcut({
+    keycode: 77,
+    ctrl: true,
+    alt: true,
+    action: () => {
+      this.close();
+    }
+  });
+
+  this.clickOut = (event) => {
+
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    const suggest = document.querySelector('.suggest');
+
+    if (!path.includes(this.element.modal) && !path.includes(suggest)) {
+      this.close();
+    };
+
+  };
+
+  this.focus = {
+    set: () => {
+      this.element.heading.text.focus();
+    },
+    loop: (event) => {
+
+      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
+
+      if (allFocusElement.length > 0) {
+
+        const firstElement = allFocusElement[0];
+
+        const lastElement = allFocusElement[allFocusElement.length - 1];
+
+        if (event.keyCode == 9 && event.shiftKey) {
+
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+
+            event.preventDefault();
+          }
+
+        } else if (event.keyCode == 9) {
+
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+
+            event.preventDefault();
+          }
+
+        };
+
+      };
+
+
+    }
+  };
+
+  this.style = () => {
+    if (typeof width === 'number') {
+
+      this.element.modal.style.setProperty('--modal-width', width);
+
+    } else {
+
+      switch (width) {
+        case 'small':
+          this.element.modal.style.setProperty('--modal-width', 30);
+          break;
+
+        default:
+        case 'medium':
+          this.element.modal.style.setProperty('--modal-width', 50);
+          break;
+
+        case 'large':
+          this.element.modal.style.setProperty('--modal-width', 70);
+          break;
+
+      };
+
+    };
+  };
+
+  this.successButton = new Button({
+    text: successText,
+    block: false,
+    style: ['line'],
+    classList: ['modal-control-button'],
+    func: () => {
+
+      if (successAction) {
+        successAction();
+      };
+
+      this.close();
+
+    }
+  });
+
+  this.cancelButton = new Button({
+    text: cancelText,
+    block: false,
+    style: ['line'],
+    classList: ['modal-control-button'],
+    func: () => {
+
+      if (cancelAction) {
+        cancelAction();
+      };
+
+      this.close();
+
+    }
+  });
+
+  this.assemble = () => {
+
+    if (heading && isValidString(heading)) {
+
+      let headingString = heading;
+
+      if (headingString.length > maxHeadingLength) {
+        headingString = trimString_trimString(headingString.substring(0, maxHeadingLength)) + '...';
+      };
+
+      this.element.heading.text.innerHTML = headingString;
+
+      this.element.heading.heading.appendChild(this.element.heading.text);
+
+      this.element.content.content.appendChild(this.element.heading.heading);
+
+    };
+
+    if (content) {
+      if (typeof content == 'string') {
+
+        const para = complexNode({ tag: 'p', text: content });
+
+        this.element.content.content.appendChild(para);
+
+      } else {
+
+        this.element.content.content.appendChild(content);
+
+      };
+    };
+
+    this.element.content.wrapper.appendChild(this.element.content.content);
+
+    this.element.modal.appendChild(this.element.content.wrapper);
+
+    this.element.control.appendChild(this.cancelButton.button);
+
+    this.element.control.appendChild(this.successButton.button);
+
+    this.element.modal.appendChild(this.element.control);
+
+    if (overscroll) {
+      this.element.modal.classList.add('modal-overscroll');
+    };
+
+    if (maxHeight) {
+      this.element.modal.classList.add('modal-max-height');
+    };
+
+  };
+
+  this.modal = () => {
+    return this.element.modal;
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/component/stagedBookmark/index.js
+
+
+
+const StagedBookmark = function(bookmarkData) {
+
+  this.link = bookmarkData || JSON.parse(JSON.stringify(bookmarkDefault));
+
+  this.position = { origin: 0, destination: 0 };
+
+  this.newBookmark = function() {
+    this.position.destination = bookmark_bookmark.all.length + 1;
+  };
+
+  this.propagate = { display: false, layout: false, theme: false };
+
+};
+
+;// CONCATENATED MODULE: ./src/component/bookmarkMinMax/index.js
+const bookmarkMinMax = {
+  display: {
+    rotate: { min: -180, max: 180 },
+    translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
+    gutter: { min: 0, max: 500 },
+    visual: { size: { min: 5, max: 200 } },
+    name: { size: { min: 5, max: 200 } }
+  },
+  accent: {
+    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
+  },
+  color: {
+    hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+    rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
+    opacity: { min: 0, max: 100 }
+  },
+  background: {
+    opacity: { min: 0, max: 100 }
+  }
 };
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/fontawesome/index.css
@@ -12330,7 +12937,6 @@ var suggest_update = injectStylesIntoStyleTag_default()(suggest/* default */.Z, 
 
 
 
-
 const Suggest = function({
   input = false,
   widthElement = false,
@@ -12499,18 +13105,16 @@ const Suggest = function({
 
     const listType = {
       fontawesomeIcon: () => {
-        const successAction = (item) => {
-
-          bookmarkForm_bookmarkForm.current.updateIcon(item);
+        const successAction = (suggestData) => {
 
           this.close();
 
-          if (postFocus) {
-            postFocus.focus();
+          if (action) {
+            action(suggestData);
           };
 
-          if (action) {
-            action();
+          if (postFocus) {
+            postFocus.focus();
           };
 
         };
@@ -12732,6 +13336,7 @@ const Suggest = function({
 };
 
 
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
 var collapse = __webpack_require__(5655);
 ;// CONCATENATED MODULE: ./src/component/collapse/index.css
@@ -12948,903 +13553,6 @@ const Tab = function({
   this.tab = () => {
     return this.tabElement;
   };
-
-};
-
-
-
-;// CONCATENATED MODULE: ./src/component/pageLock/index.js
-
-
-const pageLock = {};
-
-pageLock.render = () => {
-
-  const html = document.querySelector('html');
-
-  if (state_state.get.current().modal || state_state.get.current().menu) {
-    html.classList.add('is-scroll-disabled');
-  } else {
-    html.classList.remove('is-scroll-disabled');
-  };
-
-};
-
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/shade/index.css
-var shade = __webpack_require__(9888);
-;// CONCATENATED MODULE: ./src/component/shade/index.css
-
-            
-
-var shade_options = {};
-
-shade_options.insert = "head";
-shade_options.singleton = false;
-
-var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shade_options);
-
-
-
-/* harmony default export */ const component_shade = (shade/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/shade/index.js
-
-
-
-
-const Shade = function() {
-
-  this.element = {
-    shade: node_node('div|class:shade')
-  };
-
-  this.open = () => {
-    const body = document.querySelector('body');
-
-    this.element.shade.classList.add('is-transparent');
-
-    this.element.shade.addEventListener('transitionend', (event) => {
-      if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
-        body.removeChild(this.element.shade);
-      };
-    });
-
-    body.appendChild(this.element.shade);
-
-    getComputedStyle(this.element.shade).opacity;
-
-    this.element.shade.classList.remove('is-transparent');
-
-    this.element.shade.classList.add('is-opaque');
-  };
-
-  this.close = () => {
-
-    this.element.shade.classList.remove('is-opaque');
-
-    this.element.shade.classList.add('is-transparent');
-
-    clearTimeout(this.delayedForceRemove);
-
-    this.delayedForceRemove = setTimeout(() => {
-
-      const body = document.querySelector('body');
-
-      if (body.contains(this.element.shade)) {
-        body.removeChild(this.element.shade)
-      };
-
-    }, 6000);
-
-  };
-
-  this.delayedForceRemove = null;
-
-  this.shade = () => {
-    return this.element.shade;
-  };
-
-};
-
-
-
-;// CONCATENATED MODULE: ./src/component/keyboardShortcut/index.js
-const KeyboardShortcut = function({
-  keycode = false,
-  ctrl = false,
-  alt = false,
-  action = false
-} = {}) {
-
-  this.action = () => {
-    if (keycode) {
-      if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
-
-        event.preventDefault();
-
-        if (action) {
-          action();
-        };
-
-      };
-    };
-  };
-
-  this.add = () => { window.addEventListener('keydown', this.action); };
-
-  this.remove = () => { window.removeEventListener('keydown', this.action); };
-
-};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
-var modal = __webpack_require__(4719);
-;// CONCATENATED MODULE: ./src/component/modal/index.css
-
-            
-
-var modal_options = {};
-
-modal_options.insert = "head";
-modal_options.singleton = false;
-
-var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, modal_options);
-
-
-
-/* harmony default export */ const component_modal = (modal/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/modal/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Modal = function({
-  heading = false,
-  content = false,
-  openAction = false,
-  successText = 'OK',
-  successAction = false,
-  cancelText = 'Cancel',
-  cancelAction = false,
-  closeAction = false,
-  size = 'medium',
-  width = false,
-  maxHeight = false,
-  overscroll = false,
-  maxHeadingLength = 50
-} = {}) {
-
-  this.element = {
-    modal: node_node('div|class:modal'),
-    heading: {
-      heading: node_node('div|class:modal-heading'),
-      text: node_node('h1|class:modal-heading-text,tabindex:1')
-    },
-    content: {
-      wrapper: node_node('div|class:modal-content-wrapper'),
-      content: node_node('div|class:modal-content')
-    },
-    control: node_node('div|class:modal-control')
-  };
-
-  this.shade = new Shade();
-
-  this.open = () => {
-
-    state_state.get.current().modal = true;
-
-    const body = document.querySelector('body');
-
-    this.element.modal.classList.add('is-transparent');
-
-    this.element.modal.addEventListener('transitionend', (event) => {
-
-      if (event.propertyName === 'opacity' && getComputedStyle(this.element.modal).opacity == 0) {
-
-        body.removeChild(this.element.modal);
-
-      };
-
-    });
-
-    this.shade.open();
-
-    this.style();
-
-    this.assemble();
-
-    body.appendChild(this.element.modal);
-
-    getComputedStyle(this.element.modal).opacity;
-
-    this.element.modal.classList.remove('is-transparent');
-
-    this.element.modal.classList.add('is-opaque');
-
-    this.bind.add();
-
-    this.focus.set();
-
-    if (openAction) {
-      openAction();
-    };
-
-  };
-
-  this.close = () => {
-
-    state_state.get.current().modal = false;
-
-    this.element.modal.classList.remove('is-opaque');
-
-    this.element.modal.classList.add('is-transparent');
-
-    this.bind.remove();
-
-    this.shade.close();
-
-    if (closeAction) {
-      closeAction();
-    };
-
-    clearTimeout(this.delayedForceRemove);
-
-    this.delayedForceRemove = setTimeout(() => {
-
-      const body = document.querySelector('body');
-
-      if (body.contains(this.element.modal)) {
-        body.removeChild(this.element.modal)
-      };
-
-    }, 6000);
-
-  };
-
-  this.delayedForceRemove = null;
-
-  this.bind = {
-    add: () => {
-
-      window.addEventListener('mouseup', this.clickOut);
-
-      window.addEventListener('keydown', this.focus.loop);
-
-      this.esc.add();
-
-      this.ctrAltM.add();
-
-    },
-    remove: () => {
-
-      window.removeEventListener('mouseup', this.clickOut);
-
-      window.removeEventListener('keydown', this.focus.loop);
-
-      this.esc.remove();
-
-      this.ctrAltM.remove();
-
-    }
-  };
-
-  this.esc = new KeyboardShortcut({
-    keycode: 27,
-    action: () => {
-      this.close();
-    }
-  });
-
-  this.ctrAltM = new KeyboardShortcut({
-    keycode: 77,
-    ctrl: true,
-    alt: true,
-    action: () => {
-      this.close();
-    }
-  });
-
-  this.clickOut = (event) => {
-
-    const path = event.path || (event.composedPath && event.composedPath());
-
-    const suggest = document.querySelector('.suggest');
-
-    if (!path.includes(this.element.modal) && !path.includes(suggest)) {
-      this.close();
-    };
-
-  };
-
-  this.focus = {
-    set: () => {
-      this.element.heading.text.focus();
-    },
-    loop: (event) => {
-
-      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
-
-      if (allFocusElement.length > 0) {
-
-        const firstElement = allFocusElement[0];
-
-        const lastElement = allFocusElement[allFocusElement.length - 1];
-
-        if (event.keyCode == 9 && event.shiftKey) {
-
-          if (document.activeElement === firstElement) {
-            lastElement.focus();
-
-            event.preventDefault();
-          }
-
-        } else if (event.keyCode == 9) {
-
-          if (document.activeElement === lastElement) {
-            firstElement.focus();
-
-            event.preventDefault();
-          }
-
-        };
-
-      };
-
-
-    }
-  };
-
-  this.style = () => {
-    if (typeof width === 'number') {
-
-      this.element.modal.style.setProperty('--modal-width', width);
-
-    } else {
-
-      switch (width) {
-        case 'small':
-          this.element.modal.style.setProperty('--modal-width', 30);
-          break;
-
-        default:
-        case 'medium':
-          this.element.modal.style.setProperty('--modal-width', 50);
-          break;
-
-        case 'large':
-          this.element.modal.style.setProperty('--modal-width', 70);
-          break;
-
-      };
-
-    };
-  };
-
-  this.successButton = new Button({
-    text: successText,
-    block: false,
-    style: ['line'],
-    classList: ['modal-control-button'],
-    func: () => {
-
-      if (successAction) {
-        successAction();
-      };
-
-      this.close();
-
-    }
-  });
-
-  this.cancelButton = new Button({
-    text: cancelText,
-    block: false,
-    style: ['line'],
-    classList: ['modal-control-button'],
-    func: () => {
-
-      if (cancelAction) {
-        cancelAction();
-      };
-
-      this.close();
-
-    }
-  });
-
-  this.assemble = () => {
-
-    if (heading && isValidString(heading)) {
-
-      let headingString = heading;
-
-      if (headingString.length > maxHeadingLength) {
-        headingString = trimString_trimString(headingString.substring(0, maxHeadingLength)) + '...';
-      };
-
-      this.element.heading.text.innerHTML = headingString;
-
-      this.element.heading.heading.appendChild(this.element.heading.text);
-
-      this.element.content.content.appendChild(this.element.heading.heading);
-
-    };
-
-    if (content) {
-      if (typeof content == 'string') {
-
-        const para = complexNode({ tag: 'p', text: content });
-
-        this.element.content.content.appendChild(para);
-
-      } else {
-
-        this.element.content.content.appendChild(content);
-
-      };
-    };
-
-    this.element.content.wrapper.appendChild(this.element.content.content);
-
-    this.element.modal.appendChild(this.element.content.wrapper);
-
-    this.element.control.appendChild(this.cancelButton.button);
-
-    this.element.control.appendChild(this.successButton.button);
-
-    this.element.modal.appendChild(this.element.control);
-
-    if (overscroll) {
-      this.element.modal.classList.add('modal-overscroll');
-    };
-
-    if (maxHeight) {
-      this.element.modal.classList.add('modal-max-height');
-    };
-
-  };
-
-  this.modal = () => {
-    return this.element.modal;
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/component/stagedBookmark/index.js
-
-
-
-const StagedBookmark = function(bookmarkData) {
-
-  this.link = bookmarkData || JSON.parse(JSON.stringify(bookmarkDefault));
-
-  this.position = { origin: 0, destination: 0 };
-
-  this.newBookmark = function() {
-    this.position.destination = bookmark_bookmark.all.length + 1;
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/component/hexTile/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const HexTile = function({
-  bookmarkData = {},
-  index = 0,
-  row = 0,
-  column = 0,
-  preview = false
-} = {}) {
-
-  this.element = {
-    bookmark: node_node('div|class:bookmark'),
-    shadow: {
-      wrap: node_node('div|class:bookmark-shadow-wrap'),
-      shadow: node_node('div|class:bookmark-shadow')
-    },
-    content: {
-      link: node_node('a|class:bookmark-link,tabindex:1'),
-      wrap: node_node('div|class:bookmark-content-wrap'),
-      display: {
-        wrap: node_node('div|class:bookmark-display-wrap'),
-        display: node_node('div|class:bookmark-display'),
-        visual: {
-          visual: node_node('div|class:bookmark-display-visual'),
-          letter: complexNode({ tag: 'div', text: bookmarkData.link.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
-          icon: node_node('div|class:bookmark-display-visual-icon'),
-          faIcon: node_node('div|class:' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name),
-          image: node_node('div|class:bookmark-display-visual-image')
-        },
-        name: {
-          name: node_node('div|class:bookmark-display-name'),
-          text: node_node('div:' + bookmarkData.link.display.name.text + '|class:bookmark-display-name-text')
-        }
-      },
-      background: {
-        wrap: node_node('div|class:bookmark-background-wrap'),
-        image: node_node('div|class:bookmark-background-image'),
-        video: node_node('div|class:bookmark-background-video')
-      }
-    },
-    control: node_node('div|class:bookmark-control')
-  };
-
-  if (preview) { this.element.bookmark.classList.add('bookmark-preview'); };
-
-  this.control = {};
-
-  this.control.button = {
-    left: new Button({
-      text: 'Move this bookmark left',
-      srOnly: true,
-      iconName: 'arrowKeyboardLeft',
-      style: ['link'],
-      title: 'Move this bookmark left',
-      classList: ['bookmark-control-button', 'bookmark-control-left'],
-      func: () => {
-
-        bookmarkData.position.destination--;
-
-        if (bookmarkData.position.destination < 0) {
-          bookmarkData.position.destination = 0;
-        };
-
-        bookmark_bookmark.mod.item.move(bookmarkData);
-
-        bookmark_bookmark.render.clear();
-
-        bookmark_bookmark.render.item();
-
-        data.save();
-
-      }
-    }),
-    right: new Button({
-      text: 'Move this bookmark right',
-      srOnly: true,
-      iconName: 'arrowKeyboardRight',
-      style: ['link'],
-      title: 'Move this bookmark right',
-      classList: ['bookmark-control-button', 'bookmark-control-right'],
-      func: () => {
-
-        bookmarkData.position.destination++;
-
-        if (bookmarkData.position.destination > bookmark_bookmark.all.length - 1) {
-          bookmarkData.position.destination = bookmark_bookmark.all.length - 1;
-        };
-
-        bookmark_bookmark.mod.item.move(bookmarkData);
-
-        bookmark_bookmark.render.clear();
-
-        bookmark_bookmark.render.item();
-
-        data.save();
-
-      }
-    }),
-    edit: new Button({
-      text: 'Edit this bookmark',
-      srOnly: true,
-      iconName: 'edit',
-      style: ['link'],
-      title: 'Edit this bookmark',
-      classList: ['bookmark-control-button', 'bookmark-control-edit'],
-      func: () => {
-
-        const editModal = new Modal({
-
-          heading: isValidString(bookmarkData.link.display.name.text) ? 'Edit ' + bookmarkData.link.display.name.text : 'Edit unnamed bookmark',
-          content: bookmarkForm_bookmarkForm.form(bookmarkData),
-          successText: 'Save',
-          width: 60,
-          maxHeight: true,
-          successAction: () => {
-
-            bookmark_bookmark.mod.item.edit(bookmarkData);
-
-            bookmark_bookmark.mod.propagate.state.apply(bookmarkData);
-
-            bookmark_bookmark.render.clear();
-
-            bookmark_bookmark.render.item();
-
-            data.save();
-
-          }
-
-        });
-
-        editModal.open();
-
-      }
-    }),
-    remove: new Button({
-      text: 'Remove this bookmark',
-      srOnly: true,
-      iconName: 'cross',
-      style: ['link'],
-      title: 'Remove this bookmark',
-      classList: ['bookmark-control-button', 'bookmark-control-remove'],
-      func: () => {
-
-        const removeModal = new Modal({
-          heading: isValidString(bookmarkData.link.display.name.text) ? 'Remove ' + bookmarkData.link.display.name.text : 'Remove unnamed bookmark',
-          content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
-          successText: 'Remove',
-          width: 'small',
-          successAction: () => {
-
-            bookmark_bookmark.mod.item.remove(bookmarkData);
-
-            bookmark_bookmark.render.clear();
-
-            bookmark_bookmark.render.item();
-
-            data.save();
-
-          }
-        });
-
-        removeModal.open();
-
-      }
-    })
-  };
-
-  this.control.disable = () => {
-    for (var key in this.control.button) {
-      this.control.button[key].disable();
-    };
-  };
-
-  this.control.enable = () => {
-    for (var key in this.control.button) {
-      this.control.button[key].enable();
-    };
-  };
-
-  this.makeStyle = (newBookmarkData) => {
-
-    if (newBookmarkData) {
-      bookmarkData = newBookmarkData;
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
-
-    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
-
-    if (isValidString(bookmarkData.link.url) && !preview) {
-      this.element.content.link.setAttribute('href', trimString_trimString(bookmarkData.link.url));
-    } else {
-      this.element.content.link.setAttribute('href', '#');
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
-
-    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.link.color.opacity);
-
-    switch (bookmarkData.link.display.direction) {
-      case 'vertical':
-        switch (bookmarkData.link.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
-            break;
-
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
-            break;
-        };
-        break;
-
-      case 'horizontal':
-        switch (bookmarkData.link.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
-            break;
-
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
-            break;
-        };
-        break;
-    };
-
-    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.link.display.translate.x);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.link.display.translate.y);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.link.display.rotate);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.link.display.gutter);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.link.display.visual.size);
-
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString_trimString(bookmarkData.link.display.visual.image.url) + ')');
-
-    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.link.display.name.size);
-
-    if (bookmarkData.link.accent.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.link.accent.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.link.accent.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.link.accent.rgb.b);
-      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
-
-      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
-    };
-
-    if (bookmarkData.link.color.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.link.color.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.link.color.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.link.color.rgb.b);
-
-      this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.link.color.hsl.h);
-      this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.link.color.hsl.s);
-      this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.link.color.hsl.l);
-
-      this.element.bookmark.style.setProperty('--theme-color', bookmarkData.link.color.hsl.h + ', ' + bookmarkData.link.color.hsl.s + '%, ' + bookmarkData.link.color.hsl.l + '%');
-      this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
-      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
-
-      this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
-      this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
-    };
-
-    if (bookmarkData.link.background.show) {
-      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.link.background.opacity);
-
-      switch (bookmarkData.link.background.type) {
-        case 'image':
-          if (isValidString(bookmarkData.link.background.image.url)) {
-            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString_trimString(bookmarkData.link.background.image.url) + ')');
-          };
-          break;
-      };
-    };
-
-  };
-
-  this.assemble = () => {
-
-    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
-      if (bookmarkData.link.display.visual.show) {
-        switch (bookmarkData.link.display.visual.type) {
-          case 'letter':
-            if (isValidString(bookmarkData.link.display.visual.letter.text)) {
-              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
-              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
-            };
-            break;
-
-          case 'icon':
-            if (isValidString(bookmarkData.link.display.visual.icon.name)) {
-              this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
-              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
-              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
-            };
-            break;
-
-          case 'image':
-            if (isValidString(bookmarkData.link.display.visual.image.url)) {
-              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
-              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
-            };
-            break;
-        };
-      };
-
-      if (bookmarkData.link.display.name.show && isValidString(bookmarkData.link.display.name.text)) {
-        this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
-        this.element.content.display.display.appendChild(this.element.content.display.name.name);
-      };
-
-      this.element.content.display.wrap.appendChild(this.element.content.display.display);
-
-      this.element.content.link.appendChild(this.element.content.display.wrap);
-    };
-
-    if (bookmarkData.link.background.show) {
-
-      switch (bookmarkData.link.background.type) {
-        case 'image':
-          this.element.content.background.wrap.appendChild(this.element.content.background.image);
-          break;
-
-        case 'video':
-          this.element.content.background.wrap.appendChild(this.element.content.background.video);
-
-          if (isValidString(bookmarkData.link.background.video.url)) {
-            const backgroundVideoElement = new Video({
-              url: bookmarkData.link.background.video.url
-            });
-
-            this.element.content.background.video.appendChild(backgroundVideoElement.video);
-          };
-
-          break;
-      };
-
-      this.element.content.link.appendChild(this.element.content.background.wrap);
-    };
-
-    this.element.content.wrap.appendChild(this.element.content.link);
-
-    this.element.shadow.wrap.appendChild(this.element.shadow.shadow);
-
-    this.element.bookmark.appendChild(this.element.shadow.wrap);
-
-    this.element.bookmark.appendChild(this.element.content.wrap);
-
-    this.element.control.appendChild(this.control.button.left.button);
-
-    this.element.control.appendChild(this.control.button.right.button);
-
-    this.element.control.appendChild(this.control.button.edit.button);
-
-    this.element.control.appendChild(this.control.button.remove.button);
-
-    this.element.content.wrap.appendChild(this.element.control);
-
-    if (state_state.get.current().bookmark.edit) {
-      this.control.enable();
-    } else {
-      this.control.disable();
-    };
-
-  };
-
-  this.tile = () => {
-
-    return this.element.bookmark;
-
-  };
-
-  this.update = (newBookmarkData) => {
-
-    this.makeStyle(newBookmarkData);
-
-  };
-
-  this.assemble();
-
-  this.makeStyle();
 
 };
 
@@ -15977,991 +15685,1315 @@ var bookmarkForm_update = injectStylesIntoStyleTag_default()(bookmarkForm/* defa
 
 
 
+const BookmarkForm = function({
+  bookmarkData = false
+} = {}) {
 
+  this.element = {
+    form: node_node('form|class:bookmark-form'),
+    main: node_node('div|class:bookmark-form-main'),
+    aside: node_node('div|class:bookmark-form-aside')
+  };
 
+  this.control = {};
 
-
-
-const bookmarkForm_bookmarkForm = {};
-
-bookmarkForm_bookmarkForm.current = null;
-
-bookmarkForm_bookmarkForm.form = function(bookmarkData) {
-
-  const bookmarkFormElement = node_node('form|class:bookmark-form');
-
-  const bookmarkFormMain = node_node('form|class:bookmark-form-main');
-
-  const displayVisualShow = new Control_checkbox({
-    object: bookmarkData.link,
-    path: 'display.visual.show',
-    id: 'display-visual-show',
-    labelText: 'Show Visual Element',
-    description: 'Display Letters, Icon or an Image on this Bookmark hexagon.',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayVisualType = new Control_radio({
-    object: bookmarkData.link,
-    radioGroup: [
-      { id: 'display-visual-type-letter', labelText: 'Letter', value: 'letter' },
-      { id: 'display-visual-type-icon', labelText: 'Icon', value: 'icon' },
-      { id: 'display-visual-type-image', labelText: 'Image', value: 'image' }
-    ],
-    groupName: 'display-visual-type',
-    path: 'display.visual.type',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayVisualTypeLetter = new Control_text({
-    object: bookmarkData.link,
-    path: 'display.visual.letter.text',
-    id: 'display-visual-letter-text',
-    value: bookmarkData.link.display.visual.letter.text,
-    placeholder: 'E',
-    labelText: 'Bookmark letter',
-    srOnly: true,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayVisualTypeIcon = new Control_text({
-    object: bookmarkData.link,
-    path: 'display.visual.icon.label',
-    id: 'display-visual-icon-label',
-    value: bookmarkData.link.display.visual.icon.label,
-    placeholder: 'FontAwesome Brands or Icons',
-    labelText: 'Bookmark icon',
-    srOnly: true,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayVisualTypeIconDisplay = new Control_groupText({
-    classList: ['bookmark-form-text-icon', 'form-group-item-small']
-  });
-
-  const displayVisualTypeIconRemove = new Button({
-    text: 'Remove icon',
-    srOnly: true,
-    style: ['line'],
-    iconName: 'cross',
-    classList: ['form-group-item-small'],
-    func: () => {
-      bookmarkData.link.display.visual.icon.label = '';
-      bookmarkData.link.display.visual.icon.prefix = '';
-      bookmarkData.link.display.visual.icon.name = '';
-      bookmarkFormElement.update();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayVisualTypeImage = new Control_text({
-    object: bookmarkData.link,
-    path: 'display.visual.image.url',
-    id: 'display-visual-image-url',
-    value: bookmarkData.link.display.visual.image.url,
-    placeholder: 'https://www.example.com/image.jpg',
-    labelText: 'Bookmark image',
-    srOnly: true,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayVisualSize = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'display.visual.size',
-    id: 'display-visual-size',
-    labelText: 'Visual size',
-    value: bookmarkData.link.display.visual.size,
-    defaultValue: bookmarkDefault.display.visual.size,
-    min: bookmarkMinMax.display.visual.size.min,
-    max: bookmarkMinMax.display.visual.size.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayVisualNameShowPropagate = new Control_checkbox({
-    object: bookmark_bookmark.mod.propagate.state.current,
-    path: 'display',
-    id: 'apply-to-all-display',
-    labelText: 'Apply Show Visual Element and Show Name to other Bookmarks',
-    description: [
-      'When saved, apply the above visibility to all other Bookmarks.',
-      'Only the Show Visual Element and Show Name settings will be applied to all.'
-    ]
-  });
-
-  const displayNameShow = new Control_checkbox({
-    object: bookmarkData.link,
-    path: 'display.name.show',
-    id: 'display-name-show',
-    labelText: 'Show Name',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayNameText = new Control_text({
-    object: bookmarkData.link,
-    path: 'display.name.text',
-    id: 'display-name-text',
-    value: bookmarkData.link.display.name.text,
-    placeholder: 'Example',
-    labelText: 'Bookmark name',
-    srOnly: true,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const displayNameSize = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'display.name.size',
-    id: 'display-name-size',
-    labelText: 'Name size',
-    value: bookmarkData.link.display.name.size,
-    defaultValue: bookmarkDefault.display.name.size,
-    min: bookmarkMinMax.display.name.size.min,
-    max: bookmarkMinMax.display.name.size.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const url = new Control_text({
-    object: bookmarkData.link,
-    path: 'url',
-    id: 'url',
-    value: bookmarkData.link.url,
-    placeholder: 'https://www.example.com/',
-    labelText: 'URL'
-  });
-
-  const colorBy = new Control_radio({
-    object: bookmarkData.link,
-    radioGroup: [
-      { id: 'color-by-theme', labelText: 'Theme colour', description: 'Use the Colour defined by the Theme.', value: 'theme' },
-      { id: 'color-by-custom', labelText: 'Custom colour', description: 'Override the Theme colour.', value: 'custom' }
-    ],
-    groupName: 'color-by',
-    path: 'color.by',
-    action: () => {
-      colorMixerCollapse.update();
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const colorMixer = new Control_colorMixer({
-    object: bookmarkData.link,
-    path: 'color',
-    id: 'color',
-    labelText: 'Colour',
-    defaultValue: JSON.parse(JSON.stringify(bookmarkDefault.color.rgb)),
-    minMaxObject: bookmarkMinMax,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const accentBy = new Control_radio({
-    object: bookmarkData.link,
-    radioGroup: [
-      { id: 'accent-by-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
-      { id: 'accent-by-custom', labelText: 'Custom Accent', description: 'Override the Theme Accent.', value: 'custom' }
-    ],
-    groupName: 'accent-by',
-    path: 'accent.by',
-    action: () => {
-      accentMixerCollapse.update();
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const accentMixer = new Control_colorMixer({
-    object: bookmarkData.link,
-    path: 'accent',
-    id: 'accent',
-    labelText: 'Accent',
-    defaultValue: JSON.parse(JSON.stringify(bookmarkDefault.accent.rgb)),
-    minMaxObject: bookmarkMinMax,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayTranslateX = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'display.translate.x',
-    id: 'display-translate-x',
-    labelText: 'Horizontal shift',
-    value: bookmarkData.link.display.translate.x,
-    defaultValue: bookmarkDefault.display.translate.x,
-    min: bookmarkMinMax.display.translate.x.min,
-    max: bookmarkMinMax.display.translate.x.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayTranslateY = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'display.translate.y',
-    id: 'display-translate-y',
-    labelText: 'Vertical shift',
-    value: bookmarkData.link.display.translate.y,
-    defaultValue: bookmarkDefault.display.translate.y,
-    min: bookmarkMinMax.display.translate.y.min,
-    max: bookmarkMinMax.display.translate.y.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayRotate = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'display.rotate',
-    id: 'display-rotate',
-    labelText: 'Rotate',
-    value: bookmarkData.link.display.rotate,
-    defaultValue: bookmarkDefault.display.rotate,
-    min: bookmarkMinMax.display.rotate.min,
-    max: bookmarkMinMax.display.rotate.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayVisualDirection = new Control_radio({
-    object: bookmarkData.link,
-    radioGroup: [
-      { id: 'display-direction-vertical', labelText: 'Vertical', description: 'Stack the Visual Element and Name one above the other.', value: 'vertical' },
-      { id: 'display-direction-horizontal', labelText: 'Horizontal', description: 'Arrange the Visual Element and Name side by side.', value: 'horizontal' }
-    ],
-    groupName: 'display-direction',
-    path: 'display.direction',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayVisualOrder = new Control_radio({
-    object: bookmarkData.link,
-    radioGroup: [
-      { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name.', value: 'visual-name' },
-      { id: 'display-order-name-visual', labelText: 'Name then visual element', description: 'Place the Name before the Visual Element.', value: 'name-visual' }
-    ],
-    groupName: 'display-order',
-    path: 'display.order',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayGutter = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'display.gutter',
-    id: 'display-gutter',
-    labelText: 'Gutter',
-    value: bookmarkData.link.display.gutter,
-    defaultValue: bookmarkDefault.display.gutter,
-    min: bookmarkMinMax.display.gutter.min,
-    max: bookmarkMinMax.display.gutter.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const displayLayoutPropagate = new Control_checkbox({
-    object: bookmark_bookmark.mod.propagate.state.current,
-    path: 'layout',
-    id: 'apply-to-all-layout',
-    labelText: 'Apply this Layout to other Bookmarks',
-    description: 'When saved, apply the above Layout to all other Bookmarks.'
-  });
-
-  const accentMixerArea = node_node('div', [
-    node_node('hr'),
-    accentMixer.wrap()
-  ]);
-
-  const accentMixerCollapse = new Collapse({
-    type: 'radio',
-    radioGroup: accentBy,
-    target: [{
-      id: accentBy.radioSet[1].radio.value,
-      content: accentMixerArea
-    }]
-  });
-
-  accentMixerCollapse.update();
-
-  const colorMixerArea = node_node('div', [
-    node_node('hr'),
-    colorMixer.wrap()
-  ]);
-
-  const colorMixerCollapse = new Collapse({
-    type: 'radio',
-    radioGroup: colorBy,
-    target: [{
-      id: colorBy.radioSet[1].radio.value,
-      content: colorMixerArea
-    }]
-  });
-
-  colorMixerCollapse.update();
-
-  const backgroundShow = new Control_checkbox({
-    object: bookmarkData.link,
-    path: 'background.show',
-    id: 'background-show',
-    labelText: 'Show background',
-    description: 'Display an Image or video Background on this Bookmark tile.',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const backgroundType = new Control_radio({
-    object: bookmarkData.link,
-    radioGroup: [
-      { id: 'background-type-image', labelText: 'Image', value: 'image' },
-      { id: 'background-type-video', labelText: 'Video', value: 'video' }
-    ],
-    groupName: 'background-type',
-    path: 'background.type',
-    action: () => {
-      bookmarkFormElement.disable();
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const backgroundImageUrl = new Control_text({
-    object: bookmarkData.link,
-    path: 'background.image.url',
-    id: 'background-image-url',
-    value: bookmarkData.link.background.image.url,
-    placeholder: 'https://www.example.com/image.jpg',
-    labelText: 'Background image URL',
-    srOnly: true,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const backgroundImageUrlHelper = new Control_helperText({
-    text: ['Background image only supports a direct URL to an image file.']
-  });
-
-  const backgroundVideoUrl = new Control_text({
-    object: bookmarkData.link,
-    path: 'background.video.url',
-    id: 'background-video-url',
-    value: bookmarkData.link.background.video.url,
-    placeholder: 'https://www.example.com/video.mp4',
-    labelText: 'Background video URL',
-    srOnly: true,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  const backgroundVideoUrlHelper = new Control_helperText({
-    text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
-  });
-
-  const backgroundOpacity = new Control_slimSlider({
-    object: bookmarkData.link,
-    path: 'background.opacity',
-    id: 'background-opacity',
-    labelText: 'Opacity',
-    value: bookmarkData.link.background.opacity,
-    defaultValue: bookmarkDefault.background.opacity,
-    min: bookmarkMinMax.background.opacity.min,
-    max: bookmarkMinMax.background.opacity.max,
-    action: () => {
-      hexTilePreview.update.style(bookmarkData);
-    }
-  });
-
-  const themePropagate = new Control_checkbox({
-    object: bookmark_bookmark.mod.propagate.state.current,
-    path: 'theme',
-    id: 'apply-to-all-theme',
-    labelText: 'Apply this Theme to other Bookmarks',
-    description: [
-      'When saved, apply the above Theme to all other Bookmarks.',
-      'Only the Colour, Accent and Opacity settings will be applied to all.'
-    ]
-  });
-
-  const displayVisualArea = fieldset_fieldset({
-    children: [
-      wrap_wrap({
-        children: [
-          node_node('h2:Visual & Name|class:mb-2'),
-          node_node('p:Display Letters, Icon, Image and a Name on this Bookmark tile.|class:mb-5')
-        ]
+  this.control.bookmark = {
+    url: new Control_text({
+      object: bookmarkData.link,
+      path: 'url',
+      id: 'url',
+      value: bookmarkData.link.url,
+      placeholder: 'https://www.example.com/',
+      labelText: 'URL'
+    }),
+    display: {
+      direction: new Control_radio({
+        object: bookmarkData.link,
+        radioGroup: [
+          { id: 'display-direction-vertical', labelText: 'Vertical', description: 'Stack the Visual Element and Name one above the other.', value: 'vertical' },
+          { id: 'display-direction-horizontal', labelText: 'Horizontal', description: 'Arrange the Visual Element and Name side by side.', value: 'horizontal' }
+        ],
+        groupName: 'display-direction',
+        path: 'display.direction',
+        action: () => {
+          this.disable();
+          this.preview.update.style(bookmarkData);
+        }
       }),
-      wrap_wrap({
-        children: [
-          indent_indent({
-            children: [
-              displayVisualShow.wrap(),
-              wrap_wrap({
-                children: [
-                  indent_indent({
-                    children: [
-                      displayVisualType.radioSet[0].wrap(),
-                      wrap_wrap({
-                        children: [
-                          indent_indent({
-                            children: [
-                              displayVisualTypeLetter.wrap()
-                            ]
-                          })
-                        ]
-                      }),
-                      displayVisualType.radioSet[1].wrap(),
-                      wrap_wrap({
-                        children: [
-                          indent_indent({
-                            children: [
-                              wrap_wrap({
-                                children: [
-                                  displayVisualTypeIcon.label,
-                                  group_group({
-                                    block: true,
-                                    children: [
-                                      displayVisualTypeIcon.text,
-                                      displayVisualTypeIconDisplay.groupText,
-                                      displayVisualTypeIconRemove.button
-                                    ]
-                                  })
-                                ]
-                              })
-                            ]
-                          })
-                        ]
-                      }),
-                      displayVisualType.radioSet[2].wrap(),
-                      wrap_wrap({
-                        children: [
-                          indent_indent({
-                            children: [
-                              displayVisualTypeImage.wrap()
-                            ]
-                          })
-                        ]
-                      })
-                    ]
-                  })
-                ]
-              }),
-              node_node('hr'),
-              displayNameShow.wrap(),
-              wrap_wrap({
-                children: [
-                  indent_indent({
-                    children: [
-                      displayNameText.wrap()
-                    ]
-                  }),
-                ]
-              }),
-              node_node('hr'),
-              displayVisualNameShowPropagate.wrap()
-            ]
-          })
-        ]
-      })
-    ]
-  });
-
-  const displayAddressArea = fieldset_fieldset({
-    children: [
-      wrap_wrap({
-        children: [
-          node_node('h2:Address|class:mb-2'),
-          node_node('p:The websites address.'),
-          complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>', attr: [{ key: 'class', value: 'mb-5' }] })
-        ]
+      order: new Control_radio({
+        object: bookmarkData.link,
+        radioGroup: [
+          { id: 'display-order-visual-name', labelText: 'Visual element then name', description: 'Place the Visual Element before the Name.', value: 'visual-name' },
+          { id: 'display-order-name-visual', labelText: 'Name then visual element', description: 'Place the Name before the Visual Element.', value: 'name-visual' }
+        ],
+        groupName: 'display-order',
+        path: 'display.order',
+        action: () => {
+          this.disable();
+          this.preview.update.style(bookmarkData);
+        }
       }),
-      wrap_wrap({
-        children: [
-          indent_indent({
-            children: [
-              url.wrap()
-            ]
-          })
-        ]
-      })
-    ]
-  });
-
-  const displayLayoutArea = fieldset_fieldset({
-    children: [
-      wrap_wrap({
-        children: [
-          node_node('h2:Layout|class:mb-2'),
-          node_node('p:Change the Visual element and Name position.|class:mb-5')
-        ]
+      rotate: new Control_slimSlider({
+        object: bookmarkData.link,
+        path: 'display.rotate',
+        id: 'display-rotate',
+        labelText: 'Rotate',
+        value: bookmarkData.link.display.rotate,
+        defaultValue: bookmarkDefault.display.rotate,
+        min: bookmarkMinMax.display.rotate.min,
+        max: bookmarkMinMax.display.rotate.max,
+        action: () => {
+          this.preview.update.style(bookmarkData);
+        }
       }),
-      wrap_wrap({
-        children: [
-          indent_indent({
-            children: [
-              displayVisualSize.wrap(),
-              displayNameSize.wrap(),
-              node_node('hr'),
-              displayTranslateX.wrap(),
-              displayTranslateY.wrap(),
-              displayRotate.wrap(),
-              node_node('hr'),
-              displayVisualDirection.wrap(),
-              node_node('hr'),
-              displayVisualOrder.wrap(),
-              node_node('hr'),
-              displayGutter.wrap(),
-              node_node('hr'),
-              displayLayoutPropagate.wrap()
-            ]
-          })
-        ]
-      })
-    ]
-  });
-
-  const displayThemeArea = fieldset_fieldset({
-    children: [
-      wrap_wrap({
-        children: [
-          node_node('h2:Theme|class:mb-2'),
-          node_node('p:Override the Theme and Accent colour.|class:mb-5')
-        ]
+      translate: {
+        x: new Control_slimSlider({
+          object: bookmarkData.link,
+          path: 'display.translate.x',
+          id: 'display-translate-x',
+          labelText: 'Horizontal shift',
+          value: bookmarkData.link.display.translate.x,
+          defaultValue: bookmarkDefault.display.translate.x,
+          min: bookmarkMinMax.display.translate.x.min,
+          max: bookmarkMinMax.display.translate.x.max,
+          action: () => {
+            this.preview.update.style(bookmarkData);
+          }
+        }),
+        y: new Control_slimSlider({
+          object: bookmarkData.link,
+          path: 'display.translate.y',
+          id: 'display-translate-y',
+          labelText: 'Vertical shift',
+          value: bookmarkData.link.display.translate.y,
+          defaultValue: bookmarkDefault.display.translate.y,
+          min: bookmarkMinMax.display.translate.y.min,
+          max: bookmarkMinMax.display.translate.y.max,
+          action: () => {
+            this.preview.update.style(bookmarkData);
+          }
+        })
+      },
+      gutter: new Control_slimSlider({
+        object: bookmarkData.link,
+        path: 'display.gutter',
+        id: 'display-gutter',
+        labelText: 'Gutter',
+        value: bookmarkData.link.display.gutter,
+        defaultValue: bookmarkDefault.display.gutter,
+        min: bookmarkMinMax.display.gutter.min,
+        max: bookmarkMinMax.display.gutter.max,
+        action: () => {
+          this.preview.update.style(bookmarkData);
+        }
       }),
-      wrap_wrap({
-        children: [
-          indent_indent({
-            children: [
-              colorBy.wrap(),
-              wrap_wrap({
-                children: [
-                  indent_indent({
-                    children: [
-                      colorMixerCollapse.collapse()
-                    ]
-                  })
-                ]
-              }),
-              node_node('hr'),
-              accentBy.wrap(),
-              wrap_wrap({
-                children: [
-                  indent_indent({
-                    children: [
-                      accentMixerCollapse.collapse()
-                    ]
-                  })
-                ]
-              }),
-              node_node('hr'),
-              backgroundShow.wrap(),
-              wrap_wrap({
-                children: [
-                  indent_indent({
-                    children: [
-                      backgroundType.radioSet[0].wrap(),
-                      wrap_wrap({
-                        children: [
-                          indent_indent({
-                            children: [
-                              backgroundImageUrl.wrap(),
-                              backgroundImageUrlHelper.wrap()
-                            ]
-                          })
-                        ]
-                      }),
-                      backgroundType.radioSet[1].wrap(),
-                      wrap_wrap({
-                        children: [
-                          indent_indent({
-                            children: [
-                              backgroundVideoUrl.wrap(),
-                              backgroundVideoUrlHelper.wrap()
-                            ]
-                          })
-                        ]
-                      }),
-                      node_node('hr'),
-                      backgroundOpacity.wrap()
-                    ]
-                  })
-                ]
-              }),
-              node_node('hr'),
-              themePropagate.wrap()
-            ]
+      name: {
+        show: new Control_checkbox({
+          object: bookmarkData.link,
+          path: 'display.name.show',
+          id: 'display-name-show',
+          labelText: 'Show Name',
+          action: () => {
+            this.disable();
+            this.preview.update.assemble(bookmarkData);
+          }
+        }),
+        text: new Control_text({
+          object: bookmarkData.link,
+          path: 'display.name.text',
+          id: 'display-name-text',
+          value: bookmarkData.link.display.name.text,
+          placeholder: 'Example',
+          labelText: 'Bookmark name',
+          srOnly: true,
+          action: () => {
+            this.preview.update.assemble(bookmarkData);
+          }
+        }),
+        size: new Control_slimSlider({
+          object: bookmarkData.link,
+          path: 'display.name.size',
+          id: 'display-name-size',
+          labelText: 'Name size',
+          value: bookmarkData.link.display.name.size,
+          defaultValue: bookmarkDefault.display.name.size,
+          min: bookmarkMinMax.display.name.size.min,
+          max: bookmarkMinMax.display.name.size.max,
+          action: () => {
+            this.preview.update.style(bookmarkData);
+          }
+        })
+      },
+      visual: {
+        show: new Control_checkbox({
+          object: bookmarkData.link,
+          path: 'display.visual.show',
+          id: 'display-visual-show',
+          labelText: 'Show Visual Element',
+          description: 'Display Letters, Icon or an Image on this Bookmark hexagon.',
+          action: () => {
+            this.disable();
+            this.preview.update.assemble(bookmarkData);
+          }
+        }),
+        type: new Control_radio({
+          object: bookmarkData.link,
+          radioGroup: [
+            { id: 'display-visual-type-letter', labelText: 'Letter', value: 'letter' },
+            { id: 'display-visual-type-icon', labelText: 'Icon', value: 'icon' },
+            { id: 'display-visual-type-image', labelText: 'Image', value: 'image' }
+          ],
+          groupName: 'display-visual-type',
+          path: 'display.visual.type',
+          action: () => {
+            this.disable();
+            this.preview.update.assemble(bookmarkData);
+          }
+        }),
+        size: new Control_slimSlider({
+          object: bookmarkData.link,
+          path: 'display.visual.size',
+          id: 'display-visual-size',
+          labelText: 'Visual size',
+          value: bookmarkData.link.display.visual.size,
+          defaultValue: bookmarkDefault.display.visual.size,
+          min: bookmarkMinMax.display.visual.size.min,
+          max: bookmarkMinMax.display.visual.size.max,
+          action: () => {
+            this.preview.update.style(bookmarkData);
+          }
+        }),
+        letter: {
+          text: new Control_text({
+            object: bookmarkData.link,
+            path: 'display.visual.letter.text',
+            id: 'display-visual-letter-text',
+            value: bookmarkData.link.display.visual.letter.text,
+            placeholder: 'E',
+            labelText: 'Bookmark letter',
+            srOnly: true,
+            action: () => {
+              this.preview.update.assemble(bookmarkData);
+            }
           })
-        ]
+        },
+        icon: {
+          text: new Control_text({
+            object: bookmarkData.link,
+            path: 'display.visual.icon.label',
+            id: 'display-visual-icon-label',
+            value: bookmarkData.link.display.visual.icon.label,
+            placeholder: 'FontAwesome Brands or Icons',
+            labelText: 'Bookmark icon',
+            srOnly: true,
+            action: () => {
+              this.preview.update.assemble(bookmarkData);
+            }
+          }),
+          preview: new Control_groupText({
+            classList: ['bookmark-form-text-icon', 'form-group-item-small']
+          }),
+          remove: new Button({
+            text: 'Remove icon',
+            srOnly: true,
+            style: ['line'],
+            iconName: 'cross',
+            classList: ['form-group-item-small'],
+            func: () => {
+              bookmarkData.link.display.visual.icon.label = '';
+              bookmarkData.link.display.visual.icon.prefix = '';
+              bookmarkData.link.display.visual.icon.name = '';
+              this.update();
+              this.preview.update.assemble(bookmarkData);
+            }
+          })
+        },
+        image: {
+          url: new Control_text({
+            object: bookmarkData.link,
+            path: 'display.visual.image.url',
+            id: 'display-visual-image-url',
+            value: bookmarkData.link.display.visual.image.url,
+            placeholder: 'https://www.example.com/image.jpg',
+            labelText: 'Bookmark image',
+            srOnly: true,
+            action: () => {
+              this.preview.update.assemble(bookmarkData);
+            }
+          })
+        }
+      }
+    },
+    accent: {
+      by: new Control_radio({
+        object: bookmarkData.link,
+        radioGroup: [
+          { id: 'accent-by-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
+          { id: 'accent-by-custom', labelText: 'Custom Accent', description: 'Override the Theme Accent.', value: 'custom' }
+        ],
+        groupName: 'accent-by',
+        path: 'accent.by',
+        action: () => {
+          this.collapse.accent.update();
+          this.disable();
+          this.preview.update.assemble(bookmarkData);
+        }
+      }),
+      color: new Control_colorMixer({
+        object: bookmarkData.link,
+        path: 'accent',
+        id: 'accent',
+        labelText: 'Accent',
+        defaultValue: JSON.parse(JSON.stringify(bookmarkDefault.accent.rgb)),
+        minMaxObject: bookmarkMinMax,
+        action: () => {
+          this.preview.update.style(bookmarkData);
+        }
       })
-    ]
-  });
+    },
+    color: {
+      by: new Control_radio({
+        object: bookmarkData.link,
+        radioGroup: [
+          { id: 'color-by-theme', labelText: 'Theme colour', description: 'Use the Colour defined by the Theme.', value: 'theme' },
+          { id: 'color-by-custom', labelText: 'Custom colour', description: 'Override the Theme colour.', value: 'custom' }
+        ],
+        groupName: 'color-by',
+        path: 'color.by',
+        action: () => {
+          this.collapse.color.update();
+          this.disable();
+          this.preview.update.assemble(bookmarkData);
+        }
+      }),
+      color: new Control_colorMixer({
+        object: bookmarkData.link,
+        path: 'color',
+        id: 'color',
+        labelText: 'Colour',
+        defaultValue: JSON.parse(JSON.stringify(bookmarkDefault.color.rgb)),
+        minMaxObject: bookmarkMinMax,
+        action: () => {
+          this.preview.update.style(bookmarkData);
+        }
+      })
+    },
+    background: {
+      show: new Control_checkbox({
+        object: bookmarkData.link,
+        path: 'background.show',
+        id: 'background-show',
+        labelText: 'Show background',
+        description: 'Display an Image or video Background on this Bookmark tile.',
+        action: () => {
+          this.disable();
+          this.preview.update.assemble(bookmarkData);
+        }
+      }),
+      type: new Control_radio({
+        object: bookmarkData.link,
+        radioGroup: [
+          { id: 'background-type-image', labelText: 'Image', value: 'image' },
+          { id: 'background-type-video', labelText: 'Video', value: 'video' }
+        ],
+        groupName: 'background-type',
+        path: 'background.type',
+        action: () => {
+          this.disable();
+          this.preview.update.assemble(bookmarkData);
+        }
+      }),
+      opacity: new Control_slimSlider({
+        object: bookmarkData.link,
+        path: 'background.opacity',
+        id: 'background-opacity',
+        labelText: 'Opacity',
+        value: bookmarkData.link.background.opacity,
+        defaultValue: bookmarkDefault.background.opacity,
+        min: bookmarkMinMax.background.opacity.min,
+        max: bookmarkMinMax.background.opacity.max,
+        action: () => {
+          this.preview.update.style(bookmarkData);
+        }
+      }),
+      image: {
+        url: new Control_text({
+          object: bookmarkData.link,
+          path: 'background.image.url',
+          id: 'background-image-url',
+          value: bookmarkData.link.background.image.url,
+          placeholder: 'https://www.example.com/image.jpg',
+          labelText: 'Background image URL',
+          srOnly: true,
+          action: () => {
+            this.preview.update.assemble(bookmarkData);
+          }
+        })
+      },
+      video: {
+        url: new Control_text({
+          object: bookmarkData.link,
+          path: 'background.video.url',
+          id: 'background-video-url',
+          value: bookmarkData.link.background.video.url,
+          placeholder: 'https://www.example.com/video.mp4',
+          labelText: 'Background video URL',
+          srOnly: true,
+          action: () => {
+            this.preview.update.assemble(bookmarkData);
+          }
+        })
+      }
+    }
+  };
 
-  const formTab = new Tab({
+  this.control.propagate = {
+    visual: new Control_checkbox({
+      object: bookmarkData.propagate,
+      path: 'display',
+      id: 'apply-to-all-display',
+      labelText: 'Apply Show Visual Element and Show Name to other Bookmarks',
+      description: [
+        'When saved, apply the above visibility to all other Bookmarks.',
+        'Only the Show Visual Element and Show Name settings will be applied to all.'
+      ]
+    }),
+    layout: new Control_checkbox({
+      object: bookmarkData.propagate,
+      path: 'layout',
+      id: 'apply-to-all-layout',
+      labelText: 'Apply this Layout to other Bookmarks',
+      description: [
+        'When saved, apply the above Layout to all other Bookmarks.',
+        'Only the Visual, Name and Border settings will be applied to all.'
+      ]
+    }),
+    theme: new Control_checkbox({
+      object: bookmarkData.propagate,
+      path: 'theme',
+      id: 'apply-to-all-theme',
+      labelText: 'Apply this Theme to other Bookmarks',
+      description: [
+        'When saved, apply the above Theme to all other Bookmarks.',
+        'Only the Colour, Accent and Opacity settings will be applied to all.'
+      ]
+    })
+  };
+
+  this.helper = {
+    bookmark: {
+      background: {
+        image: new Control_helperText({
+          text: ['Background image only supports a direct URL to an image file.']
+        }),
+        video: new Control_helperText({
+          text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
+        })
+      }
+    }
+  };
+
+  this.area = {};
+
+  this.area.accent = () => {
+    return node_node('div', [
+      node_node('hr'),
+      this.control.bookmark.accent.color.wrap()
+    ]);
+  };
+
+  this.area.color = () => {
+    return node_node('div', [
+      node_node('hr'),
+      this.control.bookmark.color.color.wrap()
+    ]);
+  };
+
+  this.area.visual = () => {
+    return fieldset_fieldset({
+      children: [
+        wrap_wrap({
+          children: [
+            node_node('h2:Visual & Name|class:mb-2'),
+            node_node('p:Display Letters, Icon, Image and a Name on this Bookmark tile.|class:mb-5')
+          ]
+        }),
+        wrap_wrap({
+          children: [
+            indent_indent({
+              children: [
+                this.control.bookmark.display.visual.show.wrap(),
+                wrap_wrap({
+                  children: [
+                    indent_indent({
+                      children: [
+                        this.control.bookmark.display.visual.type.radioSet[0].wrap(),
+                        wrap_wrap({
+                          children: [
+                            indent_indent({
+                              children: [
+                                this.control.bookmark.display.visual.letter.text.wrap()
+                              ]
+                            })
+                          ]
+                        }),
+                        this.control.bookmark.display.visual.type.radioSet[1].wrap(),
+                        wrap_wrap({
+                          children: [
+                            indent_indent({
+                              children: [
+                                wrap_wrap({
+                                  children: [
+                                    this.control.bookmark.display.visual.icon.text.label,
+                                    group_group({
+                                      block: true,
+                                      children: [
+                                        this.control.bookmark.display.visual.icon.text.text,
+                                        this.control.bookmark.display.visual.icon.preview.groupText,
+                                        this.control.bookmark.display.visual.icon.remove.button
+                                      ]
+                                    })
+                                  ]
+                                })
+                              ]
+                            })
+                          ]
+                        }),
+                        this.control.bookmark.display.visual.type.radioSet[2].wrap(),
+                        wrap_wrap({
+                          children: [
+                            indent_indent({
+                              children: [
+                                this.control.bookmark.display.visual.image.url.wrap()
+                              ]
+                            })
+                          ]
+                        })
+                      ]
+                    })
+                  ]
+                }),
+                node_node('hr'),
+                this.control.bookmark.display.name.show.wrap(),
+                wrap_wrap({
+                  children: [
+                    indent_indent({
+                      children: [
+                        this.control.bookmark.display.name.text.wrap()
+                      ]
+                    })
+                  ]
+                }),
+                node_node('hr'),
+                this.control.propagate.visual.wrap()
+              ]
+            })
+          ]
+        })
+      ]
+    });
+  };
+
+  this.area.address = () => {
+    return fieldset_fieldset({
+      children: [
+        wrap_wrap({
+          children: [
+            node_node('h2:Address|class:mb-2'),
+            complexNode({ tag: 'p', text: 'Be sure to use the full URL and include <strong>"https://..."</strong>', attr: [{ key: 'class', value: 'mb-5' }] })
+          ]
+        }),
+        wrap_wrap({
+          children: [
+            indent_indent({
+              children: [
+                this.control.bookmark.url.wrap()
+              ]
+            })
+          ]
+        })
+      ]
+    });
+  };
+
+  this.area.layout = () => {
+    return fieldset_fieldset({
+      children: [
+        wrap_wrap({
+          children: [
+            node_node('h2:Layout|class:mb-2'),
+            node_node('p:Change the Visual element and Name position.|class:mb-5')
+          ]
+        }),
+        wrap_wrap({
+          children: [
+            indent_indent({
+              children: [
+                this.control.bookmark.display.visual.size.wrap(),
+                this.control.bookmark.display.name.size.wrap(),
+                node_node('hr'),
+                this.control.bookmark.display.translate.x.wrap(),
+                this.control.bookmark.display.translate.y.wrap(),
+                this.control.bookmark.display.rotate.wrap(),
+                node_node('hr'),
+                this.control.bookmark.display.direction.wrap(),
+                node_node('hr'),
+                this.control.bookmark.display.order.wrap(),
+                node_node('hr'),
+                this.control.bookmark.display.gutter.wrap(),
+                node_node('hr'),
+                this.control.propagate.layout.wrap()
+              ]
+            })
+          ]
+        })
+      ]
+    });
+  };
+
+  this.area.theme = () => {
+    return fieldset_fieldset({
+      children: [
+        wrap_wrap({
+          children: [
+            node_node('h2:Theme|class:mb-2'),
+            node_node('p:Override the Theme and Accent colour.|class:mb-5')
+          ]
+        }),
+        wrap_wrap({
+          children: [
+            indent_indent({
+              children: [
+                this.control.bookmark.color.by.wrap(),
+                wrap_wrap({
+                  children: [
+                    indent_indent({
+                      children: [
+                        this.collapse.color.collapse()
+                      ]
+                    })
+                  ]
+                }),
+                node_node('hr'),
+                this.control.bookmark.accent.by.wrap(),
+                wrap_wrap({
+                  children: [
+                    indent_indent({
+                      children: [
+                        this.collapse.accent.collapse()
+                      ]
+                    })
+                  ]
+                }),
+                node_node('hr'),
+                this.control.bookmark.background.show.wrap(),
+                wrap_wrap({
+                  children: [
+                    indent_indent({
+                      children: [
+                        this.control.bookmark.background.type.radioSet[0].wrap(),
+                        wrap_wrap({
+                          children: [
+                            indent_indent({
+                              children: [
+                                this.control.bookmark.background.image.url.wrap(),
+                                this.helper.bookmark.background.image.wrap()
+                              ]
+                            })
+                          ]
+                        }),
+                        this.control.bookmark.background.type.radioSet[1].wrap(),
+                        wrap_wrap({
+                          children: [
+                            indent_indent({
+                              children: [
+                                this.control.bookmark.background.video.url.wrap(),
+                                this.helper.bookmark.background.video.wrap()
+                              ]
+                            })
+                          ]
+                        }),
+                        node_node('hr'),
+                        this.control.bookmark.background.opacity.wrap()
+                      ]
+                    })
+                  ]
+                }),
+                node_node('hr'),
+                this.control.propagate.theme.wrap()
+              ]
+            })
+          ]
+        })
+      ]
+    });
+  };
+
+  this.collapse = {
+    color: new Collapse({
+      type: 'radio',
+      radioGroup: this.control.bookmark.color.by,
+      target: [{
+        id: this.control.bookmark.color.by.radioSet[1].radio.value,
+        content: this.area.color()
+      }]
+    }),
+    accent: new Collapse({
+      type: 'radio',
+      radioGroup: this.control.bookmark.accent.by,
+      target: [{
+        id: this.control.bookmark.accent.by.radioSet[1].radio.value,
+        content: this.area.accent()
+      }]
+    })
+  };
+
+  this.tab = new Tab({
     group: [{
       tabText: 'Visual & Name',
-      area: displayVisualArea,
+      area: this.area.visual(),
       active: true
     }, {
       tabText: 'Address',
-      area: displayAddressArea,
+      area: this.area.address(),
       active: false
     }, {
       tabText: 'Layout',
-      area: displayLayoutArea,
+      area: this.area.layout(),
       active: false
     }, {
       tabText: 'Theme',
-      area: displayThemeArea,
+      area: this.area.theme(),
       active: false
     }]
   });
 
-  bookmarkFormMain.appendChild(formTab.tab());
+  this.preview = new BookmarkPreview({ bookmarkData: bookmarkData });
 
-  const hexTilePreview = new BookmarkPreview({
-    bookmarkData: bookmarkData
-  });
-
-  const bookmarkFormAside = node_node('div|class:bookmark-form-aside');
-
-  bookmarkFormAside.appendChild(hexTilePreview.preview());
-
-  bookmarkFormElement.appendChild(bookmarkFormMain);
-
-  bookmarkFormElement.appendChild(bookmarkFormAside);
-
-  if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
-    displayVisualTypeIconDisplay.update(node_node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
-  } else {
-    displayVisualTypeIconDisplay.update();
-  };
-
-  const displayVisualTypeIconAutoSuggest = new Suggest({
-    input: displayVisualTypeIcon.text,
-    widthElement: displayVisualArea,
-    type: 'fontawesomeIcon',
-    postFocus: displayVisualTypeIconDisplay.groupText,
-    action: () => {
-      hexTilePreview.update.assemble(bookmarkData);
-    }
-  });
-
-  bookmark_bookmark.mod.propagate.state.reset();
-
-  bookmarkFormElement.disable = () => {
+  this.disable = () => {
     if (bookmarkData.link.display.visual.show) {
-      displayVisualType.enable();
-      displayVisualTypeLetter.enable();
-      displayVisualTypeIcon.enable();
-      displayVisualTypeIconDisplay.enable();
-      displayVisualTypeIconRemove.enable();
-      displayVisualTypeImage.enable();
-      displayVisualSize.enable();
+      this.control.bookmark.display.visual.type.enable();
+      this.control.bookmark.display.visual.letter.text.enable();
+      this.control.bookmark.display.visual.icon.text.enable();
+      this.control.bookmark.display.visual.icon.preview.enable();
+      this.control.bookmark.display.visual.icon.remove.enable();
+      this.control.bookmark.display.visual.image.url.enable();
+      this.control.bookmark.display.visual.size.enable();
 
       switch (bookmarkData.link.display.visual.type) {
         case 'letter':
-          displayVisualTypeLetter.enable();
-          displayVisualTypeIcon.disable();
-          displayVisualTypeIconDisplay.disable()
-          displayVisualTypeIconRemove.disable();
-          displayVisualTypeImage.disable();
+          this.control.bookmark.display.visual.letter.text.enable();
+          this.control.bookmark.display.visual.icon.text.disable();
+          this.control.bookmark.display.visual.icon.preview.disable()
+          this.control.bookmark.display.visual.icon.remove.disable();
+          this.control.bookmark.display.visual.image.url.disable();
           break;
 
         case 'icon':
-          displayVisualTypeLetter.disable();
-          displayVisualTypeIcon.enable();
-          displayVisualTypeIconDisplay.enable();
-          displayVisualTypeIconRemove.enable();
-          displayVisualTypeImage.disable();
+          this.control.bookmark.display.visual.letter.text.disable();
+          this.control.bookmark.display.visual.icon.text.enable();
+          this.control.bookmark.display.visual.icon.preview.enable();
+          this.control.bookmark.display.visual.icon.remove.enable();
+          this.control.bookmark.display.visual.image.url.disable();
           break;
 
         case 'image':
-          displayVisualTypeLetter.disable();
-          displayVisualTypeIcon.disable();
-          displayVisualTypeIconDisplay.disable()
-          displayVisualTypeIconRemove.disable();
-          displayVisualTypeImage.enable();
+          this.control.bookmark.display.visual.letter.text.disable();
+          this.control.bookmark.display.visual.icon.text.disable();
+          this.control.bookmark.display.visual.icon.preview.disable()
+          this.control.bookmark.display.visual.icon.remove.disable();
+          this.control.bookmark.display.visual.image.url.enable();
           break;
       };
     } else {
-      displayVisualType.disable();
-      displayVisualTypeLetter.disable();
-      displayVisualTypeIcon.disable();
-      displayVisualTypeIconDisplay.disable();
-      displayVisualTypeIconRemove.disable();
-      displayVisualTypeImage.disable();
-      displayVisualSize.disable();
+      this.control.bookmark.display.visual.type.disable();
+      this.control.bookmark.display.visual.letter.text.disable();
+      this.control.bookmark.display.visual.icon.text.disable();
+      this.control.bookmark.display.visual.icon.preview.disable();
+      this.control.bookmark.display.visual.icon.remove.disable();
+      this.control.bookmark.display.visual.image.url.disable();
+      this.control.bookmark.display.visual.size.disable();
     };
 
     if (bookmarkData.link.display.name.show) {
-      displayNameText.enable();
-      displayNameSize.enable();
+      this.control.bookmark.display.name.text.enable();
+      this.control.bookmark.display.name.size.enable();
     } else {
-      displayNameText.disable();
-      displayNameSize.disable();
+      this.control.bookmark.display.name.text.disable();
+      this.control.bookmark.display.name.size.disable();
     };
 
     if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
-      displayTranslateX.enable();
-      displayTranslateY.enable();
-      displayRotate.enable();
+      this.control.bookmark.display.translate.x.enable();
+      this.control.bookmark.display.translate.y.enable();
+      this.control.bookmark.display.rotate.enable();
     } else {
-      displayTranslateX.disable();
-      displayTranslateY.disable();
-      displayRotate.disable();
+      this.control.bookmark.display.translate.x.disable();
+      this.control.bookmark.display.translate.y.disable();
+      this.control.bookmark.display.rotate.disable();
     };
 
     if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
-      displayVisualDirection.enable();
-      displayVisualOrder.enable();
-      displayGutter.enable();
+      this.control.bookmark.display.direction.enable();
+      this.control.bookmark.display.order.enable();
+      this.control.bookmark.display.gutter.enable();
     } else {
-      displayVisualDirection.disable();
-      displayVisualOrder.disable();
-      displayGutter.disable();
+      this.control.bookmark.display.direction.disable();
+      this.control.bookmark.display.order.disable();
+      this.control.bookmark.display.gutter.disable();
     };
 
     switch (bookmarkData.link.color.by) {
       case 'theme':
-        colorMixer.disable();
+        this.control.bookmark.color.color.disable();
         break;
 
       case 'custom':
-        colorMixer.enable();
+        this.control.bookmark.color.color.enable();
         break;
     };
 
     switch (bookmarkData.link.accent.by) {
       case 'theme':
-        accentMixer.disable();
+        this.control.bookmark.accent.color.disable();
         break;
 
       case 'custom':
-        accentMixer.enable();
+        this.control.bookmark.accent.color.enable();
         break;
     };
 
     if (bookmarkData.link.background.show) {
-      backgroundType.enable();
-      backgroundOpacity.enable();
+      this.control.bookmark.background.type.enable();
+      this.control.bookmark.background.opacity.enable();
 
       switch (bookmarkData.link.background.type) {
         case 'image':
-          backgroundImageUrl.enable();
-          backgroundImageUrlHelper.enable();
-          backgroundVideoUrl.disable();
-          backgroundVideoUrlHelper.disable();
+          this.control.bookmark.background.image.url.enable();
+          this.helper.bookmark.background.image.enable();
+          this.control.bookmark.background.video.url.disable();
+          this.helper.bookmark.background.video.disable();
           break;
 
         case 'video':
-          backgroundImageUrl.disable();
-          backgroundImageUrlHelper.disable();
-          backgroundVideoUrl.enable();
-          backgroundVideoUrlHelper.enable();
+          this.control.bookmark.background.image.url.disable();
+          this.helper.bookmark.background.image.disable();
+          this.control.bookmark.background.video.url.enable();
+          this.helper.bookmark.background.video.enable();
           break;
       };
     } else {
-      backgroundType.disable();
-      backgroundImageUrl.disable();
-      backgroundImageUrlHelper.disable();
-      backgroundVideoUrl.disable();
-      backgroundVideoUrlHelper.disable();
-      backgroundOpacity.disable();
+      this.control.bookmark.background.type.disable();
+      this.control.bookmark.background.image.url.disable();
+      this.helper.bookmark.background.image.disable();
+      this.control.bookmark.background.video.url.disable();
+      this.helper.bookmark.background.video.disable();
+      this.control.bookmark.background.opacity.disable();
     };
   };
 
-  bookmarkFormElement.update = () => {
-    displayVisualShow.update();
-    displayVisualType.update();
-    displayVisualTypeLetter.update();
-    displayVisualTypeIcon.update();
+  this.update = () => {
+    this.control.bookmark.display.visual.show.update();
+    this.control.bookmark.display.visual.type.update();
+    this.control.bookmark.display.visual.letter.text.update();
+    this.control.bookmark.display.visual.icon.text.update();
     if (isValidString(bookmarkData.link.display.visual.icon.prefix) && isValidString(bookmarkData.link.display.visual.icon.name)) {
-      displayVisualTypeIconDisplay.update(node_node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
+      this.control.bookmark.display.visual.icon.preview.update(node_node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
     } else {
-      displayVisualTypeIconDisplay.update();
+      this.control.bookmark.display.visual.icon.preview.update();
     };
-    displayVisualTypeImage.update();
-    displayNameShow.update();
-    displayNameText.update();
-    url.update();
+    this.control.bookmark.display.visual.image.url.update();
+    this.control.bookmark.display.name.show.update();
+    this.control.bookmark.display.name.text.update();
+    this.control.bookmark.url.update();
   };
 
-  bookmarkFormElement.updateIcon = (autoSuggestData) => {
-    bookmarkData.link.display.visual.icon.label = autoSuggestData.label;
-    bookmarkData.link.display.visual.icon.name = autoSuggestData.name;
-    if (autoSuggestData.styles.includes('solid')) {
-      bookmarkData.link.display.visual.icon.prefix = 'fas';
-    } else if (autoSuggestData.styles.includes('brands')) {
-      bookmarkData.link.display.visual.icon.prefix = 'fab';
-    };
-    bookmarkFormElement.update();
+  this.assemble = () => {
+
+    this.element.main.appendChild(this.tab.tab());
+
+    this.element.aside.appendChild(this.preview.preview());
+
+    this.element.form.appendChild(this.element.main);
+
+    this.element.form.appendChild(this.element.aside);
+
   };
 
-  bookmarkFormElement.disable();
+  this.bind = () => {
 
-  bookmarkForm_bookmarkForm.current = bookmarkFormElement;
+    this.element.form.addEventListener('keydown', (event) => {
 
-  bookmarkFormElement.addEventListener('keydown', function(event) {
-    if (event.keyCode == 13) {
-      event.preventDefault();
-      return false;
-    };
+      if (event.keyCode == 13) { event.preventDefault(); return false; };
+
+    });
+
+  };
+
+  this.suggest = new Suggest({
+    input: this.control.bookmark.display.visual.icon.text.text,
+    widthElement: this.element.main,
+    type: 'fontawesomeIcon',
+
+    postFocus: this.control.bookmark.display.visual.icon.preview.groupText,
+    action: (suggestData) => {
+
+      bookmarkData.link.display.visual.icon.label = suggestData.label;
+      bookmarkData.link.display.visual.icon.name = suggestData.name;
+
+      if (suggestData.styles.includes('solid')) {
+        bookmarkData.link.display.visual.icon.prefix = 'fas';
+      } else if (suggestData.styles.includes('brands')) {
+        bookmarkData.link.display.visual.icon.prefix = 'fab';
+      };
+
+      this.preview.update.assemble(bookmarkData);
+      this.update();
+
+    }
   });
 
-  return bookmarkFormElement;
+  this.form = () => {
+
+    return this.element.form;
+
+  };
+
+  this.assemble();
+
+  this.disable();
+
+  this.update();
+
+  this.collapse.color.update();
+
+  this.collapse.accent.update();
 
 };
 
 
-;// CONCATENATED MODULE: ./src/component/bookmarkPreset/index.js
- const bookmarkPreset = {};
 
- bookmarkPreset.get = function() {
-   return [{
-     url: 'https://zombiefox.github.io/awesomeSheet/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'awesomeSheet', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://www.amazon.co.uk/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Amazon', size: 7 },
-       visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://mail.google.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Gmail', size: 7 },
-       visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://www.reddit.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Reddit', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://www.netflix.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Netflix', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://drive.google.com/drive/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Drive', size: 7 },
-       visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://devdocs.io/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Devdocs', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://github.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Github', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }];
- };
+;// CONCATENATED MODULE: ./src/component/hexTile/index.js
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const HexTile = function({
+  bookmarkData = {},
+  index = 0,
+  row = 0,
+  column = 0,
+  preview = false
+} = {}) {
+
+  this.element = {
+    bookmark: node_node('div|class:bookmark'),
+    shadow: {
+      wrap: node_node('div|class:bookmark-shadow-wrap'),
+      shadow: node_node('div|class:bookmark-shadow')
+    },
+    content: {
+      link: node_node('a|class:bookmark-link,tabindex:1'),
+      wrap: node_node('div|class:bookmark-content-wrap'),
+      display: {
+        wrap: node_node('div|class:bookmark-display-wrap'),
+        display: node_node('div|class:bookmark-display'),
+        visual: {
+          visual: node_node('div|class:bookmark-display-visual'),
+          letter: complexNode({ tag: 'div', text: bookmarkData.link.display.visual.letter.text, attr: [{ key: 'class', value: 'bookmark-display-visual-letter' }] }),
+          icon: node_node('div|class:bookmark-display-visual-icon'),
+          faIcon: node_node('div|class:' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name),
+          image: node_node('div|class:bookmark-display-visual-image')
+        },
+        name: {
+          name: node_node('div|class:bookmark-display-name'),
+          text: node_node('div:' + bookmarkData.link.display.name.text + '|class:bookmark-display-name-text')
+        }
+      },
+      background: {
+        wrap: node_node('div|class:bookmark-background-wrap'),
+        image: node_node('div|class:bookmark-background-image'),
+        video: node_node('div|class:bookmark-background-video')
+      }
+    },
+    control: node_node('div|class:bookmark-control')
+  };
+
+  if (preview) { this.element.bookmark.classList.add('bookmark-preview'); };
+
+  this.control = {};
+
+  this.control.button = {
+    left: new Button({
+      text: 'Move this bookmark left',
+      srOnly: true,
+      iconName: 'arrowKeyboardLeft',
+      style: ['link'],
+      title: 'Move this bookmark left',
+      classList: ['bookmark-control-button', 'bookmark-control-left'],
+      func: () => {
+
+        bookmarkData.position.destination--;
+
+        if (bookmarkData.position.destination < 0) {
+          bookmarkData.position.destination = 0;
+        };
+
+        bookmark_bookmark.item.mod.move(bookmarkData);
+
+        bookmark_bookmark.item.clear();
+
+        bookmark_bookmark.item.render();
+
+        data.save();
+
+      }
+    }),
+    right: new Button({
+      text: 'Move this bookmark right',
+      srOnly: true,
+      iconName: 'arrowKeyboardRight',
+      style: ['link'],
+      title: 'Move this bookmark right',
+      classList: ['bookmark-control-button', 'bookmark-control-right'],
+      func: () => {
+
+        bookmarkData.position.destination++;
+
+        if (bookmarkData.position.destination > bookmark_bookmark.all.length - 1) {
+          bookmarkData.position.destination = bookmark_bookmark.all.length - 1;
+        };
+
+        bookmark_bookmark.item.mod.move(bookmarkData);
+
+        bookmark_bookmark.item.clear();
+
+        bookmark_bookmark.item.render();
+
+        data.save();
+
+      }
+    }),
+    edit: new Button({
+      text: 'Edit this bookmark',
+      srOnly: true,
+      iconName: 'edit',
+      style: ['link'],
+      title: 'Edit this bookmark',
+      classList: ['bookmark-control-button', 'bookmark-control-edit'],
+      func: () => {
+
+        let newBookmarkData = new StagedBookmark();
+
+        newBookmarkData.link = JSON.parse(JSON.stringify(bookmarkData.link));
+
+        newBookmarkData.position.origin = index;
+
+        newBookmarkData.position.destination = index;
+
+        const bookmarkForm = new BookmarkForm({ bookmarkData: newBookmarkData });
+
+        const editModal = new Modal({
+
+          heading: isValidString(newBookmarkData.link.display.name.text) ? 'Edit ' + newBookmarkData.link.display.name.text : 'Edit unnamed bookmark',
+          content: bookmarkForm.form(),
+          successText: 'Save',
+          width: 60,
+          maxHeight: true,
+          successAction: () => {
+
+            bookmark_bookmark.item.mod.edit(newBookmarkData);
+
+            bookmark_bookmark.item.mod.propagate(newBookmarkData);
+
+            bookmark_bookmark.item.clear();
+
+            bookmark_bookmark.item.render();
+
+            data.save();
+
+          }
+
+        });
+
+        editModal.open();
+
+      }
+    }),
+    remove: new Button({
+      text: 'Remove this bookmark',
+      srOnly: true,
+      iconName: 'cross',
+      style: ['link'],
+      title: 'Remove this bookmark',
+      classList: ['bookmark-control-button', 'bookmark-control-remove'],
+      func: () => {
+
+        const removeModal = new Modal({
+          heading: isValidString(bookmarkData.link.display.name.text) ? 'Remove ' + bookmarkData.link.display.name.text : 'Remove unnamed bookmark',
+          content: 'Are you sure you want to remove this Bookmark? This can not be undone.',
+          successText: 'Remove',
+          width: 'small',
+          successAction: () => {
+
+            bookmark_bookmark.item.mod.remove(bookmarkData);
+
+            bookmark_bookmark.item.clear();
+
+            bookmark_bookmark.item.render();
+
+            data.save();
+
+          }
+        });
+
+        removeModal.open();
+
+      }
+    })
+  };
+
+  this.control.disable = () => {
+    for (var key in this.control.button) {
+      this.control.button[key].disable();
+    };
+  };
+
+  this.control.enable = () => {
+    for (var key in this.control.button) {
+      this.control.button[key].enable();
+    };
+  };
+
+  this.makeStyle = (newBookmarkData) => {
+
+    if (newBookmarkData) {
+      bookmarkData = newBookmarkData;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-row-start', row);
+
+    this.element.bookmark.style.setProperty('--bookmark-column-start', column);
+
+    if (isValidString(bookmarkData.link.url) && !preview) {
+      this.element.content.link.setAttribute('href', trimString_trimString(bookmarkData.link.url));
+    } else {
+      this.element.content.link.setAttribute('href', '#');
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
+
+    this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.link.color.opacity);
+
+    switch (bookmarkData.link.display.direction) {
+      case 'vertical':
+        switch (bookmarkData.link.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
+            break;
+        };
+        break;
+
+      case 'horizontal':
+        switch (bookmarkData.link.display.order) {
+          case 'visual-name':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
+            break;
+
+          case 'name-visual':
+            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
+            break;
+        };
+        break;
+    };
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.link.display.translate.x);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-translate-y', bookmarkData.link.display.translate.y);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-rotate', bookmarkData.link.display.rotate);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-gutter', bookmarkData.link.display.gutter);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.link.display.visual.size);
+
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString_trimString(bookmarkData.link.display.visual.image.url) + ')');
+
+    this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.link.display.name.size);
+
+    if (bookmarkData.link.accent.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.link.accent.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.link.accent.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.link.accent.rgb.b);
+      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
+
+      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
+    };
+
+    if (bookmarkData.link.color.by == 'custom') {
+      this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.link.color.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.link.color.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.link.color.rgb.b);
+
+      this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.link.color.hsl.h);
+      this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.link.color.hsl.s);
+      this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.link.color.hsl.l);
+
+      this.element.bookmark.style.setProperty('--theme-color', bookmarkData.link.color.hsl.h + ', ' + bookmarkData.link.color.hsl.s + '%, ' + bookmarkData.link.color.hsl.l + '%');
+      this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
+      this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
+
+      this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
+      this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
+    };
+
+    if (bookmarkData.link.background.show) {
+      this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.link.background.opacity);
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          if (isValidString(bookmarkData.link.background.image.url)) {
+            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString_trimString(bookmarkData.link.background.image.url) + ')');
+          };
+          break;
+      };
+    };
+
+  };
+
+  this.assemble = () => {
+
+    if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
+      if (bookmarkData.link.display.visual.show) {
+        switch (bookmarkData.link.display.visual.type) {
+          case 'letter':
+            if (isValidString(bookmarkData.link.display.visual.letter.text)) {
+              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
+              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+            };
+            break;
+
+          case 'icon':
+            if (isValidString(bookmarkData.link.display.visual.icon.name)) {
+              this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
+              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
+              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+            };
+            break;
+
+          case 'image':
+            if (isValidString(bookmarkData.link.display.visual.image.url)) {
+              this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
+              this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
+            };
+            break;
+        };
+      };
+
+      if (bookmarkData.link.display.name.show && isValidString(bookmarkData.link.display.name.text)) {
+        this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
+        this.element.content.display.display.appendChild(this.element.content.display.name.name);
+      };
+
+      this.element.content.display.wrap.appendChild(this.element.content.display.display);
+
+      this.element.content.link.appendChild(this.element.content.display.wrap);
+    };
+
+    if (bookmarkData.link.background.show) {
+
+      switch (bookmarkData.link.background.type) {
+        case 'image':
+          this.element.content.background.wrap.appendChild(this.element.content.background.image);
+          break;
+
+        case 'video':
+          this.element.content.background.wrap.appendChild(this.element.content.background.video);
+
+          if (isValidString(bookmarkData.link.background.video.url)) {
+            const backgroundVideoElement = new Video({
+              url: bookmarkData.link.background.video.url
+            });
+
+            this.element.content.background.video.appendChild(backgroundVideoElement.video);
+          };
+
+          break;
+      };
+
+      this.element.content.link.appendChild(this.element.content.background.wrap);
+    };
+
+    this.element.content.wrap.appendChild(this.element.content.link);
+
+    this.element.shadow.wrap.appendChild(this.element.shadow.shadow);
+
+    this.element.bookmark.appendChild(this.element.shadow.wrap);
+
+    this.element.bookmark.appendChild(this.element.content.wrap);
+
+    this.element.control.appendChild(this.control.button.left.button);
+
+    this.element.control.appendChild(this.control.button.right.button);
+
+    this.element.control.appendChild(this.control.button.edit.button);
+
+    this.element.control.appendChild(this.control.button.remove.button);
+
+    this.element.content.wrap.appendChild(this.element.control);
+
+    if (state_state.get.current().bookmark.edit) {
+      this.control.enable();
+    } else {
+      this.control.disable();
+    };
+
+  };
+
+  this.tile = () => {
+
+    return this.element.bookmark;
+
+  };
+
+  this.update = (newBookmarkData) => {
+
+    this.makeStyle(newBookmarkData);
+
+  };
+
+  this.assemble();
+
+  this.makeStyle();
+
+};
+
+
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/bookmark/index.css
 var bookmark = __webpack_require__(5125);
@@ -17001,333 +17033,381 @@ var bookmark_update = injectStylesIntoStyleTag_default()(bookmark/* default */.Z
 
 const bookmark_bookmark = {};
 
-bookmark_bookmark.modal = null;
-
 bookmark_bookmark.all = bookmarkPreset.get();
 
-bookmark_bookmark.mod = {};
-
-bookmark_bookmark.mod.add = {
-  open: () => { state_state.get.current().bookmark.add = true; },
-  close: () => { state_state.get.current().bookmark.add = false; }
+bookmark_bookmark.tile = {
+  current: []
 };
 
-bookmark_bookmark.mod.edit = {
-  open: () => { state_state.get.current().bookmark.edit = true; },
-  close: () => { state_state.get.current().bookmark.edit = false; }
-};
+bookmark_bookmark.item = {
+  mod: {
+    add: (bookmarkData) => {
 
-bookmark_bookmark.mod.item = {};
+      bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
 
-bookmark_bookmark.mod.item.add = function(bookmarkData) {
-  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
-};
+    },
+    edit: (bookmarkData) => {
 
-bookmark_bookmark.mod.item.edit = function(bookmarkData) {
-  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
-  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
-};
+      bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
 
-bookmark_bookmark.mod.item.remove = function(bookmarkData) {
-  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
-};
+      bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkData.link);
 
-bookmark_bookmark.mod.item.move = function(bookmarkData) {
-  var bookmarkCopy = JSON.parse(JSON.stringify(bookmark_bookmark.all[bookmarkData.position.origin]));
-  bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
-  bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkCopy);
-};
+    },
+    move: (bookmarkData) => {
 
-bookmark_bookmark.mod.propagate = {};
+      var bookmarkCopy = JSON.parse(JSON.stringify(bookmark_bookmark.all[bookmarkData.position.origin]));
 
-bookmark_bookmark.mod.propagate.state = {
-  current: {
-    display: false,
-    layout: false,
-    theme: false
-  },
-  reset: function() {
-    for (var key in bookmark_bookmark.mod.propagate.state.current) {
-      bookmark_bookmark.mod.propagate.state.current[key] = false;
+      bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
+
+      bookmark_bookmark.all.splice(bookmarkData.position.destination, 0, bookmarkCopy);
+
+    },
+    remove: (bookmarkData) => {
+
+      bookmark_bookmark.all.splice(bookmarkData.position.origin, 1);
+
+    },
+    propagate: (bookmarkData) => {
+
+      if (bookmarkData.propagate.display || bookmarkData.propagate.layout || bookmarkData.propagate.theme) {
+
+        bookmark_bookmark.all.forEach((item, i) => {
+
+          if (bookmarkData.propagate.display) {
+            item.display.visual.show = bookmarkData.link.display.visual.show;
+            item.display.name.show = bookmarkData.link.display.name.show;
+          };
+
+          if (bookmarkData.propagate.layout) {
+            item.display.visual.size = bookmarkData.link.display.visual.size;
+            item.display.name.size = bookmarkData.link.display.name.size;
+            item.display.gutter = bookmarkData.link.display.gutter;
+            item.display.rotate = bookmarkData.link.display.rotate;
+            item.display.translate = bookmarkData.link.display.translate;
+            item.display.direction = bookmarkData.link.display.direction;
+            item.display.order = bookmarkData.link.display.order;
+          };
+
+          if (bookmarkData.propagate.theme) {
+            item.accent = bookmarkData.link.accent;
+            item.color = bookmarkData.link.color;
+          };
+
+        });
+
+      };
+
     }
   },
-  apply: function(bookmarkData) {
+  render: () => {
 
-    if (bookmark_bookmark.mod.propagate.state.current.display) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.display.visual.show = bookmarkData.link.display.visual.show;
-        item.display.name.show = bookmarkData.link.display.name.show;
-      });
-    };
+    bookmark_bookmark.tile.current = [];
 
-    if (bookmark_bookmark.mod.propagate.state.current.layout) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.display.visual.size = bookmarkData.link.display.visual.size;
-        item.display.name.size = bookmarkData.link.display.name.size;
-        item.display.gutter = bookmarkData.link.display.gutter;
-        item.display.rotate = bookmarkData.link.display.rotate;
-        item.display.translate = bookmarkData.link.display.translate;
-        item.display.direction = bookmarkData.link.display.direction;
-        item.display.order = bookmarkData.link.display.order;
-      });
-    };
+    let evenRowFlag = true; // if true the row is even
 
-    if (bookmark_bookmark.mod.propagate.state.current.theme) {
-      bookmark_bookmark.all.forEach((item, i) => {
-        item.accent = bookmarkData.link.accent;
-        item.color = bookmarkData.link.color;
-      });
-    };
+    let rowCount = 1; // used to asign and calculate the overall row start value
 
-    bookmark_bookmark.mod.propagate.state.reset();
+    let columnStart = 1; // starting grid column
 
-  }
-};
+    let rowStart = 1; // starting grid row
 
-bookmark_bookmark.render = {};
+    bookmark_bookmark.all.forEach((item, index) => {
 
-bookmark_bookmark.render.clear = function() {
-
-  clearChildNode_clearChildNode(gridList);
-
-};
-
-bookmark_bookmark.render.mask = function() {
-  const html = document.querySelector('html');
-
-  html.appendChild(node_node('div', [
-    '<svg width="0" height="0" viewBox="0 0 120 100" class="bookmark-mask">' +
-    '<g id="Assets" fill="none">' +
-    '<defs>' +
-    '<clipPath id="bookmark-mask" clipPathUnits="objectBoundingBox" transform="scale(0.01, 0.009615384615384616)">' +
-    '<path d="M1.25156 54.6013C0.46058 52.9573 0.460582 51.0427 1.25157 49.3987L23.3648 3.43714C24.3644 1.35955 26.466 0.038475 28.7716 0.038475H71.2284C73.534 0.038475 75.6356 1.35955 76.6352 3.43714L98.7484 49.3987C99.5394 51.0427 99.5394 52.9573 98.7484 54.6013L76.6352 100.563C75.6356 102.64 73.534 103.962 71.2284 103.962H28.7716C26.466 103.962 24.3644 102.64 23.3648 100.563L1.25156 54.6013Z"></path>' +
-    '</clipPath>' +
-    '</defs>' +
-    '</g>' +
-    '</svg>'
-  ]));
-};
-
-bookmark_bookmark.render.tile = {};
-
-bookmark_bookmark.render.tile.edit = function() {
-
-  if (bookmark_bookmark.render.tile.current.length > 0) {
-
-    bookmark_bookmark.render.tile.current.forEach((item, i) => {
-
-      if (state_state.get.current().bookmark.edit) {
-        item.control.enable();
-      } else {
-        item.control.disable();
+      //
+      // column start
+      //
+      // define what column this bookmark will sit on
+      if (index > 0) {
+        columnStart = columnStart + 2;
       };
 
-    });
-
-  };
-
-};
-
-bookmark_bookmark.render.tile.current = [];
-
-bookmark_bookmark.render.item = function() {
-
-  bookmark_bookmark.render.tile.current = [];
-
-  var evenRowFlag = true; // if true the row is even
-
-  var rowCount = 1; // used to asign and calculate the overall row start value
-
-  var columnStart = 1; // starting grid column
-
-  var rowStart = 1; // starting grid row
-
-  bookmark_bookmark.all.forEach(function(item, index) {
-
-    //
-    // column start
-    //
-    // define what column this bookmark will sit on
-    if (index > 0) {
-      columnStart = columnStart + 2;
-    };
-
-    // if end of grid reset column start
-    if (index % (state_state.get.current().grid.column) === 0) {
-      columnStart = 1;
-    };
-
-    //
-    // row start
-    //
-    // define what row this bookmark will sit on
-    if (index > 1 && index % state_state.get.current().grid.column === 0) {
-      rowCount = rowCount + 2;
-    };
-
-    // define the offset of this bookmark on this row
-    // find out if row is even
-    if (index % state_state.get.current().grid.column === 0) {
-      // toggle the flag
-      if (evenRowFlag) {
-        evenRowFlag = false;
-      } else {
-        evenRowFlag = true;
+      // if end of grid reset column start
+      if (index % (state_state.get.current().grid.column) === 0) {
+        columnStart = 1;
       };
-    };
 
-    // if column count is odd
-    if (state_state.get.current().grid.column % 2 === 1 && state_state.get.current().grid.column > 1) {
-      if (evenRowFlag) { // if row is even
-        if (index % 2 === 1) { // if index is odd
-          rowStart = rowCount;
-        } else { // if index is even
-          rowStart = rowCount + 1;
+      //
+      // row start
+      //
+      // define what row this bookmark will sit on
+      if (index > 1 && index % state_state.get.current().grid.column === 0) {
+        rowCount = rowCount + 2;
+      };
+
+      // define the offset of this bookmark on this row
+      // find out if row is even
+      if (index % state_state.get.current().grid.column === 0) {
+        // toggle the flag
+        if (evenRowFlag) {
+          evenRowFlag = false;
+        } else {
+          evenRowFlag = true;
         };
-      } else { // if row is odd
-        // if index is odd
+      };
+
+      // if column count is odd
+      if (state_state.get.current().grid.column % 2 === 1 && state_state.get.current().grid.column > 1) {
+        if (evenRowFlag) { // if row is even
+          if (index % 2 === 1) { // if index is odd
+            rowStart = rowCount;
+          } else { // if index is even
+            rowStart = rowCount + 1;
+          };
+        } else { // if row is odd
+          // if index is odd
+          if (index % 2 === 0) { // if index is even
+            rowStart = rowCount;
+          } else { // if index is odd
+            rowStart = rowCount + 1;
+          };
+        };
+      };
+
+      // if column count is even
+      if (state_state.get.current().grid.column % 2 === 0 && state_state.get.current().grid.column > 1) {
         if (index % 2 === 0) { // if index is even
           rowStart = rowCount;
         } else { // if index is odd
           rowStart = rowCount + 1;
         };
       };
-    };
 
-    // if column count is even
-    if (state_state.get.current().grid.column % 2 === 0 && state_state.get.current().grid.column > 1) {
-      if (index % 2 === 0) { // if index is even
-        rowStart = rowCount;
-      } else { // if index is odd
-        rowStart = rowCount + 1;
+      // if single column
+      if (state_state.get.current().grid.column === 1) {
+        if (index > 0) {
+          rowStart = rowStart + 2;
+        };
       };
-    };
 
-    // if single column
-    if (state_state.get.current().grid.column === 1) {
-      if (index > 0) {
-        rowStart = rowStart + 2;
-      };
-    };
+      const itemIndex = index;
 
-    const itemIndex = index;
+      const currentBookmarkData = new StagedBookmark(item);
 
-    const currentBookmarkData = new StagedBookmark(item);
+      currentBookmarkData.position.origin = index;
 
-    currentBookmarkData.position.origin = index;
+      currentBookmarkData.position.destination = index;
 
-    currentBookmarkData.position.destination = index;
+      const bookmarkTile = new HexTile({
+        bookmarkData: currentBookmarkData,
+        index: index,
+        row: rowStart,
+        column: columnStart
+      });
 
-    const bookmarkTile = new HexTile({
-      bookmarkData: currentBookmarkData,
-      index: index,
-      row: rowStart,
-      column: columnStart
+      gridList.appendChild(bookmarkTile.tile());
+
+      bookmark_bookmark.tile.current.push(bookmarkTile);
+
     });
 
-    gridList.appendChild(bookmarkTile.tile());
+  },
+  clear: () => {
 
-    bookmark_bookmark.render.tile.current.push(bookmarkTile);
+    clearChildNode_clearChildNode(gridList);
 
-  });
-
+  }
 };
 
-bookmark_bookmark.render.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--bookmark-size', state_state.get.current().bookmark.size);
-  html.style.setProperty('--bookmark-hover-distance', state_state.get.current().bookmark.hover.distance);
-  html.style.setProperty('--bookmark-hover-size', state_state.get.current().bookmark.hover.size);
-  html.style.setProperty('--bookmark-shadow-blur', state_state.get.current().bookmark.shadow.blur);
-  html.style.setProperty('--bookmark-shadow-distance', state_state.get.current().bookmark.shadow.distance);
+bookmark_bookmark.edit = {
+  open: () => {
+
+    state_state.get.current().bookmark.edit = true;
+
+    bookmark_bookmark.edit.render();
+
+  },
+  close: () => {
+
+    state_state.get.current().bookmark.edit = false;
+
+    bookmark_bookmark.edit.render();
+
+  },
+  toggle: () => {
+
+    if (state_state.get.current().bookmark.edit) {
+      bookmark_bookmark.edit.close();
+    } else {
+      bookmark_bookmark.edit.open();
+    };
+
+  },
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    if (state_state.get.current().bookmark.edit) {
+      html.classList.add('is-bookmark-edit');
+    } else {
+      html.classList.remove('is-bookmark-edit');
+    };
+
+    if (bookmark_bookmark.tile.current.length > 0) {
+      bookmark_bookmark.tile.current.forEach((item, i) => {
+
+        if (state_state.get.current().bookmark.edit) {
+          item.control.enable();
+        } else {
+          item.control.disable();
+
+        };
+
+      });
+    };
+
+  }
 };
 
-bookmark_bookmark.render.class = function() {
-  const html = document.querySelector('html');
+bookmark_bookmark.mask = {
+  render: () => {
 
-  if (state_state.get.current().bookmark.edit) {
-    html.classList.add('is-bookmark-edit');
-  } else {
-    html.classList.remove('is-bookmark-edit');
-  };
+    const html = document.querySelector('html');
+
+    html.appendChild(node_node('div', [
+      '<svg width="0" height="0" viewBox="0 0 120 100" class="bookmark-mask">' +
+      '<g id="Assets" fill="none">' +
+      '<defs>' +
+      '<clipPath id="bookmark-mask" clipPathUnits="objectBoundingBox" transform="scale(0.01, 0.009615384615384616)">' +
+      '<path d="M1.25156 54.6013C0.46058 52.9573 0.460582 51.0427 1.25157 49.3987L23.3648 3.43714C24.3644 1.35955 26.466 0.038475 28.7716 0.038475H71.2284C73.534 0.038475 75.6356 1.35955 76.6352 3.43714L98.7484 49.3987C99.5394 51.0427 99.5394 52.9573 98.7484 54.6013L76.6352 100.563C75.6356 102.64 73.534 103.962 71.2284 103.962H28.7716C26.466 103.962 24.3644 102.64 23.3648 100.563L1.25156 54.6013Z"></path>' +
+      '</clipPath>' +
+      '</defs>' +
+      '</g>' +
+      '</svg>'
+    ]));
+
+  }
 };
 
-bookmark_bookmark.add = function() {
+bookmark_bookmark.size = {
+  render: () => {
 
-  const newBookmarkData = new StagedBookmark();
+    const html = document.querySelector('html');
 
-  newBookmarkData.newBookmark();
+    html.style.setProperty('--bookmark-size', state_state.get.current().bookmark.size);
 
-  const addModal = new Modal({
-    heading: 'Add a new Bookmark',
-    content: bookmarkForm_bookmarkForm.form(newBookmarkData),
-    successText: 'Add',
-    width: 60,
-    maxHeight: true,
-    openAction: () => {
-
-      bookmark_bookmark.mod.add.open();
-
-      data.save();
-
-    },
-    closeAction: () => {
-
-      bookmark_bookmark.mod.add.close();
-
-      data.save();
-
-    },
-    successAction: () => {
-
-      bookmark_bookmark.mod.item.add(newBookmarkData);
-
-      bookmark_bookmark.mod.propagate.state.apply(newBookmarkData);
-
-      bookmark_bookmark.render.clear();
-
-      bookmark_bookmark.render.item();
-
-      bookmark_bookmark.mod.add.close();
-
-      data.save();
-
-    },
-    cancelAction: () => {
-
-      bookmark_bookmark.mod.add.close();
-
-      data.save();
-
-    }
-  });
-
-  addModal.open();
-
+  }
 };
 
-bookmark_bookmark.edit = function() {
-  if (state_state.get.current().bookmark.edit) {
-    bookmark_bookmark.mod.edit.close();
-    bookmark_bookmark.render.class();
-    bookmark_bookmark.render.tile.edit();
-  } else {
-    bookmark_bookmark.mod.edit.open();
-    bookmark_bookmark.render.class();
-    bookmark_bookmark.render.tile.edit();
-  };
+bookmark_bookmark.hover = {};
+
+bookmark_bookmark.hover.distance = {
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    html.style.setProperty('--bookmark-hover-distance', state_state.get.current().bookmark.hover.distance);
+
+  }
 };
 
-bookmark_bookmark.restore = function(dataToRestore) {
+bookmark_bookmark.hover.size = {
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    html.style.setProperty('--bookmark-hover-size', state_state.get.current().bookmark.hover.size);
+
+  }
+};
+
+bookmark_bookmark.shadow = {};
+
+bookmark_bookmark.shadow.blur = {
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    html.style.setProperty('--bookmark-shadow-blur', state_state.get.current().bookmark.shadow.blur);
+
+  }
+};
+
+bookmark_bookmark.shadow.distance = {
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    html.style.setProperty('--bookmark-shadow-distance', state_state.get.current().bookmark.shadow.distance);
+
+  }
+};
+
+bookmark_bookmark.add = {
+  mod: {
+    open: () => { state_state.get.current().bookmark.add = true; },
+    close: () => { state_state.get.current().bookmark.add = false; }
+  },
+  render: () => {
+
+    const newBookmarkData = new StagedBookmark();
+
+    newBookmarkData.newBookmark();
+
+    const bookmarkForm = new BookmarkForm({ bookmarkData: newBookmarkData });
+
+    const addModal = new Modal({
+      heading: 'Add a new Bookmark',
+      content: bookmarkForm.form(),
+      successText: 'Add',
+      width: 60,
+      maxHeight: true,
+      openAction: () => {
+
+        bookmark_bookmark.add.mod.open();
+
+        data.save();
+
+      },
+      closeAction: () => {
+
+        bookmark_bookmark.add.mod.close();
+
+        data.save();
+
+      },
+      successAction: () => {
+
+        bookmark_bookmark.item.mod.add(newBookmarkData);
+
+        bookmark_bookmark.item.mod.propagate(newBookmarkData);
+
+        bookmark_bookmark.item.clear();
+
+        bookmark_bookmark.item.render();
+
+        bookmark_bookmark.add.mod.close();
+
+        data.save();
+
+      },
+      cancelAction: () => {
+
+        bookmark_bookmark.add.mod.close();
+
+        data.save();
+
+      }
+    });
+
+    addModal.open();
+
+  }
+};
+
+bookmark_bookmark.restore = (dataToRestore) => {
   bookmark_bookmark.all = dataToRestore.bookmark;
   console.log('bookmark restored');
 };
 
-bookmark_bookmark.init = function() {
-  bookmark_bookmark.render.mask();
-  bookmark_bookmark.render.style();
-  bookmark_bookmark.render.class();
-  bookmark_bookmark.render.item();
+bookmark_bookmark.init = () => {
+  bookmark_bookmark.add.mod.close();
+  bookmark_bookmark.mask.render();
+  bookmark_bookmark.size.render();
+  bookmark_bookmark.hover.distance.render();
+  bookmark_bookmark.hover.size.render();
+  bookmark_bookmark.shadow.blur.render();
+  bookmark_bookmark.shadow.distance.render();
+  bookmark_bookmark.item.render();
 };
 
 
@@ -18016,7 +18096,7 @@ const ToolbarControl = function() {
       classList: ['toolbar-item'],
       style: ['line'],
       func: () => {
-        bookmark_bookmark.edit();
+        bookmark_bookmark.edit.toggle();
         this.update.edit();
         data.save();
       }
@@ -18037,7 +18117,7 @@ const ToolbarControl = function() {
       iconName: 'add',
       classList: ['toolbar-item'],
       func: function() {
-        bookmark_bookmark.add();
+        bookmark_bookmark.add.render();
       }
     })
   };
@@ -18696,8 +18776,8 @@ layoutSetting.grid = (parent) => {
     max: state_state.get.minMax().grid.column.max,
     action: () => {
       grid_grid.render.style();
-      bookmark_bookmark.render.clear();
-      bookmark_bookmark.render.item();
+      bookmark_bookmark.item.clear();
+      bookmark_bookmark.item.render();
       data.save();
     }
   });
@@ -18859,7 +18939,7 @@ bookmarkSetting.hover = (parent) => {
     min: state_state.get.minMax().bookmark.hover.size.min,
     max: state_state.get.minMax().bookmark.hover.size.max,
     action: () => {
-      bookmark_bookmark.render.style();
+      bookmark_bookmark.hover.size.render();
       data.save();
     }
   });
@@ -18874,7 +18954,7 @@ bookmarkSetting.hover = (parent) => {
     min: state_state.get.minMax().bookmark.hover.distance.min,
     max: state_state.get.minMax().bookmark.hover.distance.max,
     action: () => {
-      bookmark_bookmark.render.style();
+      bookmark_bookmark.hover.distance.render();
       data.save();
     }
   });
@@ -18900,7 +18980,7 @@ bookmarkSetting.shadow = (parent) => {
     min: state_state.get.minMax().bookmark.shadow.distance.min,
     max: state_state.get.minMax().bookmark.shadow.distance.max,
     action: () => {
-      bookmark_bookmark.render.style();
+      bookmark_bookmark.shadow.distance.render();
       data.save();
     }
   });
@@ -18915,7 +18995,7 @@ bookmarkSetting.shadow = (parent) => {
     min: state_state.get.minMax().bookmark.shadow.blur.min,
     max: state_state.get.minMax().bookmark.shadow.blur.max,
     action: () => {
-      bookmark_bookmark.render.style();
+      bookmark_bookmark.shadow.blur.render();
       data.save();
     }
   });
@@ -20763,8 +20843,8 @@ keyboard.esc = new KeyboardShortcut({
   keycode: 27,
   action: () => {
     if (state_state.get.current().bookmark.edit && !state_state.get.current().modal && !state_state.get.current().menu) {
-      bookmark_bookmark.edit();
-      toolbar_toolbar.bar.edit();
+      bookmark_bookmark.edit.close();
+      toolbar_toolbar.current.update.edit();
     };
   }
 });
@@ -20788,7 +20868,7 @@ keyboard.ctrAltA = new KeyboardShortcut({
   alt: true,
   action: () => {
     if (!state_state.get.current().bookmark.add) {
-      bookmark_bookmark.add();
+      bookmark_bookmark.add.render();
     };
   }
 });
@@ -20798,8 +20878,8 @@ keyboard.ctrAltE = new KeyboardShortcut({
   ctrl: true,
   alt: true,
   action: () => {
-    bookmark_bookmark.edit();
-    toolbar_toolbar.bar.edit();
+    bookmark_bookmark.edit.toggle();
+    toolbar_toolbar.current.update.edit();
     data.save();
   }
 });
