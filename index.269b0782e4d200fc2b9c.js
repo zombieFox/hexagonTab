@@ -5016,7 +5016,7 @@ icon_icon.all = {
   }
 };
 
-icon_icon.render = function(name) {
+icon_icon.render = (name) => {
   const iconElement = node_node('span|class:icon');
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('version', '1.1');
@@ -17413,27 +17413,39 @@ version_version.number = '3.1.0';
 
 version_version.name = 'Quirky Llama';
 
-version_version.compare = function(a, b) {
-  var pa = a.split('.');
-  var pb = b.split('.');
-  for (var i = 0; i < 3; i++) {
-    var na = Number(pa[i]);
-    var nb = Number(pb[i]);
+version_version.compare = (a, b) => {
+
+  let pa = a.split('.');
+
+  let pb = b.split('.');
+
+  for (let i = 0; i < 3; i++) {
+
+    let na = Number(pa[i]);
+
+    let nb = Number(pb[i]);
+
     if (na > nb) {
       return 1;
     };
+
     if (nb > na) {
       return -1;
     };
+
     if (!isNaN(na) && isNaN(nb)) {
       return 1;
     };
+
     if (isNaN(na) && !isNaN(nb)) {
       return -1;
     };
+
   };
+
   return 0;
 };
+
 ;// CONCATENATED MODULE: ./src/component/update/index.js
 
 
@@ -18384,7 +18396,7 @@ toolbar_toolbar.current = false;
 
 toolbar_toolbar.class = {};
 
-toolbar_toolbar.class.render = function() {
+toolbar_toolbar.class.render = () => {
   const html = document.querySelector('html');
 
   const position = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
@@ -18406,7 +18418,7 @@ toolbar_toolbar.class.render = function() {
 
 toolbar_toolbar.bar = {};
 
-toolbar_toolbar.bar.render = function() {
+toolbar_toolbar.bar.render = () => {
 
   const body = document.querySelector('body');
 
@@ -18416,7 +18428,7 @@ toolbar_toolbar.bar.render = function() {
 
 };
 
-toolbar_toolbar.init = function() {
+toolbar_toolbar.init = () => {
   toolbar_toolbar.class.render();
   toolbar_toolbar.bar.render();
 };
