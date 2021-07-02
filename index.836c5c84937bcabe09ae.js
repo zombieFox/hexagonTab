@@ -5465,6 +5465,8 @@ const Modal = function({
 
       this.ctrAltM.add();
 
+      this.ctrAltA.add();
+
     },
     remove: () => {
 
@@ -5476,24 +5478,16 @@ const Modal = function({
 
       this.ctrAltM.remove();
 
+      this.ctrAltA.remove();
+
     }
   };
 
-  this.esc = new KeyboardShortcut({
-    keycode: 27,
-    action: () => {
-      this.close();
-    }
-  });
+  this.esc = new KeyboardShortcut({ keycode: 27, action: () => { this.close(); } });
 
-  this.ctrAltM = new KeyboardShortcut({
-    keycode: 77,
-    ctrl: true,
-    alt: true,
-    action: () => {
-      this.close();
-    }
-  });
+  this.ctrAltM = new KeyboardShortcut({ keycode: 77, ctrl: true, alt: true, action: () => { this.close(); } });
+
+  this.ctrAltA = new KeyboardShortcut({ keycode: 65, ctrl: true, alt: true, action: () => { this.close(); } });
 
   this.clickOut = (event) => {
 
