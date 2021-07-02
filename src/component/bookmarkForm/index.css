@@ -8,20 +8,12 @@
     grid-template-columns: 6fr 3fr;
     grid-gap: calc(var(--modal-space) * 1em);
     align-items: stretch;
+    min-height: 60vh;
   }
 }
 
 .bookmark-form-main {
   padding-bottom: calc(var(--form-space) * 20);
-}
-
-.bookmark-form-preview {
-  background-color: hsl(var(--theme-primary-200));
-  padding: calc(var(--modal-space) * 0.5em);
-  border-radius: var(--theme-radius-base);
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .bookmark-form-aside {
@@ -40,7 +32,7 @@
 
 .bookmark-form-text-icon:empty:before {
   content: "";
-  background-color: hsl(var(--theme-primary-400));
+  background-color: hsl(var(--theme-primary-040));
   top: 50%;
   left: 50%;
   position: absolute;

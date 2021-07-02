@@ -1,5 +1,4 @@
 import { state } from '../state';
-import { bookmarkForm } from '../bookmarkForm';
 import { fontawesome } from '../fontawesome';
 
 import { Button } from '../button';
@@ -179,18 +178,16 @@ const Suggest = function({
 
     const listType = {
       fontawesomeIcon: () => {
-        const successAction = (item) => {
-
-          bookmarkForm.current.updateIcon(item);
+        const successAction = (suggestData) => {
 
           this.close();
 
-          if (postFocus) {
-            postFocus.focus();
+          if (action) {
+            action(suggestData);
           };
 
-          if (action) {
-            action();
+          if (postFocus) {
+            postFocus.focus();
           };
 
         };

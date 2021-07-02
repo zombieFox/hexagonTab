@@ -2,13 +2,12 @@ import { state } from '../state';
 import { data } from '../data';
 import { theme } from '../theme';
 import { bookmark } from '../bookmark';
-import { bookmarkForm } from '../bookmarkForm';
 
 import { Button } from '../button';
 import { Video } from '../video';
 import { Modal } from '../modal';
 import { StagedBookmark } from '../stagedBookmark';
-
+import { BookmarkForm } from '../bookmarkForm';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
@@ -120,10 +119,12 @@ const HexTile = function({
       classList: ['bookmark-control-button', 'bookmark-control-edit'],
       func: () => {
 
+        const bookmarkForm = new BookmarkForm({ bookmarkData: bookmarkData });
+
         const editModal = new Modal({
 
           heading: isValidString(bookmarkData.link.display.name.text) ? 'Edit ' + bookmarkData.link.display.name.text : 'Edit unnamed bookmark',
-          content: bookmarkForm.form(bookmarkData),
+          content: bookmarkForm.form(),
           successText: 'Save',
           width: 60,
           maxHeight: true,
