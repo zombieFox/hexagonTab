@@ -17576,19 +17576,15 @@ const data = {};
 
 data.saveName = 'hexagonTab';
 
-data.set = function(key, data) {
+data.set = (key, data) => {
   localStorage.setItem(key, data);
 };
 
-data.get = function(key) {
+data.get = (key) => {
   return localStorage.getItem(key);
 };
 
-data.remove = function(key) {
-  localStorage.removeItem(key);
-};
-
-data.import = function(input, feedback) {
+data.import = (input, feedback) => {
   const fileList = input.files;
 
   if (fileList.length > 0) {
@@ -17596,15 +17592,15 @@ data.import = function(input, feedback) {
   };
 };
 
-data.validateJsonFile = function(fileList, input, feedback) {
+data.validateJsonFile = (fileList, input, feedback) => {
   // make new file reader
   var reader = new FileReader();
   // define the on load event for the reader
-  reader.onload = function(event) {
+  reader.onload = (event) => {
     // is this a JSON file
     if (isJson(event.target.result)) {
       // is this JSON from this app
-      if (JSON.parse(event.target.result)[data.saveName]) {
+      if (JSON.parse(event.target.result)[data.saveName] || JSON.parse(event.target.result)[data.saveName.toLowerCase()]) {
         data.render.feedback.clear(feedback);
         data.render.feedback.success(feedback, fileList[0].name, function() {
           data.restore(JSON.parse(event.target.result));
@@ -17628,10 +17624,10 @@ data.validateJsonFile = function(fileList, input, feedback) {
   reader.readAsText(fileList.item(0));
 };
 
-data.export = function() {
+data.export = () => {
   let timestamp = dateTime();
 
-  const leadingZero = function(value) {
+  const leadingZero = (value) => {
     if (value < 10) {
       value = '0' + value;
     };
@@ -17651,24 +17647,30 @@ data.export = function() {
   const dataToExport = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data.load()));
 
   const link = document.createElement('a');
+
   link.setAttribute('href', dataToExport);
+
   link.setAttribute('download', fileName);
-  link.addEventListener('click', function() {
-    this.remove();
-  });
+
+  link.addEventListener('click', () => { link.remove(); });
 
   document.querySelector('body').appendChild(link);
+
   link.click();
 };
 
-data.backup = function(dataToBackup) {
+data.remove = (key) => {
+  localStorage.removeItem(key);
+};
+
+data.backup = (dataToBackup) => {
   if (dataToBackup) {
     console.log('data version ' + dataToBackup.version + ' backed up');
     data.set(data.saveName + 'Backup', JSON.stringify(dataToBackup));
   };
 };
 
-data.restore = function(dataToRestore) {
+data.restore = (dataToRestore) => {
   if (dataToRestore) {
     if (dataToRestore.version != version_version.number) {
       // backup save data before running update
@@ -17689,7 +17691,7 @@ data.restore = function(dataToRestore) {
   };
 };
 
-data.save = function() {
+data.save = () => {
   data.set(data.saveName, JSON.stringify({
     [data.saveName]: true,
     version: version_version.number,
@@ -17698,7 +17700,7 @@ data.save = function() {
   }));
 };
 
-data.load = function() {
+data.load = () => {
   if (data.get(data.saveName) != null && data.get(data.saveName) != undefined) {
     return JSON.parse(data.get(data.saveName));
   } else {
@@ -17706,18 +17708,18 @@ data.load = function() {
   };
 };
 
-data.wipe = function() {
+data.wipe = () => {
   data.remove(data.saveName);
   data.render.reload();
 };
 
 data.render = {};
 
-data.render.reload = function() {
+data.render.reload = () => {
   location.reload();
 };
 
-data.render.clear = function() {
+data.render.clear = () => {
   const clearContent = node_node('div');
 
   const para1 = node_node('p:Are you sure you want to clear all ' + data.saveName + ' Bookmarks and Settings? ' + data.saveName + ' will be restore to the default state.');
@@ -17743,17 +17745,17 @@ data.render.clear = function() {
 };
 
 data.render.feedback = {
-  empty: function(feedback) {
+  empty: (feedback) => {
     feedback.appendChild(node_node('p:No JSON file selected.|class:muted small'));
   },
-  success: function(feedback, filename, action) {
+  success: (feedback, filename, action) => {
     feedback.appendChild(node_node('p:Success! Restoring ' + data.saveName + ' Bookmarks and Settings.|class:muted small'));
     feedback.appendChild(node_node('p:' + filename));
     if (action) {
       data.render.feedback.animation.set(feedback, 'is-pop', action);
     };
   },
-  clear: function(feedback) {
+  clear: (feedback) => {
 
     clearChildNode_clearChildNode(feedback);
 
@@ -17792,7 +17794,7 @@ data.render.feedback = {
   }
 };
 
-data.init = function() {
+data.init = () => {
   data.restore(data.load());
 };
 
