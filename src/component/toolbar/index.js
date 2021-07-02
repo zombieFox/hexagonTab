@@ -10,7 +10,7 @@ toolbar.current = false;
 
 toolbar.class = {};
 
-toolbar.class.render = function() {
+toolbar.class.render = () => {
   const html = document.querySelector('html');
 
   const position = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
@@ -32,7 +32,7 @@ toolbar.class.render = function() {
 
 toolbar.bar = {};
 
-toolbar.bar.render = function() {
+toolbar.bar.render = () => {
 
   const body = document.querySelector('body');
 
@@ -42,7 +42,7 @@ toolbar.bar.render = function() {
 
 };
 
-toolbar.init = function() {
+toolbar.init = () => {
   toolbar.class.render();
   toolbar.bar.render();
 };

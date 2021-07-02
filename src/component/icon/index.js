@@ -107,7 +107,7 @@ icon.all = {
   }
 };
 
-icon.render = function(name) {
+icon.render = (name) => {
   const iconElement = node('span|class:icon');
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('version', '1.1');
