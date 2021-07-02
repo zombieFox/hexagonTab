@@ -11,4 +11,6 @@ export const StagedBookmark = function(bookmarkData) {
     this.position.destination = bookmark.all.length + 1;
   };
 
+  this.propagate = { display: false, layout: false, theme: false };
+
 };

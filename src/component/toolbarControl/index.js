@@ -44,7 +44,7 @@ const ToolbarControl = function() {
       classList: ['toolbar-item'],
       style: ['line'],
       func: () => {
-        bookmark.edit();
+        bookmark.edit.toggle();
         this.update.edit();
         data.save();
       }
@@ -65,7 +65,7 @@ const ToolbarControl = function() {
       iconName: 'add',
       classList: ['toolbar-item'],
       func: function() {
-        bookmark.add();
+        bookmark.add.render();
       }
     })
   };
