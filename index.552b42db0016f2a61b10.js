@@ -3293,12 +3293,6 @@ theme_theme.render.color = function() {
 theme_theme.render.class = function() {
   const html = document.querySelector('html');
 
-  if (state_state.get.current().bookmark.edit) {
-    html.classList.add('is-bookmark-edit');
-  } else {
-    html.classList.remove('is-bookmark-edit');
-  };
-
   const type = ['dark', 'light', 'system', 'theme', 'custom'];
 
   type.forEach((item, i) => {
@@ -14545,7 +14539,6 @@ const minMax = function({
 
 
 
-
 const Control_slider = function({
   object = {},
   path = false,
@@ -14557,7 +14550,14 @@ const Control_slider = function({
   min = 0,
   max = 100,
   step = 1,
-  action = false
+  action = false,
+  focusAction = false,
+  blurAction = false,
+  sliderAction = false,
+  numberAction = false,
+  resetAction = false,
+  mouseDownAction = false,
+  mouseUpAction = false
 } = {}) {
 
   this.label = label_label({
@@ -14589,11 +14589,18 @@ const Control_slider = function({
       if (action) {
         action();
       };
+      if (sliderAction) {
+        sliderAction();
+      };
       this.number.value = get_get({
         object: object,
         path: path,
       });
-    }
+    },
+    focusFunc: focusAction,
+    blurFunc: blurAction,
+    mouseDownFunc: mouseDownAction,
+    mouseUpFunc: mouseUpAction
   });
 
   this.number = number_number({
@@ -14616,6 +14623,9 @@ const Control_slider = function({
       if (action) {
         action();
       };
+      if (numberAction) {
+        numberAction();
+      };
       this.update({ delay: true });
     }
   });
@@ -14634,6 +14644,9 @@ const Control_slider = function({
       this.update();
       if (action) {
         action();
+      };
+      if (resetAction) {
+        resetAction();
       };
     }
   });
@@ -14660,7 +14673,6 @@ const Control_slider = function({
     } else {
       updateControl();
     };
-
   };
 
   this.value = () => {
@@ -14743,6 +14755,9 @@ const Control_slimSlider = function({
   action = false,
   focusAction = false,
   blurAction = false,
+  sliderAction = false,
+  numberAction = false,
+  resetAction = false,
   mouseDownAction = false,
   mouseUpAction = false
 } = {}) {
@@ -14777,6 +14792,9 @@ const Control_slimSlider = function({
       if (action) {
         action();
       };
+      if (sliderAction) {
+        sliderAction();
+      };
       this.number.value = get_get({
         object: object,
         path: path,
@@ -14808,6 +14826,9 @@ const Control_slimSlider = function({
       if (action) {
         action();
       };
+      if (numberAction) {
+        numberAction();
+      };
       this.update({ delay: true });
     }
   });
@@ -14826,6 +14847,9 @@ const Control_slimSlider = function({
       this.update();
       if (action) {
         action();
+      };
+      if (resetAction) {
+        resetAction();
       };
     }
   });
@@ -14904,6 +14928,7 @@ const Control_slimSlider = function({
   };
 
 };
+
 ;// CONCATENATED MODULE: ./src/component/control/color/index.js
 
 
@@ -20805,20 +20830,20 @@ menu.mod = {};
 
 menu.frame = null;
 
-menu.open = function() {
+menu.open = () => {
   menu.frame = new MenuFrame({
     navData: menu.navData
   });
   menu.frame.open();
 };
 
-menu.close = function() {
+menu.close = () => {
   if (menu.frame) {
     menu.frame.close();
   };
 };
 
-menu.toggle = function() {
+menu.toggle = () => {
   if (state_state.get.current().menu) {
     menu.close();
   } else {
@@ -20826,7 +20851,7 @@ menu.toggle = function() {
   };
 };
 
-menu.init = function() {
+menu.init = () => {
   state_state.get.current().menu = false;
 };
 
