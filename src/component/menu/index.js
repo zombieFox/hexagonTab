@@ -30,20 +30,20 @@ menu.mod = {};
 
 menu.frame = null;
 
-menu.open = function() {
+menu.open = () => {
   menu.frame = new MenuFrame({
     navData: menu.navData
   });
   menu.frame.open();
 };
 
-menu.close = function() {
+menu.close = () => {
   if (menu.frame) {
     menu.frame.close();
   };
 };
 
-menu.toggle = function() {
+menu.toggle = () => {
   if (state.get.current().menu) {
     menu.close();
   } else {
@@ -51,7 +51,7 @@ menu.toggle = function() {
   };
 };
 
-menu.init = function() {
+menu.init = () => {
   state.get.current().menu = false;
 };
 

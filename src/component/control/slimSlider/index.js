@@ -28,6 +28,9 @@ export const Control_slimSlider = function({
   action = false,
   focusAction = false,
   blurAction = false,
+  sliderAction = false,
+  numberAction = false,
+  resetAction = false,
   mouseDownAction = false,
   mouseUpAction = false
 } = {}) {
@@ -62,6 +65,9 @@ export const Control_slimSlider = function({
       if (action) {
         action();
       };
+      if (sliderAction) {
+        sliderAction();
+      };
       this.number.value = get({
         object: object,
         path: path,
@@ -93,6 +99,9 @@ export const Control_slimSlider = function({
       if (action) {
         action();
       };
+      if (numberAction) {
+        numberAction();
+      };
       this.update({ delay: true });
     }
   });
@@ -111,6 +120,9 @@ export const Control_slimSlider = function({
       this.update();
       if (action) {
         action();
+      };
+      if (resetAction) {
+        resetAction();
       };
     }
   });

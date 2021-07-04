@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -26,7 +25,14 @@ export const Control_slider = function({
   min = 0,
   max = 100,
   step = 1,
-  action = false
+  action = false,
+  focusAction = false,
+  blurAction = false,
+  sliderAction = false,
+  numberAction = false,
+  resetAction = false,
+  mouseDownAction = false,
+  mouseUpAction = false
 } = {}) {
 
   this.label = form.label({
@@ -58,11 +64,18 @@ export const Control_slider = function({
       if (action) {
         action();
       };
+      if (sliderAction) {
+        sliderAction();
+      };
       this.number.value = get({
         object: object,
         path: path,
       });
-    }
+    },
+    focusFunc: focusAction,
+    blurFunc: blurAction,
+    mouseDownFunc: mouseDownAction,
+    mouseUpFunc: mouseUpAction
   });
 
   this.number = form.input.number({
@@ -85,6 +98,9 @@ export const Control_slider = function({
       if (action) {
         action();
       };
+      if (numberAction) {
+        numberAction();
+      };
       this.update({ delay: true });
     }
   });
@@ -103,6 +119,9 @@ export const Control_slider = function({
       this.update();
       if (action) {
         action();
+      };
+      if (resetAction) {
+        resetAction();
       };
     }
   });
@@ -129,7 +148,6 @@ export const Control_slider = function({
     } else {
       updateControl();
     };
-
   };
 
   this.value = () => {

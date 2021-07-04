@@ -218,12 +218,6 @@ theme.render.color = function() {
 theme.render.class = function() {
   const html = document.querySelector('html');
 
-  if (state.get.current().bookmark.edit) {
-    html.classList.add('is-bookmark-edit');
-  } else {
-    html.classList.remove('is-bookmark-edit');
-  };
-
   const type = ['dark', 'light', 'system', 'theme', 'custom'];
 
   type.forEach((item, i) => {
