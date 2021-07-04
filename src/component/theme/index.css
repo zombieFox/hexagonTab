@@ -30,7 +30,7 @@
 
 :root {
   --theme-background-accent: var(--theme-accent);
-  --theme-background-theme: var(--theme-primary-100);
+  --theme-background-theme: var(--theme-primary-200);
 }
 
 :root {
