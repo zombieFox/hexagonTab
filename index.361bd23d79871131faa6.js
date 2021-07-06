@@ -5414,6 +5414,8 @@ const Modal = function({
       openAction();
     };
 
+    pageLock.render();
+
   };
 
   this.close = () => {
@@ -5443,6 +5445,8 @@ const Modal = function({
       };
 
     }, 6000);
+
+    pageLock.render();
 
   };
 
@@ -5644,7 +5648,11 @@ const Modal = function({
   };
 
   this.modal = () => {
+
+    state_state.get.current().modal = false;
+
     return this.element.modal;
+
   };
 
 };
