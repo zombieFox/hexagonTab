@@ -4,7 +4,6 @@ import { form } from '../form';
 import { bookmark } from '../bookmark';
 import { theme } from '../theme';
 import { grid } from '../grid';
-import { pageLock } from '../pageLock';
 
 import { Button } from '../button';
 import { MenuFrame } from '../menuFrame';

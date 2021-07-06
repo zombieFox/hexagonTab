@@ -1,4 +1,3 @@
-import './reset/index.css';
 import './base/index.css';
 import './font/index.css';
 import './animation/index.css';

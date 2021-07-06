@@ -1,3 +1,5 @@
+import { reset } from './reset';
+
 import { base } from './base';
 import { state } from './state';
 import { data } from './data';
