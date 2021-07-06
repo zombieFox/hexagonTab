@@ -313,6 +313,16 @@ export const Control_colorMixer = function({
 
   this.moreControlsCollapse.update();
 
+  this.update = () => {
+    this.color.update({ all: true });
+    this.colorSliderR.update();
+    this.colorSliderG.update();
+    this.colorSliderB.update();
+    this.colorSliderH.update();
+    this.colorSliderS.update();
+    this.colorSliderL.update();
+  };
+
   this.moreControlsUpdate();
 
 };
