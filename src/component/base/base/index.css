@@ -1,6 +1,6 @@
 ::selection {
   background-color: rgb(var(--theme-accent));
-  color: hsl(var(--theme-accent-text));
+  color: hsl(var(--theme-accent-rgb-text));
 }
 
 :root {

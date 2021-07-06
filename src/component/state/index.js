@@ -1,7 +1,5 @@
 const state = {};
 
-let presentationMode = false;
-
 state.current = {};
 
 state.default = {
@@ -29,7 +27,7 @@ state.default = {
       lightness: { contrast: 32, offset: null, start: null, end: null },
       shades: 9
     },
-    accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
+    accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 }, random: { active: false, style: 'any' } },
     font: {
       display: { name: '', weight: 400, style: 'normal' },
       ui: { name: '', weight: 400, style: 'normal' }
@@ -51,9 +49,9 @@ state.default = {
     },
     radius: 25,
     shadow: 75,
-    shade: { opacity: 20 }
+    shade: { opacity: 20, blur: 0 }
   },
-  toolbar: { style: 'transparent', position: 'bottom-right' },
+  toolbar: { style: 'transparent', position: 'bottom-right', accent: { show: true }, add: { show: true }, edit: { show: true } },
   modal: false,
   menu: false,
   autoSuggest: false
@@ -125,8 +123,17 @@ state.minMax = {
       image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } },
       video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } }
     },
-    shade: {
-      opacity: { min: 0, max: 100 }
+    shade: { opacity: { min: 0, max: 100 }, blur: { min: 0, max: 200 } }
+  }
+};
+
+state.option = {
+  theme: {
+    accent: { random: { style: ['any', 'light', 'dark', 'pastel', 'saturated'] } },
+    style: ['dark', 'light', 'system'],
+    bookmark: { shadow: { color: { type: ['theme', 'custom'] } } },
+    background: {
+      type: ['theme', 'accent', 'color', 'gradient', 'image', 'video']
     }
   }
 };
@@ -150,7 +157,8 @@ state.get = {
   current: () => { return state.current },
   default: () => { return JSON.parse(JSON.stringify(state.default)) },
   minMax: () => { return JSON.parse(JSON.stringify(state.minMax)) },
-  step: () => { return JSON.parse(JSON.stringify(state.step)) }
+  step: () => { return JSON.parse(JSON.stringify(state.step)) },
+  option: () => { return JSON.parse(JSON.stringify(state.option)) }
 };
 
 state.set = {
@@ -164,4 +172,4 @@ state.set = {
   }
 };
 
-export { state, presentationMode };
+export { state };

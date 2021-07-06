@@ -9,6 +9,7 @@ import { menu } from '../../menu';
 import { icon } from '../../icon';
 import { logo } from '../../logo';
 import { link } from '../../link';
+import { accentPreset } from '../../accentPreset';
 
 import * as form from '../../form';
 
@@ -29,7 +30,11 @@ import { Control_text } from '../../control/text';
 import { Control_textReset } from '../../control/textReset';
 
 import { node } from '../../../utility/node';
+import { convertColor } from '../../../utility/convertColor';
 import { complexNode } from '../../../utility/complexNode';
+import { applyCSSVar } from '../../../utility/applyCSSVar';
+import { applyCSSClass } from '../../../utility/applyCSSClass';
+import { applyCSSState } from '../../../utility/applyCSSState';
 
 const themeSetting = {};
 
@@ -49,8 +54,8 @@ themeSetting.style = (parent) => {
     groupName: 'theme-style',
     path: 'theme.style',
     action: () => {
-      theme.mod.style.initial();
-      theme.render.class();
+      theme.style.initial();
+      applyCSSClass('theme.style');
       data.save();
     }
   });
@@ -67,6 +72,32 @@ themeSetting.style = (parent) => {
 
 themeSetting.colour = (parent) => {
 
+  const shades = () => {
+
+    const formGroup = form.group({
+      block: true,
+      border: true
+    });
+
+    const shadeCount = state.get.current().theme.color.shades;
+
+    for (var i = 1; i <= shadeCount; i++) {
+      let count = i;
+
+      if (count < 10) {
+        count = '0' + count;
+      };
+
+      formGroup.appendChild(
+        node('div|class:form-group-text form-group-text-borderless', [
+          node('div|class:theme-color-box theme-color-shade-' + count + '')
+        ])
+      );
+    };
+
+    return formGroup;
+  };
+
   const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
@@ -82,7 +113,7 @@ themeSetting.colour = (parent) => {
     min: state.get.minMax().theme.color.range.primary.h.min,
     max: state.get.minMax().theme.color.range.primary.h.max,
     action: () => {
-      theme.render.color();
+      theme.color.render();
       data.save();
     }
   });
@@ -97,7 +128,7 @@ themeSetting.colour = (parent) => {
     min: state.get.minMax().theme.color.range.primary.s.min,
     max: state.get.minMax().theme.color.range.primary.s.max,
     action: () => {
-      theme.render.color();
+      theme.color.render();
       data.save();
     }
   });
@@ -115,7 +146,7 @@ themeSetting.colour = (parent) => {
       state.get.current().theme.color.lightness.offset = 40 - state.get.current().theme.color.lightness.contrast;
       state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
       state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
-      theme.render.color();
+      theme.color.render();
       data.save();
     }
   });
@@ -126,7 +157,7 @@ themeSetting.colour = (parent) => {
         children: [
           form.wrap({
             children: [
-              themeSetting.shades()
+              shades()
             ]
           })
         ]
@@ -141,34 +172,83 @@ themeSetting.colour = (parent) => {
 
 };
 
-themeSetting.shades = (parent) => {
-  const formGroup = form.group({
-    block: true,
-    border: true
-  });
-
-  const shadeCount = state.get.current().theme.color.shades;
-
-  for (var i = 1; i <= shadeCount; i++) {
-    let count = i;
-
-    if (count < 10) {
-      count = '0' + count;
-    };
-
-    formGroup.appendChild(
-      node('div|class:form-group-text form-group-text-borderless', [
-        node('div|class:theme-color-box theme-color-shade-' + count + '')
-      ])
-    );
-  };
-
-  return formGroup;
-};
-
 themeSetting.accent = (parent) => {
 
-  const themeAccentMixer = new Control_colorMixer({
+  const preset = () => {
+
+    const allPreset = accentPreset.get();
+
+    const nameModifier = {
+      '90': 'Super extra light',
+      '77': 'Extra light',
+      '63': 'Light',
+      '37': 'Dark',
+      '23': 'Extra dark',
+      '10': 'Super extra dark'
+    };
+
+    const formWrap = form.wrap();
+
+    const themeAccentPreset = node('div|class:theme-accent-preset');
+
+    allPreset.forEach((item, i) => {
+
+      const name = item.name;
+
+      const type = item.type;
+
+      item.colors.forEach((item, i) => {
+
+        let fullName;
+
+        if (nameModifier[item.l] != undefined) {
+          fullName = nameModifier[item.l] + ' ' + name.toLowerCase();
+        } else {
+          fullName = name;
+        };
+
+        const presetButton = new Button({
+          text: fullName,
+          title: fullName,
+          srOnly: true,
+          classList: ['theme-accent-preset-item'],
+          func: () => {
+            state.get.current().theme.accent.rgb = convertColor.hsl.rgb(item);
+            state.get.current().theme.accent.hsl = item;
+            applyCSSVar([
+              'theme.accent.rgb.r',
+              'theme.accent.rgb.g',
+              'theme.accent.rgb.b',
+              'theme.accent.hsl.h',
+              'theme.accent.hsl.s',
+              'theme.accent.hsl.l'
+            ]);
+            toolbar.current.update.style();
+            toolbar.current.update.accent();
+            themeAccent.update();
+            data.save();
+          }
+        });
+
+        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-h', item.h);
+
+        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-s', item.s);
+
+        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-l', item.l);
+
+        themeAccentPreset.appendChild(presetButton.button);
+
+      });
+
+    });
+
+    formWrap.appendChild(themeAccentPreset);
+
+    return formWrap;
+
+  };
+
+  const themeAccent = new Control_colorMixer({
     object: state.get.current(),
     path: 'theme.accent',
     id: 'theme-accent',
@@ -176,16 +256,83 @@ themeSetting.accent = (parent) => {
     defaultValue: state.get.default().theme.accent.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.accent();
-      toolbar.accent.update();
-      toolbar.render.style.update();
+      applyCSSVar([
+        'theme.accent.rgb.r',
+        'theme.accent.rgb.g',
+        'theme.accent.rgb.b',
+        'theme.accent.hsl.h',
+        'theme.accent.hsl.s',
+        'theme.accent.hsl.l'
+      ]);
+      toolbar.current.update.style();
+      toolbar.current.update.accent();
+      data.save();
+    }
+  });
+
+  const themeAccentRandomActive = new Control_checkbox({
+    object: state.get.current(),
+    path: 'theme.accent.random.active',
+    id: 'theme-accent-random-active',
+    labelText: 'Random Accent colour on load/refresh',
+    action: () => {
+      data.save();
+    }
+  });
+
+  const themeAccentRandomNow = new Button({
+    text: 'Randomise now',
+    style: ['line'],
+    func: () => {
+      theme.accent.random.render();
+      applyCSSVar([
+        'theme.accent.rgb.r',
+        'theme.accent.rgb.g',
+        'theme.accent.rgb.b',
+        'theme.accent.hsl.h',
+        'theme.accent.hsl.s',
+        'theme.accent.hsl.l'
+      ]);
+      toolbar.current.update.style();
+      toolbar.current.update.accent();
+      themeAccent.update();
+      data.save();
+    }
+  });
+
+  const themeAccentRandomStyle = new Control_radio({
+    object: state.get.current(),
+    radioGroup: [
+      { id: 'theme-accent-random-style-any', labelText: 'Any', value: 'any' },
+      { id: 'theme-accent-random-style-light', labelText: 'Light', value: 'light' },
+      { id: 'theme-accent-random-style-dark', labelText: 'Dark', value: 'dark' },
+      { id: 'theme-accent-random-style-pastel', labelText: 'Pastel', value: 'pastel' },
+      { id: 'theme-accent-random-style-saturated', labelText: 'Saturated', value: 'saturated' },
+    ],
+    groupName: 'theme-accent-random-style',
+    path: 'theme.accent.random.style',
+    action: () => {
       data.save();
     }
   });
 
   parent.appendChild(
     node('div', [
-      themeAccentMixer.wrap()
+      preset(),
+      node('hr'),
+      themeAccent.wrap(),
+      node('hr'),
+      themeAccentRandomActive.wrap(),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              themeAccentRandomStyle.wrap(),
+              themeAccentRandomNow.wrap()
+            ]
+          })
+        ]
+      })
     ])
   );
 
@@ -204,7 +351,7 @@ themeSetting.font = (parent) => {
     placeholder: 'Google font name',
     labelText: 'Display font',
     action: () => {
-      theme.render.font.delay.display();
+      theme.font.display.delay();
       data.save();
     }
   });
@@ -228,7 +375,7 @@ themeSetting.font = (parent) => {
     min: state.get.minMax().theme.font.display.weight.min,
     max: state.get.minMax().theme.font.display.weight.max,
     action: () => {
-      theme.render.font.display.weight();
+      applyCSSVar('theme.font.display.weight');
       data.save();
     }
   });
@@ -238,7 +385,7 @@ themeSetting.font = (parent) => {
     style: ['line'],
     func: () => {
       state.get.current().theme.font.display.weight = fontWeight.light;
-      theme.render.font.display.weight();
+      applyCSSVar('theme.font.display.weight');
       themeFontDisplayWeight.update();
       data.save();
     }
@@ -249,7 +396,7 @@ themeSetting.font = (parent) => {
     style: ['line'],
     func: () => {
       state.get.current().theme.font.display.weight = fontWeight.regular;
-      theme.render.font.display.weight();
+      applyCSSVar('theme.font.display.weight');
       themeFontDisplayWeight.update();
       data.save();
     }
@@ -260,7 +407,7 @@ themeSetting.font = (parent) => {
     style: ['line'],
     func: () => {
       state.get.current().theme.font.display.weight = fontWeight.bold;
-      theme.render.font.display.weight();
+      applyCSSVar('theme.font.display.weight');
       themeFontDisplayWeight.update();
       data.save();
     }
@@ -282,7 +429,7 @@ themeSetting.font = (parent) => {
     inputHide: true,
     inputButtonStyle: ['line'],
     action: () => {
-      theme.render.font.display.style();
+      applyCSSVar('theme.font.display.style');
       data.save();
     }
   });
@@ -296,7 +443,7 @@ themeSetting.font = (parent) => {
     placeholder: 'Google font name',
     labelText: 'User interface font',
     action: () => {
-      theme.render.font.delay.ui();
+      theme.font.ui.delay();
       data.save();
     }
   });
@@ -320,7 +467,7 @@ themeSetting.font = (parent) => {
     min: state.get.minMax().theme.font.ui.weight.min,
     max: state.get.minMax().theme.font.ui.weight.max,
     action: () => {
-      theme.render.font.ui.weight();
+      applyCSSVar('theme.font.ui.weight');
       data.save();
     }
   });
@@ -330,7 +477,7 @@ themeSetting.font = (parent) => {
     style: ['line'],
     func: () => {
       state.get.current().theme.font.ui.weight = fontWeight.light;
-      theme.render.font.ui.weight();
+      applyCSSVar('theme.font.ui.weight');
       themeFontUiWeight.update();
       data.save();
     }
@@ -341,7 +488,7 @@ themeSetting.font = (parent) => {
     style: ['line'],
     func: () => {
       state.get.current().theme.font.ui.weight = fontWeight.regular;
-      theme.render.font.ui.weight();
+      applyCSSVar('theme.font.ui.weight');
       themeFontUiWeight.update();
       data.save();
     }
@@ -352,7 +499,7 @@ themeSetting.font = (parent) => {
     style: ['line'],
     func: () => {
       state.get.current().theme.font.ui.weight = fontWeight.bold;
-      theme.render.font.ui.weight();
+      applyCSSVar('theme.font.ui.weight');
       themeFontUiWeight.update();
       data.save();
     }
@@ -374,7 +521,7 @@ themeSetting.font = (parent) => {
     inputHide: true,
     inputButtonStyle: ['line'],
     action: () => {
-      theme.render.font.ui.style();
+      applyCSSVar('theme.font.ui.style');
       data.save();
     }
   });
@@ -454,8 +601,7 @@ themeSetting.bookmark = (parent) => {
     groupName: 'theme-bookmark-shadow-color-type',
     path: 'theme.bookmark.shadow.color.type',
     action: () => {
-      theme.render.class();
-      themeBookmarkShadowColorByCollapse.update();
+      applyCSSVar('theme.bookmark.shadow.color.type');
       data.save();
     }
   });
@@ -469,7 +615,14 @@ themeSetting.bookmark = (parent) => {
     defaultValue: state.get.default().theme.bookmark.shadow.color.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.bookmark.style();
+      applyCSSVar([
+        'theme.bookmark.shadow.color.rgb.r',
+        'theme.bookmark.shadow.color.rgb.g',
+        'theme.bookmark.shadow.color.rgb.b',
+        'theme.bookmark.shadow.color.hsl.h',
+        'theme.bookmark.shadow.color.hsl.s',
+        'theme.bookmark.shadow.color.hsl.l'
+      ]);
       data.save();
     }
   });
@@ -484,7 +637,7 @@ themeSetting.bookmark = (parent) => {
     min: state.get.minMax().theme.bookmark.shadow.opacity.min,
     max: state.get.minMax().theme.bookmark.shadow.opacity.max,
     action: () => {
-      theme.render.bookmark.style();
+      applyCSSVar('theme.bookmark.shadow.opacity');
       data.save();
     }
   });
@@ -543,14 +696,30 @@ themeSetting.shade = (parent) => {
     min: state.get.minMax().theme.shade.opacity.min,
     max: state.get.minMax().theme.shade.opacity.max,
     action: () => {
-      theme.render.shade.opacity();
+      applyCSSVar('theme.shade.opacity');
+      data.save();
+    }
+  });
+
+  const themeShadeBlur = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.shade.blur',
+    id: 'theme.shade.blur',
+    labelText: 'Shade blur',
+    value: state.get.current().theme.shade.blur,
+    defaultValue: state.get.default().theme.shade.blur,
+    min: state.get.minMax().theme.shade.blur.min,
+    max: state.get.minMax().theme.shade.blur.max,
+    action: () => {
+      applyCSSVar('theme.shade.blur');
       data.save();
     }
   });
 
   parent.appendChild(
     node('div', [
-      themeShadeOpacity.wrap()
+      themeShadeOpacity.wrap(),
+      themeShadeBlur.wrap(),
     ])
   );
 
@@ -571,9 +740,9 @@ themeSetting.background = (parent) => {
     groupName: 'theme-background-type',
     path: 'theme.background.type',
     action: () => {
-      theme.render.background.type();
+      applyCSSClass('theme.background.type');
       themeBackgroundCollapse.update();
-      toolbar.render.style.update();
+      toolbar.current.update.style();
       updateDisabled();
       updateVideoPlayState();
       data.save();
@@ -588,8 +757,15 @@ themeSetting.background = (parent) => {
     defaultValue: state.get.default().theme.background.color.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.background.color();
-      toolbar.render.style.update();
+      applyCSSVar([
+        'theme.background.color.rgb.r',
+        'theme.background.color.rgb.g',
+        'theme.background.color.rgb.b',
+        'theme.background.color.hsl.h',
+        'theme.background.color.hsl.s',
+        'theme.background.color.hsl.l'
+      ]);
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -604,8 +780,8 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.gradient.angle.min,
     max: state.get.minMax().theme.background.gradient.angle.max,
     action: () => {
-      theme.render.background.gradient();
-      toolbar.render.style.update();
+      applyCSSVar('theme.background.gradient.angle');
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -618,8 +794,15 @@ themeSetting.background = (parent) => {
     defaultValue: state.get.default().theme.background.gradient.start.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.background.gradient();
-      toolbar.render.style.update();
+      applyCSSVar([
+        'theme.background.gradient.start.rgb.r',
+        'theme.background.gradient.start.rgb.g',
+        'theme.background.gradient.start.rgb.b',
+        'theme.background.gradient.start.hsl.h',
+        'theme.background.gradient.start.hsl.s',
+        'theme.background.gradient.start.hsl.l'
+      ]);
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -632,8 +815,15 @@ themeSetting.background = (parent) => {
     defaultValue: state.get.default().theme.background.gradient.end.rgb,
     minMaxObject: state.get.minMax(),
     action: () => {
-      theme.render.background.gradient();
-      toolbar.render.style.update();
+      applyCSSVar([
+        'theme.background.gradient.end.rgb.r',
+        'theme.background.gradient.end.rgb.g',
+        'theme.background.gradient.end.rgb.b',
+        'theme.background.gradient.end.hsl.h',
+        'theme.background.gradient.end.hsl.s',
+        'theme.background.gradient.end.hsl.l'
+      ]);
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -646,7 +836,7 @@ themeSetting.background = (parent) => {
     placeholder: 'https://www.example.com/image.jpg',
     labelText: 'Background image URL',
     action: () => {
-      theme.render.background.image.set();
+      theme.background.image.render();
       data.save();
     }
   });
@@ -665,7 +855,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.image.blur.min,
     max: state.get.minMax().theme.background.image.blur.max,
     action: () => {
-      theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.blur');
       data.save();
     }
   });
@@ -680,7 +870,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.image.scale.min,
     max: state.get.minMax().theme.background.image.scale.max,
     action: () => {
-      theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.scale');
       data.save();
     }
   });
@@ -695,7 +885,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.image.accent.min,
     max: state.get.minMax().theme.background.image.accent.max,
     action: () => {
-      theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.accent');
       data.save();
     }
   });
@@ -710,7 +900,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.image.opacity.min,
     max: state.get.minMax().theme.background.image.opacity.max,
     action: () => {
-      theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.opacity');
       data.save();
     }
   });
@@ -723,9 +913,9 @@ themeSetting.background = (parent) => {
     placeholder: 'https://www.example.com/video.mp4',
     labelText: 'Background video URL',
     action: () => {
-      theme.render.background.video.remove();
-      theme.render.background.video.set();
-      theme.render.background.video.add();
+      theme.background.video.clear();
+      theme.background.video.render();
+      theme.background.video.render();
       data.save();
     }
   });
@@ -744,7 +934,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.video.blur.min,
     max: state.get.minMax().theme.background.video.blur.max,
     action: () => {
-      theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.blur');
       data.save();
     }
   });
@@ -759,7 +949,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.video.scale.min,
     max: state.get.minMax().theme.background.video.scale.max,
     action: () => {
-      theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.scale');
       data.save();
     }
   });
@@ -774,7 +964,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.video.accent.min,
     max: state.get.minMax().theme.background.video.accent.max,
     action: () => {
-      theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.accent');
       data.save();
     }
   });
@@ -789,7 +979,7 @@ themeSetting.background = (parent) => {
     min: state.get.minMax().theme.background.video.opacity.min,
     max: state.get.minMax().theme.background.video.opacity.max,
     action: () => {
-      theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.opacity');
       data.save();
     }
   });

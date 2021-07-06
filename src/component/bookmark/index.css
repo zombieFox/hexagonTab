@@ -1,12 +1,21 @@
 :root {
   --bookmark-color: var(--theme-primary-100);
-  /* --bookmark-color-focus-hover: var(--theme-primary-200); */
   --bookmark-color-focus-hover-light: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);
   --bookmark-color-focus-hover-dark: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);
+}
+
+:root {
   --bookmark-display-visual-color: var(--theme-accent);
   --bookmark-display-visual-color-focus-hover: var(--theme-accent);
   --bookmark-display-name-color: var(--theme-primary-text-100);
   --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);
+}
+
+:root {
+  --theme-bookmark-shadow-color: var(--theme-bookmark-shadow-color-rgb-r), var(--theme-bookmark-shadow-color-rgb-g), var(--theme-bookmark-shadow-color-rgb-b);
+}
+
+:root {
   /* --bookmark-shape: circle(45% at 50% 50%); */
   /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */
   --bookmark-shape: url(#bookmark-mask);

@@ -1,4 +1,4 @@
-import { layoutArea } from '../layout';
+import { layout } from '../layout';
 import { state } from '../state';
 
 import { node } from '../../utility/node';
@@ -17,7 +17,7 @@ grid.render = {};
 
 grid.render.area = function() {
   gridArea.appendChild(gridList);
-  layoutArea.appendChild(gridArea);
+  layout.element.area.appendChild(gridArea);
 };
 
 grid.render.style = function() {

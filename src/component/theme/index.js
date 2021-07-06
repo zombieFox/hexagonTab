@@ -8,123 +8,49 @@ import { convertColor } from '../../utility/convertColor';
 import { trimString } from '../../utility/trimString';
 import { isValidString } from '../../utility/isValidString';
 import { clearChildNode } from '../../utility/clearChildNode';
+import { randomNumber } from '../../utility/randomNumber';
+import { applyCSSVar } from '../../utility/applyCSSVar';
+import { applyCSSClass } from '../../utility/applyCSSClass';
+import { applyCSSState } from '../../utility/applyCSSState';
 
 import WebFont from 'webfontloader';
 
 import './index.css';
 
-let timerFontDisplay = null;
-
-let timerFontUi = null;
-
 const theme = {};
 
-theme.bind = {};
+theme.font = {};
 
-theme.bind.style = {
-  initial: function() {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
-      theme.mod.style.initial();
-    });
-  }
-};
+theme.font.display = {
+  timer: false,
+  delay: () => {
 
-theme.mod = {};
+    clearTimeout(theme.font.display.timer);
 
-theme.mod.style = {
-  initial: function() {
-    switch (state.get.current().theme.style) {
-      case 'dark':
-      case 'light':
-        localStorage.setItem(data.saveName + 'Style', state.get.current().theme.style);
-        break;
+    theme.font.display.timer = setTimeout(theme.font.display.load, 600);
 
-      case 'system':
-        if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'dark');
-        } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'light');
-        };
-        break;
-    };
   },
-  light: function() {
-    state.get.current().theme.style = 'light';
-  },
-  dark: function() {
-    state.get.current().theme.style = 'dark';
-  }
-};
-
-theme.render = {};
-
-theme.render.font = {};
-
-theme.render.font.load = {
-  display: function() {
+  load: () => {
 
     const displayFont = trimString(state.get.current().theme.font.display.name);
 
     if (isValidString(displayFont)) {
 
       WebFont.load({
-        // fontloading: function(familyName, fvd) {
-        //   console.log('fontloading:', familyName);
-        // },
-        google: {
-          families: [trimString(displayFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'],
-        }
+        // fontloading: (familyName, fvd) => { console.log('fontloading:', familyName); },
+        google: { families: [trimString(displayFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'] }
       });
 
     };
 
-    theme.render.font.display.name();
+    theme.font.display.render();
 
   },
-  ui: function() {
+  render: () => {
 
-    const uiFont = trimString(state.get.current().theme.font.ui.name);
-
-    if (isValidString(uiFont)) {
-
-      WebFont.load({
-        // fontloading: function(familyName, fvd) {
-        //   console.log('fontloading:', familyName);
-        // },
-        google: {
-          families: [trimString(uiFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'],
-        }
-      });
-
-    };
-
-    theme.render.font.ui.name();
-
-  }
-};
-
-theme.render.font.delay = {
-  display: function() {
-
-    clearTimeout(timerFontDisplay);
-
-    timerFontDisplay = setTimeout(theme.render.font.load.display, 600);
-
-  },
-  ui: function() {
-
-    clearTimeout(timerFontUi);
-
-    timerFontUi = setTimeout(theme.render.font.load.ui, 600);
-
-  }
-};
-
-theme.render.font.display = {
-  name: function() {
     const html = document.querySelector('html');
 
-    if (isValidString(state.get.current().theme.font.display.name)) {
+    if (isValidString(trimString(state.get.current().theme.font.display.name))) {
 
       html.style.setProperty('--theme-font-display-name', '"' + trimString(state.get.current().theme.font.display.name) + '", "Fjalla One", sans-serif');
 
@@ -134,32 +60,41 @@ theme.render.font.display = {
 
     };
 
-  },
-  weight: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--theme-font-display-weight', state.get.current().theme.font.display.weight);
-
-  },
-  style: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.removeProperty('--theme-font-display-style');
-
-    html.style.setProperty('--theme-font-display-style', state.get.current().theme.font.display.style);
-
   }
 };
 
-theme.render.font.ui = {
-  name: function() {
+theme.font.ui = {
+  timer: false,
+  delay: () => {
+
+    clearTimeout(theme.font.ui.timer);
+
+    theme.font.ui.timer = setTimeout(theme.font.ui.load, 600);
+
+  },
+  load: () => {
+
+    const uiFont = trimString(state.get.current().theme.font.ui.name);
+
+    if (isValidString(uiFont)) {
+
+      WebFont.load({
+        // fontloading: (familyName, fvd) => { console.log('fontloading:', familyName); },
+        google: { families: [trimString(uiFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'] }
+      });
+
+    };
+
+    theme.font.ui.render();
+
+  },
+  render: () => {
+
     const html = document.querySelector('html');
 
-    if (isValidString(state.get.current().theme.font.ui.name)) {
+    if (isValidString(trimString(state.get.current().theme.font.ui.name))) {
 
-      html.style.setProperty('--theme-font-ui-name', '"' + trimString(state.get.current().theme.font.ui.name) + '", "Open Sans", sans-serif');
+      html.style.setProperty('--theme-font-ui-name', '"' + trimString(state.get.current().theme.font.ui.name) + '", "Fjalla One", sans-serif');
 
     } else {
 
@@ -167,252 +102,261 @@ theme.render.font.ui = {
 
     };
 
-  },
-  weight: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--theme-font-ui-weight', state.get.current().theme.font.ui.weight);
-
-  },
-  style: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.removeProperty('--theme-font-ui-style');
-
-    html.style.setProperty('--theme-font-ui-style', state.get.current().theme.font.ui.style);
-
   }
 };
 
-theme.render.color = function() {
-  const html = document.querySelector('html');
+theme.color = {
+  render: () => {
 
-  let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
+    const html = document.querySelector('html');
 
-  for (var type in state.get.current().theme.color.range) {
+    let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
 
-    for (var i = 0; i < state.get.current().theme.color.shades; i++) {
+    for (var type in state.get.current().theme.color.range) {
 
-      let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
+      for (var i = 0; i < state.get.current().theme.color.shades; i++) {
 
-      hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
+        let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
 
-      let rgb = convertColor.hsl.rgb(hsl);
+        hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
 
-      for (var key in rgb) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
-      };
+        let rgb = convertColor.hsl.rgb(hsl);
 
-      for (var key in hsl) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
+        for (var key in rgb) {
+          html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
+        };
+
+        for (var key in hsl) {
+          html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
+        };
+
       };
 
     };
 
-  };
-
+  }
 };
 
-theme.render.class = function() {
-  const html = document.querySelector('html');
+theme.accent = {};
 
-  const type = ['dark', 'light', 'system', 'theme', 'custom'];
+theme.accent.random = {
+  render: () => {
 
-  type.forEach((item, i) => {
-    html.classList.remove('is-theme-style-' + item);
-    html.classList.remove('is-theme-bookmark-shadow-color-type-' + item);
-  });
+    if (state.get.current().theme.accent.random.active) {
 
-  html.classList.add('is-theme-style-' + state.get.current().theme.style);
-  html.classList.add('is-theme-bookmark-shadow-color-type-' + state.get.current().theme.bookmark.shadow.color.type);
-};
+      const randomAccentType = {
+        any: () => { return { h: randomNumber(0, 360), s: randomNumber(0, 100), l: randomNumber(0, 100) }; },
+        light: () => { return { h: randomNumber(0, 360), s: randomNumber(50, 90), l: randomNumber(50, 90) }; },
+        dark: () => { return { h: randomNumber(0, 360), s: randomNumber(10, 50), l: randomNumber(10, 50) }; },
+        pastel: () => { return { h: randomNumber(0, 360), s: 50, l: 80 }; },
+        saturated: () => { return { h: randomNumber(0, 360), s: 100, l: 50 }; }
+      };
 
-theme.render.accent = function() {
-  const html = document.querySelector('html');
-  const rgb = state.get.current().theme.accent.rgb;
-  html.style.setProperty('--theme-accent-r', rgb.r);
-  html.style.setProperty('--theme-accent-g', rgb.g);
-  html.style.setProperty('--theme-accent-b', rgb.b);
-};
+      const hsl = randomAccentType[state.get.current().theme.accent.random.style]();
 
-theme.render.radius = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-radius', state.get.current().theme.radius);
-};
+      const rgb = convertColor.hsl.rgb(hsl);
 
-theme.render.shadow = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-shadow', state.get.current().theme.shadow);
-};
+      state.get.current().theme.accent.rgb = rgb;
 
-theme.render.shade = {
-  opacity: function() {
-    const html = document.querySelector('html');
-    html.style.setProperty("--theme-shade-opacity", state.get.current().theme.shade.opacity);
+      state.get.current().theme.accent.hsl = hsl;
+
+    };
+
   }
 };
 
 theme.style = {
-  dark: function() {
-    theme.mod.style.dark();
-    theme.mod.style.initial();
-    theme.render.class();
+  bind: () => {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      theme.style.initial();
+    });
   },
-  light: function() {
-    theme.mod.style.light();
-    theme.mod.style.initial();
-    theme.render.class();
+  initial: () => {
+    switch (state.get.current().theme.style) {
+
+      case 'dark':
+      case 'light':
+
+        localStorage.setItem(data.saveName + 'Style', state.get.current().theme.style);
+        break;
+
+      case 'system':
+
+        if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
+          localStorage.setItem(data.saveName + 'Style', 'dark');
+        } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
+          localStorage.setItem(data.saveName + 'Style', 'light');
+        };
+        break;
+
+    };
   },
-  toggle: function() {
-    if (state.get.current().theme.style == 'dark') {
-      theme.style.light();
-    } else if (state.get.current().theme.style == 'light') {
-      theme.style.dark();
+  dark: () => {
+    state.get.current().theme.style = 'dark';
+    theme.style.initial();
+    applyCSSClass('theme.style');
+  },
+  light: () => {
+    state.get.current().theme.style = 'light';
+    theme.style.initial();
+    applyCSSClass('theme.style');
+  },
+  toggle: () => {
+    switch (state.get.current().theme.style) {
+
+      case 'dark':
+        theme.style.light();
+        break;
+
+      case 'light':
+        theme.style.dark();
+        break;
+
     };
   }
 };
 
-theme.render.bookmark = {};
-
-theme.render.bookmark.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-bookmark-shadow-color', state.get.current().theme.bookmark.shadow.color.rgb.r + ', ' + state.get.current().theme.bookmark.shadow.color.rgb.g + ', ' + state.get.current().theme.bookmark.shadow.color.rgb.b);
-  html.style.setProperty('--theme-bookmark-shadow-opacity', state.get.current().theme.bookmark.shadow.opacity);
+theme.background = {
+  element: {
+    background: node('div|class:background'),
+    type: {
+      theme: node('div|class:theme-background-type theme-background-type-theme'),
+      accent: node('div|class:theme-background-type theme-background-type-accent'),
+      color: node('div|class:theme-background-type theme-background-type-color'),
+      gradient: node('div|class:theme-background-type theme-background-type-gradient'),
+      image: node('div|class:theme-background-type theme-background-type-image'),
+      video: node('div|class:theme-background-type theme-background-type-video')
+    },
+    video: false
+  }
 };
 
-theme.render.background = {};
+theme.background.area = {
+  render: () => {
 
-theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
+    const backgroundElement = node('div|class:background');
 
-theme.render.background.area = function() {
-  const backgroundElement = node('div|class:background');
+    state.get.option().theme.background.type.forEach((item, i) => {
 
-  theme.render.background.choices.forEach((item, i) => {
-    backgroundElement.appendChild(node('div|class:theme-background-type theme-background-type-' + item));
-  });
+      theme.background.element.background.appendChild(theme.background.element.type[item]);
 
-  document.querySelector('body').appendChild(backgroundElement);
+    });
+
+    document.querySelector('body').appendChild(theme.background.element.background);
+
+  }
 };
 
-theme.render.background.type = function() {
-  const html = document.querySelector('html');
+theme.background.image = {
+  render: () => {
 
-  theme.render.background.choices.forEach((item, i) => {
-    html.classList.remove('is-theme-background-type-' + item);
-  });
+    const html = document.querySelector('html');
 
-  html.classList.add('is-theme-background-type-' + state.get.current().theme.background.type);
+    if (isValidString(state.get.current().theme.background.image.url)) {
+      html.style.setProperty('--theme-background-image', 'url(' + trimString(state.get.current().theme.background.image.url) + ')');
+    } else {
+      html.style.removeProperty('--theme-background-image');
+    };
+
+  }
 };
 
-theme.render.background.color = function() {
-  const html = document.querySelector('html');
+theme.background.video = {
+  render: () => {
 
-  html.style.setProperty('--theme-background-color', state.get.current().theme.background.color.rgb.r + ', ' + state.get.current().theme.background.color.rgb.g + ', ' + state.get.current().theme.background.color.rgb.b);
+    theme.background.element.video = new Video({
+      url: state.get.current().theme.background.video.url
+    });
+
+    if (isValidString(state.get.current().theme.background.video.url)) {
+
+      theme.background.element.type.video.appendChild(theme.background.element.video.video);
+
+    } else {
+
+      theme.background.video.clear();
+
+    };
+
+  },
+  clear: () => {
+
+    theme.background.element.video = false;
+
+    if (theme.background.element.type.video.lastChild) {
+
+      clearChildNode(theme.background.element.type.video);
+
+    };
+
+  }
 };
 
-theme.render.background.gradient = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-gradient-angle', state.get.current().theme.background.gradient.angle);
-
-  html.style.setProperty('--theme-background-gradient-start', state.get.current().theme.background.gradient.start.rgb.r + ', ' + state.get.current().theme.background.gradient.start.rgb.g + ', ' + state.get.current().theme.background.gradient.start.rgb.b);
-
-  html.style.setProperty('--theme-background-gradient-end', state.get.current().theme.background.gradient.end.rgb.r + ', ' + state.get.current().theme.background.gradient.end.rgb.g + ', ' + state.get.current().theme.background.gradient.end.rgb.b);
-};
-
-theme.render.background.image = {};
-
-theme.render.background.image.set = function() {
-  const html = document.querySelector('html');
-
-  if (isValidString(state.get.current().theme.background.image.url)) {
-    html.style.setProperty('--theme-background-image', 'url(' + trimString(state.get.current().theme.background.image.url) + ')');
-  } else {
-    html.style.removeProperty('--theme-background-image');
-  };
-};
-
-theme.render.background.image.filter = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-image-blur', state.get.current().theme.background.image.blur);
-  html.style.setProperty('--theme-background-image-scale', state.get.current().theme.background.image.scale);
-  html.style.setProperty('--theme-background-image-accent', state.get.current().theme.background.image.accent);
-  html.style.setProperty('--theme-background-image-opacity', state.get.current().theme.background.image.opacity);
-};
-
-theme.render.background.video = {};
-
-theme.render.background.video.element = false;
-
-theme.render.background.video.set = function() {
-  theme.render.background.video.element = new Video({
-    url: state.get.current().theme.background.video.url
-  });
-};
-
-theme.render.background.video.add = function() {
-  if (isValidString(state.get.current().theme.background.video.url)) {
-
-    const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
-
-    themeBackgroundTypeVideo.appendChild(theme.render.background.video.element.video);
-
-  } else {
-
-    theme.render.background.video.remove();
-
-  };
-};
-
-theme.render.background.video.remove = function() {
-  const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
-
-  if (themeBackgroundTypeVideo.lastChild) {
-
-    clearChildNode(themeBackgroundTypeVideo);
-
-  };
-};
-
-theme.render.background.video.filter = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-video-blur', state.get.current().theme.background.video.blur);
-  html.style.setProperty('--theme-background-video-scale', state.get.current().theme.background.video.scale);
-  html.style.setProperty('--theme-background-video-accent', state.get.current().theme.background.video.accent);
-  html.style.setProperty('--theme-background-video-opacity', state.get.current().theme.background.video.opacity);
-};
-
-theme.init = function() {
-  theme.mod.style.initial();
-  theme.bind.style.initial();
-  theme.render.color();
-  theme.render.accent();
-  theme.render.class();
-  theme.render.radius();
-  theme.render.shadow();
-  theme.render.shade.opacity();
-  theme.render.font.load.display();
-  theme.render.font.load.ui();
-  theme.render.font.display.name();
-  theme.render.font.display.weight();
-  theme.render.font.display.style();
-  theme.render.font.ui.name();
-  theme.render.font.ui.weight();
-  theme.render.font.ui.style();
-  theme.render.bookmark.style();
-  theme.render.background.area();
-  theme.render.background.type();
-  theme.render.background.color();
-  theme.render.background.gradient();
-  theme.render.background.image.set();
-  theme.render.background.image.filter();
-  theme.render.background.video.set();
-  theme.render.background.video.add();
-  theme.render.background.video.filter();
+theme.init = () => {
+  theme.style.initial();
+  theme.style.bind();
+  theme.color.render();
+  theme.accent.random.render();
+  theme.font.display.load();
+  theme.font.ui.load();
+  theme.background.area.render();
+  theme.background.image.render();
+  theme.background.video.render();
+  applyCSSVar([
+    'theme.accent.rgb.r',
+    'theme.accent.rgb.g',
+    'theme.accent.rgb.b',
+    'theme.accent.hsl.h',
+    'theme.accent.hsl.s',
+    'theme.accent.hsl.l',
+    'theme.font.display.weight',
+    'theme.font.display.style',
+    'theme.font.ui.weight',
+    'theme.font.ui.style',
+    'theme.bookmark.shadow.color.rgb.r',
+    'theme.bookmark.shadow.color.rgb.g',
+    'theme.bookmark.shadow.color.rgb.b',
+    'theme.bookmark.shadow.color.hsl.h',
+    'theme.bookmark.shadow.color.hsl.s',
+    'theme.bookmark.shadow.color.hsl.l',
+    'theme.bookmark.shadow.opacity',
+    'theme.background.color.rgb.r',
+    'theme.background.color.rgb.g',
+    'theme.background.color.rgb.b',
+    'theme.background.color.hsl.h',
+    'theme.background.color.hsl.s',
+    'theme.background.color.hsl.l',
+    'theme.background.image.blur',
+    'theme.background.image.scale',
+    'theme.background.image.accent',
+    'theme.background.image.opacity',
+    'theme.background.video.blur',
+    'theme.background.video.scale',
+    'theme.background.video.accent',
+    'theme.background.video.opacity',
+    'theme.background.gradient.angle',
+    'theme.background.gradient.start.rgb.r',
+    'theme.background.gradient.start.rgb.g',
+    'theme.background.gradient.start.rgb.b',
+    'theme.background.gradient.start.hsl.h',
+    'theme.background.gradient.start.hsl.s',
+    'theme.background.gradient.start.hsl.l',
+    'theme.background.gradient.end.rgb.r',
+    'theme.background.gradient.end.rgb.g',
+    'theme.background.gradient.end.rgb.b',
+    'theme.background.gradient.end.hsl.h',
+    'theme.background.gradient.end.hsl.s',
+    'theme.background.gradient.end.hsl.l',
+    'theme.radius',
+    'theme.shadow',
+    'theme.shade.opacity',
+    'theme.shade.blur'
+  ]);
+  applyCSSClass([
+    'theme.style',
+    'theme.bookmark.shadow.color.type',
+    'theme.background.type'
+  ]);
 };
 
 export { theme };

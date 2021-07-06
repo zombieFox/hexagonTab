@@ -67,6 +67,16 @@ update.all = {
       ui: { name: '', weight: 400, style: 'normal' }
     };
 
+    dataToUpdate.state.theme.accent.random = { active: false, style: 'any' };
+
+    dataToUpdate.state.shade.blur = 0;
+
+    dataToUpdate.state.toolbar.accent = { show: true };
+
+    dataToUpdate.state.toolbar.add = { show: true };
+
+    dataToUpdate.state.toolbar.edit = { show: true };
+
     return dataToUpdate;
   }
 };

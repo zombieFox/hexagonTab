@@ -11,6 +11,9 @@ import { Button } from '../button';
 import { Control_inputButton } from '../control/inputButton';
 
 import { node } from '../../utility/node';
+import { applyCSSVar } from '../../utility/applyCSSVar';
+import { applyCSSClass } from '../../utility/applyCSSClass';
+import { applyCSSState } from '../../utility/applyCSSState';
 
 const ToolbarControl = function() {
 
@@ -32,7 +35,14 @@ const ToolbarControl = function() {
       inputButtonStyle: ['dot', 'line'],
       inputButtonClassList: ['toolbar-item'],
       action: () => {
-        theme.render.accent();
+        applyCSSVar([
+          'theme.accent.rgb.r',
+          'theme.accent.rgb.g',
+          'theme.accent.rgb.b',
+          'theme.accent.hsl.h',
+          'theme.accent.hsl.s',
+          'theme.accent.hsl.l'
+        ]);
         this.update.style();
         data.save();
       }
@@ -88,11 +98,41 @@ const ToolbarControl = function() {
 
     };
 
-    this.element.group.appendChild(this.control.button.accent.button);
+    if (state.get.current().toolbar.accent.show) {
 
-    this.element.group.appendChild(this.control.button.add.button);
+      this.element.group.appendChild(this.control.button.accent.button);
 
-    this.element.group.appendChild(this.control.button.edit.button);
+    } else {
+
+      if (this.element.group.contains(this.control.button.accent.button)) {
+        this.element.group.removeChild(this.control.button.accent.button);
+      };
+
+    };
+
+    if (state.get.current().toolbar.add.show) {
+
+      this.element.group.appendChild(this.control.button.add.button);
+
+    } else {
+
+      if (this.element.group.contains(this.control.button.add.button)) {
+        this.element.group.removeChild(this.control.button.add.button);
+      };
+
+    };
+
+    if (state.get.current().toolbar.edit.show) {
+
+      this.element.group.appendChild(this.control.button.edit.button);
+
+    } else {
+
+      if (this.element.group.contains(this.control.button.edit.button)) {
+        this.element.group.removeChild(this.control.button.edit.button);
+      };
+
+    };
 
     this.element.group.appendChild(this.control.button.setting.button);
 
@@ -291,6 +331,10 @@ const ToolbarControl = function() {
 
   };
 
+  this.update.control = () => {
+    this.assemble();
+  };
+
   this.update.accent = () => {
 
     this.control.button.accent.update();
@@ -302,6 +346,8 @@ const ToolbarControl = function() {
   this.update.style();
 
   this.update.position();
+
+  this.update.control();
 
 };
 

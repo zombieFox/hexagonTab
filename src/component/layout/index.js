@@ -1,38 +1,29 @@
-import { state, presentationMode } from '../state';
+import { state } from '../state';
 import { data } from '../data';
+
 import { node } from '../../utility/node';
 
 import './index.css';
 
-const layoutWrap = node('div|class:layout-wrap');
-
-const layoutArea = node('div|class:layout-area');
-
 const layout = {}
 
-layout.render = function() {
-  layoutWrap.appendChild(layoutArea);
-
-  if (presentationMode) {
-    layoutArea.appendChild(node('div|class:presentation-name-wrap', node('h1:' + data.saveName + '|class:presentation-name')));
-  };
-
-  document.querySelector('body').appendChild(layoutWrap);
+layout.element = {
+  wrap: node('div|class:layout-wrap'),
+  area: node('div|class:layout-area')
 };
 
-layout.class = function() {
-  const html = document.querySelector('html');
+layout.area = {
+  render: () => {
 
-  if (presentationMode) {
-    html.classList.add('is-presentation-mode');
-  } else {
-    html.classList.remove('is-presentation-mode');
-  };
+    layout.element.wrap.appendChild(layout.element.area);
+
+    document.querySelector('body').appendChild(layout.element.wrap);
+
+  }
 };
 
-layout.init = function() {
-  layout.render();
-  layout.class();
+layout.init = () => {
+  layout.area.render();
 };
 
-export { layout, layoutWrap, layoutArea };
+export { layout };
