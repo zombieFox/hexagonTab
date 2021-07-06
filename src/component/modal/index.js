@@ -84,6 +84,8 @@ export const Modal = function({
       openAction();
     };
 
+    pageLock.render();
+
   };
 
   this.close = () => {
@@ -113,6 +115,8 @@ export const Modal = function({
       };
 
     }, 6000);
+
+    pageLock.render();
 
   };
 
@@ -314,7 +318,11 @@ export const Modal = function({
   };
 
   this.modal = () => {
+
+    state.get.current().modal = false;
+
     return this.element.modal;
+
   };
 
 };
