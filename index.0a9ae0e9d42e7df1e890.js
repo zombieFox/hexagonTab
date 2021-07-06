@@ -34,7 +34,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@keyframes appear {\n  0% {\n    opaci
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "::selection {\n  background-color: rgb(var(--theme-accent));\n  color: hsl(var(--theme-accent-text));\n}\n\n:root {\n  --font-size: 14px;\n}\n\n@media (min-width: 700px) {\n  :root {\n    --font-size: 16px;\n  }\n}\n\nhtml,\nbody {\n  background-color: hsl(var(--theme-primary-100));\n  font-size: var(--font-size);\n  line-height: 1.6;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  color: hsl(var(--theme-primary-text-100));\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\nbody {\n  min-width: 100vw;\n  min-height: 100vh;\n  display: grid;\n  align-items: center;\n  justify-content: stretch;\n}\n\nhtml.is-theme-style-dark,\n.is-theme-style-dark body,\nhtml.is-theme-style-light,\n.is-theme-style-light body {\n  background-color: hsl(var(--theme-primary-200));\n  color: hsl(var(--theme-primary-text-200));\n}\n\n@media (prefers-color-scheme: light) {\n\n  html.is-theme-style-system,\n  .is-theme-style-system body {\n    background-color: hsl(var(--theme-primary-200));\n    color: hsl(var(--theme-primary-text-200));\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n\n  html.is-theme-style-system,\n  .is-theme-style-system body {\n    background-color: hsl(var(--theme-primary-200));\n    color: hsl(var(--theme-primary-text-200));\n  }\n}\n\nhtml.is-theme-background-type-theme,\n.is-theme-background-type-theme body {\n  background-color: hsl(var(--theme-background-theme));\n}\n\nhtml.is-theme-background-type-accent,\n.is-theme-background-type-accent body {\n  background-color: rgb(var(--theme-background-accent));\n}\n\nhtml.is-theme-background-type-color,\n.is-theme-background-type-color body {\n  background-color: rgb(var(--theme-background-color));\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "::selection {\n  background-color: rgb(var(--theme-accent));\n  color: hsl(var(--theme-accent-rgb-text));\n}\n\n:root {\n  --font-size: 14px;\n}\n\n@media (min-width: 700px) {\n  :root {\n    --font-size: 16px;\n  }\n}\n\nhtml,\nbody {\n  background-color: hsl(var(--theme-primary-100));\n  font-size: var(--font-size);\n  line-height: 1.6;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  color: hsl(var(--theme-primary-text-100));\n  transition: background-color var(--layout-transition-extra-fast);\n}\n\nbody {\n  min-width: 100vw;\n  min-height: 100vh;\n  display: grid;\n  align-items: center;\n  justify-content: stretch;\n}\n\nhtml.is-theme-style-dark,\n.is-theme-style-dark body,\nhtml.is-theme-style-light,\n.is-theme-style-light body {\n  background-color: hsl(var(--theme-primary-200));\n  color: hsl(var(--theme-primary-text-200));\n}\n\n@media (prefers-color-scheme: light) {\n\n  html.is-theme-style-system,\n  .is-theme-style-system body {\n    background-color: hsl(var(--theme-primary-200));\n    color: hsl(var(--theme-primary-text-200));\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n\n  html.is-theme-style-system,\n  .is-theme-style-system body {\n    background-color: hsl(var(--theme-primary-200));\n    color: hsl(var(--theme-primary-text-200));\n  }\n}\n\nhtml.is-theme-background-type-theme,\n.is-theme-background-type-theme body {\n  background-color: hsl(var(--theme-background-theme));\n}\n\nhtml.is-theme-background-type-accent,\n.is-theme-background-type-accent body {\n  background-color: rgb(var(--theme-background-accent));\n}\n\nhtml.is-theme-background-type-color,\n.is-theme-background-type-color body {\n  background-color: rgb(var(--theme-background-color));\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -296,7 +296,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --z-index-background: 1000;
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  /* --bookmark-color-focus-hover: var(--theme-primary-200); */\n  --bookmark-color-focus-hover-light: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);\n  --bookmark-color-focus-hover-dark: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.is-theme-style-light {\n  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);\n}\n\n.is-theme-style-dark {\n  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);\n  }\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --bookmark-color: var(--theme-primary-100);\n  --bookmark-color-focus-hover-light: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc((var(--theme-primary-9-l) + 5) * 1%);\n  --bookmark-color-focus-hover-dark: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc((var(--theme-primary-1-l) + 5) * 1%);\n}\n\n:root {\n  --bookmark-display-visual-color: var(--theme-accent);\n  --bookmark-display-visual-color-focus-hover: var(--theme-accent);\n  --bookmark-display-name-color: var(--theme-primary-text-100);\n  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-100);\n}\n\n:root {\n  --theme-bookmark-shadow-color: var(--theme-bookmark-shadow-color-rgb-r), var(--theme-bookmark-shadow-color-rgb-g), var(--theme-bookmark-shadow-color-rgb-b);\n}\n\n:root {\n  /* --bookmark-shape: circle(45% at 50% 50%); */\n  /* --bookmark-shape: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0); */\n  --bookmark-shape: url(#bookmark-mask);\n}\n\n.is-theme-style-light {\n  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);\n}\n\n.is-theme-style-dark {\n  --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-light);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --bookmark-color-focus-hover: var(--bookmark-color-focus-hover-dark);\n  }\n}\n\n.bookmark {\n  position: relative;\n  height: 0;\n  padding-bottom: 86.5%;\n  z-index: 1;\n  transform-style: preserve-3d;\n  grid-row: var(--bookmark-row-start) / span 2;\n  grid-column: var(--bookmark-column-start) / span 3;\n}\n\n.bookmark:focus,\n.bookmark:hover,\n.bookmark:focus-within {\n  z-index: 2;\n}\n\n.bookmark-shadow-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);\n  pointer-events: none;\n  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);\n  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));\n}\n\n.bookmark:hover .bookmark-shadow-wrap,\n.bookmark-shadow-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000) - calc(var(--bookmark-hover-distance) / 1000) + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,\n.is-bookmark-edit .bookmark-shadow-wrap:hover {\n  filter: blur(0);\n  transform: translateZ(0) scale(0.2);\n}\n\n.bookmark-shadow {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n}\n\n.is-theme-bookmark-shadow-color-type-theme .bookmark-shadow {\n  background: rgb(var(--theme-accent));\n}\n\n.is-theme-bookmark-shadow-color-type-custom .bookmark-shadow {\n  background: rgb(var(--theme-bookmark-shadow-color));\n}\n\n.bookmark-content-wrap {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n  pointer-events: none;\n  user-select: none;\n  transition: transform var(--layout-transition-extra-fast);\n  transform: translateZ(0) scale(1);\n}\n\n.bookmark:hover .bookmark-content-wrap,\n.bookmark-content-wrap:hover {\n  transform: translateZ(calc(var(--bookmark-hover-distance) * 0.1em)) scale(calc(1 + calc(var(--bookmark-hover-size) / 100)));\n}\n\n.is-bookmark-edit .bookmark:hover .bookmark-content-wrap,\n.is-bookmark-edit .bookmark-content-wrap:hover {\n  transform: translateZ(0) scale(1);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before,\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0;\n  height: 100%;\n  transition: transform var(--layout-transition-extra-fast), width var(--layout-transition-extra-fast);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(0) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:before {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(90deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\nhtml:not(.is-bookmark-edit) .bookmark:hover:after {\n  transform: translateX(-50%) translateY(-50%) translateZ(calc(var(--bookmark-hover-distance) * 0.05em)) rotateX(90deg) rotateY(0deg) rotateZ(90deg);\n  width: calc(var(--bookmark-hover-distance) * 0.1em);\n}\n\n.bookmark-link {\n  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));\n  position: relative;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  pointer-events: all;\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  transition: background-color var(--layout-transition-extra-fast);\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover,\n.bookmark-link:active {\n  text-decoration: none;\n}\n\n.bookmark-link:focus,\n.bookmark-link:hover {\n  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));\n}\n\n.is-bookmark-edit .bookmark-link {\n  pointer-events: none;\n}\n\n.bookmark-display-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  pointer-events: all;\n  z-index: 2;\n}\n\n.bookmark-display {\n  display: flex;\n  flex-direction: var(--bookmark-display-direction);\n  align-items: center;\n  justify-content: center;\n  gap: calc(var(--bookmark-display-gutter) * 0.01em);\n  font-size: 1em;\n  transition: font-size var(--layout-transition-extra-fast);\n  transition-delay: calc(var(--bookmark-transition-delay) * 0.05s);\n  transform: translateX(calc(var(--bookmark-display-translate-x) * 0.1em)) translateY(calc(var(--bookmark-display-translate-y) * 0.1em)) rotate(calc(var(--bookmark-display-rotate) * 1deg));\n}\n\n.is-bookmark-edit .bookmark-display {\n  font-size: 0.5em;\n}\n\n.bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color));\n  line-height: 1;\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-visual,\n.bookmark:hover .bookmark-display-visual,\n.bookmark:focus-within .bookmark-display-visual {\n  color: rgb(var(--bookmark-display-visual-color-focus-hover));\n}\n\n.bookmark-display-visual-letter {\n  font-family: var(--theme-font-display-name);\n  font-weight: var(--theme-font-display-weight);\n  font-style: var(--theme-font-display-style);\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-icon {\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-visual-image {\n  background-image: var(--bookmark-display-visual-image-url);\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  width: 1em;\n  height: 1em;\n  font-size: calc(var(--bookmark-display-visual-size) * 0.1em);\n}\n\n.bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color));\n  font-size: calc(var(--bookmark-display-name-size) * 0.1em);\n  display: flex;\n  justify-content: center;\n  transition: color var(--layout-transition-extra-fast);\n}\n\n.bookmark:focus .bookmark-display-name,\n.bookmark:hover .bookmark-display-name,\n.bookmark:focus-within .bookmark-display-name {\n  color: hsl(var(--bookmark-display-name-color-focus-hover));\n}\n\n.bookmark-display-name-text {\n  text-align: center;\n}\n\n.bookmark-background-wrap {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  opacity: calc(var(--bookmark-background-opacity) / 100);\n  pointer-events: none;\n  z-index: 1;\n}\n\n.bookmark-background-image {\n  background-image: var(--bookmark-background-image-url);\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.bookmark-background-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.bookmark-control {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 3;\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(3, 1fr);\n  overflow: hidden;\n  clip-path: var(--bookmark-shape);\n  pointer-events: none;\n}\n\n.bookmark-control .bookmark-control-button {\n  padding: 0;\n  border-radius: 0;\n  position: relative;\n  transition: background-color var(--layout-transition-fast), border-color var(--layout-transition-fast), color var(--layout-transition-fast), top var(--layout-transition-fast), right var(--layout-transition-fast), bottom var(--layout-transition-fast), left var(--layout-transition-fast);\n}\n\n.bookmark-control-edit {\n  grid-row: 1;\n  grid-column: 3 / span 2;\n  top: -100%;\n}\n\n.bookmark-control-right {\n  grid-row: 2;\n  grid-column: 5 / span 2;\n  right: -100%;\n}\n\n.bookmark-control-remove {\n  grid-row: 3;\n  grid-column: 3 / span 2;\n  bottom: -100%;\n}\n\n.bookmark-control-left {\n  grid-row: 2;\n  grid-column: 1 / span 2;\n  left: -100%;\n}\n\n.is-bookmark-edit .bookmark-control-edit {\n  top: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-right {\n  right: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-remove {\n  bottom: 0;\n  transition-delay: calc(var(--layout-duration-02) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control-left {\n  left: 0;\n  transition-delay: calc(var(--layout-duration-04) + calc(var(--bookmark-transition-delay) * 0.05s));\n}\n\n.is-bookmark-edit .bookmark-control .bookmark-control-button {\n  pointer-events: all;\n}\n\n.bookmark-mask {\n  position: absolute;\n  width: 0;\n  height: 0;\n  padding: 0;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1106,7 +1106,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "*,\n*::before,\n*::after {\n  box-sizi
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: all;\n}\n\n.shade.is-transparent {\n  pointer-events: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".shade {\n  background-color: rgba(var(--theme-accent), calc(var(--theme-shade-opacity) / 100));\n  position: fixed;\n  top: -1em;\n  left: -1em;\n  width: calc(100vw + 2em);\n  height: calc(100vh + 2em);\n  opacity: 0;\n  z-index: var(--z-index-shade);\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);\n  pointer-events: all;\n  backdrop-filter: blur(calc(var(--theme-shade-blur) * 1px));\n}\n\n.shade.is-transparent {\n  pointer-events: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1166,7 +1166,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --tab-space: 2em;\n}\n\n.ta
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  /* calculates perceived lightness using the sRGB Luma method */\n  --theme-t: 0.55;\n  --theme-t-r: 0.2721;\n  --theme-t-g: 0.7152;\n  --theme-t-b: 0.1255;\n}\n\n:root {\n  --theme-accent-r: 25;\n  --theme-accent-g: 25;\n  --theme-accent-b: 25;\n  --theme-accent: var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b);\n  --theme-accent-text: 0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n:root {\n  --theme-font-display-name: \"Fjalla One\", sans-serif;\n  --theme-font-display-weight: 400;\n  --theme-font-display-style: \"normal\";\n  --theme-font-ui-name: \"Open Sans\", sans-serif;\n  --theme-font-ui-weight: 400;\n  --theme-font-ui-style: \"normal\";\n}\n\n:root {\n  --theme-black: 0, 0, 0;\n  --theme-white: 255, 255, 255;\n}\n\n:root {\n  --theme-background-accent: var(--theme-accent);\n  --theme-background-theme: var(--theme-primary-200);\n}\n\n:root {\n  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1em);\n}\n\n:root {\n  --theme-primary-1: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc(var(--theme-primary-1-l) * 1%);\n  --theme-primary-2: var(--theme-primary-2-h), calc(var(--theme-primary-2-s) * 1%), calc(var(--theme-primary-2-l) * 1%);\n  --theme-primary-3: var(--theme-primary-3-h), calc(var(--theme-primary-3-s) * 1%), calc(var(--theme-primary-3-l) * 1%);\n  --theme-primary-4: var(--theme-primary-4-h), calc(var(--theme-primary-4-s) * 1%), calc(var(--theme-primary-4-l) * 1%);\n  --theme-primary-5: var(--theme-primary-5-h), calc(var(--theme-primary-5-s) * 1%), calc(var(--theme-primary-5-l) * 1%);\n  --theme-primary-6: var(--theme-primary-6-h), calc(var(--theme-primary-6-s) * 1%), calc(var(--theme-primary-6-l) * 1%);\n  --theme-primary-7: var(--theme-primary-7-h), calc(var(--theme-primary-7-s) * 1%), calc(var(--theme-primary-7-l) * 1%);\n  --theme-primary-8: var(--theme-primary-8-h), calc(var(--theme-primary-8-s) * 1%), calc(var(--theme-primary-8-l) * 1%);\n  --theme-primary-9: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc(var(--theme-primary-9-l) * 1%);\n}\n\n.is-theme-style-light {\n  --theme-primary-100: var(--theme-primary-9);\n  --theme-primary-200: var(--theme-primary-8);\n  --theme-primary-300: var(--theme-primary-7);\n  --theme-primary-400: var(--theme-primary-6);\n  --theme-primary-500: var(--theme-primary-5);\n  --theme-primary-600: var(--theme-primary-4);\n  --theme-primary-700: var(--theme-primary-3);\n  --theme-primary-800: var(--theme-primary-2);\n  --theme-primary-900: var(--theme-primary-1);\n}\n\n.is-theme-style-dark {\n  --theme-primary-100: var(--theme-primary-1);\n  --theme-primary-200: var(--theme-primary-2);\n  --theme-primary-300: var(--theme-primary-3);\n  --theme-primary-400: var(--theme-primary-4);\n  --theme-primary-500: var(--theme-primary-5);\n  --theme-primary-600: var(--theme-primary-6);\n  --theme-primary-700: var(--theme-primary-7);\n  --theme-primary-800: var(--theme-primary-8);\n  --theme-primary-900: var(--theme-primary-9);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --theme-primary-100: var(--theme-primary-9);\n    --theme-primary-200: var(--theme-primary-8);\n    --theme-primary-300: var(--theme-primary-7);\n    --theme-primary-400: var(--theme-primary-6);\n    --theme-primary-500: var(--theme-primary-5);\n    --theme-primary-600: var(--theme-primary-4);\n    --theme-primary-700: var(--theme-primary-3);\n    --theme-primary-800: var(--theme-primary-2);\n    --theme-primary-900: var(--theme-primary-1);\n  }\n\n  .is-theme-style-system {\n    --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --theme-primary-100: var(--theme-primary-1);\n    --theme-primary-200: var(--theme-primary-2);\n    --theme-primary-300: var(--theme-primary-3);\n    --theme-primary-400: var(--theme-primary-4);\n    --theme-primary-500: var(--theme-primary-5);\n    --theme-primary-600: var(--theme-primary-6);\n    --theme-primary-700: var(--theme-primary-7);\n    --theme-primary-800: var(--theme-primary-8);\n    --theme-primary-900: var(--theme-primary-9);\n  }\n\n  .is-theme-style-system {\n    --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  }\n}\n\n.is-theme-style-light {\n  --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n.is-theme-style-dark {\n  --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n:root {\n  --theme-shadow: 1;\n  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);\n  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);\n  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);\n  --theme-shadow-offset-base: 20;\n  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);\n  --theme-shadow-blur-base: 30;\n  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);\n  --theme-shadow-opacity-base: 20;\n  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);\n  --theme-shadow-bottom-small:\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-large:\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-small:\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-large:\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n}\n\n.theme-color-box {\n  width: 100%;\n  height: 100%;\n}\n\n.theme-color-shade-01 {\n  background-color: hsl(var(--theme-primary-100));\n}\n\n.theme-color-shade-02 {\n  background-color: hsl(var(--theme-primary-200));\n}\n\n.theme-color-shade-03 {\n  background-color: hsl(var(--theme-primary-300));\n}\n\n.theme-color-shade-04 {\n  background-color: hsl(var(--theme-primary-400));\n}\n\n.theme-color-shade-05 {\n  background-color: hsl(var(--theme-primary-500));\n}\n\n.theme-color-shade-06 {\n  background-color: hsl(var(--theme-primary-600));\n}\n\n.theme-color-shade-07 {\n  background-color: hsl(var(--theme-primary-700));\n}\n\n.theme-color-shade-08 {\n  background-color: hsl(var(--theme-primary-800));\n}\n\n.theme-color-shade-09 {\n  background-color: hsl(var(--theme-primary-900));\n}\n\n.background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n  pointer-events: none;\n  z-index: var(--z-index-background);\n}\n\n.theme-background-type {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  display: block;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-medium);\n}\n\n.theme-background-type-theme {\n  background-color: rgb(var(--theme-background-theme));\n}\n\n.theme-background-type-accent {\n  background-color: rgb(var(--theme-background-accent));\n}\n\n.theme-background-type-color {\n  background-color: rgb(var(--theme-background-color));\n}\n\n.theme-background-type-gradient {\n  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));\n}\n\n.theme-background-type-image {\n  background-image: var(--theme-background-image);\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: center;\n  transform: scale(calc(calc(var(--theme-background-image-scale) / 100) + calc(var(--theme-background-image-blur) / 400)));\n  filter: blur(calc(var(--theme-background-image-blur) * 1px));\n}\n\n.theme-background-type-image:after {\n  content: \"\";\n  background-color: rgba(var(--theme-accent), calc(var(--theme-background-image-accent) / 100));\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n}\n\n.theme-background-type-video {\n  transform: scale(calc(var(--theme-background-video-scale) / 100));\n  filter: blur(calc(var(--theme-background-video-blur) * 1px));\n}\n\n.theme-background-type-video:after {\n  content: \"\";\n  background-color: rgba(var(--theme-accent), calc(var(--theme-background-video-accent) / 100));\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n}\n\n.theme-background-type-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.is-theme-background-type-theme .theme-background-type-theme {\n  opacity: 1;\n}\n\n.is-theme-background-type-accent .theme-background-type-accent {\n  opacity: 1;\n}\n\n.is-theme-background-type-color .theme-background-type-color {\n  opacity: 1;\n}\n\n.is-theme-background-type-gradient .theme-background-type-gradient {\n  opacity: 1;\n}\n\n.is-theme-background-type-image .theme-background-type-image {\n  opacity: calc(var(--theme-background-image-opacity) / 100);\n}\n\n.is-theme-background-type-video .theme-background-type-video {\n  opacity: calc(var(--theme-background-video-opacity) / 100);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  /* calculates perceived lightness using the sRGB Luma method */\n  --theme-t: 0.55;\n  --theme-t-r: 0.2721;\n  --theme-t-g: 0.7152;\n  --theme-t-b: 0.1255;\n}\n\n:root {\n  --theme-accent: var(--theme-accent-rgb-r), var(--theme-accent-rgb-g), var(--theme-accent-rgb-b);\n  --theme-accent-rgb-text: 0, 0%, calc(((((var(--theme-accent-rgb-r) * var(--theme-t-r)) + (var(--theme-accent-rgb-g) * var(--theme-t-g)) + (var(--theme-accent-rgb-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n:root {\n  --theme-font-display-name: \"Fjalla One\", sans-serif;\n  --theme-font-display-weight: 400;\n  --theme-font-display-style: \"normal\";\n  --theme-font-ui-name: \"Open Sans\", sans-serif;\n  --theme-font-ui-weight: 400;\n  --theme-font-ui-style: \"normal\";\n}\n\n:root {\n  --theme-black: 0, 0, 0;\n  --theme-white: 255, 255, 255;\n}\n\n:root {\n  --theme-background-accent: var(--theme-accent);\n}\n\n:root {\n  --theme-background-theme: var(--theme-primary-200);\n}\n\n:root {\n  --theme-background-gradient-start: var(--theme-background-gradient-start-rgb-r), var(--theme-background-gradient-start-rgb-g), var(--theme-background-gradient-start-rgb-b);\n  --theme-background-gradient-end: var(--theme-background-gradient-end-rgb-r), var(--theme-background-gradient-end-rgb-g), var(--theme-background-gradient-end-rgb-b);\n}\n\n:root {\n  --theme-background-color: var(--theme-background-color-rgb-r), var(--theme-background-color-rgb-g), var(--theme-background-color-rgb-b);\n  --theme-background-color-rgb-text: 0, 0%, calc(((((var(--theme-background-color-rgb-r) * var(--theme-t-r)) + (var(--theme-background-color-rgb-g) * var(--theme-t-g)) + (var(--theme-background-color-rgb-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n:root {\n  --theme-radius-base: calc(calc(var(--theme-radius) / 100) * 1em);\n}\n\n:root {\n  --theme-primary-1: var(--theme-primary-1-h), calc(var(--theme-primary-1-s) * 1%), calc(var(--theme-primary-1-l) * 1%);\n  --theme-primary-2: var(--theme-primary-2-h), calc(var(--theme-primary-2-s) * 1%), calc(var(--theme-primary-2-l) * 1%);\n  --theme-primary-3: var(--theme-primary-3-h), calc(var(--theme-primary-3-s) * 1%), calc(var(--theme-primary-3-l) * 1%);\n  --theme-primary-4: var(--theme-primary-4-h), calc(var(--theme-primary-4-s) * 1%), calc(var(--theme-primary-4-l) * 1%);\n  --theme-primary-5: var(--theme-primary-5-h), calc(var(--theme-primary-5-s) * 1%), calc(var(--theme-primary-5-l) * 1%);\n  --theme-primary-6: var(--theme-primary-6-h), calc(var(--theme-primary-6-s) * 1%), calc(var(--theme-primary-6-l) * 1%);\n  --theme-primary-7: var(--theme-primary-7-h), calc(var(--theme-primary-7-s) * 1%), calc(var(--theme-primary-7-l) * 1%);\n  --theme-primary-8: var(--theme-primary-8-h), calc(var(--theme-primary-8-s) * 1%), calc(var(--theme-primary-8-l) * 1%);\n  --theme-primary-9: var(--theme-primary-9-h), calc(var(--theme-primary-9-s) * 1%), calc(var(--theme-primary-9-l) * 1%);\n}\n\n.is-theme-style-light {\n  --theme-primary-100: var(--theme-primary-9);\n  --theme-primary-200: var(--theme-primary-8);\n  --theme-primary-300: var(--theme-primary-7);\n  --theme-primary-400: var(--theme-primary-6);\n  --theme-primary-500: var(--theme-primary-5);\n  --theme-primary-600: var(--theme-primary-4);\n  --theme-primary-700: var(--theme-primary-3);\n  --theme-primary-800: var(--theme-primary-2);\n  --theme-primary-900: var(--theme-primary-1);\n}\n\n.is-theme-style-dark {\n  --theme-primary-100: var(--theme-primary-1);\n  --theme-primary-200: var(--theme-primary-2);\n  --theme-primary-300: var(--theme-primary-3);\n  --theme-primary-400: var(--theme-primary-4);\n  --theme-primary-500: var(--theme-primary-5);\n  --theme-primary-600: var(--theme-primary-6);\n  --theme-primary-700: var(--theme-primary-7);\n  --theme-primary-800: var(--theme-primary-8);\n  --theme-primary-900: var(--theme-primary-9);\n}\n\n@media (prefers-color-scheme: light) {\n  .is-theme-style-system {\n    --theme-primary-100: var(--theme-primary-9);\n    --theme-primary-200: var(--theme-primary-8);\n    --theme-primary-300: var(--theme-primary-7);\n    --theme-primary-400: var(--theme-primary-6);\n    --theme-primary-500: var(--theme-primary-5);\n    --theme-primary-600: var(--theme-primary-4);\n    --theme-primary-700: var(--theme-primary-3);\n    --theme-primary-800: var(--theme-primary-2);\n    --theme-primary-900: var(--theme-primary-1);\n  }\n\n  .is-theme-style-system {\n    --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  .is-theme-style-system {\n    --theme-primary-100: var(--theme-primary-1);\n    --theme-primary-200: var(--theme-primary-2);\n    --theme-primary-300: var(--theme-primary-3);\n    --theme-primary-400: var(--theme-primary-4);\n    --theme-primary-500: var(--theme-primary-5);\n    --theme-primary-600: var(--theme-primary-6);\n    --theme-primary-700: var(--theme-primary-7);\n    --theme-primary-800: var(--theme-primary-8);\n    --theme-primary-900: var(--theme-primary-9);\n  }\n\n  .is-theme-style-system {\n    --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n    --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  }\n}\n\n.is-theme-style-light {\n  --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n.is-theme-style-dark {\n  --theme-primary-text-100: 0, 0%, calc(((((var(--theme-primary-1-r) * var(--theme-t-r)) + (var(--theme-primary-1-g) * var(--theme-t-g)) + (var(--theme-primary-1-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-200: 0, 0%, calc(((((var(--theme-primary-2-r) * var(--theme-t-r)) + (var(--theme-primary-2-g) * var(--theme-t-g)) + (var(--theme-primary-2-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-300: 0, 0%, calc(((((var(--theme-primary-3-r) * var(--theme-t-r)) + (var(--theme-primary-3-g) * var(--theme-t-g)) + (var(--theme-primary-3-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-400: 0, 0%, calc(((((var(--theme-primary-4-r) * var(--theme-t-r)) + (var(--theme-primary-4-g) * var(--theme-t-g)) + (var(--theme-primary-4-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-500: 0, 0%, calc(((((var(--theme-primary-5-r) * var(--theme-t-r)) + (var(--theme-primary-5-g) * var(--theme-t-g)) + (var(--theme-primary-5-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-600: 0, 0%, calc(((((var(--theme-primary-6-r) * var(--theme-t-r)) + (var(--theme-primary-6-g) * var(--theme-t-g)) + (var(--theme-primary-6-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-700: 0, 0%, calc(((((var(--theme-primary-7-r) * var(--theme-t-r)) + (var(--theme-primary-7-g) * var(--theme-t-g)) + (var(--theme-primary-7-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-800: 0, 0%, calc(((((var(--theme-primary-8-r) * var(--theme-t-r)) + (var(--theme-primary-8-g) * var(--theme-t-g)) + (var(--theme-primary-8-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n  --theme-primary-text-900: 0, 0%, calc(((((var(--theme-primary-9-r) * var(--theme-t-r)) + (var(--theme-primary-9-g) * var(--theme-t-g)) + (var(--theme-primary-9-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%);\n}\n\n:root {\n  --theme-shadow: 1;\n  --theme-shadow-size-small: calc(calc(var(--theme-shadow) / 100) * 1);\n  --theme-shadow-size-medium: calc(calc(var(--theme-shadow) / 100) * 2);\n  --theme-shadow-size-large: calc(calc(var(--theme-shadow) / 100) * 3);\n  --theme-shadow-offset-base: 20;\n  --theme-shadow-offset-y: calc(calc(var(--theme-shadow-offset-base) / 1000) * 1em);\n  --theme-shadow-blur-base: 30;\n  --theme-shadow-blur: calc(calc(var(--theme-shadow-blur-base) / 1000) * 1em);\n  --theme-shadow-opacity-base: 20;\n  --theme-shadow-opacity: calc(var(--theme-shadow-opacity-base) / 1000);\n  --theme-shadow-bottom-small:\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-bottom-large:\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-offset-y) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-small:\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-small) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-small) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-medium:\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-medium) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-medium) * calc(var(--theme-shadow-opacity) * 4)));\n  --theme-shadow-top-large:\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 2)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 4)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 1))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 4)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 8)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 2))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 8)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 16)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 3))),\n    0 calc(var(--theme-shadow-size-large) * calc(calc(var(--theme-shadow-offset-y) * -1) * 16)) calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-blur) * 32)) rgba(0, 0, 0, calc(var(--theme-shadow-size-large) * calc(var(--theme-shadow-opacity) * 4)));\n}\n\n.theme-color-box {\n  width: 100%;\n  height: 100%;\n}\n\n.theme-color-shade-01 {\n  background-color: hsl(var(--theme-primary-100));\n}\n\n.theme-color-shade-02 {\n  background-color: hsl(var(--theme-primary-200));\n}\n\n.theme-color-shade-03 {\n  background-color: hsl(var(--theme-primary-300));\n}\n\n.theme-color-shade-04 {\n  background-color: hsl(var(--theme-primary-400));\n}\n\n.theme-color-shade-05 {\n  background-color: hsl(var(--theme-primary-500));\n}\n\n.theme-color-shade-06 {\n  background-color: hsl(var(--theme-primary-600));\n}\n\n.theme-color-shade-07 {\n  background-color: hsl(var(--theme-primary-700));\n}\n\n.theme-color-shade-08 {\n  background-color: hsl(var(--theme-primary-800));\n}\n\n.theme-color-shade-09 {\n  background-color: hsl(var(--theme-primary-900));\n}\n\n.background {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n  pointer-events: none;\n  z-index: var(--z-index-background);\n}\n\n.theme-background-type {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  display: block;\n  opacity: 0;\n  transition: background-color var(--layout-transition-extra-fast), opacity var(--layout-transition-medium);\n}\n\n.theme-background-type-theme {\n  background-color: rgb(var(--theme-background-theme));\n}\n\n.theme-background-type-accent {\n  background-color: rgb(var(--theme-background-accent));\n}\n\n.theme-background-type-color {\n  background-color: rgb(var(--theme-background-color));\n}\n\n.theme-background-type-gradient {\n  background-image: linear-gradient(calc(var(--theme-background-gradient-angle) * 1deg), rgb(var(--theme-background-gradient-start)), rgb(var(--theme-background-gradient-end)));\n}\n\n.theme-background-type-image {\n  background-image: var(--theme-background-image);\n  background-attachment: fixed;\n  background-size: cover;\n  background-position: center;\n  transform: scale(calc(calc(var(--theme-background-image-scale) / 100) + calc(var(--theme-background-image-blur) / 400)));\n  filter: blur(calc(var(--theme-background-image-blur) * 1px));\n}\n\n.theme-background-type-image:after {\n  content: \"\";\n  background-color: rgba(var(--theme-accent), calc(var(--theme-background-image-accent) / 100));\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n}\n\n.theme-background-type-video {\n  transform: scale(calc(var(--theme-background-video-scale) / 100));\n  filter: blur(calc(var(--theme-background-video-blur) * 1px));\n}\n\n.theme-background-type-video:after {\n  content: \"\";\n  background-color: rgba(var(--theme-accent), calc(var(--theme-background-video-accent) / 100));\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n}\n\n.theme-background-type-video video {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  pointer-events: none;\n}\n\n.is-theme-background-type-theme .theme-background-type-theme {\n  opacity: 1;\n}\n\n.is-theme-background-type-accent .theme-background-type-accent {\n  opacity: 1;\n}\n\n.is-theme-background-type-color .theme-background-type-color {\n  opacity: 1;\n}\n\n.is-theme-background-type-gradient .theme-background-type-gradient {\n  opacity: 1;\n}\n\n.is-theme-background-type-image .theme-background-type-image {\n  opacity: calc(var(--theme-background-image-opacity) / 100);\n}\n\n.is-theme-background-type-video .theme-background-type-video {\n  opacity: calc(var(--theme-background-video-opacity) / 100);\n}\n\n.theme-accent-preset {\n  display: grid;\n  grid-gap: calc(var(--form-space) / 2);\n  grid-template-rows: repeat(7, auto);\n  grid-auto-flow: column;\n  justify-items: center;\n}\n\n.theme-accent-preset-item {\n  background-color: hsl(var(--theme-accent-preset-item-color-hsl-h), calc(var(--theme-accent-preset-item-color-hsl-s) * 1%), calc(var(--theme-accent-preset-item-color-hsl-l) * 1%));\n  padding: 0;\n  width: 1.5em;\n  height: 1.5em;\n  min-width: initial;\n  min-height: initial;\n}\n\n.theme-accent-preset-type-grey {\n  display: block;\n}\n\n.theme-accent-preset-type-primary {\n  display: block;\n}\n\n.theme-accent-preset-type-secondary {\n  display: none;\n}\n\n.theme-accent-preset-item:focus,\n.theme-accent-preset-item:hover,\n.theme-accent-preset-item:active {\n  background-color: hsl(var(--theme-accent-preset-item-color-hsl-h), calc(var(--theme-accent-preset-item-color-hsl-s) * 1%), calc(var(--theme-accent-preset-item-color-hsl-l) * 1%));\n}\n\n@media (min-width: 550px) {\n  .theme-accent-preset-item {\n    width: 1.25em;\n    height: 1.25em;\n  }\n\n  .theme-accent-preset-type-secondary {\n    display: block;\n  }\n}\n\n@media (min-width: 700px) {\n  .theme-accent-preset-item {\n    width: 1.5em;\n    height: 1.5em;\n  }\n\n  .theme-accent-preset-type-secondary {\n    display: none;\n  }\n}\n\n@media (min-width: 900px) {\n  .theme-accent-preset-item {\n    width: 1.25em;\n    height: 1.25em;\n  }\n\n  .theme-accent-preset-type-secondary {\n    display: block;\n  }\n}\n\n@media (min-width: 1100px) {\n  .theme-accent-preset-item {\n    width: 1.5em;\n    height: 1.5em;\n  }\n\n  .theme-accent-preset-type-secondary {\n    display: block;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2197,7 +2197,7 @@ __webpack_require__.r(component_form_namespaceObject);
 __webpack_require__.d(component_form_namespaceObject, {
   "feedback": () => (feedback_feedback),
   "fieldset": () => (fieldset_fieldset),
-  "grid": () => (form_grid_grid),
+  "grid": () => (grid_grid),
   "group": () => (group_group),
   "groupText": () => (groupText_groupText),
   "helper": () => (helper_helper),
@@ -2232,332 +2232,6 @@ var update = injectStylesIntoStyleTag_default()(component_reset/* default */.Z, 
 
 
 const reset_reset = {};
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/base/index.css
-var base = __webpack_require__(8179);
-;// CONCATENATED MODULE: ./src/component/base/base/index.css
-
-            
-
-var base_options = {};
-
-base_options.insert = "head";
-base_options.singleton = false;
-
-var base_update = injectStylesIntoStyleTag_default()(base/* default */.Z, base_options);
-
-
-
-/* harmony default export */ const base_base = (base/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/font/index.css
-var font = __webpack_require__(4548);
-;// CONCATENATED MODULE: ./src/component/base/font/index.css
-
-            
-
-var font_options = {};
-
-font_options.insert = "head";
-font_options.singleton = false;
-
-var font_update = injectStylesIntoStyleTag_default()(font/* default */.Z, font_options);
-
-
-
-/* harmony default export */ const base_font = (font/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/animation/index.css
-var animation = __webpack_require__(7208);
-;// CONCATENATED MODULE: ./src/component/base/animation/index.css
-
-            
-
-var animation_options = {};
-
-animation_options.insert = "head";
-animation_options.singleton = false;
-
-var animation_update = injectStylesIntoStyleTag_default()(animation/* default */.Z, animation_options);
-
-
-
-/* harmony default export */ const base_animation = (animation/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/spacing/index.css
-var spacing = __webpack_require__(4325);
-;// CONCATENATED MODULE: ./src/component/base/spacing/index.css
-
-            
-
-var spacing_options = {};
-
-spacing_options.insert = "head";
-spacing_options.singleton = false;
-
-var spacing_update = injectStylesIntoStyleTag_default()(spacing/* default */.Z, spacing_options);
-
-
-
-/* harmony default export */ const base_spacing = (spacing/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/state/index.css
-var state = __webpack_require__(5000);
-;// CONCATENATED MODULE: ./src/component/base/state/index.css
-
-            
-
-var state_options = {};
-
-state_options.insert = "head";
-state_options.singleton = false;
-
-var state_update = injectStylesIntoStyleTag_default()(state/* default */.Z, state_options);
-
-
-
-/* harmony default export */ const base_state = (state/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/typography/index.css
-var typography = __webpack_require__(5327);
-;// CONCATENATED MODULE: ./src/component/base/typography/index.css
-
-            
-
-var typography_options = {};
-
-typography_options.insert = "head";
-typography_options.singleton = false;
-
-var typography_update = injectStylesIntoStyleTag_default()(typography/* default */.Z, typography_options);
-
-
-
-/* harmony default export */ const base_typography = (typography/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/version/index.css
-var version = __webpack_require__(4975);
-;// CONCATENATED MODULE: ./src/component/base/version/index.css
-
-            
-
-var version_options = {};
-
-version_options.insert = "head";
-version_options.singleton = false;
-
-var version_update = injectStylesIntoStyleTag_default()(version/* default */.Z, version_options);
-
-
-
-/* harmony default export */ const base_version = (version/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/zindex/index.css
-var zindex = __webpack_require__(710);
-;// CONCATENATED MODULE: ./src/component/base/zindex/index.css
-
-            
-
-var zindex_options = {};
-
-zindex_options.insert = "head";
-zindex_options.singleton = false;
-
-var zindex_update = injectStylesIntoStyleTag_default()(zindex/* default */.Z, zindex_options);
-
-
-
-/* harmony default export */ const base_zindex = (zindex/* default.locals */.Z.locals || {});
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/utility/index.css
-var utility = __webpack_require__(6368);
-;// CONCATENATED MODULE: ./src/component/base/utility/index.css
-
-            
-
-var utility_options = {};
-
-utility_options.insert = "head";
-utility_options.singleton = false;
-
-var utility_update = injectStylesIntoStyleTag_default()(utility/* default */.Z, utility_options);
-
-
-
-/* harmony default export */ const base_utility = (utility/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/base/index.js
-
-
-
-
-
-
-
-
-
-
-const component_base_base = {};
-
-;// CONCATENATED MODULE: ./src/component/state/index.js
-const state_state = {};
-
-let presentationMode = false;
-
-state_state.current = {};
-
-state_state.default = {
-  grid: {
-    size: 100,
-    column: 4,
-    gap: 100,
-    perspective: 90,
-    transform: {
-      focus: 15,
-      refresh: 10,
-      rotate: { x: 15, y: 15, z: 0 }
-    }
-  },
-  bookmark: {
-    size: 70,
-    hover: { size: 0, distance: 15 },
-    shadow: { blur: 15, distance: 30 },
-    edit: false,
-    add: false
-  },
-  theme: {
-    color: {
-      range: { primary: { h: 210, s: 10 } },
-      lightness: { contrast: 32, offset: null, start: null, end: null },
-      shades: 9
-    },
-    accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 } },
-    font: {
-      display: { name: '', weight: 400, style: 'normal' },
-      ui: { name: '', weight: 400, style: 'normal' }
-    },
-    style: 'light',
-    bookmark: {
-      shadow: { opacity: 25, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } }
-    },
-    background: {
-      type: 'gradient',
-      color: { hsl: { h: 213, s: 40, l: 65 }, rgb: { r: 130, g: 162, b: 201 } },
-      gradient: {
-        angle: 160,
-        start: { hsl: { h: 191, s: 66, l: 62 }, rgb: { r: 94, g: 199, b: 222 } },
-        end: { hsl: { h: 243, s: 59, l: 22 }, rgb: { r: 26, g: 23, b: 89 } }
-      },
-      image: { url: '', blur: 0, scale: 100, accent: 0, opacity: 100 },
-      video: { url: '', blur: 0, scale: 100, accent: 0, opacity: 100 }
-    },
-    radius: 25,
-    shadow: 75,
-    shade: { opacity: 20 }
-  },
-  toolbar: { style: 'transparent', position: 'bottom-right' },
-  modal: false,
-  menu: false,
-  autoSuggest: false
-};
-
-state_state.minMax = {
-  grid: {
-    size: { min: 10, max: 200 },
-    column: { min: 1, max: 20 },
-    gap: { min: 0, max: 300 },
-    perspective: { min: 30, max: 400 },
-    transform: {
-      focus: { min: 0, max: 200 },
-      rotate: {
-        x: { min: -80, max: 80 },
-        y: { min: -80, max: 80 },
-        z: { min: -80, max: 80 }
-      }
-    }
-  },
-  bookmark: {
-    hover: {
-      size: { min: 0, max: 100 },
-      distance: { min: 0, max: 300 }
-    },
-    shadow: {
-      blur: { min: 0, max: 200 },
-      distance: { min: 0, max: 300 }
-    }
-  },
-  theme: {
-    color: {
-      range: { primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } } },
-      lightness: { contrast: { min: 5, max: 45 } }
-    },
-    accent: {
-      hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-      rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
-    },
-    font: {
-      display: { weight: { min: 100, max: 900 } },
-      ui: { weight: { min: 100, max: 900 } }
-    },
-    bookmark: {
-      shadow: {
-        opacity: { min: 0, max: 100 },
-        color: {
-          hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-          rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
-        }
-      }
-    },
-    background: {
-      color: {
-        hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-        rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
-      },
-      gradient: {
-        angle: { min: 0, max: 360 },
-        start: {
-          hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-          rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
-        },
-        end: {
-          hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
-          rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
-        },
-      },
-      image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } },
-      video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } }
-    },
-    shade: {
-      opacity: { min: 0, max: 100 }
-    }
-  }
-};
-
-state_state.step = {
-  theme: {
-    font: {
-      display: { weight: 100 },
-      ui: { weight: 100 }
-    }
-  }
-};
-
-state_state.default.theme.color.lightness.offset = state_state.minMax.theme.color.lightness.contrast.max - state_state.default.theme.color.lightness.contrast;
-
-state_state.default.theme.color.lightness.start = state_state.default.theme.color.lightness.offset;
-
-state_state.default.theme.color.lightness.end = 100 - state_state.default.theme.color.lightness.offset;
-
-state_state.get = {
-  current: () => { return state_state.current },
-  default: () => { return JSON.parse(JSON.stringify(state_state.default)) },
-  minMax: () => { return JSON.parse(JSON.stringify(state_state.minMax)) },
-  step: () => { return JSON.parse(JSON.stringify(state_state.step)) }
-};
-
-state_state.set = {
-  restore: (dataToRestore) => {
-    state_state.current = dataToRestore.state;
-    console.log('state restored');
-  },
-  default: () => {
-    state_state.current = state_state.get.default();
-    console.log('state set to default');
-  }
-};
-
-
 
 ;// CONCATENATED MODULE: ./src/utility/node.js
 const node_node = function(string, node) {
@@ -2645,994 +2319,151 @@ const node_node = function(string, node) {
   return element;
 };
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/layout/index.css
-var layout = __webpack_require__(9209);
-;// CONCATENATED MODULE: ./src/component/layout/index.css
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/icon/index.css
+var icon = __webpack_require__(2826);
+;// CONCATENATED MODULE: ./src/component/icon/index.css
 
             
 
-var layout_options = {};
+var icon_options = {};
 
-layout_options.insert = "head";
-layout_options.singleton = false;
+icon_options.insert = "head";
+icon_options.singleton = false;
 
-var layout_update = injectStylesIntoStyleTag_default()(layout/* default */.Z, layout_options);
-
-
-
-/* harmony default export */ const component_layout = (layout/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/layout/index.js
+var icon_update = injectStylesIntoStyleTag_default()(icon/* default */.Z, icon_options);
 
 
+
+/* harmony default export */ const component_icon = (icon/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/icon/index.js
 
 
 
 
-const layoutWrap = node_node('div|class:layout-wrap');
+const icon_icon = {};
 
-const layoutArea = node_node('div|class:layout-area');
-
-const layout_layout = {}
-
-layout_layout.render = function() {
-  layoutWrap.appendChild(layoutArea);
-
-  if (presentationMode) {
-    layoutArea.appendChild(node_node('div|class:presentation-name-wrap', node_node('h1:' + data.saveName + '|class:presentation-name')));
-  };
-
-  document.querySelector('body').appendChild(layoutWrap);
-};
-
-layout_layout.class = function() {
-  const html = document.querySelector('html');
-
-  if (presentationMode) {
-    html.classList.add('is-presentation-mode');
-  } else {
-    html.classList.remove('is-presentation-mode');
-  };
-};
-
-layout_layout.init = function() {
-  layout_layout.render();
-  layout_layout.class();
-};
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/grid/index.css
-var grid = __webpack_require__(3742);
-;// CONCATENATED MODULE: ./src/component/grid/index.css
-
-            
-
-var grid_options = {};
-
-grid_options.insert = "head";
-grid_options.singleton = false;
-
-var grid_update = injectStylesIntoStyleTag_default()(grid/* default */.Z, grid_options);
-
-
-
-/* harmony default export */ const component_grid = (grid/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/grid/index.js
-
-
-
-
-
-
-
-const grid_grid = {};
-
-const gridArea = node_node('div|class:grid-area');
-
-const gridList = node_node('div|class:grid-list');
-
-grid_grid.mod = {};
-
-grid_grid.render = {};
-
-grid_grid.render.area = function() {
-  gridArea.appendChild(gridList);
-  layoutArea.appendChild(gridArea);
-};
-
-grid_grid.render.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--grid-size', state_state.get.current().grid.size);
-  html.style.setProperty('--grid-column', state_state.get.current().grid.column);
-  html.style.setProperty('--grid-perspective', state_state.get.current().grid.perspective);
-  html.style.setProperty('--grid-gap', state_state.get.current().grid.gap);
-};
-
-grid_grid.render.rotate = {
-  bind: function() {
-    gridArea.addEventListener('mouseenter', function(event) {
-      grid_grid.render.rotate.position.origin.set();
-      grid_grid.render.rotate.update(event);
-    });
-    gridArea.addEventListener('mouseleave', function(event) {
-      grid_grid.render.rotate.position.origin.set();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
-    });
-    gridArea.addEventListener('mousemove', function(event) {
-      if (grid_grid.render.rotate.delay.check()) {
-        grid_grid.render.rotate.position.origin.set();
-        grid_grid.render.rotate.update(event);
-      }
-    });
+icon_icon.all = {
+  add: {
+    name: 'add',
+    path: 'M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z'
   },
-  position: {
-    origin: {
-      set: function() {
-        // set center point of grid area from top left of viewport
-        grid_grid.render.rotate.position.origin.get.x = gridArea.offsetLeft + Math.floor(gridArea.offsetWidth / 2);
-        grid_grid.render.rotate.position.origin.get.y = gridArea.offsetTop + Math.floor(gridArea.offsetHeight / 2);
-      },
-      get: { x: 0, y: 0 }
-    },
-    current: {
-      set: function() {
-        // set mouse position from center of grid area
-        grid_grid.render.rotate.position.current.get.x = (event.clientX - grid_grid.render.rotate.position.origin.get.x) * -1;
-        grid_grid.render.rotate.position.current.get.y = (event.clientY - grid_grid.render.rotate.position.origin.get.y);
-      },
-      get: { x: 0, y: 0 }
-    }
+  arrowBack: {
+    name: 'arrow-back',
+    path: 'M20.016 11.016v1.969h-12.188l5.578 5.625-1.406 1.406-8.016-8.016 8.016-8.016 1.406 1.406-5.578 5.625h12.188z'
   },
-  delay: {
-    counter: 0,
-    check: function() {
-      let refreshRate = state_state.get.current().grid.transform.refresh;
-      grid_grid.render.rotate.delay.counter++
-      if (grid_grid.render.rotate.delay.counter % refreshRate === 0) {
-        grid_grid.render.rotate.delay.counter = 0;
-        return true;
-      } else {
-        return false;
-      };
-    }
+  arrowDownward: {
+    name: 'arrow-downward',
+    path: 'M20.016 12l-8.016 8.016-8.016-8.016 1.453-1.406 5.578 5.578v-12.188h1.969v12.188l5.625-5.578z'
   },
-  update: function() {
-    grid_grid.render.rotate.position.current.set(event);
-    grid_grid.render.rotate.style(
-      state_state.get.current().grid.transform.rotate.x + ((grid_grid.render.rotate.position.current.get.y / gridList.offsetHeight / 2).toFixed(4) * state_state.get.current().grid.transform.focus),
-      state_state.get.current().grid.transform.rotate.y + ((grid_grid.render.rotate.position.current.get.x / gridList.offsetWidth / 2).toFixed(4) * state_state.get.current().grid.transform.focus),
-      state_state.get.current().grid.transform.rotate.z
-    );
+  arrowForward: {
+    name: 'arrow-forward',
+    path: 'M12 3.984l8.016 8.016-8.016 8.016-1.406-1.406 5.578-5.625h-12.188v-1.969h12.188l-5.578-5.625z'
   },
-  style: function(x, y, z) {
-    const html = document.querySelector('html');
-    html.style.setProperty('--grid-transform-rotate-x', x);
-    html.style.setProperty('--grid-transform-rotate-y', y);
-    html.style.setProperty('--grid-transform-rotate-z', z);
+  arrowUpward: {
+    name: 'arrow-upward',
+    path: 'M3.984 12l8.016-8.016 8.016 8.016-1.453 1.406-5.578-5.578v12.188h-1.969v-12.188l-5.625 5.578z'
+  },
+  check: {
+    name: 'check',
+    path: 'M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z'
+  },
+  cross: {
+    name: 'cross',
+    path: 'M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z'
+  },
+  arrowKeyboardDown: {
+    name: 'arrow-keyboard-down',
+    path: 'M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'
+  },
+  arrowKeyboardLeft: {
+    name: 'arrow-keyboard-left',
+    path: 'M15.422 16.078l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z'
+  },
+  arrowKeyboardRight: {
+    name: 'arrow-keyboard-right',
+    path: 'M8.578 16.359l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z'
+  },
+  arrowKeyboardUp: {
+    name: 'arrow-keyboard-up',
+    path: 'M7.406 15.422l-1.406-1.406 6-6 6 6-1.406 1.406-4.594-4.594z'
+  },
+  edit: {
+    name: 'edit',
+    path: 'M20.719 7.031l-1.828 1.828-3.75-3.75 1.828-1.828c0.375-0.375 1.031-0.375 1.406 0l2.344 2.344c0.375 0.375 0.375 1.031 0 1.406zM3 17.25l11.063-11.063 3.75 3.75-11.063 11.063h-3.75v-3.75z'
+  },
+  moreHorizontal: {
+    name: 'more-horizontal',
+    path: 'M12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM18 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM6 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016z'
+  },
+  moreVertical: {
+    name: 'more-vertical',
+    path: 'M12 15.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 8.016c-1.078 0-2.016-0.938-2.016-2.016s0.938-2.016 2.016-2.016 2.016 0.938 2.016 2.016-0.938 2.016-2.016 2.016z'
+  },
+  redo: {
+    name: 'redo',
+    path: 'M18.422 10.594l3.563-3.609v9h-9l3.656-3.609q-2.25-1.875-5.156-1.875-2.391 0-4.617 1.594t-2.977 3.891l-2.344-0.75q1.031-3.188 3.773-5.203t6.164-2.016q3.984 0 6.938 2.578z'
+  },
+  refresh: {
+    name: 'refresh',
+    path: 'M17.672 6.328l2.344-2.344v7.031h-7.031l3.234-3.234c-1.078-1.078-2.578-1.781-4.219-1.781-3.328 0-6 2.672-6 6s2.672 6 6 6c2.625 0 4.875-1.641 5.672-3.984h2.063c-0.891 3.469-3.984 6-7.734 6-4.406 0-7.969-3.609-7.969-8.016s3.563-8.016 7.969-8.016c2.203 0 4.219 0.891 5.672 2.344z'
+  },
+  remove: {
+    name: 'remove',
+    path: 'M18.984 12.984h-13.969v-1.969h13.969v1.969z'
+  },
+  reorder: {
+    name: 'reorder',
+    path: 'M3 5.016h18v1.969h-18v-1.969zM3 11.016v-2.016h18v2.016h-18zM3 18.984v-1.969h18v1.969h-18zM3 15v-2.016h18v2.016h-18z'
+  },
+  replay: {
+    name: 'replay',
+    path: 'M12 5.016q3.328 0 5.672 2.344t2.344 5.625q0 3.328-2.367 5.672t-5.648 2.344-5.648-2.344-2.367-5.672h2.016q0 2.484 1.758 4.242t4.242 1.758 4.242-1.758 1.758-4.242-1.758-4.242-4.242-1.758v4.031l-5.016-5.016 5.016-5.016v4.031z'
+  },
+  settings: {
+    name: 'settings',
+    path: 'M12 15.516c1.922 0 3.516-1.594 3.516-3.516s-1.594-3.516-3.516-3.516-3.516 1.594-3.516 3.516 1.594 3.516 3.516 3.516zM19.453 12.984l2.109 1.641c0.188 0.141 0.234 0.422 0.094 0.656l-2.016 3.469c-0.141 0.234-0.375 0.281-0.609 0.188l-2.484-0.984c-0.516 0.375-1.078 0.75-1.688 0.984l-0.375 2.625c-0.047 0.234-0.234 0.422-0.469 0.422h-4.031c-0.234 0-0.422-0.188-0.469-0.422l-0.375-2.625c-0.609-0.234-1.172-0.563-1.688-0.984l-2.484 0.984c-0.234 0.094-0.469 0.047-0.609-0.188l-2.016-3.469c-0.141-0.234-0.094-0.516 0.094-0.656l2.109-1.641c-0.047-0.328-0.047-0.656-0.047-0.984s0-0.656 0.047-0.984l-2.109-1.641c-0.188-0.141-0.234-0.422-0.094-0.656l2.016-3.469c0.141-0.234 0.375-0.281 0.609-0.188l2.484 0.984c0.516-0.375 1.078-0.75 1.688-0.984l0.375-2.625c0.047-0.234 0.234-0.422 0.469-0.422h4.031c0.234 0 0.422 0.188 0.469 0.422l0.375 2.625c0.609 0.234 1.172 0.563 1.688 0.984l2.484-0.984c0.234-0.094 0.469-0.047 0.609 0.188l2.016 3.469c0.141 0.234 0.094 0.516-0.094 0.656l-2.109 1.641c0.047 0.328 0.047 0.656 0.047 0.984s0 0.656-0.047 0.984z'
+  },
+  undo: {
+    name: 'undo',
+    path: 'M12.516 8.016q3.422 0 6.141 2.016t3.797 5.203l-2.344 0.75q-0.797-2.438-2.883-3.961t-4.711-1.523q-2.906 0-5.156 1.875l3.656 3.609h-9v-9l3.563 3.609q2.953-2.578 6.938-2.578z'
+  },
+  unfoldLess: {
+    name: 'unfold-less',
+    path: 'M16.594 5.391l-4.594 4.594-4.594-4.594 1.406-1.406 3.188 3.188 3.188-3.188zM7.406 18.609l4.594-4.594 4.594 4.594-1.406 1.406-3.188-3.188-3.188 3.188z'
+  },
+  unfoldMore: {
+    name: 'unfold-more',
+    path: 'M12 18.188l3.188-3.188 1.406 1.406-4.594 4.594-4.594-4.594 1.406-1.406zM12 5.813l-3.188 3.188-1.406-1.406 4.594-4.594 4.594 4.594-1.406 1.406z'
+  },
+  coffee: {
+    name: 'coffee',
+    path: 'M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z'
+  },
+  drag: {
+    name: 'drag',
+    path: 'M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z'
   }
 };
 
-grid_grid.init = function() {
-  grid_grid.render.style();
-  grid_grid.render.area();
-  grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
-  grid_grid.render.rotate.position.origin.set();
-  grid_grid.render.rotate.bind();
+icon_icon.render = (name) => {
+  const iconElement = node_node('span|class:icon');
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('version', '1.1');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('width', '24');
+  svg.setAttribute('height', '24');
+  svg.setAttribute('fill', 'currentColor');
+
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', icon_icon.all[name].path);
+
+  svg.appendChild(path);
+  iconElement.appendChild(svg);
+
+  return iconElement;
 };
 
 
-;// CONCATENATED MODULE: ./src/utility/convertColor.js
-const convertColor = {
-  rgb: {},
-  hsl: {},
-  hex: {}
-};
-
-convertColor.rgb.hsl = function(rgb) {
-  var r = rgb.r / 255;
-  var g = rgb.g / 255;
-  var b = rgb.b / 255;
-  var min = Math.min(r, g, b);
-  var max = Math.max(r, g, b);
-  var delta = max - min;
-  var h;
-  var s;
-
-  if (max === min) {
-    h = 0;
-  } else if (r === max) {
-    h = (g - b) / delta;
-  } else if (g === max) {
-    h = 2 + (b - r) / delta;
-  } else if (b === max) {
-    h = 4 + (r - g) / delta;
-  };
-
-  h = Math.min(h * 60, 360);
-
-  if (h < 0) {
-    h += 360;
-  };
-
-  var l = (min + max) / 2;
-
-  if (max === min) {
-    s = 0;
-  } else if (l <= 0.5) {
-    s = delta / (max + min);
-  } else {
-    s = delta / (2 - max - min);
-  };
-
-  return {
-    h: Math.round(h),
-    s: Math.round(s * 100),
-    l: Math.round(l * 100)
-  };
-};
-
-convertColor.rgb.hex = function(args) {
-  var integer = ((Math.round(args.r) & 0xFF) << 16) +
-    ((Math.round(args.g) & 0xFF) << 8) +
-    (Math.round(args.b) & 0xFF);
-
-  var string = integer.toString(16);
-  return '#' + '000000'.substring(string.length) + string;
-};
-
-convertColor.hsl.rgb = function(hsl) {
-  var h = hsl.h / 360;
-  var s = hsl.s / 100;
-  var l = hsl.l / 100;
-  var t2;
-  var t3;
-  var val;
-
-  if (s === 0) {
-    val = l * 255;
-    return {
-      r: Math.round(val),
-      g: Math.round(val),
-      b: Math.round(val)
-    };
-  };
-
-  if (l < 0.5) {
-    t2 = l * (1 + s);
-  } else {
-    t2 = l + s - l * s;
-  };
-
-  var t1 = 2 * l - t2;
-
-  var rgb = [0, 0, 0];
-
-  for (var i = 0; i < 3; i++) {
-    t3 = h + 1 / 3 * -(i - 1);
-    if (t3 < 0) {
-      t3++;
-    };
-
-    if (t3 > 1) {
-      t3--;
-    };
-
-    if (6 * t3 < 1) {
-      val = t1 + (t2 - t1) * 6 * t3;
-    } else if (2 * t3 < 1) {
-      val = t2;
-    } else if (3 * t3 < 2) {
-      val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
-    } else {
-      val = t1;
-    };
-
-    rgb[i] = val * 255;
-  };
-
-  return {
-    r: Math.round(rgb[0]),
-    g: Math.round(rgb[1]),
-    b: Math.round(rgb[2])
-  };
-};
-
-convertColor.hex.rgb = function(args) {
-  var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
-  if (!match) {
-    return {
-      r: 0,
-      g: 0,
-      b: 0
-    };
-  };
-
-  var colorString = match[0];
-
-  if (match[0].length === 3) {
-    colorString = colorString.split('').map(function(char) {
-      return char + char;
-    }).join('');
-  };
-
-  var integer = parseInt(colorString, 16);
-  var r = (integer >> 16) & 0xFF;
-  var g = (integer >> 8) & 0xFF;
-  var b = integer & 0xFF;
-
-  return {
-    r: r,
-    g: g,
-    b: b
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/isValidString.js
-const isValidString = function(value) {
-  let result = false;
-
-  if (typeof value == 'string') {
-    value = value.trim().replace(/\s/g, '');
-    if (value != '') {
-      result = true;
-    };
-  };
-
-  return result;
-};
-
-;// CONCATENATED MODULE: ./src/component/video/index.js
-
-
-
-
-
-
-
-
-const Video = function({
-  url = false
-} = {}) {
-
-  this.video = node_node('video|autoplay,loop,muted');
-
-  this.source = node_node('source');
-
-  this.video.appendChild(this.source);
-
-  if (isValidString(url)) {
-
-    this.source.src = url;
-
-    this.video.muted = true;
-
-    this.video.loop = true;
-
-    this.video.autoplay = true;
-
-  };
-
-  if (url.includes('mp4') || url.endsWith('mp4')) {
-
-    this.source.type = 'video/mp4';
-
-  } else if (url.includes('webm') || url.endsWith('webm')) {
-
-    this.source.type = 'video/webm';
-
-  };
-
-  this.play = () => {
-    this.video.play();
-  };
-
-  this.pause = () => {
-    var playPromise = this.video.play();
-
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        this.video.pause();
-      });
-    };
-  };
-
-};
-
-
-
-;// CONCATENATED MODULE: ./src/utility/trimString.js
-const trimString_trimString = function(value) {
-  if (typeof value == 'string') {
-    return value.trim().replace(/\s\s+/g, ' ');
-  } else {
-    return value;
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/clearChildNode.js
-const clearChildNode_clearChildNode = function(element) {
-
-  while (element.lastChild) {
-    element.removeChild(element.lastChild);
-  };
-
-};
-
-// EXTERNAL MODULE: ./node_modules/webfontloader/webfontloader.js
-var webfontloader = __webpack_require__(5933);
-var webfontloader_default = /*#__PURE__*/__webpack_require__.n(webfontloader);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/theme/index.css
-var theme = __webpack_require__(8776);
-;// CONCATENATED MODULE: ./src/component/theme/index.css
-
-            
-
-var theme_options = {};
-
-theme_options.insert = "head";
-theme_options.singleton = false;
-
-var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, theme_options);
-
-
-
-/* harmony default export */ const component_theme = (theme/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/theme/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let timerFontDisplay = null;
-
-let timerFontUi = null;
-
-const theme_theme = {};
-
-theme_theme.bind = {};
-
-theme_theme.bind.style = {
-  initial: function() {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
-      theme_theme.mod.style.initial();
-    });
-  }
-};
-
-theme_theme.mod = {};
-
-theme_theme.mod.style = {
-  initial: function() {
-    switch (state_state.get.current().theme.style) {
-      case 'dark':
-      case 'light':
-        localStorage.setItem(data.saveName + 'Style', state_state.get.current().theme.style);
-        break;
-
-      case 'system':
-        if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'dark');
-        } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'light');
-        };
-        break;
-    };
-  },
-  light: function() {
-    state_state.get.current().theme.style = 'light';
-  },
-  dark: function() {
-    state_state.get.current().theme.style = 'dark';
-  }
-};
-
-theme_theme.render = {};
-
-theme_theme.render.font = {};
-
-theme_theme.render.font.load = {
-  display: function() {
-
-    const displayFont = trimString_trimString(state_state.get.current().theme.font.display.name);
-
-    if (isValidString(displayFont)) {
-
-      webfontloader_default().load({
-        // fontloading: function(familyName, fvd) {
-        //   console.log('fontloading:', familyName);
-        // },
-        google: {
-          families: [trimString_trimString(displayFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'],
-        }
-      });
-
-    };
-
-    theme_theme.render.font.display.name();
-
-  },
-  ui: function() {
-
-    const uiFont = trimString_trimString(state_state.get.current().theme.font.ui.name);
-
-    if (isValidString(uiFont)) {
-
-      webfontloader_default().load({
-        // fontloading: function(familyName, fvd) {
-        //   console.log('fontloading:', familyName);
-        // },
-        google: {
-          families: [trimString_trimString(uiFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'],
-        }
-      });
-
-    };
-
-    theme_theme.render.font.ui.name();
-
-  }
-};
-
-theme_theme.render.font.delay = {
-  display: function() {
-
-    clearTimeout(timerFontDisplay);
-
-    timerFontDisplay = setTimeout(theme_theme.render.font.load.display, 600);
-
-  },
-  ui: function() {
-
-    clearTimeout(timerFontUi);
-
-    timerFontUi = setTimeout(theme_theme.render.font.load.ui, 600);
-
-  }
-};
-
-theme_theme.render.font.display = {
-  name: function() {
-    const html = document.querySelector('html');
-
-    if (isValidString(state_state.get.current().theme.font.display.name)) {
-
-      html.style.setProperty('--theme-font-display-name', '"' + trimString_trimString(state_state.get.current().theme.font.display.name) + '", "Fjalla One", sans-serif');
-
-    } else {
-
-      html.style.removeProperty('--theme-font-display-name');
-
-    };
-
-  },
-  weight: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--theme-font-display-weight', state_state.get.current().theme.font.display.weight);
-
-  },
-  style: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.removeProperty('--theme-font-display-style');
-
-    html.style.setProperty('--theme-font-display-style', state_state.get.current().theme.font.display.style);
-
-  }
-};
-
-theme_theme.render.font.ui = {
-  name: function() {
-    const html = document.querySelector('html');
-
-    if (isValidString(state_state.get.current().theme.font.ui.name)) {
-
-      html.style.setProperty('--theme-font-ui-name', '"' + trimString_trimString(state_state.get.current().theme.font.ui.name) + '", "Open Sans", sans-serif');
-
-    } else {
-
-      html.style.removeProperty('--theme-font-ui-name');
-
-    };
-
-  },
-  weight: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--theme-font-ui-weight', state_state.get.current().theme.font.ui.weight);
-
-  },
-  style: function() {
-
-    const html = document.querySelector('html');
-
-    html.style.removeProperty('--theme-font-ui-style');
-
-    html.style.setProperty('--theme-font-ui-style', state_state.get.current().theme.font.ui.style);
-
-  }
-};
-
-theme_theme.render.color = function() {
-  const html = document.querySelector('html');
-
-  let shades = (state_state.get.current().theme.color.lightness.end - state_state.get.current().theme.color.lightness.start) / (state_state.get.current().theme.color.shades - 1);
-
-  for (var type in state_state.get.current().theme.color.range) {
-
-    for (var i = 0; i < state_state.get.current().theme.color.shades; i++) {
-
-      let hsl = JSON.parse(JSON.stringify(state_state.get.current().theme.color.range[type]));
-
-      hsl.l = Math.round((shades * i) + state_state.get.current().theme.color.lightness.start);
-
-      let rgb = convertColor.hsl.rgb(hsl);
-
-      for (var key in rgb) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
-      };
-
-      for (var key in hsl) {
-        html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
-      };
-
-    };
-
-  };
-
-};
-
-theme_theme.render.class = function() {
-  const html = document.querySelector('html');
-
-  const type = ['dark', 'light', 'system', 'theme', 'custom'];
-
-  type.forEach((item, i) => {
-    html.classList.remove('is-theme-style-' + item);
-    html.classList.remove('is-theme-bookmark-shadow-color-type-' + item);
-  });
-
-  html.classList.add('is-theme-style-' + state_state.get.current().theme.style);
-  html.classList.add('is-theme-bookmark-shadow-color-type-' + state_state.get.current().theme.bookmark.shadow.color.type);
-};
-
-theme_theme.render.accent = function() {
-  const html = document.querySelector('html');
-  const rgb = state_state.get.current().theme.accent.rgb;
-  html.style.setProperty('--theme-accent-r', rgb.r);
-  html.style.setProperty('--theme-accent-g', rgb.g);
-  html.style.setProperty('--theme-accent-b', rgb.b);
-};
-
-theme_theme.render.radius = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-radius', state_state.get.current().theme.radius);
-};
-
-theme_theme.render.shadow = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-shadow', state_state.get.current().theme.shadow);
-};
-
-theme_theme.render.shade = {
-  opacity: function() {
-    const html = document.querySelector('html');
-    html.style.setProperty("--theme-shade-opacity", state_state.get.current().theme.shade.opacity);
-  }
-};
-
-theme_theme.style = {
-  dark: function() {
-    theme_theme.mod.style.dark();
-    theme_theme.mod.style.initial();
-    theme_theme.render.class();
-  },
-  light: function() {
-    theme_theme.mod.style.light();
-    theme_theme.mod.style.initial();
-    theme_theme.render.class();
-  },
-  toggle: function() {
-    if (state_state.get.current().theme.style == 'dark') {
-      theme_theme.style.light();
-    } else if (state_state.get.current().theme.style == 'light') {
-      theme_theme.style.dark();
-    };
-  }
-};
-
-theme_theme.render.bookmark = {};
-
-theme_theme.render.bookmark.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--theme-bookmark-shadow-color', state_state.get.current().theme.bookmark.shadow.color.rgb.r + ', ' + state_state.get.current().theme.bookmark.shadow.color.rgb.g + ', ' + state_state.get.current().theme.bookmark.shadow.color.rgb.b);
-  html.style.setProperty('--theme-bookmark-shadow-opacity', state_state.get.current().theme.bookmark.shadow.opacity);
-};
-
-theme_theme.render.background = {};
-
-theme_theme.render.background.choices = ['theme', 'accent', 'color', 'gradient', 'image', 'video'];
-
-theme_theme.render.background.area = function() {
-  const backgroundElement = node_node('div|class:background');
-
-  theme_theme.render.background.choices.forEach((item, i) => {
-    backgroundElement.appendChild(node_node('div|class:theme-background-type theme-background-type-' + item));
-  });
-
-  document.querySelector('body').appendChild(backgroundElement);
-};
-
-theme_theme.render.background.type = function() {
-  const html = document.querySelector('html');
-
-  theme_theme.render.background.choices.forEach((item, i) => {
-    html.classList.remove('is-theme-background-type-' + item);
-  });
-
-  html.classList.add('is-theme-background-type-' + state_state.get.current().theme.background.type);
-};
-
-theme_theme.render.background.color = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-color', state_state.get.current().theme.background.color.rgb.r + ', ' + state_state.get.current().theme.background.color.rgb.g + ', ' + state_state.get.current().theme.background.color.rgb.b);
-};
-
-theme_theme.render.background.gradient = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-gradient-angle', state_state.get.current().theme.background.gradient.angle);
-
-  html.style.setProperty('--theme-background-gradient-start', state_state.get.current().theme.background.gradient.start.rgb.r + ', ' + state_state.get.current().theme.background.gradient.start.rgb.g + ', ' + state_state.get.current().theme.background.gradient.start.rgb.b);
-
-  html.style.setProperty('--theme-background-gradient-end', state_state.get.current().theme.background.gradient.end.rgb.r + ', ' + state_state.get.current().theme.background.gradient.end.rgb.g + ', ' + state_state.get.current().theme.background.gradient.end.rgb.b);
-};
-
-theme_theme.render.background.image = {};
-
-theme_theme.render.background.image.set = function() {
-  const html = document.querySelector('html');
-
-  if (isValidString(state_state.get.current().theme.background.image.url)) {
-    html.style.setProperty('--theme-background-image', 'url(' + trimString_trimString(state_state.get.current().theme.background.image.url) + ')');
-  } else {
-    html.style.removeProperty('--theme-background-image');
-  };
-};
-
-theme_theme.render.background.image.filter = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-image-blur', state_state.get.current().theme.background.image.blur);
-  html.style.setProperty('--theme-background-image-scale', state_state.get.current().theme.background.image.scale);
-  html.style.setProperty('--theme-background-image-accent', state_state.get.current().theme.background.image.accent);
-  html.style.setProperty('--theme-background-image-opacity', state_state.get.current().theme.background.image.opacity);
-};
-
-theme_theme.render.background.video = {};
-
-theme_theme.render.background.video.element = false;
-
-theme_theme.render.background.video.set = function() {
-  theme_theme.render.background.video.element = new Video({
-    url: state_state.get.current().theme.background.video.url
-  });
-};
-
-theme_theme.render.background.video.add = function() {
-  if (isValidString(state_state.get.current().theme.background.video.url)) {
-
-    const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
-
-    themeBackgroundTypeVideo.appendChild(theme_theme.render.background.video.element.video);
-
-  } else {
-
-    theme_theme.render.background.video.remove();
-
-  };
-};
-
-theme_theme.render.background.video.remove = function() {
-  const themeBackgroundTypeVideo = document.querySelector('.theme-background-type-video');
-
-  if (themeBackgroundTypeVideo.lastChild) {
-
-    clearChildNode_clearChildNode(themeBackgroundTypeVideo);
-
-  };
-};
-
-theme_theme.render.background.video.filter = function() {
-  const html = document.querySelector('html');
-
-  html.style.setProperty('--theme-background-video-blur', state_state.get.current().theme.background.video.blur);
-  html.style.setProperty('--theme-background-video-scale', state_state.get.current().theme.background.video.scale);
-  html.style.setProperty('--theme-background-video-accent', state_state.get.current().theme.background.video.accent);
-  html.style.setProperty('--theme-background-video-opacity', state_state.get.current().theme.background.video.opacity);
-};
-
-theme_theme.init = function() {
-  theme_theme.mod.style.initial();
-  theme_theme.bind.style.initial();
-  theme_theme.render.color();
-  theme_theme.render.accent();
-  theme_theme.render.class();
-  theme_theme.render.radius();
-  theme_theme.render.shadow();
-  theme_theme.render.shade.opacity();
-  theme_theme.render.font.load.display();
-  theme_theme.render.font.load.ui();
-  theme_theme.render.font.display.name();
-  theme_theme.render.font.display.weight();
-  theme_theme.render.font.display.style();
-  theme_theme.render.font.ui.name();
-  theme_theme.render.font.ui.weight();
-  theme_theme.render.font.ui.style();
-  theme_theme.render.bookmark.style();
-  theme_theme.render.background.area();
-  theme_theme.render.background.type();
-  theme_theme.render.background.color();
-  theme_theme.render.background.gradient();
-  theme_theme.render.background.image.set();
-  theme_theme.render.background.image.filter();
-  theme_theme.render.background.video.set();
-  theme_theme.render.background.video.add();
-  theme_theme.render.background.video.filter();
-};
-
-
-
-;// CONCATENATED MODULE: ./src/component/bookmarkDefault/index.js
-const bookmarkDefault = {
-  url: '',
-  display: {
-    direction: 'vertical',
-    order: 'visual-name',
-    rotate: 0,
-    translate: { x: 0, y: 0 },
-    gutter: 75,
-    name: { show: true, text: '', size: 7 },
-    visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
-  },
-  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-};
-
-;// CONCATENATED MODULE: ./src/component/bookmarkPreset/index.js
- const bookmarkPreset = {};
-
- bookmarkPreset.get = function() {
-   return [{
-     url: 'https://zombiefox.github.io/awesomeSheet/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'awesomeSheet', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://www.amazon.co.uk/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Amazon', size: 7 },
-       visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://mail.google.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Gmail', size: 7 },
-       visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://www.reddit.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Reddit', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://www.netflix.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Netflix', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://drive.google.com/drive/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Drive', size: 7 },
-       visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://devdocs.io/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Devdocs', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }, {
-     url: 'https://github.com/',
-     display: {
-       direction: 'vertical',
-       order: 'visual-name',
-       rotate: 0,
-       translate: { x: 0, y: 0 },
-       gutter: 75,
-       name: { show: true, text: 'Github', size: 7 },
-       visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
-     },
-     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
-     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
-     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
-   }];
- };
-
- 
 
 ;// CONCATENATED MODULE: ./src/utility/complexNode.js
 const complexNode = function({
@@ -4153,27 +2984,27 @@ const wrap_wrap = function({
 };
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/grid/index.css
-var form_grid = __webpack_require__(7662);
+var grid = __webpack_require__(7662);
 ;// CONCATENATED MODULE: ./src/component/form/grid/index.css
 
             
 
-var form_grid_options = {};
+var grid_options = {};
 
-form_grid_options.insert = "head";
-form_grid_options.singleton = false;
+grid_options.insert = "head";
+grid_options.singleton = false;
 
-var form_grid_update = injectStylesIntoStyleTag_default()(form_grid/* default */.Z, form_grid_options);
+var grid_update = injectStylesIntoStyleTag_default()(grid/* default */.Z, grid_options);
 
 
 
-/* harmony default export */ const component_form_grid = (form_grid/* default.locals */.Z.locals || {});
+/* harmony default export */ const form_grid = (grid/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/form/grid/index.js
 
 
 
 
-const form_grid_grid = function({
+const grid_grid = function({
   children = false
 } = {}) {
 
@@ -4747,6 +3578,15 @@ const inputButton_inputButton = function({
 
 };
 
+;// CONCATENATED MODULE: ./src/utility/trimString.js
+const trimString_trimString = function(value) {
+  if (typeof value == 'string') {
+    return value.trim().replace(/\s\s+/g, ' ');
+  } else {
+    return value;
+  };
+};
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/select/index.css
 var input_select = __webpack_require__(5819);
 ;// CONCATENATED MODULE: ./src/component/form/input/select/index.css
@@ -4885,152 +3725,6 @@ var form_update = injectStylesIntoStyleTag_default()(component_form/* default */
 
 
 
-
-
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/icon/index.css
-var icon = __webpack_require__(2826);
-;// CONCATENATED MODULE: ./src/component/icon/index.css
-
-            
-
-var icon_options = {};
-
-icon_options.insert = "head";
-icon_options.singleton = false;
-
-var icon_update = injectStylesIntoStyleTag_default()(icon/* default */.Z, icon_options);
-
-
-
-/* harmony default export */ const component_icon = (icon/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/icon/index.js
-
-
-
-
-const icon_icon = {};
-
-icon_icon.all = {
-  add: {
-    name: 'add',
-    path: 'M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z'
-  },
-  arrowBack: {
-    name: 'arrow-back',
-    path: 'M20.016 11.016v1.969h-12.188l5.578 5.625-1.406 1.406-8.016-8.016 8.016-8.016 1.406 1.406-5.578 5.625h12.188z'
-  },
-  arrowDownward: {
-    name: 'arrow-downward',
-    path: 'M20.016 12l-8.016 8.016-8.016-8.016 1.453-1.406 5.578 5.578v-12.188h1.969v12.188l5.625-5.578z'
-  },
-  arrowForward: {
-    name: 'arrow-forward',
-    path: 'M12 3.984l8.016 8.016-8.016 8.016-1.406-1.406 5.578-5.625h-12.188v-1.969h12.188l-5.578-5.625z'
-  },
-  arrowUpward: {
-    name: 'arrow-upward',
-    path: 'M3.984 12l8.016-8.016 8.016 8.016-1.453 1.406-5.578-5.578v12.188h-1.969v-12.188l-5.625 5.578z'
-  },
-  check: {
-    name: 'check',
-    path: 'M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z'
-  },
-  cross: {
-    name: 'cross',
-    path: 'M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z'
-  },
-  arrowKeyboardDown: {
-    name: 'arrow-keyboard-down',
-    path: 'M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'
-  },
-  arrowKeyboardLeft: {
-    name: 'arrow-keyboard-left',
-    path: 'M15.422 16.078l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z'
-  },
-  arrowKeyboardRight: {
-    name: 'arrow-keyboard-right',
-    path: 'M8.578 16.359l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z'
-  },
-  arrowKeyboardUp: {
-    name: 'arrow-keyboard-up',
-    path: 'M7.406 15.422l-1.406-1.406 6-6 6 6-1.406 1.406-4.594-4.594z'
-  },
-  edit: {
-    name: 'edit',
-    path: 'M20.719 7.031l-1.828 1.828-3.75-3.75 1.828-1.828c0.375-0.375 1.031-0.375 1.406 0l2.344 2.344c0.375 0.375 0.375 1.031 0 1.406zM3 17.25l11.063-11.063 3.75 3.75-11.063 11.063h-3.75v-3.75z'
-  },
-  moreHorizontal: {
-    name: 'more-horizontal',
-    path: 'M12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM18 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM6 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016z'
-  },
-  moreVertical: {
-    name: 'more-vertical',
-    path: 'M12 15.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 9.984c1.078 0 2.016 0.938 2.016 2.016s-0.938 2.016-2.016 2.016-2.016-0.938-2.016-2.016 0.938-2.016 2.016-2.016zM12 8.016c-1.078 0-2.016-0.938-2.016-2.016s0.938-2.016 2.016-2.016 2.016 0.938 2.016 2.016-0.938 2.016-2.016 2.016z'
-  },
-  redo: {
-    name: 'redo',
-    path: 'M18.422 10.594l3.563-3.609v9h-9l3.656-3.609q-2.25-1.875-5.156-1.875-2.391 0-4.617 1.594t-2.977 3.891l-2.344-0.75q1.031-3.188 3.773-5.203t6.164-2.016q3.984 0 6.938 2.578z'
-  },
-  refresh: {
-    name: 'refresh',
-    path: 'M17.672 6.328l2.344-2.344v7.031h-7.031l3.234-3.234c-1.078-1.078-2.578-1.781-4.219-1.781-3.328 0-6 2.672-6 6s2.672 6 6 6c2.625 0 4.875-1.641 5.672-3.984h2.063c-0.891 3.469-3.984 6-7.734 6-4.406 0-7.969-3.609-7.969-8.016s3.563-8.016 7.969-8.016c2.203 0 4.219 0.891 5.672 2.344z'
-  },
-  remove: {
-    name: 'remove',
-    path: 'M18.984 12.984h-13.969v-1.969h13.969v1.969z'
-  },
-  reorder: {
-    name: 'reorder',
-    path: 'M3 5.016h18v1.969h-18v-1.969zM3 11.016v-2.016h18v2.016h-18zM3 18.984v-1.969h18v1.969h-18zM3 15v-2.016h18v2.016h-18z'
-  },
-  replay: {
-    name: 'replay',
-    path: 'M12 5.016q3.328 0 5.672 2.344t2.344 5.625q0 3.328-2.367 5.672t-5.648 2.344-5.648-2.344-2.367-5.672h2.016q0 2.484 1.758 4.242t4.242 1.758 4.242-1.758 1.758-4.242-1.758-4.242-4.242-1.758v4.031l-5.016-5.016 5.016-5.016v4.031z'
-  },
-  settings: {
-    name: 'settings',
-    path: 'M12 15.516c1.922 0 3.516-1.594 3.516-3.516s-1.594-3.516-3.516-3.516-3.516 1.594-3.516 3.516 1.594 3.516 3.516 3.516zM19.453 12.984l2.109 1.641c0.188 0.141 0.234 0.422 0.094 0.656l-2.016 3.469c-0.141 0.234-0.375 0.281-0.609 0.188l-2.484-0.984c-0.516 0.375-1.078 0.75-1.688 0.984l-0.375 2.625c-0.047 0.234-0.234 0.422-0.469 0.422h-4.031c-0.234 0-0.422-0.188-0.469-0.422l-0.375-2.625c-0.609-0.234-1.172-0.563-1.688-0.984l-2.484 0.984c-0.234 0.094-0.469 0.047-0.609-0.188l-2.016-3.469c-0.141-0.234-0.094-0.516 0.094-0.656l2.109-1.641c-0.047-0.328-0.047-0.656-0.047-0.984s0-0.656 0.047-0.984l-2.109-1.641c-0.188-0.141-0.234-0.422-0.094-0.656l2.016-3.469c0.141-0.234 0.375-0.281 0.609-0.188l2.484 0.984c0.516-0.375 1.078-0.75 1.688-0.984l0.375-2.625c0.047-0.234 0.234-0.422 0.469-0.422h4.031c0.234 0 0.422 0.188 0.469 0.422l0.375 2.625c0.609 0.234 1.172 0.563 1.688 0.984l2.484-0.984c0.234-0.094 0.469-0.047 0.609 0.188l2.016 3.469c0.141 0.234 0.094 0.516-0.094 0.656l-2.109 1.641c0.047 0.328 0.047 0.656 0.047 0.984s0 0.656-0.047 0.984z'
-  },
-  undo: {
-    name: 'undo',
-    path: 'M12.516 8.016q3.422 0 6.141 2.016t3.797 5.203l-2.344 0.75q-0.797-2.438-2.883-3.961t-4.711-1.523q-2.906 0-5.156 1.875l3.656 3.609h-9v-9l3.563 3.609q2.953-2.578 6.938-2.578z'
-  },
-  unfoldLess: {
-    name: 'unfold-less',
-    path: 'M16.594 5.391l-4.594 4.594-4.594-4.594 1.406-1.406 3.188 3.188 3.188-3.188zM7.406 18.609l4.594-4.594 4.594 4.594-1.406 1.406-3.188-3.188-3.188 3.188z'
-  },
-  unfoldMore: {
-    name: 'unfold-more',
-    path: 'M12 18.188l3.188-3.188 1.406 1.406-4.594 4.594-4.594-4.594 1.406-1.406zM12 5.813l-3.188 3.188-1.406-1.406 4.594-4.594 4.594 4.594-1.406 1.406z'
-  },
-  coffee: {
-    name: 'coffee',
-    path: 'M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z'
-  },
-  drag: {
-    name: 'drag',
-    path: 'M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z'
-  }
-};
-
-icon_icon.render = (name) => {
-  const iconElement = node_node('span|class:icon');
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('version', '1.1');
-  svg.setAttribute('viewBox', '0 0 24 24');
-  svg.setAttribute('width', '24');
-  svg.setAttribute('height', '24');
-  svg.setAttribute('fill', 'currentColor');
-
-  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  path.setAttribute('d', icon_icon.all[name].path);
-
-  svg.appendChild(path);
-  iconElement.appendChild(svg);
-
-  return iconElement;
-};
 
 
 
@@ -5191,475 +3885,1404 @@ const Button = function({
 
 };
 
-;// CONCATENATED MODULE: ./src/component/pageLock/index.js
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
+var collapse = __webpack_require__(5655);
+;// CONCATENATED MODULE: ./src/component/collapse/index.css
+
+            
+
+var collapse_options = {};
+
+collapse_options.insert = "head";
+collapse_options.singleton = false;
+
+var collapse_update = injectStylesIntoStyleTag_default()(collapse/* default */.Z, collapse_options);
 
 
-const pageLock = {};
 
-pageLock.render = () => {
+/* harmony default export */ const component_collapse = (collapse/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/collapse/index.js
 
+
+
+
+
+
+
+
+const Collapse = function({
+  type = false,
+  radioGroup = false,
+  checkbox = false,
+  target = false
+} = {}) {
+
+  target.forEach((item, i) => {
+    item.state = {
+      collapsed: true
+    };
+
+    item.area = node_node('div|class:collapse-area');
+
+    item.spacer = node_node('div|class:collapse-spacer');
+  });
+
+  this.target = () => {
+    return target;
+  };
+
+  this.collapseElement = node_node('div|class:collapse');
+
+  this.collapse = () => {
+    target.forEach((item, i) => {
+      item.spacer.appendChild(item.content);
+
+      item.area.appendChild(item.spacer);
+
+      this.collapseElement.appendChild(item.area);
+    });
+
+    return this.collapseElement;
+  };
+
+  this.toggle = () => {
+    target.forEach((item, i) => {
+      if (item.state.collapsed) {
+        item.state.collapsed = false;
+      } else {
+        item.state.collapsed = true;
+      };
+    });
+
+    this.update();
+  };
+
+  this.renderTarget = (state, area) => {
+    if (state) {
+      area.classList.add('is-collapsed');
+      area.setAttribute('aria-hidden', true);
+    } else {
+      area.classList.remove('is-collapsed');
+      area.removeAttribute('aria-hidden');
+    };
+  };
+
+  this.renderToggle = (state, toggle) => {
+    if (state) {
+      toggle.classList.remove('active');
+      toggle.classList.remove('is-collapsed');
+    } else {
+      toggle.classList.add('active');
+      toggle.classList.add('is-collapsed');
+    };
+  };
+
+  this.update = () => {
+
+    switch (type) {
+      case 'radio':
+        const selectedRadioValue = radioGroup.value();
+
+        target.forEach((item, i) => {
+
+          this.renderTarget(!(item.id === selectedRadioValue), item.area);
+
+        });
+        break;
+
+      case 'checkbox':
+        const state = checkbox.checked();
+
+        target.forEach((item, i) => {
+
+          this.renderTarget(!state, item.area);
+
+        });
+        break;
+
+      case 'toggle':
+        target.forEach((item, i) => {
+
+          this.renderTarget(item.state.collapsed, item.area);
+
+          if (item.toggle) {
+            this.renderToggle(item.state.collapsed, item.toggle);
+          };
+
+        });
+        break;
+    };
+  };
+};
+
+
+
+;// CONCATENATED MODULE: ./src/component/state/index.js
+const state = {};
+
+state.current = {};
+
+state.default = {
+  grid: {
+    size: 100,
+    column: 4,
+    gap: 100,
+    perspective: 90,
+    transform: {
+      focus: 15,
+      refresh: 10,
+      rotate: { x: 15, y: 15, z: 0 }
+    }
+  },
+  bookmark: {
+    size: 70,
+    hover: { size: 0, distance: 15 },
+    shadow: { blur: 15, distance: 30 },
+    edit: false,
+    add: false
+  },
+  theme: {
+    color: {
+      range: { primary: { h: 210, s: 10 } },
+      lightness: { contrast: 32, offset: null, start: null, end: null },
+      shades: 9
+    },
+    accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 }, random: { active: false, style: 'any' } },
+    font: {
+      display: { name: '', weight: 400, style: 'normal' },
+      ui: { name: '', weight: 400, style: 'normal' }
+    },
+    style: 'light',
+    bookmark: {
+      shadow: { opacity: 25, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } }
+    },
+    background: {
+      type: 'gradient',
+      color: { hsl: { h: 213, s: 40, l: 65 }, rgb: { r: 130, g: 162, b: 201 } },
+      gradient: {
+        angle: 160,
+        start: { hsl: { h: 191, s: 66, l: 62 }, rgb: { r: 94, g: 199, b: 222 } },
+        end: { hsl: { h: 243, s: 59, l: 22 }, rgb: { r: 26, g: 23, b: 89 } }
+      },
+      image: { url: '', blur: 0, scale: 100, accent: 0, opacity: 100 },
+      video: { url: '', blur: 0, scale: 100, accent: 0, opacity: 100 }
+    },
+    radius: 25,
+    shadow: 75,
+    shade: { opacity: 20, blur: 0 }
+  },
+  toolbar: { style: 'transparent', position: 'bottom-right', accent: { show: true }, add: { show: true }, edit: { show: true } },
+  modal: false,
+  menu: false,
+  autoSuggest: false
+};
+
+state.minMax = {
+  grid: {
+    size: { min: 10, max: 200 },
+    column: { min: 1, max: 20 },
+    gap: { min: 0, max: 300 },
+    perspective: { min: 30, max: 400 },
+    transform: {
+      focus: { min: 0, max: 200 },
+      rotate: {
+        x: { min: -80, max: 80 },
+        y: { min: -80, max: 80 },
+        z: { min: -80, max: 80 }
+      }
+    }
+  },
+  bookmark: {
+    hover: {
+      size: { min: 0, max: 100 },
+      distance: { min: 0, max: 300 }
+    },
+    shadow: {
+      blur: { min: 0, max: 200 },
+      distance: { min: 0, max: 300 }
+    }
+  },
+  theme: {
+    color: {
+      range: { primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } } },
+      lightness: { contrast: { min: 5, max: 45 } }
+    },
+    accent: {
+      hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+      rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } },
+    },
+    font: {
+      display: { weight: { min: 100, max: 900 } },
+      ui: { weight: { min: 100, max: 900 } }
+    },
+    bookmark: {
+      shadow: {
+        opacity: { min: 0, max: 100 },
+        color: {
+          hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+          rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
+        }
+      }
+    },
+    background: {
+      color: {
+        hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+        rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
+      },
+      gradient: {
+        angle: { min: 0, max: 360 },
+        start: {
+          hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+          rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
+        },
+        end: {
+          hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
+          rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
+        },
+      },
+      image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } },
+      video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } }
+    },
+    shade: { opacity: { min: 0, max: 100 }, blur: { min: 0, max: 200 } }
+  }
+};
+
+state.option = {
+  theme: {
+    accent: { random: { style: ['any', 'light', 'dark', 'pastel', 'saturated'] } },
+    style: ['dark', 'light', 'system'],
+    bookmark: { shadow: { color: { type: ['theme', 'custom'] } } },
+    background: {
+      type: ['theme', 'accent', 'color', 'gradient', 'image', 'video']
+    }
+  }
+};
+
+state.step = {
+  theme: {
+    font: {
+      display: { weight: 100 },
+      ui: { weight: 100 }
+    }
+  }
+};
+
+state.default.theme.color.lightness.offset = state.minMax.theme.color.lightness.contrast.max - state.default.theme.color.lightness.contrast;
+
+state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
+
+state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
+
+state.get = {
+  current: () => { return state.current },
+  default: () => { return JSON.parse(JSON.stringify(state.default)) },
+  minMax: () => { return JSON.parse(JSON.stringify(state.minMax)) },
+  step: () => { return JSON.parse(JSON.stringify(state.step)) },
+  option: () => { return JSON.parse(JSON.stringify(state.option)) }
+};
+
+state.set = {
+  restore: (dataToRestore) => {
+    state.current = dataToRestore.state;
+    console.log('state restored');
+  },
+  default: () => {
+    state.current = state.get.default();
+    console.log('state set to default');
+  }
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/layout/index.css
+var layout = __webpack_require__(9209);
+;// CONCATENATED MODULE: ./src/component/layout/index.css
+
+            
+
+var layout_options = {};
+
+layout_options.insert = "head";
+layout_options.singleton = false;
+
+var layout_update = injectStylesIntoStyleTag_default()(layout/* default */.Z, layout_options);
+
+
+
+/* harmony default export */ const component_layout = (layout/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/layout/index.js
+
+
+
+
+
+
+
+const layout_layout = {}
+
+layout_layout.element = {
+  wrap: node_node('div|class:layout-wrap'),
+  area: node_node('div|class:layout-area')
+};
+
+layout_layout.area = {
+  render: () => {
+
+    layout_layout.element.wrap.appendChild(layout_layout.element.area);
+
+    document.querySelector('body').appendChild(layout_layout.element.wrap);
+
+  }
+};
+
+layout_layout.init = () => {
+  layout_layout.area.render();
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/grid/index.css
+var component_grid = __webpack_require__(3742);
+;// CONCATENATED MODULE: ./src/component/grid/index.css
+
+            
+
+var component_grid_options = {};
+
+component_grid_options.insert = "head";
+component_grid_options.singleton = false;
+
+var component_grid_update = injectStylesIntoStyleTag_default()(component_grid/* default */.Z, component_grid_options);
+
+
+
+/* harmony default export */ const src_component_grid = (component_grid/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/grid/index.js
+
+
+
+
+
+
+
+const component_grid_grid = {};
+
+const gridArea = node_node('div|class:grid-area');
+
+const gridList = node_node('div|class:grid-list');
+
+component_grid_grid.mod = {};
+
+component_grid_grid.render = {};
+
+component_grid_grid.render.area = function() {
+  gridArea.appendChild(gridList);
+  layout_layout.element.area.appendChild(gridArea);
+};
+
+component_grid_grid.render.style = function() {
   const html = document.querySelector('html');
+  html.style.setProperty('--grid-size', state.get.current().grid.size);
+  html.style.setProperty('--grid-column', state.get.current().grid.column);
+  html.style.setProperty('--grid-perspective', state.get.current().grid.perspective);
+  html.style.setProperty('--grid-gap', state.get.current().grid.gap);
+};
 
-  if (state_state.get.current().modal || state_state.get.current().menu) {
-    html.classList.add('is-scroll-disabled');
+component_grid_grid.render.rotate = {
+  bind: function() {
+    gridArea.addEventListener('mouseenter', function(event) {
+      component_grid_grid.render.rotate.position.origin.set();
+      component_grid_grid.render.rotate.update(event);
+    });
+    gridArea.addEventListener('mouseleave', function(event) {
+      component_grid_grid.render.rotate.position.origin.set();
+      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+    });
+    gridArea.addEventListener('mousemove', function(event) {
+      if (component_grid_grid.render.rotate.delay.check()) {
+        component_grid_grid.render.rotate.position.origin.set();
+        component_grid_grid.render.rotate.update(event);
+      }
+    });
+  },
+  position: {
+    origin: {
+      set: function() {
+        // set center point of grid area from top left of viewport
+        component_grid_grid.render.rotate.position.origin.get.x = gridArea.offsetLeft + Math.floor(gridArea.offsetWidth / 2);
+        component_grid_grid.render.rotate.position.origin.get.y = gridArea.offsetTop + Math.floor(gridArea.offsetHeight / 2);
+      },
+      get: { x: 0, y: 0 }
+    },
+    current: {
+      set: function() {
+        // set mouse position from center of grid area
+        component_grid_grid.render.rotate.position.current.get.x = (event.clientX - component_grid_grid.render.rotate.position.origin.get.x) * -1;
+        component_grid_grid.render.rotate.position.current.get.y = (event.clientY - component_grid_grid.render.rotate.position.origin.get.y);
+      },
+      get: { x: 0, y: 0 }
+    }
+  },
+  delay: {
+    counter: 0,
+    check: function() {
+      let refreshRate = state.get.current().grid.transform.refresh;
+      component_grid_grid.render.rotate.delay.counter++
+      if (component_grid_grid.render.rotate.delay.counter % refreshRate === 0) {
+        component_grid_grid.render.rotate.delay.counter = 0;
+        return true;
+      } else {
+        return false;
+      };
+    }
+  },
+  update: function() {
+    component_grid_grid.render.rotate.position.current.set(event);
+    component_grid_grid.render.rotate.style(
+      state.get.current().grid.transform.rotate.x + ((component_grid_grid.render.rotate.position.current.get.y / gridList.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
+      state.get.current().grid.transform.rotate.y + ((component_grid_grid.render.rotate.position.current.get.x / gridList.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
+      state.get.current().grid.transform.rotate.z
+    );
+  },
+  style: function(x, y, z) {
+    const html = document.querySelector('html');
+    html.style.setProperty('--grid-transform-rotate-x', x);
+    html.style.setProperty('--grid-transform-rotate-y', y);
+    html.style.setProperty('--grid-transform-rotate-z', z);
+  }
+};
+
+component_grid_grid.init = function() {
+  component_grid_grid.render.style();
+  component_grid_grid.render.area();
+  component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+  component_grid_grid.render.rotate.position.origin.set();
+  component_grid_grid.render.rotate.bind();
+};
+
+
+
+;// CONCATENATED MODULE: ./src/utility/convertColor.js
+const convertColor = {
+  rgb: {},
+  hsl: {},
+  hex: {}
+};
+
+convertColor.rgb.hsl = function(rgb) {
+  var r = rgb.r / 255;
+  var g = rgb.g / 255;
+  var b = rgb.b / 255;
+  var min = Math.min(r, g, b);
+  var max = Math.max(r, g, b);
+  var delta = max - min;
+  var h;
+  var s;
+
+  if (max === min) {
+    h = 0;
+  } else if (r === max) {
+    h = (g - b) / delta;
+  } else if (g === max) {
+    h = 2 + (b - r) / delta;
+  } else if (b === max) {
+    h = 4 + (r - g) / delta;
+  };
+
+  h = Math.min(h * 60, 360);
+
+  if (h < 0) {
+    h += 360;
+  };
+
+  var l = (min + max) / 2;
+
+  if (max === min) {
+    s = 0;
+  } else if (l <= 0.5) {
+    s = delta / (max + min);
   } else {
-    html.classList.remove('is-scroll-disabled');
+    s = delta / (2 - max - min);
   };
 
+  return {
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100)
+  };
 };
 
+convertColor.rgb.hex = function(args) {
+  var integer = ((Math.round(args.r) & 0xFF) << 16) +
+    ((Math.round(args.g) & 0xFF) << 8) +
+    (Math.round(args.b) & 0xFF);
 
-
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/shade/index.css
-var shade = __webpack_require__(9888);
-;// CONCATENATED MODULE: ./src/component/shade/index.css
-
-            
-
-var shade_options = {};
-
-shade_options.insert = "head";
-shade_options.singleton = false;
-
-var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shade_options);
-
-
-
-/* harmony default export */ const component_shade = (shade/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/shade/index.js
-
-
-
-
-const Shade = function() {
-
-  this.element = {
-    shade: node_node('div|class:shade')
-  };
-
-  this.open = () => {
-    const body = document.querySelector('body');
-
-    this.element.shade.classList.add('is-transparent');
-
-    this.element.shade.addEventListener('transitionend', (event) => {
-      if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
-        body.removeChild(this.element.shade);
-      };
-    });
-
-    body.appendChild(this.element.shade);
-
-    getComputedStyle(this.element.shade).opacity;
-
-    this.element.shade.classList.remove('is-transparent');
-
-    this.element.shade.classList.add('is-opaque');
-  };
-
-  this.close = () => {
-
-    this.element.shade.classList.remove('is-opaque');
-
-    this.element.shade.classList.add('is-transparent');
-
-    clearTimeout(this.delayedForceRemove);
-
-    this.delayedForceRemove = setTimeout(() => {
-
-      const body = document.querySelector('body');
-
-      if (body.contains(this.element.shade)) {
-        body.removeChild(this.element.shade)
-      };
-
-    }, 6000);
-
-  };
-
-  this.delayedForceRemove = null;
-
-  this.shade = () => {
-    return this.element.shade;
-  };
-
+  var string = integer.toString(16);
+  return '#' + '000000'.substring(string.length) + string;
 };
 
+convertColor.hsl.rgb = function(hsl) {
+  var h = hsl.h / 360;
+  var s = hsl.s / 100;
+  var l = hsl.l / 100;
+  var t2;
+  var t3;
+  var val;
+
+  if (s === 0) {
+    val = l * 255;
+    return {
+      r: Math.round(val),
+      g: Math.round(val),
+      b: Math.round(val)
+    };
+  };
+
+  if (l < 0.5) {
+    t2 = l * (1 + s);
+  } else {
+    t2 = l + s - l * s;
+  };
+
+  var t1 = 2 * l - t2;
+
+  var rgb = [0, 0, 0];
+
+  for (var i = 0; i < 3; i++) {
+    t3 = h + 1 / 3 * -(i - 1);
+    if (t3 < 0) {
+      t3++;
+    };
+
+    if (t3 > 1) {
+      t3--;
+    };
+
+    if (6 * t3 < 1) {
+      val = t1 + (t2 - t1) * 6 * t3;
+    } else if (2 * t3 < 1) {
+      val = t2;
+    } else if (3 * t3 < 2) {
+      val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
+    } else {
+      val = t1;
+    };
+
+    rgb[i] = val * 255;
+  };
+
+  return {
+    r: Math.round(rgb[0]),
+    g: Math.round(rgb[1]),
+    b: Math.round(rgb[2])
+  };
+};
+
+convertColor.hex.rgb = function(args) {
+  var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
+  if (!match) {
+    return {
+      r: 0,
+      g: 0,
+      b: 0
+    };
+  };
+
+  var colorString = match[0];
+
+  if (match[0].length === 3) {
+    colorString = colorString.split('').map(function(char) {
+      return char + char;
+    }).join('');
+  };
+
+  var integer = parseInt(colorString, 16);
+  var r = (integer >> 16) & 0xFF;
+  var g = (integer >> 8) & 0xFF;
+  var b = integer & 0xFF;
+
+  return {
+    r: r,
+    g: g,
+    b: b
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/isValidString.js
+const isValidString = function(value) {
+  let result = false;
+
+  if (typeof value == 'string') {
+    value = value.trim().replace(/\s/g, '');
+    if (value != '') {
+      result = true;
+    };
+  };
+
+  return result;
+};
+
+;// CONCATENATED MODULE: ./src/component/video/index.js
 
 
-;// CONCATENATED MODULE: ./src/component/keyboardShortcut/index.js
-const KeyboardShortcut = function({
-  keycode = false,
-  ctrl = false,
-  alt = false,
-  action = false
+
+
+
+
+
+
+const Video = function({
+  url = false
 } = {}) {
 
-  this.action = () => {
-    if (keycode) {
-      if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
+  this.video = node_node('video|autoplay,loop,muted');
 
-        event.preventDefault();
+  this.source = node_node('source');
 
-        if (action) {
-          action();
-        };
+  this.video.appendChild(this.source);
 
-      };
-    };
+  if (isValidString(url)) {
+
+    this.source.src = url;
+
+    this.video.muted = true;
+
+    this.video.loop = true;
+
+    this.video.autoplay = true;
+
   };
 
-  this.add = () => { window.addEventListener('keydown', this.action); };
+  if (url.includes('mp4') || url.endsWith('mp4')) {
 
-  this.remove = () => { window.removeEventListener('keydown', this.action); };
+    this.source.type = 'video/mp4';
+
+  } else if (url.includes('webm') || url.endsWith('webm')) {
+
+    this.source.type = 'video/webm';
+
+  };
+
+  this.play = () => {
+    this.video.play();
+  };
+
+  this.pause = () => {
+    var playPromise = this.video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        this.video.pause();
+      });
+    };
+  };
 
 };
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
-var modal = __webpack_require__(4719);
-;// CONCATENATED MODULE: ./src/component/modal/index.css
-
-            
-
-var modal_options = {};
-
-modal_options.insert = "head";
-modal_options.singleton = false;
-
-var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, modal_options);
 
 
+;// CONCATENATED MODULE: ./src/utility/clearChildNode.js
+const clearChildNode_clearChildNode = function(element) {
 
-/* harmony default export */ const component_modal = (modal/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/modal/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Modal = function({
-  heading = false,
-  content = false,
-  openAction = false,
-  successText = 'OK',
-  successAction = false,
-  cancelText = 'Cancel',
-  cancelAction = false,
-  closeAction = false,
-  size = 'medium',
-  width = false,
-  maxHeight = false,
-  overscroll = false,
-  maxHeadingLength = 50
-} = {}) {
-
-  this.element = {
-    modal: node_node('div|class:modal'),
-    heading: {
-      heading: node_node('div|class:modal-heading'),
-      text: node_node('h1|class:modal-heading-text,tabindex:1')
-    },
-    content: {
-      wrapper: node_node('div|class:modal-content-wrapper'),
-      content: node_node('div|class:modal-content')
-    },
-    control: node_node('div|class:modal-control')
+  while (element.lastChild) {
+    element.removeChild(element.lastChild);
   };
 
-  this.shade = new Shade();
+};
 
-  this.open = () => {
+;// CONCATENATED MODULE: ./src/utility/randomNumber.js
+const randomNumber = function(min, max) {
 
-    state_state.get.current().modal = true;
+  return Math.floor(Math.random() * (max - min + 1) + min);
 
-    const body = document.querySelector('body');
+};
 
-    this.element.modal.classList.add('is-transparent');
-
-    this.element.modal.addEventListener('transitionend', (event) => {
-
-      if (event.propertyName === 'opacity' && getComputedStyle(this.element.modal).opacity == 0) {
-
-        body.removeChild(this.element.modal);
-
+;// CONCATENATED MODULE: ./src/utility/makePath.js
+const makePath = function(string) {
+  if (string) {
+    let array;
+    if (string.indexOf('[') != -1 && string.indexOf(']') != -1) {
+      array = string.split('.').join(',').split('[').join(',').split(']').join(',').split(',');
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] == '') {
+          array.splice(i, 1);
+        };
+        if (!isNaN(parseInt(array[i], 10))) {
+          array[i] = parseInt(array[i], 10);
+        };
       };
+    } else {
+      array = string.split('.');
+    };
+    return array;
+  } else {
+    return false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/get.js
+
+
+const get_get = function({
+  object = null,
+  path = null
+} = {}) {
+
+  const address = makePath(path);
+
+  const getValue = function() {
+    while (address.length > 1) {
+      // shift off and store the first key
+      var currentKey = address.shift();
+      // if the key is not found make a new object
+      if (!(currentKey in object)) {
+        // make an empty object in the current object level
+        if (isNaN(currentKey)) {
+          object[currentKey] = {};
+        } else {
+          object[currentKey] = [];
+        };
+      };
+      // drill down the object with the first key
+      object = object[currentKey];
+    };
+    var finalKey = address.shift();
+    if (!(finalKey in object)) {
+      return '';
+    } else {
+      return object[finalKey];
+    };
+  };
+
+  if (object != null && path != null) {
+    return getValue();
+  } else {
+    return false;
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/utility/applyCSSVar.js
+
+
+
+const html = document.querySelector('html');
+
+const applyCSSVar = function(path) {
+
+  const apply = (path) => {
+
+    html.style.setProperty('--' + path.replace(/\./g, '-').toLowerCase(), get_get({
+      object: state.get.current(),
+      path: path
+    }));
+
+  };
+
+  if (Array.isArray(path)) {
+
+    path.forEach((item, i) => { apply(item); });
+
+  } else {
+
+    apply(path);
+
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/utility/applyCSSClass.js
+
+
+
+const applyCSSClass_html = document.querySelector('html');
+
+const applyCSSClass = function(path) {
+
+  const apply = (path) => {
+
+    get_get({
+      object: state.get.option(),
+      path: path
+    }).forEach((item, i) => {
+
+      applyCSSClass_html.classList.remove('is-' + path.replace(/\./g, '-').toLowerCase() + '-' + item);
 
     });
 
-    this.shade.open();
-
-    this.style();
-
-    this.assemble();
-
-    body.appendChild(this.element.modal);
-
-    getComputedStyle(this.element.modal).opacity;
-
-    this.element.modal.classList.remove('is-transparent');
-
-    this.element.modal.classList.add('is-opaque');
-
-    this.bind.add();
-
-    this.focus.set();
-
-    if (openAction) {
-      openAction();
-    };
-
-    pageLock.render();
+    applyCSSClass_html.classList.add('is-' + path.replace(/\./g, '-').toLowerCase() + '-' + get_get({
+      object: state.get.current(),
+      path: path
+    }));
 
   };
 
-  this.close = () => {
+  if (Array.isArray(path)) {
 
-    state_state.get.current().modal = false;
+    path.forEach((item, i) => { apply(item); });
 
-    this.element.modal.classList.remove('is-opaque');
+  } else {
 
-    this.element.modal.classList.add('is-transparent');
-
-    this.bind.remove();
-
-    this.shade.close();
-
-    if (closeAction) {
-      closeAction();
-    };
-
-    clearTimeout(this.delayedForceRemove);
-
-    this.delayedForceRemove = setTimeout(() => {
-
-      const body = document.querySelector('body');
-
-      if (body.contains(this.element.modal)) {
-        body.removeChild(this.element.modal)
-      };
-
-    }, 6000);
-
-    pageLock.render();
+    apply(path);
 
   };
 
-  this.delayedForceRemove = null;
+};
 
-  this.bind = {
-    add: () => {
-
-      window.addEventListener('mouseup', this.clickOut);
-
-      window.addEventListener('keydown', this.focus.loop);
-
-      this.esc.add();
-
-      this.ctrAltM.add();
-
-      this.ctrAltA.add();
-
-    },
-    remove: () => {
-
-      window.removeEventListener('mouseup', this.clickOut);
-
-      window.removeEventListener('keydown', this.focus.loop);
-
-      this.esc.remove();
-
-      this.ctrAltM.remove();
-
-      this.ctrAltA.remove();
-
-    }
-  };
-
-  this.esc = new KeyboardShortcut({ keycode: 27, action: () => { this.close(); } });
-
-  this.ctrAltM = new KeyboardShortcut({ keycode: 77, ctrl: true, alt: true, action: () => { this.close(); } });
-
-  this.ctrAltA = new KeyboardShortcut({ keycode: 65, ctrl: true, alt: true, action: () => { this.close(); } });
-
-  this.clickOut = (event) => {
-
-    const path = event.path || (event.composedPath && event.composedPath());
-
-    const suggest = document.querySelector('.suggest');
-
-    if (!path.includes(this.element.modal) && !path.includes(suggest)) {
-      this.close();
-    };
-
-  };
-
-  this.focus = {
-    set: () => {
-      this.element.heading.text.focus();
-    },
-    loop: (event) => {
-
-      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
-
-      if (allFocusElement.length > 0) {
-
-        const firstElement = allFocusElement[0];
-
-        const lastElement = allFocusElement[allFocusElement.length - 1];
-
-        if (event.keyCode == 9 && event.shiftKey) {
-
-          if (document.activeElement === firstElement) {
-            lastElement.focus();
-
-            event.preventDefault();
-          }
-
-        } else if (event.keyCode == 9) {
-
-          if (document.activeElement === lastElement) {
-            firstElement.focus();
-
-            event.preventDefault();
-          }
-
-        };
-
-      };
+;// CONCATENATED MODULE: ./src/utility/applyCSSState.js
 
 
-    }
-  };
 
-  this.style = () => {
-    if (typeof width === 'number') {
+const applyCSSState_html = document.querySelector('html');
 
-      this.element.modal.style.setProperty('--modal-width', width);
+const applyCSSState = function(path) {
+
+  const apply = (path) => {
+
+    if (get_get({ object: state.get.current(), path: path })) {
+
+      applyCSSState_html.classList.add('is-' + path.replace(/\./g, '-').toLowerCase());
 
     } else {
 
-      switch (width) {
-        case 'small':
-          this.element.modal.style.setProperty('--modal-width', 30);
-          break;
+      applyCSSState_html.classList.remove('is-' + path.replace(/\./g, '-').toLowerCase());
 
-        default:
-        case 'medium':
-          this.element.modal.style.setProperty('--modal-width', 50);
-          break;
-
-        case 'large':
-          this.element.modal.style.setProperty('--modal-width', 70);
-          break;
-
-      };
-
-    };
-  };
-
-  this.successButton = new Button({
-    text: successText,
-    block: false,
-    style: ['line'],
-    classList: ['modal-control-button'],
-    func: () => {
-
-      if (successAction) {
-        successAction();
-      };
-
-      this.close();
-
-    }
-  });
-
-  this.cancelButton = new Button({
-    text: cancelText,
-    block: false,
-    style: ['line'],
-    classList: ['modal-control-button'],
-    func: () => {
-
-      if (cancelAction) {
-        cancelAction();
-      };
-
-      this.close();
-
-    }
-  });
-
-  this.assemble = () => {
-
-    if (heading && isValidString(heading)) {
-
-      let headingString = heading;
-
-      if (headingString.length > maxHeadingLength) {
-        headingString = trimString_trimString(headingString.substring(0, maxHeadingLength)) + '...';
-      };
-
-      this.element.heading.text.innerHTML = headingString;
-
-      this.element.heading.heading.appendChild(this.element.heading.text);
-
-      this.element.content.content.appendChild(this.element.heading.heading);
-
-    };
-
-    if (content) {
-      if (typeof content == 'string') {
-
-        const para = complexNode({ tag: 'p', text: content });
-
-        this.element.content.content.appendChild(para);
-
-      } else {
-
-        this.element.content.content.appendChild(content);
-
-      };
-    };
-
-    this.element.content.wrapper.appendChild(this.element.content.content);
-
-    this.element.modal.appendChild(this.element.content.wrapper);
-
-    this.element.control.appendChild(this.cancelButton.button);
-
-    this.element.control.appendChild(this.successButton.button);
-
-    this.element.modal.appendChild(this.element.control);
-
-    if (overscroll) {
-      this.element.modal.classList.add('modal-overscroll');
-    };
-
-    if (maxHeight) {
-      this.element.modal.classList.add('modal-max-height');
     };
 
   };
 
-  this.modal = () => {
+  if (Array.isArray(path)) {
 
-    state_state.get.current().modal = false;
+    path.forEach((item, i) => { apply(item); });
 
-    return this.element.modal;
+  } else {
+
+    apply(path);
 
   };
 
 };
+
+// EXTERNAL MODULE: ./node_modules/webfontloader/webfontloader.js
+var webfontloader = __webpack_require__(5933);
+var webfontloader_default = /*#__PURE__*/__webpack_require__.n(webfontloader);
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/theme/index.css
+var theme = __webpack_require__(8776);
+;// CONCATENATED MODULE: ./src/component/theme/index.css
+
+            
+
+var theme_options = {};
+
+theme_options.insert = "head";
+theme_options.singleton = false;
+
+var theme_update = injectStylesIntoStyleTag_default()(theme/* default */.Z, theme_options);
+
+
+
+/* harmony default export */ const component_theme = (theme/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/theme/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const theme_theme = {};
+
+theme_theme.font = {};
+
+theme_theme.font.display = {
+  timer: false,
+  delay: () => {
+
+    clearTimeout(theme_theme.font.display.timer);
+
+    theme_theme.font.display.timer = setTimeout(theme_theme.font.display.load, 600);
+
+  },
+  load: () => {
+
+    const displayFont = trimString_trimString(state.get.current().theme.font.display.name);
+
+    if (isValidString(displayFont)) {
+
+      webfontloader_default().load({
+        // fontloading: (familyName, fvd) => { console.log('fontloading:', familyName); },
+        google: { families: [trimString_trimString(displayFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'] }
+      });
+
+    };
+
+    theme_theme.font.display.render();
+
+  },
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    if (isValidString(trimString_trimString(state.get.current().theme.font.display.name))) {
+
+      html.style.setProperty('--theme-font-display-name', '"' + trimString_trimString(state.get.current().theme.font.display.name) + '", "Fjalla One", sans-serif');
+
+    } else {
+
+      html.style.removeProperty('--theme-font-display-name');
+
+    };
+
+  }
+};
+
+theme_theme.font.ui = {
+  timer: false,
+  delay: () => {
+
+    clearTimeout(theme_theme.font.ui.timer);
+
+    theme_theme.font.ui.timer = setTimeout(theme_theme.font.ui.load, 600);
+
+  },
+  load: () => {
+
+    const uiFont = trimString_trimString(state.get.current().theme.font.ui.name);
+
+    if (isValidString(uiFont)) {
+
+      webfontloader_default().load({
+        // fontloading: (familyName, fvd) => { console.log('fontloading:', familyName); },
+        google: { families: [trimString_trimString(uiFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'] }
+      });
+
+    };
+
+    theme_theme.font.ui.render();
+
+  },
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    if (isValidString(trimString_trimString(state.get.current().theme.font.ui.name))) {
+
+      html.style.setProperty('--theme-font-ui-name', '"' + trimString_trimString(state.get.current().theme.font.ui.name) + '", "Fjalla One", sans-serif');
+
+    } else {
+
+      html.style.removeProperty('--theme-font-ui-name');
+
+    };
+
+  }
+};
+
+theme_theme.color = {
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
+
+    for (var type in state.get.current().theme.color.range) {
+
+      for (var i = 0; i < state.get.current().theme.color.shades; i++) {
+
+        let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
+
+        hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
+
+        let rgb = convertColor.hsl.rgb(hsl);
+
+        for (var key in rgb) {
+          html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
+        };
+
+        for (var key in hsl) {
+          html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
+        };
+
+      };
+
+    };
+
+  }
+};
+
+theme_theme.accent = {};
+
+theme_theme.accent.random = {
+  render: () => {
+
+    if (state.get.current().theme.accent.random.active) {
+
+      const randomAccentType = {
+        any: () => { return { h: randomNumber(0, 360), s: randomNumber(0, 100), l: randomNumber(0, 100) }; },
+        light: () => { return { h: randomNumber(0, 360), s: randomNumber(50, 90), l: randomNumber(50, 90) }; },
+        dark: () => { return { h: randomNumber(0, 360), s: randomNumber(10, 50), l: randomNumber(10, 50) }; },
+        pastel: () => { return { h: randomNumber(0, 360), s: 50, l: 80 }; },
+        saturated: () => { return { h: randomNumber(0, 360), s: 100, l: 50 }; }
+      };
+
+      const hsl = randomAccentType[state.get.current().theme.accent.random.style]();
+
+      const rgb = convertColor.hsl.rgb(hsl);
+
+      state.get.current().theme.accent.rgb = rgb;
+
+      state.get.current().theme.accent.hsl = hsl;
+
+    };
+
+  }
+};
+
+theme_theme.style = {
+  bind: () => {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      theme_theme.style.initial();
+    });
+  },
+  initial: () => {
+    switch (state.get.current().theme.style) {
+
+      case 'dark':
+      case 'light':
+
+        localStorage.setItem(data.saveName + 'Style', state.get.current().theme.style);
+        break;
+
+      case 'system':
+
+        if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
+          localStorage.setItem(data.saveName + 'Style', 'dark');
+        } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
+          localStorage.setItem(data.saveName + 'Style', 'light');
+        };
+        break;
+
+    };
+  },
+  dark: () => {
+    state.get.current().theme.style = 'dark';
+    theme_theme.style.initial();
+    applyCSSClass('theme.style');
+  },
+  light: () => {
+    state.get.current().theme.style = 'light';
+    theme_theme.style.initial();
+    applyCSSClass('theme.style');
+  },
+  toggle: () => {
+    switch (state.get.current().theme.style) {
+
+      case 'dark':
+        theme_theme.style.light();
+        break;
+
+      case 'light':
+        theme_theme.style.dark();
+        break;
+
+    };
+  }
+};
+
+theme_theme.background = {
+  element: {
+    background: node_node('div|class:background'),
+    type: {
+      theme: node_node('div|class:theme-background-type theme-background-type-theme'),
+      accent: node_node('div|class:theme-background-type theme-background-type-accent'),
+      color: node_node('div|class:theme-background-type theme-background-type-color'),
+      gradient: node_node('div|class:theme-background-type theme-background-type-gradient'),
+      image: node_node('div|class:theme-background-type theme-background-type-image'),
+      video: node_node('div|class:theme-background-type theme-background-type-video')
+    },
+    video: false
+  }
+};
+
+theme_theme.background.area = {
+  render: () => {
+
+    const backgroundElement = node_node('div|class:background');
+
+    state.get.option().theme.background.type.forEach((item, i) => {
+
+      theme_theme.background.element.background.appendChild(theme_theme.background.element.type[item]);
+
+    });
+
+    document.querySelector('body').appendChild(theme_theme.background.element.background);
+
+  }
+};
+
+theme_theme.background.image = {
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    if (isValidString(state.get.current().theme.background.image.url)) {
+      html.style.setProperty('--theme-background-image', 'url(' + trimString_trimString(state.get.current().theme.background.image.url) + ')');
+    } else {
+      html.style.removeProperty('--theme-background-image');
+    };
+
+  }
+};
+
+theme_theme.background.video = {
+  render: () => {
+
+    theme_theme.background.element.video = new Video({
+      url: state.get.current().theme.background.video.url
+    });
+
+    if (isValidString(state.get.current().theme.background.video.url)) {
+
+      theme_theme.background.element.type.video.appendChild(theme_theme.background.element.video.video);
+
+    } else {
+
+      theme_theme.background.video.clear();
+
+    };
+
+  },
+  clear: () => {
+
+    theme_theme.background.element.video = false;
+
+    if (theme_theme.background.element.type.video.lastChild) {
+
+      clearChildNode_clearChildNode(theme_theme.background.element.type.video);
+
+    };
+
+  }
+};
+
+theme_theme.init = () => {
+  theme_theme.style.initial();
+  theme_theme.style.bind();
+  theme_theme.color.render();
+  theme_theme.accent.random.render();
+  theme_theme.font.display.load();
+  theme_theme.font.ui.load();
+  theme_theme.background.area.render();
+  theme_theme.background.image.render();
+  theme_theme.background.video.render();
+  applyCSSVar([
+    'theme.accent.rgb.r',
+    'theme.accent.rgb.g',
+    'theme.accent.rgb.b',
+    'theme.accent.hsl.h',
+    'theme.accent.hsl.s',
+    'theme.accent.hsl.l',
+    'theme.font.display.weight',
+    'theme.font.display.style',
+    'theme.font.ui.weight',
+    'theme.font.ui.style',
+    'theme.bookmark.shadow.color.rgb.r',
+    'theme.bookmark.shadow.color.rgb.g',
+    'theme.bookmark.shadow.color.rgb.b',
+    'theme.bookmark.shadow.color.hsl.h',
+    'theme.bookmark.shadow.color.hsl.s',
+    'theme.bookmark.shadow.color.hsl.l',
+    'theme.bookmark.shadow.opacity',
+    'theme.background.color.rgb.r',
+    'theme.background.color.rgb.g',
+    'theme.background.color.rgb.b',
+    'theme.background.color.hsl.h',
+    'theme.background.color.hsl.s',
+    'theme.background.color.hsl.l',
+    'theme.background.image.blur',
+    'theme.background.image.scale',
+    'theme.background.image.accent',
+    'theme.background.image.opacity',
+    'theme.background.video.blur',
+    'theme.background.video.scale',
+    'theme.background.video.accent',
+    'theme.background.video.opacity',
+    'theme.background.gradient.angle',
+    'theme.background.gradient.start.rgb.r',
+    'theme.background.gradient.start.rgb.g',
+    'theme.background.gradient.start.rgb.b',
+    'theme.background.gradient.start.hsl.h',
+    'theme.background.gradient.start.hsl.s',
+    'theme.background.gradient.start.hsl.l',
+    'theme.background.gradient.end.rgb.r',
+    'theme.background.gradient.end.rgb.g',
+    'theme.background.gradient.end.rgb.b',
+    'theme.background.gradient.end.hsl.h',
+    'theme.background.gradient.end.hsl.s',
+    'theme.background.gradient.end.hsl.l',
+    'theme.radius',
+    'theme.shadow',
+    'theme.shade.opacity',
+    'theme.shade.blur'
+  ]);
+  applyCSSClass([
+    'theme.style',
+    'theme.bookmark.shadow.color.type',
+    'theme.background.type'
+  ]);
+};
+
+
+
+;// CONCATENATED MODULE: ./src/component/bookmarkDefault/index.js
+const bookmarkDefault = {
+  url: '',
+  display: {
+    direction: 'vertical',
+    order: 'visual-name',
+    rotate: 0,
+    translate: { x: 0, y: 0 },
+    gutter: 75,
+    name: { show: true, text: '', size: 7 },
+    visual: { show: true, type: 'letter', size: 25, letter: { text: '' }, icon: { name: '', prefix: '', label: '' }, image: { url: '' } }
+  },
+  accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+  color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+  background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+};
+
+;// CONCATENATED MODULE: ./src/component/bookmarkPreset/index.js
+ const bookmarkPreset = {};
+
+ bookmarkPreset.get = function() {
+   return [{
+     url: 'https://zombiefox.github.io/awesomeSheet/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'awesomeSheet', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'AS' }, icon: { name: 'dice-d20', prefix: 'fas', label: 'Dice D20' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.amazon.co.uk/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Amazon', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'AZ' }, icon: { name: 'amazon', prefix: 'fab', label: 'Amazon' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://mail.google.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Gmail', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'GM' }, icon: { name: 'envelope', prefix: 'fas', label: 'Envelope' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.reddit.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Reddit', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'R' }, icon: { name: 'reddit-alien', prefix: 'fab', label: 'reddit Alien' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://www.netflix.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Netflix', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'N' }, icon: { name: 'film', prefix: 'fas', label: 'Film' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://drive.google.com/drive/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Drive', size: 7 },
+       visual: { show: true, type: 'letter', size: 25, letter: { text: 'DR' }, icon: { name: 'google-drive', prefix: 'fab', label: 'Drive' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://devdocs.io/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Devdocs', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'DEV' }, icon: { name: 'code', prefix: 'fas', label: 'Code' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }, {
+     url: 'https://github.com/',
+     display: {
+       direction: 'vertical',
+       order: 'visual-name',
+       rotate: 0,
+       translate: { x: 0, y: 0 },
+       gutter: 75,
+       name: { show: true, text: 'Github', size: 7 },
+       visual: { show: true, type: 'icon', size: 25, letter: { text: 'GIT' }, icon: { name: 'github', prefix: 'fab', label: 'GitHub' }, image: { url: '' } }
+     },
+     accent: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } },
+     color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, opacity: 1 },
+     background: { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } }
+   }];
+ };
+
+ 
 
 ;// CONCATENATED MODULE: ./src/component/stagedBookmark/index.js
 
@@ -13337,138 +12960,6 @@ const Suggest = function({
 
 
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/collapse/index.css
-var collapse = __webpack_require__(5655);
-;// CONCATENATED MODULE: ./src/component/collapse/index.css
-
-            
-
-var collapse_options = {};
-
-collapse_options.insert = "head";
-collapse_options.singleton = false;
-
-var collapse_update = injectStylesIntoStyleTag_default()(collapse/* default */.Z, collapse_options);
-
-
-
-/* harmony default export */ const component_collapse = (collapse/* default.locals */.Z.locals || {});
-;// CONCATENATED MODULE: ./src/component/collapse/index.js
-
-
-
-
-
-
-
-
-const Collapse = function({
-  type = false,
-  radioGroup = false,
-  checkbox = false,
-  target = false
-} = {}) {
-
-  target.forEach((item, i) => {
-    item.state = {
-      collapsed: true
-    };
-
-    item.area = node_node('div|class:collapse-area');
-
-    item.spacer = node_node('div|class:collapse-spacer');
-  });
-
-  this.target = () => {
-    return target;
-  };
-
-  this.collapseElement = node_node('div|class:collapse');
-
-  this.collapse = () => {
-    target.forEach((item, i) => {
-      item.spacer.appendChild(item.content);
-
-      item.area.appendChild(item.spacer);
-
-      this.collapseElement.appendChild(item.area);
-    });
-
-    return this.collapseElement;
-  };
-
-  this.toggle = () => {
-    target.forEach((item, i) => {
-      if (item.state.collapsed) {
-        item.state.collapsed = false;
-      } else {
-        item.state.collapsed = true;
-      };
-    });
-
-    this.update();
-  };
-
-  this.renderTarget = (state, area) => {
-    if (state) {
-      area.classList.add('is-collapsed');
-      area.setAttribute('aria-hidden', true);
-    } else {
-      area.classList.remove('is-collapsed');
-      area.removeAttribute('aria-hidden');
-    };
-  };
-
-  this.renderToggle = (state, toggle) => {
-    if (state) {
-      toggle.classList.remove('active');
-      toggle.classList.remove('is-collapsed');
-    } else {
-      toggle.classList.add('active');
-      toggle.classList.add('is-collapsed');
-    };
-  };
-
-  this.update = () => {
-
-    switch (type) {
-      case 'radio':
-        const selectedRadioValue = radioGroup.value();
-
-        target.forEach((item, i) => {
-
-          this.renderTarget(!(item.id === selectedRadioValue), item.area);
-
-        });
-        break;
-
-      case 'checkbox':
-        const state = checkbox.checked();
-
-        target.forEach((item, i) => {
-
-          this.renderTarget(!state, item.area);
-
-        });
-        break;
-
-      case 'toggle':
-        target.forEach((item, i) => {
-
-          this.renderTarget(item.state.collapsed, item.area);
-
-          if (item.toggle) {
-            this.renderToggle(item.state.collapsed, item.toggle);
-          };
-
-        });
-        break;
-    };
-  };
-};
-
-
-
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/tab/index.css
 var tab = __webpack_require__(4088);
 ;// CONCATENATED MODULE: ./src/component/tab/index.css
@@ -13687,71 +13178,6 @@ const Control_helperText = function({
     this.para.forEach((item, i) => {
       item.classList.remove('disabled');
     });
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/utility/makePath.js
-const makePath = function(string) {
-  if (string) {
-    let array;
-    if (string.indexOf('[') != -1 && string.indexOf(']') != -1) {
-      array = string.split('.').join(',').split('[').join(',').split(']').join(',').split(',');
-      for (var i = 0; i < array.length; i++) {
-        if (array[i] == '') {
-          array.splice(i, 1);
-        };
-        if (!isNaN(parseInt(array[i], 10))) {
-          array[i] = parseInt(array[i], 10);
-        };
-      };
-    } else {
-      array = string.split('.');
-    };
-    return array;
-  } else {
-    return false;
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/get.js
-
-
-const get_get = function({
-  object = null,
-  path = null
-} = {}) {
-
-  const address = makePath(path);
-
-  const getValue = function() {
-    while (address.length > 1) {
-      // shift off and store the first key
-      var currentKey = address.shift();
-      // if the key is not found make a new object
-      if (!(currentKey in object)) {
-        // make an empty object in the current object level
-        if (isNaN(currentKey)) {
-          object[currentKey] = {};
-        } else {
-          object[currentKey] = [];
-        };
-      };
-      // drill down the object with the first key
-      object = object[currentKey];
-    };
-    var finalKey = address.shift();
-    if (!(finalKey in object)) {
-      return '';
-    } else {
-      return object[finalKey];
-    };
-  };
-
-  if (object != null && path != null) {
-    return getValue();
-  } else {
-    return false;
   };
 
 };
@@ -14260,7 +13686,7 @@ const Control_radioGrid = function({
 
   const radioGroupPath = path;
 
-  const gridElement = form_grid_grid();
+  const gridElement = grid_grid();
 
   let gridLabel = false;
 
@@ -16880,12 +16306,12 @@ const HexTile = function({
     this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.link.display.name.size);
 
     if (bookmarkData.link.accent.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-accent-r', bookmarkData.link.accent.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-accent-g', bookmarkData.link.accent.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-accent-b', bookmarkData.link.accent.rgb.b);
-      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-r), var(--theme-accent-g), var(--theme-accent-b)');
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-r', bookmarkData.link.accent.rgb.r);
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-g', bookmarkData.link.accent.rgb.g);
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-b', bookmarkData.link.accent.rgb.b);
+      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-rgb-r), var(--theme-accent-rgb-g), var(--theme-accent-rgb-b)');
 
-      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-r) * var(--theme-t-r)) + (var(--theme-accent-g) * var(--theme-t-g)) + (var(--theme-accent-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-text', '0, 0%, calc(((((var(--theme-accent-rgb-r) * var(--theme-t-r)) + (var(--theme-accent-rgb-g) * var(--theme-t-g)) + (var(--theme-accent-rgb-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
 
       this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
       this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
@@ -17009,7 +16435,7 @@ const HexTile = function({
 
     this.element.content.wrap.appendChild(this.element.control);
 
-    if (state_state.get.current().bookmark.edit) {
+    if (state.get.current().bookmark.edit) {
       this.control.enable();
     } else {
       this.control.disable();
@@ -17164,7 +16590,7 @@ bookmark_bookmark.item = {
       };
 
       // if end of grid reset column start
-      if (index % (state_state.get.current().grid.column) === 0) {
+      if (index % (state.get.current().grid.column) === 0) {
         columnStart = 1;
       };
 
@@ -17172,13 +16598,13 @@ bookmark_bookmark.item = {
       // row start
       //
       // define what row this bookmark will sit on
-      if (index > 1 && index % state_state.get.current().grid.column === 0) {
+      if (index > 1 && index % state.get.current().grid.column === 0) {
         rowCount = rowCount + 2;
       };
 
       // define the offset of this bookmark on this row
       // find out if row is even
-      if (index % state_state.get.current().grid.column === 0) {
+      if (index % state.get.current().grid.column === 0) {
         // toggle the flag
         if (evenRowFlag) {
           evenRowFlag = false;
@@ -17188,7 +16614,7 @@ bookmark_bookmark.item = {
       };
 
       // if column count is odd
-      if (state_state.get.current().grid.column % 2 === 1 && state_state.get.current().grid.column > 1) {
+      if (state.get.current().grid.column % 2 === 1 && state.get.current().grid.column > 1) {
         if (evenRowFlag) { // if row is even
           if (index % 2 === 1) { // if index is odd
             rowStart = rowCount;
@@ -17206,7 +16632,7 @@ bookmark_bookmark.item = {
       };
 
       // if column count is even
-      if (state_state.get.current().grid.column % 2 === 0 && state_state.get.current().grid.column > 1) {
+      if (state.get.current().grid.column % 2 === 0 && state.get.current().grid.column > 1) {
         if (index % 2 === 0) { // if index is even
           rowStart = rowCount;
         } else { // if index is odd
@@ -17215,7 +16641,7 @@ bookmark_bookmark.item = {
       };
 
       // if single column
-      if (state_state.get.current().grid.column === 1) {
+      if (state.get.current().grid.column === 1) {
         if (index > 0) {
           rowStart = rowStart + 2;
         };
@@ -17253,21 +16679,21 @@ bookmark_bookmark.item = {
 bookmark_bookmark.edit = {
   open: () => {
 
-    state_state.get.current().bookmark.edit = true;
+    state.get.current().bookmark.edit = true;
 
     bookmark_bookmark.edit.render();
 
   },
   close: () => {
 
-    state_state.get.current().bookmark.edit = false;
+    state.get.current().bookmark.edit = false;
 
     bookmark_bookmark.edit.render();
 
   },
   toggle: () => {
 
-    if (state_state.get.current().bookmark.edit) {
+    if (state.get.current().bookmark.edit) {
       bookmark_bookmark.edit.close();
     } else {
       bookmark_bookmark.edit.open();
@@ -17278,7 +16704,7 @@ bookmark_bookmark.edit = {
 
     const html = document.querySelector('html');
 
-    if (state_state.get.current().bookmark.edit) {
+    if (state.get.current().bookmark.edit) {
       html.classList.add('is-bookmark-edit');
     } else {
       html.classList.remove('is-bookmark-edit');
@@ -17287,7 +16713,7 @@ bookmark_bookmark.edit = {
     if (bookmark_bookmark.tile.current.length > 0) {
       bookmark_bookmark.tile.current.forEach((item, i) => {
 
-        if (state_state.get.current().bookmark.edit) {
+        if (state.get.current().bookmark.edit) {
           item.control.enable();
         } else {
           item.control.disable();
@@ -17325,7 +16751,7 @@ bookmark_bookmark.size = {
 
     const html = document.querySelector('html');
 
-    html.style.setProperty('--bookmark-size', state_state.get.current().bookmark.size);
+    html.style.setProperty('--bookmark-size', state.get.current().bookmark.size);
 
   }
 };
@@ -17337,7 +16763,7 @@ bookmark_bookmark.hover.distance = {
 
     const html = document.querySelector('html');
 
-    html.style.setProperty('--bookmark-hover-distance', state_state.get.current().bookmark.hover.distance);
+    html.style.setProperty('--bookmark-hover-distance', state.get.current().bookmark.hover.distance);
 
   }
 };
@@ -17347,7 +16773,7 @@ bookmark_bookmark.hover.size = {
 
     const html = document.querySelector('html');
 
-    html.style.setProperty('--bookmark-hover-size', state_state.get.current().bookmark.hover.size);
+    html.style.setProperty('--bookmark-hover-size', state.get.current().bookmark.hover.size);
 
   }
 };
@@ -17359,7 +16785,7 @@ bookmark_bookmark.shadow.blur = {
 
     const html = document.querySelector('html');
 
-    html.style.setProperty('--bookmark-shadow-blur', state_state.get.current().bookmark.shadow.blur);
+    html.style.setProperty('--bookmark-shadow-blur', state.get.current().bookmark.shadow.blur);
 
   }
 };
@@ -17369,15 +16795,15 @@ bookmark_bookmark.shadow.distance = {
 
     const html = document.querySelector('html');
 
-    html.style.setProperty('--bookmark-shadow-distance', state_state.get.current().bookmark.shadow.distance);
+    html.style.setProperty('--bookmark-shadow-distance', state.get.current().bookmark.shadow.distance);
 
   }
 };
 
 bookmark_bookmark.add = {
   mod: {
-    open: () => { state_state.get.current().bookmark.add = true; },
-    close: () => { state_state.get.current().bookmark.add = false; }
+    open: () => { state.get.current().bookmark.add = true; },
+    close: () => { state.get.current().bookmark.add = false; }
   },
   render: () => {
 
@@ -17455,13 +16881,13 @@ bookmark_bookmark.init = () => {
 
 
 ;// CONCATENATED MODULE: ./src/component/version/index.js
-const version_version = {};
+const version = {};
 
-version_version.number = '3.1.0';
+version.number = '3.1.0';
 
-version_version.name = 'Quirky Llama';
+version.name = 'Quirky Llama';
 
-version_version.compare = (a, b) => {
+version.compare = (a, b) => {
 
   let pa = a.split('.');
 
@@ -17564,6 +16990,16 @@ update_update.all = {
       ui: { name: '', weight: 400, style: 'normal' }
     };
 
+    dataToUpdate.state.theme.accent.random = { active: false, style: 'any' };
+
+    dataToUpdate.state.shade.blur = 0;
+
+    dataToUpdate.state.toolbar.accent = { show: true };
+
+    dataToUpdate.state.toolbar.add = { show: true };
+
+    dataToUpdate.state.toolbar.edit = { show: true };
+
     return dataToUpdate;
   }
 };
@@ -17571,7 +17007,7 @@ update_update.all = {
 update_update.run = function(dataToUpdate) {
   // loop over all updates in mod.all object
   for (var key in update_update.all) {
-    if (version_version.compare(dataToUpdate.version, key) == -1) {
+    if (version.compare(dataToUpdate.version, key) == -1) {
       console.log('\t > running update', key);
       dataToUpdate = update_update.all[key](dataToUpdate);
       dataToUpdate.version = key;
@@ -17579,13 +17015,14 @@ update_update.run = function(dataToUpdate) {
   };
 
   // if no update is needed version bump
-  if (version_version.compare(dataToUpdate.version, version_version.number) == -1) {
-    console.log('\t > no state data to update, version bump to', version_version.number);
-    dataToUpdate.version = version_version.number;
+  if (version.compare(dataToUpdate.version, version.number) == -1) {
+    console.log('\t > no state data to update, version bump to', version.number);
+    dataToUpdate.version = version.number;
   };
 
   return dataToUpdate;
 };
+
 
 
 ;// CONCATENATED MODULE: ./src/utility/dateTime.js
@@ -17732,7 +17169,7 @@ data.backup = (dataToBackup) => {
 
 data.restore = (dataToRestore) => {
   if (dataToRestore) {
-    if (dataToRestore.version != version_version.number) {
+    if (dataToRestore.version != version.number) {
       // backup save data before running update
       data.backup(dataToRestore);
       // run update on save data
@@ -17740,22 +17177,22 @@ data.restore = (dataToRestore) => {
       // save data
       data.set(data.saveName, JSON.stringify(dataToRestore));
     } else {
-      console.log('data version:', version_version.number, 'no need to run update');
+      console.log('data version:', version.number, 'no need to run update');
     };
     // restore state and bookmarks from save data
-    state_state.set.restore(dataToRestore);
+    state.set.restore(dataToRestore);
     bookmark_bookmark.restore(dataToRestore);
   } else {
     console.log('no data found to load');
-    state_state.set.default();
+    state.set.default();
   };
 };
 
 data.save = () => {
   data.set(data.saveName, JSON.stringify({
     [data.saveName]: true,
-    version: version_version.number,
-    state: state_state.get.current(),
+    version: version.number,
+    state: state.get.current(),
     bookmark: bookmark_bookmark.all
   }));
 };
@@ -17859,6 +17296,476 @@ data.init = () => {
 };
 
 
+
+;// CONCATENATED MODULE: ./src/component/pageLock/index.js
+
+
+const pageLock = {};
+
+pageLock.render = () => {
+
+  const html = document.querySelector('html');
+
+  if (state.get.current().modal || state.get.current().menu) {
+    html.classList.add('is-scroll-disabled');
+  } else {
+    html.classList.remove('is-scroll-disabled');
+  };
+
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/shade/index.css
+var shade = __webpack_require__(9888);
+;// CONCATENATED MODULE: ./src/component/shade/index.css
+
+            
+
+var shade_options = {};
+
+shade_options.insert = "head";
+shade_options.singleton = false;
+
+var shade_update = injectStylesIntoStyleTag_default()(shade/* default */.Z, shade_options);
+
+
+
+/* harmony default export */ const component_shade = (shade/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/shade/index.js
+
+
+
+
+const Shade = function() {
+
+  this.element = {
+    shade: node_node('div|class:shade')
+  };
+
+  this.open = () => {
+    const body = document.querySelector('body');
+
+    this.element.shade.classList.add('is-transparent');
+
+    this.element.shade.addEventListener('transitionend', (event) => {
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
+        body.removeChild(this.element.shade);
+      };
+    });
+
+    body.appendChild(this.element.shade);
+
+    getComputedStyle(this.element.shade).opacity;
+
+    this.element.shade.classList.remove('is-transparent');
+
+    this.element.shade.classList.add('is-opaque');
+  };
+
+  this.close = () => {
+
+    this.element.shade.classList.remove('is-opaque');
+
+    this.element.shade.classList.add('is-transparent');
+
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.shade)) {
+        body.removeChild(this.element.shade)
+      };
+
+    }, 6000);
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.shade = () => {
+    return this.element.shade;
+  };
+
+};
+
+
+
+;// CONCATENATED MODULE: ./src/component/keyboardShortcut/index.js
+const KeyboardShortcut = function({
+  keycode = false,
+  ctrl = false,
+  alt = false,
+  action = false
+} = {}) {
+
+  this.action = () => {
+    if (keycode) {
+      if ((event.keyCode == keycode) && (ctrl == event.ctrlKey) && (alt == event.altKey)) {
+
+        event.preventDefault();
+
+        if (action) {
+          action();
+        };
+
+      };
+    };
+  };
+
+  this.add = () => { window.addEventListener('keydown', this.action); };
+
+  this.remove = () => { window.removeEventListener('keydown', this.action); };
+
+};
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/modal/index.css
+var modal = __webpack_require__(4719);
+;// CONCATENATED MODULE: ./src/component/modal/index.css
+
+            
+
+var modal_options = {};
+
+modal_options.insert = "head";
+modal_options.singleton = false;
+
+var modal_update = injectStylesIntoStyleTag_default()(modal/* default */.Z, modal_options);
+
+
+
+/* harmony default export */ const component_modal = (modal/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/modal/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const Modal = function({
+  heading = false,
+  content = false,
+  openAction = false,
+  successText = 'OK',
+  successAction = false,
+  cancelText = 'Cancel',
+  cancelAction = false,
+  closeAction = false,
+  size = 'medium',
+  width = false,
+  maxHeight = false,
+  overscroll = false,
+  maxHeadingLength = 50
+} = {}) {
+
+  this.element = {
+    modal: node_node('div|class:modal'),
+    heading: {
+      heading: node_node('div|class:modal-heading'),
+      text: node_node('h1|class:modal-heading-text,tabindex:1')
+    },
+    content: {
+      wrapper: node_node('div|class:modal-content-wrapper'),
+      content: node_node('div|class:modal-content')
+    },
+    control: node_node('div|class:modal-control')
+  };
+
+  this.shade = new Shade();
+
+  this.open = () => {
+
+    state.get.current().modal = true;
+
+    const body = document.querySelector('body');
+
+    this.element.modal.classList.add('is-transparent');
+
+    this.element.modal.addEventListener('transitionend', (event) => {
+
+      if (event.propertyName === 'opacity' && getComputedStyle(this.element.modal).opacity == 0) {
+
+        body.removeChild(this.element.modal);
+
+      };
+
+    });
+
+    this.shade.open();
+
+    this.style();
+
+    this.assemble();
+
+    body.appendChild(this.element.modal);
+
+    getComputedStyle(this.element.modal).opacity;
+
+    this.element.modal.classList.remove('is-transparent');
+
+    this.element.modal.classList.add('is-opaque');
+
+    this.bind.add();
+
+    this.focus.set();
+
+    if (openAction) {
+      openAction();
+    };
+
+    pageLock.render();
+
+  };
+
+  this.close = () => {
+
+    state.get.current().modal = false;
+
+    this.element.modal.classList.remove('is-opaque');
+
+    this.element.modal.classList.add('is-transparent');
+
+    this.bind.remove();
+
+    this.shade.close();
+
+    if (closeAction) {
+      closeAction();
+    };
+
+    clearTimeout(this.delayedForceRemove);
+
+    this.delayedForceRemove = setTimeout(() => {
+
+      const body = document.querySelector('body');
+
+      if (body.contains(this.element.modal)) {
+        body.removeChild(this.element.modal)
+      };
+
+    }, 6000);
+
+    pageLock.render();
+
+  };
+
+  this.delayedForceRemove = null;
+
+  this.bind = {
+    add: () => {
+
+      window.addEventListener('mouseup', this.clickOut);
+
+      window.addEventListener('keydown', this.focus.loop);
+
+      this.esc.add();
+
+      this.ctrAltM.add();
+
+      this.ctrAltA.add();
+
+    },
+    remove: () => {
+
+      window.removeEventListener('mouseup', this.clickOut);
+
+      window.removeEventListener('keydown', this.focus.loop);
+
+      this.esc.remove();
+
+      this.ctrAltM.remove();
+
+      this.ctrAltA.remove();
+
+    }
+  };
+
+  this.esc = new KeyboardShortcut({ keycode: 27, action: () => { this.close(); } });
+
+  this.ctrAltM = new KeyboardShortcut({ keycode: 77, ctrl: true, alt: true, action: () => { this.close(); } });
+
+  this.ctrAltA = new KeyboardShortcut({ keycode: 65, ctrl: true, alt: true, action: () => { this.close(); } });
+
+  this.clickOut = (event) => {
+
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    const suggest = document.querySelector('.suggest');
+
+    if (!path.includes(this.element.modal) && !path.includes(suggest)) {
+      this.close();
+    };
+
+  };
+
+  this.focus = {
+    set: () => {
+      this.element.heading.text.focus();
+    },
+    loop: (event) => {
+
+      const allFocusElement = document.querySelector('.modal').querySelectorAll('[tabindex]');
+
+      if (allFocusElement.length > 0) {
+
+        const firstElement = allFocusElement[0];
+
+        const lastElement = allFocusElement[allFocusElement.length - 1];
+
+        if (event.keyCode == 9 && event.shiftKey) {
+
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+
+            event.preventDefault();
+          }
+
+        } else if (event.keyCode == 9) {
+
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+
+            event.preventDefault();
+          }
+
+        };
+
+      };
+
+
+    }
+  };
+
+  this.style = () => {
+    if (typeof width === 'number') {
+
+      this.element.modal.style.setProperty('--modal-width', width);
+
+    } else {
+
+      switch (width) {
+        case 'small':
+          this.element.modal.style.setProperty('--modal-width', 30);
+          break;
+
+        default:
+        case 'medium':
+          this.element.modal.style.setProperty('--modal-width', 50);
+          break;
+
+        case 'large':
+          this.element.modal.style.setProperty('--modal-width', 70);
+          break;
+
+      };
+
+    };
+  };
+
+  this.successButton = new Button({
+    text: successText,
+    block: false,
+    style: ['line'],
+    classList: ['modal-control-button'],
+    func: () => {
+
+      if (successAction) {
+        successAction();
+      };
+
+      this.close();
+
+    }
+  });
+
+  this.cancelButton = new Button({
+    text: cancelText,
+    block: false,
+    style: ['line'],
+    classList: ['modal-control-button'],
+    func: () => {
+
+      if (cancelAction) {
+        cancelAction();
+      };
+
+      this.close();
+
+    }
+  });
+
+  this.assemble = () => {
+
+    if (heading && isValidString(heading)) {
+
+      let headingString = heading;
+
+      if (headingString.length > maxHeadingLength) {
+        headingString = trimString_trimString(headingString.substring(0, maxHeadingLength)) + '...';
+      };
+
+      this.element.heading.text.innerHTML = headingString;
+
+      this.element.heading.heading.appendChild(this.element.heading.text);
+
+      this.element.content.content.appendChild(this.element.heading.heading);
+
+    };
+
+    if (content) {
+      if (typeof content == 'string') {
+
+        const para = complexNode({ tag: 'p', text: content });
+
+        this.element.content.content.appendChild(para);
+
+      } else {
+
+        this.element.content.content.appendChild(content);
+
+      };
+    };
+
+    this.element.content.wrapper.appendChild(this.element.content.content);
+
+    this.element.modal.appendChild(this.element.content.wrapper);
+
+    this.element.control.appendChild(this.cancelButton.button);
+
+    this.element.control.appendChild(this.successButton.button);
+
+    this.element.modal.appendChild(this.element.control);
+
+    if (overscroll) {
+      this.element.modal.classList.add('modal-overscroll');
+    };
+
+    if (maxHeight) {
+      this.element.modal.classList.add('modal-max-height');
+    };
+
+  };
+
+  this.modal = () => {
+
+    state.get.current().modal = false;
+
+    return this.element.modal;
+
+  };
+
+};
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/menuNav/index.css
 var menuNav = __webpack_require__(8765);
@@ -18105,316 +18012,6 @@ const MenuClose = function() {
 
 
 
-;// CONCATENATED MODULE: ./src/component/toolbarControl/index.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const ToolbarControl = function() {
-
-  this.element = {
-    toolbar: node_node('div|class:toolbar'),
-    group: group_group()
-  };
-
-  this.control = {};
-
-  this.control.button = {
-    accent: new Control_inputButton({
-      object: state_state.get.current(),
-      path: 'theme.accent',
-      id: 'theme-accent-quick',
-      type: 'color',
-      labelText: 'Accent colour',
-      srOnly: true,
-      inputButtonStyle: ['dot', 'line'],
-      inputButtonClassList: ['toolbar-item'],
-      action: () => {
-        theme_theme.render.accent();
-        this.update.style();
-        data.save();
-      }
-    }),
-    edit: new Button({
-      text: 'Enter edit bookmark mode',
-      srOnly: true,
-      iconName: 'edit',
-      classList: ['toolbar-item'],
-      style: ['line'],
-      func: () => {
-        bookmark_bookmark.edit.toggle();
-        this.update.edit();
-        data.save();
-      }
-    }),
-    setting: new Button({
-      text: 'Open settings menu',
-      srOnly: true,
-      iconName: 'settings',
-      classList: ['toolbar-item'],
-      style: ['line'],
-      func: () => {
-        menu.toggle();
-      }
-    }),
-    add: new Button({
-      text: 'Add a bookmark',
-      srOnly: true,
-      iconName: 'add',
-      classList: ['toolbar-item'],
-      func: function() {
-        bookmark_bookmark.add.render();
-      }
-    })
-  };
-
-  this.assemble = () => {
-
-    const toolbarControl = node_node('div|class:toolbar-control');
-
-    switch (state_state.get.current().toolbar.position) {
-
-      case 'top-right':
-      case 'bottom-right':
-        this.element.group.classList.remove('form-group-reverse');
-        break;
-
-      case 'top-left':
-      case 'bottom-left':
-        this.element.group.classList.add('form-group-reverse');
-        break;
-
-    };
-
-    this.element.group.appendChild(this.control.button.accent.button);
-
-    this.element.group.appendChild(this.control.button.add.button);
-
-    this.element.group.appendChild(this.control.button.edit.button);
-
-    this.element.group.appendChild(this.control.button.setting.button);
-
-    toolbarControl.appendChild(this.element.group);
-
-    this.element.toolbar.appendChild(toolbarControl);
-
-  };
-
-  this.toolbar = () => {
-
-    return this.element.toolbar;
-
-  };
-
-  this.update = {};
-
-  this.update.style = () => {
-
-    const add = (rgb) => {
-
-      this.element.toolbar.style.setProperty('--toolbar-color-r', rgb.r);
-      this.element.toolbar.style.setProperty('--toolbar-color-g', rgb.g);
-      this.element.toolbar.style.setProperty('--toolbar-color-b', rgb.b);
-
-      this.element.toolbar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--theme-t-r)) + (var(--toolbar-color-g) * var(--theme-t-g)) + (var(--toolbar-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.toolbar.style.setProperty('--button-link-text', 'var(--toolbar-color-text)');
-      this.element.toolbar.style.setProperty('--button-link-text-focus-hover', 'var(--toolbar-color-text)');
-      this.element.toolbar.style.setProperty('--button-link-text-active', 'var(--toolbar-color-text)');
-
-    };
-
-    const remove = () => {
-
-      this.element.toolbar.style.removeProperty('--toolbar-color-r');
-      this.element.toolbar.style.removeProperty('--toolbar-color-g');
-      this.element.toolbar.style.removeProperty('--toolbar-color-b');
-
-      this.element.toolbar.style.removeProperty('--toolbar-color-text');
-
-      this.element.toolbar.style.removeProperty('--button-link-text');
-      this.element.toolbar.style.removeProperty('--button-link-text-focus-hover');
-      this.element.toolbar.style.removeProperty('--button-link-text-active');
-
-    };
-
-    switch (state_state.get.current().toolbar.style) {
-
-      case 'transparent':
-
-        switch (state_state.get.current().theme.background.type) {
-
-          case 'theme':
-          case 'image':
-          case 'video':
-            remove();
-            break;
-
-          case 'accent':
-            add(state_state.get.current().theme.accent.rgb);
-            break;
-
-          case 'color':
-            add(state_state.get.current().theme.background.color.rgb);
-            break;
-
-          case 'gradient':
-            let angle = state_state.get.current().theme.background.gradient.angle;
-
-            switch (state_state.get.current().toolbar.position) {
-
-              case 'top-left':
-              case 'top-right':
-                if (angle < 90) {
-                  add(state_state.get.current().theme.background.gradient.end.rgb);
-                } else if (angle >= 90 && angle < 180) {
-                  add(state_state.get.current().theme.background.gradient.start.rgb);
-                } else if (angle >= 180 && angle < 270) {
-                  add(state_state.get.current().theme.background.gradient.start.rgb);
-                } else if (angle >= 270) {
-                  add(state_state.get.current().theme.background.gradient.end.rgb);
-                };
-                break;
-
-              case 'bottom-right':
-              case 'bottom-left':
-                if (angle < 90) {
-                  add(state_state.get.current().theme.background.gradient.start.rgb);
-                } else if (angle >= 90 && angle < 180) {
-                  add(state_state.get.current().theme.background.gradient.end.rgb);
-                } else if (angle >= 180 && angle < 270) {
-                  add(state_state.get.current().theme.background.gradient.end.rgb);
-                } else if (angle >= 270) {
-                  add(state_state.get.current().theme.background.gradient.start.rgb);
-                };
-                break;
-
-            };
-
-            break;
-
-        };
-
-        break;
-
-      case 'bar':
-
-        remove();
-
-        break;
-
-    };
-
-    switch (state_state.get.current().toolbar.style) {
-
-      case 'transparent':
-
-        this.control.button.accent.inputButtonStyle.update(['dot', 'link']);
-        this.control.button.edit.style.update(['line', 'link']);
-        this.control.button.setting.style.update(['link']);
-        this.control.button.add.style.update(['link']);
-
-        break;
-
-      case 'bar':
-
-        this.control.button.accent.inputButtonStyle.update(['dot', 'line']);
-        this.control.button.edit.style.update(['line']);
-        this.control.button.setting.style.update(['line']);
-        this.control.button.add.style.update(['line']);
-
-        break;
-
-    };
-
-  };
-
-  this.update.edit = () => {
-
-    if (state_state.get.current().bookmark.edit) {
-
-      this.control.button.edit.active();
-
-    } else {
-
-      this.control.button.edit.deactive();
-
-    };
-
-  };
-
-  this.update.position = () => {
-
-    switch (state_state.get.current().toolbar.position) {
-
-      case 'top-right':
-      case 'bottom-right':
-        this.element.group.classList.remove('form-group-reverse');
-        break;
-
-      case 'top-left':
-      case 'bottom-left':
-        this.element.group.classList.add('form-group-reverse');
-        break;
-
-    };
-
-    this.element.toolbar.classList.remove('is-toolbar-position-top-left');
-
-    this.element.toolbar.classList.remove('is-toolbar-position-top-right');
-
-    this.element.toolbar.classList.remove('is-toolbar-position-bottom-left');
-
-    this.element.toolbar.classList.remove('is-toolbar-position-bottom-right');
-
-    switch (state_state.get.current().toolbar.position) {
-
-      case 'top-left':
-        this.element.toolbar.classList.add('is-toolbar-position-top-left');
-        break;
-
-      case 'top-right':
-        this.element.toolbar.classList.add('is-toolbar-position-top-right');
-        break;
-
-      case 'bottom-right':
-        this.element.toolbar.classList.add('is-toolbar-position-bottom-right');
-        break;
-
-      case 'bottom-left':
-        this.element.toolbar.classList.add('is-toolbar-position-bottom-left');
-        break;
-
-    };
-
-  };
-
-  this.update.accent = () => {
-
-    this.control.button.accent.update();
-
-  };
-
-  this.assemble();
-
-  this.update.style();
-
-  this.update.position();
-
-};
-
-
-
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbar/index.css
 var toolbar = __webpack_require__(4879);
 ;// CONCATENATED MODULE: ./src/component/toolbar/index.css
@@ -18453,7 +18050,7 @@ toolbar_toolbar.class.render = () => {
     html.classList.remove('is-toolbar-position-' + item);
   });
 
-  html.classList.add('is-toolbar-position-' + state_state.get.current().toolbar.position);
+  html.classList.add('is-toolbar-position-' + state.get.current().toolbar.position);
 
   const style = ['bar', 'transparent'];
 
@@ -18461,7 +18058,7 @@ toolbar_toolbar.class.render = () => {
     html.classList.remove('is-toolbar-style-' + item);
   });
 
-  html.classList.add('is-toolbar-style-' + state_state.get.current().toolbar.style);
+  html.classList.add('is-toolbar-style-' + state.get.current().toolbar.style);
 };
 
 toolbar_toolbar.bar = {};
@@ -18787,21 +18384,25 @@ const Control_textReset = function({
 
 
 
+
+
+
+
 const layoutSetting = {};
 
 layoutSetting.scaling = (parent) => {
 
   const gridSize = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.size',
     id: 'grid-size',
     labelText: 'Global size',
-    value: state_state.get.current().grid.size,
-    defaultValue: state_state.get.default().grid.size,
-    min: state_state.get.minMax().grid.size.min,
-    max: state_state.get.minMax().grid.size.max,
+    value: state.get.current().grid.size,
+    defaultValue: state.get.default().grid.size,
+    min: state.get.minMax().grid.size.min,
+    max: state.get.minMax().grid.size.max,
     action: () => {
-      grid_grid.render.style();
+      component_grid_grid.render.style();
       data.save();
     }
   });
@@ -18822,16 +18423,16 @@ layoutSetting.scaling = (parent) => {
 layoutSetting.grid = (parent) => {
 
   const gridColumn = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.column',
     id: 'grid-column',
     labelText: 'Grid column',
-    value: state_state.get.current().grid.column,
-    defaultValue: state_state.get.default().grid.column,
-    min: state_state.get.minMax().grid.column.min,
-    max: state_state.get.minMax().grid.column.max,
+    value: state.get.current().grid.column,
+    defaultValue: state.get.default().grid.column,
+    min: state.get.minMax().grid.column.min,
+    max: state.get.minMax().grid.column.max,
     action: () => {
-      grid_grid.render.style();
+      component_grid_grid.render.style();
       bookmark_bookmark.item.clear();
       bookmark_bookmark.item.render();
       data.save();
@@ -18839,93 +18440,93 @@ layoutSetting.grid = (parent) => {
   });
 
   const gridGap = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.gap',
     id: 'grid-gap',
     labelText: 'Grid gap',
-    value: state_state.get.current().grid.gap,
-    defaultValue: state_state.get.default().grid.gap,
-    min: state_state.get.minMax().grid.gap.min,
-    max: state_state.get.minMax().grid.gap.max,
+    value: state.get.current().grid.gap,
+    defaultValue: state.get.default().grid.gap,
+    min: state.get.minMax().grid.gap.min,
+    max: state.get.minMax().grid.gap.max,
     action: () => {
-      grid_grid.render.style();
+      component_grid_grid.render.style();
       data.save();
     }
   });
 
   const gridPerspective = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.perspective',
     id: 'grid-perspective',
     labelText: 'Grid perspective',
-    value: state_state.get.current().grid.perspective,
-    defaultValue: state_state.get.default().grid.perspective,
-    min: state_state.get.minMax().grid.perspective.min,
-    max: state_state.get.minMax().grid.perspective.max,
+    value: state.get.current().grid.perspective,
+    defaultValue: state.get.default().grid.perspective,
+    min: state.get.minMax().grid.perspective.min,
+    max: state.get.minMax().grid.perspective.max,
     action: () => {
-      grid_grid.render.style();
+      component_grid_grid.render.style();
       data.save();
     }
   });
 
   const gridFocus = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.transform.focus',
     id: 'grid-transform-focus',
     labelText: 'Grid tilt on hover',
-    value: state_state.get.current().grid.transform.focus,
-    defaultValue: state_state.get.default().grid.transform.focus,
-    min: state_state.get.minMax().grid.transform.focus.min,
-    max: state_state.get.minMax().grid.transform.focus.max,
+    value: state.get.current().grid.transform.focus,
+    defaultValue: state.get.default().grid.transform.focus,
+    min: state.get.minMax().grid.transform.focus.min,
+    max: state.get.minMax().grid.transform.focus.max,
     action: () => {
       data.save();
     }
   });
 
   const gridTransformRotateX = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.transform.rotate.x',
     id: 'grid-transform-rotate-x',
     labelText: 'Rotate grid around X axis',
-    value: state_state.get.current().grid.transform.rotate.x,
-    defaultValue: state_state.get.default().grid.transform.rotate.x,
-    min: state_state.get.minMax().grid.transform.rotate.x.min,
-    max: state_state.get.minMax().grid.transform.rotate.x.max,
+    value: state.get.current().grid.transform.rotate.x,
+    defaultValue: state.get.default().grid.transform.rotate.x,
+    min: state.get.minMax().grid.transform.rotate.x.min,
+    max: state.get.minMax().grid.transform.rotate.x.max,
     action: () => {
-      grid_grid.render.style();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
+      component_grid_grid.render.style();
+      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
       data.save();
     }
   });
 
   const gridTransformRotateY = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.transform.rotate.y',
     id: 'grid-transform-rotate-y',
     labelText: 'Rotate grid around Y axis',
-    value: state_state.get.current().grid.transform.rotate.y,
-    defaultValue: state_state.get.default().grid.transform.rotate.y,
-    min: state_state.get.minMax().grid.transform.rotate.y.min,
-    max: state_state.get.minMax().grid.transform.rotate.y.max,
+    value: state.get.current().grid.transform.rotate.y,
+    defaultValue: state.get.default().grid.transform.rotate.y,
+    min: state.get.minMax().grid.transform.rotate.y.min,
+    max: state.get.minMax().grid.transform.rotate.y.max,
     action: () => {
-      grid_grid.render.style();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
+      component_grid_grid.render.style();
+      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
       data.save();
     }
   });
 
   const gridTransformRotateZ = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'grid.transform.rotate.z',
     id: 'grid-transform-rotate-z',
     labelText: 'Rotate grid around Z axis',
-    value: state_state.get.current().grid.transform.rotate.z,
-    defaultValue: state_state.get.default().grid.transform.rotate.z,
-    min: state_state.get.minMax().grid.transform.rotate.z.min,
-    max: state_state.get.minMax().grid.transform.rotate.z.max,
+    value: state.get.current().grid.transform.rotate.z,
+    defaultValue: state.get.default().grid.transform.rotate.z,
+    min: state.get.minMax().grid.transform.rotate.z.min,
+    max: state.get.minMax().grid.transform.rotate.z.max,
     action: () => {
-      grid_grid.render.style();
-      grid_grid.render.rotate.style(state_state.get.current().grid.transform.rotate.x, state_state.get.current().grid.transform.rotate.y, state_state.get.current().grid.transform.rotate.z);
+      component_grid_grid.render.style();
+      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
       data.save();
     }
   });
@@ -18981,19 +18582,23 @@ layoutSetting.grid = (parent) => {
 
 
 
+
+
+
+
 const bookmarkSetting = {};
 
 bookmarkSetting.hover = (parent) => {
 
   const bookmarkHoverSize = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'bookmark.hover.size',
     id: 'bookmark-hover-size',
     labelText: 'Bookmark grow on hover',
-    value: state_state.get.current().bookmark.hover.size,
-    defaultValue: state_state.get.default().bookmark.hover.size,
-    min: state_state.get.minMax().bookmark.hover.size.min,
-    max: state_state.get.minMax().bookmark.hover.size.max,
+    value: state.get.current().bookmark.hover.size,
+    defaultValue: state.get.default().bookmark.hover.size,
+    min: state.get.minMax().bookmark.hover.size.min,
+    max: state.get.minMax().bookmark.hover.size.max,
     action: () => {
       bookmark_bookmark.hover.size.render();
       data.save();
@@ -19001,14 +18606,14 @@ bookmarkSetting.hover = (parent) => {
   });
 
   const bookmarkHoverDistance = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'bookmark.hover.distance',
     id: 'bookmark-hover-distance',
     labelText: 'Bookmark raise distance on hover',
-    value: state_state.get.current().bookmark.hover.distance,
-    defaultValue: state_state.get.default().bookmark.hover.distance,
-    min: state_state.get.minMax().bookmark.hover.distance.min,
-    max: state_state.get.minMax().bookmark.hover.distance.max,
+    value: state.get.current().bookmark.hover.distance,
+    defaultValue: state.get.default().bookmark.hover.distance,
+    min: state.get.minMax().bookmark.hover.distance.min,
+    max: state.get.minMax().bookmark.hover.distance.max,
     action: () => {
       bookmark_bookmark.hover.distance.render();
       data.save();
@@ -19027,14 +18632,14 @@ bookmarkSetting.hover = (parent) => {
 bookmarkSetting.shadow = (parent) => {
 
   const bookmarkShadowDistance = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'bookmark.shadow.distance',
     id: 'bookmark-shadow-distance',
     labelText: 'Bookmark shadow distance',
-    value: state_state.get.current().bookmark.shadow.distance,
-    defaultValue: state_state.get.default().bookmark.shadow.distance,
-    min: state_state.get.minMax().bookmark.shadow.distance.min,
-    max: state_state.get.minMax().bookmark.shadow.distance.max,
+    value: state.get.current().bookmark.shadow.distance,
+    defaultValue: state.get.default().bookmark.shadow.distance,
+    min: state.get.minMax().bookmark.shadow.distance.min,
+    max: state.get.minMax().bookmark.shadow.distance.max,
     action: () => {
       bookmark_bookmark.shadow.distance.render();
       data.save();
@@ -19042,14 +18647,14 @@ bookmarkSetting.shadow = (parent) => {
   });
 
   const bookmarkShadowBlur = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'bookmark.shadow.blur',
     id: 'bookmark-shadow-blur',
     labelText: 'Bookmark shadow blur',
-    value: state_state.get.current().bookmark.shadow.blur,
-    defaultValue: state_state.get.default().bookmark.shadow.blur,
-    min: state_state.get.minMax().bookmark.shadow.blur.min,
-    max: state_state.get.minMax().bookmark.shadow.blur.max,
+    value: state.get.current().bookmark.shadow.blur,
+    defaultValue: state.get.default().bookmark.shadow.blur,
+    min: state.get.minMax().bookmark.shadow.blur.min,
+    max: state.get.minMax().bookmark.shadow.blur.max,
     action: () => {
       bookmark_bookmark.shadow.blur.render();
       data.save();
@@ -19101,12 +18706,15 @@ bookmarkSetting.shadow = (parent) => {
 
 
 
+
+
+
 const toolbarSetting = {};
 
 toolbarSetting.style = (parent) => {
 
   const toolbarStyle = new Control_radio({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'toolbar-style-transparent', labelText: 'Transparent', value: 'transparent' },
       { id: 'toolbar-style-Bar', labelText: 'Bar', value: 'bar' }
@@ -19132,10 +18740,55 @@ toolbarSetting.style = (parent) => {
 
 };
 
+toolbarSetting.controls = (parent) => {
+
+  const toolbarAccentShow = new Control_checkbox({
+    object: state.get.current(),
+    id: 'toolbar-accent-show',
+    path: 'toolbar.accent.show',
+    labelText: 'Show Accent control',
+    action: () => {
+      toolbar_toolbar.current.update.control();
+      data.save();
+    }
+  });
+
+  const toolbarAddShow = new Control_checkbox({
+    object: state.get.current(),
+    id: 'toolbar-add-show',
+    path: 'toolbar.add.show',
+    labelText: 'Show Add control',
+    action: () => {
+      toolbar_toolbar.current.update.control();
+      data.save();
+    }
+  });
+
+  const toolbarEditShow = new Control_checkbox({
+    object: state.get.current(),
+    id: 'toolbar-edit-show',
+    path: 'toolbar.edit.show',
+    labelText: 'Show Edit control',
+    action: () => {
+      toolbar_toolbar.current.update.control();
+      data.save();
+    }
+  });
+
+  parent.appendChild(
+    node_node('div', [
+      toolbarAccentShow.wrap(),
+      toolbarAddShow.wrap(),
+      toolbarEditShow.wrap()
+    ])
+  );
+
+};
+
 toolbarSetting.position = (parent) => {
 
   const toolbarPosition = new Control_radioGrid({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'toolbar-position-top-left', labelText: 'Top left', value: 'top-left', position: 1 },
       { id: 'toolbar-position-top-right', labelText: 'Top right', value: 'top-right', position: 2 },
@@ -19168,7 +18821,73 @@ toolbarSetting.position = (parent) => {
 
 
 
+;// CONCATENATED MODULE: ./src/component/accentPreset/index.js
+const accentPreset = {};
+
+accentPreset.get = () => {
+  return [{
+    name: 'Grey',
+    type: 'grey',
+    colors: [{ h: 0, s: 0, l: 90 }, { h: 0, s: 0, l: 77 }, { h: 0, s: 0, l: 63 }, { h: 0, s: 0, l: 50 }, { h: 0, s: 0, l: 37 }, { h: 0, s: 0, l: 23 }, { h: 0, s: 0, l: 10 }]
+  }, {
+    name: 'Red',
+    type: 'primary',
+    colors: [{ h: 0, s: 40, l: 90 }, { h: 0, s: 60, l: 77 }, { h: 0, s: 80, l: 63 }, { h: 0, s: 100, l: 50 }, { h: 0, s: 80, l: 37 }, { h: 0, s: 60, l: 23 }, { h: 0, s: 40, l: 10 }]
+  }, {
+    name: 'Orange',
+    type: 'secondary',
+    colors: [{ h: 30, s: 40, l: 90 }, { h: 30, s: 60, l: 77 }, { h: 30, s: 80, l: 63 }, { h: 30, s: 100, l: 50 }, { h: 30, s: 80, l: 37 }, { h: 30, s: 60, l: 23 }, { h: 30, s: 40, l: 10 }]
+  }, {
+    name: 'Yellow',
+    type: 'primary',
+    colors: [{ h: 60, s: 40, l: 90 }, { h: 60, s: 60, l: 77 }, { h: 60, s: 80, l: 63 }, { h: 60, s: 100, l: 50 }, { h: 60, s: 80, l: 37 }, { h: 60, s: 60, l: 23 }, { h: 60, s: 40, l: 10 }]
+  }, {
+    name: 'Lime',
+    type: 'secondary',
+    colors: [{ h: 90, s: 40, l: 90 }, { h: 90, s: 60, l: 77 }, { h: 90, s: 80, l: 63 }, { h: 90, s: 100, l: 50 }, { h: 90, s: 80, l: 37 }, { h: 90, s: 60, l: 23 }, { h: 90, s: 40, l: 10 }]
+  }, {
+    name: 'Green',
+    type: 'primary',
+    colors: [{ h: 120, s: 40, l: 90 }, { h: 120, s: 60, l: 77 }, { h: 120, s: 80, l: 63 }, { h: 120, s: 100, l: 50 }, { h: 120, s: 80, l: 37 }, { h: 120, s: 60, l: 23 }, { h: 120, s: 40, l: 10 }]
+  }, {
+    name: 'Aqua',
+    type: 'secondary',
+    colors: [{ h: 150, s: 40, l: 90 }, { h: 150, s: 60, l: 77 }, { h: 150, s: 80, l: 63 }, { h: 150, s: 100, l: 50 }, { h: 150, s: 80, l: 37 }, { h: 150, s: 60, l: 23 }, { h: 150, s: 40, l: 10 }]
+  }, {
+    name: 'Cyan',
+    type: 'primary',
+    colors: [{ h: 180, s: 40, l: 90 }, { h: 180, s: 60, l: 77 }, { h: 180, s: 80, l: 63 }, { h: 180, s: 100, l: 50 }, { h: 180, s: 80, l: 37 }, { h: 180, s: 60, l: 23 }, { h: 180, s: 40, l: 10 }]
+  }, {
+    name: 'Teal',
+    type: 'secondary',
+    colors: [{ h: 210, s: 40, l: 90 }, { h: 210, s: 60, l: 77 }, { h: 210, s: 80, l: 63 }, { h: 210, s: 100, l: 50 }, { h: 210, s: 80, l: 37 }, { h: 210, s: 60, l: 23 }, { h: 210, s: 40, l: 10 }]
+  }, {
+    name: 'Blue',
+    type: 'primary',
+    colors: [{ h: 240, s: 40, l: 90 }, { h: 240, s: 60, l: 77 }, { h: 240, s: 80, l: 63 }, { h: 240, s: 100, l: 50 }, { h: 240, s: 80, l: 37 }, { h: 240, s: 60, l: 23 }, { h: 240, s: 40, l: 10 }]
+  }, {
+    name: 'Purple',
+    type: 'secondary',
+    colors: [{ h: 270, s: 40, l: 90 }, { h: 270, s: 60, l: 77 }, { h: 270, s: 80, l: 63 }, { h: 270, s: 100, l: 50 }, { h: 270, s: 80, l: 37 }, { h: 270, s: 60, l: 23 }, { h: 270, s: 40, l: 10 }]
+  }, {
+    name: 'Magenta',
+    type: 'primary',
+    colors: [{ h: 300, s: 40, l: 90 }, { h: 300, s: 60, l: 77 }, { h: 300, s: 80, l: 63 }, { h: 300, s: 100, l: 50 }, { h: 300, s: 80, l: 37 }, { h: 300, s: 60, l: 23 }, { h: 300, s: 40, l: 10 }]
+  }, {
+    name: 'Fuchsia',
+    type: 'secondary',
+    colors: [{ h: 330, s: 40, l: 90 }, { h: 330, s: 60, l: 77 }, { h: 330, s: 80, l: 63 }, { h: 330, s: 100, l: 50 }, { h: 330, s: 80, l: 37 }, { h: 330, s: 60, l: 23 }, { h: 330, s: 40, l: 10 }]
+  }];
+};
+
+
+
 ;// CONCATENATED MODULE: ./src/component/menuContent/themeSetting/index.js
+
+
+
+
+
 
 
 
@@ -19211,7 +18930,7 @@ themeSetting.exposeControl = {
 themeSetting.style = (parent) => {
 
   const themeStyle = new Control_radio({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'theme-style-dark', labelText: 'Dark mode', description: false, value: 'dark' },
       { id: 'theme-style-light', labelText: 'Light mode', description: false, value: 'light' },
@@ -19220,8 +18939,8 @@ themeSetting.style = (parent) => {
     groupName: 'theme-style',
     path: 'theme.style',
     action: () => {
-      theme_theme.mod.style.initial();
-      theme_theme.render.class();
+      theme_theme.style.initial();
+      applyCSSClass('theme.style');
       data.save();
     }
   });
@@ -19238,55 +18957,81 @@ themeSetting.style = (parent) => {
 
 themeSetting.colour = (parent) => {
 
+  const shades = () => {
+
+    const formGroup = group_group({
+      block: true,
+      border: true
+    });
+
+    const shadeCount = state.get.current().theme.color.shades;
+
+    for (var i = 1; i <= shadeCount; i++) {
+      let count = i;
+
+      if (count < 10) {
+        count = '0' + count;
+      };
+
+      formGroup.appendChild(
+        node_node('div|class:form-group-text form-group-text-borderless', [
+          node_node('div|class:theme-color-box theme-color-shade-' + count + '')
+        ])
+      );
+    };
+
+    return formGroup;
+  };
+
   const shadesHelper = new Control_helperText({
     text: ['Backgrounds, Bookmarks and Modals use shades from the left.', 'Text and form elements use shades from the right.', 'For a light look switch to the Light Style and then select a Primary colour. And vice versa for a dark look.']
   });
 
   const themeColorRangePrimaryH = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.color.range.primary.h',
     id: 'theme-color-range-primary-h',
     labelText: 'Primary colour',
     hue: true,
-    value: state_state.get.current().theme.color.range.primary.h,
-    defaultValue: state_state.get.default().theme.color.range.primary.h,
-    min: state_state.get.minMax().theme.color.range.primary.h.min,
-    max: state_state.get.minMax().theme.color.range.primary.h.max,
+    value: state.get.current().theme.color.range.primary.h,
+    defaultValue: state.get.default().theme.color.range.primary.h,
+    min: state.get.minMax().theme.color.range.primary.h.min,
+    max: state.get.minMax().theme.color.range.primary.h.max,
     action: () => {
-      theme_theme.render.color();
+      theme_theme.color.render();
       data.save();
     }
   });
 
   const themeColorRangePrimaryS = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.color.range.primary.s',
     id: 'theme-color-range-primary-s',
     labelText: 'Saturation',
-    value: state_state.get.current().theme.color.range.primary.s,
-    defaultValue: state_state.get.default().theme.color.range.primary.s,
-    min: state_state.get.minMax().theme.color.range.primary.s.min,
-    max: state_state.get.minMax().theme.color.range.primary.s.max,
+    value: state.get.current().theme.color.range.primary.s,
+    defaultValue: state.get.default().theme.color.range.primary.s,
+    min: state.get.minMax().theme.color.range.primary.s.min,
+    max: state.get.minMax().theme.color.range.primary.s.max,
     action: () => {
-      theme_theme.render.color();
+      theme_theme.color.render();
       data.save();
     }
   });
 
   const themeColorRangeContrast = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.color.lightness.contrast',
     id: 'theme-color-range-contrast',
     labelText: 'Contrast',
-    value: state_state.get.current().theme.color.lightness.contrast,
-    defaultValue: state_state.get.default().theme.color.lightness.contrast,
-    min: state_state.get.minMax().theme.color.lightness.contrast.min,
-    max: state_state.get.minMax().theme.color.lightness.contrast.max,
+    value: state.get.current().theme.color.lightness.contrast,
+    defaultValue: state.get.default().theme.color.lightness.contrast,
+    min: state.get.minMax().theme.color.lightness.contrast.min,
+    max: state.get.minMax().theme.color.lightness.contrast.max,
     action: () => {
-      state_state.get.current().theme.color.lightness.offset = 40 - state_state.get.current().theme.color.lightness.contrast;
-      state_state.get.current().theme.color.lightness.start = state_state.get.current().theme.color.lightness.offset;
-      state_state.get.current().theme.color.lightness.end = 100 - state_state.get.current().theme.color.lightness.offset;
-      theme_theme.render.color();
+      state.get.current().theme.color.lightness.offset = 40 - state.get.current().theme.color.lightness.contrast;
+      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
+      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
+      theme_theme.color.render();
       data.save();
     }
   });
@@ -19297,7 +19042,7 @@ themeSetting.colour = (parent) => {
         children: [
           wrap_wrap({
             children: [
-              themeSetting.shades()
+              shades()
             ]
           })
         ]
@@ -19312,51 +19057,167 @@ themeSetting.colour = (parent) => {
 
 };
 
-themeSetting.shades = (parent) => {
-  const formGroup = group_group({
-    block: true,
-    border: true
-  });
-
-  const shadeCount = state_state.get.current().theme.color.shades;
-
-  for (var i = 1; i <= shadeCount; i++) {
-    let count = i;
-
-    if (count < 10) {
-      count = '0' + count;
-    };
-
-    formGroup.appendChild(
-      node_node('div|class:form-group-text form-group-text-borderless', [
-        node_node('div|class:theme-color-box theme-color-shade-' + count + '')
-      ])
-    );
-  };
-
-  return formGroup;
-};
-
 themeSetting.accent = (parent) => {
 
-  const themeAccentMixer = new Control_colorMixer({
-    object: state_state.get.current(),
+  const preset = () => {
+
+    const allPreset = accentPreset.get();
+
+    const nameModifier = {
+      '90': 'Super extra light',
+      '77': 'Extra light',
+      '63': 'Light',
+      '37': 'Dark',
+      '23': 'Extra dark',
+      '10': 'Super extra dark'
+    };
+
+    const formWrap = wrap_wrap();
+
+    const themeAccentPreset = node_node('div|class:theme-accent-preset');
+
+    allPreset.forEach((item, i) => {
+
+      const name = item.name;
+
+      const type = item.type;
+
+      item.colors.forEach((item, i) => {
+
+        let fullName;
+
+        if (nameModifier[item.l] != undefined) {
+          fullName = nameModifier[item.l] + ' ' + name.toLowerCase();
+        } else {
+          fullName = name;
+        };
+
+        const presetButton = new Button({
+          text: fullName,
+          title: fullName,
+          srOnly: true,
+          classList: ['theme-accent-preset-item'],
+          func: () => {
+            state.get.current().theme.accent.rgb = convertColor.hsl.rgb(item);
+            state.get.current().theme.accent.hsl = item;
+            applyCSSVar([
+              'theme.accent.rgb.r',
+              'theme.accent.rgb.g',
+              'theme.accent.rgb.b',
+              'theme.accent.hsl.h',
+              'theme.accent.hsl.s',
+              'theme.accent.hsl.l'
+            ]);
+            toolbar_toolbar.current.update.style();
+            toolbar_toolbar.current.update.accent();
+            themeAccent.update();
+            data.save();
+          }
+        });
+
+        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-h', item.h);
+
+        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-s', item.s);
+
+        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-l', item.l);
+
+        themeAccentPreset.appendChild(presetButton.button);
+
+      });
+
+    });
+
+    formWrap.appendChild(themeAccentPreset);
+
+    return formWrap;
+
+  };
+
+  const themeAccent = new Control_colorMixer({
+    object: state.get.current(),
     path: 'theme.accent',
     id: 'theme-accent',
     labelText: 'Accent colour',
-    defaultValue: state_state.get.default().theme.accent.rgb,
-    minMaxObject: state_state.get.minMax(),
+    defaultValue: state.get.default().theme.accent.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
-      theme_theme.render.accent();
-      toolbar_toolbar.accent.update();
-      toolbar_toolbar.render.style.update();
+      applyCSSVar([
+        'theme.accent.rgb.r',
+        'theme.accent.rgb.g',
+        'theme.accent.rgb.b',
+        'theme.accent.hsl.h',
+        'theme.accent.hsl.s',
+        'theme.accent.hsl.l'
+      ]);
+      toolbar_toolbar.current.update.style();
+      toolbar_toolbar.current.update.accent();
+      data.save();
+    }
+  });
+
+  const themeAccentRandomActive = new Control_checkbox({
+    object: state.get.current(),
+    path: 'theme.accent.random.active',
+    id: 'theme-accent-random-active',
+    labelText: 'Random Accent colour on load/refresh',
+    action: () => {
+      data.save();
+    }
+  });
+
+  const themeAccentRandomNow = new Button({
+    text: 'Randomise now',
+    style: ['line'],
+    func: () => {
+      theme_theme.accent.random.render();
+      applyCSSVar([
+        'theme.accent.rgb.r',
+        'theme.accent.rgb.g',
+        'theme.accent.rgb.b',
+        'theme.accent.hsl.h',
+        'theme.accent.hsl.s',
+        'theme.accent.hsl.l'
+      ]);
+      toolbar_toolbar.current.update.style();
+      toolbar_toolbar.current.update.accent();
+      themeAccent.update();
+      data.save();
+    }
+  });
+
+  const themeAccentRandomStyle = new Control_radio({
+    object: state.get.current(),
+    radioGroup: [
+      { id: 'theme-accent-random-style-any', labelText: 'Any', value: 'any' },
+      { id: 'theme-accent-random-style-light', labelText: 'Light', value: 'light' },
+      { id: 'theme-accent-random-style-dark', labelText: 'Dark', value: 'dark' },
+      { id: 'theme-accent-random-style-pastel', labelText: 'Pastel', value: 'pastel' },
+      { id: 'theme-accent-random-style-saturated', labelText: 'Saturated', value: 'saturated' },
+    ],
+    groupName: 'theme-accent-random-style',
+    path: 'theme.accent.random.style',
+    action: () => {
       data.save();
     }
   });
 
   parent.appendChild(
     node_node('div', [
-      themeAccentMixer.wrap()
+      preset(),
+      node_node('hr'),
+      themeAccent.wrap(),
+      node_node('hr'),
+      themeAccentRandomActive.wrap(),
+      wrap_wrap({
+        children: [
+          indent_indent({
+            children: [
+              themeAccentRandomStyle.wrap(),
+              themeAccentRandomNow.wrap()
+            ]
+          })
+        ]
+      })
     ])
   );
 
@@ -19367,15 +19228,15 @@ themeSetting.font = (parent) => {
   const fontWeight = { light: 300, regular: 400, bold: 700 };
 
   const themeFontDisplayName = new Control_textReset({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.font.display.name',
     id: 'theme-font-display-name',
-    value: state_state.get.current().theme.font.display.name,
-    defaultValue: state_state.get.default().theme.font.display.name,
+    value: state.get.current().theme.font.display.name,
+    defaultValue: state.get.default().theme.font.display.name,
     placeholder: 'Google font name',
     labelText: 'Display font',
     action: () => {
-      theme_theme.render.font.delay.display();
+      theme_theme.font.display.delay();
       data.save();
     }
   });
@@ -19389,17 +19250,17 @@ themeSetting.font = (parent) => {
   });
 
   const themeFontDisplayWeight = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.font.display.weight',
     id: 'theme-font-display-weight',
     labelText: 'Font weight',
-    value: state_state.get.current().theme.font.display.weight,
-    defaultValue: state_state.get.default().theme.font.display.weight,
-    step: state_state.get.step().theme.font.display.weight,
-    min: state_state.get.minMax().theme.font.display.weight.min,
-    max: state_state.get.minMax().theme.font.display.weight.max,
+    value: state.get.current().theme.font.display.weight,
+    defaultValue: state.get.default().theme.font.display.weight,
+    step: state.get.step().theme.font.display.weight,
+    min: state.get.minMax().theme.font.display.weight.min,
+    max: state.get.minMax().theme.font.display.weight.max,
     action: () => {
-      theme_theme.render.font.display.weight();
+      applyCSSVar('theme.font.display.weight');
       data.save();
     }
   });
@@ -19408,8 +19269,8 @@ themeSetting.font = (parent) => {
     text: 'Light',
     style: ['line'],
     func: () => {
-      state_state.get.current().theme.font.display.weight = fontWeight.light;
-      theme_theme.render.font.display.weight();
+      state.get.current().theme.font.display.weight = fontWeight.light;
+      applyCSSVar('theme.font.display.weight');
       themeFontDisplayWeight.update();
       data.save();
     }
@@ -19419,8 +19280,8 @@ themeSetting.font = (parent) => {
     text: 'Regular',
     style: ['line'],
     func: () => {
-      state_state.get.current().theme.font.display.weight = fontWeight.regular;
-      theme_theme.render.font.display.weight();
+      state.get.current().theme.font.display.weight = fontWeight.regular;
+      applyCSSVar('theme.font.display.weight');
       themeFontDisplayWeight.update();
       data.save();
     }
@@ -19430,8 +19291,8 @@ themeSetting.font = (parent) => {
     text: 'Bold',
     style: ['line'],
     func: () => {
-      state_state.get.current().theme.font.display.weight = fontWeight.bold;
-      theme_theme.render.font.display.weight();
+      state.get.current().theme.font.display.weight = fontWeight.bold;
+      applyCSSVar('theme.font.display.weight');
       themeFontDisplayWeight.update();
       data.save();
     }
@@ -19442,7 +19303,7 @@ themeSetting.font = (parent) => {
   });
 
   const themeFontDisplayStyle = new Control_radio({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'theme-font-display-style-normal', labelText: 'Normal', value: 'normal' },
       { id: 'theme-font-display-style-italic', labelText: 'Italic', value: 'italic' }
@@ -19453,21 +19314,21 @@ themeSetting.font = (parent) => {
     inputHide: true,
     inputButtonStyle: ['line'],
     action: () => {
-      theme_theme.render.font.display.style();
+      applyCSSVar('theme.font.display.style');
       data.save();
     }
   });
 
   const themeFontUiName = new Control_textReset({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.font.ui.name',
     id: 'theme-font-ui-name',
-    value: state_state.get.current().theme.font.ui.name,
-    defaultValue: state_state.get.default().theme.font.ui.name,
+    value: state.get.current().theme.font.ui.name,
+    defaultValue: state.get.default().theme.font.ui.name,
     placeholder: 'Google font name',
     labelText: 'User interface font',
     action: () => {
-      theme_theme.render.font.delay.ui();
+      theme_theme.font.ui.delay();
       data.save();
     }
   });
@@ -19481,17 +19342,17 @@ themeSetting.font = (parent) => {
   });
 
   const themeFontUiWeight = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.font.ui.weight',
     id: 'theme-font-ui-weight',
     labelText: 'Font weight',
-    value: state_state.get.current().theme.font.ui.weight,
-    defaultValue: state_state.get.default().theme.font.ui.weight,
-    step: state_state.get.step().theme.font.ui.weight,
-    min: state_state.get.minMax().theme.font.ui.weight.min,
-    max: state_state.get.minMax().theme.font.ui.weight.max,
+    value: state.get.current().theme.font.ui.weight,
+    defaultValue: state.get.default().theme.font.ui.weight,
+    step: state.get.step().theme.font.ui.weight,
+    min: state.get.minMax().theme.font.ui.weight.min,
+    max: state.get.minMax().theme.font.ui.weight.max,
     action: () => {
-      theme_theme.render.font.ui.weight();
+      applyCSSVar('theme.font.ui.weight');
       data.save();
     }
   });
@@ -19500,8 +19361,8 @@ themeSetting.font = (parent) => {
     text: 'Light',
     style: ['line'],
     func: () => {
-      state_state.get.current().theme.font.ui.weight = fontWeight.light;
-      theme_theme.render.font.ui.weight();
+      state.get.current().theme.font.ui.weight = fontWeight.light;
+      applyCSSVar('theme.font.ui.weight');
       themeFontUiWeight.update();
       data.save();
     }
@@ -19511,8 +19372,8 @@ themeSetting.font = (parent) => {
     text: 'Regular',
     style: ['line'],
     func: () => {
-      state_state.get.current().theme.font.ui.weight = fontWeight.regular;
-      theme_theme.render.font.ui.weight();
+      state.get.current().theme.font.ui.weight = fontWeight.regular;
+      applyCSSVar('theme.font.ui.weight');
       themeFontUiWeight.update();
       data.save();
     }
@@ -19522,8 +19383,8 @@ themeSetting.font = (parent) => {
     text: 'Bold',
     style: ['line'],
     func: () => {
-      state_state.get.current().theme.font.ui.weight = fontWeight.bold;
-      theme_theme.render.font.ui.weight();
+      state.get.current().theme.font.ui.weight = fontWeight.bold;
+      applyCSSVar('theme.font.ui.weight');
       themeFontUiWeight.update();
       data.save();
     }
@@ -19534,7 +19395,7 @@ themeSetting.font = (parent) => {
   });
 
   const themeFontUiStyle = new Control_radio({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'theme-font-ui-style-normal', labelText: 'Normal', value: 'normal' },
       { id: 'theme-font-ui-style-italic', labelText: 'Italic', value: 'italic' }
@@ -19545,7 +19406,7 @@ themeSetting.font = (parent) => {
     inputHide: true,
     inputButtonStyle: ['line'],
     action: () => {
-      theme_theme.render.font.ui.style();
+      applyCSSVar('theme.font.ui.style');
       data.save();
     }
   });
@@ -19617,7 +19478,7 @@ themeSetting.font = (parent) => {
 themeSetting.bookmark = (parent) => {
 
   const themeBookmarkShadowColorBy = new Control_radio({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
       { id: 'theme-bookmark-shadow-color-type-custom', labelText: 'Custom Accent', description: 'Override the Theme Accent.', value: 'custom' }
@@ -19625,37 +19486,43 @@ themeSetting.bookmark = (parent) => {
     groupName: 'theme-bookmark-shadow-color-type',
     path: 'theme.bookmark.shadow.color.type',
     action: () => {
-      theme_theme.render.class();
-      themeBookmarkShadowColorByCollapse.update();
+      applyCSSVar('theme.bookmark.shadow.color.type');
       data.save();
     }
   });
 
   const themeBookmarkShadowColor = new Control_colorMixer({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.bookmark.shadow.color',
     id: 'theme-bookmark-shadow-color',
     labelText: 'Bookmark shadow colour',
     srOnly: true,
-    defaultValue: state_state.get.default().theme.bookmark.shadow.color.rgb,
-    minMaxObject: state_state.get.minMax(),
+    defaultValue: state.get.default().theme.bookmark.shadow.color.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
-      theme_theme.render.bookmark.style();
+      applyCSSVar([
+        'theme.bookmark.shadow.color.rgb.r',
+        'theme.bookmark.shadow.color.rgb.g',
+        'theme.bookmark.shadow.color.rgb.b',
+        'theme.bookmark.shadow.color.hsl.h',
+        'theme.bookmark.shadow.color.hsl.s',
+        'theme.bookmark.shadow.color.hsl.l'
+      ]);
       data.save();
     }
   });
 
   const themeBookmarkShadowOpacity = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.bookmark.shadow.opacity',
     id: 'theme-bookmark-shadow-opacity',
     labelText: 'Bookmark shadow opacity',
-    value: state_state.get.current().theme.bookmark.shadow.opacity,
-    defaultValue: state_state.get.default().theme.bookmark.shadow.opacity,
-    min: state_state.get.minMax().theme.bookmark.shadow.opacity.min,
-    max: state_state.get.minMax().theme.bookmark.shadow.opacity.max,
+    value: state.get.current().theme.bookmark.shadow.opacity,
+    defaultValue: state.get.default().theme.bookmark.shadow.opacity,
+    min: state.get.minMax().theme.bookmark.shadow.opacity.min,
+    max: state.get.minMax().theme.bookmark.shadow.opacity.max,
     action: () => {
-      theme_theme.render.bookmark.style();
+      applyCSSVar('theme.bookmark.shadow.opacity');
       data.save();
     }
   });
@@ -19705,23 +19572,39 @@ themeSetting.bookmark = (parent) => {
 themeSetting.shade = (parent) => {
 
   const themeShadeOpacity = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.shade.opacity',
     id: 'theme.shade.opacity',
     labelText: 'Shade opacity',
-    value: state_state.get.current().theme.shade.opacity,
-    defaultValue: state_state.get.default().theme.shade.opacity,
-    min: state_state.get.minMax().theme.shade.opacity.min,
-    max: state_state.get.minMax().theme.shade.opacity.max,
+    value: state.get.current().theme.shade.opacity,
+    defaultValue: state.get.default().theme.shade.opacity,
+    min: state.get.minMax().theme.shade.opacity.min,
+    max: state.get.minMax().theme.shade.opacity.max,
     action: () => {
-      theme_theme.render.shade.opacity();
+      applyCSSVar('theme.shade.opacity');
+      data.save();
+    }
+  });
+
+  const themeShadeBlur = new Control_slider({
+    object: state.get.current(),
+    path: 'theme.shade.blur',
+    id: 'theme.shade.blur',
+    labelText: 'Shade blur',
+    value: state.get.current().theme.shade.blur,
+    defaultValue: state.get.default().theme.shade.blur,
+    min: state.get.minMax().theme.shade.blur.min,
+    max: state.get.minMax().theme.shade.blur.max,
+    action: () => {
+      applyCSSVar('theme.shade.blur');
       data.save();
     }
   });
 
   parent.appendChild(
     node_node('div', [
-      themeShadeOpacity.wrap()
+      themeShadeOpacity.wrap(),
+      themeShadeBlur.wrap(),
     ])
   );
 
@@ -19730,7 +19613,7 @@ themeSetting.shade = (parent) => {
 themeSetting.background = (parent) => {
 
   const themeBackgroundType = new Control_radio({
-    object: state_state.get.current(),
+    object: state.get.current(),
     radioGroup: [
       { id: 'theme-background-type-theme', labelText: 'Background by Theme', description: 'Use the Background colour defined by the Theme.', value: 'theme' },
       { id: 'theme-background-type-accent', labelText: 'Background by Accent', description: 'Use the Accent colour for the Background.', value: 'accent' },
@@ -19742,9 +19625,9 @@ themeSetting.background = (parent) => {
     groupName: 'theme-background-type',
     path: 'theme.background.type',
     action: () => {
-      theme_theme.render.background.type();
+      applyCSSClass('theme.background.type');
       themeBackgroundCollapse.update();
-      toolbar_toolbar.render.style.update();
+      toolbar_toolbar.current.update.style();
       updateDisabled();
       updateVideoPlayState();
       data.save();
@@ -19752,72 +19635,93 @@ themeSetting.background = (parent) => {
   });
 
   const themeBackgroundColorMixer = new Control_colorMixer({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.color',
     id: 'theme-background-color',
     labelText: 'Background colour',
-    defaultValue: state_state.get.default().theme.background.color.rgb,
-    minMaxObject: state_state.get.minMax(),
+    defaultValue: state.get.default().theme.background.color.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
-      theme_theme.render.background.color();
-      toolbar_toolbar.render.style.update();
+      applyCSSVar([
+        'theme.background.color.rgb.r',
+        'theme.background.color.rgb.g',
+        'theme.background.color.rgb.b',
+        'theme.background.color.hsl.h',
+        'theme.background.color.hsl.s',
+        'theme.background.color.hsl.l'
+      ]);
+      toolbar_toolbar.current.update.style();
       data.save();
     }
   });
 
   const themeBackgroundGradientAngle = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.gradient.angle',
     id: 'theme-background-gradient-angle',
     labelText: 'Background gradient angle',
-    value: state_state.get.current().theme.background.gradient.angle,
-    defaultValue: state_state.get.default().theme.background.gradient.angle,
-    min: state_state.get.minMax().theme.background.gradient.angle.min,
-    max: state_state.get.minMax().theme.background.gradient.angle.max,
+    value: state.get.current().theme.background.gradient.angle,
+    defaultValue: state.get.default().theme.background.gradient.angle,
+    min: state.get.minMax().theme.background.gradient.angle.min,
+    max: state.get.minMax().theme.background.gradient.angle.max,
     action: () => {
-      theme_theme.render.background.gradient();
-      toolbar_toolbar.render.style.update();
+      applyCSSVar('theme.background.gradient.angle');
+      toolbar_toolbar.current.update.style();
       data.save();
     }
   });
 
   const themeBackgroundGradientStartMixer = new Control_colorMixer({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.gradient.start',
     id: 'theme-background-gradient-start',
     labelText: 'Background gradient start',
-    defaultValue: state_state.get.default().theme.background.gradient.start.rgb,
-    minMaxObject: state_state.get.minMax(),
+    defaultValue: state.get.default().theme.background.gradient.start.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
-      theme_theme.render.background.gradient();
-      toolbar_toolbar.render.style.update();
+      applyCSSVar([
+        'theme.background.gradient.start.rgb.r',
+        'theme.background.gradient.start.rgb.g',
+        'theme.background.gradient.start.rgb.b',
+        'theme.background.gradient.start.hsl.h',
+        'theme.background.gradient.start.hsl.s',
+        'theme.background.gradient.start.hsl.l'
+      ]);
+      toolbar_toolbar.current.update.style();
       data.save();
     }
   });
 
   const themeBackgroundGradientEndMixer = new Control_colorMixer({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.gradient.end',
     id: 'theme-background-gradient-end',
     labelText: 'Background gradient end',
-    defaultValue: state_state.get.default().theme.background.gradient.end.rgb,
-    minMaxObject: state_state.get.minMax(),
+    defaultValue: state.get.default().theme.background.gradient.end.rgb,
+    minMaxObject: state.get.minMax(),
     action: () => {
-      theme_theme.render.background.gradient();
-      toolbar_toolbar.render.style.update();
+      applyCSSVar([
+        'theme.background.gradient.end.rgb.r',
+        'theme.background.gradient.end.rgb.g',
+        'theme.background.gradient.end.rgb.b',
+        'theme.background.gradient.end.hsl.h',
+        'theme.background.gradient.end.hsl.s',
+        'theme.background.gradient.end.hsl.l'
+      ]);
+      toolbar_toolbar.current.update.style();
       data.save();
     }
   });
 
   const themeBackgroundImageUrl = new Control_text({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.image.url',
     id: 'theme-background-image-url',
-    value: state_state.get.current().theme.background.image.url,
+    value: state.get.current().theme.background.image.url,
     placeholder: 'https://www.example.com/image.jpg',
     labelText: 'Background image URL',
     action: () => {
-      theme_theme.render.background.image.set();
+      theme_theme.background.image.render();
       data.save();
     }
   });
@@ -19827,76 +19731,76 @@ themeSetting.background = (parent) => {
   });
 
   const themeBackgroundImageBlur = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.image.blur',
     id: 'theme-background-image-blur',
     labelText: 'Background image blur',
-    value: state_state.get.current().theme.background.image.blur,
-    defaultValue: state_state.get.default().theme.background.image.blur,
-    min: state_state.get.minMax().theme.background.image.blur.min,
-    max: state_state.get.minMax().theme.background.image.blur.max,
+    value: state.get.current().theme.background.image.blur,
+    defaultValue: state.get.default().theme.background.image.blur,
+    min: state.get.minMax().theme.background.image.blur.min,
+    max: state.get.minMax().theme.background.image.blur.max,
     action: () => {
-      theme_theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.blur');
       data.save();
     }
   });
 
   const themeBackgroundImageScale = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.image.scale',
     id: 'theme-background-image-scale',
     labelText: 'Background image scale',
-    value: state_state.get.current().theme.background.image.scale,
-    defaultValue: state_state.get.default().theme.background.image.scale,
-    min: state_state.get.minMax().theme.background.image.scale.min,
-    max: state_state.get.minMax().theme.background.image.scale.max,
+    value: state.get.current().theme.background.image.scale,
+    defaultValue: state.get.default().theme.background.image.scale,
+    min: state.get.minMax().theme.background.image.scale.min,
+    max: state.get.minMax().theme.background.image.scale.max,
     action: () => {
-      theme_theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.scale');
       data.save();
     }
   });
 
   const themeBackgroundImageAccent = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.image.accent',
     id: 'theme-background-image-accent',
     labelText: 'Background image accent',
-    value: state_state.get.current().theme.background.image.accent,
-    defaultValue: state_state.get.default().theme.background.image.accent,
-    min: state_state.get.minMax().theme.background.image.accent.min,
-    max: state_state.get.minMax().theme.background.image.accent.max,
+    value: state.get.current().theme.background.image.accent,
+    defaultValue: state.get.default().theme.background.image.accent,
+    min: state.get.minMax().theme.background.image.accent.min,
+    max: state.get.minMax().theme.background.image.accent.max,
     action: () => {
-      theme_theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.accent');
       data.save();
     }
   });
 
   const themeBackgroundImageOpacity = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.image.opacity',
     id: 'theme-background-image-opacity',
     labelText: 'Background image opacity',
-    value: state_state.get.current().theme.background.image.opacity,
-    defaultValue: state_state.get.default().theme.background.image.opacity,
-    min: state_state.get.minMax().theme.background.image.opacity.min,
-    max: state_state.get.minMax().theme.background.image.opacity.max,
+    value: state.get.current().theme.background.image.opacity,
+    defaultValue: state.get.default().theme.background.image.opacity,
+    min: state.get.minMax().theme.background.image.opacity.min,
+    max: state.get.minMax().theme.background.image.opacity.max,
     action: () => {
-      theme_theme.render.background.image.filter();
+      applyCSSVar('theme.background.image.opacity');
       data.save();
     }
   });
 
   const themeBackgroundVideoUrl = new Control_text({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.video.url',
     id: 'theme-background-video-url',
-    value: state_state.get.current().theme.background.video.url,
+    value: state.get.current().theme.background.video.url,
     placeholder: 'https://www.example.com/video.mp4',
     labelText: 'Background video URL',
     action: () => {
-      theme_theme.render.background.video.remove();
-      theme_theme.render.background.video.set();
-      theme_theme.render.background.video.add();
+      theme_theme.background.video.clear();
+      theme_theme.background.video.render();
+      theme_theme.background.video.render();
       data.save();
     }
   });
@@ -19906,61 +19810,61 @@ themeSetting.background = (parent) => {
   });
 
   const themeBackgroundVideoBlur = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.video.blur',
     id: 'theme-background-video-blur',
     labelText: 'Background video blur',
-    value: state_state.get.current().theme.background.video.blur,
-    defaultValue: state_state.get.default().theme.background.video.blur,
-    min: state_state.get.minMax().theme.background.video.blur.min,
-    max: state_state.get.minMax().theme.background.video.blur.max,
+    value: state.get.current().theme.background.video.blur,
+    defaultValue: state.get.default().theme.background.video.blur,
+    min: state.get.minMax().theme.background.video.blur.min,
+    max: state.get.minMax().theme.background.video.blur.max,
     action: () => {
-      theme_theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.blur');
       data.save();
     }
   });
 
   const themeBackgroundVideoScale = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.video.scale',
     id: 'theme-background-video-scale',
     labelText: 'Background video scale',
-    value: state_state.get.current().theme.background.video.scale,
-    defaultValue: state_state.get.default().theme.background.video.scale,
-    min: state_state.get.minMax().theme.background.video.scale.min,
-    max: state_state.get.minMax().theme.background.video.scale.max,
+    value: state.get.current().theme.background.video.scale,
+    defaultValue: state.get.default().theme.background.video.scale,
+    min: state.get.minMax().theme.background.video.scale.min,
+    max: state.get.minMax().theme.background.video.scale.max,
     action: () => {
-      theme_theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.scale');
       data.save();
     }
   });
 
   const themeBackgroundVideoAccent = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.video.accent',
     id: 'theme-background-video-accent',
     labelText: 'Background video accent',
-    value: state_state.get.current().theme.background.video.accent,
-    defaultValue: state_state.get.default().theme.background.video.accent,
-    min: state_state.get.minMax().theme.background.video.accent.min,
-    max: state_state.get.minMax().theme.background.video.accent.max,
+    value: state.get.current().theme.background.video.accent,
+    defaultValue: state.get.default().theme.background.video.accent,
+    min: state.get.minMax().theme.background.video.accent.min,
+    max: state.get.minMax().theme.background.video.accent.max,
     action: () => {
-      theme_theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.accent');
       data.save();
     }
   });
 
   const themeBackgroundVideoOpacity = new Control_slider({
-    object: state_state.get.current(),
+    object: state.get.current(),
     path: 'theme.background.video.opacity',
     id: 'theme-background-video-opacity',
     labelText: 'Background video opacity',
-    value: state_state.get.current().theme.background.video.opacity,
-    defaultValue: state_state.get.default().theme.background.video.opacity,
-    min: state_state.get.minMax().theme.background.video.opacity.min,
-    max: state_state.get.minMax().theme.background.video.opacity.max,
+    value: state.get.current().theme.background.video.opacity,
+    defaultValue: state.get.default().theme.background.video.opacity,
+    min: state.get.minMax().theme.background.video.opacity.min,
+    max: state.get.minMax().theme.background.video.opacity.max,
     action: () => {
-      theme_theme.render.background.video.filter();
+      applyCSSVar('theme.background.video.opacity');
       data.save();
     }
   });
@@ -20045,7 +19949,7 @@ themeSetting.background = (parent) => {
   };
 
   const updateDisabled = () => {
-    switch (state_state.get.current().theme.background.type) {
+    switch (state.get.current().theme.background.type) {
       case 'theme':
       case 'accent':
         themeBackgroundColorMixer.disable();
@@ -20141,6 +20045,10 @@ themeSetting.background = (parent) => {
 
 
 ;// CONCATENATED MODULE: ./src/component/menuContent/dataSetting/index.js
+
+
+
+
 
 
 
@@ -20294,6 +20202,10 @@ dataSetting.clear = (parent) => {
 
 
 
+
+
+
+
 const coffeeSetting = {};
 
 coffeeSetting.coffee = (parent) => {
@@ -20368,8 +20280,8 @@ appSetting[data.saveName.toLowerCase()] = (parent) => {
       node_node('div|class:version', [
         logo_logo.render(),
         node_node('div|class:version-details', [
-          node_node('p:Version ' + version_version.number + '|class:version-number mb-0'),
-          node_node('p:' + version_version.name + '|class:version-name small')
+          node_node('p:Version ' + version.number + '|class:version-number mb-0'),
+          node_node('p:' + version.name + '|class:version-name small')
         ])
       ]),
       node_node('hr'),
@@ -20585,7 +20497,7 @@ const MenuFrame = function({
 
     const html = document.querySelector('html');
 
-    if (state_state.get.current().menu) {
+    if (state.get.current().menu) {
       html.classList.add('is-menu-open');
     } else {
       html.classList.remove('is-menu-open');
@@ -20595,7 +20507,7 @@ const MenuFrame = function({
 
   this.open = () => {
 
-    state_state.get.current().menu = true;
+    state.get.current().menu = true;
 
     data.save();
 
@@ -20641,7 +20553,7 @@ const MenuFrame = function({
 
   this.close = () => {
 
-    state_state.get.current().menu = false;
+    state.get.current().menu = false;
 
     data.save();
 
@@ -20841,7 +20753,7 @@ const menu = {};
 menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
-  { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Position'] },
+  { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Controls', 'Position'] },
   { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Colour', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
@@ -20866,7 +20778,7 @@ menu.close = () => {
 };
 
 menu.toggle = () => {
-  if (state_state.get.current().menu) {
+  if (state.get.current().menu) {
     menu.close();
   } else {
     menu.open();
@@ -20874,10 +20786,523 @@ menu.toggle = () => {
 };
 
 menu.init = () => {
-  state_state.get.current().menu = false;
+  state.get.current().menu = false;
 };
 
 
+
+;// CONCATENATED MODULE: ./src/component/toolbarControl/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const ToolbarControl = function() {
+
+  this.element = {
+    toolbar: node_node('div|class:toolbar'),
+    group: group_group()
+  };
+
+  this.control = {};
+
+  this.control.button = {
+    accent: new Control_inputButton({
+      object: state.get.current(),
+      path: 'theme.accent',
+      id: 'theme-accent-quick',
+      type: 'color',
+      labelText: 'Accent colour',
+      srOnly: true,
+      inputButtonStyle: ['dot', 'line'],
+      inputButtonClassList: ['toolbar-item'],
+      action: () => {
+        applyCSSVar([
+          'theme.accent.rgb.r',
+          'theme.accent.rgb.g',
+          'theme.accent.rgb.b',
+          'theme.accent.hsl.h',
+          'theme.accent.hsl.s',
+          'theme.accent.hsl.l'
+        ]);
+        this.update.style();
+        data.save();
+      }
+    }),
+    edit: new Button({
+      text: 'Enter edit bookmark mode',
+      srOnly: true,
+      iconName: 'edit',
+      classList: ['toolbar-item'],
+      style: ['line'],
+      func: () => {
+        bookmark_bookmark.edit.toggle();
+        this.update.edit();
+        data.save();
+      }
+    }),
+    setting: new Button({
+      text: 'Open settings menu',
+      srOnly: true,
+      iconName: 'settings',
+      classList: ['toolbar-item'],
+      style: ['line'],
+      func: () => {
+        menu.toggle();
+      }
+    }),
+    add: new Button({
+      text: 'Add a bookmark',
+      srOnly: true,
+      iconName: 'add',
+      classList: ['toolbar-item'],
+      func: function() {
+        bookmark_bookmark.add.render();
+      }
+    })
+  };
+
+  this.assemble = () => {
+
+    const toolbarControl = node_node('div|class:toolbar-control');
+
+    switch (state.get.current().toolbar.position) {
+
+      case 'top-right':
+      case 'bottom-right':
+        this.element.group.classList.remove('form-group-reverse');
+        break;
+
+      case 'top-left':
+      case 'bottom-left':
+        this.element.group.classList.add('form-group-reverse');
+        break;
+
+    };
+
+    if (state.get.current().toolbar.accent.show) {
+
+      this.element.group.appendChild(this.control.button.accent.button);
+
+    } else {
+
+      if (this.element.group.contains(this.control.button.accent.button)) {
+        this.element.group.removeChild(this.control.button.accent.button);
+      };
+
+    };
+
+    if (state.get.current().toolbar.add.show) {
+
+      this.element.group.appendChild(this.control.button.add.button);
+
+    } else {
+
+      if (this.element.group.contains(this.control.button.add.button)) {
+        this.element.group.removeChild(this.control.button.add.button);
+      };
+
+    };
+
+    if (state.get.current().toolbar.edit.show) {
+
+      this.element.group.appendChild(this.control.button.edit.button);
+
+    } else {
+
+      if (this.element.group.contains(this.control.button.edit.button)) {
+        this.element.group.removeChild(this.control.button.edit.button);
+      };
+
+    };
+
+    this.element.group.appendChild(this.control.button.setting.button);
+
+    toolbarControl.appendChild(this.element.group);
+
+    this.element.toolbar.appendChild(toolbarControl);
+
+  };
+
+  this.toolbar = () => {
+
+    return this.element.toolbar;
+
+  };
+
+  this.update = {};
+
+  this.update.style = () => {
+
+    const add = (rgb) => {
+
+      this.element.toolbar.style.setProperty('--toolbar-color-r', rgb.r);
+      this.element.toolbar.style.setProperty('--toolbar-color-g', rgb.g);
+      this.element.toolbar.style.setProperty('--toolbar-color-b', rgb.b);
+
+      this.element.toolbar.style.setProperty('--toolbar-color-text', '0, 0%, calc(((((var(--toolbar-color-r) * var(--theme-t-r)) + (var(--toolbar-color-g) * var(--theme-t-g)) + (var(--toolbar-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.toolbar.style.setProperty('--button-link-text', 'var(--toolbar-color-text)');
+      this.element.toolbar.style.setProperty('--button-link-text-focus-hover', 'var(--toolbar-color-text)');
+      this.element.toolbar.style.setProperty('--button-link-text-active', 'var(--toolbar-color-text)');
+
+    };
+
+    const remove = () => {
+
+      this.element.toolbar.style.removeProperty('--toolbar-color-r');
+      this.element.toolbar.style.removeProperty('--toolbar-color-g');
+      this.element.toolbar.style.removeProperty('--toolbar-color-b');
+
+      this.element.toolbar.style.removeProperty('--toolbar-color-text');
+
+      this.element.toolbar.style.removeProperty('--button-link-text');
+      this.element.toolbar.style.removeProperty('--button-link-text-focus-hover');
+      this.element.toolbar.style.removeProperty('--button-link-text-active');
+
+    };
+
+    switch (state.get.current().toolbar.style) {
+
+      case 'transparent':
+
+        switch (state.get.current().theme.background.type) {
+
+          case 'theme':
+          case 'image':
+          case 'video':
+            remove();
+            break;
+
+          case 'accent':
+            add(state.get.current().theme.accent.rgb);
+            break;
+
+          case 'color':
+            add(state.get.current().theme.background.color.rgb);
+            break;
+
+          case 'gradient':
+            let angle = state.get.current().theme.background.gradient.angle;
+
+            switch (state.get.current().toolbar.position) {
+
+              case 'top-left':
+              case 'top-right':
+                if (angle < 90) {
+                  add(state.get.current().theme.background.gradient.end.rgb);
+                } else if (angle >= 90 && angle < 180) {
+                  add(state.get.current().theme.background.gradient.start.rgb);
+                } else if (angle >= 180 && angle < 270) {
+                  add(state.get.current().theme.background.gradient.start.rgb);
+                } else if (angle >= 270) {
+                  add(state.get.current().theme.background.gradient.end.rgb);
+                };
+                break;
+
+              case 'bottom-right':
+              case 'bottom-left':
+                if (angle < 90) {
+                  add(state.get.current().theme.background.gradient.start.rgb);
+                } else if (angle >= 90 && angle < 180) {
+                  add(state.get.current().theme.background.gradient.end.rgb);
+                } else if (angle >= 180 && angle < 270) {
+                  add(state.get.current().theme.background.gradient.end.rgb);
+                } else if (angle >= 270) {
+                  add(state.get.current().theme.background.gradient.start.rgb);
+                };
+                break;
+
+            };
+
+            break;
+
+        };
+
+        break;
+
+      case 'bar':
+
+        remove();
+
+        break;
+
+    };
+
+    switch (state.get.current().toolbar.style) {
+
+      case 'transparent':
+
+        this.control.button.accent.inputButtonStyle.update(['dot', 'link']);
+        this.control.button.edit.style.update(['line', 'link']);
+        this.control.button.setting.style.update(['link']);
+        this.control.button.add.style.update(['link']);
+
+        break;
+
+      case 'bar':
+
+        this.control.button.accent.inputButtonStyle.update(['dot', 'line']);
+        this.control.button.edit.style.update(['line']);
+        this.control.button.setting.style.update(['line']);
+        this.control.button.add.style.update(['line']);
+
+        break;
+
+    };
+
+  };
+
+  this.update.edit = () => {
+
+    if (state.get.current().bookmark.edit) {
+
+      this.control.button.edit.active();
+
+    } else {
+
+      this.control.button.edit.deactive();
+
+    };
+
+  };
+
+  this.update.position = () => {
+
+    switch (state.get.current().toolbar.position) {
+
+      case 'top-right':
+      case 'bottom-right':
+        this.element.group.classList.remove('form-group-reverse');
+        break;
+
+      case 'top-left':
+      case 'bottom-left':
+        this.element.group.classList.add('form-group-reverse');
+        break;
+
+    };
+
+    this.element.toolbar.classList.remove('is-toolbar-position-top-left');
+
+    this.element.toolbar.classList.remove('is-toolbar-position-top-right');
+
+    this.element.toolbar.classList.remove('is-toolbar-position-bottom-left');
+
+    this.element.toolbar.classList.remove('is-toolbar-position-bottom-right');
+
+    switch (state.get.current().toolbar.position) {
+
+      case 'top-left':
+        this.element.toolbar.classList.add('is-toolbar-position-top-left');
+        break;
+
+      case 'top-right':
+        this.element.toolbar.classList.add('is-toolbar-position-top-right');
+        break;
+
+      case 'bottom-right':
+        this.element.toolbar.classList.add('is-toolbar-position-bottom-right');
+        break;
+
+      case 'bottom-left':
+        this.element.toolbar.classList.add('is-toolbar-position-bottom-left');
+        break;
+
+    };
+
+  };
+
+  this.update.control = () => {
+    this.assemble();
+  };
+
+  this.update.accent = () => {
+
+    this.control.button.accent.update();
+
+  };
+
+  this.assemble();
+
+  this.update.style();
+
+  this.update.position();
+
+  this.update.control();
+
+};
+
+
+
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/base/index.css
+var base = __webpack_require__(8179);
+;// CONCATENATED MODULE: ./src/component/base/base/index.css
+
+            
+
+var base_options = {};
+
+base_options.insert = "head";
+base_options.singleton = false;
+
+var base_update = injectStylesIntoStyleTag_default()(base/* default */.Z, base_options);
+
+
+
+/* harmony default export */ const base_base = (base/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/font/index.css
+var font = __webpack_require__(4548);
+;// CONCATENATED MODULE: ./src/component/base/font/index.css
+
+            
+
+var font_options = {};
+
+font_options.insert = "head";
+font_options.singleton = false;
+
+var font_update = injectStylesIntoStyleTag_default()(font/* default */.Z, font_options);
+
+
+
+/* harmony default export */ const base_font = (font/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/animation/index.css
+var animation = __webpack_require__(7208);
+;// CONCATENATED MODULE: ./src/component/base/animation/index.css
+
+            
+
+var animation_options = {};
+
+animation_options.insert = "head";
+animation_options.singleton = false;
+
+var animation_update = injectStylesIntoStyleTag_default()(animation/* default */.Z, animation_options);
+
+
+
+/* harmony default export */ const base_animation = (animation/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/spacing/index.css
+var spacing = __webpack_require__(4325);
+;// CONCATENATED MODULE: ./src/component/base/spacing/index.css
+
+            
+
+var spacing_options = {};
+
+spacing_options.insert = "head";
+spacing_options.singleton = false;
+
+var spacing_update = injectStylesIntoStyleTag_default()(spacing/* default */.Z, spacing_options);
+
+
+
+/* harmony default export */ const base_spacing = (spacing/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/state/index.css
+var base_state = __webpack_require__(5000);
+;// CONCATENATED MODULE: ./src/component/base/state/index.css
+
+            
+
+var state_options = {};
+
+state_options.insert = "head";
+state_options.singleton = false;
+
+var state_update = injectStylesIntoStyleTag_default()(base_state/* default */.Z, state_options);
+
+
+
+/* harmony default export */ const component_base_state = (base_state/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/typography/index.css
+var typography = __webpack_require__(5327);
+;// CONCATENATED MODULE: ./src/component/base/typography/index.css
+
+            
+
+var typography_options = {};
+
+typography_options.insert = "head";
+typography_options.singleton = false;
+
+var typography_update = injectStylesIntoStyleTag_default()(typography/* default */.Z, typography_options);
+
+
+
+/* harmony default export */ const base_typography = (typography/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/version/index.css
+var base_version = __webpack_require__(4975);
+;// CONCATENATED MODULE: ./src/component/base/version/index.css
+
+            
+
+var version_options = {};
+
+version_options.insert = "head";
+version_options.singleton = false;
+
+var version_update = injectStylesIntoStyleTag_default()(base_version/* default */.Z, version_options);
+
+
+
+/* harmony default export */ const component_base_version = (base_version/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/zindex/index.css
+var zindex = __webpack_require__(710);
+;// CONCATENATED MODULE: ./src/component/base/zindex/index.css
+
+            
+
+var zindex_options = {};
+
+zindex_options.insert = "head";
+zindex_options.singleton = false;
+
+var zindex_update = injectStylesIntoStyleTag_default()(zindex/* default */.Z, zindex_options);
+
+
+
+/* harmony default export */ const base_zindex = (zindex/* default.locals */.Z.locals || {});
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/base/utility/index.css
+var utility = __webpack_require__(6368);
+;// CONCATENATED MODULE: ./src/component/base/utility/index.css
+
+            
+
+var utility_options = {};
+
+utility_options.insert = "head";
+utility_options.singleton = false;
+
+var utility_update = injectStylesIntoStyleTag_default()(utility/* default */.Z, utility_options);
+
+
+
+/* harmony default export */ const base_utility = (utility/* default.locals */.Z.locals || {});
+;// CONCATENATED MODULE: ./src/component/base/index.js
+
+
+
+
+
+
+
+
+
+
+const component_base_base = {};
 
 ;// CONCATENATED MODULE: ./src/component/keyboard/index.js
 
@@ -20897,7 +21322,7 @@ const keyboard = {};
 keyboard.esc = new KeyboardShortcut({
   keycode: 27,
   action: () => {
-    if (state_state.get.current().bookmark.edit && !state_state.get.current().modal && !state_state.get.current().menu) {
+    if (state.get.current().bookmark.edit && !state.get.current().modal && !state.get.current().menu) {
       bookmark_bookmark.edit.close();
       toolbar_toolbar.current.update.edit();
     };
@@ -20922,7 +21347,7 @@ keyboard.ctrAltA = new KeyboardShortcut({
   ctrl: true,
   alt: true,
   action: () => {
-    if (!state_state.get.current().bookmark.add) {
+    if (!state.get.current().bookmark.add) {
       bookmark_bookmark.add.render();
     };
   }
@@ -20981,13 +21406,35 @@ keyboard.init = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const component = {
   base: component_base_base,
-  state: state_state,
+  state: state,
   data: data,
-  version: version_version,
+  version: version,
   fontawesome: fontawesome_fontawesome,
-  grid: grid_grid,
+  grid: component_grid_grid,
   icon: icon_icon,
   keyboard: keyboard,
   layout: layout_layout,
@@ -21002,7 +21449,175 @@ const component = {
   form: component_form_namespaceObject
 };
 
+;// CONCATENATED MODULE: ./src/utility/randomString.js
+const randomString = function({
+  letter = false,
+  adjectivesCount = false
+} = {}) {
+
+  const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+  const adjectives = {
+    a: ['Aback', 'Abaft', 'Abandoned', 'Abashed', 'Aberrant', 'Abhorrent', 'Abiding', 'Abject', 'Ablaze', 'Able', 'Abnormal', 'Aboriginal', 'Abortive', 'Abounding', 'Abrasive', 'Abrupt', 'Absent', 'Absorbed', 'Absorbing', 'Abstracted', 'Absurd', 'Abundant', 'Abusive', 'Acceptable', 'Accessible', 'Accidental', 'Accurate', 'Acid', 'Acidic', 'Acoustic', 'Acrid', 'Adamant', 'Adaptable', 'Addicted', 'Adhesive', 'Adjoining', 'Adorable', 'Adventurous', 'Afraid', 'Aggressive', 'Agonizing', 'Agreeable', 'Ahead', 'Ajar', 'Alert', 'Alike', 'Alive', 'Alleged', 'Alluring', 'Aloof', 'Amazing', 'Ambiguous', 'Ambitious', 'Amuck', 'Amused', 'Amusing', 'Ancient', 'Angry', 'Animated', 'Annoyed', 'Annoying', 'Anxious', 'Apathetic', 'Aquatic', 'Aromatic', 'Arrogant', 'Ashamed', 'Aspiring', 'Assorted', 'Astonishing', 'Attractive', 'Auspicious', 'Automatic', 'Available', 'Average', 'Aware', 'Awesome', 'Axiomatic'],
+    b: ['Bad', 'Barbarous', 'Bashful', 'Bawdy', 'Beautiful', 'Befitting', 'Belligerent', 'Beneficial', 'Bent', 'Berserk', 'Bewildered', 'Big', 'Billowy', 'Bitter', 'Bizarre', 'Black', 'Bloody', 'Blue', 'Blushing', 'Boiling', 'Boorish', 'Bored', 'Boring', 'Bouncy', 'Boundless', 'Brainy', 'Brash', 'Brave', 'Brawny', 'Breakable', 'Breezy', 'Brief', 'Bright', 'Broad', 'Broken', 'Brown', 'Bumpy', 'Burly', 'Bustling', 'Busy'],
+    c: ['Cagey', 'Calculating', 'Callous', 'Calm', 'Capable', 'Capricious', 'Careful', 'Careless', 'Caring', 'Cautious', 'Ceaseless', 'Certain', 'Changeable', 'Charming', 'Cheap', 'Cheerful', 'Chemical', 'Chief', 'Childlike', 'Chilly', 'Chivalrous', 'Chubby', 'Chunky', 'Clammy', 'Classy', 'Clean', 'Clear', 'Clever', 'Cloistered', 'Cloudy', 'Closed', 'Clumsy', 'Cluttered', 'Coherent', 'Cold', 'Colorful', 'Colossal', 'Combative', 'Comfortable', 'Common', 'Complete', 'Complex', 'Concerned', 'Condemned', 'Confused', 'Conscious', 'Cooing', 'Cool', 'Cooperative', 'Coordinated', 'Courageous', 'Cowardly', 'Crabby', 'Craven', 'Crazy', 'Creepy', 'Crooked', 'Crowded', 'Cruel', 'Cuddly', 'Cultured', 'Cumbersome', 'Curious', 'Curly', 'Curved', 'Curvy', 'Cut', 'Cute', 'Cynical'],
+    d: ['Daffy', 'Daily', 'Damaged', 'Damaging', 'Damp', 'Dangerous', 'Dapper', 'Dark', 'Dashing', 'Dazzling', 'Dead', 'Deadpan', 'Deafening', 'Dear', 'Debonair', 'Decisive', 'Decorous', 'Deep', 'Deeply', 'Defeated', 'Defective', 'Defiant', 'Delicate', 'Delicious', 'Delightful', 'Demonic', 'Delirious', 'Dependent', 'Depressed', 'Deranged', 'Descriptive', 'Deserted', 'Detailed', 'Determined', 'Devilish', 'Didactic', 'Different', 'Difficult', 'Diligent', 'Direful', 'Dirty', 'Disagreeable', 'Disastrous', 'Discreet', 'Disgusted', 'Disgusting', 'Disillusioned', 'Dispensable', 'Distinct', 'Disturbed', 'Divergent', 'Dizzy', 'Domineering', 'Doubtful', 'Drab', 'Draconian', 'Dramatic', 'Dreary', 'Drunk', 'Dry', 'Dull', 'Dusty', 'Dynamic', 'Dysfunctional'],
+    e: ['Eager', 'Early', 'Earsplitting', 'Earthy', 'Easy', 'Eatable', 'Economic', 'Educated', 'Efficacious', 'Efficient', 'Elastic', 'Elated', 'Elderly', 'Electric', 'Elegant', 'Elfin', 'Elite', 'Embarrassed', 'Eminent', 'Empty', 'Enchanted', 'Enchanting', 'Encouraging', 'Endurable', 'Energetic', 'Enormous', 'Entertaining', 'Enthusiastic', 'Envious', 'Equable', 'Equal', 'Erect', 'Erratic', 'Ethereal', 'Evanescent', 'Evasive', 'Even', 'Excellent', 'Excited', 'Exciting', 'Exclusive', 'Exotic', 'Expensive', 'Exuberant', 'Exultant'],
+    f: ['Fabulous', 'Faded', 'Faint', 'Fair', 'Faithful', 'Fallacious', 'False', 'Familiar', 'Famous', 'Fanatical', 'Fancy', 'Fantastic', 'Far', 'Fascinated', 'Fast', 'Fat', 'Faulty', 'Fearful', 'Fearless', 'Feeble', 'Feigned', 'Female', 'Fertile', 'Festive', 'Few', 'Fierce', 'Filthy', 'Fine', 'Finicky', 'First', 'Fixed', 'Flagrant', 'Flaky', 'Flashy', 'Flat', 'Flawless', 'Flimsy', 'Flippant', 'Flowery', 'Fluffy', 'Fluttering', 'Foamy', 'Foolish', 'Foregoing', 'Forgetful', 'Fortunate', 'Frail', 'Fragile', 'Frantic', 'Free', 'Freezing', 'Frequent', 'Fresh', 'Fretful', 'Friendly', 'Frightened', 'Frightening', 'Full', 'Fumbling', 'Functional', 'Funny', 'Furry', 'Furtive', 'Future', 'Futuristic', 'Fuzzy'],
+    g: ['Gabby', 'Gainful', 'Gamy', 'Gaping', 'Garrulous', 'Gaudy', 'General', 'Gentle', 'Giant', 'Giddy', 'Gifted', 'Gigantic', 'Glamorous', 'Gleaming', 'Glib', 'Glistening', 'Glorious', 'Glossy', 'Godly', 'Good', 'Goofy', 'Gorgeous', 'Graceful', 'Grandiose', 'Grateful', 'Gratis', 'Gray', 'Greasy', 'Great', 'Greedy', 'Green', 'Grey', 'Grieving', 'Groovy', 'Grotesque', 'Grouchy', 'Grubby', 'Gruesome', 'Grumpy', 'Guarded', 'Guiltless', 'Gullible', 'Gusty', 'Guttural'],
+    h: ['Habitual', 'Half', 'Hallowed', 'Halting', 'Handsome', 'Handy', 'Hanging', 'Hapless', 'Happy', 'Hard', 'Harmonious', 'Harsh', 'Hateful', 'Heady', 'Healthy', 'Heartbreaking', 'Heavenly', 'Heavy', 'Hellish', 'Helpful', 'Helpless', 'Hesitant', 'Hideous', 'High', 'Highfalutin', 'Hilarious', 'Hissing', 'Historical', 'Holistic', 'Hollow', 'Homeless', 'Homely', 'Honorable', 'Horrible', 'Hospitable', 'Hot', 'Huge', 'Hulking', 'Humdrum', 'Humorous', 'Hungry', 'Hurried', 'Hurt', 'Hushed', 'Husky', 'Hypnotic', 'Hysterical'],
+    i: ['Icky', 'Icy', 'Idiotic', 'Ignorant', 'Ill', 'Illegal', 'Illustrious', 'Imaginary', 'Immense', 'Imminent', 'Impartial', 'Imperfect', 'Impolite', 'Important', 'Imported', 'Impossible', 'Incandescent', 'Incompetent', 'Inconclusive', 'Industrious', 'Incredible', 'Inexpensive', 'Infamous', 'Innate', 'Innocent', 'Inquisitive', 'Insidious', 'Instinctive', 'Intelligent', 'Interesting', 'Internal', 'Invincible', 'Irate', 'Irritating', 'Itchy'],
+    j: ['Jaded', 'Jagged', 'Jazzy', 'Jealous', 'Jittery', 'Jobless', 'Jolly', 'Joyous', 'Judicious', 'Juicy', 'Jumbled', 'Jumpy', 'Juvenile'],
+    k: ['Keen', 'Kind', 'Kindhearted', 'Kindly', 'Knotty', 'Knowing', 'Knowledgeable', 'Known'],
+    l: ['Labored', 'Lackadaisical', 'Lacking', 'Lame', 'Lamentable', 'Languid', 'Large', 'Last', 'Late', 'Laughable', 'Lavish', 'Lazy', 'Lean', 'Learned', 'Left', 'Legal', 'Lethal', 'Level', 'Lewd', 'Light', 'Like', 'Likeable', 'Limping', 'Literate', 'Little', 'Lively', 'Living', 'Lonely', 'Long', 'Longing', 'Loose', 'Lopsided', 'Loud', 'Loutish', 'Lovely', 'Loving', 'Low', 'Lowly', 'Lucky', 'Ludicrous', 'Lumpy', 'Lush', 'Luxuriant', 'Lying', 'Lyrical'],
+    m: ['Macabre', 'Macho', 'Maddening', 'Madly', 'Magenta', 'Magical', 'Magnificent', 'Majestic', 'Makeshift', 'Male', 'Malicious', 'Mammoth', 'Maniacal', 'Many', 'Marked', 'Massive', 'Married', 'Marvelous', 'Material', 'Materialistic', 'Mature', 'Mean', 'Measly', 'Meaty', 'Medical', 'Meek', 'Mellow', 'Melodic', 'Melted', 'Merciful', 'Mere', 'Messy', 'Mighty', 'Military', 'Milky', 'Mindless', 'Miniature', 'Minor', 'Miscreant', 'Misty', 'Mixed', 'Moaning', 'Modern', 'Moldy', 'Momentous', 'Motionless', 'Mountainous', 'Muddled', 'Mundane', 'Murky', 'Mushy', 'Mute', 'Mysterious'],
+    n: ['Naive', 'Nappy', 'Narrow', 'Nasty', 'Natural', 'Naughty', 'Nauseating', 'Near', 'Neat', 'Nebulous', 'Necessary', 'Needless', 'Needy', 'Neighborly', 'Nervous', 'New', 'Next', 'Nice', 'Nifty', 'Nimble', 'Nippy', 'Noiseless', 'Noisy', 'Nonchalant', 'Nondescript', 'Nonstop', 'Normal', 'Nostalgic', 'Nosy', 'Noxious', 'Numberless', 'Numerous', 'Nutritious', 'Nutty'],
+    o: ['Oafish', 'Obedient', 'Obeisant', 'Obese', 'Obnoxious', 'Obscene', 'Obsequious', 'Observant', 'Obsolete', 'Obtainable', 'Oceanic', 'Odd', 'Offbeat', 'Old', 'Omniscient', 'Onerous', 'Open', 'Opposite', 'Optimal', 'Orange', 'Ordinary', 'Organic', 'Ossified', 'Outgoing', 'Outrageous', 'Outstanding', 'Oval', 'Overconfident', 'Overjoyed', 'Overrated', 'Overt', 'Overwrought'],
+    p: ['Painful', 'Painstaking', 'Pale', 'Paltry', 'Panicky', 'Panoramic', 'Parallel', 'Parched', 'Parsimonious', 'Past', 'Pastoral', 'Pathetic', 'Peaceful', 'Penitent', 'Perfect', 'Periodic', 'Permissible', 'Perpetual', 'Petite', 'Phobic', 'Physical', 'Picayune', 'Pink', 'Piquant', 'Placid', 'Plain', 'Plant', 'Plastic', 'Plausible', 'Pleasant', 'Plucky', 'Pointless', 'Poised', 'Polite', 'Political', 'Poor', 'Possessive', 'Possible', 'Powerful', 'Precious', 'Premium', 'Present', 'Pretty', 'Previous', 'Pricey', 'Prickly', 'Private', 'Probable', 'Productive', 'Profuse', 'Protective', 'Proud', 'Psychedelic', 'Psychotic', 'Public', 'Puffy', 'Pumped', 'Puny', 'Purple', 'Purring', 'Pushy', 'Puzzled', 'Puzzling'],
+    q: ['Quaint', 'Quarrelsome', 'Questionable', 'Quick', 'Quiet', 'Quirky', 'Quixotic', 'Quizzical'],
+    r: ['Rabid', 'Racial', 'Ragged', 'Rainy', 'Rambunctious', 'Rampant', 'Rapid', 'Rare', 'Raspy', 'Ratty', 'Ready', 'Real', 'Rebel', 'Receptive', 'Recondite', 'Red', 'Redundant', 'Reflective', 'Regular', 'Relieved', 'Remarkable', 'Reminiscent', 'Repulsive', 'Resolute', 'Resonant', 'Responsible', 'Rhetorical', 'Rich', 'Right', 'Righteous', 'Rightful', 'Rigid', 'Ripe', 'Ritzy', 'Roasted', 'Robust', 'Romantic', 'Roomy', 'Rotten', 'Rough', 'Round', 'Royal', 'Ruddy', 'Rude', 'Rural', 'Rustic', 'Ruthless'],
+    s: ['Sable', 'Sad', 'Safe', 'Salty', 'Same', 'Sassy', 'Satisfying', 'Savory', 'Scandalous', 'Scarce', 'Scared', 'Scary', 'Scattered', 'Scientific', 'Scintillating', 'Scrawny', 'Screeching', 'Second', 'Secret', 'Secretive', 'Sedate', 'Seemly', 'Selective', 'Selfish', 'Separate', 'Serious', 'Shaggy', 'Shaky', 'Shallow', 'Sharp', 'Shiny', 'Shivering', 'Shocking', 'Short', 'Shrill', 'Shut', 'Shy', 'Sick', 'Silent', 'Silky', 'Silly', 'Simple', 'Simplistic', 'Sincere', 'Skillful', 'Skinny', 'Sleepy', 'Slim', 'Slimy', 'Slippery', 'Sloppy', 'Slow', 'Small', 'Smart', 'Smelly', 'Smiling', 'Smoggy', 'Smooth', 'Sneaky', 'Snobbish', 'Snotty', 'Soft', 'Soggy', 'Solid', 'Somber', 'Sophisticated', 'Sordid', 'Sore', 'Sour', 'Sparkling', 'Special', 'Spectacular', 'Spicy', 'Spiffy', 'Spiky', 'Spiritual', 'Spiteful', 'Splendid', 'Spooky', 'Spotless', 'Spotted', 'Spotty', 'Spurious', 'Squalid', 'Square', 'Squealing', 'Squeamish', 'Staking', 'Stale', 'Standing', 'Statuesque', 'Steadfast', 'Steady', 'Steep', 'Stereotyped', 'Sticky', 'Stiff', 'Stimulating', 'Stingy', 'Stormy', 'Straight', 'Strange', 'Striped', 'Strong', 'Stupendous', 'Sturdy', 'Subdued', 'Subsequent', 'Substantial', 'Successful', 'Succinct', 'Sudden', 'Sulky', 'Super', 'Superb', 'Superficial', 'Supreme', 'Swanky', 'Sweet', 'Sweltering', 'Swift', 'Symptomatic', 'Synonymous'],
+    t: ['Taboo', 'Tacit', 'Tacky', 'Talented', 'Tall', 'Tame', 'Tan', 'Tangible', 'Tangy', 'Tart', 'Tasteful', 'Tasteless', 'Tasty', 'Tawdry', 'Tearful', 'Tedious', 'Teeny', 'Telling', 'Temporary', 'Ten', 'Tender', 'Tense', 'Tenuous', 'Terrific', 'Tested', 'Testy', 'Thankful', 'Therapeutic', 'Thick', 'Thin', 'Thinkable', 'Third', 'Thirsty', 'Thoughtful', 'Thoughtless', 'Threatening', 'Thundering', 'Tidy', 'Tight', 'Tightfisted', 'Tiny', 'Tired', 'Tiresome', 'Toothsome', 'Torpid', 'Tough', 'Towering', 'Tranquil', 'Trashy', 'Tremendous', 'Tricky', 'Trite', 'Troubled', 'Truculent', 'True', 'Truthful', 'Typical'],
+    u: ['Ubiquitous', 'Ultra', 'Unable', 'Unaccountable', 'Unadvised', 'Unarmed', 'Unbecoming', 'Unbiased', 'Uncovered', 'Understood', 'Undesirable', 'Unequal', 'Unequaled', 'Uneven', 'Unhealthy', 'Uninterested', 'Unique', 'Unkempt', 'Unknown', 'Unnatural', 'Unruly', 'Unsightly', 'Unsuitable', 'Untidy', 'Unused', 'Unusual', 'Unwieldy', 'Unwritten', 'Upbeat', 'Uppity', 'Upset', 'Uptight', 'Used', 'Useful', 'Useless', 'Utopian'],
+    v: ['Vacuous', 'Vagabond', 'Vague', 'Valuable', 'Various', 'Vast', 'Vengeful', 'Venomous', 'Verdant', 'Versed', 'Victorious', 'Vigorous', 'Violent', 'Violet', 'Vivacious', 'Voiceless', 'Volatile', 'Voracious', 'Vulgar'],
+    w: ['Wacky', 'Waggish', 'Waiting', 'Wakeful', 'Wandering', 'Wanting', 'Warlike', 'Warm', 'Wary', 'Wasteful', 'Watery', 'Weak', 'Wealthy', 'Weary', 'Wet', 'Whimsical', 'Whispering', 'White', 'Whole', 'Wholesale', 'Wicked', 'Wide', 'Wiggly', 'Wild', 'Willing', 'Windy', 'Wiry', 'Wise', 'Wistful', 'Witty', 'Woebegone', 'Womanly', 'Wonderful', 'Wooden', 'Woozy', 'Workable', 'Worried', 'Worthless', 'Wrathful', 'Wretched', 'Wrong', 'Wry'],
+    x: ['Xenial', 'Xenodochial', 'Xenophobic'],
+    y: ['Yellow', 'Yielding', 'Young', 'Youthful', 'Yummy'],
+    z: ['Zany', 'Zealous', 'Zesty', 'Zippy', 'Zombiesque', 'Zonked']
+  };
+
+  const animals = {
+    a: ['Aardvark', 'Albatross', 'Alligator', 'Alpaca', 'Ant', 'Anteater', 'Antelope', 'Ape', 'Armadillo'],
+    b: ['Baboon', 'Badger', 'Barracuda', 'Bat', 'Bear', 'Beaver', 'Bee', 'Bison', 'Boar', 'Buffalo', 'Butterfly'],
+    c: ['Camel', 'Capybara', 'Caribou', 'Cassowary', 'Cat', 'Caterpillar', 'Cattle', 'Chamois', 'Cheetah', 'Chicken', 'Chimpanzee', 'Chinchilla', 'Chough', 'Clam', 'Cobra', 'Cockroach', 'Cod', 'Cormorant', 'Coyote', 'Crab', 'Crane', 'Crocodile', 'Crow', 'Curlew'],
+    d: ['Deer', 'Dinosaur', 'Dog', 'Dogfish', 'Dolphin', 'Donkey', 'Dotterel', 'Dove', 'Dragonfly', 'Duck', 'Dugong', 'Dunlin'],
+    e: ['Eagle', 'Echidna', 'Eel', 'Eland', 'Elephant', 'Elephant Seal', 'Elk', 'Emu'],
+    f: ['Falcon', 'Ferret', 'Finch', 'Fish', 'Flamingo', 'Fly', 'Fox', 'Frog'],
+    g: ['Gaur', 'Gazelle', 'Gerbil', 'Giant Panda', 'Giraffe', 'Gnat', 'Gnu', 'Goat', 'Goose', 'Goldfinch', 'Goldfish', 'Gorilla', 'Goshawk', 'Grasshopper', 'Grouse', 'Guanaco', 'Guinea Fowl', 'Guinea Pig', 'Gull'],
+    h: ['Hamster', 'Hare', 'Hawk', 'Hedgehog', 'Heron', 'Herring', 'Hippopotamus', 'Hornet', 'Horse', 'Human', 'Hummingbird', 'Hyena'],
+    i: ['Ibex', 'Ibis', 'Iguana', 'Impala', 'Isopod'],
+    j: ['Jackal', 'Jaguar', 'Jay', 'Jellyfish'],
+    k: ['Kangaroo', 'Kingfisher', 'Koala', 'Komodo Dragon', 'Kookabura', 'Kouprey', 'Kudu'],
+    l: ['Lapwing', 'Lark', 'Lemur', 'Leopard', 'Lima', 'Lion', 'Llama', 'Lobster', 'Locust', 'Loris', 'Louse', 'Lyrebird'],
+    m: ['Magpie', 'Mallard', 'Manatee', 'Mandrill', 'Mantis', 'Marten', 'Meerkat', 'Mink', 'Mole', 'Mongoose', 'Monkey', 'Moose', 'Mouse', 'Mosquito', 'Mule'],
+    n: ['Narwhal', 'Newt', 'Nightingale', 'Nyala'],
+    o: ['Octopus', 'Okapi', 'Opossum', 'Oryx', 'Ostrich', 'Otter', 'Owl', 'Ox', 'Oyster'],
+    p: ['Panther', 'Parrot', 'Partridge', 'Peafowl', 'Pelican', 'Penguin', 'Pheasant', 'Pig', 'Pigeon', 'Polar Bear', 'Pony', 'Porcupine', 'Porpoise'],
+    q: ['Quail', 'Quelea', 'Quetzal'],
+    r: ['Rabbit', 'Raccoon', 'Rail', 'Ram', 'Rat', 'Raven', 'Red Deer', 'Red Panda', 'Reindeer', 'Rhinoceros', 'Rook'],
+    s: ['Salamander', 'Salmon', 'Sand Dollar', 'Sandpiper', 'Sardine', 'Scorpion', 'Sea Lion', 'Sea Urchin', 'Seahorse', 'Seal', 'Shark', 'Sheep', 'Shrew', 'Skunk', 'Snail', 'Snake', 'Sparrow', 'Spider', 'Spoonbill', 'Squid', 'Squirrel', 'Starling', 'Stingray', 'Stinkbug', 'Stork', 'Swallow', 'Swan'],
+    t: ['Tapir', 'Tarsier', 'Termite', 'Tiger', 'Toad', 'Trout', 'Turkey', 'Turtle'],
+    u: ['Uakari', 'Unau', 'Urial', 'Urchin', 'Umbrellabird', 'Unicornfish', 'Uromastyx', 'Uguisu'],
+    v: ['Vampire Bat', 'Viper', 'Vole', 'Vulture'],
+    w: ['Wallaby', 'Walrus', 'Wasp', 'Weasel', 'Whale', 'Wolf', 'Wolverine', 'Wombat', 'Woodcock', 'Woodpecker', 'Worm', 'Wren'],
+    x: ['Xaviers Greenbul', 'Xeme', 'Xingu Corydoras', 'Xolo'],
+    y: ['Yabby', 'Yak', 'Yellowhammer', 'Yellowjacket'],
+    z: ['Zebra', 'Zebu', 'Zokor', 'Zorilla']
+  };
+
+  const action = {
+    alliteration: {
+      short: function() {
+
+        const randomAdjective = adjectives[letter.toLowerCase()][Math.floor(Math.random() * adjectives[letter.toLowerCase()].length)];
+
+        const randomAnimal = animals[letter.toLowerCase()][Math.floor(Math.random() * animals[letter.toLowerCase()].length)];
+
+        return randomAdjective + ' ' + randomAnimal;
+
+      },
+      long: function() {
+
+        const randomAdjective = '';
+
+        for (let i = 1; i <= adjectivesCount; i++) {
+
+          if (adjectives[letter.toLowerCase()].length > 0) {
+            if (randomAdjective.length > 0) {
+              randomAdjective = randomAdjective + ' ';
+            };
+            randomAdjective = randomAdjective + adjectives[letter.toLowerCase()].splice(Math.floor(Math.random() * adjectives[letter.toLowerCase()].length), 1);
+          };
+
+        };
+
+        const randomAnimal = animals[letter.toLowerCase()][Math.floor(Math.random() * animals[letter.toLowerCase()].length)];
+
+        return randomAdjective + ' ' + randomAnimal;
+      }
+    },
+    mix: {
+      short: function() {
+
+        const adjectivesSeed = alphabet[Math.floor(Math.random() * (alphabet.length - 1))];
+
+        const animalsSeed = alphabet[Math.floor(Math.random() * (alphabet.length - 1))];
+
+        const randomAdjective = adjectives[adjectivesSeed][Math.floor(Math.random() * adjectives[adjectivesSeed].length)];
+
+        const randomAnimal = animals[animalsSeed][Math.floor(Math.random() * animals[animalsSeed].length)];
+
+        return randomAdjective + ' ' + randomAnimal;
+
+      },
+      long: function() {
+
+        var randomAdjective = '';
+
+        for (let i = 1; i <= adjectivesCount; i++) {
+
+          var adjectiveLetter = alphabet[Math.floor(Math.random() * (alphabet.length - 1))];
+
+          if (adjectiveLetter in adjectives && adjectives[adjectiveLetter].length > 0) {
+
+            if (randomAdjective.length > 0) {
+              randomAdjective = randomAdjective + ' ';
+            };
+
+            randomAdjective = randomAdjective + adjectives[adjectiveLetter].splice(Math.floor(Math.random() * adjectives[adjectiveLetter].length), 1);
+
+            if (adjectives[adjectiveLetter].length == 0) {
+              delete adjectives[adjectiveLetter];
+            };
+
+          };
+        };
+
+        var randomAnimalArray = animals[alphabet[Math.floor(Math.random() * (alphabet.length - 1))]]
+
+        var randomAnimal = randomAnimalArray[Math.floor(Math.random() * (randomAnimalArray.length - 1))];
+
+        return randomAdjective + ' ' + randomAnimal;
+
+      }
+    }
+  };
+
+  if (letter && alphabet.includes(letter.toLowerCase())) {
+
+    if (adjectivesCount && adjectivesCount > 0) {
+      return action.alliteration.long();
+    } else {
+      return action.alliteration.short();
+    };
+
+  } else {
+
+    if (adjectivesCount && adjectivesCount > 0) {
+      return action.mix.long();
+    } else {
+      return action.mix.short();
+    };
+
+  };
+
+};
 ;// CONCATENATED MODULE: ./src/utility/index.js
+
+
+
+
+
 
 
 
@@ -21026,7 +21641,12 @@ const utility_utility = {
   node: node_node,
   set: set_set,
   trimString: trimString_trimString,
-  clearChildNode: clearChildNode_clearChildNode
+  clearChildNode: clearChildNode_clearChildNode,
+  randomNumber: randomNumber,
+  randomString: randomString,
+  applyCSSVar: applyCSSVar,
+  applyCSSClass: applyCSSClass,
+  applyCSSState: applyCSSState
 };
 
 ;// CONCATENATED MODULE: ./src/index.js
