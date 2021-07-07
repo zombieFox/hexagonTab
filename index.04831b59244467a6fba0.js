@@ -1173,7 +1173,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  /* calculates perceived lig
 
 /***/ }),
 
-/***/ 4879:
+/***/ 7037:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1186,7 +1186,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  /* calculates perceived lig
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1.25em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  z-index: var(--z-index-toolbar);\n}\n\n.toolbar.is-toolbar-position-top-left {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.toolbar.is-toolbar-position-top-right {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar.is-toolbar-position-bottom-left {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.toolbar.is-toolbar-position-bottom-right {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n\n.is-presentation-mode .toolbar {\n  opacity: 0;\n}\n\n.is-presentation-mode .toolbar:hover {\n  opacity: 1;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --toolbar-position-offset: 1em;\n}\n\n.toolbar {\n  display: flex;\n  position: fixed;\n  font-size: 1rem;\n  z-index: var(--z-index-toolbar);\n}\n\n.is-toolbar-position-top-left .toolbar {\n  top: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-top-right .toolbar {\n  top: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-left .toolbar {\n  bottom: var(--toolbar-position-offset);\n  left: var(--toolbar-position-offset);\n}\n\n.is-toolbar-position-bottom-right .toolbar {\n  bottom: var(--toolbar-position-offset);\n  right: var(--toolbar-position-offset);\n}\n\n.toolbar-control {\n  font-size: calc(var(--toolbar-size) * 0.01em);\n  display: flex;\n  transition: opacity var(--layout-transition-extra-fast);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4041,6 +4041,7 @@ state.default = {
     edit: false,
     add: false
   },
+  toolbar: { style: 'transparent', position: 'top-right', size: 100, accent: { show: true }, add: { show: true }, edit: { show: true } },
   theme: {
     color: {
       range: { primary: { h: 210, s: 10 } },
@@ -4071,7 +4072,6 @@ state.default = {
     shadow: 75,
     shade: { opacity: 20, blur: 0 }
   },
-  toolbar: { style: 'transparent', position: 'bottom-right', accent: { show: true }, add: { show: true }, edit: { show: true } },
   modal: false,
   menu: false,
   autoSuggest: false
@@ -4101,6 +4101,9 @@ state.minMax = {
       blur: { min: 0, max: 200 },
       distance: { min: 0, max: 300 }
     }
+  },
+  toolbar: {
+    size: { min: 50, max: 500 }
   },
   theme: {
     color: {
@@ -4148,6 +4151,10 @@ state.minMax = {
 };
 
 state.option = {
+  toolbar: {
+    style: ['bar', 'transparent'],
+    position: ['top-left', 'top-right', 'bottom-right', 'bottom-left']
+  },
   theme: {
     accent: { random: { style: ['any', 'light', 'dark', 'pastel', 'saturated'] } },
     style: ['dark', 'light', 'system'],
@@ -4241,6 +4248,172 @@ layout_layout.init = () => {
 
 
 
+;// CONCATENATED MODULE: ./src/utility/makePath.js
+const makePath = function(string) {
+  if (string) {
+    let array;
+    if (string.indexOf('[') != -1 && string.indexOf(']') != -1) {
+      array = string.split('.').join(',').split('[').join(',').split(']').join(',').split(',');
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] == '') {
+          array.splice(i, 1);
+        };
+        if (!isNaN(parseInt(array[i], 10))) {
+          array[i] = parseInt(array[i], 10);
+        };
+      };
+    } else {
+      array = string.split('.');
+    };
+    return array;
+  } else {
+    return false;
+  };
+};
+
+;// CONCATENATED MODULE: ./src/utility/get.js
+
+
+const get_get = function({
+  object = null,
+  path = null
+} = {}) {
+
+  const address = makePath(path);
+
+  const getValue = function() {
+    while (address.length > 1) {
+      // shift off and store the first key
+      var currentKey = address.shift();
+      // if the key is not found make a new object
+      if (!(currentKey in object)) {
+        // make an empty object in the current object level
+        if (isNaN(currentKey)) {
+          object[currentKey] = {};
+        } else {
+          object[currentKey] = [];
+        };
+      };
+      // drill down the object with the first key
+      object = object[currentKey];
+    };
+    var finalKey = address.shift();
+    if (!(finalKey in object)) {
+      return '';
+    } else {
+      return object[finalKey];
+    };
+  };
+
+  if (object != null && path != null) {
+    return getValue();
+  } else {
+    return false;
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/utility/applyCSSVar.js
+
+
+
+const html = document.querySelector('html');
+
+const applyCSSVar = function(path) {
+
+  const apply = (path) => {
+
+    html.style.setProperty('--' + path.replace(/\./g, '-').toLowerCase(), get_get({
+      object: state.get.current(),
+      path: path
+    }));
+
+  };
+
+  if (Array.isArray(path)) {
+
+    path.forEach((item, i) => { apply(item); });
+
+  } else {
+
+    apply(path);
+
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/utility/applyCSSClass.js
+
+
+
+const applyCSSClass_html = document.querySelector('html');
+
+const applyCSSClass = function(path) {
+
+  const apply = (path) => {
+
+    get_get({
+      object: state.get.option(),
+      path: path
+    }).forEach((item, i) => {
+
+      applyCSSClass_html.classList.remove('is-' + path.replace(/\./g, '-').toLowerCase() + '-' + item);
+
+    });
+
+    applyCSSClass_html.classList.add('is-' + path.replace(/\./g, '-').toLowerCase() + '-' + get_get({
+      object: state.get.current(),
+      path: path
+    }));
+
+  };
+
+  if (Array.isArray(path)) {
+
+    path.forEach((item, i) => { apply(item); });
+
+  } else {
+
+    apply(path);
+
+  };
+
+};
+
+;// CONCATENATED MODULE: ./src/utility/applyCSSState.js
+
+
+
+const applyCSSState_html = document.querySelector('html');
+
+const applyCSSState = function(path) {
+
+  const apply = (path) => {
+
+    if (get_get({ object: state.get.current(), path: path })) {
+
+      applyCSSState_html.classList.add('is-' + path.replace(/\./g, '-').toLowerCase());
+
+    } else {
+
+      applyCSSState_html.classList.remove('is-' + path.replace(/\./g, '-').toLowerCase());
+
+    };
+
+  };
+
+  if (Array.isArray(path)) {
+
+    path.forEach((item, i) => { apply(item); });
+
+  } else {
+
+    apply(path);
+
+  };
+
+};
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/grid/index.css
 var component_grid = __webpack_require__(3742);
 ;// CONCATENATED MODULE: ./src/component/grid/index.css
@@ -4265,86 +4438,92 @@ var component_grid_update = injectStylesIntoStyleTag_default()(component_grid/* 
 
 
 
+
+
+
 const component_grid_grid = {};
 
-const gridArea = node_node('div|class:grid-area');
-
-const gridList = node_node('div|class:grid-list');
-
-component_grid_grid.mod = {};
-
-component_grid_grid.render = {};
-
-component_grid_grid.render.area = function() {
-  gridArea.appendChild(gridList);
-  layout_layout.element.area.appendChild(gridArea);
+component_grid_grid.element = {
+  area: node_node('div|class:grid-area'),
+  list: node_node('div|class:grid-list')
 };
 
-component_grid_grid.render.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--grid-size', state.get.current().grid.size);
-  html.style.setProperty('--grid-column', state.get.current().grid.column);
-  html.style.setProperty('--grid-perspective', state.get.current().grid.perspective);
-  html.style.setProperty('--grid-gap', state.get.current().grid.gap);
+component_grid_grid.area = {
+  render: () => {
+    component_grid_grid.element.area.appendChild(component_grid_grid.element.list);
+    layout_layout.element.area.appendChild(component_grid_grid.element.area);
+  }
 };
 
-component_grid_grid.render.rotate = {
-  bind: function() {
-    gridArea.addEventListener('mouseenter', function(event) {
-      component_grid_grid.render.rotate.position.origin.set();
-      component_grid_grid.render.rotate.update(event);
+component_grid_grid.rotate = {
+  bind: () => {
+
+    component_grid_grid.element.area.addEventListener('mouseenter', (event) => {
+      component_grid_grid.rotate.position.origin.set();
+      component_grid_grid.rotate.update(event);
     });
-    gridArea.addEventListener('mouseleave', function(event) {
-      component_grid_grid.render.rotate.position.origin.set();
-      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+
+    component_grid_grid.element.area.addEventListener('mouseleave', (event) => {
+      component_grid_grid.rotate.position.origin.set();
+      applyCSSVar([
+        'grid.transform.rotate.x',
+        'grid.transform.rotate.y',
+        'grid.transform.rotate.z'
+      ]);
     });
-    gridArea.addEventListener('mousemove', function(event) {
-      if (component_grid_grid.render.rotate.delay.check()) {
-        component_grid_grid.render.rotate.position.origin.set();
-        component_grid_grid.render.rotate.update(event);
+
+    component_grid_grid.element.area.addEventListener('mousemove', (event) => {
+      if (component_grid_grid.rotate.delay.check()) {
+        component_grid_grid.rotate.position.origin.set();
+        component_grid_grid.rotate.update(event);
       }
     });
+
   },
   position: {
     origin: {
-      set: function() {
+      set: () => {
         // set center point of grid area from top left of viewport
-        component_grid_grid.render.rotate.position.origin.get.x = gridArea.offsetLeft + Math.floor(gridArea.offsetWidth / 2);
-        component_grid_grid.render.rotate.position.origin.get.y = gridArea.offsetTop + Math.floor(gridArea.offsetHeight / 2);
+        component_grid_grid.rotate.position.origin.get.x = component_grid_grid.element.area.offsetLeft + Math.floor(component_grid_grid.element.area.offsetWidth / 2);
+        component_grid_grid.rotate.position.origin.get.y = component_grid_grid.element.area.offsetTop + Math.floor(component_grid_grid.element.area.offsetHeight / 2);
       },
       get: { x: 0, y: 0 }
     },
     current: {
-      set: function() {
+      set: () => {
         // set mouse position from center of grid area
-        component_grid_grid.render.rotate.position.current.get.x = (event.clientX - component_grid_grid.render.rotate.position.origin.get.x) * -1;
-        component_grid_grid.render.rotate.position.current.get.y = (event.clientY - component_grid_grid.render.rotate.position.origin.get.y);
+        component_grid_grid.rotate.position.current.get.x = (event.clientX - component_grid_grid.rotate.position.origin.get.x) * -1;
+        component_grid_grid.rotate.position.current.get.y = (event.clientY - component_grid_grid.rotate.position.origin.get.y);
       },
       get: { x: 0, y: 0 }
     }
   },
   delay: {
     counter: 0,
-    check: function() {
+    check: () => {
+
       let refreshRate = state.get.current().grid.transform.refresh;
-      component_grid_grid.render.rotate.delay.counter++
-      if (component_grid_grid.render.rotate.delay.counter % refreshRate === 0) {
-        component_grid_grid.render.rotate.delay.counter = 0;
+
+      component_grid_grid.rotate.delay.counter++
+
+      if (component_grid_grid.rotate.delay.counter % refreshRate === 0) {
+        component_grid_grid.rotate.delay.counter = 0;
         return true;
       } else {
         return false;
       };
+
     }
   },
-  update: function() {
-    component_grid_grid.render.rotate.position.current.set(event);
-    component_grid_grid.render.rotate.style(
-      state.get.current().grid.transform.rotate.x + ((component_grid_grid.render.rotate.position.current.get.y / gridList.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
-      state.get.current().grid.transform.rotate.y + ((component_grid_grid.render.rotate.position.current.get.x / gridList.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
+  update: () => {
+    component_grid_grid.rotate.position.current.set(event);
+    component_grid_grid.rotate.style(
+      state.get.current().grid.transform.rotate.x + ((component_grid_grid.rotate.position.current.get.y / component_grid_grid.element.list.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
+      state.get.current().grid.transform.rotate.y + ((component_grid_grid.rotate.position.current.get.x / component_grid_grid.element.list.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
       state.get.current().grid.transform.rotate.z
     );
   },
-  style: function(x, y, z) {
+  style: (x, y, z) => {
     const html = document.querySelector('html');
     html.style.setProperty('--grid-transform-rotate-x', x);
     html.style.setProperty('--grid-transform-rotate-y', y);
@@ -4352,12 +4531,19 @@ component_grid_grid.render.rotate = {
   }
 };
 
-component_grid_grid.init = function() {
-  component_grid_grid.render.style();
-  component_grid_grid.render.area();
-  component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
-  component_grid_grid.render.rotate.position.origin.set();
-  component_grid_grid.render.rotate.bind();
+component_grid_grid.init = () => {
+  applyCSSVar([
+    'grid.size',
+    'grid.column',
+    'grid.perspective',
+    'grid.gap',
+    'grid.transform.rotate.x',
+    'grid.transform.rotate.y',
+    'grid.transform.rotate.z'
+  ]);
+  component_grid_grid.area.render();
+  component_grid_grid.rotate.bind();
+  component_grid_grid.rotate.position.origin.set();
 };
 
 
@@ -4594,172 +4780,6 @@ const clearChildNode_clearChildNode = function(element) {
 const randomNumber = function(min, max) {
 
   return Math.floor(Math.random() * (max - min + 1) + min);
-
-};
-
-;// CONCATENATED MODULE: ./src/utility/makePath.js
-const makePath = function(string) {
-  if (string) {
-    let array;
-    if (string.indexOf('[') != -1 && string.indexOf(']') != -1) {
-      array = string.split('.').join(',').split('[').join(',').split(']').join(',').split(',');
-      for (var i = 0; i < array.length; i++) {
-        if (array[i] == '') {
-          array.splice(i, 1);
-        };
-        if (!isNaN(parseInt(array[i], 10))) {
-          array[i] = parseInt(array[i], 10);
-        };
-      };
-    } else {
-      array = string.split('.');
-    };
-    return array;
-  } else {
-    return false;
-  };
-};
-
-;// CONCATENATED MODULE: ./src/utility/get.js
-
-
-const get_get = function({
-  object = null,
-  path = null
-} = {}) {
-
-  const address = makePath(path);
-
-  const getValue = function() {
-    while (address.length > 1) {
-      // shift off and store the first key
-      var currentKey = address.shift();
-      // if the key is not found make a new object
-      if (!(currentKey in object)) {
-        // make an empty object in the current object level
-        if (isNaN(currentKey)) {
-          object[currentKey] = {};
-        } else {
-          object[currentKey] = [];
-        };
-      };
-      // drill down the object with the first key
-      object = object[currentKey];
-    };
-    var finalKey = address.shift();
-    if (!(finalKey in object)) {
-      return '';
-    } else {
-      return object[finalKey];
-    };
-  };
-
-  if (object != null && path != null) {
-    return getValue();
-  } else {
-    return false;
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/utility/applyCSSVar.js
-
-
-
-const html = document.querySelector('html');
-
-const applyCSSVar = function(path) {
-
-  const apply = (path) => {
-
-    html.style.setProperty('--' + path.replace(/\./g, '-').toLowerCase(), get_get({
-      object: state.get.current(),
-      path: path
-    }));
-
-  };
-
-  if (Array.isArray(path)) {
-
-    path.forEach((item, i) => { apply(item); });
-
-  } else {
-
-    apply(path);
-
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/utility/applyCSSClass.js
-
-
-
-const applyCSSClass_html = document.querySelector('html');
-
-const applyCSSClass = function(path) {
-
-  const apply = (path) => {
-
-    get_get({
-      object: state.get.option(),
-      path: path
-    }).forEach((item, i) => {
-
-      applyCSSClass_html.classList.remove('is-' + path.replace(/\./g, '-').toLowerCase() + '-' + item);
-
-    });
-
-    applyCSSClass_html.classList.add('is-' + path.replace(/\./g, '-').toLowerCase() + '-' + get_get({
-      object: state.get.current(),
-      path: path
-    }));
-
-  };
-
-  if (Array.isArray(path)) {
-
-    path.forEach((item, i) => { apply(item); });
-
-  } else {
-
-    apply(path);
-
-  };
-
-};
-
-;// CONCATENATED MODULE: ./src/utility/applyCSSState.js
-
-
-
-const applyCSSState_html = document.querySelector('html');
-
-const applyCSSState = function(path) {
-
-  const apply = (path) => {
-
-    if (get_get({ object: state.get.current(), path: path })) {
-
-      applyCSSState_html.classList.add('is-' + path.replace(/\./g, '-').toLowerCase());
-
-    } else {
-
-      applyCSSState_html.classList.remove('is-' + path.replace(/\./g, '-').toLowerCase());
-
-    };
-
-  };
-
-  if (Array.isArray(path)) {
-
-    path.forEach((item, i) => { apply(item); });
-
-  } else {
-
-    apply(path);
-
-  };
 
 };
 
@@ -16662,7 +16682,7 @@ bookmark_bookmark.item = {
         column: columnStart
       });
 
-      gridList.appendChild(bookmarkTile.tile());
+      component_grid_grid.element.list.appendChild(bookmarkTile.tile());
 
       bookmark_bookmark.tile.current.push(bookmarkTile);
 
@@ -16671,7 +16691,7 @@ bookmark_bookmark.item = {
   },
   clear: () => {
 
-    clearChildNode_clearChildNode(gridList);
+    clearChildNode_clearChildNode(component_grid_grid.element.list);
 
   }
 };
@@ -16993,6 +17013,8 @@ update_update.all = {
     dataToUpdate.state.theme.accent.random = { active: false, style: 'any' };
 
     dataToUpdate.state.theme.shade.blur = 0;
+
+    dataToUpdate.state.toolbar.size = 100;
 
     dataToUpdate.state.toolbar.accent = { show: true };
 
@@ -18012,70 +18034,29 @@ const MenuClose = function() {
 
 
 
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbar/index.css
-var toolbar = __webpack_require__(4879);
-;// CONCATENATED MODULE: ./src/component/toolbar/index.css
-
-            
-
-var toolbar_options = {};
-
-toolbar_options.insert = "head";
-toolbar_options.singleton = false;
-
-var toolbar_update = injectStylesIntoStyleTag_default()(toolbar/* default */.Z, toolbar_options);
-
-
-
-/* harmony default export */ const component_toolbar = (toolbar/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/toolbar/index.js
 
 
 
 
+const toolbar = {};
 
+toolbar.current = false;
 
-const toolbar_toolbar = {};
+toolbar.bar = {};
 
-toolbar_toolbar.current = false;
-
-toolbar_toolbar.class = {};
-
-toolbar_toolbar.class.render = () => {
-  const html = document.querySelector('html');
-
-  const position = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-
-  position.forEach((item, i) => {
-    html.classList.remove('is-toolbar-position-' + item);
-  });
-
-  html.classList.add('is-toolbar-position-' + state.get.current().toolbar.position);
-
-  const style = ['bar', 'transparent'];
-
-  style.forEach((item, i) => {
-    html.classList.remove('is-toolbar-style-' + item);
-  });
-
-  html.classList.add('is-toolbar-style-' + state.get.current().toolbar.style);
-};
-
-toolbar_toolbar.bar = {};
-
-toolbar_toolbar.bar.render = () => {
+toolbar.bar.render = () => {
 
   const body = document.querySelector('body');
 
-  toolbar_toolbar.current = new ToolbarControl();
+  toolbar.current = new ToolbarControl();
 
-  body.appendChild(toolbar_toolbar.current.toolbar());
+  body.appendChild(toolbar.current.toolbar());
 
 };
 
-toolbar_toolbar.init = () => {
-  toolbar_toolbar.class.render();
-  toolbar_toolbar.bar.render();
+toolbar.init = () => {
+  toolbar.bar.render();
 };
 
 
@@ -18402,7 +18383,7 @@ layoutSetting.scaling = (parent) => {
     min: state.get.minMax().grid.size.min,
     max: state.get.minMax().grid.size.max,
     action: () => {
-      component_grid_grid.render.style();
+      applyCSSVar('grid.size');
       data.save();
     }
   });
@@ -18432,7 +18413,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.column.min,
     max: state.get.minMax().grid.column.max,
     action: () => {
-      component_grid_grid.render.style();
+      applyCSSVar('grid.column');
       bookmark_bookmark.item.clear();
       bookmark_bookmark.item.render();
       data.save();
@@ -18449,7 +18430,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.gap.min,
     max: state.get.minMax().grid.gap.max,
     action: () => {
-      component_grid_grid.render.style();
+      applyCSSVar('grid.gap');
       data.save();
     }
   });
@@ -18464,7 +18445,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.perspective.min,
     max: state.get.minMax().grid.perspective.max,
     action: () => {
-      component_grid_grid.render.style();
+      applyCSSVar('grid.perspective');
       data.save();
     }
   });
@@ -18493,8 +18474,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.transform.rotate.x.min,
     max: state.get.minMax().grid.transform.rotate.x.max,
     action: () => {
-      component_grid_grid.render.style();
-      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+      applyCSSVar('grid.transform.rotate.x');
       data.save();
     }
   });
@@ -18509,8 +18489,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.transform.rotate.y.min,
     max: state.get.minMax().grid.transform.rotate.y.max,
     action: () => {
-      component_grid_grid.render.style();
-      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+      applyCSSVar('grid.transform.rotate.y');
       data.save();
     }
   });
@@ -18525,8 +18504,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.transform.rotate.z.min,
     max: state.get.minMax().grid.transform.rotate.z.max,
     action: () => {
-      component_grid_grid.render.style();
-      component_grid_grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+      applyCSSVar('grid.transform.rotate.z');
       data.save();
     }
   });
@@ -18711,6 +18689,31 @@ bookmarkSetting.shadow = (parent) => {
 
 const toolbarSetting = {};
 
+toolbarSetting.size = (parent) => {
+
+  const toolbarSize = new Control_slider({
+    object: state.get.current(),
+    path: 'toolbar.size',
+    id: 'toolbar-size',
+    labelText: 'Bookmark size',
+    value: state.get.current().toolbar.size,
+    defaultValue: state.get.default().toolbar.size,
+    min: state.get.minMax().toolbar.size.min,
+    max: state.get.minMax().toolbar.size.max,
+    action: () => {
+      applyCSSVar('toolbar.size');
+      data.save();
+    }
+  });
+
+  parent.appendChild(
+    node_node('div', [
+      toolbarSize.wrap()
+    ])
+  );
+
+};
+
 toolbarSetting.style = (parent) => {
 
   const toolbarStyle = new Control_radio({
@@ -18722,7 +18725,7 @@ toolbarSetting.style = (parent) => {
     groupName: 'toolbar-style',
     path: 'toolbar.style',
     action: () => {
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -18748,7 +18751,7 @@ toolbarSetting.controls = (parent) => {
     path: 'toolbar.accent.show',
     labelText: 'Show Accent control',
     action: () => {
-      toolbar_toolbar.current.update.control();
+      toolbar.current.update.control();
       data.save();
     }
   });
@@ -18759,7 +18762,7 @@ toolbarSetting.controls = (parent) => {
     path: 'toolbar.add.show',
     labelText: 'Show Add control',
     action: () => {
-      toolbar_toolbar.current.update.control();
+      toolbar.current.update.control();
       data.save();
     }
   });
@@ -18770,7 +18773,7 @@ toolbarSetting.controls = (parent) => {
     path: 'toolbar.edit.show',
     labelText: 'Show Edit control',
     action: () => {
-      toolbar_toolbar.current.update.control();
+      toolbar.current.update.control();
       data.save();
     }
   });
@@ -18800,8 +18803,8 @@ toolbarSetting.position = (parent) => {
     path: 'toolbar.position',
     gridSize: '2x2',
     action: () => {
-      toolbar_toolbar.current.update.position();
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.position();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -19108,8 +19111,8 @@ themeSetting.accent = (parent) => {
               'theme.accent.hsl.s',
               'theme.accent.hsl.l'
             ]);
-            toolbar_toolbar.current.update.style();
-            toolbar_toolbar.current.update.accent();
+            toolbar.current.update.style();
+            toolbar.current.update.accent();
             themeAccent.update();
             data.save();
           }
@@ -19149,8 +19152,8 @@ themeSetting.accent = (parent) => {
         'theme.accent.hsl.s',
         'theme.accent.hsl.l'
       ]);
-      toolbar_toolbar.current.update.style();
-      toolbar_toolbar.current.update.accent();
+      toolbar.current.update.style();
+      toolbar.current.update.accent();
       data.save();
     }
   });
@@ -19178,8 +19181,8 @@ themeSetting.accent = (parent) => {
         'theme.accent.hsl.s',
         'theme.accent.hsl.l'
       ]);
-      toolbar_toolbar.current.update.style();
-      toolbar_toolbar.current.update.accent();
+      toolbar.current.update.style();
+      toolbar.current.update.accent();
       themeAccent.update();
       data.save();
     }
@@ -19627,7 +19630,7 @@ themeSetting.background = (parent) => {
     action: () => {
       applyCSSClass('theme.background.type');
       themeBackgroundCollapse.update();
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.style();
       updateDisabled();
       updateVideoPlayState();
       data.save();
@@ -19650,7 +19653,7 @@ themeSetting.background = (parent) => {
         'theme.background.color.hsl.s',
         'theme.background.color.hsl.l'
       ]);
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -19666,7 +19669,7 @@ themeSetting.background = (parent) => {
     max: state.get.minMax().theme.background.gradient.angle.max,
     action: () => {
       applyCSSVar('theme.background.gradient.angle');
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -19687,7 +19690,7 @@ themeSetting.background = (parent) => {
         'theme.background.gradient.start.hsl.s',
         'theme.background.gradient.start.hsl.l'
       ]);
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -19708,7 +19711,7 @@ themeSetting.background = (parent) => {
         'theme.background.gradient.end.hsl.s',
         'theme.background.gradient.end.hsl.l'
       ]);
-      toolbar_toolbar.current.update.style();
+      toolbar.current.update.style();
       data.save();
     }
   });
@@ -20757,7 +20760,7 @@ const menu = {};
 menu.navData = [
   { name: 'Layout', active: true, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['Hover', 'Shadow'] },
-  { name: 'Toolbar', active: false, overscroll: true, sub: ['Style', 'Controls', 'Position'] },
+  { name: 'Toolbar', active: false, overscroll: true, sub: ['Size', 'Style', 'Controls', 'Position'] },
   { name: 'Theme', active: false, overscroll: true, sub: ['Style', 'Colour', 'Accent', 'Font', 'Bookmark', 'Shade', 'Background'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Import', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
@@ -20795,7 +20798,25 @@ menu.init = () => {
 
 
 
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/toolbarControl/index.css
+var toolbarControl = __webpack_require__(7037);
+;// CONCATENATED MODULE: ./src/component/toolbarControl/index.css
+
+            
+
+var toolbarControl_options = {};
+
+toolbarControl_options.insert = "head";
+toolbarControl_options.singleton = false;
+
+var toolbarControl_update = injectStylesIntoStyleTag_default()(toolbarControl/* default */.Z, toolbarControl_options);
+
+
+
+/* harmony default export */ const component_toolbarControl = (toolbarControl/* default.locals */.Z.locals || {});
 ;// CONCATENATED MODULE: ./src/component/toolbarControl/index.js
+
+
 
 
 
@@ -20817,6 +20838,7 @@ const ToolbarControl = function() {
 
   this.element = {
     toolbar: node_node('div|class:toolbar'),
+    control: node_node('div|class:toolbar-control'),
     group: group_group()
   };
 
@@ -20880,8 +20902,6 @@ const ToolbarControl = function() {
 
   this.assemble = () => {
 
-    const toolbarControl = node_node('div|class:toolbar-control');
-
     switch (state.get.current().toolbar.position) {
 
       case 'top-right':
@@ -20934,9 +20954,9 @@ const ToolbarControl = function() {
 
     this.element.group.appendChild(this.control.button.setting.button);
 
-    toolbarControl.appendChild(this.element.group);
+    this.element.control.appendChild(this.element.group);
 
-    this.element.toolbar.appendChild(toolbarControl);
+    this.element.toolbar.appendChild(this.element.control);
 
   };
 
@@ -21099,33 +21119,8 @@ const ToolbarControl = function() {
 
     };
 
-    this.element.toolbar.classList.remove('is-toolbar-position-top-left');
-
-    this.element.toolbar.classList.remove('is-toolbar-position-top-right');
-
-    this.element.toolbar.classList.remove('is-toolbar-position-bottom-left');
-
-    this.element.toolbar.classList.remove('is-toolbar-position-bottom-right');
-
-    switch (state.get.current().toolbar.position) {
-
-      case 'top-left':
-        this.element.toolbar.classList.add('is-toolbar-position-top-left');
-        break;
-
-      case 'top-right':
-        this.element.toolbar.classList.add('is-toolbar-position-top-right');
-        break;
-
-      case 'bottom-right':
-        this.element.toolbar.classList.add('is-toolbar-position-bottom-right');
-        break;
-
-      case 'bottom-left':
-        this.element.toolbar.classList.add('is-toolbar-position-bottom-left');
-        break;
-
-    };
+    applyCSSVar('toolbar.size');
+    applyCSSClass('toolbar.position');
 
   };
 
@@ -21328,7 +21323,7 @@ keyboard.esc = new KeyboardShortcut({
   action: () => {
     if (state.get.current().bookmark.edit && !state.get.current().modal && !state.get.current().menu) {
       bookmark_bookmark.edit.close();
-      toolbar_toolbar.current.update.edit();
+      toolbar.current.update.edit();
     };
   }
 });
@@ -21363,7 +21358,7 @@ keyboard.ctrAltE = new KeyboardShortcut({
   alt: true,
   action: () => {
     bookmark_bookmark.edit.toggle();
-    toolbar_toolbar.current.update.edit();
+    toolbar.current.update.edit();
     data.save();
   }
 });
@@ -21447,7 +21442,7 @@ const component = {
   menu: menu,
   pageLock: pageLock,
   theme: theme_theme,
-  toolbar: toolbar_toolbar,
+  toolbar: toolbar,
   update: update_update,
   bookmark: bookmark_bookmark,
   form: component_form_namespaceObject
