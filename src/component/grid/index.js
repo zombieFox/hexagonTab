@@ -2,89 +2,95 @@ import { layout } from '../layout';
 import { state } from '../state';
 
 import { node } from '../../utility/node';
+import { applyCSSVar } from '../../utility/applyCSSVar';
+import { applyCSSClass } from '../../utility/applyCSSClass';
+import { applyCSSState } from '../../utility/applyCSSState';
 
 import './index.css';
 
 const grid = {};
 
-const gridArea = node('div|class:grid-area');
-
-const gridList = node('div|class:grid-list');
-
-grid.mod = {};
-
-grid.render = {};
-
-grid.render.area = function() {
-  gridArea.appendChild(gridList);
-  layout.element.area.appendChild(gridArea);
+grid.element = {
+  area: node('div|class:grid-area'),
+  list: node('div|class:grid-list')
 };
 
-grid.render.style = function() {
-  const html = document.querySelector('html');
-  html.style.setProperty('--grid-size', state.get.current().grid.size);
-  html.style.setProperty('--grid-column', state.get.current().grid.column);
-  html.style.setProperty('--grid-perspective', state.get.current().grid.perspective);
-  html.style.setProperty('--grid-gap', state.get.current().grid.gap);
+grid.area = {
+  render: () => {
+    grid.element.area.appendChild(grid.element.list);
+    layout.element.area.appendChild(grid.element.area);
+  }
 };
 
-grid.render.rotate = {
-  bind: function() {
-    gridArea.addEventListener('mouseenter', function(event) {
-      grid.render.rotate.position.origin.set();
-      grid.render.rotate.update(event);
+grid.rotate = {
+  bind: () => {
+
+    grid.element.area.addEventListener('mouseenter', (event) => {
+      grid.rotate.position.origin.set();
+      grid.rotate.update(event);
     });
-    gridArea.addEventListener('mouseleave', function(event) {
-      grid.render.rotate.position.origin.set();
-      grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+
+    grid.element.area.addEventListener('mouseleave', (event) => {
+      grid.rotate.position.origin.set();
+      applyCSSVar([
+        'grid.transform.rotate.x',
+        'grid.transform.rotate.y',
+        'grid.transform.rotate.z'
+      ]);
     });
-    gridArea.addEventListener('mousemove', function(event) {
-      if (grid.render.rotate.delay.check()) {
-        grid.render.rotate.position.origin.set();
-        grid.render.rotate.update(event);
+
+    grid.element.area.addEventListener('mousemove', (event) => {
+      if (grid.rotate.delay.check()) {
+        grid.rotate.position.origin.set();
+        grid.rotate.update(event);
       }
     });
+
   },
   position: {
     origin: {
-      set: function() {
+      set: () => {
         // set center point of grid area from top left of viewport
-        grid.render.rotate.position.origin.get.x = gridArea.offsetLeft + Math.floor(gridArea.offsetWidth / 2);
-        grid.render.rotate.position.origin.get.y = gridArea.offsetTop + Math.floor(gridArea.offsetHeight / 2);
+        grid.rotate.position.origin.get.x = grid.element.area.offsetLeft + Math.floor(grid.element.area.offsetWidth / 2);
+        grid.rotate.position.origin.get.y = grid.element.area.offsetTop + Math.floor(grid.element.area.offsetHeight / 2);
       },
       get: { x: 0, y: 0 }
     },
     current: {
-      set: function() {
+      set: () => {
         // set mouse position from center of grid area
-        grid.render.rotate.position.current.get.x = (event.clientX - grid.render.rotate.position.origin.get.x) * -1;
-        grid.render.rotate.position.current.get.y = (event.clientY - grid.render.rotate.position.origin.get.y);
+        grid.rotate.position.current.get.x = (event.clientX - grid.rotate.position.origin.get.x) * -1;
+        grid.rotate.position.current.get.y = (event.clientY - grid.rotate.position.origin.get.y);
       },
       get: { x: 0, y: 0 }
     }
   },
   delay: {
     counter: 0,
-    check: function() {
+    check: () => {
+
       let refreshRate = state.get.current().grid.transform.refresh;
-      grid.render.rotate.delay.counter++
-      if (grid.render.rotate.delay.counter % refreshRate === 0) {
-        grid.render.rotate.delay.counter = 0;
+
+      grid.rotate.delay.counter++
+
+      if (grid.rotate.delay.counter % refreshRate === 0) {
+        grid.rotate.delay.counter = 0;
         return true;
       } else {
         return false;
       };
+
     }
   },
-  update: function() {
-    grid.render.rotate.position.current.set(event);
-    grid.render.rotate.style(
-      state.get.current().grid.transform.rotate.x + ((grid.render.rotate.position.current.get.y / gridList.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
-      state.get.current().grid.transform.rotate.y + ((grid.render.rotate.position.current.get.x / gridList.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
+  update: () => {
+    grid.rotate.position.current.set(event);
+    grid.rotate.style(
+      state.get.current().grid.transform.rotate.x + ((grid.rotate.position.current.get.y / grid.element.list.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
+      state.get.current().grid.transform.rotate.y + ((grid.rotate.position.current.get.x / grid.element.list.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
       state.get.current().grid.transform.rotate.z
     );
   },
-  style: function(x, y, z) {
+  style: (x, y, z) => {
     const html = document.querySelector('html');
     html.style.setProperty('--grid-transform-rotate-x', x);
     html.style.setProperty('--grid-transform-rotate-y', y);
@@ -92,12 +98,19 @@ grid.render.rotate = {
   }
 };
 
-grid.init = function() {
-  grid.render.style();
-  grid.render.area();
-  grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
-  grid.render.rotate.position.origin.set();
-  grid.render.rotate.bind();
+grid.init = () => {
+  applyCSSVar([
+    'grid.size',
+    'grid.column',
+    'grid.perspective',
+    'grid.gap',
+    'grid.transform.rotate.x',
+    'grid.transform.rotate.y',
+    'grid.transform.rotate.z'
+  ]);
+  grid.area.render();
+  grid.rotate.bind();
+  grid.rotate.position.origin.set();
 };
 
-export { grid, gridArea, gridList };
+export { grid };

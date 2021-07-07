@@ -1,6 +1,6 @@
 import { state } from '../state';
 import { data } from '../data';
-import { gridList } from '../grid';
+import { grid } from '../grid';
 import { theme } from '../theme';
 import { bookmarkDefault } from '../bookmarkDefault';
 import { bookmarkPreset } from '../bookmarkPreset';
@@ -180,7 +180,7 @@ bookmark.item = {
         column: columnStart
       });
 
-      gridList.appendChild(bookmarkTile.tile());
+      grid.element.list.appendChild(bookmarkTile.tile());
 
       bookmark.tile.current.push(bookmarkTile);
 
@@ -189,7 +189,7 @@ bookmark.item = {
   },
   clear: () => {
 
-    clearChildNode(gridList);
+    clearChildNode(grid.element.list);
 
   }
 };

@@ -49,7 +49,7 @@ layoutSetting.scaling = (parent) => {
     min: state.get.minMax().grid.size.min,
     max: state.get.minMax().grid.size.max,
     action: () => {
-      grid.render.style();
+      applyCSSVar('grid.size');
       data.save();
     }
   });
@@ -79,7 +79,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.column.min,
     max: state.get.minMax().grid.column.max,
     action: () => {
-      grid.render.style();
+      applyCSSVar('grid.column');
       bookmark.item.clear();
       bookmark.item.render();
       data.save();
@@ -96,7 +96,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.gap.min,
     max: state.get.minMax().grid.gap.max,
     action: () => {
-      grid.render.style();
+      applyCSSVar('grid.gap');
       data.save();
     }
   });
@@ -111,7 +111,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.perspective.min,
     max: state.get.minMax().grid.perspective.max,
     action: () => {
-      grid.render.style();
+      applyCSSVar('grid.perspective');
       data.save();
     }
   });
@@ -140,8 +140,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.transform.rotate.x.min,
     max: state.get.minMax().grid.transform.rotate.x.max,
     action: () => {
-      grid.render.style();
-      grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+      applyCSSVar('grid.transform.rotate.x');
       data.save();
     }
   });
@@ -156,8 +155,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.transform.rotate.y.min,
     max: state.get.minMax().grid.transform.rotate.y.max,
     action: () => {
-      grid.render.style();
-      grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+      applyCSSVar('grid.transform.rotate.y');
       data.save();
     }
   });
@@ -172,8 +170,7 @@ layoutSetting.grid = (parent) => {
     min: state.get.minMax().grid.transform.rotate.z.min,
     max: state.get.minMax().grid.transform.rotate.z.max,
     action: () => {
-      grid.render.style();
-      grid.render.rotate.style(state.get.current().grid.transform.rotate.x, state.get.current().grid.transform.rotate.y, state.get.current().grid.transform.rotate.z);
+      applyCSSVar('grid.transform.rotate.z');
       data.save();
     }
   });
