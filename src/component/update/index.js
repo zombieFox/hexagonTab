@@ -71,6 +71,8 @@ update.all = {
 
     dataToUpdate.state.theme.shade.blur = 0;
 
+    dataToUpdate.state.toolbar.size = 100;
+
     dataToUpdate.state.toolbar.accent = { show: true };
 
     dataToUpdate.state.toolbar.add = { show: true };

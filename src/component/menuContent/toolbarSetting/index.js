@@ -36,6 +36,31 @@ import { applyCSSState } from '../../../utility/applyCSSState';
 
 const toolbarSetting = {};
 
+toolbarSetting.size = (parent) => {
+
+  const toolbarSize = new Control_slider({
+    object: state.get.current(),
+    path: 'toolbar.size',
+    id: 'toolbar-size',
+    labelText: 'Bookmark size',
+    value: state.get.current().toolbar.size,
+    defaultValue: state.get.default().toolbar.size,
+    min: state.get.minMax().toolbar.size.min,
+    max: state.get.minMax().toolbar.size.max,
+    action: () => {
+      applyCSSVar('toolbar.size');
+      data.save();
+    }
+  });
+
+  parent.appendChild(
+    node('div', [
+      toolbarSize.wrap()
+    ])
+  );
+
+};
+
 toolbarSetting.style = (parent) => {
 
   const toolbarStyle = new Control_radio({

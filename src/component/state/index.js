@@ -21,6 +21,7 @@ state.default = {
     edit: false,
     add: false
   },
+  toolbar: { style: 'transparent', position: 'top-right', size: 100, accent: { show: true }, add: { show: true }, edit: { show: true } },
   theme: {
     color: {
       range: { primary: { h: 210, s: 10 } },
@@ -51,7 +52,6 @@ state.default = {
     shadow: 75,
     shade: { opacity: 20, blur: 0 }
   },
-  toolbar: { style: 'transparent', position: 'bottom-right', accent: { show: true }, add: { show: true }, edit: { show: true } },
   modal: false,
   menu: false,
   autoSuggest: false
@@ -81,6 +81,9 @@ state.minMax = {
       blur: { min: 0, max: 200 },
       distance: { min: 0, max: 300 }
     }
+  },
+  toolbar: {
+    size: { min: 50, max: 500 }
   },
   theme: {
     color: {
@@ -128,6 +131,10 @@ state.minMax = {
 };
 
 state.option = {
+  toolbar: {
+    style: ['bar', 'transparent'],
+    position: ['top-left', 'top-right', 'bottom-right', 'bottom-left']
+  },
   theme: {
     accent: { random: { style: ['any', 'light', 'dark', 'pastel', 'saturated'] } },
     style: ['dark', 'light', 'system'],
