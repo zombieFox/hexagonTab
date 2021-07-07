@@ -96,10 +96,12 @@
   flex-basis: 50%;
 }
 
-.modal-control .modal-control-button:first-child {
+.modal-control .modal-control-button:first-child,
+.modal-control .modal-control-button:first-child:after {
   border-radius: 0 0 0 var(--theme-radius-base);
 }
 
-.modal-control .modal-control-button:last-child {
+.modal-control .modal-control-button:last-child,
+.modal-control .modal-control-button:last-child:after {
   border-radius: 0 0 var(--theme-radius-base) 0
 }
