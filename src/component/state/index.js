@@ -21,7 +21,7 @@ state.default = {
     edit: false,
     add: false
   },
-  toolbar: { style: 'transparent', position: 'top-right', size: 100, accent: { show: true }, add: { show: true }, edit: { show: true } },
+  toolbar: { style: 'transparent', position: 'bottom-right', size: 100, accent: { show: true }, add: { show: true }, edit: { show: true } },
   theme: {
     color: {
       range: { primary: { h: 210, s: 10 } },
