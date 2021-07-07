@@ -69,7 +69,7 @@ update.all = {
 
     dataToUpdate.state.theme.accent.random = { active: false, style: 'any' };
 
-    dataToUpdate.state.shade.blur = 0;
+    dataToUpdate.state.theme.shade.blur = 0;
 
     dataToUpdate.state.toolbar.accent = { show: true };
 
