@@ -19489,7 +19489,8 @@ themeSetting.bookmark = (parent) => {
     groupName: 'theme-bookmark-shadow-color-type',
     path: 'theme.bookmark.shadow.color.type',
     action: () => {
-      applyCSSVar('theme.bookmark.shadow.color.type');
+      applyCSSClass('theme.bookmark.shadow.color.type');
+      themeBookmarkShadowColorByCollapse.update();
       data.save();
     }
   });
