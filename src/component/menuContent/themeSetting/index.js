@@ -1056,11 +1056,15 @@ themeSetting.background = (parent) => {
   );
 
   const updateVideoPlayState = () => {
-    if (themeBackgroundType.value() === 'video') {
-      theme.render.background.video.element.play();
-    } else {
-      theme.render.background.video.element.pause();
+
+    if (theme.background.element.video) {
+      if (themeBackgroundType.value() === 'video') {
+        theme.background.element.video.play();
+      } else {
+        theme.background.element.video.pause();
+      };
     };
+
   };
 
   const updateDisabled = () => {
