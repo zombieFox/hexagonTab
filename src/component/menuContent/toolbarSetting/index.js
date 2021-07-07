@@ -42,7 +42,7 @@ toolbarSetting.size = (parent) => {
     object: state.get.current(),
     path: 'toolbar.size',
     id: 'toolbar-size',
-    labelText: 'Bookmark size',
+    labelText: 'Toolbar size',
     value: state.get.current().toolbar.size,
     defaultValue: state.get.default().toolbar.size,
     min: state.get.minMax().toolbar.size.min,
