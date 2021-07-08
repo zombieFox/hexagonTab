@@ -19769,7 +19769,6 @@ themeSetting.background = (parent) => {
     action: () => {
       theme_theme.background.video.clear();
       theme_theme.background.video.render();
-      theme_theme.background.video.render();
       data.save();
     }
   });
