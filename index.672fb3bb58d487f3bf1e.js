@@ -3065,7 +3065,7 @@ const checkbox_checkbox = function({
 
   if (func) {
 
-    input.addEventListener('change', function(event) {
+    input.addEventListener('change', (event) => {
       func();
     });
 
@@ -3119,7 +3119,7 @@ const color_color = function({
 
   if (func) {
 
-    input.addEventListener('change', function(event) {
+    input.addEventListener('change', (event) => {
       func();
     });
 
@@ -3172,7 +3172,7 @@ const file_file = function({
 
   if (func) {
 
-    input.addEventListener('change', function(event) {
+    input.addEventListener('change', (event) => {
       func();
     });
 
@@ -3240,7 +3240,7 @@ const number_number = function({
 
   if (func) {
 
-    input.addEventListener('input', function(event) {
+    input.addEventListener('input', (event) => {
       func();
     });
 
@@ -3307,7 +3307,7 @@ const radio_radio = function({
   };
 
   if (func) {
-    input.addEventListener('change', function(event) {
+    input.addEventListener('change', (event) => {
       func();
     });
   };
@@ -3363,7 +3363,7 @@ const range_range = function({
 
   if (func) {
 
-    input.addEventListener('input', function(event) {
+    input.addEventListener('input', (event) => {
       func();
     });
 
@@ -3436,7 +3436,7 @@ const text_text = function({
 
   if (func) {
 
-    input.addEventListener('input', function(event) {
+    input.addEventListener('input', (event) => {
       func();
     });
 
@@ -3503,7 +3503,7 @@ const textarea_textarea = function({
 
   if (func) {
 
-    textarea.addEventListener('input', function(event) {
+    textarea.addEventListener('input', (event) => {
       func();
     });
 
@@ -3580,11 +3580,13 @@ const inputButton_inputButton = function({
 
 ;// CONCATENATED MODULE: ./src/utility/trimString.js
 const trimString_trimString = function(value) {
+
   if (typeof value == 'string') {
     return value.trim().replace(/\s\s+/g, ' ');
   } else {
     return value;
   };
+
 };
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/select/index.css
@@ -3633,7 +3635,7 @@ const select_select = function({
 
   if (func) {
 
-    select.addEventListener('change', function(event) {
+    select.addEventListener('change', (event) => {
       func();
     });
 
@@ -3661,6 +3663,7 @@ const select_select = function({
   return select;
 
 };
+
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/component/form/input/index.css
 var input = __webpack_require__(443);
 ;// CONCATENATED MODULE: ./src/component/form/input/index.css
@@ -3806,7 +3809,7 @@ const Button = function({
   };
 
   if (func) {
-    this.button.addEventListener('click', function(event) {
+    this.button.addEventListener('click', (event) => {
       func();
     });
   };
@@ -4281,7 +4284,7 @@ const get_get = function({
 
   const address = makePath(path);
 
-  const getValue = function() {
+  const getValue = () => {
     while (address.length > 1) {
       // shift off and store the first key
       var currentKey = address.shift();
@@ -4553,7 +4556,7 @@ const convertColor = {
   hex: {}
 };
 
-convertColor.rgb.hsl = function(rgb) {
+convertColor.rgb.hsl = (rgb) => {
   var r = rgb.r / 255;
   var g = rgb.g / 255;
   var b = rgb.b / 255;
@@ -4596,7 +4599,7 @@ convertColor.rgb.hsl = function(rgb) {
   };
 };
 
-convertColor.rgb.hex = function(args) {
+convertColor.rgb.hex = (args) => {
   var integer = ((Math.round(args.r) & 0xFF) << 16) +
     ((Math.round(args.g) & 0xFF) << 8) +
     (Math.round(args.b) & 0xFF);
@@ -4605,7 +4608,7 @@ convertColor.rgb.hex = function(args) {
   return '#' + '000000'.substring(string.length) + string;
 };
 
-convertColor.hsl.rgb = function(hsl) {
+convertColor.hsl.rgb = (hsl) => {
   var h = hsl.h / 360;
   var s = hsl.s / 100;
   var l = hsl.l / 100;
@@ -4662,7 +4665,7 @@ convertColor.hsl.rgb = function(hsl) {
   };
 };
 
-convertColor.hex.rgb = function(args) {
+convertColor.hex.rgb = (args) => {
   var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
   if (!match) {
     return {
@@ -4675,7 +4678,7 @@ convertColor.hex.rgb = function(args) {
   var colorString = match[0];
 
   if (match[0].length === 3) {
-    colorString = colorString.split('').map(function(char) {
+    colorString = colorString.split('').map((char) => {
       return char + char;
     }).join('');
   };
@@ -5184,7 +5187,7 @@ const bookmarkDefault = {
 ;// CONCATENATED MODULE: ./src/component/bookmarkPreset/index.js
  const bookmarkPreset = {};
 
- bookmarkPreset.get = function() {
+ bookmarkPreset.get = () => {
    return [{
      url: 'https://zombiefox.github.io/awesomeSheet/',
      display: {
@@ -5312,7 +5315,7 @@ const StagedBookmark = function(bookmarkData) {
 
   this.position = { origin: 0, destination: 0 };
 
-  this.newBookmark = function() {
+  this.newBookmark = () => {
     this.position.destination = bookmark_bookmark.all.length + 1;
   };
 
@@ -13211,7 +13214,7 @@ const set_set = function({
 
   const address = makePath(path);
 
-  const setValue = function() {
+  const setValue = () => {
     while (address.length > 1) {
       // shift off and store the first key
       var currentKey = address.shift();
@@ -17119,7 +17122,7 @@ data.validateJsonFile = (fileList, input, feedback) => {
       // is this JSON from this app
       if (JSON.parse(event.target.result)[data.saveName] || JSON.parse(event.target.result)[data.saveName.toLowerCase()]) {
         data.render.feedback.clear(feedback);
-        data.render.feedback.success(feedback, fileList[0].name, function() {
+        data.render.feedback.success(feedback, fileList[0].name, () => {
           data.restore(JSON.parse(event.target.result));
           data.save();
           data.render.reload();
@@ -17278,22 +17281,22 @@ data.render.feedback = {
 
   },
   fail: {
-    notJson: function(feedback, filename) {
+    notJson: (feedback, filename) => {
       feedback.appendChild(node_node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
       feedback.appendChild(node_node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     },
-    notAppJson: function(feedback, filename) {
+    notAppJson: (feedback, filename) => {
       feedback.appendChild(node_node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
       feedback.appendChild(node_node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     }
   },
   animation: {
-    set: function(feedback, animationClass, action) {
+    set: (feedback, animationClass, action) => {
       feedback.classList.add(animationClass);
 
-      const animationEndAction = function() {
+      const animationEndAction = () => {
         if (action) {
           action();
         };
@@ -17302,7 +17305,7 @@ data.render.feedback = {
 
       feedback.addEventListener('animationend', animationEndAction);
     },
-    reset: function(feedback) {
+    reset: (feedback) => {
       feedback.classList.remove('is-shake');
       feedback.classList.remove('is-pop');
       feedback.classList.remove('is-jello');
@@ -18028,7 +18031,7 @@ const MenuClose = function() {
     style: ['link'],
     iconName: 'cross',
     classList: ['menu-close-button'],
-    func: function() {
+    func: () => {
       menu.close();
     }
   });
@@ -18210,7 +18213,7 @@ link_link.render = function({
   };
 
   if (func) {
-    linkElement.addEventListener('click', function(event) {
+    linkElement.addEventListener('click', (event) => {
       func();
     });
   };
@@ -20912,7 +20915,7 @@ const ToolbarControl = function() {
       srOnly: true,
       iconName: 'add',
       classList: ['toolbar-item'],
-      func: function() {
+      func: () => {
         bookmark_bookmark.add.render();
       }
     })
@@ -21534,7 +21537,7 @@ const randomString = function({
 
   const action = {
     alliteration: {
-      short: function() {
+      short: () => {
 
         const randomAdjective = adjectives[letter.toLowerCase()][Math.floor(Math.random() * adjectives[letter.toLowerCase()].length)];
 
@@ -21543,7 +21546,7 @@ const randomString = function({
         return randomAdjective + ' ' + randomAnimal;
 
       },
-      long: function() {
+      long: () => {
 
         const randomAdjective = '';
 
@@ -21564,7 +21567,7 @@ const randomString = function({
       }
     },
     mix: {
-      short: function() {
+      short: () => {
 
         const adjectivesSeed = alphabet[Math.floor(Math.random() * (alphabet.length - 1))];
 
@@ -21577,7 +21580,7 @@ const randomString = function({
         return randomAdjective + ' ' + randomAnimal;
 
       },
-      long: function() {
+      long: () => {
 
         var randomAdjective = '';
 
@@ -21629,6 +21632,7 @@ const randomString = function({
   };
 
 };
+
 ;// CONCATENATED MODULE: ./src/utility/index.js
 
 
