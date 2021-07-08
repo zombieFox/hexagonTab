@@ -606,7 +606,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-space: 1em;\n}\n\n:r
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form-inline {\n  position: relative;\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n}\n\n.form-inline-horizontal {\n  flex-direction: row;\n}\n\n.form-inline-vertical {\n  flex-direction: column;\n}\n\n.form-inline-gap-small,\n.form-inline-gap-medium,\n.form-inline-gap-large {\n  row-gap: var(--form-space);\n}\n\n.form-inline-gap-small {\n  column-gap: calc(var(--form-space) * 1);\n}\n\n.form-inline-gap-medium {\n  column-gap: calc(var(--form-space) * 2);\n}\n\n.form-inline-gap-large {\n  column-gap: calc(var(--form-space) * 3);\n}\n\n.form-inline-wrap {\n  flex-wrap: wrap;\n}\n\n.form-inline-block {\n  display: flex;\n}\n\n.form-inline .form-wrap:not(:first-child),\n.form-inline .form-wrap:not(:last-child) {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.form-inline .form-wrap {\n  flex-grow: 0;\n  flex-shrink: 1;\n  flex-basis: 0;\n}\n\n.form-inline .form-wrap label {\n  white-space: nowrap;\n}\n\n.form-inline label:not(:only-child):not(:last-child) {\n  padding-bottom: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form-inline {\n  position: relative;\n  display: inline-flex;\n  justify-content: flex-start;\n  align-items: center;\n}\n\n.form-inline-horizontal {\n  flex-direction: row;\n}\n\n.form-inline-vertical {\n  flex-direction: column;\n}\n\n.form-inline-gap-small,\n.form-inline-gap-medium,\n.form-inline-gap-large {\n  row-gap: var(--form-space);\n}\n\n.form-inline-gap-small {\n  column-gap: calc(var(--form-space) * 1);\n}\n\n.form-inline-gap-medium {\n  column-gap: calc(var(--form-space) * 2);\n}\n\n.form-inline-gap-large {\n  column-gap: calc(var(--form-space) * 3);\n}\n\n.form-inline-gap-equal {\n  gap: calc(var(--form-space) * 1);\n}\n\n.form-inline-wrap {\n  flex-wrap: wrap;\n}\n\n.form-inline-block {\n  display: flex;\n}\n\n.form-inline .form-wrap:not(:first-child),\n.form-inline .form-wrap:not(:last-child) {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n\n.form-inline .form-wrap {\n  flex-grow: 0;\n  flex-shrink: 1;\n  flex-basis: 0;\n}\n\n.form-inline .form-wrap label {\n  white-space: nowrap;\n}\n\n.form-inline label:not(:only-child):not(:last-child) {\n  padding-bottom: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2820,6 +2820,10 @@ const inline_inline = function({
 
     case 'large':
       inline.classList.add('form-inline-gap-large');
+      break;
+
+    case 'equal':
+      inline.classList.add('form-inline-gap-equal');
       break;
   };
 
