@@ -211,7 +211,7 @@ themeSetting.accent = (parent) => {
           text: fullName,
           title: fullName,
           srOnly: true,
-          classList: ['theme-accent-preset-item'],
+          classList: ['theme-accent-preset-button', 'theme-accent-preset-type-' + type],
           func: () => {
             state.get.current().theme.accent.rgb = convertColor.hsl.rgb(item);
             state.get.current().theme.accent.hsl = item;
@@ -230,11 +230,11 @@ themeSetting.accent = (parent) => {
           }
         });
 
-        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-h', item.h);
+        presetButton.button.style.setProperty('--theme-accent-preset-button-color-hsl-h', item.h);
 
-        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-s', item.s);
+        presetButton.button.style.setProperty('--theme-accent-preset-button-color-hsl-s', item.s);
 
-        presetButton.button.style.setProperty('--theme-accent-preset-item-color-hsl-l', item.l);
+        presetButton.button.style.setProperty('--theme-accent-preset-button-color-hsl-l', item.l);
 
         themeAccentPreset.appendChild(presetButton.button);
 
