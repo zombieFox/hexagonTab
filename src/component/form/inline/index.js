@@ -35,6 +35,10 @@ export const inline = function({
     case 'large':
       inline.classList.add('form-inline-gap-large');
       break;
+
+    case 'equal':
+      inline.classList.add('form-inline-gap-equal');
+      break;
   };
 
   if (reverse) {

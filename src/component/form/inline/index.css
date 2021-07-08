@@ -31,6 +31,10 @@
   column-gap: calc(var(--form-space) * 3);
 }
 
+.form-inline-gap-equal {
+  gap: calc(var(--form-space) * 1);
+}
+
 .form-inline-wrap {
   flex-wrap: wrap;
 }
