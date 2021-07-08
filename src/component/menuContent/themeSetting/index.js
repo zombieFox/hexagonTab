@@ -916,7 +916,6 @@ themeSetting.background = (parent) => {
     action: () => {
       theme.background.video.clear();
       theme.background.video.render();
-      theme.background.video.render();
       data.save();
     }
   });
