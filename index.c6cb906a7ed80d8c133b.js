@@ -4519,15 +4519,13 @@ component_grid_grid.rotate = {
     component_grid_grid.rotate.position.current.set(event);
     component_grid_grid.rotate.style(
       state.get.current().grid.transform.rotate.x + ((component_grid_grid.rotate.position.current.get.y / component_grid_grid.element.list.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
-      state.get.current().grid.transform.rotate.y + ((component_grid_grid.rotate.position.current.get.x / component_grid_grid.element.list.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
-      state.get.current().grid.transform.rotate.z
+      state.get.current().grid.transform.rotate.y + ((component_grid_grid.rotate.position.current.get.x / component_grid_grid.element.list.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus)
     );
   },
-  style: (x, y, z) => {
+  style: (x, y) => {
     const html = document.querySelector('html');
     html.style.setProperty('--grid-transform-rotate-x', x);
     html.style.setProperty('--grid-transform-rotate-y', y);
-    html.style.setProperty('--grid-transform-rotate-z', z);
   }
 };
 
