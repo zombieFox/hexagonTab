@@ -4177,12 +4177,6 @@ state.step = {
   }
 };
 
-state.default.theme.color.lightness.offset = state.minMax.theme.color.lightness.contrast.max - state.default.theme.color.lightness.contrast;
-
-state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
-
-state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
-
 state.get = {
   current: () => { return state.current },
   default: () => { return JSON.parse(JSON.stringify(state.default)) },
@@ -4912,6 +4906,17 @@ theme_theme.font.ui = {
 };
 
 theme_theme.color = {
+  lightness: {
+    set: () => {
+
+      state.get.current().theme.color.lightness.offset = state.get.minMax().theme.color.lightness.contrast.max - state.get.current().theme.color.lightness.contrast;
+
+      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
+
+      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
+
+    }
+  },
   render: () => {
 
     const html = document.querySelector('html');
@@ -5101,6 +5106,7 @@ theme_theme.background.video = {
 theme_theme.init = () => {
   theme_theme.style.initial();
   theme_theme.style.bind();
+  theme_theme.color.lightness.set();
   theme_theme.color.render();
   theme_theme.accent.random.render();
   theme_theme.font.display.load();
@@ -18996,9 +19002,7 @@ themeSetting.colour = (parent) => {
     min: state.get.minMax().theme.color.lightness.contrast.min,
     max: state.get.minMax().theme.color.lightness.contrast.max,
     action: () => {
-      state.get.current().theme.color.lightness.offset = 40 - state.get.current().theme.color.lightness.contrast;
-      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
-      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
+      theme_theme.color.lightness.set();
       theme_theme.color.render();
       data.save();
     }
