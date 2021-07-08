@@ -267,7 +267,7 @@
 }
 
 .theme-background-type-theme {
-  background-color: rgb(var(--theme-background-theme));
+  background-color: hsl(var(--theme-background-theme));
 }
 
 .theme-background-type-accent {
