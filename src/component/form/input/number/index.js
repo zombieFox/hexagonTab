@@ -39,7 +39,7 @@ export const number = function({
 
   if (func) {
 
-    input.addEventListener('input', function(event) {
+    input.addEventListener('input', (event) => {
       func();
     });
 

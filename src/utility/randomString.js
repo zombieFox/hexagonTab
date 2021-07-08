@@ -65,7 +65,7 @@ export const randomString = function({
 
   const action = {
     alliteration: {
-      short: function() {
+      short: () => {
 
         const randomAdjective = adjectives[letter.toLowerCase()][Math.floor(Math.random() * adjectives[letter.toLowerCase()].length)];
 
@@ -74,7 +74,7 @@ export const randomString = function({
         return randomAdjective + ' ' + randomAnimal;
 
       },
-      long: function() {
+      long: () => {
 
         const randomAdjective = '';
 
@@ -95,7 +95,7 @@ export const randomString = function({
       }
     },
     mix: {
-      short: function() {
+      short: () => {
 
         const adjectivesSeed = alphabet[Math.floor(Math.random() * (alphabet.length - 1))];
 
@@ -108,7 +108,7 @@ export const randomString = function({
         return randomAdjective + ' ' + randomAnimal;
 
       },
-      long: function() {
+      long: () => {
 
         var randomAdjective = '';
 

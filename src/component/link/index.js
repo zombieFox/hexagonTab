@@ -89,7 +89,7 @@ link.render = function({
   };
 
   if (func) {
-    linkElement.addEventListener('click', function(event) {
+    linkElement.addEventListener('click', (event) => {
       func();
     });
   };

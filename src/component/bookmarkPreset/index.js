@@ -1,6 +1,6 @@
  const bookmarkPreset = {};
 
- bookmarkPreset.get = function() {
+ bookmarkPreset.get = () => {
    return [{
      url: 'https://zombiefox.github.io/awesomeSheet/',
      display: {

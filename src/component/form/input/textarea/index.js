@@ -38,7 +38,7 @@ export const textarea = function({
 
   if (func) {
 
-    textarea.addEventListener('input', function(event) {
+    textarea.addEventListener('input', (event) => {
       func();
     });
 

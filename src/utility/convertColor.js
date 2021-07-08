@@ -4,7 +4,7 @@ export const convertColor = {
   hex: {}
 };
 
-convertColor.rgb.hsl = function(rgb) {
+convertColor.rgb.hsl = (rgb) => {
   var r = rgb.r / 255;
   var g = rgb.g / 255;
   var b = rgb.b / 255;
@@ -47,7 +47,7 @@ convertColor.rgb.hsl = function(rgb) {
   };
 };
 
-convertColor.rgb.hex = function(args) {
+convertColor.rgb.hex = (args) => {
   var integer = ((Math.round(args.r) & 0xFF) << 16) +
     ((Math.round(args.g) & 0xFF) << 8) +
     (Math.round(args.b) & 0xFF);
@@ -56,7 +56,7 @@ convertColor.rgb.hex = function(args) {
   return '#' + '000000'.substring(string.length) + string;
 };
 
-convertColor.hsl.rgb = function(hsl) {
+convertColor.hsl.rgb = (hsl) => {
   var h = hsl.h / 360;
   var s = hsl.s / 100;
   var l = hsl.l / 100;
@@ -113,7 +113,7 @@ convertColor.hsl.rgb = function(hsl) {
   };
 };
 
-convertColor.hex.rgb = function(args) {
+convertColor.hex.rgb = (args) => {
   var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
   if (!match) {
     return {
@@ -126,7 +126,7 @@ convertColor.hex.rgb = function(args) {
   var colorString = match[0];
 
   if (match[0].length === 3) {
-    colorString = colorString.split('').map(function(char) {
+    colorString = colorString.split('').map((char) => {
       return char + char;
     }).join('');
   };

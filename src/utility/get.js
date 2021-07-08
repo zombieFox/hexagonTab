@@ -7,7 +7,7 @@ export const get = function({
 
   const address = makePath(path);
 
-  const getValue = function() {
+  const getValue = () => {
     while (address.length > 1) {
       // shift off and store the first key
       var currentKey = address.shift();

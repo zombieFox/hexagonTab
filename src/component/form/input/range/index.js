@@ -28,7 +28,7 @@ export const range = function({
 
   if (func) {
 
-    input.addEventListener('input', function(event) {
+    input.addEventListener('input', (event) => {
       func();
     });
 

@@ -7,7 +7,7 @@ export const StagedBookmark = function(bookmarkData) {
 
   this.position = { origin: 0, destination: 0 };
 
-  this.newBookmark = function() {
+  this.newBookmark = () => {
     this.position.destination = bookmark.all.length + 1;
   };
 

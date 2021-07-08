@@ -77,7 +77,7 @@ const ToolbarControl = function() {
       srOnly: true,
       iconName: 'add',
       classList: ['toolbar-item'],
-      func: function() {
+      func: () => {
         bookmark.add.render();
       }
     })

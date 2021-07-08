@@ -27,7 +27,7 @@ export const select = function({
 
   if (func) {
 
-    select.addEventListener('change', function(event) {
+    select.addEventListener('change', (event) => {
       func();
     });
 

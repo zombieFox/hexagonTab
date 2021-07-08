@@ -59,7 +59,7 @@ export const Button = function({
   };
 
   if (func) {
-    this.button.addEventListener('click', function(event) {
+    this.button.addEventListener('click', (event) => {
       func();
     });
   };

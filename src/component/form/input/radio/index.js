@@ -38,7 +38,7 @@ export const radio = function({
   };
 
   if (func) {
-    input.addEventListener('change', function(event) {
+    input.addEventListener('change', (event) => {
       func();
     });
   };

@@ -40,7 +40,7 @@ data.validateJsonFile = (fileList, input, feedback) => {
       // is this JSON from this app
       if (JSON.parse(event.target.result)[data.saveName] || JSON.parse(event.target.result)[data.saveName.toLowerCase()]) {
         data.render.feedback.clear(feedback);
-        data.render.feedback.success(feedback, fileList[0].name, function() {
+        data.render.feedback.success(feedback, fileList[0].name, () => {
           data.restore(JSON.parse(event.target.result));
           data.save();
           data.render.reload();
@@ -199,22 +199,22 @@ data.render.feedback = {
 
   },
   fail: {
-    notJson: function(feedback, filename) {
+    notJson: (feedback, filename) => {
       feedback.appendChild(node('p:Not a JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
       feedback.appendChild(node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     },
-    notAppJson: function(feedback, filename) {
+    notAppJson: (feedback, filename) => {
       feedback.appendChild(node('p:Not the right kind of JSON file. Make sure the selected file came from ' + data.saveName + '.|class:small muted'));
       feedback.appendChild(node('p:' + filename));
       data.render.feedback.animation.set(feedback, 'is-shake');
     }
   },
   animation: {
-    set: function(feedback, animationClass, action) {
+    set: (feedback, animationClass, action) => {
       feedback.classList.add(animationClass);
 
-      const animationEndAction = function() {
+      const animationEndAction = () => {
         if (action) {
           action();
         };
@@ -223,7 +223,7 @@ data.render.feedback = {
 
       feedback.addEventListener('animationend', animationEndAction);
     },
-    reset: function(feedback) {
+    reset: (feedback) => {
       feedback.classList.remove('is-shake');
       feedback.classList.remove('is-pop');
       feedback.classList.remove('is-jello');
