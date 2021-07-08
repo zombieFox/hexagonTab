@@ -69,20 +69,35 @@ const MenuNav = function({
   this.update = () => {
     navData.forEach((item, i) => {
 
-      this.element.item[i].menuNavItem.classList.remove('active');
-      this.element.item[i].topLevel.classList.remove('active');
-
-      if (item.sub) {
-        this.element.item[i].subLevel.classList.remove('active');
-      };
-
       if (this.state.current[this.makeId(item.name)]) {
+
         this.element.item[i].menuNavItem.classList.add('active');
         this.element.item[i].topLevel.classList.add('active');
 
         if (item.sub) {
           this.element.item[i].subLevel.classList.add('active');
         };
+
+        if (this.element.item[i].subLevelItem.length > 0) {
+          this.element.item[i].subLevelItem.forEach((item, i) => {
+            item.tabIndex = 1;
+          });
+        };
+
+      } else {
+        this.element.item[i].menuNavItem.classList.remove('active');
+        this.element.item[i].topLevel.classList.remove('active');
+
+        if (item.sub) {
+          this.element.item[i].subLevel.classList.remove('active');
+        };
+
+        if (this.element.item[i].subLevelItem.length > 0) {
+          this.element.item[i].subLevelItem.forEach((item, i) => {
+            item.tabIndex = -1;
+          });
+        };
+
       };
 
     });
@@ -90,11 +105,8 @@ const MenuNav = function({
 
   this.nav = () => {
 
-    this.state.set();
-
-    this.assemble();
-
     return this.element.nav;
+
   };
 
   this.assemble = () => {
@@ -103,7 +115,8 @@ const MenuNav = function({
 
       const navItem = {
         topLevel: false,
-        subLevel: false
+        subLevel: false,
+        subLevelItem: []
       };
 
       const navButton = new Button({
@@ -132,9 +145,11 @@ const MenuNav = function({
 
         item.sub.forEach((item, i) => {
 
-          const subBarItem = node('a:' + item + '|href:#menu-content-item-' + this.makeId(item) + ',class:menu-nav-sub button button-link button-small,tabindex:1');
+          const subLevelLink = node('a:' + item + '|href:#menu-content-item-' + this.makeId(item) + ',class:menu-nav-sub button button-link button-small,tabindex:1');
 
-          subNav.appendChild(subBarItem);
+          subNav.appendChild(subLevelLink);
+
+          navItem.subLevelItem.push(subLevelLink);
 
         });
 
@@ -161,6 +176,10 @@ const MenuNav = function({
     });
 
   };
+
+  this.state.set();
+
+  this.assemble();
 
 };
 

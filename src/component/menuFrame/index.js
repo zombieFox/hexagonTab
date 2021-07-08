@@ -16,7 +16,7 @@ import { clearChildNode } from '../../utility/clearChildNode';
 import './index.css';
 
 const MenuFrame = function({
-  navData = [],
+  navData = []
 } = {}) {
 
   this.element = {
@@ -259,12 +259,12 @@ const MenuFrame = function({
           this.element.content.classList.remove('menu-content-overscroll');
         };
 
-        const settingContent = new MenuContent({
+        const menuContent = new MenuContent({
           activeNavData: item,
           container: this.element.content
         });
 
-        settingContent.content();
+        menuContent.content();
 
       };
 
