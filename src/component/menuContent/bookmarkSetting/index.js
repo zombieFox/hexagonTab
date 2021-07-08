@@ -49,7 +49,7 @@ bookmarkSetting.hover = (parent) => {
     min: state.get.minMax().bookmark.hover.size.min,
     max: state.get.minMax().bookmark.hover.size.max,
     action: () => {
-      bookmark.hover.size.render();
+      applyCSSVar('bookmark.size');
       data.save();
     }
   });
@@ -64,7 +64,7 @@ bookmarkSetting.hover = (parent) => {
     min: state.get.minMax().bookmark.hover.distance.min,
     max: state.get.minMax().bookmark.hover.distance.max,
     action: () => {
-      bookmark.hover.distance.render();
+      applyCSSVar('bookmark.hover.distance');
       data.save();
     }
   });
@@ -90,7 +90,7 @@ bookmarkSetting.shadow = (parent) => {
     min: state.get.minMax().bookmark.shadow.distance.min,
     max: state.get.minMax().bookmark.shadow.distance.max,
     action: () => {
-      bookmark.shadow.distance.render();
+      applyCSSVar('bookmark.shadow.distance');
       data.save();
     }
   });
@@ -105,7 +105,7 @@ bookmarkSetting.shadow = (parent) => {
     min: state.get.minMax().bookmark.shadow.blur.min,
     max: state.get.minMax().bookmark.shadow.blur.max,
     action: () => {
-      bookmark.shadow.blur.render();
+      applyCSSVar('bookmark.shadow.blur');
       data.save();
     }
   });

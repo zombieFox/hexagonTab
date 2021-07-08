@@ -14,6 +14,9 @@ import { BookmarkForm } from '../bookmarkForm';
 
 import { node } from '../../utility/node';
 import { clearChildNode } from '../../utility/clearChildNode';
+import { applyCSSVar } from '../../utility/applyCSSVar';
+import { applyCSSClass } from '../../utility/applyCSSClass';
+import { applyCSSState } from '../../utility/applyCSSState';
 
 import './index.css';
 
@@ -220,13 +223,7 @@ bookmark.edit = {
   },
   render: () => {
 
-    const html = document.querySelector('html');
-
-    if (state.get.current().bookmark.edit) {
-      html.classList.add('is-bookmark-edit');
-    } else {
-      html.classList.remove('is-bookmark-edit');
-    };
+    applyCSSState('bookmark.edit');
 
     if (bookmark.tile.current.length > 0) {
       bookmark.tile.current.forEach((item, i) => {
@@ -260,60 +257,6 @@ bookmark.mask = {
       '</g>' +
       '</svg>'
     ]));
-
-  }
-};
-
-bookmark.size = {
-  render: () => {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--bookmark-size', state.get.current().bookmark.size);
-
-  }
-};
-
-bookmark.hover = {};
-
-bookmark.hover.distance = {
-  render: () => {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--bookmark-hover-distance', state.get.current().bookmark.hover.distance);
-
-  }
-};
-
-bookmark.hover.size = {
-  render: () => {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--bookmark-hover-size', state.get.current().bookmark.hover.size);
-
-  }
-};
-
-bookmark.shadow = {};
-
-bookmark.shadow.blur = {
-  render: () => {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--bookmark-shadow-blur', state.get.current().bookmark.shadow.blur);
-
-  }
-};
-
-bookmark.shadow.distance = {
-  render: () => {
-
-    const html = document.querySelector('html');
-
-    html.style.setProperty('--bookmark-shadow-distance', state.get.current().bookmark.shadow.distance);
 
   }
 };
@@ -386,13 +329,15 @@ bookmark.restore = (dataToRestore) => {
 };
 
 bookmark.init = () => {
+  applyCSSVar([
+    'bookmark.size',
+    'bookmark.hover.distance',
+    'bookmark.hover.size',
+    'bookmark.shadow.blur',
+    'bookmark.shadow.distance'
+  ]);
   bookmark.add.mod.close();
   bookmark.mask.render();
-  bookmark.size.render();
-  bookmark.hover.distance.render();
-  bookmark.hover.size.render();
-  bookmark.shadow.blur.render();
-  bookmark.shadow.distance.render();
   bookmark.item.render();
 };
 
