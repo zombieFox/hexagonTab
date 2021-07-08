@@ -106,6 +106,17 @@ theme.font.ui = {
 };
 
 theme.color = {
+  lightness: {
+    set: () => {
+
+      state.get.current().theme.color.lightness.offset = state.get.minMax().theme.color.lightness.contrast.max - state.get.current().theme.color.lightness.contrast;
+
+      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
+
+      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
+
+    }
+  },
   render: () => {
 
     const html = document.querySelector('html');
@@ -295,6 +306,7 @@ theme.background.video = {
 theme.init = () => {
   theme.style.initial();
   theme.style.bind();
+  theme.color.lightness.set();
   theme.color.render();
   theme.accent.random.render();
   theme.font.display.load();

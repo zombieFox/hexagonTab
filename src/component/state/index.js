@@ -154,12 +154,6 @@ state.step = {
   }
 };
 
-state.default.theme.color.lightness.offset = state.minMax.theme.color.lightness.contrast.max - state.default.theme.color.lightness.contrast;
-
-state.default.theme.color.lightness.start = state.default.theme.color.lightness.offset;
-
-state.default.theme.color.lightness.end = 100 - state.default.theme.color.lightness.offset;
-
 state.get = {
   current: () => { return state.current },
   default: () => { return JSON.parse(JSON.stringify(state.default)) },
