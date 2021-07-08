@@ -17999,11 +17999,11 @@ const MenuClose = function() {
 
   this.close = () => {
 
-    this.assemble();
-
     return this.element.close;
 
   };
+
+  this.assemble();
 
 };
 
