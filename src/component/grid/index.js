@@ -86,15 +86,13 @@ grid.rotate = {
     grid.rotate.position.current.set(event);
     grid.rotate.style(
       state.get.current().grid.transform.rotate.x + ((grid.rotate.position.current.get.y / grid.element.list.offsetHeight / 2).toFixed(4) * state.get.current().grid.transform.focus),
-      state.get.current().grid.transform.rotate.y + ((grid.rotate.position.current.get.x / grid.element.list.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus),
-      state.get.current().grid.transform.rotate.z
+      state.get.current().grid.transform.rotate.y + ((grid.rotate.position.current.get.x / grid.element.list.offsetWidth / 2).toFixed(4) * state.get.current().grid.transform.focus)
     );
   },
-  style: (x, y, z) => {
+  style: (x, y) => {
     const html = document.querySelector('html');
     html.style.setProperty('--grid-transform-rotate-x', x);
     html.style.setProperty('--grid-transform-rotate-y', y);
-    html.style.setProperty('--grid-transform-rotate-z', z);
   }
 };
 
