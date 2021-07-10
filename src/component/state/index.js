@@ -45,8 +45,8 @@ state.default = {
         start: { hsl: { h: 191, s: 66, l: 62 }, rgb: { r: 94, g: 199, b: 222 } },
         end: { hsl: { h: 243, s: 59, l: 22 }, rgb: { r: 26, g: 23, b: 89 } }
       },
-      image: { url: '', blur: 0, scale: 100, accent: 0, opacity: 100 },
-      video: { url: '', blur: 0, scale: 100, accent: 0, opacity: 100 }
+      image: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100 },
+      video: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100 }
     },
     radius: 25,
     shadow: 75,
@@ -123,8 +123,8 @@ state.minMax = {
           rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
         },
       },
-      image: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } },
-      video: { blur: { min: 0, max: 200 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } }
+      image: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } },
+      video: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } }
     },
     shade: { opacity: { min: 0, max: 100 }, blur: { min: 0, max: 200 } }
   }

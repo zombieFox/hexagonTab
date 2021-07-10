@@ -44,6 +44,7 @@ const MenuContent = function({
         const formElement = this.element.form();
 
         switch (this.makeId(activeNavData.name)) {
+
           case 'layout':
             layoutSetting[this.makeId(item)](formElement);
             break;
@@ -71,6 +72,26 @@ const MenuContent = function({
         container.appendChild(menuContentItem);
 
       });
+
+      switch (this.makeId(activeNavData.name)) {
+
+        case 'layout':
+          break;
+
+        case 'bookmark':
+          break;
+
+        case 'toolbar':
+          break;
+
+        case 'theme':
+          themeSetting.disable();
+          break;
+
+        case 'data':
+          break;
+
+      };
 
     } else {
 
@@ -100,7 +121,7 @@ const MenuContent = function({
   };
 
   this.makeId = (name) => {
-    return name.replace(/\s+/g, '-').toLowerCase()
+    return name.split(' ')[0].toLowerCase();
   };
 
 };

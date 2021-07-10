@@ -44,7 +44,7 @@ const MenuNav = function({
   };
 
   this.makeId = (name) => {
-    return name.replace(/\s+/g, '-').toLowerCase()
+    return name.split(' ')[0].toLowerCase();
   };
 
   this.element = {

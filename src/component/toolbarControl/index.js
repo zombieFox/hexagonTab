@@ -50,6 +50,15 @@ const ToolbarControl = function() {
         data.save();
       }
     }),
+    add: new Button({
+      text: 'Add a bookmark',
+      srOnly: true,
+      iconName: 'add',
+      classList: ['toolbar-item'],
+      func: () => {
+        bookmark.add.render();
+      }
+    }),
     edit: new Button({
       text: 'Enter edit bookmark mode',
       srOnly: true,
@@ -70,15 +79,6 @@ const ToolbarControl = function() {
       style: ['line'],
       func: () => {
         menu.toggle();
-      }
-    }),
-    add: new Button({
-      text: 'Add a bookmark',
-      srOnly: true,
-      iconName: 'add',
-      classList: ['toolbar-item'],
-      func: () => {
-        bookmark.add.render();
       }
     })
   };
