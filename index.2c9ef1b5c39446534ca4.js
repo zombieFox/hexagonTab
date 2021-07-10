@@ -21491,8 +21491,6 @@ const component_base_base = {};
 
 
 
-
-
 const keyboard = {};
 
 keyboard.esc = new KeyboardShortcut({
@@ -21511,8 +21509,8 @@ keyboard.ctrAltD = new KeyboardShortcut({
   alt: true,
   action: () => {
     theme_theme.style.toggle();
-    if (themeSetting.exposeControl.style) {
-      themeSetting.exposeControl.style.update();
+    if (themeSetting.control.style.update) {
+      themeSetting.control.style.update();
     };
     data.save();
   }
