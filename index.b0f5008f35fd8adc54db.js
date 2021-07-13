@@ -216,7 +216,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".mt-0,\n.my-0 {\n  margin-top: 0 !impo
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".is-hidden {\n  display: none !important;\n}\n\n.is-inline-block {\n  display: inline-block !important;\n}\n\n.is-block {\n  display: block !important;\n}\n\n.is-transparent {\n  opacity: 0 !important;\n}\n\n.is-opaque {\n  opacity: 1 !important;\n}\n\n.is-invisible {\n  visibility: hidden !important;\n}\n\n.is-visible {\n  visibility: visible !important;\n}\n\n.is-scrolll-disabled {\n  overflow: hidden !important;\n}\n\n.is-small {\n  transform: scale(0.5) !important;\n}\n\n.is-large {\n  transform: scale(1.5) !important;\n}\n\n.is-scroll-disabled {\n  overflow: hidden;\n}\n\n.is-scroll-x-disabled {\n  overflow-x: hidden;\n}\n\n.is-scroll-y-disabled {\n  overflow-y: hidden;\n}\n\n.is-shake {\n  animation: shake var(--layout-transition-slow) 1;\n}\n\n.is-pop {\n  animation: pop var(--layout-transition-medium) 1;\n}\n\n.is-jello {\n  animation: jello var(--layout-transition-slow) 1;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".is-hidden {\n  display: none !important;\n}\n\n.is-inline-block {\n  display: inline-block !important;\n}\n\n.is-block {\n  display: block !important;\n}\n\n.is-transparent {\n  opacity: 0 !important;\n}\n\n.is-opaque {\n  opacity: 1 !important;\n}\n\n.is-invisible {\n  visibility: hidden !important;\n}\n\n.is-visible {\n  visibility: visible !important;\n}\n\n.is-small {\n  transform: scale(0.5) !important;\n}\n\n.is-large {\n  transform: scale(1.5) !important;\n}\n\n.is-scroll-disabled {\n  overflow: hidden !important;\n}\n\n.is-scroll-x-disabled {\n  overflow-x: hidden !important;\n}\n\n.is-scroll-y-disabled {\n  overflow-y: hidden !important;\n}\n\n.is-shake {\n  animation: shake var(--layout-transition-slow) 1;\n}\n\n.is-pop {\n  animation: pop var(--layout-transition-medium) 1;\n}\n\n.is-jello {\n  animation: jello var(--layout-transition-slow) 1;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -16765,7 +16765,6 @@ bookmark_bookmark.edit = {
           item.control.enable();
         } else {
           item.control.disable();
-
         };
 
       });
