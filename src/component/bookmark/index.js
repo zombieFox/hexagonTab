@@ -232,7 +232,6 @@ bookmark.edit = {
           item.control.enable();
         } else {
           item.control.disable();
-
         };
 
       });
