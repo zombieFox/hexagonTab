@@ -20072,15 +20072,15 @@ themeSetting.background = (parent) => {
       }),
       grayscale: new Control_slider({
         object: state.get.current(),
-        path: 'theme.background.image.grayscale',
-        id: 'theme-background-image-grayscale',
-        labelText: 'Background image grayscale',
-        value: state.get.current().theme.background.image.grayscale,
-        defaultValue: state.get.default().theme.background.image.grayscale,
-        min: state.get.minMax().theme.background.image.grayscale.min,
-        max: state.get.minMax().theme.background.image.grayscale.max,
+        path: 'theme.background.video.grayscale',
+        id: 'theme-background-video-grayscale',
+        labelText: 'Background video grayscale',
+        value: state.get.current().theme.background.video.grayscale,
+        defaultValue: state.get.default().theme.background.video.grayscale,
+        min: state.get.minMax().theme.background.video.grayscale.min,
+        max: state.get.minMax().theme.background.video.grayscale.max,
         action: () => {
-          applyCSSVar('theme.background.image.grayscale');
+          applyCSSVar('theme.background.video.grayscale');
           data.save();
         }
       }),
