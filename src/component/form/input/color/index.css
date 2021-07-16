@@ -93,7 +93,7 @@ input[type="color"]::-moz-focus-inner {
   position: relative;
 }
 
-.form-input-button-link.input-color-dot input[type="color"] {
+.input-color-dot.form-input-button-link input[type="color"] {
+  box-shadow: 0 0 0 calc(var(--layout-line-width) * 0.75) hsl(var(--button-link-text));
   transition: box-shadow var(--layout-transition-extra-fast);
-  box-shadow: 0 0 0 2px hsl(var(--button-link-text));
 }
