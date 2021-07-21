@@ -75,14 +75,13 @@
 .form-group-text-transparent:hover,
 .form-group-text-transparent:focus,
 .form-group-text-transparent:active {
-  background-color: hsl(var(--theme-primary-100));
-  color: hsl(var(--theme-primary-text-100));
+  background-color: transparent;
 }
 
 .form-group-text-transparent.disabled,
 .form-group-text-transparent.disabled:hover,
 .form-group-text-transparent.disabled:focus,
 .form-group-text-transparent.disable:active {
-  background-color: hsl(var(--theme-primary-100));
+  background-color: transparent;
   color: hsl(var(--form-label-disabled));
 }

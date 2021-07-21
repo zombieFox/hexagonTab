@@ -14,7 +14,7 @@ import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 import { minMax } from '../../../utility/minMax';
 
-export const Control_slimSlider = function({
+export const Control_sliderSlim = function({
   object = {},
   path = false,
   id = 'name',
@@ -134,14 +134,8 @@ export const Control_slimSlider = function({
     let delayedUpdate = null;
 
     const updateControl = () => {
-      this.range.value = get({
-        object: object,
-        path: path,
-      });
-      this.number.value = get({
-        object: object,
-        path: path,
-      });
+      this.range.value = get({ object: object, path: path });
+      this.number.value = get({ object: object, path: path });
     };
 
     if (delay) {
@@ -170,6 +164,7 @@ export const Control_slimSlider = function({
 
     const formInline = form.inline({
       block: true,
+      gap: 'small',
       children: [
         this.label,
         this.range,

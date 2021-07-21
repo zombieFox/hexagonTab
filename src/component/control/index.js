@@ -7,7 +7,7 @@ import { Control_inputButton } from './inputButton';
 import { Control_radio } from './radio';
 import { Control_radioGrid } from './radioGrid';
 import { Control_slider } from './slider';
-import { Control_slimSlider } from './slimSlider';
+import { Control_sliderSlim } from './sliderSlim';
 import { Control_text } from './text';
 import { Control_select } from './select';
 

@@ -17,7 +17,7 @@ import { Control_radio } from '../control/radio';
 import { Control_radioGrid } from '../control/radioGrid';
 import { Control_checkbox } from '../control/checkbox';
 import { Control_slider } from '../control/slider';
-import { Control_slimSlider } from '../control/slimSlider';
+import { Control_sliderSlim } from '../control/sliderSlim';
 import { Control_colorMixer } from '../control/colorMixer';
 import { Control_color } from '../control/color';
 import { Control_text } from '../control/text';
@@ -78,7 +78,7 @@ const BookmarkForm = function({
           this.preview.update.style(bookmarkData);
         }
       }),
-      rotate: new Control_slimSlider({
+      rotate: new Control_sliderSlim({
         object: bookmarkData.link,
         path: 'display.rotate',
         id: 'display-rotate',
@@ -92,7 +92,7 @@ const BookmarkForm = function({
         }
       }),
       translate: {
-        x: new Control_slimSlider({
+        x: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.translate.x',
           id: 'display-translate-x',
@@ -105,7 +105,7 @@ const BookmarkForm = function({
             this.preview.update.style(bookmarkData);
           }
         }),
-        y: new Control_slimSlider({
+        y: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.translate.y',
           id: 'display-translate-y',
@@ -119,7 +119,7 @@ const BookmarkForm = function({
           }
         })
       },
-      gutter: new Control_slimSlider({
+      gutter: new Control_sliderSlim({
         object: bookmarkData.link,
         path: 'display.gutter',
         id: 'display-gutter',
@@ -155,7 +155,7 @@ const BookmarkForm = function({
             this.preview.update.assemble(bookmarkData);
           }
         }),
-        size: new Control_slimSlider({
+        size: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.name.size',
           id: 'display-name-size',
@@ -195,7 +195,7 @@ const BookmarkForm = function({
             this.preview.update.assemble(bookmarkData);
           }
         }),
-        size: new Control_slimSlider({
+        size: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.visual.size',
           id: 'display-visual-size',
@@ -348,7 +348,7 @@ const BookmarkForm = function({
           this.preview.update.assemble(bookmarkData);
         }
       }),
-      opacity: new Control_slimSlider({
+      opacity: new Control_sliderSlim({
         object: bookmarkData.link,
         path: 'background.opacity',
         id: 'background-opacity',

@@ -24,7 +24,7 @@ import { Control_radio } from '../../control/radio';
 import { Control_radioGrid } from '../../control/radioGrid';
 import { Control_checkbox } from '../../control/checkbox';
 import { Control_slider } from '../../control/slider';
-import { Control_slimSlider } from '../../control/slimSlider';
+import { Control_sliderSlim } from '../../control/sliderSlim';
 import { Control_colorMixer } from '../../control/colorMixer';
 import { Control_color } from '../../control/color';
 import { Control_text } from '../../control/text';

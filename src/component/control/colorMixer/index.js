@@ -14,7 +14,7 @@ import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
 import { Control_color } from '../color';
-import { Control_slimSlider } from '../slimSlider';
+import { Control_sliderSlim } from '../sliderSlim';
 
 export const Control_colorMixer = function({
   object = {},
@@ -65,7 +65,7 @@ export const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderH = new Control_slimSlider({
+  this.colorSliderH = new Control_sliderSlim({
     object: object,
     path: path + '.hsl.h',
     id: id + '-hsl-h',
@@ -91,7 +91,7 @@ export const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderS = new Control_slimSlider({
+  this.colorSliderS = new Control_sliderSlim({
     object: object,
     path: path + '.hsl.s',
     id: id + '-hsl-s',
@@ -117,7 +117,7 @@ export const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderL = new Control_slimSlider({
+  this.colorSliderL = new Control_sliderSlim({
     object: object,
     path: path + '.hsl.l',
     id: id + '-hsl-l',
@@ -143,7 +143,7 @@ export const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderR = new Control_slimSlider({
+  this.colorSliderR = new Control_sliderSlim({
     object: object,
     path: path + '.rgb.r',
     id: id + '-rgb-r',
@@ -169,7 +169,7 @@ export const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderG = new Control_slimSlider({
+  this.colorSliderG = new Control_sliderSlim({
     object: object,
     path: path + '.rgb.g',
     id: id + '-rgb-g',
@@ -195,7 +195,7 @@ export const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderB = new Control_slimSlider({
+  this.colorSliderB = new Control_sliderSlim({
     object: object,
     path: path + '.rgb.b',
     id: id + '-rgb-b',
