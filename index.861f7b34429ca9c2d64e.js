@@ -546,7 +546,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-group-border: var(--
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-group-text-background: var(--theme-primary-200);\n  --form-group-text-background-focus-hover: var(--theme-primary-200);\n  --form-group-text-background-active: var(--theme-primary-200);\n  --form-group-text-background-disabled: var(--theme-primary-100);\n  --form-group-text-border: var(--theme-primary-200);\n  --form-group-text-border-focus-hover: var(--theme-primary-200);\n  --form-group-text-border-active: var(--theme-primary-200);\n  --form-group-text-border-disabled: var(--theme-primary-100);\n}\n\n.form-group-text {\n  background-color: hsl(var(--form-group-text-background));\n  padding: 0 1.25em;\n  margin: 0;\n  color: hsl(var(--form-input-text));\n  min-width: 4em;\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 0;\n  border-width: var(--layout-line-width);\n  border-color: hsl(var(--form-group-text-border));\n  border-style: solid;\n  border-radius: var(--theme-radius-base);\n  white-space: nowrap;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-group-text:hover,\n.form-group-text:focus {\n  background-color: hsl(var(--form-group-text-background-focus-hover));\n  border-color: hsl(var(--form-group-text-border-focus-hover));\n  color: hsl(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text:active {\n  background-color: hsl(var(--form-group-text-background-active));\n  border-color: hsl(var(--form-group-text-border-active));\n  color: hsl(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text.disabled,\n.form-group-text.disabled:hover,\n.form-group-text.disabled:focus,\n.form-group-text.disable:active {\n  background-color: hsl(var(--form-group-text-background-disabled));\n  border-color: hsl(var(--form-group-text-border-disabled));\n  color: hsl(var(--form-input-text-disabled));\n  box-shadow: none;\n  cursor: default;\n}\n\n.form-group-text-left {\n  justify-content: flex-start;\n}\n\n.form-group-text-right {\n  justify-content: flex-end;\n}\n\n.form-group-text-borderless {\n  padding: 0;\n  border-width: 0;\n  min-width: inherit;\n}\n\n.form-group-text-transparent,\n.form-group-text-transparent:hover,\n.form-group-text-transparent:focus,\n.form-group-text-transparent:active {\n  background-color: hsl(var(--theme-primary-100));\n  color: hsl(var(--theme-primary-text-100));\n}\n\n.form-group-text-transparent.disabled,\n.form-group-text-transparent.disabled:hover,\n.form-group-text-transparent.disabled:focus,\n.form-group-text-transparent.disable:active {\n  background-color: hsl(var(--theme-primary-100));\n  color: hsl(var(--form-label-disabled));\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --form-group-text-background: var(--theme-primary-200);\n  --form-group-text-background-focus-hover: var(--theme-primary-200);\n  --form-group-text-background-active: var(--theme-primary-200);\n  --form-group-text-background-disabled: var(--theme-primary-100);\n  --form-group-text-border: var(--theme-primary-200);\n  --form-group-text-border-focus-hover: var(--theme-primary-200);\n  --form-group-text-border-active: var(--theme-primary-200);\n  --form-group-text-border-disabled: var(--theme-primary-100);\n}\n\n.form-group-text {\n  background-color: hsl(var(--form-group-text-background));\n  padding: 0 1.25em;\n  margin: 0;\n  color: hsl(var(--form-input-text));\n  min-width: 4em;\n  font-size: 1em;\n  font-family: var(--theme-font-ui-name);\n  font-weight: var(--theme-font-ui-weight);\n  font-style: var(--theme-font-ui-style);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 0;\n  border-width: var(--layout-line-width);\n  border-color: hsl(var(--form-group-text-border));\n  border-style: solid;\n  border-radius: var(--theme-radius-base);\n  white-space: nowrap;\n  transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);\n}\n\n.form-group-text:hover,\n.form-group-text:focus {\n  background-color: hsl(var(--form-group-text-background-focus-hover));\n  border-color: hsl(var(--form-group-text-border-focus-hover));\n  color: hsl(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text:active {\n  background-color: hsl(var(--form-group-text-background-active));\n  border-color: hsl(var(--form-group-text-border-active));\n  color: hsl(var(--form-input-text-hover));\n  outline: none;\n}\n\n.form-group-text.disabled,\n.form-group-text.disabled:hover,\n.form-group-text.disabled:focus,\n.form-group-text.disable:active {\n  background-color: hsl(var(--form-group-text-background-disabled));\n  border-color: hsl(var(--form-group-text-border-disabled));\n  color: hsl(var(--form-input-text-disabled));\n  box-shadow: none;\n  cursor: default;\n}\n\n.form-group-text-left {\n  justify-content: flex-start;\n}\n\n.form-group-text-right {\n  justify-content: flex-end;\n}\n\n.form-group-text-borderless {\n  padding: 0;\n  border-width: 0;\n  min-width: inherit;\n}\n\n.form-group-text-transparent,\n.form-group-text-transparent:hover,\n.form-group-text-transparent:focus,\n.form-group-text-transparent:active {\n  background-color: transparent;\n}\n\n.form-group-text-transparent.disabled,\n.form-group-text-transparent.disabled:hover,\n.form-group-text-transparent.disabled:focus,\n.form-group-text-transparent.disable:active {\n  background-color: transparent;\n  color: hsl(var(--form-label-disabled));\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14145,15 +14145,10 @@ const Control_slider = function({
   } = {}) => {
 
     let delayedUpdate = null;
+
     const updateControl = () => {
-      this.range.value = get_get({
-        object: object,
-        path: path,
-      });
-      this.number.value = get_get({
-        object: object,
-        path: path,
-      });
+      this.range.value = get_get({ object: object, path: path });
+      this.number.value = get_get({ object: object, path: path });
     };
 
     if (delay) {
@@ -14162,6 +14157,7 @@ const Control_slider = function({
     } else {
       updateControl();
     };
+
   };
 
   this.value = () => {
@@ -14181,6 +14177,7 @@ const Control_slider = function({
 
     const formInline = inline_inline({
       block: true,
+      gap: 'small',
       children: [
         this.range,
         formGroup
@@ -14213,7 +14210,7 @@ const Control_slider = function({
 
 };
 
-;// CONCATENATED MODULE: ./src/component/control/slimSlider/index.js
+;// CONCATENATED MODULE: ./src/component/control/sliderSlim/index.js
 
 
 
@@ -14230,7 +14227,7 @@ const Control_slider = function({
 
 
 
-const Control_slimSlider = function({
+const Control_sliderSlim = function({
   object = {},
   path = false,
   id = 'name',
@@ -14350,14 +14347,8 @@ const Control_slimSlider = function({
     let delayedUpdate = null;
 
     const updateControl = () => {
-      this.range.value = get_get({
-        object: object,
-        path: path,
-      });
-      this.number.value = get_get({
-        object: object,
-        path: path,
-      });
+      this.range.value = get_get({ object: object, path: path });
+      this.number.value = get_get({ object: object, path: path });
     };
 
     if (delay) {
@@ -14386,6 +14377,7 @@ const Control_slimSlider = function({
 
     const formInline = inline_inline({
       block: true,
+      gap: 'small',
       children: [
         this.label,
         this.range,
@@ -14678,7 +14670,7 @@ const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderH = new Control_slimSlider({
+  this.colorSliderH = new Control_sliderSlim({
     object: object,
     path: path + '.hsl.h',
     id: id + '-hsl-h',
@@ -14704,7 +14696,7 @@ const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderS = new Control_slimSlider({
+  this.colorSliderS = new Control_sliderSlim({
     object: object,
     path: path + '.hsl.s',
     id: id + '-hsl-s',
@@ -14730,7 +14722,7 @@ const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderL = new Control_slimSlider({
+  this.colorSliderL = new Control_sliderSlim({
     object: object,
     path: path + '.hsl.l',
     id: id + '-hsl-l',
@@ -14756,7 +14748,7 @@ const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderR = new Control_slimSlider({
+  this.colorSliderR = new Control_sliderSlim({
     object: object,
     path: path + '.rgb.r',
     id: id + '-rgb-r',
@@ -14782,7 +14774,7 @@ const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderG = new Control_slimSlider({
+  this.colorSliderG = new Control_sliderSlim({
     object: object,
     path: path + '.rgb.g',
     id: id + '-rgb-g',
@@ -14808,7 +14800,7 @@ const Control_colorMixer = function({
     }
   });
 
-  this.colorSliderB = new Control_slimSlider({
+  this.colorSliderB = new Control_sliderSlim({
     object: object,
     path: path + '.rgb.b',
     id: id + '-rgb-b',
@@ -15252,7 +15244,7 @@ const BookmarkForm = function({
           this.preview.update.style(bookmarkData);
         }
       }),
-      rotate: new Control_slimSlider({
+      rotate: new Control_sliderSlim({
         object: bookmarkData.link,
         path: 'display.rotate',
         id: 'display-rotate',
@@ -15266,7 +15258,7 @@ const BookmarkForm = function({
         }
       }),
       translate: {
-        x: new Control_slimSlider({
+        x: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.translate.x',
           id: 'display-translate-x',
@@ -15279,7 +15271,7 @@ const BookmarkForm = function({
             this.preview.update.style(bookmarkData);
           }
         }),
-        y: new Control_slimSlider({
+        y: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.translate.y',
           id: 'display-translate-y',
@@ -15293,7 +15285,7 @@ const BookmarkForm = function({
           }
         })
       },
-      gutter: new Control_slimSlider({
+      gutter: new Control_sliderSlim({
         object: bookmarkData.link,
         path: 'display.gutter',
         id: 'display-gutter',
@@ -15329,7 +15321,7 @@ const BookmarkForm = function({
             this.preview.update.assemble(bookmarkData);
           }
         }),
-        size: new Control_slimSlider({
+        size: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.name.size',
           id: 'display-name-size',
@@ -15369,7 +15361,7 @@ const BookmarkForm = function({
             this.preview.update.assemble(bookmarkData);
           }
         }),
-        size: new Control_slimSlider({
+        size: new Control_sliderSlim({
           object: bookmarkData.link,
           path: 'display.visual.size',
           id: 'display-visual-size',
@@ -15522,7 +15514,7 @@ const BookmarkForm = function({
           this.preview.update.assemble(bookmarkData);
         }
       }),
-      opacity: new Control_slimSlider({
+      opacity: new Control_sliderSlim({
         object: bookmarkData.link,
         path: 'background.opacity',
         id: 'background-opacity',
