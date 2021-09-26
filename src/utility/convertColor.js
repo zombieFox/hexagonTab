@@ -53,6 +53,7 @@ convertColor.rgb.hex = (args) => {
     (Math.round(args.b) & 0xFF);
 
   var string = integer.toString(16);
+
   return '#' + '000000'.substring(string.length) + string;
 };
 
@@ -85,6 +86,7 @@ convertColor.hsl.rgb = (hsl) => {
 
   for (var i = 0; i < 3; i++) {
     t3 = h + 1 / 3 * -(i - 1);
+
     if (t3 < 0) {
       t3++;
     };
@@ -115,6 +117,7 @@ convertColor.hsl.rgb = (hsl) => {
 
 convertColor.hex.rgb = (args) => {
   var match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
+
   if (!match) {
     return {
       r: 0,

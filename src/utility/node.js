@@ -1,26 +1,34 @@
-export const node = function(string, node) {
+export const node = (string, node) => {
+
   // set element
   let tag;
+
   if (string.indexOf('|') > 0) {
     tag = string.slice(0, string.indexOf('|'));
   } else {
     tag = string;
   };
-  var text = false;
+
+  let text = false;
+
   if (tag.indexOf(':') > 0) {
     // regex
     // find all : and split
     // ignore all \:
-    var pair = tag.split(/:(?!.*:\\)/);
+    let pair = tag.split(/:(?!.*:\\)/);
     tag = pair[0];
     // replace \: with :
     text = pair[1].replace('\\', ':');
   };
-  var element = document.createElement(tag);
+
+  let element = document.createElement(tag);
+
   if (text && text != '') {
     element.innerHTML = text;
   };
-  var attributes = string.slice(string.indexOf('|') + 1, string.length).split(',');
+
+  let attributes = string.slice(string.indexOf('|') + 1, string.length).split(',');
+
   // set attributes
   if (string.indexOf('|') > 0 && string.indexOf('|') < string.length - 1) {
 
@@ -53,31 +61,49 @@ export const node = function(string, node) {
   };
 
   if (node) {
+
     if (typeof node != 'string') {
+
       if (node.length > 0) {
 
         node.forEach((item, i) => {
+
           if (item instanceof HTMLElement) {
+
             element.appendChild(item);
+
           } else {
+
             let div = document.createElement('div');
+
             div.innerHTML = item;
+
             element.appendChild(div.firstChild);
+
           };
+
         });
 
       } else {
 
         if (node instanceof HTMLElement) {
+
           element.appendChild(node);
+
         } else {
+
           let div = document.createElement('div');
+
           div.innerHTML = node;
+
           element.appendChild(div.firstChild);
+
         };
 
       };
+
     };
+
   };
 
   return element;

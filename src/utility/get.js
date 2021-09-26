@@ -1,16 +1,19 @@
 import { makePath } from './makePath.js';
 
-export const get = function({
+export const get = ({
   object = null,
   path = null
-} = {}) {
+} = {}) => {
 
   const address = makePath(path);
 
   const getValue = () => {
+
     while (address.length > 1) {
+
       // shift off and store the first key
-      var currentKey = address.shift();
+      let currentKey = address.shift();
+
       // if the key is not found make a new object
       if (!(currentKey in object)) {
         // make an empty object in the current object level
@@ -20,15 +23,20 @@ export const get = function({
           object[currentKey] = [];
         };
       };
+
       // drill down the object with the first key
       object = object[currentKey];
+
     };
-    var finalKey = address.shift();
+
+    let finalKey = address.shift();
+
     if (!(finalKey in object)) {
       return '';
     } else {
       return object[finalKey];
     };
+
   };
 
   if (object != null && path != null) {

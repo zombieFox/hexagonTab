@@ -1,4 +1,4 @@
-export const isValidString = function(value) {
+export const isValidString = (value) => {
   let result = false;
 
   if (typeof value == 'string') {

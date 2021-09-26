@@ -1,4 +1,5 @@
-export const dateTime = function() {
+export const dateTime = () => {
+
   const date = new Date();
 
   const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -16,4 +17,5 @@ export const dateTime = function() {
     monthString: month[date.getMonth()],
     seconds: date.getSeconds()
   };
+
 };
