@@ -30,7 +30,7 @@ state.default = {
       display: { name: '', weight: 400, style: 'normal' },
       ui: { name: '', weight: 400, style: 'normal' }
     },
-    toolbar: { opacity: 100 },
+    toolbar: { opacity: 0 },
     style: 'light',
     bookmark: {
       shadow: { opacity: 25, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } }

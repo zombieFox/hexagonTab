@@ -6,6 +6,7 @@ import { bookmarkSetting } from './bookmarkSetting';
 import { toolbarSetting } from './toolbarSetting';
 import { themeSetting } from './themeSetting';
 import { dataSetting } from './dataSetting';
+import { supportSetting } from './supportSetting';
 import { coffeeSetting } from './coffeeSetting';
 import { appSetting } from './appSetting';
 

@@ -47,7 +47,6 @@ supportSetting.link = {
     browser: 'Browser-support',
     cookies: 'Cookies-and-cache',
     data: 'Data-backup-and-restore',
-    localBackgroundImage: 'Local-background-image',
     protectedUrl: 'Protected-URLs',
     recovering: 'Recovering-settings-and-bookmarks',
     resetting: 'Resetting-when-opening-the-browser',
