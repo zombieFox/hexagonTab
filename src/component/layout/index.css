@@ -3,7 +3,7 @@
 }
 
 :root {
-  --layout-line-width: 0.2em;
+  --layout-line-width: 0.25em;
 }
 
 :root {
@@ -27,8 +27,8 @@
 }
 
 :root {
-  --layout-horizontal-rule-small: 1px solid hsl(var(--theme-primary-200));
-  --layout-horizontal-rule-large: 2px solid hsl(var(--theme-primary-200));
+  --layout-horizontal-rule-small: 1px solid hsl(var(--theme-primary-020));
+  --layout-horizontal-rule-large: 2px solid hsl(var(--theme-primary-020));
 }
 
 .layout-wrap {
@@ -40,32 +40,4 @@
   align-items: center;
   justify-content: center;
   margin: calc(var(--grid-gap) * 0.01em);
-}
-
-.is-presentation-mode .layout-area {
-  grid-gap: calc(var(--grid-gap) * 0.02em);
-  grid-template-columns: auto auto;
-  align-items: stretch;
-}
-
-.is-presentation-mode .presentation-name-wrap {
-  margin-top: calc(-1 * calc(var(--grid-gap) * 0.01em));
-  margin-bottom: calc(-1 * calc(var(--grid-gap) * 0.01em));
-}
-
-.is-presentation-mode .presentation-name {
-  margin-bottom: 0;
-  color: hsl(var(--theme-primary-100));
-  font-size: calc(var(--grid-size) * 0.04rem);
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.is-presentation-mode.is-theme-bookmark-shadow-color-type-theme .presentation-name {
-  text-shadow: 0 calc(var(--bookmark-shadow-distance) * 0.0025em) calc(var(--bookmark-shadow-blur) * 0.01em) rgba(var(--theme-accent), calc(var(--theme-bookmark-shadow-opacity) / 100));
-}
-
-.is-presentation-mode.is-theme-bookmark-shadow-color-type-custom .presentation-name {
-  text-shadow: 0 calc(var(--bookmark-shadow-distance) * 0.0025em) calc(var(--bookmark-shadow-blur) * 0.01em) rgba(var(--theme-bookmark-shadow-color), calc(var(--theme-bookmark-shadow-opacity) / 100));
 }

@@ -1,4 +1,6 @@
 import { data } from '../data';
+import { debugSetting } from './debugSetting';
+import { appName } from '../appName';
 import { layoutSetting } from './layoutSetting';
 import { bookmarkSetting } from './bookmarkSetting';
 import { toolbarSetting } from './toolbarSetting';
@@ -12,7 +14,7 @@ import { clearChildNode } from '../../utility/clearChildNode';
 
 import './index.css';
 
-const MenuContent = function({
+export const MenuContent = function({
   activeNavData = {},
   container = false
 } = {}) {
@@ -26,8 +28,15 @@ const MenuContent = function({
         node('h1:' + name + '|class:menu-item-header-text')
       ]);
     },
-    form: (children) => {
-      return node('div|class:menu-item-form', children);
+    form: ({ indent = false } = {}) => {
+
+      const formElement = node('div|class:menu-item-form');
+
+      if (indent) {
+        formElement.classList.add('menu-item-form-indent');
+      };
+
+      return formElement;
     }
   };
 
@@ -41,7 +50,7 @@ const MenuContent = function({
 
         menuContentItem.appendChild(this.element.header(item));
 
-        const formElement = this.element.form();
+        const formElement = this.element.form({ indent: true });
 
         switch (this.makeId(activeNavData.name)) {
 
@@ -65,6 +74,10 @@ const MenuContent = function({
             dataSetting[this.makeId(item)](formElement);
             break;
 
+          case 'debug':
+            debugSetting[this.makeId(item)](formElement);
+            break;
+
         };
 
         menuContentItem.appendChild(formElement);
@@ -75,20 +88,8 @@ const MenuContent = function({
 
       switch (this.makeId(activeNavData.name)) {
 
-        case 'layout':
-          break;
-
-        case 'bookmark':
-          break;
-
-        case 'toolbar':
-          break;
-
         case 'theme':
           themeSetting.disable();
-          break;
-
-        case 'data':
           break;
 
       };
@@ -97,17 +98,36 @@ const MenuContent = function({
 
       const menuContentItem = this.element.content(activeNavData.name);
 
-      menuContentItem.appendChild(this.element.header(activeNavData.name));
-
-      const formElement = this.element.form();
+      let formElement;
 
       switch (this.makeId(activeNavData.name)) {
-        case 'coffee':
-          coffeeSetting[this.makeId(activeNavData.name)](formElement);
+
+        case 'support':
+
+          menuContentItem.appendChild(this.element.header(activeNavData.name));
+
+          formElement = this.element.form({ indent: true });
+
+          supportSetting[this.makeId(activeNavData.name)](formElement);
+
           break;
 
-        case this.makeId(data.saveName):
+        case 'coffee':
+
+          menuContentItem.appendChild(this.element.header(activeNavData.name));
+
+          formElement = this.element.form({ indent: true });
+
+          coffeeSetting[this.makeId(activeNavData.name)](formElement);
+
+          break;
+
+        case this.makeId(appName):
+
+          formElement = this.element.form();
+
           appSetting[this.makeId(activeNavData.name)](formElement);
+
           break;
 
       };
@@ -125,5 +145,3 @@ const MenuContent = function({
   };
 
 };
-
-export { MenuContent };

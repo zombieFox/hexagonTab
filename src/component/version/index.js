@@ -1,8 +1,8 @@
 export const version = {};
 
-version.number = '3.1.0';
+version.number = '4.0.0';
 
-version.name = 'Quirky Llama';
+version.name = 'Magnificent Nightingale';
 
 version.compare = (a, b) => {
 

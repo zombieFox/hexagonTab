@@ -1,4 +1,4 @@
-import { state } from '../state';
+import { easterEgg } from '../easterEgg';
 
 import { node } from '../../utility/node';
 
@@ -12,11 +12,16 @@ logo.svg =
   '<path d="M224 170C224 164.477 228.477 160 234 160H278C283.523 160 288 164.477 288 170V214C288 219.523 292.477 224 298 224H342C347.523 224 352 228.477 352 234V278C352 283.523 347.523 288 342 288H298C292.477 288 288 292.477 288 298V342C288 347.523 283.523 352 278 352H234C228.477 352 224 347.523 224 342V298C224 292.477 219.523 288 214 288H170C164.477 288 160 283.523 160 278V234C160 228.477 164.477 224 170 224H214C219.523 224 224 219.523 224 214V170Z" class="logo-cross"/>' +
   '</svg>';
 
-logo.render = function() {
-  const element = node('div|class:version-icon');
-  element.innerHTML = logo.svg;
+logo.render = () => {
 
-  return element;
+  const versionIcon = node('div|class:version-icon');
+
+  versionIcon.innerHTML = logo.svg;
+
+  versionIcon.addEventListener('dblclick', () => { easterEgg.toaster.bind.add(); });
+
+  return versionIcon;
+
 };
 
 export { logo };

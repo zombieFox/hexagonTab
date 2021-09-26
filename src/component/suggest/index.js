@@ -10,7 +10,7 @@ import { clearChildNode } from '../../utility/clearChildNode';
 
 import './index.css';
 
-const Suggest = function({
+export const Suggest = function({
   input = false,
   widthElement = false,
   type = false,
@@ -407,5 +407,3 @@ const Suggest = function({
   this.bind.input();
 
 };
-
-export { Suggest };

@@ -43,9 +43,12 @@
   animation-fill-mode: backwards, forwards;
 }
 
-.logo-hexagon,
+.logo-hexagon {
+  fill: hsl(var(--theme-primary-080));
+}
+
 .logo-cross {
-  fill: hsl(var(--theme-primary-900));
+  fill: hsl(var(--theme-primary-120));
 }
 
 @keyframes grow {

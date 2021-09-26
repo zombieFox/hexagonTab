@@ -46,6 +46,10 @@
   overflow-y: hidden !important;
 }
 
+.is-appear {
+  animation: appear var(--layout-transition-medium) 1;
+}
+
 .is-shake {
   animation: shake var(--layout-transition-slow) 1;
 }

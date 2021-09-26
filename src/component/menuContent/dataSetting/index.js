@@ -8,12 +8,15 @@ import { version } from '../../version';
 import { menu } from '../../menu';
 import { icon } from '../../icon';
 import { logo } from '../../logo';
-import { link } from '../../link';
+import { appName } from '../../appName';
 
 import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
+import { Alert } from '../../alert';
+import { DropFile } from '../../dropFile';
+import { Link } from '../../link';
 
 import { Control_helperText } from '../../control/helperText';
 import { Control_inputButton } from '../../control/inputButton';
@@ -23,10 +26,12 @@ import { Control_radioGrid } from '../../control/radioGrid';
 import { Control_checkbox } from '../../control/checkbox';
 import { Control_slider } from '../../control/slider';
 import { Control_sliderSlim } from '../../control/sliderSlim';
+import { Control_sliderDouble } from '../../control/sliderDouble';
 import { Control_colorMixer } from '../../control/colorMixer';
 import { Control_color } from '../../control/color';
 import { Control_text } from '../../control/text';
 import { Control_textReset } from '../../control/textReset';
+import { Control_textarea } from '../../control/textarea';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -37,36 +42,70 @@ import { applyCSSState } from '../../../utility/applyCSSState';
 
 const dataSetting = {};
 
-dataSetting.import = (parent) => {
+dataSetting.control = {
+  restore: {},
+  backup: {},
+  clear: {}
+};
 
-  const importFeedback = form.feedback();
+dataSetting.restore = (parent) => {
 
-  data.render.feedback.empty(importFeedback);
-
-  const importButton = new Control_inputButton({
-    id: 'import-data',
+  dataSetting.control.restore.restoreElement = new Control_inputButton({
+    id: 'restore-data',
     type: 'file',
     inputHide: true,
-    labelText: 'Import data',
+    labelText: 'Import from file',
     inputButtonStyle: ['line'],
     action: () => {
-      data.import(importButton.input, importFeedback)
+      data.import.file({
+        fileList: dataSetting.control.restore.restoreElement.input.files,
+        feedback: dataSetting.control.restore.feedback,
+        input: dataSetting.control.restore.restoreElement
+      });
     }
   });
 
-  const importHelper = new Control_helperText({
-    text: ['Restore a previously exported ' + data.saveName + ' backup.']
+  dataSetting.control.restore.paste = new Button({
+    text: 'Import from clipboard',
+    style: ['line'],
+    func: () => {
+      data.import.paste({
+        feedback: dataSetting.control.restore.feedback,
+      });
+    }
+  });
+
+  dataSetting.control.restore.restoreHelper = new Control_helperText({
+    text: ['Restore a previously exported ' + appName + ' backup.']
+  });
+
+  dataSetting.control.restore.feedback = form.feedback();
+
+  data.feedback.empty.render(dataSetting.control.restore.feedback);
+
+  dataSetting.control.restore.drop = new DropFile({
+    heading: 'Or drop a ' + appName + ' backup file here.',
+    dropAaction: () => {
+      data.import.drop({
+        fileList: dataSetting.control.restore.drop.files,
+        feedback: dataSetting.control.restore.feedback,
+      });
+    },
+    children: [
+      dataSetting.control.restore.restoreElement.button,
+      dataSetting.control.restore.paste.button
+    ]
   });
 
   parent.appendChild(
     node('div', [
-      importButton.wrap(),
-      importHelper.wrap(),
+      dataSetting.control.restore.drop.wrap(),
       form.wrap({
         children: [
-          importFeedback
+          dataSetting.control.restore.feedback
         ]
-      })
+      }),
+      dataSetting.control.restore.restoreHelper.wrap()
     ])
   );
 
@@ -74,7 +113,7 @@ dataSetting.import = (parent) => {
 
 dataSetting.backup = (parent) => {
 
-  const exportButton = new Button({
+  dataSetting.control.backup.export = new Button({
     text: 'Export data',
     style: ['line'],
     func: () => {
@@ -82,14 +121,34 @@ dataSetting.backup = (parent) => {
     }
   });
 
-  const exportHelper = new Control_helperText({
-    text: ['Download a backup of your ' + data.saveName + ' Bookmarks and Settings.', 'This file can later be imported on this or another deivce.']
+  dataSetting.control.backup.copy = new Button({
+    text: 'Copy to clipboard',
+    style: ['line'],
+    func: () => {
+      navigator.clipboard.writeText(JSON.stringify(data.load()));
+    }
+  });
+
+  dataSetting.control.backup.exportHelper = new Control_helperText({
+    text: ['Download a backup of your ' + appName + ' Bookmarks and Settings.', 'This file can later be imported on this or another deivce.']
   });
 
   parent.appendChild(
     node('div', [
-      exportButton.wrap(),
-      exportHelper.wrap()
+      form.wrap({
+        children: [
+          form.inline({
+            gap: 'small',
+            equalGap: true,
+            wrap: true,
+            children: [
+              dataSetting.control.backup.export.wrap(),
+              dataSetting.control.backup.copy.wrap()
+            ]
+          })
+        ]
+      }),
+      dataSetting.control.backup.exportHelper.wrap()
     ])
   );
 
@@ -97,23 +156,53 @@ dataSetting.backup = (parent) => {
 
 dataSetting.clear = (parent) => {
 
-  const clearButton = new Button({
+  dataSetting.control.clear.all = new Button({
     text: 'Clear all data',
     style: ['line'],
     func: () => {
       menu.close();
-      data.render.clear();
+      data.clear.all.render();
     }
   });
 
-  const clearHelper = new Control_helperText({
-    text: ['Wipe all data and restore ' + data.saveName + ' to the default state.']
+  dataSetting.control.clear.partial = new Button({
+    text: 'Clear all except bookmarks',
+    style: ['line'],
+    func: () => {
+      menu.close();
+      data.clear.partial.render();
+    }
+  });
+
+  dataSetting.control.clear.alert = new Alert({
+    iconName: 'warning',
+    children: [
+      node('p:You will lose Bookmarks by clearing all data.|class:small'),
+      node(`p:Have you ${(new Link({ text:'backed up your data?', href: '#menu-content-item-backup'})).link().outerHTML}|class:small`)
+    ]
+  });
+
+  dataSetting.control.clear.helper = new Control_helperText({
+    text: ['Clear all data to reset ' + appName + ' to the default state.', 'Alternatively, it is possible to wipe all settings but keep the current Bookmarks and Groups.']
   });
 
   parent.appendChild(
     node('div', [
-      clearButton.wrap(),
-      clearHelper.wrap()
+      form.wrap({
+        children: [
+          form.inline({
+            gap: 'small',
+            equalGap: true,
+            wrap: true,
+            children: [
+              dataSetting.control.clear.all.wrap(),
+              dataSetting.control.clear.partial.wrap()
+            ]
+          })
+        ]
+      }),
+      dataSetting.control.clear.alert.wrap(),
+      dataSetting.control.clear.helper.wrap()
     ])
   );
 

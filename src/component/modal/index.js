@@ -22,10 +22,8 @@ export const Modal = function({
   cancelText = 'Cancel',
   cancelAction = false,
   closeAction = false,
-  size = 'medium',
-  width = false,
+  width = 'medium',
   maxHeight = false,
-  overscroll = false,
   maxHeadingLength = 50
 } = {}) {
 
@@ -133,6 +131,8 @@ export const Modal = function({
 
       this.ctrAltM.add();
 
+      this.ctrAltG.add();
+
       this.ctrAltA.add();
 
     },
@@ -146,6 +146,8 @@ export const Modal = function({
 
       this.ctrAltM.remove();
 
+      this.ctrAltG.remove();
+
       this.ctrAltA.remove();
 
     }
@@ -154,6 +156,8 @@ export const Modal = function({
   this.esc = new KeyboardShortcut({ keycode: 27, action: () => { this.close(); } });
 
   this.ctrAltM = new KeyboardShortcut({ keycode: 77, ctrl: true, alt: true, action: () => { this.close(); } });
+
+  this.ctrAltG = new KeyboardShortcut({ keycode: 71, ctrl: true, alt: true, action: () => { this.close(); } });
 
   this.ctrAltA = new KeyboardShortcut({ keycode: 65, ctrl: true, alt: true, action: () => { this.close(); } });
 
@@ -306,10 +310,6 @@ export const Modal = function({
     this.element.control.appendChild(this.successButton.button);
 
     this.element.modal.appendChild(this.element.control);
-
-    if (overscroll) {
-      this.element.modal.classList.add('modal-overscroll');
-    };
 
     if (maxHeight) {
       this.element.modal.classList.add('modal-max-height');

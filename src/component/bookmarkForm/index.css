@@ -1,3 +1,7 @@
+:root {
+  --bookmark-form-space: calc((var(--form-space) / 4) * 1em);
+}
+
 .bookmark-form {
   display: block;
 }
@@ -5,15 +9,15 @@
 @media (min-width: 900px) {
   .bookmark-form {
     display: grid;
-    grid-template-columns: 6fr 3fr;
-    grid-gap: calc(var(--modal-space) * 1em);
+    grid-template-columns: 6fr 2fr;
+    gap: var(--bookmark-form-space);
     align-items: stretch;
     min-height: 60vh;
   }
 }
 
 .bookmark-form-main {
-  padding-bottom: calc(var(--form-space) * 20);
+  padding-bottom: var(--bookmark-form-space);
 }
 
 .bookmark-form-aside {

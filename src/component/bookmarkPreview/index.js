@@ -4,7 +4,7 @@ import { node } from '../../utility/node';
 
 import './index.css';
 
-const BookmarkPreview = function({
+export const BookmarkPreview = function({
   bookmarkData = false
 } = {}) {
 
@@ -58,5 +58,3 @@ const BookmarkPreview = function({
   };
 
 };
-
-export { BookmarkPreview };

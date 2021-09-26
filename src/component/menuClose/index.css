@@ -1,3 +1,14 @@
+:root {
+  --menu-close-size: 12;
+  --menu-close-space: calc((var(--menu-close-size) / 4) * 1em);
+}
+
+@media (min-width: 700px) {
+  :root {
+    --menu-close-size: 14;
+  }
+}
+
 .menu-close {
   grid-column-start: 3;
   grid-column-end: 4;
@@ -12,25 +23,16 @@
   margin: 0;
   padding: 0;
   border-radius: 0;
-  height: calc(var(--menu-space) * 5);
-  width: calc(var(--menu-space) * 5);
   line-height: 1;
+  position: relative;
+  top: calc((var(--theme-radius) * 0.25) * 0.01em);
+  right: calc((var(--theme-radius) * 0.25) * 0.01em);
+  height: var(--menu-close-space);
+  width: var(--menu-close-space);
 }
 
 @media (min-width: 700px) {
   .menu-close-button {
-    border-radius: var(--theme-radius-base);
-    height: calc(var(--menu-space) * 4);
-    width: calc(var(--menu-space) * 4);
-    position: relative;
-    top: calc(var(--theme-radius-base) / 6);
-    right: calc(var(--theme-radius-base) / 6);
-  }
-}
-
-@media (min-width: 900px) {
-  .menu-close-button {
-    height: calc(var(--menu-space) * 5);
-    width: calc(var(--menu-space) * 5);
+    border-radius: calc(var(--theme-radius) * 0.01em);
   }
 }

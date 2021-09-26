@@ -7,14 +7,17 @@ import { version } from '../../version';
 import { menu } from '../../menu';
 import { icon } from '../../icon';
 import { logo } from '../../logo';
-import { link } from '../../link';
 import { toolbar } from '../../toolbar';
 import { accentPreset } from '../../accentPreset';
+
+import { supportSetting } from '../../menuContent/supportSetting';
 
 import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
+import { Link } from '../../link';
+import { Alert } from '../../alert';
 import { AccentPresetButton } from '../../accentPresetButton';
 
 import { Control_helperText } from '../../control/helperText';
@@ -25,10 +28,12 @@ import { Control_radioGrid } from '../../control/radioGrid';
 import { Control_checkbox } from '../../control/checkbox';
 import { Control_slider } from '../../control/slider';
 import { Control_sliderSlim } from '../../control/sliderSlim';
+import { Control_sliderDouble } from '../../control/sliderDouble';
 import { Control_colorMixer } from '../../control/colorMixer';
 import { Control_color } from '../../control/color';
 import { Control_text } from '../../control/text';
 import { Control_textReset } from '../../control/textReset';
+import { Control_textarea } from '../../control/textarea';
 
 import { node } from '../../../utility/node';
 import { convertColor } from '../../../utility/convertColor';
@@ -46,20 +51,22 @@ themeSetting.control = {
   font: {},
   bookmark: {},
   shade: {},
+  opacity: {},
   background: {}
 };
 
 themeSetting.disable = () => {
 
   if (state.get.current().theme.accent.random.active) {
-    themeSetting.control.accent.style.enable();
+    themeSetting.control.accent.random.style.enable();
     themeSetting.control.accent.randomiseNow.enable();
   } else {
-    themeSetting.control.accent.style.disable();
+    themeSetting.control.accent.random.style.disable();
     themeSetting.control.accent.randomiseNow.disable();
   };
 
   switch (state.get.current().theme.background.type) {
+
     case 'theme':
     case 'accent':
       themeSetting.control.background.color.disable();
@@ -71,13 +78,19 @@ themeSetting.disable = () => {
       themeSetting.control.background.image.blur.disable();
       themeSetting.control.background.image.grayscale.disable();
       themeSetting.control.background.image.scale.disable();
+      themeSetting.control.background.image.accent.disable();
       themeSetting.control.background.image.opacity.disable();
+      themeSetting.control.background.image.vignette.opacity.disable();
+      themeSetting.control.background.image.vignette.range.disable();
       themeSetting.control.background.video.url.disable();
       themeSetting.control.background.video.urlHelper.disable();
       themeSetting.control.background.video.blur.disable();
       themeSetting.control.background.video.grayscale.disable();
       themeSetting.control.background.video.scale.disable();
+      themeSetting.control.background.video.accent.disable();
       themeSetting.control.background.video.opacity.disable();
+      themeSetting.control.background.video.vignette.opacity.disable();
+      themeSetting.control.background.video.vignette.range.disable();
       break;
 
     case 'color':
@@ -90,13 +103,19 @@ themeSetting.disable = () => {
       themeSetting.control.background.image.blur.disable();
       themeSetting.control.background.image.grayscale.disable();
       themeSetting.control.background.image.scale.disable();
+      themeSetting.control.background.image.accent.disable();
       themeSetting.control.background.image.opacity.disable();
+      themeSetting.control.background.image.vignette.opacity.disable();
+      themeSetting.control.background.image.vignette.range.disable();
       themeSetting.control.background.video.url.disable();
       themeSetting.control.background.video.urlHelper.disable();
       themeSetting.control.background.video.blur.disable();
       themeSetting.control.background.video.grayscale.disable();
       themeSetting.control.background.video.scale.disable();
+      themeSetting.control.background.video.accent.disable();
       themeSetting.control.background.video.opacity.disable();
+      themeSetting.control.background.video.vignette.opacity.disable();
+      themeSetting.control.background.video.vignette.range.disable();
       break;
 
     case 'gradient':
@@ -109,13 +128,19 @@ themeSetting.disable = () => {
       themeSetting.control.background.image.blur.disable();
       themeSetting.control.background.image.grayscale.disable();
       themeSetting.control.background.image.scale.disable();
+      themeSetting.control.background.image.accent.disable();
       themeSetting.control.background.image.opacity.disable();
+      themeSetting.control.background.image.vignette.opacity.disable();
+      themeSetting.control.background.image.vignette.range.disable();
       themeSetting.control.background.video.url.disable();
       themeSetting.control.background.video.urlHelper.disable();
       themeSetting.control.background.video.blur.disable();
       themeSetting.control.background.video.grayscale.disable();
       themeSetting.control.background.video.scale.disable();
+      themeSetting.control.background.video.accent.disable();
       themeSetting.control.background.video.opacity.disable();
+      themeSetting.control.background.video.vignette.opacity.disable();
+      themeSetting.control.background.video.vignette.range.disable();
       break;
 
     case 'image':
@@ -128,13 +153,19 @@ themeSetting.disable = () => {
       themeSetting.control.background.image.blur.enable();
       themeSetting.control.background.image.grayscale.enable();
       themeSetting.control.background.image.scale.enable();
+      themeSetting.control.background.image.accent.enable();
       themeSetting.control.background.image.opacity.enable();
+      themeSetting.control.background.image.vignette.opacity.enable();
+      themeSetting.control.background.image.vignette.range.enable();
       themeSetting.control.background.video.url.disable();
       themeSetting.control.background.video.urlHelper.disable();
       themeSetting.control.background.video.blur.disable();
       themeSetting.control.background.video.grayscale.disable();
       themeSetting.control.background.video.scale.disable();
+      themeSetting.control.background.video.accent.disable();
       themeSetting.control.background.video.opacity.disable();
+      themeSetting.control.background.video.vignette.opacity.disable();
+      themeSetting.control.background.video.vignette.range.disable();
       break;
 
     case 'video':
@@ -147,14 +178,21 @@ themeSetting.disable = () => {
       themeSetting.control.background.image.blur.disable();
       themeSetting.control.background.image.grayscale.disable();
       themeSetting.control.background.image.scale.disable();
+      themeSetting.control.background.image.accent.disable();
       themeSetting.control.background.image.opacity.disable();
+      themeSetting.control.background.image.vignette.opacity.disable();
+      themeSetting.control.background.image.vignette.range.disable();
       themeSetting.control.background.video.url.enable();
       themeSetting.control.background.video.urlHelper.enable();
       themeSetting.control.background.video.blur.enable();
       themeSetting.control.background.video.grayscale.enable();
       themeSetting.control.background.video.scale.enable();
+      themeSetting.control.background.video.accent.enable();
       themeSetting.control.background.video.opacity.enable();
+      themeSetting.control.background.video.vignette.opacity.enable();
+      themeSetting.control.background.video.vignette.range.enable();
       break;
+
   };
 
   switch (state.get.current().theme.bookmark.shadow.color.type) {
@@ -237,11 +275,11 @@ themeSetting.colour = (parent) => {
           path: 'theme.color.range.primary.h',
           id: 'theme-color-range-primary-h',
           labelText: 'Primary colour',
-          hue: true,
           value: state.get.current().theme.color.range.primary.h,
           defaultValue: state.get.default().theme.color.range.primary.h,
           min: state.get.minMax().theme.color.range.primary.h.min,
           max: state.get.minMax().theme.color.range.primary.h.max,
+          style: 'hue',
           action: () => {
             theme.color.render();
             data.save();
@@ -256,6 +294,7 @@ themeSetting.colour = (parent) => {
           defaultValue: state.get.default().theme.color.range.primary.s,
           min: state.get.minMax().theme.color.range.primary.s.min,
           max: state.get.minMax().theme.color.range.primary.s.max,
+          style: 'saturation',
           action: () => {
             theme.color.render();
             data.save();
@@ -263,23 +302,43 @@ themeSetting.colour = (parent) => {
         })
       }
     },
-    lightness: {
-      contrast: new Control_slider({
-        object: state.get.current(),
-        path: 'theme.color.lightness.contrast',
-        id: 'theme-color-range-contrast',
-        labelText: 'Contrast',
-        value: state.get.current().theme.color.lightness.contrast,
-        defaultValue: state.get.default().theme.color.lightness.contrast,
-        min: state.get.minMax().theme.color.lightness.contrast.min,
-        max: state.get.minMax().theme.color.lightness.contrast.max,
+    contrast: new Control_sliderDouble({
+      object: state.get.current(),
+      labelText: 'Contrast range',
+      style: 'contrast',
+      left: {
+        path: 'theme.color.contrast.start',
+        id: 'theme-color-contrast-start',
+        labelText: 'Contrast start',
+        value: state.get.current().theme.color.contrast.start,
+        defaultValue: state.get.default().theme.color.contrast.start,
+        min: state.get.minMax().theme.color.contrast.start.min,
+        max: state.get.minMax().theme.color.contrast.start.max,
         action: () => {
-          theme.color.lightness.set();
           theme.color.render();
           data.save();
         }
-      })
-    },
+      },
+      right: {
+        path: 'theme.color.contrast.end',
+        id: 'theme-color-contrast-end',
+        labelText: 'Contrast end',
+        value: state.get.current().theme.color.contrast.end,
+        defaultValue: state.get.default().theme.color.contrast.end,
+        min: state.get.minMax().theme.color.contrast.end.min,
+        max: state.get.minMax().theme.color.contrast.end.max,
+        action: () => {
+          theme.color.render();
+          data.save();
+        }
+      }
+    }),
+    contrastHelper: new Control_helperText({
+      text: [
+        'Move the Contrast range controls close together for a muted look.',
+        'Move the Contrast range controls far apart from each other for a sharp vivid look.'
+      ]
+    }),
     shade: {
       helper: new Control_helperText({
         text: [
@@ -298,7 +357,8 @@ themeSetting.colour = (parent) => {
       node('hr'),
       themeSetting.control.color.range.primary.h.wrap(),
       themeSetting.control.color.range.primary.s.wrap(),
-      themeSetting.control.color.lightness.contrast.wrap()
+      themeSetting.control.color.contrast.wrap(),
+      themeSetting.control.color.contrastHelper.wrap()
     ])
   );
 
@@ -330,73 +390,91 @@ themeSetting.accent = (parent) => {
 
   };
 
-  themeSetting.control.accent = {
-    color: new Control_colorMixer({
-      object: state.get.current(),
-      path: 'theme.accent',
-      id: 'theme-accent',
-      labelText: 'Accent colour',
-      defaultValue: state.get.default().theme.accent.rgb,
-      minMaxObject: state.get.minMax(),
-      action: () => {
-        applyCSSVar([
-          'theme.accent.rgb.r',
-          'theme.accent.rgb.g',
-          'theme.accent.rgb.b',
-          'theme.accent.hsl.h',
-          'theme.accent.hsl.s',
-          'theme.accent.hsl.l'
-        ]);
-        toolbar.current.update.style();
-        toolbar.current.update.accent();
-        data.save();
-      }
-    }),
-    random: new Control_checkbox({
-      object: state.get.current(),
-      path: 'theme.accent.random.active',
-      id: 'theme-accent-random-active',
-      labelText: 'Random Accent colour on load/refresh',
-      action: () => {
-        themeSetting.disable();
-        data.save();
-      }
-    }),
-    style: new Control_radio({
-      object: state.get.current(),
-      radioGroup: [
-        { id: 'theme-accent-random-style-any', labelText: 'Any', value: 'any' },
-        { id: 'theme-accent-random-style-light', labelText: 'Light', value: 'light' },
-        { id: 'theme-accent-random-style-dark', labelText: 'Dark', value: 'dark' },
-        { id: 'theme-accent-random-style-pastel', labelText: 'Pastel', value: 'pastel' },
-        { id: 'theme-accent-random-style-saturated', labelText: 'Saturated', value: 'saturated' },
-      ],
-      groupName: 'theme-accent-random-style',
-      path: 'theme.accent.random.style',
-      action: () => {
-        data.save();
-      }
-    }),
-    randomiseNow: new Button({
-      text: 'Randomise now',
-      style: ['line'],
-      func: () => {
-        theme.accent.random.render();
-        applyCSSVar([
-          'theme.accent.rgb.r',
-          'theme.accent.rgb.g',
-          'theme.accent.rgb.b',
-          'theme.accent.hsl.h',
-          'theme.accent.hsl.s',
-          'theme.accent.hsl.l'
-        ]);
-        toolbar.current.update.style();
-        toolbar.current.update.accent();
-        themeSetting.control.accent.color.update();
-        data.save();
-      }
-    })
-  };
+  themeSetting.control.accent.color = new Control_colorMixer({
+    object: state.get.current(),
+    path: 'theme.accent',
+    id: 'theme-accent',
+    labelText: 'Accent colour',
+    defaultValue: state.get.default().theme.accent.rgb,
+    minMaxObject: state.get.minMax(),
+    randomColor: true,
+    action: () => {
+      applyCSSVar([
+        'theme.accent.rgb.r',
+        'theme.accent.rgb.g',
+        'theme.accent.rgb.b',
+        'theme.accent.hsl.h',
+        'theme.accent.hsl.s',
+        'theme.accent.hsl.l'
+      ]);
+      toolbar.current.update.style();
+      toolbar.current.update.accent();
+      data.save();
+    }
+  });
+
+  themeSetting.control.accent.random = {};
+
+  themeSetting.control.accent.random.active = new Control_checkbox({
+    object: state.get.current(),
+    path: 'theme.accent.random.active',
+    id: 'theme-accent-random-active',
+    labelText: 'Random Accent colour on load/refresh',
+    action: () => {
+      themeSetting.disable();
+      themeSetting.control.accent.random.collapse.update();
+      data.save();
+    }
+  });
+
+  themeSetting.control.accent.random.style = new Control_radio({
+    object: state.get.current(),
+    radioGroup: [
+      { id: 'theme-accent-random-style-any', labelText: 'Any', value: 'any' },
+      { id: 'theme-accent-random-style-light', labelText: 'Light', value: 'light' },
+      { id: 'theme-accent-random-style-dark', labelText: 'Dark', value: 'dark' },
+      { id: 'theme-accent-random-style-pastel', labelText: 'Pastel', value: 'pastel' },
+      { id: 'theme-accent-random-style-saturated', labelText: 'Saturated', value: 'saturated' },
+    ],
+    groupName: 'theme-accent-random-style',
+    path: 'theme.accent.random.style',
+    action: () => {
+      data.save();
+    }
+  });
+
+  themeSetting.control.accent.randomiseNow = new Button({
+    text: 'Randomise now',
+    style: ['line'],
+    func: () => {
+      theme.accent.random.render();
+      applyCSSVar([
+        'theme.accent.rgb.r',
+        'theme.accent.rgb.g',
+        'theme.accent.rgb.b',
+        'theme.accent.hsl.h',
+        'theme.accent.hsl.s',
+        'theme.accent.hsl.l'
+      ]);
+      toolbar.current.update.style();
+      toolbar.current.update.accent();
+      themeSetting.control.accent.color.update();
+      data.save();
+    }
+  });
+
+  themeSetting.control.accent.random.area = node('div', [
+    themeSetting.control.accent.random.style.inline(),
+    themeSetting.control.accent.randomiseNow.wrap()
+  ]);
+
+  themeSetting.control.accent.random.collapse = new Collapse({
+    type: 'checkbox',
+    checkbox: themeSetting.control.accent.random.active,
+    target: [{
+      content: themeSetting.control.accent.random.area
+    }]
+  });
 
   parent.appendChild(
     node('div', [
@@ -404,13 +482,12 @@ themeSetting.accent = (parent) => {
       node('hr'),
       themeSetting.control.accent.color.wrap(),
       node('hr'),
-      themeSetting.control.accent.random.wrap(),
+      themeSetting.control.accent.random.active.wrap(),
       form.wrap({
         children: [
           form.indent({
             children: [
-              themeSetting.control.accent.style.inline(),
-              themeSetting.control.accent.randomiseNow.wrap()
+              themeSetting.control.accent.random.collapse.collapse()
             ]
           })
         ]
@@ -688,6 +765,7 @@ themeSetting.bookmark = (parent) => {
           id: 'theme-bookmark-shadow-color',
           labelText: 'Bookmark shadow colour',
           srOnly: true,
+          randomColor: true,
           defaultValue: state.get.default().theme.bookmark.shadow.color.rgb,
           minMaxObject: state.get.minMax(),
           action: () => {
@@ -721,7 +799,6 @@ themeSetting.bookmark = (parent) => {
   };
 
   const themeBookmarkShadowColorByCustonArea = node('div', [
-    node('hr'),
     themeSetting.control.bookmark.shadow.color.color.wrap(),
   ]);
 
@@ -804,6 +881,36 @@ themeSetting.shade = (parent) => {
 
 };
 
+themeSetting.opacity = (parent) => {
+
+  themeSetting.control.opacity.toolbar = new Control_sliderSlim({
+    object: state.get.current(),
+    path: 'theme.toolbar.opacity',
+    id: 'theme-toolbar-opacity',
+    labelText: 'Toolbar',
+    value: state.get.current().theme.toolbar.opacity,
+    defaultValue: state.get.default().theme.toolbar.opacity,
+    min: state.get.minMax().theme.toolbar.opacity.min,
+    max: state.get.minMax().theme.toolbar.opacity.max,
+    action: () => {
+
+      applyCSSVar('theme.toolbar.opacity');
+
+      toolbar.current.update.style();
+
+      data.save();
+
+    }
+  });
+
+  parent.appendChild(
+    node('div', [
+      themeSetting.control.opacity.toolbar.wrap()
+    ])
+  );
+
+};
+
 themeSetting.background = (parent) => {
 
   const updateVideoPlayState = () => {
@@ -833,7 +940,7 @@ themeSetting.background = (parent) => {
       path: 'theme.background.type',
       action: () => {
         applyCSSClass('theme.background.type');
-        themeBackgroundCollapse.update();
+        themeSetting.control.background.typeCollapse.update();
         toolbar.current.update.style();
         themeSetting.disable();
         updateVideoPlayState();
@@ -847,6 +954,7 @@ themeSetting.background = (parent) => {
       labelText: 'Background colour',
       defaultValue: state.get.default().theme.background.color.rgb,
       minMaxObject: state.get.minMax(),
+      randomColor: true,
       action: () => {
         applyCSSVar([
           'theme.background.color.rgb.r',
@@ -883,6 +991,7 @@ themeSetting.background = (parent) => {
         labelText: 'Background gradient start',
         defaultValue: state.get.default().theme.background.gradient.start.rgb,
         minMaxObject: state.get.minMax(),
+        randomColor: true,
         action: () => {
           applyCSSVar([
             'theme.background.gradient.start.rgb.r',
@@ -903,6 +1012,7 @@ themeSetting.background = (parent) => {
         labelText: 'Background gradient end',
         defaultValue: state.get.default().theme.background.gradient.end.rgb,
         minMaxObject: state.get.minMax(),
+        randomColor: true,
         action: () => {
           applyCSSVar([
             'theme.background.gradient.end.rgb.r',
@@ -918,26 +1028,31 @@ themeSetting.background = (parent) => {
       })
     },
     image: {
-      url: new Control_text({
+      url: new Control_textarea({
         object: state.get.current(),
         path: 'theme.background.image.url',
         id: 'theme-background-image-url',
         value: state.get.current().theme.background.image.url,
         placeholder: 'https://www.example.com/image.jpg',
-        labelText: 'Background image URL',
+        labelText: 'URL',
         action: () => {
           theme.background.image.render();
           data.save();
         }
       }),
       urlHelper: new Control_helperText({
-        text: ['Background image only supports a direct URL to an image file.']
+        text: [
+          'Add more than one URL separated by spaces or on new lines for a random background image on load.',
+          'Unsplash can be used for random images, eg:',
+          'https://source.unsplash.com/random/1920x1080/?night,day,sky',
+          'Change parameters after .../random/ for more options. Loading times may vary.'
+        ]
       }),
-      blur: new Control_slider({
+      blur: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.image.blur',
         id: 'theme-background-image-blur',
-        labelText: 'Background image blur',
+        labelText: 'Blur',
         value: state.get.current().theme.background.image.blur,
         defaultValue: state.get.default().theme.background.image.blur,
         min: state.get.minMax().theme.background.image.blur.min,
@@ -947,11 +1062,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      grayscale: new Control_slider({
+      grayscale: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.image.grayscale',
         id: 'theme-background-image-grayscale',
-        labelText: 'Background image grayscale',
+        labelText: 'Grayscale',
         value: state.get.current().theme.background.image.grayscale,
         defaultValue: state.get.default().theme.background.image.grayscale,
         min: state.get.minMax().theme.background.image.grayscale.min,
@@ -961,11 +1076,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      scale: new Control_slider({
+      scale: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.image.scale',
         id: 'theme-background-image-scale',
-        labelText: 'Background image scale',
+        labelText: 'Scale',
         value: state.get.current().theme.background.image.scale,
         defaultValue: state.get.default().theme.background.image.scale,
         min: state.get.minMax().theme.background.image.scale.min,
@@ -975,11 +1090,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      accent: new Control_slider({
+      accent: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.image.accent',
         id: 'theme-background-image-accent',
-        labelText: 'Background image accent',
+        labelText: 'Accent',
         value: state.get.current().theme.background.image.accent,
         defaultValue: state.get.default().theme.background.image.accent,
         min: state.get.minMax().theme.background.image.accent.min,
@@ -989,11 +1104,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      opacity: new Control_slider({
+      opacity: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.image.opacity',
         id: 'theme-background-image-opacity',
-        labelText: 'Background image opacity',
+        labelText: 'Opacity',
         value: state.get.current().theme.background.image.opacity,
         defaultValue: state.get.default().theme.background.image.opacity,
         min: state.get.minMax().theme.background.image.opacity.min,
@@ -1002,16 +1117,71 @@ themeSetting.background = (parent) => {
           applyCSSVar('theme.background.image.opacity');
           data.save();
         }
-      })
+      }),
+      vignette: {
+        opacity: new Control_sliderSlim({
+          object: state.get.current(),
+          path: 'theme.background.image.vignette.opacity',
+          id: 'theme-background-image-vignette-opacity',
+          labelText: 'Vignette',
+          value: state.get.current().theme.background.image.vignette.opacity,
+          defaultValue: state.get.default().theme.background.image.vignette.opacity,
+          min: state.get.minMax().theme.background.image.vignette.opacity.min,
+          max: state.get.minMax().theme.background.image.vignette.opacity.max,
+          action: () => {
+            applyCSSVar('theme.background.image.vignette.opacity');
+            data.save();
+          }
+        }),
+        range: new Control_sliderDouble({
+          object: state.get.current(),
+          labelText: 'Shade start and end',
+          left: {
+            path: 'theme.background.image.vignette.end',
+            id: 'theme-background-image-vignette-end',
+            labelText: 'Shade end',
+            value: state.get.current().theme.background.image.vignette.end,
+            defaultValue: state.get.default().theme.background.image.vignette.end,
+            min: state.get.minMax().theme.background.image.vignette.end.min,
+            max: state.get.minMax().theme.background.image.vignette.end.max,
+            action: () => {
+              applyCSSVar('theme.background.image.vignette.start');
+              applyCSSVar('theme.background.image.vignette.end');
+              data.save();
+            }
+          },
+          right: {
+            path: 'theme.background.image.vignette.start',
+            id: 'theme-background-image-vignette-start',
+            labelText: 'Shade start',
+            value: state.get.current().theme.background.image.vignette.start,
+            defaultValue: state.get.default().theme.background.image.vignette.start,
+            min: state.get.minMax().theme.background.image.vignette.start.min,
+            max: state.get.minMax().theme.background.image.vignette.start.max,
+            action: () => {
+              applyCSSVar('theme.background.image.vignette.start');
+              applyCSSVar('theme.background.image.vignette.end');
+              data.save();
+            }
+          }
+        })
+      }
     },
     video: {
-      url: new Control_text({
+      alert: new Alert({
+        iconName: 'info',
+        children: [
+          node('p:YouTube page URLs <strong>can not</strong> be used.|class:small'),
+          complexNode({ tag: 'p', attr: [{ key: 'class', value: 'small' }], node: [(new Link({ text: 'How to link to a video file.', href: supportSetting.link.url + supportSetting.link.page.backgroundImageVideo, openNew: true })).link()] })
+        ]
+      }),
+      url: new Control_textarea({
         object: state.get.current(),
         path: 'theme.background.video.url',
         id: 'theme-background-video-url',
         value: state.get.current().theme.background.video.url,
         placeholder: 'https://www.example.com/video.mp4',
-        labelText: 'Background video URL',
+        labelText: 'URL',
         action: () => {
           theme.background.video.clear();
           theme.background.video.render();
@@ -1019,13 +1189,16 @@ themeSetting.background = (parent) => {
         }
       }),
       urlHelper: new Control_helperText({
-        text: ['Background video only supports a direct URL to a video file. Supports MP4 and WebM format.', 'YouTube page URLs can not be used.']
+        text: [
+          'Background video only supports a direct URL to a video file. Supports MP4 and WebM format.',
+          'Add more than one URL separated by spaces or on new lines for a random background video on load.'
+        ]
       }),
-      blur: new Control_slider({
+      blur: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.video.blur',
         id: 'theme-background-video-blur',
-        labelText: 'Background video blur',
+        labelText: 'Blur',
         value: state.get.current().theme.background.video.blur,
         defaultValue: state.get.default().theme.background.video.blur,
         min: state.get.minMax().theme.background.video.blur.min,
@@ -1035,11 +1208,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      grayscale: new Control_slider({
+      grayscale: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.video.grayscale',
         id: 'theme-background-video-grayscale',
-        labelText: 'Background video grayscale',
+        labelText: 'Grayscale',
         value: state.get.current().theme.background.video.grayscale,
         defaultValue: state.get.default().theme.background.video.grayscale,
         min: state.get.minMax().theme.background.video.grayscale.min,
@@ -1049,11 +1222,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      scale: new Control_slider({
+      scale: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.video.scale',
         id: 'theme-background-video-scale',
-        labelText: 'Background video scale',
+        labelText: 'Scale',
         value: state.get.current().theme.background.video.scale,
         defaultValue: state.get.default().theme.background.video.scale,
         min: state.get.minMax().theme.background.video.scale.min,
@@ -1063,11 +1236,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      accent: new Control_slider({
+      accent: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.video.accent',
         id: 'theme-background-video-accent',
-        labelText: 'Background video accent',
+        labelText: 'Accent',
         value: state.get.current().theme.background.video.accent,
         defaultValue: state.get.default().theme.background.video.accent,
         min: state.get.minMax().theme.background.video.accent.min,
@@ -1077,11 +1250,11 @@ themeSetting.background = (parent) => {
           data.save();
         }
       }),
-      opacity: new Control_slider({
+      opacity: new Control_sliderSlim({
         object: state.get.current(),
         path: 'theme.background.video.opacity',
         id: 'theme-background-video-opacity',
-        labelText: 'Background video opacity',
+        labelText: 'Opacity',
         value: state.get.current().theme.background.video.opacity,
         defaultValue: state.get.default().theme.background.video.opacity,
         min: state.get.minMax().theme.background.video.opacity.min,
@@ -1090,49 +1263,110 @@ themeSetting.background = (parent) => {
           applyCSSVar('theme.background.video.opacity');
           data.save();
         }
-      })
+      }),
+      vignette: {
+        opacity: new Control_sliderSlim({
+          object: state.get.current(),
+          path: 'theme.background.video.vignette.opacity',
+          id: 'theme-background-video-vignette-opacity',
+          labelText: 'Vignette',
+          value: state.get.current().theme.background.video.vignette.opacity,
+          defaultValue: state.get.default().theme.background.video.vignette.opacity,
+          min: state.get.minMax().theme.background.video.vignette.opacity.min,
+          max: state.get.minMax().theme.background.video.vignette.opacity.max,
+          action: () => {
+            applyCSSVar('theme.background.video.vignette.opacity');
+            data.save();
+          }
+        }),
+        range: new Control_sliderDouble({
+          object: state.get.current(),
+          labelText: 'Shade start and end',
+          left: {
+            path: 'theme.background.video.vignette.end',
+            id: 'theme-background-video-vignette-end',
+            labelText: 'Shade end',
+            value: state.get.current().theme.background.video.vignette.end,
+            defaultValue: state.get.default().theme.background.video.vignette.end,
+            min: state.get.minMax().theme.background.video.vignette.end.min,
+            max: state.get.minMax().theme.background.video.vignette.end.max,
+            action: () => {
+              applyCSSVar('theme.background.video.vignette.start');
+              applyCSSVar('theme.background.video.vignette.end');
+              data.save();
+            }
+          },
+          right: {
+            path: 'theme.background.video.vignette.start',
+            id: 'theme-background-video-vignette-start',
+            labelText: 'Shade start',
+            value: state.get.current().theme.background.video.vignette.start,
+            defaultValue: state.get.default().theme.background.video.vignette.start,
+            min: state.get.minMax().theme.background.video.vignette.start.min,
+            max: state.get.minMax().theme.background.video.vignette.start.max,
+            action: () => {
+              applyCSSVar('theme.background.video.vignette.start');
+              applyCSSVar('theme.background.video.vignette.end');
+              data.save();
+            }
+          }
+        })
+      }
     }
   };
 
   const themeBackgroundColorArea = node('div', [
-    node('hr'),
     themeSetting.control.background.color.wrap()
   ]);
 
   const themeBackgroundGradientArea = node('div', [
-    node('hr'),
     themeSetting.control.background.gradient.angle.wrap(),
-    node('hr'),
     themeSetting.control.background.gradient.start.wrap(),
-    node('hr'),
     themeSetting.control.background.gradient.end.wrap()
   ]);
 
   const themeBackgroundImageArea = node('div', [
-    node('hr'),
     themeSetting.control.background.image.url.wrap(),
     themeSetting.control.background.image.urlHelper.wrap(),
-    node('hr'),
     themeSetting.control.background.image.blur.wrap(),
     themeSetting.control.background.image.grayscale.wrap(),
     themeSetting.control.background.image.scale.wrap(),
     themeSetting.control.background.image.accent.wrap(),
-    themeSetting.control.background.image.opacity.wrap()
+    themeSetting.control.background.image.opacity.wrap(),
+    themeSetting.control.background.image.vignette.opacity.wrap(),
+    form.wrap({
+      children: [
+        form.indent({
+          children: [
+            themeSetting.control.background.image.vignette.range.wrap()
+          ]
+        })
+      ]
+    })
   ]);
 
   const themeBackgroundVideoArea = node('div', [
-    node('hr'),
+    themeSetting.control.background.video.alert.wrap(),
     themeSetting.control.background.video.url.wrap(),
     themeSetting.control.background.video.urlHelper.wrap(),
-    node('hr'),
     themeSetting.control.background.video.blur.wrap(),
     themeSetting.control.background.video.grayscale.wrap(),
     themeSetting.control.background.video.scale.wrap(),
     themeSetting.control.background.video.accent.wrap(),
-    themeSetting.control.background.video.opacity.wrap()
+    themeSetting.control.background.video.opacity.wrap(),
+    themeSetting.control.background.video.vignette.opacity.wrap(),
+    form.wrap({
+      children: [
+        form.indent({
+          children: [
+            themeSetting.control.background.video.vignette.range.wrap()
+          ]
+        })
+      ]
+    })
   ]);
 
-  const themeBackgroundCollapse = new Collapse({
+  themeSetting.control.background.typeCollapse = new Collapse({
     type: 'radio',
     radioGroup: themeSetting.control.background.type,
     target: [{
@@ -1150,8 +1384,6 @@ themeSetting.background = (parent) => {
     }]
   });
 
-  themeBackgroundCollapse.update();
-
   parent.appendChild(
     node('div', [
       themeSetting.control.background.type.wrap(),
@@ -1159,7 +1391,7 @@ themeSetting.background = (parent) => {
         children: [
           form.indent({
             children: [
-              themeBackgroundCollapse.collapse()
+              themeSetting.control.background.typeCollapse.collapse()
             ]
           })
         ]

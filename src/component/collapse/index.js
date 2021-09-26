@@ -6,7 +6,7 @@ import { node } from '../../utility/node';
 
 import './index.css';
 
-const Collapse = function({
+export const Collapse = function({
   type = false,
   radioGroup = false,
   checkbox = false,
@@ -27,7 +27,9 @@ const Collapse = function({
     return target;
   };
 
-  this.collapseElement = node('div|class:collapse');
+  this.element = {
+    collapse: node('div|class:collapse')
+  };
 
   this.collapse = () => {
     target.forEach((item, i) => {
@@ -35,10 +37,10 @@ const Collapse = function({
 
       item.area.appendChild(item.spacer);
 
-      this.collapseElement.appendChild(item.area);
+      this.element.collapse.appendChild(item.area);
     });
 
-    return this.collapseElement;
+    return this.element.collapse;
   };
 
   this.toggle = () => {
@@ -56,9 +58,11 @@ const Collapse = function({
   this.renderTarget = (state, area) => {
     if (state) {
       area.classList.add('is-collapsed');
+      // area.classList.remove('is-pop');
       area.setAttribute('aria-hidden', true);
     } else {
       area.classList.remove('is-collapsed');
+      // area.classList.add('is-pop');
       area.removeAttribute('aria-hidden');
     };
   };
@@ -76,27 +80,43 @@ const Collapse = function({
   this.update = () => {
 
     switch (type) {
+
       case 'radio':
+
         const selectedRadioValue = radioGroup.value();
 
         target.forEach((item, i) => {
-
           this.renderTarget(!(item.id === selectedRadioValue), item.area);
-
         });
+
         break;
 
       case 'checkbox':
-        const state = checkbox.checked();
+
+        let state = true;
+
+        if (checkbox.length > 1) {
+
+          let allCheckboxState = [];
+
+          checkbox.forEach(item => allCheckboxState.push(item.checked()));
+
+          state = allCheckboxState.some(item => item === true);
+
+        } else {
+
+          state = checkbox.checked();
+
+        };
 
         target.forEach((item, i) => {
-
           this.renderTarget(!state, item.area);
-
         });
+
         break;
 
       case 'toggle':
+
         target.forEach((item, i) => {
 
           this.renderTarget(item.state.collapsed, item.area);
@@ -106,9 +126,13 @@ const Collapse = function({
           };
 
         });
-        break;
-    };
-  };
-};
 
-export { Collapse };
+        break;
+
+    };
+
+  };
+
+  this.update();
+
+};

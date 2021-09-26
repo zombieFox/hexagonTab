@@ -14,4 +14,9 @@ pageLock.render = () => {
 
 };
 
+pageLock.init = () => {
+  state.get.current().modal = false;
+  state.get.current().menu = false;
+};
+
 export { pageLock };

@@ -6,7 +6,7 @@ import { node } from '../../utility/node';
 
 import './index.css';
 
-const MenuClose = function() {
+export const MenuClose = function() {
 
   this.element = {
     close: node('div|class:menu-close')
@@ -38,5 +38,3 @@ const MenuClose = function() {
   this.assemble();
 
 };
-
-export { MenuClose };

@@ -9,9 +9,6 @@
 }
 
 .bookmark-preview-grid {
-  background-color: hsl(var(--theme-primary-300));
-  padding: calc(var(--modal-space) * 0.5em);
-  border-radius: var(--theme-radius-base);
   display: block;
   width: 100%;
   transition: background-color var(--layout-transition-extra-fast);

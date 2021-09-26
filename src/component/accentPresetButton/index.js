@@ -16,7 +16,7 @@ import { applyCSSState } from '../../utility/applyCSSState';
 
 import './index.css';
 
-const AccentPresetButton = function({ presetData = false } = {}) {
+export const AccentPresetButton = function({ presetData = false } = {}) {
 
   this.name = () => {
 
@@ -61,7 +61,7 @@ const AccentPresetButton = function({ presetData = false } = {}) {
 
       }
     }),
-    preview: node('span|class:theme-accent-preset-preview'),
+    preview: node('span|class:theme-accent-preset-preview')
   };
 
   this.previewTile = () => {
@@ -91,5 +91,3 @@ const AccentPresetButton = function({ presetData = false } = {}) {
   this.assemble();
 
 };
-
-export { AccentPresetButton };

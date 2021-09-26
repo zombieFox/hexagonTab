@@ -17,7 +17,7 @@ import { applyCSSState } from '../../utility/applyCSSState';
 
 import './index.css';
 
-const ToolbarControl = function() {
+export const ToolbarControl = function() {
 
   this.element = {
     toolbar: node('div|class:toolbar'),
@@ -117,8 +117,8 @@ const ToolbarControl = function() {
 
     } else {
 
-      if (this.element.group.contains(this.control.button.add.button)) {
-        this.element.group.removeChild(this.control.button.add.button);
+      if (this.element.group.contains(this.control.button.add.toggle)) {
+        this.element.group.removeChild(this.control.button.add.toggle);
       };
 
     };
@@ -153,6 +153,18 @@ const ToolbarControl = function() {
 
   this.update.style = () => {
 
+    const html = document.querySelector('html');
+
+    if (state.get.current().theme.toolbar.opacity < 40) {
+
+      html.classList.add('is-toolbar-opacity-low');
+
+    } else {
+
+      html.classList.remove('is-toolbar-opacity-low');
+
+    };
+
     const add = (rgb) => {
 
       this.element.toolbar.style.setProperty('--toolbar-color-r', rgb.r);
@@ -181,92 +193,81 @@ const ToolbarControl = function() {
 
     };
 
-    switch (state.get.current().toolbar.style) {
+    if (state.get.current().theme.toolbar.opacity < 40) {
 
-      case 'transparent':
+      switch (state.get.current().theme.background.type) {
 
-        switch (state.get.current().theme.background.type) {
+        case 'theme':
+        case 'image':
+        case 'video':
 
-          case 'theme':
-          case 'image':
-          case 'video':
-            remove();
-            break;
+          remove();
 
-          case 'accent':
-            add(state.get.current().theme.accent.rgb);
-            break;
+          break;
 
-          case 'color':
-            add(state.get.current().theme.background.color.rgb);
-            break;
+        case 'accent':
 
-          case 'gradient':
-            let angle = state.get.current().theme.background.gradient.angle;
+          add(state.get.current().theme.accent.rgb);
 
-            switch (state.get.current().toolbar.position) {
+          break;
 
-              case 'top-left':
-              case 'top-right':
-                if (angle < 90) {
-                  add(state.get.current().theme.background.gradient.end.rgb);
-                } else if (angle >= 90 && angle < 180) {
-                  add(state.get.current().theme.background.gradient.start.rgb);
-                } else if (angle >= 180 && angle < 270) {
-                  add(state.get.current().theme.background.gradient.start.rgb);
-                } else if (angle >= 270) {
-                  add(state.get.current().theme.background.gradient.end.rgb);
-                };
-                break;
+        case 'color':
 
-              case 'bottom-right':
-              case 'bottom-left':
-                if (angle < 90) {
-                  add(state.get.current().theme.background.gradient.start.rgb);
-                } else if (angle >= 90 && angle < 180) {
-                  add(state.get.current().theme.background.gradient.end.rgb);
-                } else if (angle >= 180 && angle < 270) {
-                  add(state.get.current().theme.background.gradient.end.rgb);
-                } else if (angle >= 270) {
-                  add(state.get.current().theme.background.gradient.start.rgb);
-                };
-                break;
+          add(state.get.current().theme.background.color.rgb);
 
-            };
+          break;
 
-            break;
+        case 'gradient':
 
-        };
+          let angle = state.get.current().theme.background.gradient.angle;
 
-        break;
+          switch (state.get.current().toolbar.position) {
 
-      case 'bar':
+            case 'top-left':
+            case 'top-right':
+              if (angle < 90) {
+                add(state.get.current().theme.background.gradient.end.rgb);
+              } else if (angle >= 90 && angle < 180) {
+                add(state.get.current().theme.background.gradient.start.rgb);
+              } else if (angle >= 180 && angle < 270) {
+                add(state.get.current().theme.background.gradient.start.rgb);
+              } else if (angle >= 270) {
+                add(state.get.current().theme.background.gradient.end.rgb);
+              };
+              break;
 
-        remove();
+            case 'bottom-right':
+            case 'bottom-left':
+              if (angle < 90) {
+                add(state.get.current().theme.background.gradient.start.rgb);
+              } else if (angle >= 90 && angle < 180) {
+                add(state.get.current().theme.background.gradient.end.rgb);
+              } else if (angle >= 180 && angle < 270) {
+                add(state.get.current().theme.background.gradient.end.rgb);
+              } else if (angle >= 270) {
+                add(state.get.current().theme.background.gradient.start.rgb);
+              };
+              break;
 
-        break;
+          };
 
-    };
+          break;
 
-    switch (state.get.current().toolbar.style) {
+      };
 
-      case 'transparent':
+      this.control.button.accent.inputButtonStyle.update(['dot', 'link']);
+      this.control.button.edit.style.update(['line', 'link']);
+      this.control.button.setting.style.update(['link']);
+      this.control.button.add.style.update(['link']);
 
-        this.control.button.accent.inputButtonStyle.update(['dot', 'link']);
-        this.control.button.edit.style.update(['line', 'link']);
-        this.control.button.setting.style.update(['link']);
-        this.control.button.add.style.update(['link']);
+    } else {
 
-        break;
+      remove();
 
-      case 'bar':
-
-        this.control.button.accent.inputButtonStyle.update(['dot', 'line']);
-        this.control.button.edit.style.update(['line']);
-        this.control.button.setting.style.update(['line']);
-        this.control.button.add.style.update(['line']);
-
-        break;
+      this.control.button.accent.inputButtonStyle.update(['dot', 'line']);
+      this.control.button.edit.style.update(['line']);
+      this.control.button.setting.style.update(['line']);
+      this.control.button.add.style.update(['line']);
 
     };
 
@@ -326,5 +327,3 @@ const ToolbarControl = function() {
   this.update.control();
 
 };
-
-export { ToolbarControl }

@@ -1,65 +1,16 @@
+:root {
+  --menu-nav-space: 12;
+}
+
 .menu-nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.menu-nav-item {
-  flex-grow: 1;
-  flex-basis: 33.33333333%;
-}
-
-.menu-nav-tab {
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-radius: 0;
-  height: calc(var(--menu-space) * 5);
-  width: 100%;
-  line-height: 1;
-}
-
-.menu-nav-tab:focus,
-.menu-nav-tab:hover {
-  background-color: hsl(var(--theme-primary-200));
-}
-
-.menu-nav-tab:active {
-  background-color: hsl(var(--theme-primary-300));
-}
-
-.menu-nav-tab.active {
-  background-color: hsl(var(--menu-background));
-  color: hsl(var(--menu-text));
-}
-
-.menu-nav-tab.active:hover {
-  background-color: hsl(var(--theme-primary-200));
-}
-
-.menu-nav-tab.active:active {
-  background-color: hsl(var(--theme-primary-300));
-}
-
-.menu-nav-tab:after {
-  border-radius: 0;
-}
-
-.menu-subnav {
-  display: none;
-}
-
-.menu-nav-area-tab {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  flex-grow: 1;
-}
-
 @media (min-width: 700px) {
   .menu-nav {
-    background-color: hsla(var(--theme-primary-200), 0.75);
+    background-color: hsla(var(--theme-primary-020), 0.75);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -72,6 +23,17 @@
     transition: background-color var(--layout-transition-extra-fast);
   }
 
+  .is-edge .menu-nav {
+    background-color: transparent;
+  }
+}
+
+.menu-nav-item {
+  flex-grow: 1;
+  flex-basis: 20%;
+}
+
+@media (min-width: 700px) {
   .menu-nav-item {
     flex-grow: 0;
     flex-basis: auto;
@@ -90,21 +52,66 @@
     transition: background-color var(--layout-transition-extra-fast);
   }
 
+  .menu-nav-item:hover:before,
   .menu-nav-item.active:before {
     background-color: rgb(var(--theme-accent));
   }
 
+  .is-edge .menu-nav-item:before {
+    background-color: transparent;
+  }
+}
+
+.menu-nav-tab {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+  height: calc((var(--menu-nav-space) / 4) * 1em);
+  width: 100%;
+  line-height: 1;
+}
+
+.menu-nav-tab:focus,
+.menu-nav-tab:hover {
+  background-color: hsl(var(--theme-primary-020));
+}
+
+.menu-nav-tab:active {
+  background-color: hsl(var(--theme-primary-030));
+}
+
+.menu-nav-tab.active,
+.menu-nav-tab.active:hover,
+.menu-nav-tab.active:active {
+  background-color: rgb(var(--theme-accent));
+  color: hsl(var(--theme-accent-text));
+}
+
+.menu-nav-tab:after {
+  border-radius: 0;
+}
+
+.is-edge .menu-nav-tab.active {
+  background-color: transparent;
+  color: hsl(var(--button-text));
+}
+
+@media (min-width: 700px) {
   .menu-nav-tab {
-    padding-left: calc(calc(var(--menu-space) * 2) + calc(var(--theme-radius-base) / 3));
-    padding-right: calc(var(--menu-space) * 2);
-    height: calc(var(--menu-space) * 4);
+    padding-left: calc(((var(--menu-nav-space) / 8) + (var(--theme-radius) * 0.0025)) * 1em);
+    height: calc((var(--menu-nav-space) / 4) * 1em);
     justify-content: flex-start;
   }
+}
 
-  .menu-nav-tab:after {}
+.menu-subnav {
+  display: none;
+}
 
+@media (min-width: 700px) {
   .menu-subnav {
-    background-color: hsl(var(--theme-primary-100));
+    background-color: hsl(var(--theme-primary-010));
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -113,18 +120,32 @@
     transition: background-color var(--layout-transition-extra-fast), height var(--layout-transition-extra-fast);
   }
 
+  .is-edge .menu-subnav {
+    background-color: transparent;
+  }
+
   .menu-subnav.active {
     height: var(--menu-subnav-height);
   }
+}
 
+.menu-nav-area-tab {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+@media (min-width: 700px) {
   .menu-nav-sub {
     background-color: transparent;
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
-    padding-left: calc(calc(var(--menu-space) * 4) + calc(var(--theme-radius-base) / 3));
+    padding-left: calc(((var(--menu-nav-space) / 4) + (var(--theme-radius) * 0.0025)) * 1em);
     border-radius: 0;
-    height: 3em;
+    height: calc((var(--menu-nav-space) / 4) * 1em);
     min-height: 3em;
     width: 100%;
     line-height: 1;
@@ -133,11 +154,11 @@
 
   .menu-nav-sub:focus,
   .menu-nav-sub:hover {
-    background-color: hsl(var(--theme-primary-200));
+    background-color: hsl(var(--theme-primary-020));
   }
 
   .menu-nav-sub:active {
-    background-color: hsl(var(--theme-primary-300));
+    background-color: hsl(var(--theme-primary-030));
   }
 
   .menu-nav-sub:after,

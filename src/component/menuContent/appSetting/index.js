@@ -8,12 +8,13 @@ import { version } from '../../version';
 import { menu } from '../../menu';
 import { icon } from '../../icon';
 import { logo } from '../../logo';
-import { link } from '../../link';
+import { appName } from '../../appName';
 
 import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
+import { Link } from '../../link';
 
 import { Control_helperText } from '../../control/helperText';
 import { Control_inputButton } from '../../control/inputButton';
@@ -33,37 +34,35 @@ import { complexNode } from '../../../utility/complexNode';
 
 const appSetting = {};
 
-appSetting[data.saveName.toLowerCase()] = (parent) => {
+appSetting[appName.toLowerCase()] = (parent) => {
+
+  const githubLink = new Link({ text: 'GitHub.', href: 'https://github.com/zombieFox/' + appName, openNew: true });
+
+  const redditLink = new Link({ text: `Reddit ${appName} community.`, href: 'https://www.reddit.com/r/' + appName, openNew: true });
+
+  const licenseLink = new Link({ text: 'GNU General Public License v3.0', href: 'https://github.com/zombieFox/' + appName + '/blob/master/license', openNew: true });
+
+  const para1 = node('p');
+
+  para1.innerHTML = `This project can be found on ${githubLink.link().outerHTML}`;
+
+  const para2 = node('p');
+
+  para2.innerHTML = `${appName} uses the ${licenseLink.link().outerHTML}`;
 
   parent.appendChild(
     node('div', [
       node('div|class:version', [
         logo.render(),
         node('div|class:version-details', [
-          node('p:Version ' + version.number + '|class:version-number mb-0'),
+          node('h1:' + appName + '|class:version-app-name'),
+          node('p:Version ' + version.number + '|class:version-number'),
           node('p:' + version.name + '|class:version-name small')
         ])
       ]),
       node('hr'),
-      complexNode({
-        tag: 'p',
-        text: 'Project repository on ',
-        node: [link.render({
-          text: 'GitHub.',
-          href: 'https://github.com/zombieFox/' + data.saveName,
-          openNew: true
-        })]
-      }),
-      node('hr'),
-      complexNode({
-        tag: 'p',
-        text: 'For feedback and support, submit an ',
-        node: [link.render({
-          text: 'Issue.',
-          href: 'https://github.com/zombieFox/' + data.saveName + '/issues',
-          openNew: true
-        })]
-      })
+      para1,
+      para2
     ])
   );
 

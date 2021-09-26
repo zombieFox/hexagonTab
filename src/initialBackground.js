@@ -1,6 +1,6 @@
 // inital check for systems which do not have light or dark mode
 if (localStorage.getItem('hexagonTabStyle')) {
-  var style = document.createElement('style');
+  const style = document.createElement('style');
   style.type = 'text/css';
   style.media = 'screen';
   switch (localStorage.getItem('hexagonTabStyle')) {

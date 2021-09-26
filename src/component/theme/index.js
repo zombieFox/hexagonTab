@@ -1,5 +1,9 @@
 import { state } from '../state';
 import { data } from '../data';
+import { appName } from '../appName';
+import { toolbar } from '../toolbar';
+import { bookmark } from '../bookmark';
+import { themeSetting } from '../menuContent/themeSetting';
 
 import { Video } from '../video';
 
@@ -106,22 +110,11 @@ theme.font.ui = {
 };
 
 theme.color = {
-  lightness: {
-    set: () => {
-
-      state.get.current().theme.color.lightness.offset = state.get.minMax().theme.color.lightness.contrast.max - state.get.current().theme.color.lightness.contrast;
-
-      state.get.current().theme.color.lightness.start = state.get.current().theme.color.lightness.offset;
-
-      state.get.current().theme.color.lightness.end = 100 - state.get.current().theme.color.lightness.offset;
-
-    }
-  },
   render: () => {
 
     const html = document.querySelector('html');
 
-    let shades = (state.get.current().theme.color.lightness.end - state.get.current().theme.color.lightness.start) / (state.get.current().theme.color.shades - 1);
+    let shades = (state.get.current().theme.color.contrast.end - state.get.current().theme.color.contrast.start) / (state.get.current().theme.color.shades - 1);
 
     for (var type in state.get.current().theme.color.range) {
 
@@ -129,7 +122,7 @@ theme.color = {
 
         let hsl = JSON.parse(JSON.stringify(state.get.current().theme.color.range[type]));
 
-        hsl.l = Math.round((shades * i) + state.get.current().theme.color.lightness.start);
+        hsl.l = Math.round((shades * i) + state.get.current().theme.color.contrast.start);
 
         let rgb = convertColor.hsl.rgb(hsl);
 
@@ -143,6 +136,10 @@ theme.color = {
 
       };
 
+    };
+
+    for (let i = 1; i <= state.get.current().theme.color.shades; i++) {
+      html.style.setProperty(`--theme-primary-${i}`, `var(--theme-primary-${i}-h), calc(var(--theme-primary-${i}-s) * 1%), calc(var(--theme-primary-${i}-l) * 1%)`);
     };
 
   }
@@ -188,15 +185,15 @@ theme.style = {
       case 'dark':
       case 'light':
 
-        localStorage.setItem(data.saveName + 'Style', state.get.current().theme.style);
+        localStorage.setItem(appName + 'Style', state.get.current().theme.style);
         break;
 
       case 'system':
 
         if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'dark');
+          localStorage.setItem(appName + 'Style', 'dark');
         } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
-          localStorage.setItem(data.saveName + 'Style', 'light');
+          localStorage.setItem(appName + 'Style', 'light');
         };
         break;
 
@@ -235,8 +232,18 @@ theme.background = {
       accent: node('div|class:theme-background-type theme-background-type-accent'),
       color: node('div|class:theme-background-type theme-background-type-color'),
       gradient: node('div|class:theme-background-type theme-background-type-gradient'),
-      image: node('div|class:theme-background-type theme-background-type-image'),
-      video: node('div|class:theme-background-type theme-background-type-video')
+      image: {
+        imageElement: node('div|class:theme-background-type theme-background-type-image'),
+        wrap: node('div|class:theme-background-type-image-wrap'),
+        accent: node('div|class:theme-background-type-image-accent'),
+        vignette: node('div|class:theme-background-type-image-vignette')
+      },
+      video: {
+        videoElement: node('div|class:theme-background-type theme-background-type-video'),
+        wrap: node('div|class:theme-background-type-video-wrap'),
+        accent: node('div|class:theme-background-type-video-accent'),
+        vignette: node('div|class:theme-background-type-video-vignette')
+      },
     },
     video: false
   }
@@ -249,7 +256,31 @@ theme.background.area = {
 
     state.get.option().theme.background.type.forEach((item, i) => {
 
-      theme.background.element.background.appendChild(theme.background.element.type[item]);
+      switch (item) {
+
+        case 'image':
+
+          theme.background.element.type.image.imageElement.appendChild(theme.background.element.type.image.wrap);
+          theme.background.element.type.image.imageElement.appendChild(theme.background.element.type.image.accent);
+          theme.background.element.type.image.imageElement.appendChild(theme.background.element.type.image.vignette);
+          theme.background.element.background.appendChild(theme.background.element.type.image.imageElement);
+
+          break;
+
+        case 'video':
+
+          theme.background.element.type.video.videoElement.appendChild(theme.background.element.type.video.wrap);
+          theme.background.element.type.video.videoElement.appendChild(theme.background.element.type.video.accent);
+          theme.background.element.type.video.videoElement.appendChild(theme.background.element.type.video.vignette);
+          theme.background.element.background.appendChild(theme.background.element.type.video.videoElement);
+
+          break;
+
+        default:
+
+          theme.background.element.background.appendChild(theme.background.element.type[item]);
+
+      };
 
     });
 
@@ -264,9 +295,15 @@ theme.background.image = {
     const html = document.querySelector('html');
 
     if (isValidString(state.get.current().theme.background.image.url)) {
-      html.style.setProperty('--theme-background-image', 'url(' + trimString(state.get.current().theme.background.image.url) + ')');
+
+      const allUrls = trimString(state.get.current().theme.background.image.url).split(/\s+/).filter((item) => { return item != ''; });
+
+      html.style.setProperty('--theme-background-image', 'url("' + allUrls[Math.floor(Math.random() * allUrls.length)] + '")');
+
     } else {
+
       html.style.removeProperty('--theme-background-image');
+
     };
 
   }
@@ -275,13 +312,15 @@ theme.background.image = {
 theme.background.video = {
   render: () => {
 
-    theme.background.element.video = new Video({
-      url: state.get.current().theme.background.video.url
-    });
-
     if (isValidString(state.get.current().theme.background.video.url)) {
 
-      theme.background.element.type.video.appendChild(theme.background.element.video.video);
+      const allUrls = trimString(state.get.current().theme.background.video.url).split(/\s+/).filter((item) => { return item != ''; });
+
+      theme.background.element.video = new Video({
+        url: allUrls[Math.floor(Math.random() * allUrls.length)]
+      });
+
+      theme.background.element.type.video.wrap.appendChild(theme.background.element.video.video);
 
     } else {
 
@@ -294,9 +333,9 @@ theme.background.video = {
 
     theme.background.element.video = false;
 
-    if (theme.background.element.type.video.lastChild) {
+    if (theme.background.element.type.video.wrap.lastChild) {
 
-      clearChildNode(theme.background.element.type.video);
+      clearChildNode(theme.background.element.type.video.wrap);
 
     };
 
@@ -306,7 +345,6 @@ theme.background.video = {
 theme.init = () => {
   theme.style.initial();
   theme.style.bind();
-  theme.color.lightness.set();
   theme.color.render();
   theme.accent.random.render();
   theme.font.display.load();
@@ -325,13 +363,6 @@ theme.init = () => {
     'theme.font.display.style',
     'theme.font.ui.weight',
     'theme.font.ui.style',
-    'theme.bookmark.shadow.color.rgb.r',
-    'theme.bookmark.shadow.color.rgb.g',
-    'theme.bookmark.shadow.color.rgb.b',
-    'theme.bookmark.shadow.color.hsl.h',
-    'theme.bookmark.shadow.color.hsl.s',
-    'theme.bookmark.shadow.color.hsl.l',
-    'theme.bookmark.shadow.opacity',
     'theme.background.color.rgb.r',
     'theme.background.color.rgb.g',
     'theme.background.color.rgb.b',
@@ -339,13 +370,21 @@ theme.init = () => {
     'theme.background.color.hsl.s',
     'theme.background.color.hsl.l',
     'theme.background.image.blur',
+    'theme.background.image.grayscale',
     'theme.background.image.scale',
     'theme.background.image.accent',
     'theme.background.image.opacity',
+    'theme.background.image.vignette.opacity',
+    'theme.background.image.vignette.start',
+    'theme.background.image.vignette.end',
     'theme.background.video.blur',
+    'theme.background.video.grayscale',
     'theme.background.video.scale',
     'theme.background.video.accent',
     'theme.background.video.opacity',
+    'theme.background.video.vignette.opacity',
+    'theme.background.video.vignette.start',
+    'theme.background.video.vignette.end',
     'theme.background.gradient.angle',
     'theme.background.gradient.start.rgb.r',
     'theme.background.gradient.start.rgb.g',
@@ -359,10 +398,18 @@ theme.init = () => {
     'theme.background.gradient.end.hsl.h',
     'theme.background.gradient.end.hsl.s',
     'theme.background.gradient.end.hsl.l',
+    'theme.bookmark.shadow.color.rgb.r',
+    'theme.bookmark.shadow.color.rgb.g',
+    'theme.bookmark.shadow.color.rgb.b',
+    'theme.bookmark.shadow.color.hsl.h',
+    'theme.bookmark.shadow.color.hsl.s',
+    'theme.bookmark.shadow.color.hsl.l',
+    'theme.bookmark.shadow.opacity',
     'theme.radius',
     'theme.shadow',
     'theme.shade.opacity',
-    'theme.shade.blur'
+    'theme.shade.blur',
+    'theme.toolbar.opacity'
   ]);
   applyCSSClass([
     'theme.style',

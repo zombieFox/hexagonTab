@@ -22,6 +22,8 @@ const HexTile = function({
   preview = false
 } = {}) {
 
+  this.data = bookmarkData;
+
   this.element = {
     bookmark: node('div|class:bookmark'),
     shadow: {
@@ -154,6 +156,8 @@ const HexTile = function({
 
         editModal.open();
 
+        bookmarkForm.tab.update();
+
       }
     }),
     remove: new Button({
@@ -190,18 +194,22 @@ const HexTile = function({
   };
 
   this.control.disable = () => {
+
     for (var key in this.control.button) {
       this.control.button[key].disable();
     };
+
   };
 
   this.control.enable = () => {
+
     for (var key in this.control.button) {
       this.control.button[key].enable();
     };
+
   };
 
-  this.makeStyle = (newBookmarkData) => {
+  this.style = (newBookmarkData) => {
 
     if (newBookmarkData) {
       bookmarkData = newBookmarkData;
@@ -217,35 +225,43 @@ const HexTile = function({
       this.element.content.link.setAttribute('href', '#');
     };
 
+    if (state.get.current().bookmark.newTab && !preview) {
+      this.element.content.link.setAttribute('target', '_blank');
+    };
+
     this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
 
     this.element.bookmark.style.setProperty('--bookmark-color-opacity', bookmarkData.link.color.opacity);
 
-    switch (bookmarkData.link.display.direction) {
-      case 'vertical':
-        switch (bookmarkData.link.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column');
-            break;
+    if (bookmarkData.link.color.opacity < 40) {
 
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'column-reverse');
-            break;
-        };
-        break;
+      this.element.bookmark.classList.add('is-bookmark-opacity-low');
 
-      case 'horizontal':
-        switch (bookmarkData.link.display.order) {
-          case 'visual-name':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row');
-            break;
+    } else {
 
-          case 'name-visual':
-            this.element.bookmark.style.setProperty('--bookmark-display-direction', 'row-reverse');
-            break;
-        };
-        break;
+      this.element.bookmark.classList.remove('is-bookmark-opacity-low');
+
     };
+
+    if (preview) {
+
+      const order = ['visual-name', 'name-visual'];
+
+      order.forEach((item, i) => {
+        this.element.bookmark.classList.remove('is-bookmark-order-' + item);
+      });
+
+      const direction = ['vertical', 'horizontal'];
+
+      direction.forEach((item, i) => {
+        this.element.bookmark.classList.remove('is-bookmark-direction-' + item);
+      });
+
+    };
+
+    this.element.bookmark.classList.add('is-bookmark-order-' + bookmarkData.link.display.order);
+
+    this.element.bookmark.classList.add('is-bookmark-direction-' + bookmarkData.link.display.direction);
 
     this.element.bookmark.style.setProperty('--bookmark-display-translate-x', bookmarkData.link.display.translate.x);
 
@@ -257,43 +273,60 @@ const HexTile = function({
 
     this.element.bookmark.style.setProperty('--bookmark-display-visual-size', bookmarkData.link.display.visual.size);
 
-    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url(' + trimString(bookmarkData.link.display.visual.image.url) + ')');
+    this.element.bookmark.style.setProperty('--bookmark-display-visual-image-url', 'url("' + trimString(bookmarkData.link.display.visual.image.url) + '")');
 
     this.element.bookmark.style.setProperty('--bookmark-display-name-size', bookmarkData.link.display.name.size);
 
-    if (bookmarkData.link.accent.by == 'custom') {
-      this.element.bookmark.style.setProperty('--theme-accent-rgb-r', bookmarkData.link.accent.rgb.r);
-      this.element.bookmark.style.setProperty('--theme-accent-rgb-g', bookmarkData.link.accent.rgb.g);
-      this.element.bookmark.style.setProperty('--theme-accent-rgb-b', bookmarkData.link.accent.rgb.b);
-      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-rgb-r), var(--theme-accent-rgb-g), var(--theme-accent-rgb-b)');
-
-      this.element.bookmark.style.setProperty('--theme-accent-rgb-text', '0, 0%, calc(((((var(--theme-accent-rgb-r) * var(--theme-t-r)) + (var(--theme-accent-rgb-g) * var(--theme-t-g)) + (var(--theme-accent-rgb-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
-
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
-      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-accent)');
-    };
-
     if (bookmarkData.link.color.by == 'custom') {
+
       this.element.bookmark.style.setProperty('--theme-color-r', bookmarkData.link.color.rgb.r);
+
       this.element.bookmark.style.setProperty('--theme-color-g', bookmarkData.link.color.rgb.g);
+
       this.element.bookmark.style.setProperty('--theme-color-b', bookmarkData.link.color.rgb.b);
 
       this.element.bookmark.style.setProperty('--theme-color-h', bookmarkData.link.color.hsl.h);
+
       this.element.bookmark.style.setProperty('--theme-color-s', bookmarkData.link.color.hsl.s);
+
       this.element.bookmark.style.setProperty('--theme-color-l', bookmarkData.link.color.hsl.l);
 
       this.element.bookmark.style.setProperty('--theme-color', bookmarkData.link.color.hsl.h + ', ' + bookmarkData.link.color.hsl.s + '%, ' + bookmarkData.link.color.hsl.l + '%');
+
       this.element.bookmark.style.setProperty('--theme-color-text', '0, 0%, calc(((((var(--theme-color-r) * var(--theme-t-r)) + (var(--theme-color-g) * var(--theme-t-g)) + (var(--theme-color-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
 
       this.element.bookmark.style.setProperty('--bookmark-color', 'var(--theme-color)');
+
       this.element.bookmark.style.setProperty('--bookmark-color-focus-hover', 'var(--theme-color)');
 
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color-focus-hover', 'var(--theme-color-text)');
+
       this.element.bookmark.style.setProperty('--bookmark-display-name-color', 'var(--theme-color-text)');
+
       this.element.bookmark.style.setProperty('--bookmark-display-name-color-focus-hover', 'var(--theme-color-text)');
 
       this.element.bookmark.style.setProperty('--button-link-text', 'var(--theme-color-text)');
+
       this.element.bookmark.style.setProperty('--button-link-text-focus-hover', 'var(--theme-color-text)');
+
       this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
+
+    };
+
+    if (bookmarkData.link.accent.by == 'custom') {
+
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-r', bookmarkData.link.accent.rgb.r);
+
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-g', bookmarkData.link.accent.rgb.g);
+
+      this.element.bookmark.style.setProperty('--theme-accent-rgb-b', bookmarkData.link.accent.rgb.b);
+
+      this.element.bookmark.style.setProperty('--theme-accent', 'var(--theme-accent-rgb-r), var(--theme-accent-rgb-g), var(--theme-accent-rgb-b)');
+
+      this.element.bookmark.style.setProperty('--theme-accent-text', '0, 0%, calc(((((var(--theme-accent-rgb-r) * var(--theme-t-r)) + (var(--theme-accent-rgb-g) * var(--theme-t-g)) + (var(--theme-accent-rgb-b) * var(--theme-t-b))) / 255) - var(--theme-t)) * -10000000%)');
+
+      this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
+
     };
 
     if (bookmarkData.link.background.show) {
@@ -302,7 +335,7 @@ const HexTile = function({
       switch (bookmarkData.link.background.type) {
         case 'image':
           if (isValidString(bookmarkData.link.background.image.url)) {
-            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url(' + trimString(bookmarkData.link.background.image.url) + ')');
+            this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url("' + trimString(bookmarkData.link.background.image.url) + '")');
           };
           break;
       };
@@ -352,25 +385,32 @@ const HexTile = function({
     if (bookmarkData.link.background.show) {
 
       switch (bookmarkData.link.background.type) {
+
         case 'image':
+
           this.element.content.background.wrap.appendChild(this.element.content.background.image);
+
           break;
 
         case 'video':
+
           this.element.content.background.wrap.appendChild(this.element.content.background.video);
 
           if (isValidString(bookmarkData.link.background.video.url)) {
-            const backgroundVideoElement = new Video({
+
+            this.video = new Video({
               url: bookmarkData.link.background.video.url
             });
 
-            this.element.content.background.video.appendChild(backgroundVideoElement.video);
+            this.element.content.background.video.appendChild(this.video.video);
+
           };
 
           break;
       };
 
       this.element.content.link.appendChild(this.element.content.background.wrap);
+
     };
 
     this.element.content.wrap.appendChild(this.element.content.link);
@@ -407,13 +447,15 @@ const HexTile = function({
 
   this.update = (newBookmarkData) => {
 
-    this.makeStyle(newBookmarkData);
+    this.style(newBookmarkData);
 
   };
 
+  this.video = false;
+
   this.assemble();
 
-  this.makeStyle();
+  this.style();
 
 };
 

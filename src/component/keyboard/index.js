@@ -6,6 +6,8 @@ import { bookmark } from '../bookmark';
 import { theme } from '../theme';
 import { themeSetting } from '../menuContent/themeSetting';
 
+import { applyCSSVar } from '../../utility/applyCSSVar';
+
 import { KeyboardShortcut } from '../keyboardShortcut';
 
 const keyboard = {};
@@ -17,6 +19,7 @@ keyboard.esc = new KeyboardShortcut({
       bookmark.edit.close();
       toolbar.current.update.edit();
     };
+    data.save();
   }
 });
 
@@ -64,12 +67,34 @@ keyboard.ctrAltM = new KeyboardShortcut({
   }
 });
 
-keyboard.init = function() {
+keyboard.ctrAltR = new KeyboardShortcut({
+  keycode: 82,
+  ctrl: true,
+  alt: true,
+  action: () => {
+    theme.accent.random.render();
+    toolbar.current.update.accent();
+    if (themeSetting.control.accent.color) {
+      themeSetting.control.accent.color.update();
+    };
+    applyCSSVar([
+      'theme.accent.rgb.r',
+      'theme.accent.rgb.g',
+      'theme.accent.rgb.b',
+      'theme.accent.hsl.h',
+      'theme.accent.hsl.s',
+      'theme.accent.hsl.l'
+    ]);
+  }
+});
+
+keyboard.init = () => {
   keyboard.esc.add();
   keyboard.ctrAltA.add();
   keyboard.ctrAltE.add();
   keyboard.ctrAltD.add();
   keyboard.ctrAltM.add();
+  keyboard.ctrAltR.add();
 };
 
 export { keyboard };

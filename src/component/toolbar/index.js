@@ -4,15 +4,15 @@ import { ToolbarControl } from '../toolbarControl';
 
 const toolbar = {};
 
-toolbar.current = false;
+toolbar.current = null;
 
 toolbar.bar = {};
 
 toolbar.bar.render = () => {
 
-  const body = document.querySelector('body');
-
   toolbar.current = new ToolbarControl();
+
+  const body = document.querySelector('body');
 
   body.appendChild(toolbar.current.toolbar());
 
@@ -20,6 +20,7 @@ toolbar.bar.render = () => {
 
 toolbar.init = () => {
   toolbar.bar.render();
+  toolbar.current.update.edit();
 };
 
 export { toolbar }

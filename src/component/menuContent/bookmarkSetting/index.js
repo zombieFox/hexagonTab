@@ -8,12 +8,12 @@ import { version } from '../../version';
 import { menu } from '../../menu';
 import { icon } from '../../icon';
 import { logo } from '../../logo';
-import { link } from '../../link';
 
 import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
+import { Link } from '../../link';
 
 import { Control_helperText } from '../../control/helperText';
 import { Control_inputButton } from '../../control/inputButton';
@@ -23,10 +23,12 @@ import { Control_radioGrid } from '../../control/radioGrid';
 import { Control_checkbox } from '../../control/checkbox';
 import { Control_slider } from '../../control/slider';
 import { Control_sliderSlim } from '../../control/sliderSlim';
+import { Control_sliderDouble } from '../../control/sliderDouble';
 import { Control_colorMixer } from '../../control/colorMixer';
 import { Control_color } from '../../control/color';
 import { Control_text } from '../../control/text';
 import { Control_textReset } from '../../control/textReset';
+import { Control_textarea } from '../../control/textarea';
 
 import { node } from '../../../utility/node';
 import { complexNode } from '../../../utility/complexNode';
@@ -37,9 +39,37 @@ import { applyCSSState } from '../../../utility/applyCSSState';
 
 const bookmarkSetting = {};
 
+bookmarkSetting.control = {
+  general: {},
+  hover: {},
+  shadow: {}
+};
+
+bookmarkSetting.general = (parent) => {
+
+  bookmarkSetting.control.general.newTab = new Control_checkbox({
+    object: state.get.current(),
+    id: 'bookmark-newTab',
+    path: 'bookmark.newTab',
+    labelText: 'Open Bookmarks in a new tab',
+    action: () => {
+      bookmark.item.clear();
+      bookmark.item.render();
+      data.save();
+    }
+  });
+
+  parent.appendChild(
+    node('div', [
+      bookmarkSetting.control.general.newTab.wrap()
+    ])
+  );
+
+};
+
 bookmarkSetting.hover = (parent) => {
 
-  const bookmarkHoverSize = new Control_slider({
+  bookmarkSetting.control.hover.size = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.hover.size',
     id: 'bookmark-hover-size',
@@ -49,12 +79,12 @@ bookmarkSetting.hover = (parent) => {
     min: state.get.minMax().bookmark.hover.size.min,
     max: state.get.minMax().bookmark.hover.size.max,
     action: () => {
-      applyCSSVar('bookmark.size');
+      applyCSSVar('bookmark.hover.size');
       data.save();
     }
   });
 
-  const bookmarkHoverDistance = new Control_slider({
+  bookmarkSetting.control.hover.distance = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.hover.distance',
     id: 'bookmark-hover-distance',
@@ -71,8 +101,8 @@ bookmarkSetting.hover = (parent) => {
 
   parent.appendChild(
     node('div', [
-      bookmarkHoverSize.wrap(),
-      bookmarkHoverDistance.wrap(),
+      bookmarkSetting.control.hover.size.wrap(),
+      bookmarkSetting.control.hover.distance.wrap(),
     ])
   );
 
@@ -80,7 +110,7 @@ bookmarkSetting.hover = (parent) => {
 
 bookmarkSetting.shadow = (parent) => {
 
-  const bookmarkShadowDistance = new Control_slider({
+  bookmarkSetting.control.shadow.distance = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.shadow.distance',
     id: 'bookmark-shadow-distance',
@@ -95,7 +125,7 @@ bookmarkSetting.shadow = (parent) => {
     }
   });
 
-  const bookmarkShadowBlur = new Control_slider({
+  bookmarkSetting.control.shadow.blur = new Control_slider({
     object: state.get.current(),
     path: 'bookmark.shadow.blur',
     id: 'bookmark-shadow-blur',
@@ -112,8 +142,8 @@ bookmarkSetting.shadow = (parent) => {
 
   parent.appendChild(
     node('div', [
-      bookmarkShadowDistance.wrap(),
-      bookmarkShadowBlur.wrap()
+      bookmarkSetting.control.shadow.distance.wrap(),
+      bookmarkSetting.control.shadow.blur.wrap()
     ])
   );
 

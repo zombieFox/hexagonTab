@@ -18,21 +18,19 @@ state.default = {
     size: 70,
     hover: { size: 0, distance: 15 },
     shadow: { blur: 15, distance: 30 },
+    newTab: false,
     edit: false,
     add: false
   },
-  toolbar: { style: 'transparent', position: 'bottom-right', size: 100, accent: { show: true }, add: { show: true }, edit: { show: true } },
+  toolbar: { position: 'bottom-right', size: 100, accent: { show: true }, add: { show: true }, edit: { show: true } },
   theme: {
-    color: {
-      range: { primary: { h: 210, s: 10 } },
-      lightness: { contrast: 32, offset: null, start: null, end: null },
-      shades: 9
-    },
+    color: { range: { primary: { h: 222, s: 14 } }, contrast: { start: 20, end: 100 }, shades: 14 },
     accent: { hsl: { h: 15, s: 90, l: 50 }, rgb: { r: 242, g: 70, b: 13 }, random: { active: false, style: 'any' } },
     font: {
       display: { name: '', weight: 400, style: 'normal' },
       ui: { name: '', weight: 400, style: 'normal' }
     },
+    toolbar: { opacity: 100 },
     style: 'light',
     bookmark: {
       shadow: { opacity: 25, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } }
@@ -45,8 +43,8 @@ state.default = {
         start: { hsl: { h: 191, s: 66, l: 62 }, rgb: { r: 94, g: 199, b: 222 } },
         end: { hsl: { h: 243, s: 59, l: 22 }, rgb: { r: 26, g: 23, b: 89 } }
       },
-      image: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100 },
-      video: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100 }
+      image: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } },
+      video: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } }
     },
     radius: 25,
     shadow: 75,
@@ -83,12 +81,13 @@ state.minMax = {
     }
   },
   toolbar: {
-    size: { min: 50, max: 500 }
+    size: { min: 50, max: 500 },
+    opacity: { min: 0, max: 100 }
   },
   theme: {
     color: {
       range: { primary: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 } } },
-      lightness: { contrast: { min: 5, max: 45 } }
+      contrast: { start: { min: 0, max: 100 }, end: { min: 0, max: 100 } }
     },
     accent: {
       hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
@@ -98,6 +97,7 @@ state.minMax = {
       display: { weight: { min: 100, max: 900 } },
       ui: { weight: { min: 100, max: 900 } }
     },
+    toolbar: { opacity: { min: 0, max: 100 } },
     bookmark: {
       shadow: {
         opacity: { min: 0, max: 100 },
@@ -123,25 +123,10 @@ state.minMax = {
           rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
         },
       },
-      image: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } },
-      video: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 } }
+      image: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 }, vignette: { opacity: { min: 0, max: 100 }, start: { min: 0, max: 100 }, end: { min: 0, max: 100 } } },
+      video: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 }, vignette: { opacity: { min: 0, max: 100 }, start: { min: 0, max: 100 }, end: { min: 0, max: 100 } } }
     },
     shade: { opacity: { min: 0, max: 100 }, blur: { min: 0, max: 200 } }
-  }
-};
-
-state.option = {
-  toolbar: {
-    style: ['bar', 'transparent'],
-    position: ['top-left', 'top-right', 'bottom-right', 'bottom-left']
-  },
-  theme: {
-    accent: { random: { style: ['any', 'light', 'dark', 'pastel', 'saturated'] } },
-    style: ['dark', 'light', 'system'],
-    bookmark: { shadow: { color: { type: ['theme', 'custom'] } } },
-    background: {
-      type: ['theme', 'accent', 'color', 'gradient', 'image', 'video']
-    }
   }
 };
 
@@ -150,6 +135,20 @@ state.step = {
     font: {
       display: { weight: 100 },
       ui: { weight: 100 }
+    }
+  }
+};
+
+state.option = {
+  toolbar: {
+    position: ['top-left', 'top-right', 'bottom-right', 'bottom-left']
+  },
+  theme: {
+    accent: { random: { style: ['any', 'light', 'dark', 'pastel', 'saturated'] } },
+    style: ['dark', 'light', 'system'],
+    bookmark: { shadow: { color: { type: ['theme', 'custom'] } } },
+    background: {
+      type: ['theme', 'accent', 'color', 'gradient', 'image', 'video']
     }
   }
 };
@@ -163,9 +162,21 @@ state.get = {
 };
 
 state.set = {
-  restore: (dataToRestore) => {
-    state.current = dataToRestore.state;
-    console.log('state restored');
+  restore: {
+    setup: (dataToRestore) => {
+
+      state.current.grid = dataToRestore.state.grid;
+      state.current.bookmark = dataToRestore.state.bookmark;
+      state.current.toolbar = dataToRestore.state.toolbar;
+      console.log('setup restored');
+
+    },
+    theme: (dataToRestore) => {
+
+      state.current.theme = dataToRestore.state.theme;
+      console.log('theme restored');
+
+    }
   },
   default: () => {
     state.current = state.get.default();

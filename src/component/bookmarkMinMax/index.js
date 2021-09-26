@@ -3,8 +3,8 @@ export const bookmarkMinMax = {
     rotate: { min: -180, max: 180 },
     translate: { x: { min: -300, max: 300 }, y: { min: -300, max: 300 } },
     gutter: { min: 0, max: 500 },
-    visual: { size: { min: 5, max: 200 } },
-    name: { size: { min: 5, max: 200 } }
+    visual: { size: { min: 5, max: 400 } },
+    name: { size: { min: 5, max: 400 } }
   },
   accent: {
     hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },

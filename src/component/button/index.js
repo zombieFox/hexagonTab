@@ -10,6 +10,7 @@ export const Button = function({
   text = 'Button',
   srOnly = false,
   iconName = false,
+  iconPosition = false,
   block = false,
   size = false,
   style = [],
@@ -31,7 +32,20 @@ export const Button = function({
   };
 
   if (iconName) {
-    this.button.appendChild(icon.render(iconName));
+
+    switch (iconPosition) {
+
+      case 'right':
+        this.button.append(icon.render(iconName));
+        break;
+
+      default:
+      case 'left':
+        this.button.prepend(icon.render(iconName));
+        break;
+
+    };
+
   };
 
   if (block) {
@@ -133,7 +147,7 @@ export const Button = function({
       children: [
         this.button
       ]
-    })
+    });
   };
 
 };

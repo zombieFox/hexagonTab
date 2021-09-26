@@ -1,105 +1,57 @@
+import { state } from '../state';
 import { version } from '../version';
+import { convertColor } from '../../utility/convertColor';
+import { updateLegacy } from '../updateLegacy';
 
 const update = {};
 
-update.all = {
-  '1.0.0': function(dataToUpdate) {
-    return dataToUpdate;
-  },
-  '2.4.0': function(dataToUpdate) {
-    dataToUpdate.state.theme.background.video = { url: '', blur: 0, scale: 100, opacity: 100 };
+update.mod = updateLegacy.get();
 
-    if (dataToUpdate.state.theme.bookmark.shadow.type === 'theme' || dataToUpdate.state.theme.bookmark.shadow.type === 'custom') {
-      dataToUpdate.state.theme.bookmark.shadow.color.type = dataToUpdate.state.theme.bookmark.shadow.type;
 
-      delete dataToUpdate.state.theme.bookmark.shadow.type;
-    };
+update.mod['4.0.0'] = function(data) {
 
-    return dataToUpdate;
-  },
-  '2.5.0': function(dataToUpdate) {
-    dataToUpdate.bookmark.forEach((item, i) => {
-      item.display.gutter = 75;
-      item.display.direction = 'vertical';
-      item.display.order = 'visual-name';
-    });
+  data.state.bookmark.newTab = false;
 
-    return dataToUpdate;
-  },
-  '2.6.0': function(dataToUpdate) {
-    dataToUpdate.bookmark.forEach((item, i) => {
-      item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
-    });
+  data.state.theme.toolbar = { opacity: 100 };
 
-    return dataToUpdate;
-  },
-  '2.7.0': function(dataToUpdate) {
-    dataToUpdate.state.toolbar = { style: 'transparent', position: 'bottom-right' };
+  delete data.state.toolbar.style;
 
-    return dataToUpdate;
-  },
-  '3.0.0': function(dataToUpdate) {
-    const h = dataToUpdate.state.theme.color.hsl.h;
-    const s = dataToUpdate.state.theme.color.hsl.s;
+  data.state.theme.color.contrast = {
+    start: data.state.theme.color.lightness.start,
+    end: data.state.theme.color.lightness.end
+  };
 
-    dataToUpdate.state.theme.color = {
-      range: { primary: { h: h, s: s } },
-      lightness: { contrast: 32, offset: null, start: null, end: null },
-      shades: 9
-    };
+  delete data.state.theme.color.lightness;
 
-    dataToUpdate.state.theme.color.lightness.offset = 45 - dataToUpdate.state.theme.color.lightness.contrast;
+  data.state.theme.color.shades = 14;
 
-    dataToUpdate.state.theme.color.lightness.start = dataToUpdate.state.theme.color.lightness.offset;
+  data.state.theme.background.image.vignette = { opacity: 0, start: 90, end: 70 };
 
-    dataToUpdate.state.theme.color.lightness.end = 100 - dataToUpdate.state.theme.color.lightness.offset;
+  data.state.theme.background.video.vignette = { opacity: 0, start: 90, end: 70 };
 
-    return dataToUpdate;
-  },
-  '3.1.0': function(dataToUpdate) {
+  return data;
 
-    dataToUpdate.state.theme.shade = {
-      opacity: 20
-    };
-
-    dataToUpdate.state.theme.font = {
-      display: { name: '', weight: 400, style: 'normal' },
-      ui: { name: '', weight: 400, style: 'normal' }
-    };
-
-    dataToUpdate.state.theme.accent.random = { active: false, style: 'any' };
-
-    dataToUpdate.state.theme.shade.blur = 0;
-
-    dataToUpdate.state.toolbar.size = 100;
-
-    dataToUpdate.state.toolbar.accent = { show: true };
-
-    dataToUpdate.state.toolbar.add = { show: true };
-
-    dataToUpdate.state.toolbar.edit = { show: true };
-
-    return dataToUpdate;
-  }
 };
 
-update.run = function(dataToUpdate) {
+update.run = (data) => {
+
   // loop over all updates in mod.all object
-  for (var key in update.all) {
-    if (version.compare(dataToUpdate.version, key) == -1) {
+  for (var key in update.mod) {
+    if (version.compare(data.version, key) == -1) {
       console.log('\t > running update', key);
-      dataToUpdate = update.all[key](dataToUpdate);
-      dataToUpdate.version = key;
+      data = update.mod[key](data);
+      data.version = key;
     };
   };
 
   // if no update is needed version bump
-  if (version.compare(dataToUpdate.version, version.number) == -1) {
+  if (version.compare(data.version, version.number) == -1) {
     console.log('\t > no state data to update, version bump to', version.number);
-    dataToUpdate.version = version.number;
+    data.version = version.number;
   };
 
-  return dataToUpdate;
+  return data;
+
 };
 
 export { update };

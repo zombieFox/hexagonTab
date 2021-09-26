@@ -1,0 +1,46 @@
+:root {
+  --alert-space: 4;
+}
+
+:root {
+  --alert-header-background: var(--theme-primary-030);
+  --alert-body-background: var(--theme-primary-020);
+}
+
+.alert {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.alert-header {
+  background-color: hsl(var(--alert-header-background));
+  padding: calc((var(--alert-space) / 4) * 1em) calc((var(--alert-space) / 4) * 1em) calc((var(--alert-space) / 4) * 1em) calc(((var(--alert-space) / 4) * 1em) + (var(--theme-radius) / 100) * 0.1em);
+  border-top-left-radius: calc(var(--theme-radius) * 0.01em);
+  border-bottom-left-radius: calc(var(--theme-radius) * 0.01em);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: background-color var(--layout-transition-extra-fast);
+}
+
+.alert-body {
+  background-color: hsl(var(--alert-body-background));
+  border-top-right-radius: calc(var(--theme-radius) * 0.01em);
+  border-bottom-right-radius: calc(var(--theme-radius) * 0.01em);
+  padding: calc((var(--alert-space) / 4) * 1em) calc(((var(--alert-space) / 4) * 1em) + (var(--theme-radius) / 100) * 0.1em) calc((var(--alert-space) / 4) * 1em) calc((var(--alert-space) / 4) * 1em);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: background-color var(--layout-transition-extra-fast);
+}
+
+.alert-body:only-child {
+  border-radius: calc(var(--theme-radius) * 0.01em);
+  padding: calc((var(--alert-space) / 4) * 1em) calc(((var(--alert-space) / 4) * 1em) + (var(--theme-radius) / 100) * 0.1em);
+}
+
+.alert-icon {
+  font-size: 1em;
+}

@@ -1,11 +1,11 @@
 :root {
-  --modal-space: 2;
-  --modal-width: 50;
+  --modal-space: 8;
+  --modal-width: calc(var(--modal-space) * 4);
 }
 
 .modal {
-  background-color: hsl(var(--theme-primary-100));
-  border-radius: var(--theme-radius-base);
+  background-color: hsl(var(--theme-primary-010));
+  border-radius: calc(var(--theme-radius) * 0.01em);
   box-shadow: var(--theme-shadow-bottom-large);
   position: fixed;
   top: 50%;
@@ -35,13 +35,9 @@
 }
 
 .modal-content-wrapper {
-  padding: calc(var(--modal-space) * 1.75em);
+  padding: calc((var(--modal-space) / 2) * 0.75em) calc((var(--modal-space) / 2) * 1em);
   position: relative;
   overflow-y: auto;
-}
-
-.modal-overscroll .modal-content-wrapper {
-  padding-bottom: calc(var(--form-space) * 14);
 }
 
 .modal-content {
@@ -50,20 +46,22 @@
   grid-template-rows: auto 1fr;
   justify-items: stretch;
   align-items: stretch;
-  gap: calc(var(--modal-space) * 1em);
+  gap: calc((var(--modal-space) / 4) * 1em);
 }
 
 .modal-body {
-  border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;
+  border-radius: calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em) 0 0;
   position: relative;
 }
 
-.modal-body-spacer {
-  margin: calc(var(--modal-space) * 1em);
+.modal-heading {
+  overflow: hidden;
 }
 
 .modal-heading-text {
   margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .modal-heading-text:focus {
@@ -79,8 +77,8 @@
 }
 
 .modal-control {
-  background-color: hsl(var(--theme-primary-100));
-  border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);
+  background-color: hsl(var(--theme-primary-010));
+  border-radius: 0 0 calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em);
   position: relative;
   z-index: 2;
   display: flex;
@@ -98,10 +96,10 @@
 
 .modal-control .modal-control-button:first-child,
 .modal-control .modal-control-button:first-child:after {
-  border-radius: 0 0 0 var(--theme-radius-base);
+  border-radius: 0 0 0 calc(var(--theme-radius) * 0.01em);
 }
 
 .modal-control .modal-control-button:last-child,
 .modal-control .modal-control-button:last-child:after {
-  border-radius: 0 0 var(--theme-radius-base) 0
+  border-radius: 0 0 calc(var(--theme-radius) * 0.01em) 0
 }

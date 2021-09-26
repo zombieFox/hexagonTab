@@ -5,7 +5,7 @@
 }
 
 .suggest {
-  background-color: hsl(var(--theme-primary-200));
+  background-color: hsl(var(--theme-primary-020));
   margin-top: 0.5em;
   padding: 1em;
   position: absolute;
@@ -13,7 +13,7 @@
   left: calc(var(--suggest-left) * 1px);
   width: calc(var(--suggest-width) * 1px);
   max-height: 40vh;
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   overflow-y: auto;
   z-index: var(--z-index-suggest);
   box-shadow: var(--theme-shadow-bottom-large);
@@ -24,7 +24,7 @@
 .suggest-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
-  grid-gap: calc(var(--form-space) / 2);
+  grid-gap: calc((var(--form-space) / 8) * 1em);
 }
 
 .suggest-item {

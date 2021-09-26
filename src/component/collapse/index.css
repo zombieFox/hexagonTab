@@ -1,14 +1,15 @@
 .collapse {
-  margin-bottom: -1em;
+  margin-top: calc(var(--wrap-space) * -1);
   position: relative;
   display: grid;
   transition: margin var(--layout-transition-fast);
+  pointer-events: none;
 }
 
 .collapse-area {
-  margin-top: -1em;
-  margin-bottom: 0;
+  margin-top: calc(var(--wrap-space) - 1em);
   margin-right: -1em;
+  margin-bottom: -1em;
   margin-left: -1em;
   position: relative;
   display: block;
@@ -17,7 +18,7 @@
 }
 
 .collapse-area.is-collapsed {
-  margin-bottom: -1em;
+  margin: 0;
 }
 
 .collapse-spacer {
@@ -25,12 +26,12 @@
   transition: margin var(--layout-transition-fast);
 }
 
-.collapse-spacer hr:first-child {
-  margin-top: calc(var(--form-space) * 1);
+.collapse-spacer>* {
+  pointer-events: all;
 }
 
 .collapse-area.is-collapsed .collapse-spacer {
-  margin-bottom: -100vh;
+  margin-bottom: -200vh;
   position: relative;
 }
 
@@ -41,3 +42,16 @@
 .collapse-toggle.is-collapsed .icon {
   transform: rotate(180deg);
 }
+
+.collapse-spacer hr:first-child {
+  margin-top: var(--wrap-space);
+}
+
+/* debug */
+/* .collapse {
+  outline: 1px dotted blue;
+}
+
+.collapse-area {
+  outline: 1px solid red;
+} */

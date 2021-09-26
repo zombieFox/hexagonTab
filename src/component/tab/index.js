@@ -7,19 +7,55 @@ import { complexNode } from '../../utility/complexNode';
 
 import './index.css';
 
-const Tab = function({
+export const Tab = function({
   group = []
 } = {}) {
 
-  this.tabElement = node('div|class:tab');
+  this.element = {
+    tab: node('div|class:tab'),
+    nav: node('div|class:tab-nav'),
+    group: node('div|class:tab-nav-group'),
+    indicator: node('div|class:tab-nav-indicator'),
+    content: node('div|class:tab-content')
+  };
 
-  this.tabNav = node('div|class:tab-nav form-group form-group-horizontal form-group-block');
+  this.assemble = () => {
 
-  this.tabContent = node('div|class:tab-content');
+    this.element.nav.appendChild(this.element.indicator);
 
-  this.tabElement.appendChild(this.tabNav);
+    this.element.nav.appendChild(this.element.group);
 
-  this.tabElement.appendChild(this.tabContent);
+    this.element.tab.appendChild(this.element.nav);
+
+    this.element.tab.appendChild(this.element.content);
+
+    group.forEach((item, i) => {
+
+      item.toggle = new Button({
+        text: item.tabText,
+        classList: ['tab-nav-button', 'form-group-item-equal'],
+        func: () => {
+
+          this.deactive();
+
+          item.active = true;
+
+          this.content.render();
+
+          this.nav.render();
+
+          this.indicator.render();
+
+        }
+      });
+
+      this.element.group.appendChild(item.toggle.button);
+
+      this.element.content.appendChild(item.area);
+
+    });
+
+  };
 
   this.deactive = () => {
     group.forEach((item, i) => {
@@ -27,45 +63,85 @@ const Tab = function({
     });
   };
 
-  group.forEach((item, i) => {
-    item.toggle = new Button({
-      text: item.tabText,
-      style: ['line'],
-      classList: ['form-group-item-equal'],
-      func: () => {
+  this.indicator = {
+    render: () => {
 
-        this.deactive();
-        item.active = true;
-        this.update();
+      const navBox = this.element.tab.getBoundingClientRect();
 
-      }
-    });
+      group.forEach((item, i) => {
 
-    this.tabNav.appendChild(item.toggle.button);
+        if (item.active) {
 
-    this.tabContent.appendChild(item.area);
-  });
+          const itemBox = item.toggle.button.getBoundingClientRect();
 
-  this.update = () => {
-    group.forEach((item, i) => {
+          this.element.tab.style.setProperty('--tab-indicator-top', Math.round(itemBox.top - navBox.top));
+          this.element.tab.style.setProperty('--tab-indicator-left', Math.round(itemBox.left - navBox.left));
+          this.element.tab.style.setProperty('--tab-indicator-width', Math.round(itemBox.width));
+          this.element.tab.style.setProperty('--tab-indicator-height', Math.round(itemBox.height));
 
-      if (item.active) {
-        item.toggle.active();
-        item.area.classList.remove('is-hidden');
-      } else {
-        item.toggle.deactive();
-        item.area.classList.add('is-hidden');
-      };
 
-    });
+        };
+
+      });
+
+    },
+    bind: () => {
+
+      this.element.indicator.addEventListener('animationend', (event) => {
+        this.element.tab.classList.add('tab-nav-indicator-active');
+      });
+
+      this.element.indicator.addEventListener('transitionend', (event) => {});
+
+    }
   };
 
-  this.update();
+  this.content = {
+    render: () => {
+      group.forEach((item, i) => {
+
+        if (item.active) {
+          item.area.classList.remove('is-hidden');
+        } else {
+          item.area.classList.add('is-hidden');
+        };
+
+      });
+    }
+  };
+
+  this.nav = {
+    render: () => {
+
+      group.forEach((item, i) => {
+
+        if (item.active) {
+          item.toggle.active();
+        } else {
+          item.toggle.deactive();
+        };
+
+      });
+
+    }
+  };
 
   this.tab = () => {
-    return this.tabElement;
+    return this.element.tab;
   };
 
-};
+  this.update = () => {
 
-export { Tab };
+    this.indicator.bind();
+
+    this.indicator.render();
+
+    this.nav.render();
+
+  };
+
+  this.assemble();
+
+  this.content.render();
+
+};
