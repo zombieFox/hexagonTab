@@ -20,7 +20,7 @@ menu.navData = [
   { name: 'Theme', active: true, overscroll: true, sub: ['Style', 'Colour', 'Accent', 'Font', 'Bookmark', 'Shade', 'Opacity', 'Background'] },
   { name: 'Layout', active: false, overscroll: true, sub: ['Scaling', 'Grid'] },
   { name: 'Bookmark', active: false, overscroll: true, sub: ['General', 'Hover', 'Shadow'] },
-  { name: 'Toolbar', active: false, overscroll: true, sub: ['Size', 'Controls', 'Position'] },
+  { name: 'Toolbar', active: false, overscroll: true, sub: ['Size', 'Position', 'Controls'] },
   { name: 'Data', active: false, overscroll: true, sub: ['Restore', 'Backup', 'Clear'] },
   { name: 'Coffee', active: false, overscroll: false },
   { name: appName, active: false, overscroll: false }

@@ -117,8 +117,8 @@ export const ToolbarControl = function() {
 
     } else {
 
-      if (this.element.group.contains(this.control.button.add.toggle)) {
-        this.element.group.removeChild(this.control.button.add.toggle);
+      if (this.element.group.contains(this.control.button.add.button)) {
+        this.element.group.removeChild(this.control.button.add.button);
       };
 
     };

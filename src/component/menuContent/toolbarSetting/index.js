@@ -38,9 +38,16 @@ import { applyCSSState } from '../../../utility/applyCSSState';
 
 const toolbarSetting = {};
 
+toolbarSetting.control = {
+  size: {},
+  location: {},
+  position: {},
+  controls: {}
+};
+
 toolbarSetting.size = (parent) => {
 
-  const toolbarSize = new Control_slider({
+  toolbarSetting.control.size = new Control_slider({
     object: state.get.current(),
     path: 'toolbar.size',
     id: 'toolbar-size',
@@ -57,7 +64,7 @@ toolbarSetting.size = (parent) => {
 
   parent.appendChild(
     node('div', [
-      toolbarSize.wrap()
+      toolbarSetting.control.size.wrap()
     ])
   );
 
@@ -65,7 +72,7 @@ toolbarSetting.size = (parent) => {
 
 toolbarSetting.controls = (parent) => {
 
-  const toolbarAccentShow = new Control_checkbox({
+  toolbarSetting.control.controls.accent = new Control_checkbox({
     object: state.get.current(),
     id: 'toolbar-accent-show',
     path: 'toolbar.accent.show',
@@ -76,7 +83,7 @@ toolbarSetting.controls = (parent) => {
     }
   });
 
-  const toolbarAddShow = new Control_checkbox({
+  toolbarSetting.control.controls.add = new Control_checkbox({
     object: state.get.current(),
     id: 'toolbar-add-show',
     path: 'toolbar.add.show',
@@ -87,7 +94,7 @@ toolbarSetting.controls = (parent) => {
     }
   });
 
-  const toolbarEditShow = new Control_checkbox({
+  toolbarSetting.control.controls.edit = new Control_checkbox({
     object: state.get.current(),
     id: 'toolbar-edit-show',
     path: 'toolbar.edit.show',
@@ -100,9 +107,9 @@ toolbarSetting.controls = (parent) => {
 
   parent.appendChild(
     node('div', [
-      toolbarAccentShow.wrap(),
-      toolbarAddShow.wrap(),
-      toolbarEditShow.wrap()
+      toolbarSetting.control.controls.accent.wrap(),
+      toolbarSetting.control.controls.add.wrap(),
+      toolbarSetting.control.controls.edit.wrap()
     ])
   );
 
@@ -110,7 +117,7 @@ toolbarSetting.controls = (parent) => {
 
 toolbarSetting.position = (parent) => {
 
-  const toolbarPosition = new Control_radioGrid({
+  toolbarSetting.control.positionElement = new Control_radioGrid({
     object: state.get.current(),
     radioGroup: [
       { id: 'toolbar-position-top-left', labelText: 'Top left', value: 'top-left', position: 1 },
@@ -123,20 +130,21 @@ toolbarSetting.position = (parent) => {
     path: 'toolbar.position',
     gridSize: '2x2',
     action: () => {
+      toolbar.current.assemble();
       toolbar.current.update.position();
       toolbar.current.update.style();
       data.save();
     }
   });
 
-  const toolbarPositionHelper = new Control_helperText({
+  toolbarSetting.control.positionElementHelper = new Control_helperText({
     text: ['Position the Toolbar in one of the four corners of the window.']
   });
 
   parent.appendChild(
     node('div', [
-      toolbarPosition.wrap(),
-      toolbarPositionHelper.wrap()
+      toolbarSetting.control.positionElement.wrap(),
+      toolbarSetting.control.positionElementHelper.wrap()
     ])
   );
 
