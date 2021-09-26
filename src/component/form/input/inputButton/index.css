@@ -18,7 +18,7 @@
   min-height: 2.5em;
   line-height: 1;
   border: 0;
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -152,7 +152,7 @@
 .form-input-button-line input[type="file"]+label:after {
   content: "";
   background: transparent;
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -209,7 +209,6 @@
   background-color: hsl(var(--button-border-disabled));
 }
 
-/* form input button link */
 .form-input-button-link input[type="checkbox"]+label,
 .form-input-button-link input[type="radio"]+label,
 .form-input-button-link input[type="color"]+label,
@@ -281,6 +280,7 @@
 
 .form-input-button-sr-only.input-color-dot input[type="color"]+label {
   padding: 0.25em 1.75em;
+  min-width: 4em;
 }
 
 .form-input-button-sr-only.input-color-dot input[type="color"] {

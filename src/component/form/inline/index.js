@@ -7,7 +7,9 @@ export const inline = function({
   reverse = false,
   block = false,
   wrap = false,
+  justify = 'left',
   gap = 'medium',
+  equalGap = false,
   children = false
 } = {}) {
 
@@ -24,6 +26,7 @@ export const inline = function({
   };
 
   switch (gap) {
+
     case 'small':
       inline.classList.add('form-inline-gap-small');
       break;
@@ -36,9 +39,26 @@ export const inline = function({
       inline.classList.add('form-inline-gap-large');
       break;
 
-    case 'equal':
-      inline.classList.add('form-inline-gap-equal');
+  };
+
+  if (equalGap) {
+    inline.classList.add('form-inline-gap-equal');
+  };
+
+  switch (justify) {
+
+    case 'left':
+      inline.classList.add('form-inline-justify-left');
       break;
+
+    case 'center':
+      inline.classList.add('form-inline-justify-center');
+      break;
+
+    case 'right':
+      inline.classList.add('form-inline-justify-right');
+      break;
+
   };
 
   if (reverse) {

@@ -2,14 +2,15 @@ import { node } from '../../../utility/node';
 
 import './index.css';
 
-export const label = function({
+export const label = ({
   forInput = false,
   text = 'label',
   description = false,
   srOnly = false,
   icon = false,
+  noPadding = false,
   classList = []
-} = {}) {
+} = {}) => {
 
   let label;
 
@@ -17,6 +18,10 @@ export const label = function({
     label = node('label|for:' + forInput);
   } else {
     label = node('label');
+  };
+
+  if (noPadding) {
+    label.classList.add('label-no-padding');
   };
 
   const labelBlock = node('span|class:label-block');

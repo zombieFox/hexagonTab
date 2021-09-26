@@ -1,5 +1,5 @@
 :root {
-  --form-group-border: var(--theme-primary-500);
+  --form-group-border: var(--theme-primary-050);
 }
 
 .form-group {
@@ -28,7 +28,7 @@
 .form-group .form-wrap {
   margin-top: 0;
   margin-bottom: 0;
-  margin-right: var(--form-space);
+  margin-right: calc(var(--form-space) * 0.1em);
   display: flex;
   align-items: center;
 }
@@ -36,6 +36,18 @@
 .form-group-block {
   display: flex;
   width: 100%;
+}
+
+.form-group-justify-left {
+  justify-content: flex-start;
+}
+
+.form-group-justify-right {
+  justify-content: flex-end;
+}
+
+.form-group-justify-space-between {
+  justify-content: space-between;
 }
 
 .form-group .form-group-text,
@@ -153,7 +165,7 @@
 .form-group.form-group-horizontal>input[type="text"]:first-child,
 .form-group.form-group-horizontal>input[type="color"]:first-child,
 .form-group.form-group-horizontal>input[type="range"]:first-child {
-  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em) 0 0 calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-horizontal .form-group-text:last-child,
@@ -176,7 +188,7 @@
 .form-group.form-group-horizontal>input[type="text"]:last-child,
 .form-group.form-group-horizontal>input[type="color"]:last-child,
 .form-group.form-group-horizontal>input[type="range"]:last-child {
-  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;
+  border-radius: 0 calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em) 0;
 }
 
 .form-group.form-group-vertical .form-group-text:first-child,
@@ -199,7 +211,7 @@
 .form-group.form-group-vertical>input[type="text"]:first-child,
 .form-group.form-group-vertical>input[type="color"]:first-child,
 .form-group.form-group-vertical>input[type="range"]:first-child {
-  border-radius: var(--theme-radius-base) var(--theme-radius-base) 0 0;
+  border-radius: calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em) 0 0;
 }
 
 .form-group.form-group-vertical .form-group-text:last-child,
@@ -222,7 +234,7 @@
 .form-group.form-group-vertical>input[type="text"]:last-child,
 .form-group.form-group-vertical>input[type="color"]:last-child,
 .form-group.form-group-vertical>input[type="range"]:last-child {
-  border-radius: 0 0 var(--theme-radius-base) var(--theme-radius-base);
+  border-radius: 0 0 calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-horizontal .form-group-text:only-child,
@@ -249,7 +261,7 @@
 .form-group.form-group-vertical>input[type="text"]:only-child,
 .form-group.form-group-vertical>input[type="color"]:only-child,
 .form-group.form-group-vertical>input[type="range"]:only-child {
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-nested-button * .button,
@@ -265,7 +277,7 @@
 .form-group.form-group-nested-button *:first-child input[type="checkbox"]+label,
 .form-group.form-group-nested-button *:first-child input[type="radio"]+label,
 .form-group.form-group-nested-button *:first-child input[type="color"]+label {
-  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em) 0 0 calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-nested-button *:last-child .button,
@@ -273,7 +285,7 @@
 .form-group.form-group-nested-button *:last-child input[type="checkbox"]+label,
 .form-group.form-group-nested-button *:last-child input[type="radio"]+label,
 .form-group.form-group-nested-button *:last-child input[type="color"]+label {
-  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;
+  border-radius: 0 calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em) 0;
 }
 
 .form-group .form-group-radius-left.form-group-text,
@@ -288,8 +300,8 @@
 .form-group>input.form-group-radius-left[type="text"],
 .form-group>input.form-group-radius-left[type="color"],
 .form-group>input.form-group-radius-left[type="range"] {
-  border-top-left-radius: var(--theme-radius-base);
-  border-bottom-left-radius: var(--theme-radius-base);
+  border-top-left-radius: calc(var(--theme-radius) * 0.01em);
+  border-bottom-left-radius: calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group .form-group-radius-right.form-group-text,
@@ -304,8 +316,8 @@
 .form-group>input.form-group-radius-right[type="text"],
 .form-group>input.form-group-radius-right[type="color"],
 .form-group>input.form-group-radius-right[type="range"] {
-  border-top-right-radius: var(--theme-radius-base);
-  border-bottom-right-radius: var(--theme-radius-base);
+  border-top-right-radius: calc(var(--theme-radius) * 0.01em);
+  border-bottom-right-radius: calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-reverse .form-group-text:first-child,
@@ -328,7 +340,7 @@
 .form-group.form-group-reverse>input[type="text"]:first-child,
 .form-group.form-group-reverse>input[type="color"]:first-child,
 .form-group.form-group-reverse>input[type="range"]:first-child {
-  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;
+  border-radius: 0 calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em) 0;
 }
 
 .form-group.form-group-reverse .form-group-text:last-child,
@@ -351,7 +363,7 @@
 .form-group.form-group-reverse>input[type="text"]:last-child,
 .form-group.form-group-reverse>input[type="color"]:last-child,
 .form-group.form-group-reverse>input[type="range"]:last-child {
-  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em) 0 0 calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-reverse .form-group-text:only-child,
@@ -366,7 +378,7 @@
 .form-group.form-group-reverse>input[type="text"]:only-child,
 .form-group.form-group-reverse>input[type="color"]:only-child,
 .form-group.form-group-reverse>input[type="range"]:only-child {
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group.form-group-reverse.form-group-nested-button * .button,
@@ -382,7 +394,7 @@
 .form-group.form-group-reverse.form-group-nested-button *:first-child input[type="checkbox"]+label,
 .form-group.form-group-reverse.form-group-nested-button *:first-child input[type="radio"]+label,
 .form-group.form-group-reverse.form-group-nested-button *:first-child input[type="color"]+label {
-  border-radius: 0 var(--theme-radius-base) var(--theme-radius-base) 0;
+  border-radius: 0 calc(var(--theme-radius) * 0.01em) calc(var(--theme-radius) * 0.01em) 0;
 }
 
 .form-group.form-group-reverse.form-group-nested-button *:last-child .button,
@@ -390,11 +402,11 @@
 .form-group.form-group-reverse.form-group-nested-button *:last-child input[type="checkbox"]+label,
 .form-group.form-group-reverse.form-group-nested-button *:last-child input[type="radio"]+label,
 .form-group.form-group-reverse.form-group-nested-button *:last-child input[type="color"]+label {
-  border-radius: var(--theme-radius-base) 0 0 var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em) 0 0 calc(var(--theme-radius) * 0.01em);
 }
 
 .form-group-border {
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   border-width: var(--layout-line-width);
   border-color: hsl(var(--form-group-border));
   border-style: solid;
@@ -402,7 +414,7 @@
 }
 
 .form-group-border-theme-color {
-  border-color: hsl(var(--theme-primary-500));
+  border-color: hsl(var(--theme-primary-050));
 }
 
 .form-group.form-group-border .form-group-text,

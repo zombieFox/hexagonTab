@@ -1,12 +1,12 @@
 :root {
-  --form-group-text-background: var(--theme-primary-200);
-  --form-group-text-background-focus-hover: var(--theme-primary-200);
-  --form-group-text-background-active: var(--theme-primary-200);
-  --form-group-text-background-disabled: var(--theme-primary-100);
-  --form-group-text-border: var(--theme-primary-200);
-  --form-group-text-border-focus-hover: var(--theme-primary-200);
-  --form-group-text-border-active: var(--theme-primary-200);
-  --form-group-text-border-disabled: var(--theme-primary-100);
+  --form-group-text-background: var(--theme-primary-020);
+  --form-group-text-background-focus-hover: var(--theme-primary-020);
+  --form-group-text-background-active: var(--theme-primary-020);
+  --form-group-text-background-disabled: var(--theme-primary-010);
+  --form-group-text-border: var(--theme-primary-020);
+  --form-group-text-border-focus-hover: var(--theme-primary-020);
+  --form-group-text-border-active: var(--theme-primary-020);
+  --form-group-text-border-disabled: var(--theme-primary-010);
 }
 
 .form-group-text {
@@ -26,7 +26,7 @@
   border-width: var(--layout-line-width);
   border-color: hsl(var(--form-group-text-border));
   border-style: solid;
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   white-space: nowrap;
   transition: background-color var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast);
 }

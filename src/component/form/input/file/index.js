@@ -2,11 +2,11 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const file = function({
+export const file = ({
   id = false,
   classList = [],
   func = false
-} = {}) {
+} = {}) => {
 
   const input = node('input|type:file,tabindex:1');
 

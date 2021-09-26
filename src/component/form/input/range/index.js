@@ -2,15 +2,19 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const range = function({
+export const range = ({
   id = false,
   min = 0,
   max = 100,
   step = 1,
   value = 0,
   classList = [],
-  func = false
-} = {}) {
+  func = false,
+  focusFunc = false,
+  blurFunc = false,
+  mouseDownFunc = false,
+  mouseUpFunc = false
+} = {}) => {
 
   const input = node('input|type:range,min:' + min + ',max:' + max + ',step:' + step + ',value:' + value + ',tabindex:1');
 
@@ -30,6 +34,38 @@ export const range = function({
 
     input.addEventListener('input', (event) => {
       func();
+    });
+
+  };
+
+  if (focusFunc) {
+
+    input.addEventListener('focus', (event) => {
+      focusFunc();
+    });
+
+  };
+
+  if (blurFunc) {
+
+    input.addEventListener('blur', (event) => {
+      blurFunc();
+    });
+
+  };
+
+  if (mouseDownFunc) {
+
+    input.addEventListener('mousedown', (event) => {
+      mouseDownFunc();
+    });
+
+  };
+
+  if (mouseUpFunc) {
+
+    input.addEventListener('mouseup', (event) => {
+      mouseUpFunc();
     });
 
   };

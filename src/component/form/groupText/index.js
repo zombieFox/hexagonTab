@@ -2,10 +2,10 @@ import { node } from '../../../utility/node';
 
 import './index.css';
 
-export const groupText = function({
+export const groupText = ({
   text = false,
   classList = []
-} = {}) {
+} = {}) => {
 
   const textElement = node('div|class:form-group-text,tabindex:1');
 

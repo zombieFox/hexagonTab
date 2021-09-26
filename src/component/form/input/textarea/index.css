@@ -13,7 +13,7 @@ textarea {
   min-width: 0;
   width: 100%;
   border-width: 0;
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   cursor: text;
   resize: vertical;
   display: block;

@@ -1,6 +1,6 @@
 :root {
-  --form-helper: var(--theme-primary-700);
-  --form-helper-disabled: var(--theme-primary-300);
+  --form-helper: var(--theme-primary-140);
+  --form-helper-disabled: var(--theme-primary-030);
 }
 
 .form-helper-item {
@@ -11,4 +11,14 @@
 
 .form-helper-item.disabled {
   color: hsl(var(--form-helper-disabled));
+}
+
+.form-helper-item.disabled a,
+.form-helper-item.disabled a:link,
+.form-helper-item.disabled a:visited,
+.form-helper-item.disabled a:focus,
+.form-helper-item.disabled a:hover,
+.form-helper-item.disabled a:active {
+  color: hsl(var(--form-helper-disabled));
+  text-decoration: none;
 }

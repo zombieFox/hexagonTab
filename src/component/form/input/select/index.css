@@ -22,7 +22,7 @@ select {
   min-width: 0;
   width: 100%;
   border-width: 0;
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   cursor: pointer;
   transition: background-color var(--layout-transition-extra-fast), background-image var(--layout-transition-extra-fast), border-color var(--layout-transition-extra-fast), color var(--layout-transition-extra-fast), box-shadow var(--layout-transition-extra-fast);
   -moz-appearance: none;

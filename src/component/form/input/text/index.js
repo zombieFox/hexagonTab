@@ -2,7 +2,7 @@ import { node } from '../../../../utility/node';
 
 import './index.css';
 
-export const text = function({
+export const text = ({
   id = false,
   value = false,
   min = false,
@@ -10,7 +10,7 @@ export const text = function({
   placeholder = false,
   classList = [],
   func = false
-} = {}) {
+} = {}) => {
 
   const input = node('input|type:text,autocomplete:off,autocorrect:off,autocapitalize:off,spellcheck:false,tabindex:1');
 

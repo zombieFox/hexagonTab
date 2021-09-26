@@ -1,3 +1,8 @@
+:root {
+  --wrap-size: 6;
+  --wrap-space: calc((var(--wrap-size) / 4) * 1em);
+}
+
 .form-wrap {
   position: relative;
   width: 100%;
@@ -5,15 +10,9 @@
 }
 
 .form-wrap:not(:first-child) {
-  margin-top: var(--form-space);
+  margin-top: var(--wrap-space);
 }
 
 .form-wrap:not(:last-child) {
-  margin-bottom: var(--form-space);
-}
-
-.form-wrap-hide-space:not(:first-child),
-.form-wrap-hide-space:not(:last-child) {
-  margin-top: calc(var(--form-space) * -1);
-  margin-bottom: 0;
+  margin-bottom: var(--wrap-space);
 }

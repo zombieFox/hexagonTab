@@ -24,10 +24,6 @@ export const textarea = function({
     textarea.setAttribute('placeholder', placeholder);
   };
 
-  if (checked) {
-    textarea.setAttribute('checked', '');
-  };
-
   if (classList.length > 0) {
 
     classList.forEach((item, i) => {

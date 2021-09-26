@@ -23,8 +23,8 @@ input[type="radio"]+label {
   font-style: var(--theme-font-ui-style);
   color: hsl(var(--form-label));
   cursor: pointer;
-  display: inline-flex;
-  gap: 1em;
+  display: flex;
+  gap: var(--form-thumb);
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -53,10 +53,10 @@ input[type="radio"]:disabled:focus+label {
 
 input[type="radio"]+label .label-icon {
   background-color: hsl(var(--form-icon));
-  width: var(--form-thumb-size);
-  height: var(--form-thumb-size);
+  width: var(--form-thumb);
+  height: var(--form-thumb);
   position: relative;
-  top: 0.125em;
+  top: calc((-1 * (var(--form-thumb) * 0.5)) + (1em * 0.8));
   display: block;
   flex-grow: 0;
   flex-shrink: 0;

@@ -1,19 +1,20 @@
 :root {
-  --form-grid-background: var(--theme-primary-200);
-  --form-grid-background-hover: var(--theme-primary-200);
-  --form-grid-background-focus: var(--theme-primary-200);
-  --form-grid-background-disabled: var(--theme-primary-100);
-  --form-grid-border: var(--theme-primary-300);
-  --form-grid-border-hover-focus: var(--theme-primary-300);
+  --form-grid-background: var(--theme-primary-020);
+  --form-grid-background-hover: var(--theme-primary-020);
+  --form-grid-background-focus: var(--theme-primary-020);
+  --form-grid-background-disabled: var(--theme-primary-010);
+  --form-grid-border: var(--theme-primary-030);
+  --form-grid-border-hover-focus: var(--theme-primary-030);
   --form-grid-border-active: var(--theme-accent);
   --form-grid-border-checked: var(--theme-accent);
-  --form-grid-border-disabled: var(--theme-primary-100);
+  --form-grid-border-disabled: var(--theme-primary-010);
 }
 
 .form-grid {
   background-color: hsl(var(--form-grid-background));
-  padding: calc(var(--form-thumb-size) / 2);
+  padding: calc((var(--form-thumb-size) / 4) * 1em);
   display: inline-grid;
+  gap: calc((var(--form-thumb-size) / 4) * 1em);
   overflow: hidden;
   transition: background-color var(--layout-transition-extra-fast);
 }
@@ -38,7 +39,7 @@
 .form-grid-2x2 {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   grid-template-areas:
     "cell-1 cell-2"
     "cell-3 cell-4";
@@ -47,7 +48,7 @@
 .form-grid-3x3 {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   grid-template-areas:
     "cell-1 cell-2 cell-3"
     "cell-4 cell-5 cell-6"
@@ -56,14 +57,14 @@
 
 .form-grid-3x1 {
   grid-template-columns: repeat(3, 1fr);
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   grid-template-areas:
     "cell-1 cell-2 cell-3";
 }
 
 .form-grid-1x3 {
   grid-template-rows: repeat(3, 1fr);
-  border-radius: var(--theme-radius-base);
+  border-radius: calc(var(--theme-radius) * 0.01em);
   grid-template-areas:
     "cell-1"
     "cell-2"
@@ -87,8 +88,8 @@
   padding: 0;
   margin: 0;
   display: block;
-  width: calc(var(--form-thumb-size) * 1.75);
-  height: calc(var(--form-thumb-size) * 1.75);
+  width: var(--form-thumb);
+  height: var(--form-thumb);
   position: relative;
   transition: none;
   z-index: 1;
@@ -111,47 +112,47 @@
 }
 
 .form-grid-3x3 {
-  --radiusPart: calc(var(--theme-radius-base) / 20);
-  --responsivePos: calc(var(--radiusPart) + -50%);
-  --responsiveNeg: calc(calc(var(--radiusPart) * -1) + -50%);
+  --grid-radius-offset: calc((var(--theme-radius) / 100) * 0.1em);
+  --grid-radius-positive: calc(var(--grid-radius-offset) + -50%);
+  --grid-radius-negative: calc((var(--grid-radius-offset) * -1) + -50%);
 }
 
 .form-grid-3x3 .form-wrap:nth-child(1) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(1) input[type="radio"]+label .label-icon {
-  transform: translate(var(--responsivePos), var(--responsivePos));
+  transform: translate(var(--grid-radius-positive), var(--grid-radius-positive));
 }
 
 .form-grid-3x3 .form-wrap:nth-child(2) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(2) input[type="radio"]+label .label-icon {
-  transform: translate(-50%, var(--responsivePos));
+  transform: translate(-50%, var(--grid-radius-positive));
 }
 
 .form-grid-3x3 .form-wrap:nth-child(3) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(3) input[type="radio"]+label .label-icon {
-  transform: translate(var(--responsiveNeg), var(--responsivePos));
+  transform: translate(var(--grid-radius-negative), var(--grid-radius-positive));
 }
 
 .form-grid-3x3 .form-wrap:nth-child(4) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(4) input[type="radio"]+label .label-icon {
-  transform: translate(var(--responsivePos), -50%);
+  transform: translate(var(--grid-radius-positive), -50%);
 }
 
 .form-grid-3x3 .form-wrap:nth-child(6) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(6) input[type="radio"]+label .label-icon {
-  transform: translate(var(--responsiveNeg), -50%);
+  transform: translate(var(--grid-radius-negative), -50%);
 }
 
 .form-grid-3x3 .form-wrap:nth-child(7) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(7) input[type="radio"]+label .label-icon {
-  transform: translate(var(--responsivePos), var(--responsiveNeg));
+  transform: translate(var(--grid-radius-positive), var(--grid-radius-negative));
 }
 
 .form-grid-3x3 .form-wrap:nth-child(8) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(8) input[type="radio"]+label .label-icon {
-  transform: translate(-50%, var(--responsiveNeg));
+  transform: translate(-50%, var(--grid-radius-negative));
 }
 
 .form-grid-3x3 .form-wrap:nth-child(9) input[type="checkbox"]+label .label-icon,
 .form-grid-3x3 .form-wrap:nth-child(9) input[type="radio"]+label .label-icon {
-  transform: translate(var(--responsiveNeg), var(--responsiveNeg));
+  transform: translate(var(--grid-radius-negative), var(--grid-radius-negative));
 }
