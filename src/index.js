@@ -4,13 +4,13 @@ console.log(component.data.saveName + ' version:', component.version.number, com
 
 component.data.init();
 
+component.grid.init();
+
 component.theme.init();
 
 component.layout.init();
 
 component.toolbar.init();
-
-component.grid.init();
 
 component.bookmark.init();
 
