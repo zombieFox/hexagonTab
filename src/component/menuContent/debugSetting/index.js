@@ -14,6 +14,7 @@ import * as form from '../../form';
 
 import { Button } from '../../button';
 import { Collapse } from '../../collapse';
+import { Alert } from '../../alert';
 import { Link } from '../../link';
 import { StagedBookmark } from '../../stagedBookmark';
 
@@ -229,6 +230,8 @@ debugSetting.button = (parent) => {
 
   debugSetting.control.button.line = new Button({ text: 'Line button', size: 'medium', style: ['line'] });
 
+  debugSetting.control.button.ring = new Button({ text: 'Ring button', size: 'medium', style: ['ring'] });
+
   debugSetting.control.button.link = new Button({ text: 'Link button', size: 'medium', style: ['link'] });
 
   parent.appendChild(
@@ -238,6 +241,7 @@ debugSetting.button = (parent) => {
       debugSetting.control.button.large.wrap(),
       debugSetting.control.button.ring.wrap(),
       debugSetting.control.button.line.wrap(),
+      debugSetting.control.button.ring.wrap(),
       debugSetting.control.button.link.wrap(),
     ])
   );
@@ -251,13 +255,10 @@ debugSetting.bookmark = (parent) => {
     style: ['line'],
     func: () => {
       bookmark.all.forEach(item => {
-        item.items.forEach(item => {
-
-          item.display.visual.type = 'letter';
-
-        });
+        item.display.visual.type = 'letter';
       });
-      groupAndBookmark.render();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });
@@ -267,13 +268,10 @@ debugSetting.bookmark = (parent) => {
     style: ['line'],
     func: () => {
       bookmark.all.forEach(item => {
-        item.items.forEach(item => {
-
-          item.display.visual.type = 'icon';
-
-        });
+        item.display.visual.type = 'icon';
       });
-      groupAndBookmark.render();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });
@@ -283,13 +281,10 @@ debugSetting.bookmark = (parent) => {
     style: ['line'],
     func: () => {
       bookmark.all.forEach(item => {
-        item.items.forEach(item => {
-
-          item.display.visual.type = 'image';
-
-        });
+        item.display.visual.type = 'image';
       });
-      groupAndBookmark.render();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });
@@ -299,13 +294,10 @@ debugSetting.bookmark = (parent) => {
     style: ['line'],
     func: () => {
       bookmark.all.forEach(item => {
-        item.items.forEach(item => {
-
-          item.display.visual.type = 'image';
-
-        });
+        item.display.visual.type = 'image';
       });
-      groupAndBookmark.render();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });
@@ -315,13 +307,10 @@ debugSetting.bookmark = (parent) => {
     style: ['line'],
     func: () => {
       bookmark.all.forEach(item => {
-        item.items.forEach(item => {
-
-          item.display.name.show = true;
-
-        });
+        item.display.name.show = true;
       });
-      groupAndBookmark.render();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });
@@ -331,41 +320,15 @@ debugSetting.bookmark = (parent) => {
     style: ['line'],
     func: () => {
       bookmark.all.forEach(item => {
-        item.items.forEach(item => {
-
-          item.display.name.show = false;
-
-        });
+        item.display.name.show = false;
       });
-      groupAndBookmark.render();
+      bookmark.item.clear();
+      bookmark.item.render();
       data.save();
     }
   });
 
   debugSetting.control.bookmark.add = {
-    group: new Button({
-      text: 'Add a group',
-      style: ['line'],
-      func: () => {
-
-        const newGroupData = new StagedGroup();
-
-        newGroupData.group.name.text = randomString({ adjectivesCount: randomNumber(1, 3) });
-
-        newGroupData.newGroup();
-
-        group.item.mod.add(newGroupData);
-
-        group.add.mod.close();
-
-        groupAndBookmark.render();
-
-        layout.area.assemble();
-
-        data.save();
-
-      }
-    }),
     bookmark: new Button({
       text: 'Add 10 random bookmarks',
       style: ['line'],
@@ -375,11 +338,7 @@ debugSetting.bookmark = (parent) => {
 
           const newBookmarkData = new StagedBookmark();
 
-          newBookmarkData.type.new = true;
-
-          newBookmarkData.position.destination.item = (bookmark.all.length > 0) ? bookmark.all[0].items.length : 0;
-
-          newBookmarkData.position.destination.group = randomNumber(0, (bookmark.all.length - 1));
+          newBookmarkData.position.destination = (bookmark.all.length > 0) ? bookmark.all.length : 0;
 
           newBookmarkData.link.timestamp = new Date().getTime();
 
@@ -408,7 +367,9 @@ debugSetting.bookmark = (parent) => {
 
         };
 
-        groupAndBookmark.render();
+        bookmark.item.clear();
+
+        bookmark.item.render();
 
         data.save();
 
@@ -430,7 +391,6 @@ debugSetting.bookmark = (parent) => {
               debugSetting.control.bookmark.image.wrap(),
               debugSetting.control.bookmark.nameShow.wrap(),
               debugSetting.control.bookmark.nameHide.wrap(),
-              debugSetting.control.bookmark.add.group.wrap(),
               debugSetting.control.bookmark.add.bookmark.wrap()
             ]
           })
