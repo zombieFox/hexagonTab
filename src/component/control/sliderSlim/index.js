@@ -38,6 +38,7 @@ export const Control_sliderSlim = function({
   this.label = form.label({
     forInput: id,
     text: labelText,
+    noPadding: true,
     classList: ['form-group-text', 'form-group-text-left', 'form-group-text-transparent', 'form-group-text-borderless', 'form-group-item-medium', ]
   });
 
@@ -55,23 +56,19 @@ export const Control_sliderSlim = function({
     step: step,
     classList: classList,
     func: () => {
+
       if (path) {
-        set({
-          object: object,
-          path: path,
-          value: this.value()
-        });
+
+        set({ object: object, path: path, value: this.value() });
+
       };
-      if (action) {
-        action();
-      };
-      if (sliderAction) {
-        sliderAction();
-      };
-      this.number.value = get({
-        object: object,
-        path: path,
-      });
+
+      if (action) { action(); };
+
+      if (sliderAction) { sliderAction(); };
+
+      this.number.value = get({ object: object, path: path });
+
     },
     focusFunc: focusAction,
     blurFunc: blurAction,
@@ -85,7 +82,9 @@ export const Control_sliderSlim = function({
     max: max,
     classList: ['form-group-item-small'],
     func: () => {
+
       if (path) {
+
         set({
           object: object,
           path: path,
@@ -95,14 +94,15 @@ export const Control_sliderSlim = function({
             max: max
           })
         });
+
       };
-      if (action) {
-        action();
-      };
-      if (numberAction) {
-        numberAction();
-      };
+
+      if (action) { action(); };
+
+      if (numberAction) { numberAction(); };
+
       this.update({ delay: true });
+
     }
   });
 
@@ -111,27 +111,29 @@ export const Control_sliderSlim = function({
     iconName: 'replay',
     style: ['line'],
     classList: ['form-group-item-small'],
+    title: 'Reset to default',
     func: () => {
+
       set({
         object: object,
         path: path,
         value: JSON.parse(JSON.stringify(defaultValue))
       });
+
       this.update();
-      if (action) {
-        action();
-      };
-      if (resetAction) {
-        resetAction();
-      };
+
+      if (action) { action(); };
+
+      if (resetAction) { resetAction(); };
+
     }
   });
+
+  this.delayedUpdate = null;
 
   this.update = ({
     delay = false
   } = {}) => {
-
-    let delayedUpdate = null;
 
     const updateControl = () => {
       this.range.value = get({ object: object, path: path });
@@ -139,8 +141,8 @@ export const Control_sliderSlim = function({
     };
 
     if (delay) {
-      clearTimeout(delayedUpdate);
-      delayedUpdate = setTimeout(updateControl, 2000);
+      clearTimeout(this.delayedUpdate);
+      this.delayedUpdate = setTimeout(updateControl, 2000);
     } else {
       updateControl();
     };

@@ -8,6 +8,7 @@ import { Button } from '../../button';
 import { Collapse } from '../../collapse';
 
 import { node } from '../../../utility/node';
+import { complexNode } from '../../../utility/complexNode';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
@@ -32,14 +33,11 @@ export const Control_select = function({
     option: option,
     selected: selected,
     func: () => {
-      set({
-        object: object,
-        path: path,
-        value: this.select.selectedIndex
-      });
-      if (action) {
-        action();
-      };
+
+      set({ object: object, path: path, value: this.select.selectedIndex });
+
+      if (action) { action(); };
+
     }
   });
 
@@ -69,12 +67,14 @@ export const Control_select = function({
       option.forEach((item, i) => {
 
         this.select.appendChild(
-          node(
-            'option:' +
-            item +
-            '|value:' +
-            trimString(item).replace(/\s+/g, '-').toLowerCase()
-          )
+          complexNode({
+            tag: 'option',
+            text: item,
+            attr: [{
+              key: 'value',
+              value: trimString(item).replace(/\s+/g, '-').toLowerCase()
+            }]
+          })
         );
 
       });

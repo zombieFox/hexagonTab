@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';

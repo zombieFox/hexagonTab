@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -20,24 +19,21 @@ export const Control_checkbox = function({
   path = false,
   labelText = 'name',
   description = false,
-  action = false
+  action = false,
+  inputButton = false,
+  inputHide = false,
+  inputButtonStyle = false
 } = {}) {
 
   this.checkbox = form.input.checkbox({
     id: id,
-    checked: (get({
-      object: object,
-      path: path,
-    }) === true),
+    checked: get({ object: object, path: path }),
     func: () => {
-      set({
-        object: object,
-        path: path,
-        value: this.checkbox.checked
-      });
-      if (action) {
-        action();
-      };
+
+      set({ object: object, path: path, value: this.checkbox.checked });
+
+      if (action) { action(); };
+
     }
   });
 
@@ -49,30 +45,24 @@ export const Control_checkbox = function({
   });
 
   this.update = () => {
-    this.checkbox.checked = (get({
-      object: object,
-      path: path,
-    }) === true);
+    this.checkbox.checked = get({ object: object, path: path });
   };
 
   this.checked = () => {
-    return get({
-      object: object,
-      path: path,
-    });
+
+    return get({ object: object, path: path });
+
   };
 
   this.wrap = () => {
+
     return form.wrap({
       children: [
-        form.group({
-          children: [
-            this.checkbox,
-            this.label
-          ]
-        })
+        this.checkbox,
+        this.label
       ]
-    })
+    });
+
   };
 
   this.disable = () => {

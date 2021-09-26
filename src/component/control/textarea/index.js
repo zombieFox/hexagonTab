@@ -13,12 +13,11 @@ import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
 import { isValidString } from '../../../utility/isValidString';
 
-export const Control_textReset = function({
+export const Control_textarea = function({
   object = {},
   path = false,
   id = 'name',
   value = false,
-  defaultValue = false,
   min = false,
   max = false,
   placeholder = false,
@@ -37,91 +36,59 @@ export const Control_textReset = function({
     this.label.classList.add('sr-only')
   };
 
-  this.text = form.input.text({
+  this.textarea = form.input.textarea({
     id: id,
     classList: classList,
     func: () => {
+
       if (path) {
-        set({
-          object: object,
-          path: path,
-          value: this.text.value
-        });
+        set({ object: object, path: path, value: this.textarea.value });
       };
-      if (action) {
-        action();
-      };
+
+      if (action) { action(); };
+
     }
   });
 
   if (value) {
-    this.text.value = value;
+    this.textarea.value = value;
   };
 
   if (min) {
-    this.text.min = min;
+    this.textarea.minLength = min;
   };
 
   if (max) {
-    this.text.max = max;
+    this.textarea.maxLength = max;
   };
 
   if (placeholder) {
-    this.text.placeholder = placeholder;
+    this.textarea.placeholder = placeholder;
   };
 
-  this.reset = new Button({
-    text: false,
-    iconName: 'replay',
-    style: ['line'],
-    classList: ['form-group-item-small'],
-    title: 'Reset to default',
-    func: () => {
-      set({
-        object: object,
-        path: path,
-        value: JSON.parse(JSON.stringify(defaultValue))
-      });
-      this.update();
-      if (action) {
-        action();
-      };
-    }
-  });
-
   this.update = () => {
-    this.text.value = get({
-      object: object,
-      path: path,
-    });
+
+    this.textarea.value = get({ object: object, path: path });
+
   };
 
   this.wrap = () => {
     return form.wrap({
       children: [
         this.label,
-        form.group({
-          direction: 'horizontal',
-          block: true,
-          children: [
-            this.text,
-            this.reset.button
-          ]
-        })
+        this.textarea
       ]
-    });
+    })
   };
 
   this.disable = () => {
     this.label.classList.add('disabled');
-    this.text.disabled = true;
-    this.reset.disable();
+    this.textarea.disabled = true;
   };
 
   this.enable = () => {
     this.label.classList.remove('disabled');
-    this.text.disabled = false;
-    this.reset.enable();
+    this.textarea.disabled = false;
   };
 
 };

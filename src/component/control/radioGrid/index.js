@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -32,10 +31,10 @@ export const Control_radioGrid = function({
 
   const gridElement = form.grid();
 
-  let gridLabel = false;
+  this.label = false;
 
   if (label) {
-    gridLabel = form.label({
+    this.label = form.label({
       text: label
     });
   };
@@ -50,19 +49,13 @@ export const Control_radioGrid = function({
         id: item.id,
         radioGroup: radioGroupName,
         value: item.value,
-        checked: (get({
-          object: object,
-          path: radioGroupPath,
-        }) === item.value),
+        checked: (get({ object: object, path: radioGroupPath, }) === item.value),
         func: () => {
-          set({
-            object: object,
-            path: radioGroupPath,
-            value: item.value
-          });
-          if (action) {
-            action();
-          };
+
+          set({ object: object, path: radioGroupPath, value: item.value });
+
+          if (action) { action(); };
+
         }
       });
 
@@ -84,10 +77,9 @@ export const Control_radioGrid = function({
       };
 
       radioAndLabel.radio.update = () => {
-        radioAndLabel.radio.checked = (get({
-          object: object,
-          path: radioGroupPath,
-        }) === item.value);
+
+        radioAndLabel.radio.checked = (get({ object: object, path: radioGroupPath }) === item.value);
+
       };
 
       radioAndLabel.radio.disable = () => {
@@ -155,7 +147,7 @@ export const Control_radioGrid = function({
     });
 
     if (label) {
-      wrap.appendChild(gridLabel);
+      wrap.appendChild(this.label);
     };
 
     wrap.appendChild(gridElement);
@@ -171,7 +163,7 @@ export const Control_radioGrid = function({
     gridElement.classList.add('disabled');
 
     if (label) {
-      gridLabel.classList.add('disabled');
+      this.label.classList.add('disabled');
     };
   };
 
@@ -183,7 +175,7 @@ export const Control_radioGrid = function({
     gridElement.classList.remove('disabled');
 
     if (label) {
-      gridLabel.classList.remove('disabled');
+      this.label.classList.remove('disabled');
     };
   };
 

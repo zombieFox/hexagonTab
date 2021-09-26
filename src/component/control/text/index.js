@@ -1,6 +1,5 @@
 import { state } from '../../state';
 import { data } from '../../data';
-import { grid } from '../../grid';
 import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
@@ -41,16 +40,13 @@ export const Control_text = function({
     id: id,
     classList: classList,
     func: () => {
+
       if (path) {
-        set({
-          object: object,
-          path: path,
-          value: this.text.value
-        });
+        set({ object: object, path: path, value: this.text.value });
       };
-      if (action) {
-        action();
-      };
+
+      if (action) { action(); };
+
     }
   });
 
@@ -71,10 +67,9 @@ export const Control_text = function({
   };
 
   this.update = () => {
-    this.text.value = get({
-      object: object,
-      path: path,
-    });
+
+    this.text.value = get({ object: object, path: path });
+
   };
 
   this.wrap = () => {
