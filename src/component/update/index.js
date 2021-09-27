@@ -29,6 +29,10 @@ update.mod['4.0.0'] = function(data) {
 
   data.state.theme.background.video.vignette = { opacity: 0, start: 90, end: 70 };
 
+  data.bookmark.forEach((item, i) => {
+    item.display.gutter = 25;
+  });
+
   return data;
 
 };
