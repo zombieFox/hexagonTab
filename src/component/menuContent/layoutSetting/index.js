@@ -39,9 +39,14 @@ import { applyCSSState } from '../../../utility/applyCSSState';
 
 const layoutSetting = {};
 
+layoutSetting.control = {
+  scaling: {},
+  grid: {}
+};
+
 layoutSetting.scaling = (parent) => {
 
-  const gridSize = new Control_slider({
+  layoutSetting.control.scaling.size = new Control_slider({
     object: state.get.current(),
     path: 'grid.size',
     id: 'grid-size',
@@ -56,14 +61,14 @@ layoutSetting.scaling = (parent) => {
     }
   });
 
-  const gridSizeHelper = new Control_helperText({
+  layoutSetting.control.scaling.sizeHelper = new Control_helperText({
     text: ['Resize all elements on the page.', 'Take care as some elements could scale up to outside the page.']
   });
 
   parent.appendChild(
     node('div', [
-      gridSize.wrap(),
-      gridSizeHelper.wrap()
+      layoutSetting.control.scaling.size.wrap(),
+      layoutSetting.control.scaling.sizeHelper.wrap()
     ])
   );
 
@@ -71,7 +76,7 @@ layoutSetting.scaling = (parent) => {
 
 layoutSetting.grid = (parent) => {
 
-  const gridColumn = new Control_slider({
+  layoutSetting.control.grid.column = new Control_slider({
     object: state.get.current(),
     path: 'grid.column',
     id: 'grid-column',
@@ -88,7 +93,7 @@ layoutSetting.grid = (parent) => {
     }
   });
 
-  const gridGap = new Control_slider({
+  layoutSetting.control.grid.gap = new Control_slider({
     object: state.get.current(),
     path: 'grid.gap',
     id: 'grid-gap',
@@ -103,7 +108,7 @@ layoutSetting.grid = (parent) => {
     }
   });
 
-  const gridPerspective = new Control_slider({
+  layoutSetting.control.grid.perspective = new Control_slider({
     object: state.get.current(),
     path: 'grid.perspective',
     id: 'grid-perspective',
@@ -118,7 +123,7 @@ layoutSetting.grid = (parent) => {
     }
   });
 
-  const gridFocus = new Control_slider({
+  layoutSetting.control.grid.focus = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.focus',
     id: 'grid-transform-focus',
@@ -132,7 +137,9 @@ layoutSetting.grid = (parent) => {
     }
   });
 
-  const gridTransformRotateX = new Control_slider({
+  layoutSetting.control.grid.transform = {};
+
+  layoutSetting.control.grid.transform.rotateX = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.rotate.x',
     id: 'grid-transform-rotate-x',
@@ -147,7 +154,7 @@ layoutSetting.grid = (parent) => {
     }
   });
 
-  const gridTransformRotateY = new Control_slider({
+  layoutSetting.control.grid.transform.rotateY = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.rotate.y',
     id: 'grid-transform-rotate-y',
@@ -162,7 +169,7 @@ layoutSetting.grid = (parent) => {
     }
   });
 
-  const gridTransformRotateZ = new Control_slider({
+  layoutSetting.control.grid.transform.rotateZ = new Control_slider({
     object: state.get.current(),
     path: 'grid.transform.rotate.z',
     id: 'grid-transform-rotate-z',
@@ -179,14 +186,14 @@ layoutSetting.grid = (parent) => {
 
   parent.appendChild(
     node('div', [
-      gridColumn.wrap(),
-      gridGap.wrap(),
-      gridPerspective.wrap(),
-      gridFocus.wrap(),
+      layoutSetting.control.grid.column.wrap(),
+      layoutSetting.control.grid.gap.wrap(),
+      layoutSetting.control.grid.perspective.wrap(),
+      layoutSetting.control.grid.focus.wrap(),
       node('hr'),
-      gridTransformRotateX.wrap(),
-      gridTransformRotateY.wrap(),
-      gridTransformRotateZ.wrap()
+      layoutSetting.control.grid.transform.rotateX.wrap(),
+      layoutSetting.control.grid.transform.rotateY.wrap(),
+      layoutSetting.control.grid.transform.rotateZ.wrap()
     ])
   );
 
