@@ -1,4 +1,5 @@
-# hexagonTab
+# [![hexagonTab](asset/banner/banner-1400-560.png)](https://zombiefox.github.io/hexagonTab/)
+
 Hexagon bookmarks accented with a chosen colour. Customise the layout, style and background with hexagonTab - a custom start page.
 
 Save bookmarks to your start page on a unique hexagonal grid. hexagonTab keeps the new tab page clean and simple with a focus on presenting links to your most frequented sites.
