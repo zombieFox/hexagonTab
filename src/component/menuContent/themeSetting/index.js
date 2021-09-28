@@ -739,106 +739,6 @@ themeSetting.font = (parent) => {
 
 };
 
-themeSetting.bookmark = (parent) => {
-
-  themeSetting.control.bookmark = {
-    shadow: {
-      color: {
-        type: new Control_radio({
-          object: state.get.current(),
-          radioGroup: [
-            { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
-            { id: 'theme-bookmark-shadow-color-type-custom', labelText: 'Custom Accent', description: 'Override the Theme Accent.', value: 'custom' }
-          ],
-          groupName: 'theme-bookmark-shadow-color-type',
-          path: 'theme.bookmark.shadow.color.type',
-          action: () => {
-            applyCSSClass('theme.bookmark.shadow.color.type');
-            themeSetting.disable();
-            themeBookmarkShadowColorByCollapse.update();
-            data.save();
-          }
-        }),
-        color: new Control_colorMixer({
-          object: state.get.current(),
-          path: 'theme.bookmark.shadow.color',
-          id: 'theme-bookmark-shadow-color',
-          labelText: 'Bookmark shadow colour',
-          srOnly: true,
-          randomColor: true,
-          defaultValue: state.get.default().theme.bookmark.shadow.color.rgb,
-          minMaxObject: state.get.minMax(),
-          action: () => {
-            applyCSSVar([
-              'theme.bookmark.shadow.color.rgb.r',
-              'theme.bookmark.shadow.color.rgb.g',
-              'theme.bookmark.shadow.color.rgb.b',
-              'theme.bookmark.shadow.color.hsl.h',
-              'theme.bookmark.shadow.color.hsl.s',
-              'theme.bookmark.shadow.color.hsl.l'
-            ]);
-            data.save();
-          }
-        })
-      },
-      opacity: new Control_slider({
-        object: state.get.current(),
-        path: 'theme.bookmark.shadow.opacity',
-        id: 'theme-bookmark-shadow-opacity',
-        labelText: 'Bookmark shadow opacity',
-        value: state.get.current().theme.bookmark.shadow.opacity,
-        defaultValue: state.get.default().theme.bookmark.shadow.opacity,
-        min: state.get.minMax().theme.bookmark.shadow.opacity.min,
-        max: state.get.minMax().theme.bookmark.shadow.opacity.max,
-        action: () => {
-          applyCSSVar('theme.bookmark.shadow.opacity');
-          data.save();
-        }
-      })
-    }
-  };
-
-  const themeBookmarkShadowColorByCustonArea = node('div', [
-    themeSetting.control.bookmark.shadow.color.color.wrap(),
-  ]);
-
-  const themeBookmarkShadowColorByCollapse = new Collapse({
-    type: 'radio',
-    radioGroup: themeSetting.control.bookmark.shadow.color.type,
-    target: [{
-      id: themeSetting.control.bookmark.shadow.color.type.radioSet[1].radio.value,
-      content: themeBookmarkShadowColorByCustonArea
-    }]
-  });
-
-  themeBookmarkShadowColorByCollapse.update();
-
-  parent.appendChild(
-    node('div', [
-      form.wrap({
-        children: [
-          form.label({
-            text: 'Bookmark shadow colour'
-          })
-        ]
-      }),
-      themeSetting.control.bookmark.shadow.color.type.wrap(),
-      form.wrap({
-        children: [
-          form.indent({
-            children: [
-              themeBookmarkShadowColorByCollapse.collapse(),
-              node('hr'),
-              themeSetting.control.bookmark.shadow.opacity.wrap()
-            ]
-          })
-        ]
-      })
-    ])
-  );
-
-};
-
 themeSetting.shade = (parent) => {
 
   themeSetting.control.shade = {
@@ -903,9 +803,55 @@ themeSetting.opacity = (parent) => {
     }
   });
 
+  themeSetting.control.opacity.bookmark = {
+    color: {
+      opacity: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.bookmark.color.opacity',
+        id: 'theme-bookmark-color-opacity',
+        labelText: 'Bookmark',
+        value: state.get.current().theme.bookmark.color.opacity,
+        defaultValue: state.get.default().theme.bookmark.color.opacity,
+        min: state.get.minMax().theme.bookmark.color.opacity.min,
+        max: state.get.minMax().theme.bookmark.color.opacity.max,
+        action: () => {
+
+          applyCSSVar('theme.bookmark.color.opacity');
+
+          bookmark.item.mod.applyVar('color.opacity', state.get.current().theme.bookmark.color.opacity);
+
+          bookmark.item.clear();
+
+          bookmark.item.render();
+
+          data.save();
+
+        }
+      })
+    },
+    shadow: {
+      opacity: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.bookmark.shadow.opacity',
+        id: 'theme-bookmark-shadow-opacity',
+        labelText: 'Shadow',
+        value: state.get.current().theme.bookmark.shadow.opacity,
+        defaultValue: state.get.default().theme.bookmark.shadow.opacity,
+        min: state.get.minMax().theme.bookmark.shadow.opacity.min,
+        max: state.get.minMax().theme.bookmark.shadow.opacity.max,
+        action: () => {
+          applyCSSVar('theme.bookmark.shadow.opacity');
+          data.save();
+        }
+      })
+    }
+  };
+
   parent.appendChild(
     node('div', [
-      themeSetting.control.opacity.toolbar.wrap()
+      themeSetting.control.opacity.toolbar.wrap(),
+      themeSetting.control.opacity.bookmark.color.opacity.wrap(),
+      themeSetting.control.opacity.bookmark.shadow.opacity.wrap()
     ])
   );
 
@@ -1392,6 +1338,106 @@ themeSetting.background = (parent) => {
           form.indent({
             children: [
               themeSetting.control.background.typeCollapse.collapse()
+            ]
+          })
+        ]
+      })
+    ])
+  );
+
+};
+
+themeSetting.bookmark = (parent) => {
+
+  themeSetting.control.bookmark = {
+    shadow: {
+      color: {
+        type: new Control_radio({
+          object: state.get.current(),
+          radioGroup: [
+            { id: 'theme-bookmark-shadow-color-type-theme', labelText: 'Theme Accent', description: 'Use the Accent defined by the Theme.', value: 'theme' },
+            { id: 'theme-bookmark-shadow-color-type-custom', labelText: 'Custom Accent', description: 'Override the Theme Accent.', value: 'custom' }
+          ],
+          groupName: 'theme-bookmark-shadow-color-type',
+          path: 'theme.bookmark.shadow.color.type',
+          action: () => {
+            applyCSSClass('theme.bookmark.shadow.color.type');
+            themeSetting.disable();
+            themeBookmarkShadowColorByCollapse.update();
+            data.save();
+          }
+        }),
+        color: new Control_colorMixer({
+          object: state.get.current(),
+          path: 'theme.bookmark.shadow.color',
+          id: 'theme-bookmark-shadow-color',
+          labelText: 'Bookmark shadow colour',
+          srOnly: true,
+          randomColor: true,
+          defaultValue: state.get.default().theme.bookmark.shadow.color.rgb,
+          minMaxObject: state.get.minMax(),
+          action: () => {
+            applyCSSVar([
+              'theme.bookmark.shadow.color.rgb.r',
+              'theme.bookmark.shadow.color.rgb.g',
+              'theme.bookmark.shadow.color.rgb.b',
+              'theme.bookmark.shadow.color.hsl.h',
+              'theme.bookmark.shadow.color.hsl.s',
+              'theme.bookmark.shadow.color.hsl.l'
+            ]);
+            data.save();
+          }
+        })
+      },
+      blur: new Control_slider({
+        object: state.get.current(),
+        path: 'theme.bookmark.shadow.blur',
+        id: 'theme-bookmark-shadow-blur',
+        labelText: 'Bookmark shadow blur',
+        value: state.get.current().theme.bookmark.shadow.blur,
+        defaultValue: state.get.default().theme.bookmark.shadow.blur,
+        min: state.get.minMax().theme.bookmark.shadow.blur.min,
+        max: state.get.minMax().theme.bookmark.shadow.blur.max,
+        action: () => {
+          applyCSSVar('theme.bookmark.shadow.blur');
+          data.save();
+        }
+      })
+    }
+  };
+
+  const themeBookmarkShadowColorByCustonArea = node('div', [
+    themeSetting.control.bookmark.shadow.color.color.wrap(),
+  ]);
+
+  const themeBookmarkShadowColorByCollapse = new Collapse({
+    type: 'radio',
+    radioGroup: themeSetting.control.bookmark.shadow.color.type,
+    target: [{
+      id: themeSetting.control.bookmark.shadow.color.type.radioSet[1].radio.value,
+      content: themeBookmarkShadowColorByCustonArea
+    }]
+  });
+
+  themeBookmarkShadowColorByCollapse.update();
+
+  parent.appendChild(
+    node('div', [
+      form.wrap({
+        children: [
+          form.label({
+            text: 'Bookmark shadow colour'
+          })
+        ]
+      }),
+      themeSetting.control.bookmark.shadow.color.type.wrap(),
+      form.wrap({
+        children: [
+          form.indent({
+            children: [
+              themeBookmarkShadowColorByCollapse.collapse(),
+              node('hr'),
+              themeSetting.control.bookmark.shadow.blur.wrap()
             ]
           })
         ]

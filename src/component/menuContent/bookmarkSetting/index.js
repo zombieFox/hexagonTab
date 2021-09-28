@@ -125,25 +125,9 @@ bookmarkSetting.shadow = (parent) => {
     }
   });
 
-  bookmarkSetting.control.shadow.blur = new Control_slider({
-    object: state.get.current(),
-    path: 'bookmark.shadow.blur',
-    id: 'bookmark-shadow-blur',
-    labelText: 'Bookmark shadow blur',
-    value: state.get.current().bookmark.shadow.blur,
-    defaultValue: state.get.default().bookmark.shadow.blur,
-    min: state.get.minMax().bookmark.shadow.blur.min,
-    max: state.get.minMax().bookmark.shadow.blur.max,
-    action: () => {
-      applyCSSVar('bookmark.shadow.blur');
-      data.save();
-    }
-  });
-
   parent.appendChild(
     node('div', [
-      bookmarkSetting.control.shadow.distance.wrap(),
-      bookmarkSetting.control.shadow.blur.wrap()
+      bookmarkSetting.control.shadow.distance.wrap()
     ])
   );
 

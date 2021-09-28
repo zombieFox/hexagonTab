@@ -405,6 +405,8 @@ theme.init = () => {
     'theme.bookmark.shadow.color.hsl.s',
     'theme.bookmark.shadow.color.hsl.l',
     'theme.bookmark.shadow.opacity',
+    'theme.bookmark.shadow.blur',
+    'theme.bookmark.color.opacity',
     'theme.radius',
     'theme.shadow',
     'theme.shade.opacity',

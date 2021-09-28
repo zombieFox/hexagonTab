@@ -17,6 +17,9 @@ import { clearChildNode } from '../../utility/clearChildNode';
 import { applyCSSVar } from '../../utility/applyCSSVar';
 import { applyCSSClass } from '../../utility/applyCSSClass';
 import { applyCSSState } from '../../utility/applyCSSState';
+import { set } from '../../utility/set';
+import { get } from '../../utility/get';
+import { sortArrayOfObject } from '../../utility/sortArrayOfObject';
 
 import './index.css';
 
@@ -85,6 +88,15 @@ bookmark.item = {
         });
 
       };
+
+    },
+    applyVar: (path, value) => {
+
+      bookmark.all.forEach((item, i) => {
+
+        set({ object: item, path: path, value: value });
+
+      });
 
     }
   },
@@ -334,7 +346,6 @@ bookmark.init = () => {
     'bookmark.size',
     'bookmark.hover.distance',
     'bookmark.hover.size',
-    'bookmark.shadow.blur',
     'bookmark.shadow.distance'
   ]);
   bookmark.add.mod.close();

@@ -42,8 +42,8 @@
   z-index: 1;
   opacity: calc(var(--theme-bookmark-shadow-opacity) / 100);
   pointer-events: none;
-  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast);
-  filter: blur(calc(var(--bookmark-shadow-blur) * 0.01em));
+  transition: transform var(--layout-transition-extra-fast), filter var(--layout-transition-extra-fast), opacity var(--layout-transition-extra-fast);
+  filter: blur(calc(var(--theme-bookmark-shadow-blur) * 0.01em));
   transform: translateZ(calc(var(--bookmark-shadow-distance) * -0.1em)) scale(calc(1 - calc(var(--bookmark-shadow-distance) / 2000)));
 }
 
@@ -56,6 +56,7 @@
 .is-bookmark-edit .bookmark:hover .bookmark-shadow-wrap,
 .is-bookmark-edit .bookmark-shadow-wrap:hover {
   filter: blur(0);
+  opacity: 0;
   transform: translateZ(0) scale(0.2);
 }
 
@@ -129,7 +130,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 }
 
 .bookmark-link {
-  background-color: hsla(var(--bookmark-color), var(--bookmark-color-opacity));
+  background-color: hsla(var(--bookmark-color), calc(var(--bookmark-color-opacity) / 100));
   position: relative;
   width: 100%;
   height: 100%;
@@ -149,7 +150,7 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
 
 .bookmark-link:focus,
 .bookmark-link:hover {
-  background-color: hsla(var(--bookmark-color-focus-hover), var(--bookmark-color-opacity));
+  background-color: hsla(var(--bookmark-color-focus-hover), calc(var(--bookmark-color-opacity) / 100));
 }
 
 .is-bookmark-edit .bookmark-link {

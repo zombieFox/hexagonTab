@@ -17,7 +17,7 @@ state.default = {
   bookmark: {
     size: 70,
     hover: { size: 0, distance: 15 },
-    shadow: { blur: 15, distance: 30 },
+    shadow: { distance: 30 },
     newTab: false,
     edit: false,
     add: false
@@ -33,7 +33,8 @@ state.default = {
     toolbar: { opacity: 0 },
     style: 'light',
     bookmark: {
-      shadow: { opacity: 25, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } }
+      shadow: { opacity: 25, blur: 15, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } },
+      color: { opacity: 100 }
     },
     background: {
       type: 'gradient',
@@ -75,10 +76,7 @@ state.minMax = {
       size: { min: 0, max: 100 },
       distance: { min: 0, max: 300 }
     },
-    shadow: {
-      blur: { min: 0, max: 200 },
-      distance: { min: 0, max: 300 }
-    }
+    shadow: { distance: { min: 0, max: 300 } }
   },
   toolbar: {
     size: { min: 50, max: 500 },
@@ -101,11 +99,13 @@ state.minMax = {
     bookmark: {
       shadow: {
         opacity: { min: 0, max: 100 },
+        blur: { min: 0, max: 200 },
         color: {
           hsl: { h: { min: 0, max: 359 }, s: { min: 0, max: 100 }, l: { min: 0, max: 100 } },
           rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
         }
-      }
+      },
+      color: { opacity: { min: 0, max: 100 } }
     },
     background: {
       color: {
