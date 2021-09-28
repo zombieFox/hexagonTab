@@ -341,6 +341,36 @@ bookmark.restore = (dataToRestore) => {
   console.log('bookmark restored');
 };
 
+bookmark.reset = () => {
+
+  bookmark.all.forEach((item, i) => {
+
+    const newBookmarkData = new StagedBookmark();
+
+    newBookmarkData.link.timestamp = item.timestamp;
+
+    newBookmarkData.link.url = item.url;
+
+    newBookmarkData.link.display.name.text = item.display.name.text;
+
+    newBookmarkData.link.display.visual.type = item.display.visual.type;
+
+    newBookmarkData.link.display.visual.letter.text = item.display.visual.letter.text;
+
+    newBookmarkData.link.display.visual.icon = item.display.visual.icon;
+
+    newBookmarkData.link.display.visual.image.url = item.display.visual.image.url;
+
+    newBookmarkData.position.origin = i;
+
+    newBookmarkData.position.destination = i;
+
+    bookmark.item.mod.edit(newBookmarkData)
+
+  });
+
+};
+
 bookmark.init = () => {
   applyCSSVar([
     'bookmark.size',
