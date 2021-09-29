@@ -1399,7 +1399,7 @@ themeSetting.bookmark = (parent) => {
           action: () => {
             applyCSSClass('theme.bookmark.shadow.color.type');
             themeSetting.disable();
-            themeBookmarkShadowColorByCollapse.update();
+            themeSetting.control.bookmark.shadow.color.collapse.update();
             data.save();
           }
         }),
@@ -1442,20 +1442,21 @@ themeSetting.bookmark = (parent) => {
     }
   };
 
-  const themeBookmarkShadowColorByCustonArea = node('div', [
+
+  themeSetting.control.bookmark.shadow.color.area = node('div', [
     themeSetting.control.bookmark.shadow.color.color.wrap(),
   ]);
 
-  const themeBookmarkShadowColorByCollapse = new Collapse({
+  themeSetting.control.bookmark.shadow.color.collapse = new Collapse({
     type: 'radio',
     radioGroup: themeSetting.control.bookmark.shadow.color.type,
     target: [{
       id: themeSetting.control.bookmark.shadow.color.type.radioSet[1].radio.value,
-      content: themeBookmarkShadowColorByCustonArea
+      content: themeSetting.control.bookmark.shadow.color.area
     }]
   });
 
-  themeBookmarkShadowColorByCollapse.update();
+  themeSetting.control.bookmark.shadow.color.collapse.update();
 
   parent.appendChild(
     node('div', [
@@ -1471,7 +1472,7 @@ themeSetting.bookmark = (parent) => {
         children: [
           form.indent({
             children: [
-              themeBookmarkShadowColorByCollapse.collapse(),
+              themeSetting.control.bookmark.shadow.color.collapse.collapse(),
               node('hr'),
               themeSetting.control.bookmark.shadow.blur.wrap()
             ]

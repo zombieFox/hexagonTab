@@ -148,6 +148,14 @@ export const PresetThemeTile = function({
 
         themeSetting.control.opacity.bookmark.shadow.opacity.update();
 
+        themeSetting.control.bookmark.shadow.color.type.update();
+
+        themeSetting.control.bookmark.shadow.color.color.update();
+
+        themeSetting.control.bookmark.shadow.color.collapse.update();
+
+        themeSetting.control.bookmark.shadow.blur.update();
+
         themeSetting.disable();
 
         applyCSSVar([
