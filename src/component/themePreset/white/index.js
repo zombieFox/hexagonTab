@@ -15,7 +15,7 @@ export const white = {
   style: 'light',
   shade: state.get.default().theme.shade,
   bookmark: {
-    shadow: { opacity: 100, blur: 0, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } },
+    shadow: { opacity: 100, blur: 0, color: { type: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } },
     item: state.get.default().theme.bookmark.item
   },
   toolbar: state.get.default().theme.toolbar
