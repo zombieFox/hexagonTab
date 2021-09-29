@@ -8,6 +8,7 @@ import { menu } from '../../menu';
 import { icon } from '../../icon';
 import { logo } from '../../logo';
 import { toolbar } from '../../toolbar';
+import { themePreset } from '../../themePreset';
 import { accentPreset } from '../../accentPreset';
 
 import { supportSetting } from '../../menuContent/supportSetting';
@@ -18,6 +19,7 @@ import { Button } from '../../button';
 import { Collapse } from '../../collapse';
 import { Link } from '../../link';
 import { Alert } from '../../alert';
+import { PresetThemeTile } from '../../presetThemeTile';
 import { AccentPresetButton } from '../../accentPresetButton';
 
 import { Control_helperText } from '../../control/helperText';
@@ -45,6 +47,7 @@ import { applyCSSState } from '../../../utility/applyCSSState';
 const themeSetting = {};
 
 themeSetting.control = {
+  preset: {},
   style: {},
   colour: {},
   accent: {},
@@ -206,6 +209,39 @@ themeSetting.disable = () => {
       break;
 
   };
+
+};
+
+themeSetting.preset = (parent) => {
+
+  themeSetting.control.preset.presetHelper = new Control_helperText({
+    text: ['Applying a Preset will replace the current Colour, Accent, Font, Style, Opacity, Shade and Background.']
+  });
+
+  const preset = () => {
+
+    const themePresetElement = node('div|class:theme-preset');
+
+    themePreset.get().forEach((item, i) => {
+
+      const presetTheme = new PresetThemeTile({
+        presetThemeData: item
+      });
+
+      themePresetElement.appendChild(presetTheme.tile());
+
+    });
+
+    return themePresetElement;
+
+  };
+
+  parent.appendChild(
+    node('div', [
+      preset(),
+      themeSetting.control.preset.presetHelper.wrap()
+    ])
+  );
 
 };
 
@@ -804,21 +840,21 @@ themeSetting.opacity = (parent) => {
   });
 
   themeSetting.control.opacity.bookmark = {
-    color: {
+    item: {
       opacity: new Control_sliderSlim({
         object: state.get.current(),
-        path: 'theme.bookmark.color.opacity',
-        id: 'theme-bookmark-color-opacity',
+        path: 'theme.bookmark.item.opacity',
+        id: 'theme-bookmark-item-opacity',
         labelText: 'Bookmark',
-        value: state.get.current().theme.bookmark.color.opacity,
-        defaultValue: state.get.default().theme.bookmark.color.opacity,
-        min: state.get.minMax().theme.bookmark.color.opacity.min,
-        max: state.get.minMax().theme.bookmark.color.opacity.max,
+        value: state.get.current().theme.bookmark.item.opacity,
+        defaultValue: state.get.default().theme.bookmark.item.opacity,
+        min: state.get.minMax().theme.bookmark.item.opacity.min,
+        max: state.get.minMax().theme.bookmark.item.opacity.max,
         action: () => {
 
-          applyCSSVar('theme.bookmark.color.opacity');
+          applyCSSVar('theme.bookmark.item.opacity');
 
-          bookmark.item.mod.applyVar('color.opacity', state.get.current().theme.bookmark.color.opacity);
+          bookmark.item.mod.applyVar('color.opacity', state.get.current().theme.bookmark.item.opacity);
 
           bookmark.item.clear();
 
@@ -850,7 +886,7 @@ themeSetting.opacity = (parent) => {
   parent.appendChild(
     node('div', [
       themeSetting.control.opacity.toolbar.wrap(),
-      themeSetting.control.opacity.bookmark.color.opacity.wrap(),
+      themeSetting.control.opacity.bookmark.item.opacity.wrap(),
       themeSetting.control.opacity.bookmark.shadow.opacity.wrap()
     ])
   );

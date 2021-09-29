@@ -1,7 +1,7 @@
 {
   "name": "hexagonTab",
   "short_name": "hexagonTab",
-  "description": "Hexagon bookmarks accented with a chosen colour. Customise the layout, style and background with hexagonTab - a custom start page.",
+  "description": "Hexagon bookmarks accented with a chosen colour. Customise the layout, style and background with hexagonTab.",
   "version": "4.0.0",
   "manifest_version": 2,
   "chrome_url_overrides": {

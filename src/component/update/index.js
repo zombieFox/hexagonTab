@@ -14,9 +14,13 @@ update.mod['4.0.0'] = function(data) {
 
   data.state.theme.toolbar = { opacity: 100 };
 
-  data.state.theme.bookmark.color = { opacity: 100 };
-
   delete data.state.toolbar.style;
+
+  data.state.theme.bookmark.item = { opacity: 100 };
+
+  data.state.theme.bookmark.shadow.blur = data.state.bookmark.shadow.blur;
+
+  delete data.state.bookmark.shadow.blur;
 
   data.state.theme.color.contrast = {
     start: data.state.theme.color.lightness.start,
@@ -30,10 +34,6 @@ update.mod['4.0.0'] = function(data) {
   data.state.theme.background.image.vignette = { opacity: 0, start: 90, end: 70 };
 
   data.state.theme.background.video.vignette = { opacity: 0, start: 90, end: 70 };
-
-  data.state.theme.bookmark.shadow.blur = data.state.bookmark.shadow.blur;
-
-  delete data.state.bookmark.shadow.blur;
 
   data.bookmark.forEach((item, i) => {
     item.display.gutter = 25;

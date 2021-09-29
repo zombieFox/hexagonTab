@@ -34,7 +34,7 @@ state.default = {
     style: 'light',
     bookmark: {
       shadow: { opacity: 25, blur: 15, color: { type: 'custom', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 } } },
-      color: { opacity: 100 }
+      item: { opacity: 100 }
     },
     background: {
       type: 'gradient',
@@ -105,7 +105,7 @@ state.minMax = {
           rgb: { r: { min: 0, max: 255 }, g: { min: 0, max: 255 }, b: { min: 0, max: 255 } }
         }
       },
-      color: { opacity: { min: 0, max: 100 } }
+      item: { opacity: { min: 0, max: 100 } }
     },
     background: {
       color: {
