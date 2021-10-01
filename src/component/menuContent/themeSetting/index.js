@@ -253,7 +253,7 @@ themeSetting.saved = (parent) => {
   themeSetting.control.saved = {
     savedElement: node('div|class:theme-custom'),
     customHelper: new Control_helperText({
-      text: ['Saving a Theme will record the current Colour, Accent, Font, Style, Opacity, Radius, Shadow, Shade and Background.']
+      text: ['Saving a Theme will record the current Colour, Accent, Font, Style, Opacity, Shade and Background.']
     }),
     saveButton: new Button({
       text: 'Save current theme',
@@ -629,8 +629,9 @@ themeSetting.font = (parent) => {
       }
     }),
     nameHelper: new Control_helperText({
+      complexText: true,
       text: [
-        'Use a <a href="https://fonts.google.com/" target="_blank">Google Font</a> to customise the Clock, Date, Group names and Bookmark Letters.',
+        `Use a ${(new Link({ text:'Google Font', href: `https://fonts.google.com/`, openNew: true })).link().outerHTML} to customise the Clock, Date, Group names and Bookmark Letters.`,
         'Add a font name as it appears on Google Fonts, including capital letters and spaces, eg: enter "Fredoka One" or "Kanit"',
         'Clear the field to use the default font "Fjalla One".'
       ]
@@ -716,8 +717,9 @@ themeSetting.font = (parent) => {
       }
     }),
     nameHelper: new Control_helperText({
+      complexText: true,
       text: [
-        'Use a <a href="https://fonts.google.com/" target="_blank">Google Font</a> to customise the Bookmark name, URL and form elements.',
+        `Use a ${(new Link({ text:'Google Font', href: `https://fonts.google.com/`, openNew: true })).link().outerHTML} to customise the Bookmark name, URL and form elements.`,
         'Add a font name as it appears on Google Fonts, including capital letters and spaces, eg: enter "Roboto", "Source Sans Pro" or "Noto Sans"',
         'Clear the field to use the default font "Open Sans".'
       ]
@@ -785,7 +787,7 @@ themeSetting.font = (parent) => {
         applyCSSVar('theme.font.ui.style');
         data.save();
       }
-    }),
+    })
   };
 
   parent.appendChild(
@@ -808,11 +810,7 @@ themeSetting.font = (parent) => {
                   })
                 ]
               }),
-              form.wrap({
-                children: [
-                  themeSetting.control.font.display.style.inputButton()
-                ]
-              }),
+              themeSetting.control.font.display.style.inputButton(),
               themeSetting.control.font.display.weightHelper.wrap()
             ]
           })
@@ -837,11 +835,7 @@ themeSetting.font = (parent) => {
                   })
                 ]
               }),
-              form.wrap({
-                children: [
-                  themeSetting.control.font.ui.style.inputButton()
-                ]
-              }),
+              themeSetting.control.font.ui.style.inputButton(),
               themeSetting.control.font.ui.weightHelper.wrap()
             ]
           })
