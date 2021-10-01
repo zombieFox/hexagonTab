@@ -1,7 +1,7 @@
 {
   "name": "hexagonTab",
   "version": "4.0.0",
-  "description": "Hexagon bookmarks accented with a chosen colour. Customise the layout, style and background with hexagonTab - a custom start page.",
+  "description": "Hexagon bookmarks accented with a chosen colour. Customise the layout, style, background and bookmarks with hexagonTab.",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
