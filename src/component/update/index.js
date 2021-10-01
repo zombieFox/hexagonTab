@@ -40,6 +40,8 @@ update.mod['4.0.0'] = function(data) {
     item.color.opacity = item.color.opacity * 100;
   });
 
+  data.state.theme.custom = { all: [], edit: false };
+
   return data;
 
 };

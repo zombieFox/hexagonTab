@@ -9,6 +9,7 @@ import { icon } from '../../icon';
 import { logo } from '../../logo';
 import { toolbar } from '../../toolbar';
 import { themePreset } from '../../themePreset';
+import { customTheme } from '../../customTheme';
 import { accentPreset } from '../../accentPreset';
 
 import { supportSetting } from '../../menuContent/supportSetting';
@@ -242,6 +243,82 @@ themeSetting.preset = (parent) => {
       themeSetting.control.preset.presetHelper.wrap()
     ])
   );
+
+};
+
+themeSetting.saved = (parent) => {
+
+  customTheme.edit.close();
+
+  themeSetting.control.saved = {
+    savedElement: node('div|class:theme-custom'),
+    customHelper: new Control_helperText({
+      text: ['Saving a Theme will record the current Colour, Accent, Font, Style, Opacity, Radius, Shadow, Shade and Background.']
+    }),
+    saveButton: new Button({
+      text: 'Save current theme',
+      style: ['line'],
+      func: () => {
+        menu.close();
+        customTheme.add.render();
+      }
+    }),
+    edit: new Button({
+      text: 'Edit saved themes',
+      iconName: 'edit',
+      style: ['line'],
+      srOnly: true,
+      func: () => {
+        customTheme.edit.toggle();
+        data.save();
+      }
+    })
+  };
+
+  if (state.get.current().theme.custom.all.length > 0) {
+
+    parent.appendChild(
+      node('div', [
+        customTheme.item.render(themeSetting.control.saved.savedElement),
+        node('hr'),
+        form.wrap({
+          children: [
+            form.inline({
+              gap: 'small',
+              wrap: true,
+              equalGap: true,
+              children: [
+                themeSetting.control.saved.saveButton.wrap(),
+                themeSetting.control.saved.edit.wrap()
+              ]
+            })
+          ]
+        }),
+        themeSetting.control.saved.customHelper.wrap()
+      ])
+    );
+
+  } else {
+
+    parent.appendChild(
+      node('div', [
+        form.wrap({
+          children: [
+            form.inline({
+              gap: 'small',
+              wrap: true,
+              equalGap: true,
+              children: [
+                themeSetting.control.saved.saveButton.wrap()
+              ]
+            })
+          ]
+        }),
+        themeSetting.control.saved.customHelper.wrap()
+      ])
+    );
+
+  };
 
 };
 

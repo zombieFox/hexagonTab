@@ -49,7 +49,8 @@ state.default = {
     },
     radius: 25,
     shadow: 75,
-    shade: { opacity: 20, blur: 0 }
+    shade: { opacity: 30, blur: 0 },
+    custom: { all: [], edit: false }
   },
   modal: false,
   menu: false,
