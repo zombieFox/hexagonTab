@@ -1,6 +1,6 @@
 import { component } from './component';
 
-console.log(component.data.saveName + ' version:', component.version.number, component.version.name);
+console.log(component.appName + ' version:', component.version.number, component.version.name);
 
 component.data.init();
 
