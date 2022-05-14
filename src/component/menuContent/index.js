@@ -1,5 +1,4 @@
 import { debugSetting } from './debugSetting';
-import { APP_NAME } from '../../constant';
 import { layoutSetting } from './layoutSetting';
 import { bookmarkSetting } from './bookmarkSetting';
 import { toolbarSetting } from './toolbarSetting';
@@ -121,7 +120,7 @@ export const MenuContent = function({
 
           break;
 
-        case this.makeId(APP_NAME):
+        case 'app':
 
           formElement = this.element.form();
 

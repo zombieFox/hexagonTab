@@ -1,40 +1,51 @@
-import { version } from '../../version';
-import { logo } from '../../logo';
-import { APP_NAME } from '../../../constant';
-
-import { Link } from '../../link';
+import * as form from '../../form';
 
 import { node } from '../../../utility/node';
 
+import { APP_NAME } from '../../../constant';
+
+import { Link } from '../../link';
+import { Splash } from '../../splash';
+
 const appSetting = {};
 
-appSetting[APP_NAME.toLowerCase()] = (parent) => {
+appSetting.app = (parent) => {
 
-  const githubLink = new Link({ text: 'GitHub.', href: 'https://github.com/zombieFox/' + APP_NAME, openNew: true });
+  appSetting.app.para = node('p:This project is open source.');
 
-  const licenseLink = new Link({ text: 'GNU General Public License v3.0', href: 'https://github.com/zombieFox/' + APP_NAME + '/blob/master/license', openNew: true });
+  appSetting.app.link1 = new Link({
+    text: 'Found on GitHub.',
+    href: `https://github.com/zombieFox/${APP_NAME}`,
+    openNew: true
+  });
 
-  const para1 = node('p');
+  appSetting.app.link2 = new Link({
+    text: 'GNU General Public Licence v3.0.',
+    href: `https://github.com/zombieFox/${APP_NAME}/blob/master/license`,
+    openNew: true
+  });
 
-  para1.innerHTML = `This project can be found on ${githubLink.link().outerHTML}`;
-
-  const para2 = node('p');
-
-  para2.innerHTML = `${APP_NAME} uses the ${licenseLink.link().outerHTML}`;
+  const splash = new Splash();
 
   parent.appendChild(
     node('div', [
-      node('div|class:version', [
-        logo.render(),
-        node('div|class:version-details', [
-          node('h1:' + APP_NAME + '|class:version-app-name'),
-          node('p:Version ' + version.number + '|class:version-number'),
-          node('p:' + version.name + '|class:version-name small')
-        ])
-      ]),
+      splash.splash(),
       node('hr'),
-      para1,
-      para2
+      form.wrap({
+        children: [
+          appSetting.app.para,
+          form.indent({
+            children: [
+              node('p', [
+                appSetting.app.link1.link()
+              ]),
+              node('p', [
+                appSetting.app.link2.link()
+              ])
+            ]
+          })
+        ]
+      })
     ])
   );
 

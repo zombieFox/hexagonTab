@@ -1,8 +1,6 @@
 import { state } from '../state';
-import { APP_NAME } from '../../constant';
 
 import { MenuFrame } from '../menuFrame';
-
 
 const menu = {};
 
@@ -15,7 +13,7 @@ menu.navData = [
   { name: 'Data', active: false, overscroll: true, sub: ['Restore', 'Backup', 'Clear'] },
   { name: 'Support', active: false, overscroll: false },
   { name: 'Coffee', active: false, overscroll: false },
-  { name: APP_NAME, active: false, overscroll: false }
+  { name: 'app', active: false, overscroll: false }
 ];
 
 menu.mod = {};

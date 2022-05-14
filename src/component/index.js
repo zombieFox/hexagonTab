@@ -8,7 +8,6 @@ import { grid } from './grid';
 import { icon } from './icon';
 import { keyboard } from './keyboard';
 import { layout } from './layout';
-import { logo } from './logo';
 import { menu } from './menu';
 import { pageLock } from './pageLock';
 import { theme } from './theme';
@@ -29,7 +28,6 @@ export const component = {
   icon,
   keyboard,
   layout,
-  logo,
   menu,
   pageLock,
   theme,
