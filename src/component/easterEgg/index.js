@@ -1,11 +1,9 @@
 import { data } from '../data';
-import { state } from '../state';
 import { menu } from '../menu';
 import { bookmark } from '../bookmark';
 
 import { StagedBookmark } from '../stagedBookmark';
 
-import { node } from '../../utility/node';
 import { randomNumber } from '../../utility/randomNumber';
 import { convertColor } from '../../utility/convertColor';
 
@@ -16,18 +14,6 @@ easterEgg.toaster = {};
 easterEgg.toaster.render = () => {
 
   easterEgg.toaster.bind.remove();
-
-  if (bookmark.all.length < 1) {
-
-    const newGroupData = new StagedGroup();
-
-    newGroupData.group.name.text = 'Toaster';
-
-    newGroupData.newGroup();
-
-    group.item.mod.add(newGroupData);
-
-  };
 
   const newBookmarkData = new StagedBookmark();
 

@@ -1,11 +1,8 @@
 import { state } from '../state';
 import { data } from '../data';
 import { grid } from '../grid';
-import { theme } from '../theme';
-import { bookmarkDefault } from '../bookmarkDefault';
 import { bookmarkPreset } from '../bookmarkPreset';
 
-import * as form from '../form';
 
 import { HexTile } from '../hexTile';
 import { Modal } from '../modal';
@@ -15,11 +12,8 @@ import { BookmarkForm } from '../bookmarkForm';
 import { node } from '../../utility/node';
 import { clearChildNode } from '../../utility/clearChildNode';
 import { applyCSSVar } from '../../utility/applyCSSVar';
-import { applyCSSClass } from '../../utility/applyCSSClass';
 import { applyCSSState } from '../../utility/applyCSSState';
 import { set } from '../../utility/set';
-import { get } from '../../utility/get';
-import { sortArrayOfObject } from '../../utility/sortArrayOfObject';
 
 import './index.css';
 
@@ -63,12 +57,12 @@ bookmark.item = {
 
       if (bookmarkData.propagate.display || bookmarkData.propagate.layout || bookmarkData.propagate.theme) {
 
-        bookmark.all.forEach((item, i) => {
+        bookmark.all.forEach(item => {
 
           if (bookmarkData.propagate.display) {
             item.display.visual.show = bookmarkData.link.display.visual.show;
             item.display.name.show = bookmarkData.link.display.name.show;
-          };
+          }
 
           if (bookmarkData.propagate.layout) {
             item.display.visual.size = bookmarkData.link.display.visual.size;
@@ -78,21 +72,21 @@ bookmark.item = {
             item.display.translate = bookmarkData.link.display.translate;
             item.display.direction = bookmarkData.link.display.direction;
             item.display.order = bookmarkData.link.display.order;
-          };
+          }
 
           if (bookmarkData.propagate.theme) {
             item.accent = bookmarkData.link.accent;
             item.color = bookmarkData.link.color;
-          };
+          }
 
         });
 
-      };
+      }
 
     },
     applyVar: (path, value) => {
 
-      bookmark.all.forEach((item, i) => {
+      bookmark.all.forEach(item => {
 
         set({ object: item, path: path, value: value });
 
@@ -120,12 +114,12 @@ bookmark.item = {
       // define what column this bookmark will sit on
       if (index > 0) {
         columnStart = columnStart + 2;
-      };
+      }
 
       // if end of grid reset column start
       if (index % (state.get.current().grid.column) === 0) {
         columnStart = 1;
-      };
+      }
 
       //
       // row start
@@ -133,7 +127,7 @@ bookmark.item = {
       // define what row this bookmark will sit on
       if (index > 1 && index % state.get.current().grid.column === 0) {
         rowCount = rowCount + 2;
-      };
+      }
 
       // define the offset of this bookmark on this row
       // find out if row is even
@@ -143,8 +137,8 @@ bookmark.item = {
           evenRowFlag = false;
         } else {
           evenRowFlag = true;
-        };
-      };
+        }
+      }
 
       // if column count is odd
       if (state.get.current().grid.column % 2 === 1 && state.get.current().grid.column > 1) {
@@ -153,16 +147,16 @@ bookmark.item = {
             rowStart = rowCount;
           } else { // if index is even
             rowStart = rowCount + 1;
-          };
+          }
         } else { // if row is odd
           // if index is odd
           if (index % 2 === 0) { // if index is even
             rowStart = rowCount;
           } else { // if index is odd
             rowStart = rowCount + 1;
-          };
-        };
-      };
+          }
+        }
+      }
 
       // if column count is even
       if (state.get.current().grid.column % 2 === 0 && state.get.current().grid.column > 1) {
@@ -170,17 +164,15 @@ bookmark.item = {
           rowStart = rowCount;
         } else { // if index is odd
           rowStart = rowCount + 1;
-        };
-      };
+        }
+      }
 
       // if single column
       if (state.get.current().grid.column === 1) {
         if (index > 0) {
           rowStart = rowStart + 2;
-        };
-      };
-
-      const itemIndex = index;
+        }
+      }
 
       const currentBookmarkData = new StagedBookmark(item);
 
@@ -230,7 +222,7 @@ bookmark.edit = {
       bookmark.edit.close();
     } else {
       bookmark.edit.open();
-    };
+    }
 
   },
   render: () => {
@@ -238,16 +230,16 @@ bookmark.edit = {
     applyCSSState('bookmark.edit');
 
     if (bookmark.tile.current.length > 0) {
-      bookmark.tile.current.forEach((item, i) => {
+      bookmark.tile.current.forEach(item => {
 
         if (state.get.current().bookmark.edit) {
           item.control.enable();
         } else {
           item.control.disable();
-        };
+        }
 
       });
-    };
+    }
 
   }
 };
@@ -365,7 +357,7 @@ bookmark.reset = () => {
 
     newBookmarkData.position.destination = i;
 
-    bookmark.item.mod.edit(newBookmarkData)
+    bookmark.item.mod.edit(newBookmarkData);
 
   });
 

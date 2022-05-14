@@ -1,5 +1,3 @@
-import { state } from '../state';
-
 import { ToolbarControl } from '../toolbarControl';
 
 const toolbar = {};
@@ -23,4 +21,4 @@ toolbar.init = () => {
   toolbar.current.update.edit();
 };
 
-export { toolbar }
+export { toolbar };

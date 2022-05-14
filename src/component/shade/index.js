@@ -16,7 +16,7 @@ const Shade = function() {
     this.element.shade.addEventListener('transitionend', (event) => {
       if (event.propertyName === 'opacity' && getComputedStyle(this.element.shade).opacity == 0) {
         body.removeChild(this.element.shade);
-      };
+      }
     });
 
     body.appendChild(this.element.shade);
@@ -41,8 +41,8 @@ const Shade = function() {
       const body = document.querySelector('body');
 
       if (body.contains(this.element.shade)) {
-        body.removeChild(this.element.shade)
-      };
+        body.removeChild(this.element.shade);
+      }
 
     }, 6000);
 

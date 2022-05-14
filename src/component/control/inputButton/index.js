@@ -1,17 +1,8 @@
-import { state } from '../../state';
-import { data } from '../../data';
-import { bookmark } from '../../bookmark';
-
 import * as form from '../../form';
 
-import { Button } from '../../button';
-import { Collapse } from '../../collapse';
-
-import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
 import { convertColor } from '../../../utility/convertColor';
-import { isValidString } from '../../../utility/isValidString';
 
 export const Control_inputButton = function({
   object = {},
@@ -36,7 +27,7 @@ export const Control_inputButton = function({
         func: () => {
           if (action) {
             action();
-          };
+          }
         }
       });
 
@@ -65,16 +56,16 @@ export const Control_inputButton = function({
                 path: path + '.rgb'
               }))
             });
-          };
+          }
           if (action) {
             action();
-          };
+          }
         }
       });
 
       break;
 
-  };
+  }
 
   this.label = form.label({
     text: labelText,
@@ -94,7 +85,7 @@ export const Control_inputButton = function({
     if (inputButtonStyle) {
       if (inputButtonStyle.length > 0) {
 
-        inputButtonStyle.forEach((item, i) => {
+        inputButtonStyle.forEach(item => {
 
           switch (item) {
             case 'link':
@@ -112,12 +103,12 @@ export const Control_inputButton = function({
             case 'dot':
               this.button.classList.add('input-color-dot');
               break;
-          };
+          }
 
         });
 
-      };
-    };
+      }
+    }
 
   };
 
@@ -145,11 +136,11 @@ export const Control_inputButton = function({
 
   if (inputButtonClassList.length > 0) {
 
-    inputButtonClassList.forEach((item, i) => {
+    inputButtonClassList.forEach(item => {
       this.button.classList.add(item);
     });
 
-  };
+  }
 
   this.button.appendChild(this.input);
 
@@ -164,7 +155,7 @@ export const Control_inputButton = function({
         }));
 
         break;
-    };
+    }
   };
 
   this.wrap = () => {
@@ -172,7 +163,7 @@ export const Control_inputButton = function({
       children: [
         this.button
       ]
-    })
+    });
   };
 
   this.disable = () => {

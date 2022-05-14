@@ -1,9 +1,5 @@
 import { state } from '../state';
-import { data } from '../data';
-import { appName } from '../appName';
-import { toolbar } from '../toolbar';
-import { bookmark } from '../bookmark';
-import { themeSetting } from '../menuContent/themeSetting';
+import { APP_NAME } from '../../constant';
 
 import { Video } from '../video';
 
@@ -15,7 +11,6 @@ import { clearChildNode } from '../../utility/clearChildNode';
 import { randomNumber } from '../../utility/randomNumber';
 import { applyCSSVar } from '../../utility/applyCSSVar';
 import { applyCSSClass } from '../../utility/applyCSSClass';
-import { applyCSSState } from '../../utility/applyCSSState';
 
 import WebFont from 'webfontloader';
 
@@ -45,7 +40,7 @@ theme.font.display = {
         google: { families: [trimString(displayFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'] }
       });
 
-    };
+    }
 
     theme.font.display.render();
 
@@ -62,7 +57,7 @@ theme.font.display = {
 
       html.style.removeProperty('--theme-font-display-name');
 
-    };
+    }
 
   }
 };
@@ -87,7 +82,7 @@ theme.font.ui = {
         google: { families: [trimString(uiFont) + ':100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'] }
       });
 
-    };
+    }
 
     theme.font.ui.render();
 
@@ -104,7 +99,7 @@ theme.font.ui = {
 
       html.style.removeProperty('--theme-font-ui-name');
 
-    };
+    }
 
   }
 };
@@ -126,21 +121,21 @@ theme.color = {
 
         let rgb = convertColor.hsl.rgb(hsl);
 
-        for (var key in rgb) {
+        for (let key in rgb) {
           html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, rgb[key]);
-        };
+        }
 
-        for (var key in hsl) {
+        for (let key in hsl) {
           html.style.setProperty(`--theme-${type}-${i + 1}-${key}`, hsl[key]);
-        };
+        }
 
-      };
+      }
 
-    };
+    }
 
     for (let i = 1; i <= state.get.current().theme.color.shades; i++) {
       html.style.setProperty(`--theme-primary-${i}`, `var(--theme-primary-${i}-h), calc(var(--theme-primary-${i}-s) * 1%), calc(var(--theme-primary-${i}-l) * 1%)`);
-    };
+    }
 
   }
 };
@@ -168,14 +163,14 @@ theme.accent.random = {
 
       state.get.current().theme.accent.hsl = hsl;
 
-    };
+    }
 
   }
 };
 
 theme.style = {
   bind: () => {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
       theme.style.initial();
     });
   },
@@ -185,19 +180,19 @@ theme.style = {
       case 'dark':
       case 'light':
 
-        localStorage.setItem(appName + 'Style', state.get.current().theme.style);
+        localStorage.setItem(APP_NAME + 'Style', state.get.current().theme.style);
         break;
 
       case 'system':
 
         if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
-          localStorage.setItem(appName + 'Style', 'dark');
+          localStorage.setItem(APP_NAME + 'Style', 'dark');
         } else if (window.matchMedia('(prefers-color-scheme:light)').matches) {
-          localStorage.setItem(appName + 'Style', 'light');
-        };
+          localStorage.setItem(APP_NAME + 'Style', 'light');
+        }
         break;
 
-    };
+    }
   },
   dark: () => {
     state.get.current().theme.style = 'dark';
@@ -220,7 +215,7 @@ theme.style = {
         theme.style.dark();
         break;
 
-    };
+    }
   }
 };
 
@@ -252,9 +247,7 @@ theme.background = {
 theme.background.area = {
   render: () => {
 
-    const backgroundElement = node('div|class:background');
-
-    state.get.option().theme.background.type.forEach((item, i) => {
+    state.get.option().theme.background.type.forEach(item => {
 
       switch (item) {
 
@@ -280,7 +273,7 @@ theme.background.area = {
 
           theme.background.element.background.appendChild(theme.background.element.type[item]);
 
-      };
+      }
 
     });
 
@@ -304,7 +297,7 @@ theme.background.image = {
 
       html.style.removeProperty('--theme-background-image');
 
-    };
+    }
 
   }
 };
@@ -326,7 +319,7 @@ theme.background.video = {
 
       theme.background.video.clear();
 
-    };
+    }
 
   },
   clear: () => {
@@ -337,7 +330,7 @@ theme.background.video = {
 
       clearChildNode(theme.background.element.type.video.wrap);
 
-    };
+    }
 
   }
 };

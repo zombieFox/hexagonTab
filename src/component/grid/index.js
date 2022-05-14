@@ -3,8 +3,6 @@ import { state } from '../state';
 
 import { node } from '../../utility/node';
 import { applyCSSVar } from '../../utility/applyCSSVar';
-import { applyCSSClass } from '../../utility/applyCSSClass';
-import { applyCSSState } from '../../utility/applyCSSState';
 
 import './index.css';
 
@@ -30,7 +28,7 @@ grid.rotate = {
       grid.rotate.update(event);
     });
 
-    grid.element.area.addEventListener('mouseleave', (event) => {
+    grid.element.area.addEventListener('mouseleave', () => {
       grid.rotate.position.origin.set();
       applyCSSVar([
         'grid.transform.rotate.x',
@@ -71,14 +69,14 @@ grid.rotate = {
 
       let refreshRate = state.get.current().grid.transform.refresh;
 
-      grid.rotate.delay.counter++
+      grid.rotate.delay.counter++;
 
       if (grid.rotate.delay.counter % refreshRate === 0) {
         grid.rotate.delay.counter = 0;
         return true;
       } else {
         return false;
-      };
+      }
 
     }
   },

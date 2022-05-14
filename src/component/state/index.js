@@ -155,11 +155,11 @@ state.option = {
 };
 
 state.get = {
-  current: () => { return state.current },
-  default: () => { return JSON.parse(JSON.stringify(state.default)) },
-  minMax: () => { return JSON.parse(JSON.stringify(state.minMax)) },
-  step: () => { return JSON.parse(JSON.stringify(state.step)) },
-  option: () => { return JSON.parse(JSON.stringify(state.option)) }
+  current: () => { return state.current; },
+  default: () => { return JSON.parse(JSON.stringify(state.default)); },
+  minMax: () => { return JSON.parse(JSON.stringify(state.minMax)); },
+  step: () => { return JSON.parse(JSON.stringify(state.step)); },
+  option: () => { return JSON.parse(JSON.stringify(state.option)); }
 };
 
 state.set = {

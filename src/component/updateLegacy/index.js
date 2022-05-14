@@ -1,6 +1,3 @@
-import { state } from '../state';
-import { version } from '../version';
-import { convertColor } from '../../utility/convertColor';
 
 const updateLegacy = {};
 
@@ -16,12 +13,12 @@ updateLegacy.get = () => {
         data.state.theme.bookmark.shadow.color.type = data.state.theme.bookmark.shadow.type;
 
         delete data.state.theme.bookmark.shadow.type;
-      };
+      }
 
       return data;
     },
     '2.5.0': function(data) {
-      data.bookmark.forEach((item, i) => {
+      data.bookmark.forEach(item => {
         item.display.gutter = 75;
         item.display.direction = 'vertical';
         item.display.order = 'visual-name';
@@ -30,7 +27,7 @@ updateLegacy.get = () => {
       return data;
     },
     '2.6.0': function(data) {
-      data.bookmark.forEach((item, i) => {
+      data.bookmark.forEach(item => {
         item.background = { show: false, type: 'image', opacity: 100, image: { url: '' }, video: { url: '' } };
       });
 

@@ -1,6 +1,5 @@
 import { state } from '../state';
 import { data } from '../data';
-import { theme } from '../theme';
 import { bookmark } from '../bookmark';
 
 import { Button } from '../button';
@@ -57,7 +56,7 @@ const HexTile = function({
     control: node('div|class:bookmark-control')
   };
 
-  if (preview) { this.element.bookmark.classList.add('bookmark-preview'); };
+  if (preview) { this.element.bookmark.classList.add('bookmark-preview'); }
 
   this.control = {};
 
@@ -75,7 +74,7 @@ const HexTile = function({
 
         if (bookmarkData.position.destination < 0) {
           bookmarkData.position.destination = 0;
-        };
+        }
 
         bookmark.item.mod.move(bookmarkData);
 
@@ -100,7 +99,7 @@ const HexTile = function({
 
         if (bookmarkData.position.destination > bookmark.all.length - 1) {
           bookmarkData.position.destination = bookmark.all.length - 1;
-        };
+        }
 
         bookmark.item.mod.move(bookmarkData);
 
@@ -197,7 +196,7 @@ const HexTile = function({
 
     for (var key in this.control.button) {
       this.control.button[key].disable();
-    };
+    }
 
   };
 
@@ -205,7 +204,7 @@ const HexTile = function({
 
     for (var key in this.control.button) {
       this.control.button[key].enable();
-    };
+    }
 
   };
 
@@ -213,7 +212,7 @@ const HexTile = function({
 
     if (newBookmarkData) {
       bookmarkData = newBookmarkData;
-    };
+    }
 
     this.element.bookmark.style.setProperty('--bookmark-row-start', row);
 
@@ -223,11 +222,11 @@ const HexTile = function({
       this.element.content.link.setAttribute('href', trimString(bookmarkData.link.url));
     } else {
       this.element.content.link.setAttribute('href', '#');
-    };
+    }
 
     if (state.get.current().bookmark.newTab && !preview) {
       this.element.content.link.setAttribute('target', '_blank');
-    };
+    }
 
     this.element.bookmark.style.setProperty('--bookmark-transition-delay', index);
 
@@ -241,23 +240,23 @@ const HexTile = function({
 
       this.element.bookmark.classList.remove('is-bookmark-opacity-low');
 
-    };
+    }
 
     if (preview) {
 
       const order = ['visual-name', 'name-visual'];
 
-      order.forEach((item, i) => {
+      order.forEach(item => {
         this.element.bookmark.classList.remove('is-bookmark-order-' + item);
       });
 
       const direction = ['vertical', 'horizontal'];
 
-      direction.forEach((item, i) => {
+      direction.forEach(item => {
         this.element.bookmark.classList.remove('is-bookmark-direction-' + item);
       });
 
-    };
+    }
 
     this.element.bookmark.classList.add('is-bookmark-order-' + bookmarkData.link.display.order);
 
@@ -311,7 +310,7 @@ const HexTile = function({
 
       this.element.bookmark.style.setProperty('--button-link-text-active', 'var(--theme-color-text)');
 
-    };
+    }
 
     if (bookmarkData.link.accent.by == 'custom') {
 
@@ -327,7 +326,7 @@ const HexTile = function({
 
       this.element.bookmark.style.setProperty('--bookmark-display-visual-color', 'var(--theme-accent)');
 
-    };
+    }
 
     if (bookmarkData.link.background.show) {
       this.element.bookmark.style.setProperty('--bookmark-background-opacity', bookmarkData.link.background.opacity);
@@ -336,10 +335,10 @@ const HexTile = function({
         case 'image':
           if (isValidString(bookmarkData.link.background.image.url)) {
             this.element.bookmark.style.setProperty('--bookmark-background-image-url', 'url("' + trimString(bookmarkData.link.background.image.url) + '")');
-          };
+          }
           break;
-      };
-    };
+      }
+    }
 
   };
 
@@ -352,7 +351,7 @@ const HexTile = function({
             if (isValidString(bookmarkData.link.display.visual.letter.text)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.letter);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
-            };
+            }
             break;
 
           case 'icon':
@@ -360,27 +359,27 @@ const HexTile = function({
               this.element.content.display.visual.icon.appendChild(this.element.content.display.visual.faIcon);
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.icon);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
-            };
+            }
             break;
 
           case 'image':
             if (isValidString(bookmarkData.link.display.visual.image.url)) {
               this.element.content.display.visual.visual.appendChild(this.element.content.display.visual.image);
               this.element.content.display.display.appendChild(this.element.content.display.visual.visual);
-            };
+            }
             break;
-        };
-      };
+        }
+      }
 
       if (bookmarkData.link.display.name.show && isValidString(bookmarkData.link.display.name.text)) {
         this.element.content.display.name.name.appendChild(this.element.content.display.name.text);
         this.element.content.display.display.appendChild(this.element.content.display.name.name);
-      };
+      }
 
       this.element.content.display.wrap.appendChild(this.element.content.display.display);
 
       this.element.content.link.appendChild(this.element.content.display.wrap);
-    };
+    }
 
     if (bookmarkData.link.background.show) {
 
@@ -404,14 +403,14 @@ const HexTile = function({
 
             this.element.content.background.video.appendChild(this.video.video);
 
-          };
+          }
 
           break;
-      };
+      }
 
       this.element.content.link.appendChild(this.element.content.background.wrap);
 
-    };
+    }
 
     this.element.content.wrap.appendChild(this.element.content.link);
 
@@ -435,7 +434,7 @@ const HexTile = function({
       this.control.enable();
     } else {
       this.control.disable();
-    };
+    }
 
   };
 

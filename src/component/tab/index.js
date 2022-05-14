@@ -1,9 +1,6 @@
-import { form } from '../form';
-
 import { Button } from '../button';
 
 import { node } from '../../utility/node';
-import { complexNode } from '../../utility/complexNode';
 
 import './index.css';
 
@@ -29,7 +26,7 @@ export const Tab = function({
 
     this.element.tab.appendChild(this.element.content);
 
-    group.forEach((item, i) => {
+    group.forEach(item => {
 
       item.toggle = new Button({
         text: item.tabText,
@@ -58,7 +55,7 @@ export const Tab = function({
   };
 
   this.deactive = () => {
-    group.forEach((item, i) => {
+    group.forEach(item => {
       item.active = false;
     });
   };
@@ -68,7 +65,7 @@ export const Tab = function({
 
       const navBox = this.element.tab.getBoundingClientRect();
 
-      group.forEach((item, i) => {
+      group.forEach(item => {
 
         if (item.active) {
 
@@ -80,31 +77,31 @@ export const Tab = function({
           this.element.tab.style.setProperty('--tab-indicator-height', Math.round(itemBox.height));
 
 
-        };
+        }
 
       });
 
     },
     bind: () => {
 
-      this.element.indicator.addEventListener('animationend', (event) => {
+      this.element.indicator.addEventListener('animationend', () => {
         this.element.tab.classList.add('tab-nav-indicator-active');
       });
 
-      this.element.indicator.addEventListener('transitionend', (event) => {});
+      this.element.indicator.addEventListener('transitionend', () => {});
 
     }
   };
 
   this.content = {
     render: () => {
-      group.forEach((item, i) => {
+      group.forEach(item => {
 
         if (item.active) {
           item.area.classList.remove('is-hidden');
         } else {
           item.area.classList.add('is-hidden');
-        };
+        }
 
       });
     }
@@ -113,13 +110,13 @@ export const Tab = function({
   this.nav = {
     render: () => {
 
-      group.forEach((item, i) => {
+      group.forEach(item => {
 
         if (item.active) {
           item.toggle.active();
         } else {
           item.toggle.deactive();
-        };
+        }
 
       });
 

@@ -1,4 +1,3 @@
-import { bookmark } from '../bookmark';
 import { bookmarkDefault } from '../bookmarkDefault';
 import { bookmarkMinMax } from '../bookmarkMinMax';
 
@@ -12,22 +11,16 @@ import { BookmarkPreview } from '../bookmarkPreview';
 import { Alert } from '../alert';
 
 import { Control_helperText } from '../control/helperText';
-import { Control_inputButton } from '../control/inputButton';
 import { Control_groupText } from '../control/groupText';
 import { Control_radio } from '../control/radio';
-import { Control_radioGrid } from '../control/radioGrid';
 import { Control_checkbox } from '../control/checkbox';
-import { Control_slider } from '../control/slider';
 import { Control_sliderSlim } from '../control/sliderSlim';
 import { Control_colorMixer } from '../control/colorMixer';
-import { Control_color } from '../control/color';
 import { Control_text } from '../control/text';
-import { Control_select } from '../control/select';
 
 import { node } from '../../utility/node';
 import { complexNode } from '../../utility/complexNode';
 import { isValidString } from '../../utility/isValidString';
-import { trimString } from '../../utility/trimString';
 
 import './index.css';
 
@@ -811,7 +804,7 @@ export const BookmarkForm = function({
         case 'letter':
           this.control.bookmark.display.visual.letter.text.enable();
           this.control.bookmark.display.visual.icon.text.disable();
-          this.control.bookmark.display.visual.icon.preview.disable()
+          this.control.bookmark.display.visual.icon.preview.disable();
           this.control.bookmark.display.visual.icon.remove.disable();
           this.control.bookmark.display.visual.image.url.disable();
           break;
@@ -827,11 +820,11 @@ export const BookmarkForm = function({
         case 'image':
           this.control.bookmark.display.visual.letter.text.disable();
           this.control.bookmark.display.visual.icon.text.disable();
-          this.control.bookmark.display.visual.icon.preview.disable()
+          this.control.bookmark.display.visual.icon.preview.disable();
           this.control.bookmark.display.visual.icon.remove.disable();
           this.control.bookmark.display.visual.image.url.enable();
           break;
-      };
+      }
     } else {
       this.control.bookmark.display.visual.type.disable();
       this.control.bookmark.display.visual.letter.text.disable();
@@ -840,7 +833,7 @@ export const BookmarkForm = function({
       this.control.bookmark.display.visual.icon.remove.disable();
       this.control.bookmark.display.visual.image.url.disable();
       this.control.bookmark.display.visual.size.disable();
-    };
+    }
 
     if (bookmarkData.link.display.name.show) {
       this.control.bookmark.display.name.text.enable();
@@ -848,7 +841,7 @@ export const BookmarkForm = function({
     } else {
       this.control.bookmark.display.name.text.disable();
       this.control.bookmark.display.name.size.disable();
-    };
+    }
 
     if (bookmarkData.link.display.visual.show || bookmarkData.link.display.name.show) {
       this.control.bookmark.display.translate.x.enable();
@@ -858,7 +851,7 @@ export const BookmarkForm = function({
       this.control.bookmark.display.translate.x.disable();
       this.control.bookmark.display.translate.y.disable();
       this.control.bookmark.display.rotate.disable();
-    };
+    }
 
     if (bookmarkData.link.display.visual.show && bookmarkData.link.display.name.show) {
       this.control.bookmark.display.direction.enable();
@@ -868,7 +861,7 @@ export const BookmarkForm = function({
       this.control.bookmark.display.direction.disable();
       this.control.bookmark.display.order.disable();
       this.control.bookmark.display.gutter.disable();
-    };
+    }
 
     switch (bookmarkData.link.color.by) {
       case 'theme':
@@ -878,7 +871,7 @@ export const BookmarkForm = function({
       case 'custom':
         this.control.bookmark.color.color.enable();
         break;
-    };
+    }
 
     switch (bookmarkData.link.accent.by) {
       case 'theme':
@@ -888,7 +881,7 @@ export const BookmarkForm = function({
       case 'custom':
         this.control.bookmark.accent.color.enable();
         break;
-    };
+    }
 
     if (bookmarkData.link.background.show) {
       this.control.bookmark.background.type.enable();
@@ -908,7 +901,7 @@ export const BookmarkForm = function({
           this.control.bookmark.background.video.url.enable();
           this.helper.bookmark.background.video.enable();
           break;
-      };
+      }
     } else {
       this.control.bookmark.background.type.disable();
       this.control.bookmark.background.image.url.disable();
@@ -916,7 +909,7 @@ export const BookmarkForm = function({
       this.control.bookmark.background.video.url.disable();
       this.helper.bookmark.background.video.disable();
       this.control.bookmark.background.opacity.disable();
-    };
+    }
   };
 
   this.update = () => {
@@ -928,7 +921,7 @@ export const BookmarkForm = function({
       this.control.bookmark.display.visual.icon.preview.update(node('span|class:bookmark-form-icon ' + bookmarkData.link.display.visual.icon.prefix + ' fa-' + bookmarkData.link.display.visual.icon.name));
     } else {
       this.control.bookmark.display.visual.icon.preview.update();
-    };
+    }
     this.control.bookmark.display.visual.image.url.update();
     this.control.bookmark.display.name.show.update();
     this.control.bookmark.display.name.text.update();
@@ -951,7 +944,7 @@ export const BookmarkForm = function({
 
     this.element.form.addEventListener('keydown', (event) => {
 
-      if (event.keyCode == 13) { event.preventDefault(); return false; };
+      if (event.keyCode == 13) { event.preventDefault(); return false; }
 
     });
 
@@ -972,7 +965,7 @@ export const BookmarkForm = function({
         bookmarkData.link.display.visual.icon.prefix = 'fas';
       } else if (suggestData.styles.includes('brands')) {
         bookmarkData.link.display.visual.icon.prefix = 'fab';
-      };
+      }
 
       this.preview.update.assemble(bookmarkData);
       this.update();

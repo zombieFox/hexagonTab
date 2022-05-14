@@ -29,7 +29,7 @@ export const Alert = function({
 
       this.element.alert.appendChild(this.element.header);
 
-    };
+    }
 
     this.element.body.appendChild(this.element.message);
 

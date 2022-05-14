@@ -16,44 +16,64 @@ export const select = function({
 
   if (id) {
     select.setAttribute('id', id);
-  };
+  }
 
   if (classList.length > 0) {
 
-    classList.forEach((item, i) => {
+    classList.forEach((item) => {
       select.classList.add(item);
     });
 
-  };
+  }
 
   if (func) {
 
-    select.addEventListener('change', (event) => {
+    select.addEventListener('change', () => {
       func();
     });
 
-  };
+  }
 
   if (option.length > 0) {
+    option.forEach((item) => {
 
-    option.forEach((item, i) => {
+      if (typeof item == 'string') {
 
-      select.appendChild(
-        complexNode({
-          tag: 'option',
-          text: item,
-          attr: [{
-            key: 'value',
-            value: trimString(item).replace(/\s+/g, '-').toLowerCase()
-          }]
-        })
-      );
+        select.appendChild(
+          complexNode({
+            tag: 'option',
+            text: item,
+            attr: [{
+              key: 'value',
+              value: trimString(item).replace(/\s+/g, '-').toLowerCase()
+            }]
+          })
+        );
+
+      } else {
+
+        const option = complexNode({ tag: 'option' });
+
+        if (item.name) {
+          option.textContent = item.name;
+        }
+
+        if (item.id) {
+          option.value = item.id;
+        }
+
+        if (item.disabled) {
+          option.disabled = true;
+        }
+
+        select.appendChild(option);
+
+      }
 
     });
+  }
 
-    select.selectedIndex = selected;
-
-  };
+  select.selectedIndex = selected;
 
   return select;
 

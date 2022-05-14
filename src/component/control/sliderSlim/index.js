@@ -1,17 +1,10 @@
-import { state } from '../../state';
-import { data } from '../../data';
-import { bookmark } from '../../bookmark';
 
 import * as form from '../../form';
 
 import { Button } from '../../button';
-import { Collapse } from '../../collapse';
 
-import { node } from '../../../utility/node';
 import { get } from '../../../utility/get';
 import { set } from '../../../utility/set';
-import { convertColor } from '../../../utility/convertColor';
-import { isValidString } from '../../../utility/isValidString';
 import { minMax } from '../../../utility/minMax';
 
 export const Control_sliderSlim = function({
@@ -46,7 +39,7 @@ export const Control_sliderSlim = function({
 
   if (hue) {
     classList.push('input-range-hue-spectrum');
-  };
+  }
 
   this.range = form.input.range({
     id: id,
@@ -61,11 +54,11 @@ export const Control_sliderSlim = function({
 
         set({ object: object, path: path, value: this.value() });
 
-      };
+      }
 
-      if (action) { action(); };
+      if (action) { action(); }
 
-      if (sliderAction) { sliderAction(); };
+      if (sliderAction) { sliderAction(); }
 
       this.number.value = get({ object: object, path: path });
 
@@ -95,11 +88,11 @@ export const Control_sliderSlim = function({
           })
         });
 
-      };
+      }
 
-      if (action) { action(); };
+      if (action) { action(); }
 
-      if (numberAction) { numberAction(); };
+      if (numberAction) { numberAction(); }
 
       this.update({ delay: true });
 
@@ -122,9 +115,9 @@ export const Control_sliderSlim = function({
 
       this.update();
 
-      if (action) { action(); };
+      if (action) { action(); }
 
-      if (resetAction) { resetAction(); };
+      if (resetAction) { resetAction(); }
 
     }
   });
@@ -145,7 +138,7 @@ export const Control_sliderSlim = function({
       this.delayedUpdate = setTimeout(updateControl, 2000);
     } else {
       updateControl();
-    };
+    }
 
   };
 
@@ -162,7 +155,7 @@ export const Control_sliderSlim = function({
 
     if (defaultValue || (typeof defaultValue === 'number' && defaultValue === 0)) {
       formGroup.appendChild(this.reset.button);
-    };
+    }
 
     const formInline = form.inline({
       block: true,

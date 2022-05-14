@@ -13,10 +13,10 @@ export const KeyboardShortcut = function({
 
         if (action) {
           action();
-        };
+        }
 
-      };
-    };
+      }
+    }
   };
 
   this.add = () => { window.addEventListener('keydown', this.action); };

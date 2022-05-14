@@ -21,4 +21,4 @@ export const umbra = {
     item: { opacity: 70 }
   },
   toolbar: { opacity: 0 }
-}
+};

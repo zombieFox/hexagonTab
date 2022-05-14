@@ -1,6 +1,5 @@
 import { state } from '../state';
 import { data } from '../data';
-import { theme } from '../theme';
 import { toolbar } from '../toolbar';
 import { themeSetting } from '../menuContent/themeSetting';
 
@@ -8,11 +7,7 @@ import { Button } from '../button';
 
 import { node } from '../../utility/node';
 import { convertColor } from '../../utility/convertColor';
-import { isValidString } from '../../utility/isValidString';
-import { complexNode } from '../../utility/complexNode';
 import { applyCSSVar } from '../../utility/applyCSSVar';
-import { applyCSSClass } from '../../utility/applyCSSClass';
-import { applyCSSState } from '../../utility/applyCSSState';
 
 import './index.css';
 
@@ -24,7 +19,7 @@ export const AccentPresetButton = function({ presetData = false } = {}) {
 
     if (presetData.prefix) {
       fullName = presetData.prefix + ' ' + presetData.name.toLowerCase();
-    };
+    }
 
     return fullName;
 

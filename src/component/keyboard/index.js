@@ -18,7 +18,7 @@ keyboard.esc = new KeyboardShortcut({
     if (state.get.current().bookmark.edit && !state.get.current().modal && !state.get.current().menu) {
       bookmark.edit.close();
       toolbar.current.update.edit();
-    };
+    }
     data.save();
   }
 });
@@ -31,7 +31,7 @@ keyboard.ctrAltD = new KeyboardShortcut({
     theme.style.toggle();
     if (themeSetting.control.style.update) {
       themeSetting.control.style.update();
-    };
+    }
     data.save();
   }
 });
@@ -43,7 +43,7 @@ keyboard.ctrAltA = new KeyboardShortcut({
   action: () => {
     if (!state.get.current().bookmark.add) {
       bookmark.add.render();
-    };
+    }
   }
 });
 
@@ -76,7 +76,7 @@ keyboard.ctrAltR = new KeyboardShortcut({
     toolbar.current.update.accent();
     if (themeSetting.control.accent.color) {
       themeSetting.control.accent.color.update();
-    };
+    }
     applyCSSVar([
       'theme.accent.rgb.r',
       'theme.accent.rgb.g',

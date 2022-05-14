@@ -31,7 +31,7 @@
   --layout-horizontal-rule-large: 2px solid hsl(var(--theme-primary-020));
 }
 
-.layout-wrap {
+.layout {
   z-index: var(--z-index-layout);
 }
 

@@ -1,9 +1,5 @@
-import { state } from '../state';
-import { data } from '../data';
 
 import { node } from '../../utility/node';
-import { convertColor } from '../../utility/convertColor';
-import { trimString } from '../../utility/trimString';
 import { isValidString } from '../../utility/isValidString';
 
 const Video = function({
@@ -26,7 +22,7 @@ const Video = function({
 
     this.video.autoplay = true;
 
-  };
+  }
 
   if (url.includes('mp4') || url.endsWith('mp4')) {
 
@@ -36,7 +32,7 @@ const Video = function({
 
     this.source.type = 'video/webm';
 
-  };
+  }
 
   this.play = () => {
     this.video.play();
@@ -49,7 +45,7 @@ const Video = function({
       playPromise.then(() => {
         this.video.pause();
       });
-    };
+    }
   };
 
 };
