@@ -15,24 +15,24 @@ export const MenuNav = function({
 
       navData.forEach(item => {
 
-        this.state.current[this.makeId(item.name)] = item.active;
+        this.state.current[item.id] = item.active;
 
       });
 
     },
-    toggle: (name) => {
+    toggle: (id) => {
 
       for (let key in this.state.current) {
         this.state.current[key] = false;
       }
 
-      this.state.current[this.makeId(name)] = true;
+      this.state.current[id] = true;
 
       navData.forEach(item => {
 
         item.active = false;
 
-        if (item.name === name || item.name.toLowerCase() === name) {
+        if (item.id === id) {
           item.active = true;
         }
 
@@ -68,7 +68,7 @@ export const MenuNav = function({
 
     navData.forEach((item, i) => {
 
-      if (this.state.current[this.makeId(item.name)]) {
+      if (this.state.current[item.id]) {
 
         this.element.item[i].menuNavItem.classList.add('active');
 
@@ -129,7 +129,7 @@ export const MenuNav = function({
         classList: ['menu-nav-tab'],
         func: () => {
 
-          this.state.toggle(item.name);
+          this.state.toggle(item.id);
 
           this.update();
 

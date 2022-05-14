@@ -18,8 +18,8 @@ export const MenuContent = function({
 } = {}) {
 
   this.element = {
-    content: (name) => {
-      return node('div|id:menu-content-item-' + this.makeId(name) + ',class:menu-content-item');
+    content: (id) => {
+      return node('div|id:menu-content-item-' + id + ',class:menu-content-item');
     },
     header: (name) => {
       return node('div|class:menu-item-header', [
@@ -44,13 +44,13 @@ export const MenuContent = function({
 
       activeNavData.sub.forEach(item => {
 
-        const menuContentItem = this.element.content(item);
+        const menuContentItem = this.element.content(this.makeId(item));
 
         menuContentItem.appendChild(this.element.header(item));
 
         const formElement = this.element.form({ indent: true });
 
-        switch (this.makeId(activeNavData.name)) {
+        switch (activeNavData.id) {
 
           case 'layout':
             layoutSetting[this.makeId(item)](formElement);
@@ -84,7 +84,7 @@ export const MenuContent = function({
 
       });
 
-      switch (this.makeId(activeNavData.name)) {
+      switch (activeNavData.id) {
 
         case 'theme':
           themeSetting.disable();
@@ -98,7 +98,7 @@ export const MenuContent = function({
 
       let formElement;
 
-      switch (this.makeId(activeNavData.name)) {
+      switch (activeNavData.id) {
 
         case 'support':
 
@@ -106,7 +106,7 @@ export const MenuContent = function({
 
           formElement = this.element.form({ indent: true });
 
-          supportSetting[this.makeId(activeNavData.name)](formElement);
+          supportSetting[activeNavData.id](formElement);
 
           break;
 
@@ -116,7 +116,7 @@ export const MenuContent = function({
 
           formElement = this.element.form({ indent: true });
 
-          coffeeSetting[this.makeId(activeNavData.name)](formElement);
+          coffeeSetting[activeNavData.id](formElement);
 
           break;
 
@@ -124,7 +124,7 @@ export const MenuContent = function({
 
           formElement = this.element.form();
 
-          appSetting[this.makeId(activeNavData.name)](formElement);
+          appSetting[activeNavData.id](formElement);
 
           break;
 

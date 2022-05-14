@@ -1,19 +1,20 @@
 import { state } from '../state';
+import { APP_NAME } from '../../constant';
 
 import { MenuFrame } from '../menuFrame';
 
 const menu = {};
 
 menu.navData = [
-  // { name: 'Debug', active: true, overscroll: true, sub: ['Input', 'Button', 'Bookmark', 'Icon'] },
-  { name: 'Theme', active: true, overscroll: true, sub: ['Preset', 'Saved', 'Style', 'Colour', 'Accent', 'Font', 'Shade', 'Opacity', 'Background', 'Bookmark'] },
-  { name: 'Layout', active: false, overscroll: true, sub: ['Scaling', 'Grid'] },
-  { name: 'Bookmark', active: false, overscroll: true, sub: ['General', 'Hover', 'Shadow'] },
-  { name: 'Toolbar', active: false, overscroll: true, sub: ['Size', 'Position', 'Controls'] },
-  { name: 'Data', active: false, overscroll: true, sub: ['Restore', 'Backup', 'Clear'] },
-  { name: 'Support', active: false, overscroll: false },
-  { name: 'Coffee', active: false, overscroll: false },
-  { name: 'app', active: false, overscroll: false }
+  // { name: 'Debug', id: 'debug', active: true, overscroll: true, sub: ['Input', 'Button', 'Bookmark', 'Icon'] },
+  { name: 'Theme', id: 'theme', active: true, overscroll: true, sub: ['Preset', 'Saved', 'Style', 'Colour', 'Accent', 'Font', 'Shade', 'Opacity', 'Background', 'Bookmark'] },
+  { name: 'Layout', id: 'layout', active: false, overscroll: true, sub: ['Scaling', 'Grid'] },
+  { name: 'Bookmark', id: 'bookmark', active: false, overscroll: true, sub: ['General', 'Hover', 'Shadow'] },
+  { name: 'Toolbar', id: 'toolbar', active: false, overscroll: true, sub: ['Size', 'Position', 'Controls'] },
+  { name: 'Data', id: 'data', active: false, overscroll: true, sub: ['Restore', 'Backup', 'Clear'] },
+  { name: 'Support', id: 'support', active: false, overscroll: false },
+  { name: 'Coffee', id: 'coffee', active: false, overscroll: false },
+  { name: APP_NAME, id: 'app', active: false, overscroll: false }
 ];
 
 menu.mod = {};
