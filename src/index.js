@@ -1,6 +1,8 @@
 import { component } from './component';
 
-console.log(component.APP_NAME + ' version:', component.version.number, component.version.name);
+import { APP_NAME } from './constant';
+
+console.log(APP_NAME + ' version:', component.version.number, component.version.name);
 
 component.data.init();
 
