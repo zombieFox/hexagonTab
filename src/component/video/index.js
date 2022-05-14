@@ -1,8 +1,7 @@
-
 import { node } from '../../utility/node';
 import { isValidString } from '../../utility/isValidString';
 
-const Video = function({
+export const Video = function ({
   url = false
 } = {}) {
 
@@ -11,28 +10,6 @@ const Video = function({
   this.source = node('source');
 
   this.video.appendChild(this.source);
-
-  if (isValidString(url)) {
-
-    this.source.src = url;
-
-    this.video.muted = true;
-
-    this.video.loop = true;
-
-    this.video.autoplay = true;
-
-  }
-
-  if (url.includes('mp4') || url.endsWith('mp4')) {
-
-    this.source.type = 'video/mp4';
-
-  } else if (url.includes('webm') || url.endsWith('webm')) {
-
-    this.source.type = 'video/webm';
-
-  }
 
   this.play = () => {
     this.video.play();
@@ -48,6 +25,58 @@ const Video = function({
     }
   };
 
-};
+  this.autoPause = () => {
 
-export { Video };
+    console.log(document.visibilityState);
+
+    if (document.visibilityState === 'visible') {
+      this.video.play();
+    } else {
+      this.video.pause();
+    }
+
+  };
+
+  this.assemble = () => {
+
+    this.video.muted = true;
+
+    this.video.loop = true;
+
+    this.video.autoplay = true;
+
+    if (url.includes('mp4') || url.endsWith('mp4')) {
+
+      this.source.type = 'video/mp4';
+
+    } else if (url.includes('webm') || url.endsWith('webm')) {
+
+      this.source.type = 'video/webm';
+
+    }
+
+    if (isValidString(url)) {
+
+      this.source.src = url;
+
+    }
+
+  };
+
+  this.bind = {};
+
+  this.bind.add = () => {
+
+    window.addEventListener('visibilitychange', this.autoPause);
+
+  };
+
+  this.bind.remove = () => {
+
+    window.removeEventListener('visibilitychange', this.autoPause);
+
+  };
+
+  this.assemble();
+
+};

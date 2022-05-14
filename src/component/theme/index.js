@@ -313,6 +313,8 @@ theme.background.video = {
         url: allUrls[Math.floor(Math.random() * allUrls.length)]
       });
 
+      theme.background.element.video.bind.add();
+
       theme.background.element.type.video.wrap.appendChild(theme.background.element.video.video);
 
     } else {
