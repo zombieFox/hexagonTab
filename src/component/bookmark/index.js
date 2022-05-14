@@ -329,8 +329,23 @@ bookmark.add = {
 };
 
 bookmark.restore = (dataToRestore) => {
+
   bookmark.all = dataToRestore.bookmark;
+
   console.log('bookmark restored');
+
+};
+
+bookmark.append = (dataToAppend) => {
+
+  dataToAppend.bookmark.forEach((item) => {
+
+    bookmark.all.push(item);
+
+  });
+
+  console.log('bookmarks appended');
+
 };
 
 bookmark.reset = () => {
