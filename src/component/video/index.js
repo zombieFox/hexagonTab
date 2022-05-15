@@ -1,7 +1,7 @@
 import { node } from '../../utility/node';
 import { isValidString } from '../../utility/isValidString';
 
-export const Video = function ({
+export const Video = function({
   url = false
 } = {}) {
 
@@ -26,8 +26,6 @@ export const Video = function ({
   };
 
   this.autoPause = () => {
-
-    console.log(document.visibilityState);
 
     if (document.visibilityState === 'visible') {
       this.video.play();
