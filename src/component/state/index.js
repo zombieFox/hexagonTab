@@ -62,7 +62,7 @@ state.minMax = {
     size: { min: 10, max: 200 },
     column: { min: 1, max: 20 },
     gap: { min: 0, max: 300 },
-    perspective: { min: 30, max: 400 },
+    perspective: { min: 20, max: 1000 },
     transform: {
       focus: { min: 0, max: 200 },
       rotate: {
