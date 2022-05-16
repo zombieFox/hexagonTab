@@ -235,6 +235,21 @@ html:not(.is-bookmark-edit) .bookmark:hover:after {
   color: hsl(var(--bookmark-display-name-color-focus-hover));
 }
 
+.is-bookmark-opacity-low .bookmark-display-name {
+  --bookmark-display-name-color: var(--theme-primary-text-010);
+  --bookmark-display-name-color-focus-hover: var(--theme-primary-text-010);
+}
+
+.is-theme-background-type-accent .is-bookmark-opacity-low .bookmark-display-name {
+  --bookmark-display-name-color: var(--theme-accent-text);
+  --bookmark-display-name-color-focus-hover: var(--theme-accent-text);
+}
+
+.is-theme-background-type-color .is-bookmark-opacity-low .bookmark-display-name {
+  --bookmark-display-name-color: var(--theme-background-color-text);
+  --bookmark-display-name-color-focus-hover: var(--theme-background-color-text);
+}
+
 .bookmark-display-name-text {
   text-align: center;
 }
