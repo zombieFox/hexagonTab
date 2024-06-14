@@ -1,6 +1,6 @@
 export const version = {};
 
-version.number = '4.1.0';
+version.number = '4.2.0';
 
 version.name = 'Magnificent Nightingale';
 

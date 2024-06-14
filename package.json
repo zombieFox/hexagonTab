@@ -1,6 +1,6 @@
 {
   "name": "hexagonTab",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Hexagon bookmarks accented with a chosen colour. Customise the layout, style, background and bookmarks with hexagonTab.",
   "main": "index.js",
   "scripts": {
